@@ -1,0 +1,14 @@
+{
+  "name": "vireth-svg-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "wrangler check",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev --port 8787",
+    "types": "wrangler types"
+  },
+  "devDependencies": {
+    "wrangler": "^4.107.0"
+  }
+}

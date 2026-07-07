@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vireth-svg",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-07",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "SERVICE_NAME": "vireth-svg",
+    "DEFAULT_IMAGE_URL": "https://raw.githubusercontent.com/musueman/VIRETH/6e78b7fc4d4d5bfb4aec3c06891c2a7650c38bf8/etc/arcadia5083-chatbot-start/ck5083-world-overview-life-zones-v1.png"
+  }
+}

@@ -262,10 +262,12 @@ function resolveScene(url: URL, env: Env): SceneEntry {
   return {
     key: normalized || "pending",
     aliases: [],
-    title: queryValue ? `${queryValue} 이미지 준비중` : "이미지 준비중",
+    title: "준비중인 이미지 입니다",
     kind: "overview",
     imageUrl: env.DEFAULT_IMAGE_URL,
-    caption: "아직 이 장소키에 연결된 도시·마을 전경 이미지가 없다."
+    caption: queryValue
+      ? `${queryValue}에 연결된 도시·마을 전경 이미지는 아직 등록되지 않았다.`
+      : "아직 이 장소키에 연결된 도시·마을 전경 이미지가 없다."
   };
 }
 

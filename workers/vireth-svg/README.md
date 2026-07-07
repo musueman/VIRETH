@@ -9,6 +9,7 @@ Cloudflare Worker that receives chatbot image-call query strings and returns an 
 - `/scene.json?key=world-overview` - resolved scene metadata.
 
 The resolver accepts `key`, `scene`, `place`, `city`, `region`, and Korean aliases `장소`, `도시`, `권역`.
+If a requested key is not registered, the SVG title is `준비중인 이미지 입니다` and the default overview image is used.
 
 ## Chatbot Call Example
 

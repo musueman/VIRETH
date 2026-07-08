@@ -1,3 +1,5 @@
+import { GENERATED_SCENES } from "./generated-scenes";
+
 type SceneEntry = {
   key: string;
   aliases: string[];
@@ -5,12 +7,17 @@ type SceneEntry = {
   kind: "city" | "village" | "facility" | "overview";
   imageUrl: string;
   caption: string;
+  realmKey?: string;
+  realmName?: string;
+  heraldryName?: string;
+  heraldryUrl?: string;
 };
 
 const ASSET_BASE =
   "https://raw.githubusercontent.com/musueman/VIRETH/4ea459a80dede9062523c5540427acbaa103e2ae/etc/arcadia5083-scene-router";
 
 const SCENES: SceneEntry[] = [
+  ...(GENERATED_SCENES as SceneEntry[]),
   {
     key: "world-overview",
     aliases: ["overview", "arcadia5083", "아르카디아", "비레스", "세계", "세계총람"],
@@ -297,6 +304,9 @@ function renderSceneSvg(scene: SceneEntry): string {
   const title = escapeXml(scene.title);
   const caption = escapeXml(scene.caption);
   const imageUrl = escapeXml(scene.imageUrl);
+  const overlay = scene.heraldryUrl
+    ? renderHeraldryOverlay(scene)
+    : renderTextOverlay(title, caption);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1536" height="864" viewBox="0 0 1536 864" role="img" aria-label="${title}">
@@ -310,19 +320,39 @@ function renderSceneSvg(scene: SceneEntry): string {
   <rect width="1536" height="864" fill="#07111f"/>
   <image href="${imageUrl}" x="0" y="0" width="1536" height="864" preserveAspectRatio="xMidYMid slice"/>
   <rect width="1536" height="864" fill="url(#shade)"/>
-  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  ${overlay}
+</svg>`;
+}
+
+function renderHeraldryOverlay(scene: SceneEntry): string {
+  const title = escapeXml(scene.title);
+  const heraldryName = escapeXml(scene.heraldryName ?? scene.realmName ?? "");
+  const heraldryUrl = escapeXml(scene.heraldryUrl ?? "");
+
+  return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="42" y="42" width="530" height="132" rx="18" fill="#07111f" fill-opacity="0.76" stroke="#c8b16a" stroke-opacity="0.82"/>
+    <rect x="62" y="58" width="96" height="96" rx="12" fill="#050b14" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.55"/>
+    <image href="${heraldryUrl}" x="66" y="62" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>
+    <text x="178" y="96" fill="#f6edcf" font-size="34" font-weight="800">${title}</text>
+    <text x="180" y="132" fill="#d9e4f2" font-size="19" font-weight="650">${heraldryName}</text>
+  </g>`;
+}
+
+function renderTextOverlay(title: string, caption: string): string {
+  return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <rect x="48" y="48" width="690" height="112" rx="18" fill="#07111f" fill-opacity="0.72" stroke="#c8b16a" stroke-opacity="0.78"/>
     <text x="78" y="98" fill="#f6edcf" font-size="34" font-weight="800">${title}</text>
     <text x="78" y="136" fill="#d9e4f2" font-size="18">${caption}</text>
-  </g>
-</svg>`;
+  </g>`;
 }
 
 function renderNotFoundSvg(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1536" height="864" viewBox="0 0 1536 864" role="img" aria-label="not found">
   <rect width="1536" height="864" fill="#07111f"/>
-  <text x="768" y="432" text-anchor="middle" fill="#f6edcf" font-size="36" font-family="system-ui, sans-serif">Vireth scene not found</text>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="768" y="432" text-anchor="middle" fill="#f6edcf" font-size="36">Vireth scene not found</text>
+  </g>
 </svg>`;
 }
 

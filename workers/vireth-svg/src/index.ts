@@ -247,12 +247,20 @@ export default {
 
     if (url.pathname === "/scene.webp" || url.pathname === "/scene.image") {
       const scene = resolveScene(url, env);
-      return image(scene, request.method);
+      return image(scene.imageUrl, request.method);
+    }
+
+    if (url.pathname === "/heraldry.webp" || url.pathname === "/heraldry.image") {
+      const scene = resolveScene(url, env);
+      if (!scene.heraldryUrl) {
+        return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
+      }
+      return image(scene.heraldryUrl, request.method);
     }
 
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
       const scene = resolveScene(url, env);
-      return new Response(await renderSceneSvg(scene), { headers: SVG_HEADERS });
+      return new Response(await renderSceneSvg(scene, url.origin), { headers: SVG_HEADERS });
     }
 
     return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
@@ -316,14 +324,17 @@ function assetUrl(path: string): string {
   return `${ASSET_BASE}/${path}`;
 }
 
-async function renderSceneSvg(scene: SceneEntry): Promise<string> {
+async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string> {
   const title = escapeXml(scene.title);
   const caption = escapeXml(scene.caption);
   const imageDataUri = await fetchDataUri(scene.imageUrl);
   const heraldryDataUri = scene.heraldryUrl ? await fetchDataUri(scene.heraldryUrl) : null;
   const imageUrl = escapeXml(imageDataUri ?? scene.imageUrl);
+  const heraldryUrl = scene.heraldryUrl
+    ? heraldryDataUri ?? `${origin}/heraldry.image?key=${encodeURIComponent(scene.key)}`
+    : null;
   const overlay = scene.heraldryUrl
-    ? renderHeraldryOverlay(scene, heraldryDataUri)
+    ? renderHeraldryOverlay(scene, heraldryUrl)
     : renderTextOverlay(title, caption);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -342,22 +353,58 @@ async function renderSceneSvg(scene: SceneEntry): Promise<string> {
 </svg>`;
 }
 
-function renderHeraldryOverlay(scene: SceneEntry, heraldryDataUri: string | null): string {
-  const title = escapeXml(scene.title);
+function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): string {
+  const titleLines = titleDisplayLines(scene.title);
+  const titleText = titleLines
+    .map((line, index) => {
+      const y = titleLines.length === 1 ? 122 : 104 + index * 42;
+      return `<text x="230" y="${y}" fill="#f6edcf" font-size="38" font-weight="800">${escapeXml(line)}</text>`;
+    })
+    .join("\n    ");
   const heraldryName = escapeXml(scene.heraldryName ?? scene.realmName ?? "");
-  const heraldryMark = heraldryDataUri
-    ? `<image href="${escapeXml(heraldryDataUri)}" x="70" y="68" width="136" height="136" preserveAspectRatio="xMidYMid meet"/>`
-    : `<text x="138" y="148" text-anchor="middle" fill="#f6edcf" font-size="34" font-weight="800">${escapeXml(
+  const panelHeight = titleLines.length === 1 ? 176 : 218;
+  const panelWidth = overlayPanelWidth([...titleLines, scene.heraldryName ?? scene.realmName ?? ""]);
+  const crestHeight = panelHeight - 38;
+  const heraldryNameY = titleLines.length === 1 ? 162 : 190;
+  const heraldryMark = heraldryUrl
+    ? `<image href="${escapeXml(heraldryUrl)}" x="68" y="61" width="132" height="${crestHeight}" preserveAspectRatio="xMidYMid slice" clip-path="url(#crestClip)"/>`
+    : `<text x="134" y="${panelHeight / 2 + 24}" text-anchor="middle" fill="#f6edcf" font-size="34" font-weight="800">${escapeXml(
         (scene.realmName ?? scene.title).slice(0, 3)
       )}</text>`;
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <rect x="42" y="42" width="650" height="188" rx="18" fill="#07111f" fill-opacity="0.78" stroke="#c8b16a" stroke-opacity="0.84"/>
-    <rect x="58" y="58" width="160" height="160" rx="14" fill="#050b14" fill-opacity="0.82" stroke="#d8c078" stroke-opacity="0.62"/>
+    <clipPath id="crestClip"><rect x="68" y="61" width="132" height="${crestHeight}" rx="12"/></clipPath>
+    <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="18" fill="#07111f" fill-opacity="0.76" stroke="#c8b16a" stroke-opacity="0.82"/>
+    <rect x="58" y="54" width="152" height="${panelHeight - 24}" rx="16" fill="#050b14" fill-opacity="0.52" stroke="#d8c078" stroke-opacity="0.54"/>
     ${heraldryMark}
-    <text x="246" y="120" fill="#f6edcf" font-size="42" font-weight="800">${title}</text>
-    <text x="248" y="162" fill="#d9e4f2" font-size="24" font-weight="650">${heraldryName}</text>
+    ${titleText}
+    <text x="232" y="${heraldryNameY}" fill="#d9e4f2" font-size="24" font-weight="650">${heraldryName}</text>
   </g>`;
+}
+
+function titleDisplayLines(title: string): string[] {
+  if (title.includes(" / ")) {
+    return title.split(" / ").map((part) => part.trim()).filter(Boolean).slice(0, 2);
+  }
+
+  if (title.length <= 11) {
+    return [title];
+  }
+
+  const midpoint = Math.ceil(title.length / 2);
+  return [title.slice(0, midpoint), title.slice(midpoint)];
+}
+
+function overlayPanelWidth(lines: string[]): number {
+  const longest = Math.max(...lines.map((line) => displayLength(line)));
+  return Math.min(900, Math.max(560, 300 + longest * 24));
+}
+
+function displayLength(value: string): number {
+  return Array.from(value).reduce(
+    (length, char) => length + (/[\uAC00-\uD7AF]/.test(char) ? 1.35 : 0.75),
+    0
+  );
 }
 
 function renderTextOverlay(title: string, caption: string): string {
@@ -388,8 +435,8 @@ function json(data: unknown, status = 200): Response {
   });
 }
 
-async function image(scene: SceneEntry, method: string): Promise<Response> {
-  const upstream = await fetch(scene.imageUrl, { method: method === "HEAD" ? "HEAD" : "GET" });
+async function image(imageUrl: string, method: string): Promise<Response> {
+  const upstream = await fetch(imageUrl, { method: method === "HEAD" ? "HEAD" : "GET" });
   const headers = new Headers(IMAGE_HEADERS);
   headers.set("Content-Type", upstream.headers.get("Content-Type") ?? "image/webp");
 

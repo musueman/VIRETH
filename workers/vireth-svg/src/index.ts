@@ -218,6 +218,11 @@ const SVG_HEADERS = {
   "Cache-Control": "public, max-age=300"
 };
 
+const IMAGE_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Cache-Control": "public, max-age=300"
+};
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
@@ -237,6 +242,11 @@ export default {
     if (url.pathname === "/scene.json") {
       const scene = resolveScene(url, env);
       return json(scene);
+    }
+
+    if (url.pathname === "/scene.webp" || url.pathname === "/scene.image") {
+      const scene = resolveScene(url, env);
+      return image(scene, request.method);
     }
 
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
@@ -365,6 +375,26 @@ function json(data: unknown, status = 200): Response {
       ...TEXT_HEADERS,
       "Content-Type": "application/json; charset=utf-8"
     }
+  });
+}
+
+async function image(scene: SceneEntry, method: string): Promise<Response> {
+  const upstream = await fetch(scene.imageUrl, { method: method === "HEAD" ? "HEAD" : "GET" });
+  const headers = new Headers(IMAGE_HEADERS);
+  headers.set("Content-Type", upstream.headers.get("Content-Type") ?? "image/webp");
+
+  const contentLength = upstream.headers.get("Content-Length");
+  if (contentLength) {
+    headers.set("Content-Length", contentLength);
+  }
+
+  if (!upstream.ok) {
+    return new Response(renderNotFoundSvg(), { status: 502, headers: SVG_HEADERS });
+  }
+
+  return new Response(method === "HEAD" ? null : upstream.body, {
+    status: upstream.status,
+    headers
   });
 }
 

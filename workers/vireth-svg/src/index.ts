@@ -15,6 +15,7 @@ type SceneEntry = {
 
 const ASSET_BASE =
   "https://raw.githubusercontent.com/musueman/VIRETH/4ea459a80dede9062523c5540427acbaa103e2ae/etc/arcadia5083-scene-router";
+const CURRENT_SCENE_ASSET_REF = "bed5811995c024c95aad40857cf1183536c995ee";
 
 const SCENES: SceneEntry[] = [
   ...(GENERATED_SCENES as SceneEntry[]),
@@ -251,7 +252,7 @@ export default {
 
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
       const scene = resolveScene(url, env);
-      return new Response(renderSceneSvg(scene), { headers: SVG_HEADERS });
+      return new Response(await renderSceneSvg(scene), { headers: SVG_HEADERS });
     }
 
     return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
@@ -312,12 +313,14 @@ function assetUrl(path: string): string {
   return `${ASSET_BASE}/${path}`;
 }
 
-function renderSceneSvg(scene: SceneEntry): string {
+async function renderSceneSvg(scene: SceneEntry): Promise<string> {
   const title = escapeXml(scene.title);
   const caption = escapeXml(scene.caption);
-  const imageUrl = escapeXml(scene.imageUrl);
+  const imageDataUri = await fetchDataUri(scene.imageUrl);
+  const heraldryDataUri = scene.heraldryUrl ? await fetchDataUri(scene.heraldryUrl) : null;
+  const imageUrl = escapeXml(imageDataUri ?? scene.imageUrl);
   const overlay = scene.heraldryUrl
-    ? renderHeraldryOverlay(scene)
+    ? renderHeraldryOverlay(scene, heraldryDataUri)
     : renderTextOverlay(title, caption);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -336,15 +339,19 @@ function renderSceneSvg(scene: SceneEntry): string {
 </svg>`;
 }
 
-function renderHeraldryOverlay(scene: SceneEntry): string {
+function renderHeraldryOverlay(scene: SceneEntry, heraldryDataUri: string | null): string {
   const title = escapeXml(scene.title);
   const heraldryName = escapeXml(scene.heraldryName ?? scene.realmName ?? "");
-  const heraldryUrl = escapeXml(scene.heraldryUrl ?? "");
+  const heraldryMark = heraldryDataUri
+    ? `<image href="${escapeXml(heraldryDataUri)}" x="66" y="62" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>`
+    : `<text x="110" y="116" text-anchor="middle" fill="#f6edcf" font-size="23" font-weight="800">${escapeXml(
+        (scene.realmName ?? scene.title).slice(0, 3)
+      )}</text>`;
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <rect x="42" y="42" width="530" height="132" rx="18" fill="#07111f" fill-opacity="0.76" stroke="#c8b16a" stroke-opacity="0.82"/>
     <rect x="62" y="58" width="96" height="96" rx="12" fill="#050b14" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.55"/>
-    <image href="${heraldryUrl}" x="66" y="62" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>
+    ${heraldryMark}
     <text x="178" y="96" fill="#f6edcf" font-size="34" font-weight="800">${title}</text>
     <text x="180" y="132" fill="#d9e4f2" font-size="19" font-weight="650">${heraldryName}</text>
   </g>`;
@@ -396,6 +403,62 @@ async function image(scene: SceneEntry, method: string): Promise<Response> {
     status: upstream.status,
     headers
   });
+}
+
+async function fetchDataUri(url: string): Promise<string | null> {
+  for (const candidateUrl of dataUriCandidates(url)) {
+    const upstream = await fetch(candidateUrl, {
+      headers: {
+        Accept: "image/avif,image/webp,image/png,image/*,*/*",
+        "User-Agent": "vireth-svg-worker"
+      }
+    });
+
+    if (!upstream.ok) {
+      continue;
+    }
+
+    const contentType = upstream.headers.get("Content-Type") ?? inferImageContentType(candidateUrl);
+    const base64 = arrayBufferToBase64(await upstream.arrayBuffer());
+    return `data:${contentType};base64,${base64}`;
+  }
+
+  return null;
+}
+
+function dataUriCandidates(url: string): string[] {
+  const pinnedUrl = url.replace(
+    "https://raw.githubusercontent.com/musueman/VIRETH/main/",
+    `https://raw.githubusercontent.com/musueman/VIRETH/${CURRENT_SCENE_ASSET_REF}/`
+  );
+
+  return pinnedUrl === url ? [url] : [url, pinnedUrl];
+}
+
+function inferImageContentType(url: string): string {
+  const lowerUrl = url.toLowerCase();
+
+  if (lowerUrl.endsWith(".png")) {
+    return "image/png";
+  }
+
+  if (lowerUrl.endsWith(".jpg") || lowerUrl.endsWith(".jpeg")) {
+    return "image/jpeg";
+  }
+
+  return "image/webp";
+}
+
+function arrayBufferToBase64(buffer: ArrayBuffer): string {
+  const bytes = new Uint8Array(buffer);
+  let binary = "";
+  const chunkSize = 0x8000;
+
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+  }
+
+  return btoa(binary);
 }
 
 function escapeXml(value: string): string {

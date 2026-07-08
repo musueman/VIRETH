@@ -270,13 +270,16 @@ function resolveScene(url: URL, env: Env): SceneEntry {
     return direct;
   }
 
-  const aliased = SCENES.find(
-    (scene) =>
-      normalizeKey(scene.title) === normalized ||
-      scene.aliases.some((alias) => normalizeKey(alias) === normalized)
+  const titled = SCENES.find((scene) => normalizeKey(scene.title) === normalized);
+  if (titled) {
+    return titled;
+  }
+
+  const aliasMatches = SCENES.filter((scene) =>
+    scene.aliases.some((alias) => normalizeKey(alias) === normalized)
   );
-  if (aliased) {
-    return aliased;
+  if (aliasMatches.length === 1) {
+    return aliasMatches[0];
   }
 
   return {
@@ -343,17 +346,17 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryDataUri: string | null
   const title = escapeXml(scene.title);
   const heraldryName = escapeXml(scene.heraldryName ?? scene.realmName ?? "");
   const heraldryMark = heraldryDataUri
-    ? `<image href="${escapeXml(heraldryDataUri)}" x="66" y="62" width="88" height="88" preserveAspectRatio="xMidYMid meet"/>`
-    : `<text x="110" y="116" text-anchor="middle" fill="#f6edcf" font-size="23" font-weight="800">${escapeXml(
+    ? `<image href="${escapeXml(heraldryDataUri)}" x="70" y="68" width="136" height="136" preserveAspectRatio="xMidYMid meet"/>`
+    : `<text x="138" y="148" text-anchor="middle" fill="#f6edcf" font-size="34" font-weight="800">${escapeXml(
         (scene.realmName ?? scene.title).slice(0, 3)
       )}</text>`;
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <rect x="42" y="42" width="530" height="132" rx="18" fill="#07111f" fill-opacity="0.76" stroke="#c8b16a" stroke-opacity="0.82"/>
-    <rect x="62" y="58" width="96" height="96" rx="12" fill="#050b14" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.55"/>
+    <rect x="42" y="42" width="650" height="188" rx="18" fill="#07111f" fill-opacity="0.78" stroke="#c8b16a" stroke-opacity="0.84"/>
+    <rect x="58" y="58" width="160" height="160" rx="14" fill="#050b14" fill-opacity="0.82" stroke="#d8c078" stroke-opacity="0.62"/>
     ${heraldryMark}
-    <text x="178" y="96" fill="#f6edcf" font-size="34" font-weight="800">${title}</text>
-    <text x="180" y="132" fill="#d9e4f2" font-size="19" font-weight="650">${heraldryName}</text>
+    <text x="246" y="120" fill="#f6edcf" font-size="42" font-weight="800">${title}</text>
+    <text x="248" y="162" fill="#d9e4f2" font-size="24" font-weight="650">${heraldryName}</text>
   </g>`;
 }
 

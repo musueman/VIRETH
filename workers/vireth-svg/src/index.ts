@@ -259,8 +259,10 @@ function resolveScene(url: URL, env: Env): SceneEntry {
     return direct;
   }
 
-  const aliased = SCENES.find((scene) =>
-    scene.aliases.some((alias) => normalizeKey(alias) === normalized)
+  const aliased = SCENES.find(
+    (scene) =>
+      normalizeKey(scene.title) === normalized ||
+      scene.aliases.some((alias) => normalizeKey(alias) === normalized)
   );
   if (aliased) {
     return aliased;

@@ -576,6 +576,19 @@ async function renderRegionMapSvg(
   url: URL,
   env: Env
 ): Promise<string> {
+  const layout = normalizeKey(firstQuery(url, ["layout", "view", "mode", "형식", "레이아웃"]) ?? "mobile");
+  if (layout === "wide" || layout === "desktop" || layout === "landscape" || layout === "horizontal") {
+    return renderRegionMapWideSvg(map, origin, url, env);
+  }
+  return renderRegionMapMobileSvg(map, origin, url, env);
+}
+
+async function renderRegionMapWideSvg(
+  map: RegionMapEntry,
+  origin: string,
+  url: URL,
+  env: Env
+): Promise<string> {
   const title = escapeXml(map.title);
   const imageDataUri = await fetchDataUri(map.imageUrl);
   const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
@@ -643,6 +656,77 @@ async function renderRegionMapSvg(
 </svg>`;
 }
 
+async function renderRegionMapMobileSvg(
+  map: RegionMapEntry,
+  origin: string,
+  url: URL,
+  env: Env
+): Promise<string> {
+  const title = escapeXml(map.title);
+  const imageDataUri = await fetchDataUri(map.imageUrl);
+  const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
+  const places = regionMapPlaces(map.key);
+  const currentPlace = resolveCurrentMapPlace(url, map, env);
+  const currentMarker = renderCurrentPlaceMarker(currentPlace, 48, 48, 768);
+  const legend = renderRegionMapMobileLegend(places, currentPlace);
+  const sentence = currentPlace
+    ? `현재 위치: ${currentPlace.title}`
+    : "권역의 거점 배치를 세로형으로 정리한다.";
+  const heraldryScene = regionHeraldryScene(map.key);
+  const heraldryImageUrl =
+    heraldryScene?.heraldryUrl
+      ? escapeXml(
+          (await fetchDataUri(heraldryScene.heraldryUrl)) ??
+            `${origin}/heraldry.image?key=${encodeURIComponent(heraldryScene.key)}`
+        )
+      : null;
+  const header = renderRegionMapMobileHeader(map.title, sentence, heraldryImageUrl);
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1660" viewBox="0 0 864 1660" role="img" aria-label="${title} 세로 지도">
+  <defs>
+    <linearGradient id="mapBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#243022"/>
+    </linearGradient>
+    <linearGradient id="mapShade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.22"/>
+    </linearGradient>
+    <linearGradient id="currentBox" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#c8b16a" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="currentBadge" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#f6edcf"/>
+    </linearGradient>
+    <linearGradient id="mobilePanel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.86"/>
+      <stop offset="100%" stop-color="#142338" stop-opacity="0.74"/>
+    </linearGradient>
+    <filter id="mapPanelShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.34"/>
+    </filter>
+    <filter id="markerGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#f59e0b" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.48"/>
+    </filter>
+    <clipPath id="mobileMapClip"><rect x="48" y="48" width="768" height="768" rx="24"/></clipPath>
+    <clipPath id="mobileCrestClip"><rect x="64" y="858" width="86" height="110" rx="13"/></clipPath>
+  </defs>
+  <rect width="864" height="1660" fill="url(#mapBg)"/>
+  <rect x="20" y="20" width="824" height="1620" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.42"/>
+  <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
+  <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.58"/>
+  ${currentMarker}
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    ${header}
+    ${legend}
+  </g>
+</svg>`;
+}
+
 function regionHeraldryScene(regionKey: string): SceneEntry | null {
   const normalized = normalizeKey(regionKey);
   return (
@@ -678,14 +762,45 @@ function renderRegionMapHeader(
     </g>`;
 }
 
-function renderCurrentPlaceMarker(place: RegionMapPlaceEntry | null): string {
+function renderRegionMapMobileHeader(
+  regionTitle: string,
+  sentence: string,
+  heraldryUrl: string | null
+): string {
+  const escapedTitle = escapeXml(regionTitle);
+  const escapedSentence = escapeXml(sentence);
+  const crest = heraldryUrl
+    ? `<image href="${heraldryUrl}" x="64" y="858" width="86" height="110" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileCrestClip)"/>`
+    : `<text x="107" y="924" text-anchor="middle" fill="#f6edcf" font-size="28" font-weight="850">${escapeXml(
+        regionTitle.slice(0, 2)
+      )}</text>`;
+
+  return `<g>
+      <rect x="54" y="846" width="106" height="134" rx="18" fill="#050b14" fill-opacity="0.54" stroke="#d8c078" stroke-opacity="0.58"/>
+      ${crest}
+      <text x="190" y="878" fill="#9fb0c2" font-size="19" font-weight="850">국가</text>
+      <text x="248" y="878" fill="#d9e4f2" font-size="21" font-weight="850">${escapedTitle}</text>
+      <text x="190" y="928" fill="#f6edcf" font-size="42" font-weight="900">거점 지도</text>
+      <text x="190" y="976" fill="#d9e4f2" font-size="22" font-weight="750">${escapedSentence}</text>
+      <line x1="58" y1="1024" x2="806" y2="1024" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
+      <text x="64" y="1060" fill="#f6edcf" font-size="28" font-weight="900">거점 목록</text>
+      <text x="206" y="1058" fill="#9fb0c2" font-size="17" font-weight="700">위에서 아래로 정렬</text>
+    </g>`;
+}
+
+function renderCurrentPlaceMarker(
+  place: RegionMapPlaceEntry | null,
+  mapX = 64,
+  mapY = 40,
+  mapSize = 640
+): string {
   if (!place) {
     return "";
   }
 
-  const x = 64 + (place.mapXPct / 100) * 640;
-  const y = 40 + (place.mapYPct / 100) * 640;
-  const labelX = Math.min(Math.max(x - 78, 88), 540);
+  const x = mapX + (place.mapXPct / 100) * mapSize;
+  const y = mapY + (place.mapYPct / 100) * mapSize;
+  const labelX = Math.min(Math.max(x - 78, mapX + 24), mapX + mapSize - 176);
   const labelY = y > 140 ? y - 80 : y + 42;
   const lineEndY = labelY > y ? y + 26 : y - 28;
 
@@ -764,6 +879,49 @@ function renderRegionMapLegend(
     .join("\n    ");
 }
 
+function renderRegionMapMobileLegend(
+  places: RegionMapPlaceEntry[],
+  currentPlace: RegionMapPlaceEntry | null
+): string {
+  if (places.length === 0) {
+    return `<text x="64" y="1124" fill="#e7edf6" font-size="24">등록된 거점 좌표 없음</text>`;
+  }
+
+  const startX = 64;
+  const startY = 1110;
+  const rowHeight = places.length > 14 ? 28 : 32;
+  const boxWidth = 736;
+
+  return places
+    .map((place, index) => {
+      const y = startY + index * rowHeight;
+      const order = String(place.order).padStart(2, "0");
+      const title = escapeXml(truncateDisplay(place.title, 25));
+      const current = isSameMapPlace(place, currentPlace);
+      const highlight = current
+        ? `<rect x="${startX - 16}" y="${y - 24}" width="${boxWidth}" height="34" rx="11" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
+        <animate attributeName="fill-opacity" values="0.54;0.9;0.54" dur="2.1s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.1s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="${startX - 16}" y="${y - 24}" width="7" height="34" rx="4" fill="#f59e0b">
+        <animate attributeName="opacity" values="0.55;1;0.55" dur="1.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="${startX + boxWidth - 78}" y="${y - 19}" width="58" height="22" rx="9" fill="url(#currentBadge)" fill-opacity="0.95">
+        <animate attributeName="fill-opacity" values="0.78;1;0.78" dur="1.8s" repeatCount="indefinite"/>
+      </rect>
+      <text x="${startX + boxWidth - 49}" y="${y - 3}" text-anchor="middle" fill="#07111f" font-size="13" font-weight="900">현재</text>`
+        : "";
+      const titleFill = current ? "#fff6d7" : "#e7edf6";
+
+      return `<g>
+      ${highlight}
+      <text x="${startX}" y="${y}" fill="#f6edcf" font-size="18" font-weight="850">${order}</text>
+      <text x="${startX + 48}" y="${y}" fill="${titleFill}" font-size="24" font-weight="780">${title}</text>
+    </g>`;
+    })
+    .join("\n    ");
+}
+
 function truncateDisplay(value: string, maxLength: number): string {
   const chars = Array.from(value);
   if (displayLength(value) <= maxLength) {
@@ -792,11 +950,10 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const escapedRealmLabel = escapeXml(realmLabel);
   const kindLabel = sceneKindLabel(scene.kind);
   const escapedKindLabel = escapeXml(kindLabel);
-  const panelHeight = 464;
+  const panelHeight = 620;
   const panelWidth = overlayPanelWidth([...titleLines, realmLabel, kindLabel, scene.key]);
-  const crestFrameHeight = 226;
-  const crestHeight = 202;
-  const metaWidth = Math.max(180, Math.ceil(52 + displayLength(realmLabel) * 16));
+  const crestFrameHeight = 234;
+  const crestHeight = 210;
   const kindY = titleLines.length === 1 ? 206 : 218;
   const kindWidth = Math.max(128, Math.ceil(46 + displayLength(kindLabel) * 16));
   const dbSummary = renderSceneDbSummary(scene, kindLabel, panelWidth);
@@ -812,10 +969,10 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
     <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
       <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
     </rect>
-    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.62" stroke="#d8c078" stroke-opacity="0.7"/>
+    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.62"/>
     ${heraldryMark}
-    <rect x="232" y="66" width="${metaWidth}" height="34" rx="10" fill="#07111f" fill-opacity="0.52" stroke="#9fb0c2" stroke-opacity="0.34"/>
-    <text x="250" y="90" fill="#d9e4f2" font-size="20" font-weight="800">${escapedRealmLabel}</text>
+    <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">등록 국가</text>
+    <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>
     ${titleText}
     <line x1="232" y1="${kindY - 36}" x2="${Math.min(panelWidth - 34, 620)}" y2="${kindY - 36}" stroke="#c8b16a" stroke-opacity="0.32" stroke-width="2"/>
     <rect x="232" y="${kindY - 22}" width="${kindWidth}" height="34" rx="10" fill="url(#sceneBadge)" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.72">
@@ -823,16 +980,19 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
       <animate attributeName="stroke-opacity" values="0.56;1;0.56" dur="2.2s" repeatCount="indefinite"/>
     </rect>
     <text x="250" y="${kindY + 2}" fill="#f6edcf" font-size="20" font-weight="800">${escapedKindLabel}</text>
+    <text x="74" y="332" fill="#f6edcf" font-size="24" font-weight="900">장소 DB</text>
+    <text x="178" y="331" fill="#9fb0c2" font-size="16" font-weight="700">챗봇 호출 기준 정보</text>
+    <line x1="74" y1="352" x2="${panelWidth - 60}" y2="352" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
     ${dbSummary}
   </g>`;
 }
 
 function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: number): string {
   const dbX = 74;
-  const dbY = 278;
-  const rowGap = 28;
-  const labelX = dbX + 20;
-  const valueX = dbX + 134;
+  const dbY = 388;
+  const rowGap = 42;
+  const labelX = dbX;
+  const valueX = dbX + 140;
   const rows = [
     ["정본명", scene.title],
     ["국가", scene.realmName ?? "-"],
@@ -842,17 +1002,19 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
   ];
   const rowText = rows
     .map(([label, value], index) => {
-      const y = dbY + 58 + index * rowGap;
-      const displayValue = truncateDisplay(value, 26);
+      const y = dbY + index * rowGap;
+      const displayValue = truncateDisplay(value, 28);
+      const divider =
+        index < rows.length - 1
+          ? `<line x1="${labelX}" y1="${y + 17}" x2="${panelWidth - 60}" y2="${y + 17}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
+          : "";
       return `<text x="${labelX}" y="${y}" fill="#9fb0c2" font-size="17" font-weight="800">${escapeXml(label)}</text>
-      <text x="${valueX}" y="${y}" fill="#e7edf6" font-size="18" font-weight="750">${escapeXml(displayValue)}</text>`;
+      <text x="${valueX}" y="${y}" fill="#e7edf6" font-size="19" font-weight="760">${escapeXml(displayValue)}</text>
+      ${divider}`;
     })
     .join("\n      ");
 
   return `<g>
-      <rect x="${dbX}" y="${dbY}" width="${panelWidth - 106}" height="182" rx="16" fill="#07111f" fill-opacity="0.58" stroke="#c8b16a" stroke-opacity="0.34"/>
-      <text x="${labelX}" y="${dbY + 30}" fill="#f6edcf" font-size="20" font-weight="850">DB 요약</text>
-      <line x1="${labelX}" y1="${dbY + 40}" x2="${panelWidth - 58}" y2="${dbY + 40}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
       ${rowText}
     </g>`;
 }

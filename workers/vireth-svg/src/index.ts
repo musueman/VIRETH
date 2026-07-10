@@ -648,12 +648,10 @@ async function renderRegionMapWideSvg(
   <rect x="40" y="28" width="1456" height="664" rx="26" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
   ${renderOrnateFrame(40, 28, 1456, 664, 26, { cornerSize: 54, opacity: 0.62 })}
   <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#mapPanelShadow)"/>
-  ${renderOrnateFrame(736, 40, 736, 640, 24, { cornerSize: 42, opacity: 0.42, centerKnots: false })}
   <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18"/>
   ${placeMarkers}
   ${currentMarker}
-  ${renderOrnateFrame(64, 40, 640, 640, 18, { cornerSize: 38, opacity: 0.72 })}
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     ${header}
     ${legend}
@@ -728,7 +726,6 @@ async function renderRegionMapMobileSvg(
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
   ${currentMarker}
-  ${renderOrnateFrame(48, 48, 768, 768, 24, { cornerSize: 42, opacity: 0.72 })}
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     ${header}
     ${legend}
@@ -994,6 +991,7 @@ type OrnateFrameOptions = {
   cornerSize?: number;
   opacity?: number;
   centerKnots?: boolean;
+  variant?: "primary" | "secondary";
 };
 
 function renderOrnateFrame(
@@ -1004,9 +1002,10 @@ function renderOrnateFrame(
   rx: number,
   options: OrnateFrameOptions = {}
 ): string {
+  const variant = options.variant ?? "primary";
   const corner = Math.min(options.cornerSize ?? 44, Math.floor(Math.min(width, height) / 2) - 18);
   const opacity = options.opacity ?? 0.68;
-  const centerKnots = options.centerKnots ?? true;
+  const centerKnots = options.centerKnots ?? variant === "primary";
   const outerInset = 3;
   const railInset = 12;
   const innerInset = 18;
@@ -1038,7 +1037,19 @@ function renderOrnateFrame(
   const fineStroke = `stroke="#f6edcf" stroke-opacity="${Math.max(0.16, opacity - 0.34)}" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
   const shadowFill = `fill="#1a130b" fill-opacity="${Math.max(0.34, opacity - 0.28)}"`;
   const knotFill = `fill="#c8b16a" fill-opacity="${Math.max(0.32, opacity - 0.16)}"`;
-  const highlightFill = `fill="#f6edcf" fill-opacity="${Math.max(0.18, opacity - 0.42)}"`;
+
+  if (variant === "secondary") {
+    const tick = Math.max(18, Math.min(corner, 32));
+    return `<g aria-hidden="true" pointer-events="none">
+      <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${darkStroke}/>
+      <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${mainStroke}/>
+      <rect x="${innerLeft}" y="${innerTop}" width="${width - innerInset * 2}" height="${height - innerInset * 2}" rx="${Math.max(4, rx - innerInset + 4)}" ${fineStroke}/>
+      <path d="M ${innerLeft + tick} ${innerTop} H ${innerLeft} V ${innerTop + tick}" ${railStroke}/>
+      <path d="M ${innerRight - tick} ${innerTop} H ${innerRight} V ${innerTop + tick}" ${railStroke}/>
+      <path d="M ${innerLeft + tick} ${innerBottom} H ${innerLeft} V ${innerBottom - tick}" ${railStroke}/>
+      <path d="M ${innerRight - tick} ${innerBottom} H ${innerRight} V ${innerBottom - tick}" ${railStroke}/>
+    </g>`;
+  }
 
   const knots = centerKnots
     ? `<g>
@@ -1046,10 +1057,6 @@ function renderOrnateFrame(
       <path d="M ${cx - 12} ${railTop} L ${cx} ${railTop - 3} L ${cx + 12} ${railTop} L ${cx} ${railTop + 3} Z" ${knotFill}/>
       <path d="M ${cx - 17} ${railBottom} L ${cx} ${railBottom - 5} L ${cx + 17} ${railBottom} L ${cx} ${railBottom + 5} Z" ${shadowFill}/>
       <path d="M ${cx - 12} ${railBottom} L ${cx} ${railBottom - 3} L ${cx + 12} ${railBottom} L ${cx} ${railBottom + 3} Z" ${knotFill}/>
-      <path d="M ${railLeft} ${cy - 17} L ${railLeft - 5} ${cy} L ${railLeft} ${cy + 17} L ${railLeft + 5} ${cy} Z" ${shadowFill}/>
-      <path d="M ${railLeft} ${cy - 12} L ${railLeft - 3} ${cy} L ${railLeft} ${cy + 12} L ${railLeft + 3} ${cy} Z" ${knotFill}/>
-      <path d="M ${railRight} ${cy - 17} L ${railRight - 5} ${cy} L ${railRight} ${cy + 17} L ${railRight + 5} ${cy} Z" ${shadowFill}/>
-      <path d="M ${railRight} ${cy - 12} L ${railRight - 3} ${cy} L ${railRight} ${cy + 12} L ${railRight + 3} ${cy} Z" ${knotFill}/>
     </g>`
     : "";
 
@@ -1059,8 +1066,8 @@ function renderOrnateFrame(
     <rect x="${innerLeft}" y="${innerTop}" width="${width - innerInset * 2}" height="${height - innerInset * 2}" rx="${Math.max(4, rx - innerInset + 4)}" ${fineStroke}/>
     <path d="M ${railCornerEndX} ${railTop} H ${cx - centerGap} M ${cx + centerGap} ${railTop} H ${railCornerStartRightX}" ${railStroke}/>
     <path d="M ${railCornerEndX} ${railBottom} H ${cx - centerGap} M ${cx + centerGap} ${railBottom} H ${railCornerStartRightX}" ${railStroke}/>
-    <path d="M ${railLeft} ${railCornerEndY} V ${cy - centerGap} M ${railLeft} ${cy + centerGap} V ${railCornerStartBottomY}" ${railStroke}/>
-    <path d="M ${railRight} ${railCornerEndY} V ${cy - centerGap} M ${railRight} ${cy + centerGap} V ${railCornerStartBottomY}" ${railStroke}/>
+    <path d="M ${railLeft} ${railCornerEndY} V ${railCornerStartBottomY}" ${railStroke}/>
+    <path d="M ${railRight} ${railCornerEndY} V ${railCornerStartBottomY}" ${railStroke}/>
     <path d="M ${railCornerEndX} ${railTop} H ${railLeft + 26} Q ${railLeft} ${railTop} ${railLeft} ${railTop + 26} V ${railCornerEndY}" ${railStroke}/>
     <path d="M ${railCornerStartRightX} ${railTop} H ${railRight - 26} Q ${railRight} ${railTop} ${railRight} ${railTop + 26} V ${railCornerEndY}" ${railStroke}/>
     <path d="M ${railCornerEndX} ${railBottom} H ${railLeft + 26} Q ${railLeft} ${railBottom} ${railLeft} ${railBottom - 26} V ${railCornerStartBottomY}" ${railStroke}/>
@@ -1069,10 +1076,6 @@ function renderOrnateFrame(
     <path d="M ${innerRight - 11} ${innerTop + 11} H ${innerRight - corner + 10} M ${innerRight - 11} ${innerTop + 11} V ${innerTop + corner - 10}" ${fineStroke}/>
     <path d="M ${innerLeft + 11} ${innerBottom - 11} H ${innerLeft + corner - 10} M ${innerLeft + 11} ${innerBottom - 11} V ${innerBottom - corner + 10}" ${fineStroke}/>
     <path d="M ${innerRight - 11} ${innerBottom - 11} H ${innerRight - corner + 10} M ${innerRight - 11} ${innerBottom - 11} V ${innerBottom - corner + 10}" ${fineStroke}/>
-    <path d="M ${railLeft + 18} ${railTop + 5} L ${railLeft + 28} ${railTop + 5} L ${railLeft + 5} ${railTop + 28} L ${railLeft + 5} ${railTop + 18} Z" ${highlightFill}/>
-    <path d="M ${railRight - 18} ${railTop + 5} L ${railRight - 28} ${railTop + 5} L ${railRight - 5} ${railTop + 28} L ${railRight - 5} ${railTop + 18} Z" ${highlightFill}/>
-    <path d="M ${railLeft + 18} ${railBottom - 5} L ${railLeft + 28} ${railBottom - 5} L ${railLeft + 5} ${railBottom - 28} L ${railLeft + 5} ${railBottom - 18} Z" ${highlightFill}/>
-    <path d="M ${railRight - 18} ${railBottom - 5} L ${railRight - 28} ${railBottom - 5} L ${railRight - 5} ${railBottom - 28} L ${railRight - 5} ${railBottom - 18} Z" ${highlightFill}/>
     ${knots}
   </g>`;
 }
@@ -1110,7 +1113,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
       <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
     </rect>
     <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.12"/>
-    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { cornerSize: 28, opacity: 0.66, centerKnots: false })}
+    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { cornerSize: 28, opacity: 0.58, variant: "secondary" })}
     ${heraldryMark}
     <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">소속 국가</text>
     <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>

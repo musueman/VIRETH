@@ -11,6 +11,7 @@ Cloudflare Worker that receives chatbot image-call query strings and returns the
 - `/scene.image?key=world-overview` - alias of `/scene.webp`.
 - `/scene.json?key=world-overview` - resolved scene metadata.
 - `/map?region=tiris` - SVG response with compact regional map panel and sorted place legend.
+- `/map?place=radbarhal` - regional map SVG with the resolved current place highlighted when it matches a registered map entry.
 - `/map.svg?place=radbarhal` - alias of `/map`; `place` can be a registered city/village scene key.
 - `/map.webp?region=tiris` - direct regional map image response.
 - `/map.image?place=radbarhal` - alias of `/map.webp`.
@@ -50,6 +51,8 @@ Place legend JSON:
 ```txt
 https://vireth-svg.musueman.workers.dev/map.places.json?장소=베크켈카르%20%2F%20레이븐스톤
 ```
+
+Current place highlighting uses `place`, `city`, `장소`, `도시`, `현재`, `현재장소`, `정본장소명`, or `key`. Region-only calls such as `map?region=tiris` show the legend without a current-place highlight.
 
 ## Registered Scenes
 

@@ -686,7 +686,7 @@ async function renderRegionMapMobileSvg(
   const header = renderRegionMapMobileHeader(map.title, sentence, heraldryImageUrl);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1660" viewBox="0 0 864 1660" role="img" aria-label="${title} 세로 지도">
+<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1740" viewBox="0 0 864 1740" role="img" aria-label="${title} 세로 지도">
   <defs>
     <linearGradient id="mapBg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0%" stop-color="#111827"/>
@@ -718,8 +718,8 @@ async function renderRegionMapMobileSvg(
     <clipPath id="mobileMapClip"><rect x="48" y="48" width="768" height="768" rx="24"/></clipPath>
     <clipPath id="mobileCrestClip"><rect x="64" y="858" width="86" height="110" rx="13"/></clipPath>
   </defs>
-  <rect width="864" height="1660" fill="url(#mapBg)"/>
-  <rect x="20" y="20" width="824" height="1620" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.42"/>
+  <rect width="864" height="1740" fill="url(#mapBg)"/>
+  <rect x="20" y="20" width="824" height="1700" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.42"/>
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.58"/>
   ${placeMarkers}
@@ -936,7 +936,7 @@ function renderRegionMapMobileLegend(
 
   const startX = 64;
   const startY = 1110;
-  const rowHeight = places.length > 14 ? 32 : 38;
+  const rowHeight = places.length > 14 ? 36 : 44;
   const boxWidth = 736;
 
   return places
@@ -946,11 +946,11 @@ function renderRegionMapMobileLegend(
       const title = escapeXml(truncateDisplay(place.title, 25));
       const current = isSameMapPlace(place, currentPlace);
       const highlight = current
-        ? `<rect x="${startX - 16}" y="${y - 27}" width="${boxWidth}" height="40" rx="12" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
+        ? `<rect x="${startX - 16}" y="${y - 30}" width="${boxWidth}" height="44" rx="13" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
         <animate attributeName="fill-opacity" values="0.54;0.9;0.54" dur="2.1s" repeatCount="indefinite"/>
         <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.1s" repeatCount="indefinite"/>
       </rect>
-      <rect x="${startX - 16}" y="${y - 27}" width="7" height="40" rx="4" fill="#f59e0b">
+      <rect x="${startX - 16}" y="${y - 30}" width="7" height="44" rx="4" fill="#f59e0b">
         <animate attributeName="opacity" values="0.55;1;0.55" dur="1.8s" repeatCount="indefinite"/>
       </rect>
       <rect x="${startX + boxWidth - 78}" y="${y - 19}" width="58" height="22" rx="9" fill="url(#currentBadge)" fill-opacity="0.95">

@@ -1004,38 +1004,75 @@ function renderOrnateFrame(
   rx: number,
   options: OrnateFrameOptions = {}
 ): string {
-  const corner = options.cornerSize ?? 44;
+  const corner = Math.min(options.cornerSize ?? 44, Math.floor(Math.min(width, height) / 2) - 18);
   const opacity = options.opacity ?? 0.68;
   const centerKnots = options.centerKnots ?? true;
+  const outerInset = 3;
+  const railInset = 12;
+  const innerInset = 18;
   const right = x + width;
   const bottom = y + height;
+  const outerLeft = x + outerInset;
+  const outerTop = y + outerInset;
+  const outerRight = right - outerInset;
+  const outerBottom = bottom - outerInset;
+  const railLeft = x + railInset;
+  const railTop = y + railInset;
+  const railRight = right - railInset;
+  const railBottom = bottom - railInset;
+  const innerLeft = x + innerInset;
+  const innerTop = y + innerInset;
+  const innerRight = right - innerInset;
+  const innerBottom = bottom - innerInset;
   const cx = x + width / 2;
   const cy = y + height / 2;
-  const innerRx = Math.max(4, rx - 7);
+  const centerGap = 44;
+  const railCornerEndX = railLeft + corner;
+  const railCornerStartRightX = railRight - corner;
+  const railCornerEndY = railTop + corner;
+  const railCornerStartBottomY = railBottom - corner;
 
-  const cornerStroke = `stroke="#d8c078" stroke-opacity="${opacity}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
-  const fineStroke = `stroke="#f6edcf" stroke-opacity="${Math.max(0.16, opacity - 0.36)}" stroke-width="1.1" stroke-linecap="round" fill="none"`;
-  const knotFill = `fill="#c8b16a" fill-opacity="${Math.max(0.28, opacity - 0.18)}"`;
+  const darkStroke = `stroke="#2a2114" stroke-opacity="0.82" stroke-width="4" fill="none"`;
+  const mainStroke = `stroke="#d8c078" stroke-opacity="${opacity}" stroke-width="1.6" fill="none"`;
+  const railStroke = `stroke="#c8b16a" stroke-opacity="${Math.max(0.3, opacity - 0.12)}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
+  const fineStroke = `stroke="#f6edcf" stroke-opacity="${Math.max(0.16, opacity - 0.34)}" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
+  const shadowFill = `fill="#1a130b" fill-opacity="${Math.max(0.34, opacity - 0.28)}"`;
+  const knotFill = `fill="#c8b16a" fill-opacity="${Math.max(0.32, opacity - 0.16)}"`;
+  const highlightFill = `fill="#f6edcf" fill-opacity="${Math.max(0.18, opacity - 0.42)}"`;
 
   const knots = centerKnots
-    ? `<path d="M ${cx - 13} ${y + 7} L ${cx} ${y + 2} L ${cx + 13} ${y + 7} L ${cx} ${y + 12} Z" ${knotFill}/>
-    <path d="M ${cx - 13} ${bottom - 7} L ${cx} ${bottom - 12} L ${cx + 13} ${bottom - 7} L ${cx} ${bottom - 2} Z" ${knotFill}/>
-    <path d="M ${x + 7} ${cy - 13} L ${x + 2} ${cy} L ${x + 7} ${cy + 13} L ${x + 12} ${cy} Z" ${knotFill}/>
-    <path d="M ${right - 7} ${cy - 13} L ${right - 12} ${cy} L ${right - 7} ${cy + 13} L ${right - 2} ${cy} Z" ${knotFill}/>`
+    ? `<g>
+      <path d="M ${cx - 17} ${railTop} L ${cx} ${railTop - 5} L ${cx + 17} ${railTop} L ${cx} ${railTop + 5} Z" ${shadowFill}/>
+      <path d="M ${cx - 12} ${railTop} L ${cx} ${railTop - 3} L ${cx + 12} ${railTop} L ${cx} ${railTop + 3} Z" ${knotFill}/>
+      <path d="M ${cx - 17} ${railBottom} L ${cx} ${railBottom - 5} L ${cx + 17} ${railBottom} L ${cx} ${railBottom + 5} Z" ${shadowFill}/>
+      <path d="M ${cx - 12} ${railBottom} L ${cx} ${railBottom - 3} L ${cx + 12} ${railBottom} L ${cx} ${railBottom + 3} Z" ${knotFill}/>
+      <path d="M ${railLeft} ${cy - 17} L ${railLeft - 5} ${cy} L ${railLeft} ${cy + 17} L ${railLeft + 5} ${cy} Z" ${shadowFill}/>
+      <path d="M ${railLeft} ${cy - 12} L ${railLeft - 3} ${cy} L ${railLeft} ${cy + 12} L ${railLeft + 3} ${cy} Z" ${knotFill}/>
+      <path d="M ${railRight} ${cy - 17} L ${railRight - 5} ${cy} L ${railRight} ${cy + 17} L ${railRight + 5} ${cy} Z" ${shadowFill}/>
+      <path d="M ${railRight} ${cy - 12} L ${railRight - 3} ${cy} L ${railRight} ${cy + 12} L ${railRight + 3} ${cy} Z" ${knotFill}/>
+    </g>`
     : "";
 
   return `<g aria-hidden="true" pointer-events="none">
-    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" fill="none" stroke="#2a2114" stroke-opacity="0.72" stroke-width="4"/>
-    <rect x="${x + 2}" y="${y + 2}" width="${width - 4}" height="${height - 4}" rx="${Math.max(4, rx - 2)}" fill="none" stroke="#d8c078" stroke-opacity="${opacity}" stroke-width="1.4"/>
-    <rect x="${x + 9}" y="${y + 9}" width="${width - 18}" height="${height - 18}" rx="${innerRx}" fill="none" stroke="#f6edcf" stroke-opacity="${Math.max(0.14, opacity - 0.44)}" stroke-width="1"/>
-    <path d="M ${x + corner} ${y + 14} H ${x + 29} Q ${x + 14} ${y + 14} ${x + 14} ${y + 29} V ${y + corner}" ${cornerStroke}/>
-    <path d="M ${right - corner} ${y + 14} H ${right - 29} Q ${right - 14} ${y + 14} ${right - 14} ${y + 29} V ${y + corner}" ${cornerStroke}/>
-    <path d="M ${x + corner} ${bottom - 14} H ${x + 29} Q ${x + 14} ${bottom - 14} ${x + 14} ${bottom - 29} V ${bottom - corner}" ${cornerStroke}/>
-    <path d="M ${right - corner} ${bottom - 14} H ${right - 29} Q ${right - 14} ${bottom - 14} ${right - 14} ${bottom - 29} V ${bottom - corner}" ${cornerStroke}/>
-    <path d="M ${x + 31} ${y + 31} H ${x + corner - 14} M ${x + 31} ${y + 31} V ${y + corner - 14}" ${fineStroke}/>
-    <path d="M ${right - 31} ${y + 31} H ${right - corner + 14} M ${right - 31} ${y + 31} V ${y + corner - 14}" ${fineStroke}/>
-    <path d="M ${x + 31} ${bottom - 31} H ${x + corner - 14} M ${x + 31} ${bottom - 31} V ${bottom - corner + 14}" ${fineStroke}/>
-    <path d="M ${right - 31} ${bottom - 31} H ${right - corner + 14} M ${right - 31} ${bottom - 31} V ${bottom - corner + 14}" ${fineStroke}/>
+    <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${darkStroke}/>
+    <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${mainStroke}/>
+    <rect x="${innerLeft}" y="${innerTop}" width="${width - innerInset * 2}" height="${height - innerInset * 2}" rx="${Math.max(4, rx - innerInset + 4)}" ${fineStroke}/>
+    <path d="M ${railCornerEndX} ${railTop} H ${cx - centerGap} M ${cx + centerGap} ${railTop} H ${railCornerStartRightX}" ${railStroke}/>
+    <path d="M ${railCornerEndX} ${railBottom} H ${cx - centerGap} M ${cx + centerGap} ${railBottom} H ${railCornerStartRightX}" ${railStroke}/>
+    <path d="M ${railLeft} ${railCornerEndY} V ${cy - centerGap} M ${railLeft} ${cy + centerGap} V ${railCornerStartBottomY}" ${railStroke}/>
+    <path d="M ${railRight} ${railCornerEndY} V ${cy - centerGap} M ${railRight} ${cy + centerGap} V ${railCornerStartBottomY}" ${railStroke}/>
+    <path d="M ${railCornerEndX} ${railTop} H ${railLeft + 26} Q ${railLeft} ${railTop} ${railLeft} ${railTop + 26} V ${railCornerEndY}" ${railStroke}/>
+    <path d="M ${railCornerStartRightX} ${railTop} H ${railRight - 26} Q ${railRight} ${railTop} ${railRight} ${railTop + 26} V ${railCornerEndY}" ${railStroke}/>
+    <path d="M ${railCornerEndX} ${railBottom} H ${railLeft + 26} Q ${railLeft} ${railBottom} ${railLeft} ${railBottom - 26} V ${railCornerStartBottomY}" ${railStroke}/>
+    <path d="M ${railCornerStartRightX} ${railBottom} H ${railRight - 26} Q ${railRight} ${railBottom} ${railRight} ${railBottom - 26} V ${railCornerStartBottomY}" ${railStroke}/>
+    <path d="M ${innerLeft + 11} ${innerTop + 11} H ${innerLeft + corner - 10} M ${innerLeft + 11} ${innerTop + 11} V ${innerTop + corner - 10}" ${fineStroke}/>
+    <path d="M ${innerRight - 11} ${innerTop + 11} H ${innerRight - corner + 10} M ${innerRight - 11} ${innerTop + 11} V ${innerTop + corner - 10}" ${fineStroke}/>
+    <path d="M ${innerLeft + 11} ${innerBottom - 11} H ${innerLeft + corner - 10} M ${innerLeft + 11} ${innerBottom - 11} V ${innerBottom - corner + 10}" ${fineStroke}/>
+    <path d="M ${innerRight - 11} ${innerBottom - 11} H ${innerRight - corner + 10} M ${innerRight - 11} ${innerBottom - 11} V ${innerBottom - corner + 10}" ${fineStroke}/>
+    <path d="M ${railLeft + 18} ${railTop + 5} L ${railLeft + 28} ${railTop + 5} L ${railLeft + 5} ${railTop + 28} L ${railLeft + 5} ${railTop + 18} Z" ${highlightFill}/>
+    <path d="M ${railRight - 18} ${railTop + 5} L ${railRight - 28} ${railTop + 5} L ${railRight - 5} ${railTop + 28} L ${railRight - 5} ${railTop + 18} Z" ${highlightFill}/>
+    <path d="M ${railLeft + 18} ${railBottom - 5} L ${railLeft + 28} ${railBottom - 5} L ${railLeft + 5} ${railBottom - 28} L ${railLeft + 5} ${railBottom - 18} Z" ${highlightFill}/>
+    <path d="M ${railRight - 18} ${railBottom - 5} L ${railRight - 28} ${railBottom - 5} L ${railRight - 5} ${railBottom - 28} L ${railRight - 5} ${railBottom - 18} Z" ${highlightFill}/>
     ${knots}
   </g>`;
 }

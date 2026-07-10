@@ -1035,8 +1035,9 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
 
 function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: number): string {
   const dbX = 74;
-  const dbY = 388;
-  const rowGap = 52;
+  const rowTopY = 360;
+  const rowHeight = 56;
+  const textBaselineOffset = 34;
   const labelX = dbX;
   const valueX = dbX + 140;
   const scaleLabel = sceneScaleLabel(scene.kind);
@@ -1051,11 +1052,12 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
   ];
   const rowText = rows
     .map(([label, value], index) => {
-      const y = dbY + index * rowGap;
+      const rowTop = rowTopY + index * rowHeight;
+      const y = rowTop + textBaselineOffset;
       const wrappedValue = renderWrappedSvgText(value, valueX, y, 24, 2, 19);
       const divider =
         index < rows.length - 1
-          ? `<line x1="${labelX}" y1="${y + 28}" x2="${panelWidth - 60}" y2="${y + 28}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
+          ? `<line x1="${labelX}" y1="${rowTop + rowHeight}" x2="${panelWidth - 60}" y2="${rowTop + rowHeight}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
           : "";
       return `<text x="${labelX}" y="${y}" fill="#9fb0c2" font-size="17" font-weight="800">${escapeXml(label)}</text>
       ${wrappedValue}

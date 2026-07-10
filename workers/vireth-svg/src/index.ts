@@ -1,5 +1,6 @@
 import { GENERATED_SCENES } from "./generated-scenes";
 import { GENERATED_REGION_MAPS } from "./generated-region-maps";
+import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 
 type SceneEntry = {
   key: string;
@@ -21,6 +22,23 @@ type RegionMapEntry = {
   imageUrl: string;
   sourceFile: string;
   reviewFile: string;
+};
+
+type RegionMapPlaceEntry = {
+  regionKey: string;
+  regionName: string;
+  outputOrder: number;
+  title: string;
+  aliases: string[];
+  kind: string;
+  icon: string;
+  gridX: number;
+  gridY: number;
+  pixelX: number;
+  pixelY: number;
+  mapXPct: number;
+  mapYPct: number;
+  order: number;
 };
 
 const ASSET_BASE =
@@ -219,6 +237,7 @@ const SCENES: SceneEntry[] = [
 ];
 
 const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
+const REGION_MAP_PLACES = GENERATED_REGION_MAP_PLACES as RegionMapPlaceEntry[];
 
 const TEXT_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -252,7 +271,8 @@ export default {
           "/scene?key=world-overview",
           "/scene.json?key=world-overview",
           "/map?region=tiris",
-          "/map.json?region=tiris"
+          "/map.json?region=tiris",
+          "/map.places.json?region=tiris"
         ]
       });
     }
@@ -264,6 +284,28 @@ export default {
 
     if (url.pathname === "/map.json") {
       return json(resolveRegionMap(url, env) ?? pendingRegionMap(url));
+    }
+
+    if (url.pathname === "/map.places.json") {
+      const map = resolveRegionMap(url, env);
+      if (!map) {
+        return json(
+          {
+            ok: false,
+            error: "region_map_not_found",
+            query: firstQuery(url, ["key", "map", "region", "realm", "place", "city"])
+          },
+          404
+        );
+      }
+      const places = regionMapPlaces(map.key);
+      return json({
+        ok: true,
+        region: { key: map.key, title: map.title },
+        count: places.length,
+        sort: "top-to-bottom, then right-to-left",
+        places
+      });
     }
 
     if (url.pathname === "/scene.webp" || url.pathname === "/scene.image") {
@@ -384,6 +426,13 @@ function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
   return null;
 }
 
+function regionMapPlaces(regionKey: string): RegionMapPlaceEntry[] {
+  const normalized = normalizeKey(regionKey);
+  return REGION_MAP_PLACES.filter((place) => normalizeKey(place.regionKey) === normalized).sort(
+    (a, b) => a.order - b.order
+  );
+}
+
 function pendingRegionMap(url: URL): RegionMapEntry {
   const queryValue =
     firstQuery(url, ["key", "map", "region", "realm", "place", "city", "장소", "도시", "권역", "지도"]) ??
@@ -455,6 +504,8 @@ async function renderRegionMapSvg(map: RegionMapEntry, origin: string): Promise<
   const title = escapeXml(map.title);
   const imageDataUri = await fetchDataUri(map.imageUrl);
   const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
+  const places = regionMapPlaces(map.key);
+  const legend = renderRegionMapLegend(places);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1536" height="720" viewBox="0 0 1536 720" role="img" aria-label="${title} 지역 지도">
@@ -475,12 +526,59 @@ async function renderRegionMapSvg(map: RegionMapEntry, origin: string): Promise<
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.62"/>
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <text x="768" y="178" fill="#f6edcf" font-size="56" font-weight="800">${title}</text>
-    <text x="772" y="230" fill="#d9e4f2" font-size="26" font-weight="650">지역 지도</text>
+    <text x="772" y="230" fill="#d9e4f2" font-size="26" font-weight="650">거점 목록</text>
     <line x1="772" y1="270" x2="1320" y2="270" stroke="#c8b16a" stroke-opacity="0.46" stroke-width="2"/>
-    <text x="772" y="336" fill="#e7edf6" font-size="25">현재 장소가 속한 권역을 축소 표기한다.</text>
-    <text x="772" y="382" fill="#b8c5d6" font-size="22">도시 전경 아래에 배치하는 지도용 SVG.</text>
+    <text x="772" y="308" fill="#b8c5d6" font-size="18">위쪽부터, 같은 줄은 오른쪽부터 정렬</text>
+    ${legend}
   </g>
 </svg>`;
+}
+
+function renderRegionMapLegend(places: RegionMapPlaceEntry[]): string {
+  if (places.length === 0) {
+    return `<text x="772" y="376" fill="#e7edf6" font-size="24">등록된 거점 좌표 없음</text>`;
+  }
+
+  const columns = places.length > 9 ? 2 : 1;
+  const rowsPerColumn = Math.ceil(places.length / columns);
+  const columnWidth = columns === 2 ? 330 : 560;
+  const startX = 772;
+  const startY = 356;
+  const rowHeight = rowsPerColumn > 8 ? 38 : 44;
+
+  return places
+    .map((place, index) => {
+      const column = Math.floor(index / rowsPerColumn);
+      const row = index % rowsPerColumn;
+      const x = startX + column * columnWidth;
+      const y = startY + row * rowHeight;
+      const order = String(place.order).padStart(2, "0");
+      const title = escapeXml(truncateDisplay(place.title, columns === 2 ? 13 : 22));
+      const kind = escapeXml(place.kind);
+
+      return `<g>
+      <text x="${x}" y="${y}" fill="#f6edcf" font-size="19" font-weight="800">${order}</text>
+      <text x="${x + 42}" y="${y}" fill="#e7edf6" font-size="23" font-weight="750">${title}</text>
+      <text x="${x + 42}" y="${y + 24}" fill="#9fb0c2" font-size="15">${kind}</text>
+    </g>`;
+    })
+    .join("\n    ");
+}
+
+function truncateDisplay(value: string, maxLength: number): string {
+  const chars = Array.from(value);
+  if (displayLength(value) <= maxLength) {
+    return value;
+  }
+
+  let output = "";
+  for (const char of chars) {
+    if (displayLength(`${output}${char}`) > maxLength - 1) {
+      break;
+    }
+    output += char;
+  }
+  return `${output}…`;
 }
 
 function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): string {

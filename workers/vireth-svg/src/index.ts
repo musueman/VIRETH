@@ -1,4 +1,5 @@
 import { GENERATED_SCENES } from "./generated-scenes";
+import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 
 type SceneEntry = {
   key: string;
@@ -11,6 +12,15 @@ type SceneEntry = {
   realmName?: string;
   heraldryName?: string;
   heraldryUrl?: string;
+};
+
+type RegionMapEntry = {
+  key: string;
+  aliases: string[];
+  title: string;
+  imageUrl: string;
+  sourceFile: string;
+  reviewFile: string;
 };
 
 const ASSET_BASE =
@@ -208,6 +218,8 @@ const SCENES: SceneEntry[] = [
   }
 ];
 
+const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
+
 const TEXT_HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Cache-Control": "public, max-age=300"
@@ -236,13 +248,22 @@ export default {
       return json({
         ok: true,
         service: env.SERVICE_NAME,
-        routes: ["/scene?key=world-overview", "/scene.json?key=world-overview"]
+        routes: [
+          "/scene?key=world-overview",
+          "/scene.json?key=world-overview",
+          "/map?region=tiris",
+          "/map.json?region=tiris"
+        ]
       });
     }
 
     if (url.pathname === "/scene.json") {
       const scene = resolveScene(url, env);
       return json(scene);
+    }
+
+    if (url.pathname === "/map.json") {
+      return json(resolveRegionMap(url, env) ?? pendingRegionMap(url));
     }
 
     if (url.pathname === "/scene.webp" || url.pathname === "/scene.image") {
@@ -258,9 +279,30 @@ export default {
       return image(scene.heraldryUrl, request.method);
     }
 
+    if (url.pathname === "/map.webp" || url.pathname === "/map.image") {
+      const map = resolveRegionMap(url, env);
+      if (!map) {
+        return new Response(renderPendingMapSvg(pendingRegionMap(url).title), {
+          status: 404,
+          headers: SVG_HEADERS
+        });
+      }
+      return image(map.imageUrl, request.method);
+    }
+
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
       const scene = resolveScene(url, env);
       return new Response(await renderSceneSvg(scene, url.origin), { headers: SVG_HEADERS });
+    }
+
+    if (url.pathname === "/map" || url.pathname === "/map.svg") {
+      const map = resolveRegionMap(url, env);
+      if (!map) {
+        return new Response(renderPendingMapSvg(pendingRegionMap(url).title), {
+          headers: SVG_HEADERS
+        });
+      }
+      return new Response(await renderRegionMapSvg(map, url.origin), { headers: SVG_HEADERS });
     }
 
     return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
@@ -271,6 +313,10 @@ function resolveScene(url: URL, env: Env): SceneEntry {
   const queryValue =
     firstQuery(url, ["key", "scene", "place", "city", "region", "장소", "도시", "권역"]) ??
     "world-overview";
+  return resolveSceneByValue(queryValue, env);
+}
+
+function resolveSceneByValue(queryValue: string, env: Env): SceneEntry {
   const normalized = normalizeKey(queryValue);
 
   const direct = SCENES.find((scene) => normalizeKey(scene.key) === normalized);
@@ -299,6 +345,58 @@ function resolveScene(url: URL, env: Env): SceneEntry {
     caption: queryValue
       ? `${queryValue}에 연결된 도시·마을 전경 이미지는 아직 등록되지 않았다.`
       : "아직 이 장소키에 연결된 도시·마을 전경 이미지가 없다."
+  };
+}
+
+function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
+  const queryValue = firstQuery(url, [
+    "key",
+    "map",
+    "region",
+    "realm",
+    "place",
+    "city",
+    "장소",
+    "도시",
+    "권역",
+    "지도"
+  ]);
+  if (!queryValue) {
+    return null;
+  }
+
+  const normalized = normalizeKey(queryValue);
+  const direct = REGION_MAPS.find(
+    (map) =>
+      normalizeKey(map.key) === normalized ||
+      normalizeKey(map.title) === normalized ||
+      map.aliases.some((alias) => normalizeKey(alias) === normalized)
+  );
+  if (direct) {
+    return direct;
+  }
+
+  const scene = resolveSceneByValue(queryValue, env);
+  if (scene.realmKey) {
+    return REGION_MAPS.find((map) => normalizeKey(map.key) === normalizeKey(scene.realmKey ?? "")) ?? null;
+  }
+
+  return null;
+}
+
+function pendingRegionMap(url: URL): RegionMapEntry {
+  const queryValue =
+    firstQuery(url, ["key", "map", "region", "realm", "place", "city", "장소", "도시", "권역", "지도"]) ??
+    "pending";
+  const normalized = normalizeKey(queryValue);
+
+  return {
+    key: normalized || "pending",
+    aliases: [],
+    title: "준비중인 지도 입니다",
+    imageUrl: "",
+    sourceFile: "",
+    reviewFile: ""
   };
 }
 
@@ -350,6 +448,38 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
   <image href="${imageUrl}" x="0" y="0" width="1536" height="864" preserveAspectRatio="xMidYMid slice"/>
   <rect width="1536" height="864" fill="url(#shade)"/>
   ${overlay}
+</svg>`;
+}
+
+async function renderRegionMapSvg(map: RegionMapEntry, origin: string): Promise<string> {
+  const title = escapeXml(map.title);
+  const imageDataUri = await fetchDataUri(map.imageUrl);
+  const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="720" viewBox="0 0 1536 720" role="img" aria-label="${title} 지역 지도">
+  <defs>
+    <linearGradient id="mapBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#293022"/>
+    </linearGradient>
+    <linearGradient id="mapShade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.32"/>
+    </linearGradient>
+    <clipPath id="regionMapClip"><rect x="64" y="40" width="640" height="640" rx="18"/></clipPath>
+  </defs>
+  <rect width="1536" height="720" rx="0" fill="url(#mapBg)"/>
+  <rect x="40" y="28" width="1456" height="664" rx="26" fill="#07111f" fill-opacity="0.54" stroke="#c8b16a" stroke-opacity="0.48"/>
+  <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)"/>
+  <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.62"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="768" y="178" fill="#f6edcf" font-size="56" font-weight="800">${title}</text>
+    <text x="772" y="230" fill="#d9e4f2" font-size="26" font-weight="650">지역 지도</text>
+    <line x1="772" y1="270" x2="1320" y2="270" stroke="#c8b16a" stroke-opacity="0.46" stroke-width="2"/>
+    <text x="772" y="336" fill="#e7edf6" font-size="25">현재 장소가 속한 권역을 축소 표기한다.</text>
+    <text x="772" y="382" fill="#b8c5d6" font-size="22">도시 전경 아래에 배치하는 지도용 SVG.</text>
+  </g>
 </svg>`;
 }
 
@@ -421,6 +551,20 @@ function renderNotFoundSvg(): string {
   <rect width="1536" height="864" fill="#07111f"/>
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <text x="768" y="432" text-anchor="middle" fill="#f6edcf" font-size="36">Vireth scene not found</text>
+  </g>
+</svg>`;
+}
+
+function renderPendingMapSvg(title: string): string {
+  const escapedTitle = escapeXml(title);
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="360" viewBox="0 0 1536 360" role="img" aria-label="${escapedTitle}">
+  <rect width="1536" height="360" fill="#07111f"/>
+  <rect x="48" y="48" width="1440" height="264" rx="24" fill="#101b2b" stroke="#c8b16a" stroke-opacity="0.54"/>
+  <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="768" y="160" text-anchor="middle" fill="#f6edcf" font-size="42" font-weight="800">${escapedTitle}</text>
+    <text x="768" y="218" text-anchor="middle" fill="#d9e4f2" font-size="24">이 권역 지도는 아직 등록되지 않았다.</text>
   </g>
 </svg>`;
 }

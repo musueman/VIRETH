@@ -10,6 +10,11 @@ Cloudflare Worker that receives chatbot image-call query strings and returns the
 - `/scene.webp?key=world-overview` - direct raster image response for chatbot renderers that block SVG or nested SVG images.
 - `/scene.image?key=world-overview` - alias of `/scene.webp`.
 - `/scene.json?key=world-overview` - resolved scene metadata.
+- `/map?region=tiris` - SVG response with compact regional map panel.
+- `/map.svg?place=radbarhal` - alias of `/map`; `place` can be a registered city/village scene key.
+- `/map.webp?region=tiris` - direct regional map image response.
+- `/map.image?place=radbarhal` - alias of `/map.webp`.
+- `/map.json?place=radbarhal` - resolved regional map metadata.
 
 The resolver accepts `key`, `scene`, `place`, `city`, `region`, and Korean aliases `장소`, `도시`, `권역`.
 If a requested key is not registered, the default overview image is used.
@@ -25,16 +30,25 @@ SVG wrapper:
 ![](https://vireth-svg.musueman.workers.dev/scene?city=yenwokel)
 ```
 
+Scene plus regional map for LunaTalk:
+
+```md
+![](https://vireth-svg.musueman.workers.dev/scene?장소=베크켈카르%20%2F%20레이븐스톤)
+![](https://vireth-svg.musueman.workers.dev/map?장소=베크켈카르%20%2F%20레이븐스톤)
+```
+
 Raster endpoint for LunaTalk or other Markdown surfaces that do not render SVG reliably:
 
 ```md
 ![](https://vireth-svg.musueman.workers.dev/scene.webp?place=tiris)
+![](https://vireth-svg.musueman.workers.dev/map.webp?region=tiris)
 ```
 
 ## Registered Scenes
 
-The generated registry currently loads 97 city/base scenes, 70 unique village scenes, and 20 regional heraldry images.
+The generated registry currently loads 97 city/base scenes, 70 unique village scenes, 20 regional heraldry images, and 20 regional maps.
 Registered city and village scenes can render the matching regional heraldry image at the top-left of the SVG route.
+Registered city and village scenes can also resolve `/map?place=...` to the matching regional map through their `realmKey`.
 Use `/scene.webp` for the most compatible display path because it returns the scene image itself instead of an SVG wrapper.
 
 ## Source Rule

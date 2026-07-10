@@ -558,8 +558,8 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
       <stop offset="100%" stop-color="#07111f" stop-opacity="0.62"/>
     </linearGradient>
     <linearGradient id="scenePanel" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#07111f" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#182435" stop-opacity="0.76"/>
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.66"/>
+      <stop offset="100%" stop-color="#182435" stop-opacity="0.46"/>
     </linearGradient>
     <linearGradient id="sceneBadge" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0%" stop-color="#c8b16a" stop-opacity="0.35"/>
@@ -567,6 +567,9 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
     </linearGradient>
     <filter id="scenePanelShadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="sceneTextShadow" x="-10%" y="-30%" width="120%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
     </filter>
   </defs>
   <rect width="1000" height="700" fill="#07111f"/>
@@ -1052,8 +1055,8 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const titleLines = titleDisplayLines(scene.title);
   const titleText = titleLines
     .map((line, index) => {
-      const y = titleLines.length === 1 ? 154 : 132 + index * 42;
-      return `<text x="232" y="${y}" fill="#f6edcf" font-size="38" font-weight="850">${escapeXml(line)}</text>`;
+      const y = titleLines.length === 1 ? 158 : 132 + index * 45;
+      return `<text x="232" y="${y}" fill="#f6edcf" font-size="42" font-weight="850" filter="url(#sceneTextShadow)">${escapeXml(line)}</text>`;
     })
     .join("\n    ");
   const realmLabel = scene.realmName ? `국가: ${scene.realmName}` : scene.heraldryName ?? "지역 정보";
@@ -1065,7 +1068,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const crestFrameHeight = 234;
   const crestHeight = 210;
   const kindY = titleLines.length === 1 ? 206 : 218;
-  const kindWidth = Math.max(128, Math.ceil(46 + displayLength(kindLabel) * 16));
+  const kindWidth = Math.max(138, Math.ceil(54 + displayLength(kindLabel) * 17));
   const dbSummary = renderSceneDbSummary(scene, kindLabel, panelWidth);
   const heraldryMark = heraldryUrl
     ? `<image href="${escapeXml(heraldryUrl)}" x="68" y="61" width="132" height="${crestHeight}" preserveAspectRatio="xMidYMid slice" clip-path="url(#crestClip)"/>`
@@ -1080,19 +1083,19 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
     <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
       <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
     </rect>
-    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.12"/>
+    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.48" stroke="#d8c078" stroke-opacity="0.12"/>
     ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { sliceSize: 30, opacity: 0.66, variant: "secondary" })}
     ${heraldryMark}
-    <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">소속 국가</text>
-    <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>
+    <text x="232" y="86" fill="#b9cee8" font-size="20" font-weight="850" filter="url(#sceneTextShadow)">소속 국가</text>
+    <text x="326" y="86" fill="#e7edf6" font-size="23" font-weight="850" filter="url(#sceneTextShadow)">${escapedRealmLabel.replace("국가: ", "")}</text>
     ${titleText}
     <line x1="232" y1="${kindY - 36}" x2="${Math.min(panelWidth - 34, 620)}" y2="${kindY - 36}" stroke="#c8b16a" stroke-opacity="0.32" stroke-width="2"/>
     <rect x="232" y="${kindY - 22}" width="${kindWidth}" height="34" rx="10" fill="url(#sceneBadge)" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.72">
       <animate attributeName="fill-opacity" values="0.58;1;0.58" dur="2.2s" repeatCount="indefinite"/>
       <animate attributeName="stroke-opacity" values="0.56;1;0.56" dur="2.2s" repeatCount="indefinite"/>
     </rect>
-    <text x="250" y="${kindY + 2}" fill="#f6edcf" font-size="20" font-weight="800">${escapedKindLabel}</text>
-    <text x="74" y="332" fill="#f6edcf" font-size="24" font-weight="900">장소 정보</text>
+    <text x="250" y="${kindY + 3}" fill="#f6edcf" font-size="22" font-weight="800" filter="url(#sceneTextShadow)">${escapedKindLabel}</text>
+    <text x="74" y="333" fill="#f6edcf" font-size="27" font-weight="900" filter="url(#sceneTextShadow)">장소 정보</text>
     <line x1="74" y1="352" x2="${panelWidth - 60}" y2="352" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
     ${dbSummary}
   </g>`;
@@ -1119,12 +1122,12 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
     .map(([label, value], index) => {
       const rowTop = rowTopY + index * rowHeight;
       const y = rowTop + textBaselineOffset;
-      const wrappedValue = renderWrappedSvgText(value, valueX, y, 24, 2, 19);
+      const wrappedValue = renderWrappedSvgText(value, valueX, y, 22, 2, 21);
       const divider =
         index < rows.length - 1
           ? `<line x1="${labelX}" y1="${rowTop + rowHeight}" x2="${panelWidth - 60}" y2="${rowTop + rowHeight}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
           : "";
-      return `<text x="${labelX}" y="${y}" fill="#9fb0c2" font-size="17" font-weight="800">${escapeXml(label)}</text>
+      return `<text x="${labelX}" y="${y}" fill="#b9cee8" font-size="18" font-weight="800" filter="url(#sceneTextShadow)">${escapeXml(label)}</text>
       ${wrappedValue}
       ${divider}`;
     })
@@ -1150,7 +1153,7 @@ function renderWrappedSvgText(
       return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`;
     })
     .join("");
-  return `<text x="${x}" y="${y}" fill="#e7edf6" font-size="${fontSize}" font-weight="760">${tspans}</text>`;
+  return `<text x="${x}" y="${y}" fill="#f1f6ff" font-size="${fontSize}" font-weight="790" filter="url(#sceneTextShadow)">${tspans}</text>`;
 }
 
 function wrapDisplayText(value: string, maxDisplayLength: number, maxLines: number): string[] {

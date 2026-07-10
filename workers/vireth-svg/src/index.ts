@@ -550,7 +550,7 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
     : renderTextOverlay(title, caption);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="${title}">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${title}">
   <defs>
     <linearGradient id="shade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#07111f" stop-opacity="0.12"/>
@@ -569,9 +569,9 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
       <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.38"/>
     </filter>
   </defs>
-  <rect width="1024" height="1024" fill="#07111f"/>
-  <image href="${imageUrl}" x="0" y="0" width="1024" height="1024" preserveAspectRatio="xMidYMid slice"/>
-  <rect width="1024" height="1024" fill="url(#shade)"/>
+  <rect width="1000" height="700" fill="#07111f"/>
+  <image href="${imageUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1000" height="700" fill="url(#shade)"/>
   ${overlay}
 </svg>`;
 }
@@ -1060,8 +1060,8 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const escapedRealmLabel = escapeXml(realmLabel);
   const kindLabel = sceneKindLabel(scene.kind);
   const escapedKindLabel = escapeXml(kindLabel);
-  const panelHeight = 1024;
-  const panelWidth = 590;
+  const panelHeight = 700;
+  const panelWidth = 540;
   const crestFrameHeight = 234;
   const crestHeight = 210;
   const kindY = titleLines.length === 1 ? 206 : 218;
@@ -1299,10 +1299,10 @@ function renderTextOverlay(title: string, caption: string): string {
 
 function renderNotFoundSvg(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="not found">
-  <rect width="1024" height="1024" fill="#07111f"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="not found">
+  <rect width="1000" height="700" fill="#07111f"/>
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <text x="512" y="512" text-anchor="middle" fill="#f6edcf" font-size="36">Vireth scene not found</text>
+    <text x="500" y="350" text-anchor="middle" fill="#f6edcf" font-size="36">Vireth scene not found</text>
   </g>
 </svg>`;
 }

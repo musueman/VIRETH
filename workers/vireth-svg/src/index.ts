@@ -645,12 +645,15 @@ async function renderRegionMapWideSvg(
     <clipPath id="regionCrestClip"><rect x="772" y="66" width="96" height="124" rx="14"/></clipPath>
   </defs>
   <rect width="1536" height="720" rx="0" fill="url(#mapBg)"/>
-  <rect x="40" y="28" width="1456" height="664" rx="26" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.42"/>
-  <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.34" filter="url(#mapPanelShadow)"/>
+  <rect x="40" y="28" width="1456" height="664" rx="26" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
+  ${renderOrnateFrame(40, 28, 1456, 664, 26, { cornerSize: 54, opacity: 0.62 })}
+  <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#mapPanelShadow)"/>
+  ${renderOrnateFrame(736, 40, 736, 640, 24, { cornerSize: 42, opacity: 0.42, centerKnots: false })}
   <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)" filter="url(#mapPanelShadow)"/>
-  <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.62"/>
+  <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18"/>
   ${placeMarkers}
   ${currentMarker}
+  ${renderOrnateFrame(64, 40, 640, 640, 18, { cornerSize: 38, opacity: 0.72 })}
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     ${header}
     ${legend}
@@ -719,11 +722,13 @@ async function renderRegionMapMobileSvg(
     <clipPath id="mobileCrestClip"><rect x="64" y="858" width="86" height="110" rx="13"/></clipPath>
   </defs>
   <rect width="864" height="1740" fill="url(#mapBg)"/>
-  <rect x="20" y="20" width="824" height="1700" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.42"/>
+  <rect x="20" y="20" width="824" height="1700" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
+  ${renderOrnateFrame(20, 20, 824, 1700, 30, { cornerSize: 54, opacity: 0.62 })}
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
-  <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.58"/>
+  <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
   ${currentMarker}
+  ${renderOrnateFrame(48, 48, 768, 768, 24, { cornerSize: 42, opacity: 0.72 })}
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     ${header}
     ${legend}
@@ -985,6 +990,56 @@ function truncateDisplay(value: string, maxLength: number): string {
   return `${output}…`;
 }
 
+type OrnateFrameOptions = {
+  cornerSize?: number;
+  opacity?: number;
+  centerKnots?: boolean;
+};
+
+function renderOrnateFrame(
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  rx: number,
+  options: OrnateFrameOptions = {}
+): string {
+  const corner = options.cornerSize ?? 44;
+  const opacity = options.opacity ?? 0.68;
+  const centerKnots = options.centerKnots ?? true;
+  const right = x + width;
+  const bottom = y + height;
+  const cx = x + width / 2;
+  const cy = y + height / 2;
+  const innerRx = Math.max(4, rx - 7);
+
+  const cornerStroke = `stroke="#d8c078" stroke-opacity="${opacity}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
+  const fineStroke = `stroke="#f6edcf" stroke-opacity="${Math.max(0.16, opacity - 0.36)}" stroke-width="1.1" stroke-linecap="round" fill="none"`;
+  const knotFill = `fill="#c8b16a" fill-opacity="${Math.max(0.28, opacity - 0.18)}"`;
+
+  const knots = centerKnots
+    ? `<path d="M ${cx - 13} ${y + 7} L ${cx} ${y + 2} L ${cx + 13} ${y + 7} L ${cx} ${y + 12} Z" ${knotFill}/>
+    <path d="M ${cx - 13} ${bottom - 7} L ${cx} ${bottom - 12} L ${cx + 13} ${bottom - 7} L ${cx} ${bottom - 2} Z" ${knotFill}/>
+    <path d="M ${x + 7} ${cy - 13} L ${x + 2} ${cy} L ${x + 7} ${cy + 13} L ${x + 12} ${cy} Z" ${knotFill}/>
+    <path d="M ${right - 7} ${cy - 13} L ${right - 12} ${cy} L ${right - 7} ${cy + 13} L ${right - 2} ${cy} Z" ${knotFill}/>`
+    : "";
+
+  return `<g aria-hidden="true" pointer-events="none">
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rx}" fill="none" stroke="#2a2114" stroke-opacity="0.72" stroke-width="4"/>
+    <rect x="${x + 2}" y="${y + 2}" width="${width - 4}" height="${height - 4}" rx="${Math.max(4, rx - 2)}" fill="none" stroke="#d8c078" stroke-opacity="${opacity}" stroke-width="1.4"/>
+    <rect x="${x + 9}" y="${y + 9}" width="${width - 18}" height="${height - 18}" rx="${innerRx}" fill="none" stroke="#f6edcf" stroke-opacity="${Math.max(0.14, opacity - 0.44)}" stroke-width="1"/>
+    <path d="M ${x + corner} ${y + 14} H ${x + 29} Q ${x + 14} ${y + 14} ${x + 14} ${y + 29} V ${y + corner}" ${cornerStroke}/>
+    <path d="M ${right - corner} ${y + 14} H ${right - 29} Q ${right - 14} ${y + 14} ${right - 14} ${y + 29} V ${y + corner}" ${cornerStroke}/>
+    <path d="M ${x + corner} ${bottom - 14} H ${x + 29} Q ${x + 14} ${bottom - 14} ${x + 14} ${bottom - 29} V ${bottom - corner}" ${cornerStroke}/>
+    <path d="M ${right - corner} ${bottom - 14} H ${right - 29} Q ${right - 14} ${bottom - 14} ${right - 14} ${bottom - 29} V ${bottom - corner}" ${cornerStroke}/>
+    <path d="M ${x + 31} ${y + 31} H ${x + corner - 14} M ${x + 31} ${y + 31} V ${y + corner - 14}" ${fineStroke}/>
+    <path d="M ${right - 31} ${y + 31} H ${right - corner + 14} M ${right - 31} ${y + 31} V ${y + corner - 14}" ${fineStroke}/>
+    <path d="M ${x + 31} ${bottom - 31} H ${x + corner - 14} M ${x + 31} ${bottom - 31} V ${bottom - corner + 14}" ${fineStroke}/>
+    <path d="M ${right - 31} ${bottom - 31} H ${right - corner + 14} M ${right - 31} ${bottom - 31} V ${bottom - corner + 14}" ${fineStroke}/>
+    ${knots}
+  </g>`;
+}
+
 function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): string {
   const titleLines = titleDisplayLines(scene.title);
   const titleText = titleLines
@@ -1012,11 +1067,13 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <clipPath id="crestClip"><rect x="68" y="61" width="132" height="${crestHeight}" rx="12"/></clipPath>
-    <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.82" filter="url(#scenePanelShadow)"/>
+    <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#scenePanelShadow)"/>
+    ${renderOrnateFrame(42, 42, panelWidth, panelHeight, 22, { cornerSize: 52, opacity: 0.74 })}
     <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
       <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
     </rect>
-    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.62"/>
+    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.12"/>
+    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { cornerSize: 28, opacity: 0.66, centerKnots: false })}
     ${heraldryMark}
     <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">소속 국가</text>
     <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>

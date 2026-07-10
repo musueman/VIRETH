@@ -1,6 +1,12 @@
 import { GENERATED_SCENES } from "./generated-scenes";
 import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
+import {
+  FANTASY_FRAME_CORNER_TL,
+  FANTASY_FRAME_EDGE_H,
+  FANTASY_FRAME_EDGE_V,
+  FANTASY_FRAME_JEWEL_H
+} from "./generated-frame-assets";
 
 type SceneEntry = {
   key: string;
@@ -645,8 +651,8 @@ async function renderRegionMapWideSvg(
     <clipPath id="regionCrestClip"><rect x="772" y="66" width="96" height="124" rx="14"/></clipPath>
   </defs>
   <rect width="1536" height="720" rx="0" fill="url(#mapBg)"/>
-  <rect x="40" y="28" width="1456" height="664" rx="26" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(40, 28, 1456, 664, 26, { cornerSize: 54, opacity: 0.62 })}
+  <rect x="0" y="0" width="1536" height="720" rx="0" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
+  ${renderOrnateFrame(0, 0, 1536, 720, 0, { sliceSize: 28, opacity: 0.72 })}
   <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#mapPanelShadow)"/>
   <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18"/>
@@ -720,8 +726,8 @@ async function renderRegionMapMobileSvg(
     <clipPath id="mobileCrestClip"><rect x="64" y="858" width="86" height="110" rx="13"/></clipPath>
   </defs>
   <rect width="864" height="1740" fill="url(#mapBg)"/>
-  <rect x="20" y="20" width="824" height="1700" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(20, 20, 824, 1700, 30, { cornerSize: 54, opacity: 0.62 })}
+  <rect x="0" y="0" width="864" height="1740" rx="0" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
+  ${renderOrnateFrame(0, 0, 864, 1740, 0, { sliceSize: 28, opacity: 0.72 })}
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
@@ -988,9 +994,8 @@ function truncateDisplay(value: string, maxLength: number): string {
 }
 
 type OrnateFrameOptions = {
-  cornerSize?: number;
   opacity?: number;
-  centerKnots?: boolean;
+  sliceSize?: number;
   variant?: "primary" | "secondary";
 };
 
@@ -1003,80 +1008,37 @@ function renderOrnateFrame(
   options: OrnateFrameOptions = {}
 ): string {
   const variant = options.variant ?? "primary";
-  const corner = Math.min(options.cornerSize ?? 44, Math.floor(Math.min(width, height) / 2) - 18);
   const opacity = options.opacity ?? 0.68;
-  const centerKnots = options.centerKnots ?? variant === "primary";
-  const outerInset = 3;
-  const railInset = 12;
-  const innerInset = 18;
-  const right = x + width;
-  const bottom = y + height;
-  const outerLeft = x + outerInset;
-  const outerTop = y + outerInset;
-  const outerRight = right - outerInset;
-  const outerBottom = bottom - outerInset;
-  const railLeft = x + railInset;
-  const railTop = y + railInset;
-  const railRight = right - railInset;
-  const railBottom = bottom - railInset;
-  const innerLeft = x + innerInset;
-  const innerTop = y + innerInset;
-  const innerRight = right - innerInset;
-  const innerBottom = bottom - innerInset;
-  const cx = x + width / 2;
-  const cy = y + height / 2;
-  const centerGap = 44;
-  const railCornerEndX = railLeft + corner;
-  const railCornerStartRightX = railRight - corner;
-  const railCornerEndY = railTop + corner;
-  const railCornerStartBottomY = railBottom - corner;
-
-  const darkStroke = `stroke="#2a2114" stroke-opacity="0.82" stroke-width="4" fill="none"`;
-  const mainStroke = `stroke="#d8c078" stroke-opacity="${opacity}" stroke-width="1.6" fill="none"`;
-  const railStroke = `stroke="#c8b16a" stroke-opacity="${Math.max(0.3, opacity - 0.12)}" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
-  const fineStroke = `stroke="#f6edcf" stroke-opacity="${Math.max(0.16, opacity - 0.34)}" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" fill="none"`;
-  const shadowFill = `fill="#1a130b" fill-opacity="${Math.max(0.34, opacity - 0.28)}"`;
-  const knotFill = `fill="#c8b16a" fill-opacity="${Math.max(0.32, opacity - 0.16)}"`;
-
-  if (variant === "secondary") {
-    const tick = Math.max(18, Math.min(corner, 32));
-    return `<g aria-hidden="true" pointer-events="none">
-      <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${darkStroke}/>
-      <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${mainStroke}/>
-      <rect x="${innerLeft}" y="${innerTop}" width="${width - innerInset * 2}" height="${height - innerInset * 2}" rx="${Math.max(4, rx - innerInset + 4)}" ${fineStroke}/>
-      <path d="M ${innerLeft + tick} ${innerTop} H ${innerLeft} V ${innerTop + tick}" ${railStroke}/>
-      <path d="M ${innerRight - tick} ${innerTop} H ${innerRight} V ${innerTop + tick}" ${railStroke}/>
-      <path d="M ${innerLeft + tick} ${innerBottom} H ${innerLeft} V ${innerBottom - tick}" ${railStroke}/>
-      <path d="M ${innerRight - tick} ${innerBottom} H ${innerRight} V ${innerBottom - tick}" ${railStroke}/>
-    </g>`;
-  }
-
-  const knots = centerKnots
-    ? `<g>
-      <path d="M ${cx - 17} ${railTop} L ${cx} ${railTop - 5} L ${cx + 17} ${railTop} L ${cx} ${railTop + 5} Z" ${shadowFill}/>
-      <path d="M ${cx - 12} ${railTop} L ${cx} ${railTop - 3} L ${cx + 12} ${railTop} L ${cx} ${railTop + 3} Z" ${knotFill}/>
-      <path d="M ${cx - 17} ${railBottom} L ${cx} ${railBottom - 5} L ${cx + 17} ${railBottom} L ${cx} ${railBottom + 5} Z" ${shadowFill}/>
-      <path d="M ${cx - 12} ${railBottom} L ${cx} ${railBottom - 3} L ${cx + 12} ${railBottom} L ${cx} ${railBottom + 3} Z" ${knotFill}/>
-    </g>`
-    : "";
+  const slice = options.sliceSize ?? (variant === "secondary" ? 20 : 28);
+  const safeSlice = Math.max(10, Math.min(slice, Math.floor(Math.min(width, height) / 2)));
+  const middleWidth = Math.max(0, width - safeSlice * 2);
+  const middleHeight = Math.max(0, height - safeSlice * 2);
+  const rxValue = variant === "primary" ? 0 : Math.max(0, rx);
+  const strokeWidth = variant === "primary" ? 3 : 2;
+  const jewelWidth =
+    variant === "primary" && width >= 320 && height >= 180
+      ? Math.min(96, Math.max(72, width * 0.08), width - safeSlice * 2 - 24)
+      : 0;
+  const jewelHeight = Math.round(jewelWidth / 4);
+  const jewelX = x + (width - jewelWidth) / 2;
+  const jewelOpacity = Math.min(0.96, opacity + 0.1);
+  const jewels =
+    jewelWidth > 0
+      ? `<image href="${FANTASY_FRAME_JEWEL_H}" x="${jewelX}" y="${y}" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/>
+    <g transform="translate(${x + width} ${y + height}) scale(-1 -1)"><image href="${FANTASY_FRAME_JEWEL_H}" x="${(width - jewelWidth) / 2}" y="0" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/></g>`
+      : "";
 
   return `<g aria-hidden="true" pointer-events="none">
-    <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${darkStroke}/>
-    <rect x="${outerLeft}" y="${outerTop}" width="${width - outerInset * 2}" height="${height - outerInset * 2}" rx="${Math.max(4, rx - outerInset)}" ${mainStroke}/>
-    <rect x="${innerLeft}" y="${innerTop}" width="${width - innerInset * 2}" height="${height - innerInset * 2}" rx="${Math.max(4, rx - innerInset + 4)}" ${fineStroke}/>
-    <path d="M ${railCornerEndX} ${railTop} H ${cx - centerGap} M ${cx + centerGap} ${railTop} H ${railCornerStartRightX}" ${railStroke}/>
-    <path d="M ${railCornerEndX} ${railBottom} H ${cx - centerGap} M ${cx + centerGap} ${railBottom} H ${railCornerStartRightX}" ${railStroke}/>
-    <path d="M ${railLeft} ${railCornerEndY} V ${railCornerStartBottomY}" ${railStroke}/>
-    <path d="M ${railRight} ${railCornerEndY} V ${railCornerStartBottomY}" ${railStroke}/>
-    <path d="M ${railCornerEndX} ${railTop} H ${railLeft + 26} Q ${railLeft} ${railTop} ${railLeft} ${railTop + 26} V ${railCornerEndY}" ${railStroke}/>
-    <path d="M ${railCornerStartRightX} ${railTop} H ${railRight - 26} Q ${railRight} ${railTop} ${railRight} ${railTop + 26} V ${railCornerEndY}" ${railStroke}/>
-    <path d="M ${railCornerEndX} ${railBottom} H ${railLeft + 26} Q ${railLeft} ${railBottom} ${railLeft} ${railBottom - 26} V ${railCornerStartBottomY}" ${railStroke}/>
-    <path d="M ${railCornerStartRightX} ${railBottom} H ${railRight - 26} Q ${railRight} ${railBottom} ${railRight} ${railBottom - 26} V ${railCornerStartBottomY}" ${railStroke}/>
-    <path d="M ${innerLeft + 11} ${innerTop + 11} H ${innerLeft + corner - 10} M ${innerLeft + 11} ${innerTop + 11} V ${innerTop + corner - 10}" ${fineStroke}/>
-    <path d="M ${innerRight - 11} ${innerTop + 11} H ${innerRight - corner + 10} M ${innerRight - 11} ${innerTop + 11} V ${innerTop + corner - 10}" ${fineStroke}/>
-    <path d="M ${innerLeft + 11} ${innerBottom - 11} H ${innerLeft + corner - 10} M ${innerLeft + 11} ${innerBottom - 11} V ${innerBottom - corner + 10}" ${fineStroke}/>
-    <path d="M ${innerRight - 11} ${innerBottom - 11} H ${innerRight - corner + 10} M ${innerRight - 11} ${innerBottom - 11} V ${innerBottom - corner + 10}" ${fineStroke}/>
-    ${knots}
+    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rxValue}" fill="none" stroke="#2a2114" stroke-opacity="${Math.min(0.78, opacity + 0.16)}" stroke-width="${strokeWidth}"/>
+    <image href="${FANTASY_FRAME_EDGE_H}" x="${x + safeSlice}" y="${y}" width="${middleWidth}" height="${safeSlice}" preserveAspectRatio="none" opacity="${opacity}"/>
+    <image href="${FANTASY_FRAME_CORNER_TL}" x="${x}" y="${y}" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/>
+    <g transform="translate(${x + width} ${y}) scale(-1 1)"><image href="${FANTASY_FRAME_CORNER_TL}" x="0" y="0" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/></g>
+    <g transform="translate(${x} ${y + height}) scale(1 -1)"><image href="${FANTASY_FRAME_CORNER_TL}" x="0" y="0" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/></g>
+    <g transform="translate(${x + width} ${y + height}) scale(-1 -1)"><image href="${FANTASY_FRAME_CORNER_TL}" x="0" y="0" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/></g>
+    <g transform="translate(${x} ${y + height}) scale(1 -1)"><image href="${FANTASY_FRAME_EDGE_H}" x="${safeSlice}" y="0" width="${middleWidth}" height="${safeSlice}" preserveAspectRatio="none" opacity="${opacity}"/></g>
+    <image href="${FANTASY_FRAME_EDGE_V}" x="${x}" y="${y + safeSlice}" width="${safeSlice}" height="${middleHeight}" preserveAspectRatio="none" opacity="${opacity}"/>
+    <g transform="translate(${x + width} ${y}) scale(-1 1)"><image href="${FANTASY_FRAME_EDGE_V}" x="0" y="${safeSlice}" width="${safeSlice}" height="${middleHeight}" preserveAspectRatio="none" opacity="${opacity}"/></g>
+    ${jewels}
   </g>`;
 }
 
@@ -1093,7 +1055,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const kindLabel = sceneKindLabel(scene.kind);
   const escapedKindLabel = escapeXml(kindLabel);
   const panelHeight = 650;
-  const panelWidth = 690;
+  const panelWidth = 640;
   const crestFrameHeight = 234;
   const crestHeight = 210;
   const kindY = titleLines.length === 1 ? 206 : 218;
@@ -1107,13 +1069,13 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <clipPath id="crestClip"><rect x="68" y="61" width="132" height="${crestHeight}" rx="12"/></clipPath>
-    <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#scenePanelShadow)"/>
-    ${renderOrnateFrame(42, 42, panelWidth, panelHeight, 22, { cornerSize: 52, opacity: 0.74 })}
-    <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
+    <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#scenePanelShadow)"/>
+    ${renderOrnateFrame(0, 0, panelWidth, panelHeight, 0, { sliceSize: 28, opacity: 0.78 })}
+    <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
       <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
     </rect>
     <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.12"/>
-    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { cornerSize: 28, opacity: 0.58, variant: "secondary" })}
+    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { sliceSize: 20, opacity: 0.58, variant: "secondary" })}
     ${heraldryMark}
     <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">소속 국가</text>
     <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>

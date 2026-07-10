@@ -652,7 +652,7 @@ async function renderRegionMapWideSvg(
   </defs>
   <rect width="1536" height="720" rx="0" fill="url(#mapBg)"/>
   <rect x="0" y="0" width="1536" height="720" rx="0" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(0, 0, 1536, 720, 0, { sliceSize: 28, opacity: 0.72 })}
+  ${renderOrnateFrame(0, 0, 1536, 720, 0, { sliceSize: 44, opacity: 0.78 })}
   <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#mapPanelShadow)"/>
   <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18"/>
@@ -727,7 +727,7 @@ async function renderRegionMapMobileSvg(
   </defs>
   <rect width="864" height="1740" fill="url(#mapBg)"/>
   <rect x="0" y="0" width="864" height="1740" rx="0" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(0, 0, 864, 1740, 0, { sliceSize: 28, opacity: 0.72 })}
+  ${renderOrnateFrame(0, 0, 864, 1740, 0, { sliceSize: 42, opacity: 0.78 })}
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
@@ -996,6 +996,7 @@ function truncateDisplay(value: string, maxLength: number): string {
 type OrnateFrameOptions = {
   opacity?: number;
   sliceSize?: number;
+  jewelPlacement?: "both" | "top" | "none";
   variant?: "primary" | "secondary";
 };
 
@@ -1009,7 +1010,7 @@ function renderOrnateFrame(
 ): string {
   const variant = options.variant ?? "primary";
   const opacity = options.opacity ?? 0.68;
-  const slice = options.sliceSize ?? (variant === "secondary" ? 20 : 28);
+  const slice = options.sliceSize ?? (variant === "secondary" ? 28 : 44);
   const safeSlice = Math.max(10, Math.min(slice, Math.floor(Math.min(width, height) / 2)));
   const middleWidth = Math.max(0, width - safeSlice * 2);
   const middleHeight = Math.max(0, height - safeSlice * 2);
@@ -1017,15 +1018,20 @@ function renderOrnateFrame(
   const strokeWidth = variant === "primary" ? 3 : 2;
   const jewelWidth =
     variant === "primary" && width >= 320 && height >= 180
-      ? Math.min(96, Math.max(72, width * 0.08), width - safeSlice * 2 - 24)
+      ? Math.min(220, Math.max(160, width * 0.18), width - safeSlice * 2 - 32)
       : 0;
-  const jewelHeight = Math.round(jewelWidth / 4);
+  const jewelHeight = Math.round(jewelWidth * 0.3);
   const jewelX = x + (width - jewelWidth) / 2;
   const jewelOpacity = Math.min(0.96, opacity + 0.1);
+  const jewelPlacement = options.jewelPlacement ?? "both";
   const jewels =
-    jewelWidth > 0
+    jewelWidth > 0 && jewelPlacement !== "none"
       ? `<image href="${FANTASY_FRAME_JEWEL_H}" x="${jewelX}" y="${y}" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/>
-    <g transform="translate(${x + width} ${y + height}) scale(-1 -1)"><image href="${FANTASY_FRAME_JEWEL_H}" x="${(width - jewelWidth) / 2}" y="0" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/></g>`
+    ${
+      jewelPlacement === "both"
+        ? `<g transform="translate(${x + width} ${y + height}) scale(-1 -1)"><image href="${FANTASY_FRAME_JEWEL_H}" x="${(width - jewelWidth) / 2}" y="0" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/></g>`
+        : ""
+    }`
       : "";
 
   return `<g aria-hidden="true" pointer-events="none">
@@ -1070,12 +1076,12 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <clipPath id="crestClip"><rect x="68" y="61" width="132" height="${crestHeight}" rx="12"/></clipPath>
     <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#scenePanelShadow)"/>
-    ${renderOrnateFrame(0, 0, panelWidth, panelHeight, 0, { sliceSize: 28, opacity: 0.78 })}
+    ${renderOrnateFrame(0, 0, panelWidth, panelHeight, 0, { sliceSize: 48, opacity: 0.82, jewelPlacement: "top" })}
     <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
       <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
     </rect>
     <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.12"/>
-    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { sliceSize: 20, opacity: 0.58, variant: "secondary" })}
+    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { sliceSize: 30, opacity: 0.66, variant: "secondary" })}
     ${heraldryMark}
     <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">소속 국가</text>
     <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>

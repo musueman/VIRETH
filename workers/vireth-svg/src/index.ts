@@ -595,6 +595,7 @@ async function renderRegionMapWideSvg(
   const places = regionMapPlaces(map.key);
   const currentPlace = resolveCurrentMapPlace(url, map, env);
   const legend = renderRegionMapLegend(places, currentPlace);
+  const placeMarkers = renderMapPointMarkers(places, currentPlace);
   const currentMarker = renderCurrentPlaceMarker(currentPlace);
   const regionSentence =
     currentPlace
@@ -648,6 +649,7 @@ async function renderRegionMapWideSvg(
   <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.34" filter="url(#mapPanelShadow)"/>
   <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.62"/>
+  ${placeMarkers}
   ${currentMarker}
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     ${header}
@@ -667,6 +669,7 @@ async function renderRegionMapMobileSvg(
   const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
   const places = regionMapPlaces(map.key);
   const currentPlace = resolveCurrentMapPlace(url, map, env);
+  const placeMarkers = renderMapPointMarkers(places, currentPlace, 48, 48, 768);
   const currentMarker = renderCurrentPlaceMarker(currentPlace, 48, 48, 768);
   const legend = renderRegionMapMobileLegend(places, currentPlace);
   const sentence = currentPlace
@@ -719,6 +722,7 @@ async function renderRegionMapMobileSvg(
   <rect x="20" y="20" width="824" height="1620" rx="30" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.42"/>
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.58"/>
+  ${placeMarkers}
   ${currentMarker}
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     ${header}
@@ -757,7 +761,6 @@ function renderRegionMapHeader(
       <text x="902" y="148" fill="#f6edcf" font-size="40" font-weight="850">거점 지도</text>
       <text x="902" y="188" fill="#d9e4f2" font-size="22" font-weight="700">${escapedSentence}</text>
       <text x="772" y="246" fill="#f6edcf" font-size="27" font-weight="850">거점 목록</text>
-      <text x="898" y="245" fill="#9fb0c2" font-size="17" font-weight="700">위에서 아래, 같은 줄은 오른쪽부터</text>
       <line x1="772" y1="268" x2="1324" y2="268" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
     </g>`;
 }
@@ -784,8 +787,50 @@ function renderRegionMapMobileHeader(
       <text x="190" y="976" fill="#d9e4f2" font-size="22" font-weight="750">${escapedSentence}</text>
       <line x1="58" y1="1024" x2="806" y2="1024" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
       <text x="64" y="1060" fill="#f6edcf" font-size="28" font-weight="900">거점 목록</text>
-      <text x="206" y="1058" fill="#9fb0c2" font-size="17" font-weight="700">위에서 아래로 정렬</text>
     </g>`;
+}
+
+function renderMapPointMarkers(
+  places: RegionMapPlaceEntry[],
+  currentPlace: RegionMapPlaceEntry | null,
+  mapX = 64,
+  mapY = 40,
+  mapSize = 640
+): string {
+  const placed: Array<{ x: number; y: number }> = [];
+
+  return places
+    .map((place) => {
+      const baseX = mapX + (place.mapXPct / 100) * mapSize;
+      const baseY = mapY + (place.mapYPct / 100) * mapSize;
+      let x = baseX;
+      let y = baseY;
+      let attempt = 0;
+
+      while (
+        placed.some((marker) => Math.hypot(marker.x - x, marker.y - y) < 32) &&
+        attempt < 4
+      ) {
+        attempt += 1;
+        const direction = place.order % 2 === 0 ? 1 : -1;
+        x = Math.min(Math.max(baseX + direction * 18 * attempt, mapX + 20), mapX + mapSize - 20);
+        y = Math.min(Math.max(baseY + (attempt % 2 === 0 ? 12 : -12), mapY + 20), mapY + mapSize - 20);
+      }
+      placed.push({ x, y });
+
+      const current = isSameMapPlace(place, currentPlace);
+      const radius = current ? 17 : 14;
+      const fill = current ? "#f59e0b" : "#07111f";
+      const stroke = current ? "#f6edcf" : "#d8c078";
+      const textFill = current ? "#07111f" : "#f6edcf";
+      const order = String(place.order).padStart(2, "0");
+
+      return `<g aria-label="${escapeXml(order)} ${escapeXml(place.title)}">
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${radius}" fill="${fill}" fill-opacity="0.86" stroke="${stroke}" stroke-opacity="0.92" stroke-width="3"/>
+      <text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" fill="${textFill}" font-size="13" font-weight="900">${order}</text>
+    </g>`;
+    })
+    .join("\n  ");
 }
 
 function renderCurrentPlaceMarker(
@@ -803,6 +848,7 @@ function renderCurrentPlaceMarker(
   const labelX = Math.min(Math.max(x - 78, mapX + 24), mapX + mapSize - 176);
   const labelY = y > 140 ? y - 80 : y + 42;
   const lineEndY = labelY > y ? y + 26 : y - 28;
+  const order = String(place.order).padStart(2, "0");
 
   return `<g aria-label="현재 위치" filter="url(#markerGlow)">
     <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="48" fill="#f59e0b" fill-opacity="0.12">
@@ -814,6 +860,7 @@ function renderCurrentPlaceMarker(
       <animate attributeName="stroke-width" values="4;7;4" dur="1.8s" repeatCount="indefinite"/>
     </circle>
     <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="15" fill="#f59e0b" stroke="#07111f" stroke-width="5"/>
+    <text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" fill="#07111f" font-size="13" font-weight="900">${order}</text>
     <path d="M ${x.toFixed(1)} ${(y - 34).toFixed(1)} L ${(x - 14).toFixed(1)} ${(y - 10).toFixed(
       1
     )} L ${(x + 14).toFixed(1)} ${(y - 10).toFixed(1)} Z" fill="#f6edcf" fill-opacity="0.92"/>
@@ -889,7 +936,7 @@ function renderRegionMapMobileLegend(
 
   const startX = 64;
   const startY = 1110;
-  const rowHeight = places.length > 14 ? 28 : 32;
+  const rowHeight = places.length > 14 ? 32 : 38;
   const boxWidth = 736;
 
   return places
@@ -899,11 +946,11 @@ function renderRegionMapMobileLegend(
       const title = escapeXml(truncateDisplay(place.title, 25));
       const current = isSameMapPlace(place, currentPlace);
       const highlight = current
-        ? `<rect x="${startX - 16}" y="${y - 24}" width="${boxWidth}" height="34" rx="11" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
+        ? `<rect x="${startX - 16}" y="${y - 27}" width="${boxWidth}" height="40" rx="12" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
         <animate attributeName="fill-opacity" values="0.54;0.9;0.54" dur="2.1s" repeatCount="indefinite"/>
         <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.1s" repeatCount="indefinite"/>
       </rect>
-      <rect x="${startX - 16}" y="${y - 24}" width="7" height="34" rx="4" fill="#f59e0b">
+      <rect x="${startX - 16}" y="${y - 27}" width="7" height="40" rx="4" fill="#f59e0b">
         <animate attributeName="opacity" values="0.55;1;0.55" dur="1.8s" repeatCount="indefinite"/>
       </rect>
       <rect x="${startX + boxWidth - 78}" y="${y - 19}" width="58" height="22" rx="9" fill="url(#currentBadge)" fill-opacity="0.95">
@@ -950,8 +997,8 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const escapedRealmLabel = escapeXml(realmLabel);
   const kindLabel = sceneKindLabel(scene.kind);
   const escapedKindLabel = escapeXml(kindLabel);
-  const panelHeight = 620;
-  const panelWidth = overlayPanelWidth([...titleLines, realmLabel, kindLabel, scene.key]);
+  const panelHeight = 650;
+  const panelWidth = 690;
   const crestFrameHeight = 234;
   const crestHeight = 210;
   const kindY = titleLines.length === 1 ? 206 : 218;
@@ -971,7 +1018,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
     </rect>
     <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.6" stroke="#d8c078" stroke-opacity="0.62"/>
     ${heraldryMark}
-    <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">등록 국가</text>
+    <text x="232" y="86" fill="#9fb0c2" font-size="18" font-weight="850">소속 국가</text>
     <text x="322" y="86" fill="#d9e4f2" font-size="21" font-weight="850">${escapedRealmLabel.replace("국가: ", "")}</text>
     ${titleText}
     <line x1="232" y1="${kindY - 36}" x2="${Math.min(panelWidth - 34, 620)}" y2="${kindY - 36}" stroke="#c8b16a" stroke-opacity="0.32" stroke-width="2"/>
@@ -981,7 +1028,6 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
     </rect>
     <text x="250" y="${kindY + 2}" fill="#f6edcf" font-size="20" font-weight="800">${escapedKindLabel}</text>
     <text x="74" y="332" fill="#f6edcf" font-size="24" font-weight="900">장소 정보</text>
-    <text x="190" y="331" fill="#9fb0c2" font-size="16" font-weight="700">여행자가 눈앞에서 확인할 수 있는 것</text>
     <line x1="74" y1="352" x2="${panelWidth - 60}" y2="352" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
     ${dbSummary}
   </g>`;
@@ -990,7 +1036,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
 function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: number): string {
   const dbX = 74;
   const dbY = 388;
-  const rowGap = 42;
+  const rowGap = 52;
   const labelX = dbX;
   const valueX = dbX + 140;
   const scaleLabel = sceneScaleLabel(scene.kind);
@@ -1006,13 +1052,13 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
   const rowText = rows
     .map(([label, value], index) => {
       const y = dbY + index * rowGap;
-      const displayValue = truncateDisplay(value, 28);
+      const wrappedValue = renderWrappedSvgText(value, valueX, y, 24, 2, 19);
       const divider =
         index < rows.length - 1
-          ? `<line x1="${labelX}" y1="${y + 17}" x2="${panelWidth - 60}" y2="${y + 17}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
+          ? `<line x1="${labelX}" y1="${y + 28}" x2="${panelWidth - 60}" y2="${y + 28}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
           : "";
       return `<text x="${labelX}" y="${y}" fill="#9fb0c2" font-size="17" font-weight="800">${escapeXml(label)}</text>
-      <text x="${valueX}" y="${y}" fill="#e7edf6" font-size="19" font-weight="760">${escapeXml(displayValue)}</text>
+      ${wrappedValue}
       ${divider}`;
     })
     .join("\n      ");
@@ -1020,6 +1066,56 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
   return `<g>
       ${rowText}
     </g>`;
+}
+
+function renderWrappedSvgText(
+  value: string,
+  x: number,
+  y: number,
+  maxDisplayLength: number,
+  maxLines: number,
+  fontSize: number
+): string {
+  const lines = wrapDisplayText(value, maxDisplayLength, maxLines);
+  const tspans = lines
+    .map((line, index) => {
+      const dy = index === 0 ? 0 : fontSize + 4;
+      return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`;
+    })
+    .join("");
+  return `<text x="${x}" y="${y}" fill="#e7edf6" font-size="${fontSize}" font-weight="760">${tspans}</text>`;
+}
+
+function wrapDisplayText(value: string, maxDisplayLength: number, maxLines: number): string[] {
+  const chars = Array.from(value);
+  const lines: string[] = [];
+  let current = "";
+
+  for (const char of chars) {
+    if (displayLength(`${current}${char}`) > maxDisplayLength && current) {
+      lines.push(current);
+      current = char;
+      if (lines.length === maxLines - 1) {
+        break;
+      }
+    } else {
+      current += char;
+    }
+  }
+
+  const consumed = lines.join("").length + current.length;
+  const remainder = chars.slice(consumed).join("");
+  if (remainder) {
+    while (displayLength(`${current}…`) > maxDisplayLength && current.length > 0) {
+      current = Array.from(current).slice(0, -1).join("");
+    }
+    current = `${current}…`;
+  }
+
+  if (current) {
+    lines.push(current);
+  }
+  return lines.slice(0, maxLines);
 }
 
 function sceneKindLabel(kind: SceneEntry["kind"]): string {

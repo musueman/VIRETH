@@ -690,8 +690,14 @@ function renderCurrentPlaceMarker(place: RegionMapPlaceEntry | null): string {
   const lineEndY = labelY > y ? y + 26 : y - 28;
 
   return `<g aria-label="현재 위치" filter="url(#markerGlow)">
-    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="48" fill="#f59e0b" fill-opacity="0.12"/>
-    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="31" fill="none" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="5"/>
+    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="48" fill="#f59e0b" fill-opacity="0.12">
+      <animate attributeName="r" values="38;62;38" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="fill-opacity" values="0.08;0.24;0.08" dur="2.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="31" fill="none" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="5">
+      <animate attributeName="stroke-opacity" values="0.58;1;0.58" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="4;7;4" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
     <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="15" fill="#f59e0b" stroke="#07111f" stroke-width="5"/>
     <path d="M ${x.toFixed(1)} ${(y - 34).toFixed(1)} L ${(x - 14).toFixed(1)} ${(y - 10).toFixed(
       1
@@ -699,7 +705,9 @@ function renderCurrentPlaceMarker(place: RegionMapPlaceEntry | null): string {
     <line x1="${x.toFixed(1)}" y1="${lineEndY.toFixed(1)}" x2="${(labelX + 76).toFixed(
       1
     )}" y2="${(labelY + 16).toFixed(1)}" stroke="#f6edcf" stroke-opacity="0.82" stroke-width="3"/>
-    <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="152" height="38" rx="12" fill="#07111f" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="2"/>
+    <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="152" height="38" rx="12" fill="#07111f" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.4s" repeatCount="indefinite"/>
+    </rect>
     <text x="${(labelX + 76).toFixed(1)}" y="${(labelY + 26).toFixed(
       1
     )}" text-anchor="middle" fill="#f6edcf" font-size="20" font-weight="850">현재 위치</text>
@@ -732,9 +740,16 @@ function renderRegionMapLegend(
       const current = isSameMapPlace(place, currentPlace);
       const boxWidth = columns === 2 ? 300 : 560;
       const highlight = current
-        ? `<rect x="${x - 18}" y="${y - 31}" width="${boxWidth}" height="44" rx="13" fill="url(#currentBox)" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)"/>
-      <rect x="${x - 18}" y="${y - 31}" width="7" height="44" rx="4" fill="#f59e0b"/>
-      <rect x="${x + boxWidth - 78}" y="${y - 23}" width="58" height="24" rx="9" fill="url(#currentBadge)" fill-opacity="0.95"/>
+        ? `<rect x="${x - 18}" y="${y - 31}" width="${boxWidth}" height="44" rx="13" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
+        <animate attributeName="fill-opacity" values="0.54;0.9;0.54" dur="2.1s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.1s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="${x - 18}" y="${y - 31}" width="7" height="44" rx="4" fill="#f59e0b">
+        <animate attributeName="opacity" values="0.55;1;0.55" dur="1.8s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="${x + boxWidth - 78}" y="${y - 23}" width="58" height="24" rx="9" fill="url(#currentBadge)" fill-opacity="0.95">
+        <animate attributeName="fill-opacity" values="0.78;1;0.78" dur="1.8s" repeatCount="indefinite"/>
+      </rect>
       <text x="${x + boxWidth - 49}" y="${y - 6}" text-anchor="middle" fill="#07111f" font-size="14" font-weight="900">현재</text>`
         : "";
       const orderFill = current ? "#f6edcf" : "#f6edcf";
@@ -777,12 +792,14 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const escapedRealmLabel = escapeXml(realmLabel);
   const kindLabel = sceneKindLabel(scene.kind);
   const escapedKindLabel = escapeXml(kindLabel);
-  const panelHeight = 252;
-  const panelWidth = overlayPanelWidth([...titleLines, realmLabel, kindLabel]);
-  const crestHeight = panelHeight - 38;
+  const panelHeight = 464;
+  const panelWidth = overlayPanelWidth([...titleLines, realmLabel, kindLabel, scene.key]);
+  const crestFrameHeight = 226;
+  const crestHeight = 202;
   const metaWidth = Math.max(180, Math.ceil(52 + displayLength(realmLabel) * 16));
   const kindY = titleLines.length === 1 ? 206 : 218;
   const kindWidth = Math.max(128, Math.ceil(46 + displayLength(kindLabel) * 16));
+  const dbSummary = renderSceneDbSummary(scene, kindLabel, panelWidth);
   const heraldryMark = heraldryUrl
     ? `<image href="${escapeXml(heraldryUrl)}" x="68" y="61" width="132" height="${crestHeight}" preserveAspectRatio="xMidYMid slice" clip-path="url(#crestClip)"/>`
     : `<text x="134" y="${panelHeight / 2 + 24}" text-anchor="middle" fill="#f6edcf" font-size="34" font-weight="800">${escapeXml(
@@ -792,15 +809,52 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <clipPath id="crestClip"><rect x="68" y="61" width="132" height="${crestHeight}" rx="12"/></clipPath>
     <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.82" filter="url(#scenePanelShadow)"/>
-    <rect x="58" y="54" width="152" height="${panelHeight - 24}" rx="18" fill="#050b14" fill-opacity="0.62" stroke="#d8c078" stroke-opacity="0.7"/>
+    <rect x="42" y="42" width="${panelWidth}" height="${panelHeight}" rx="22" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
+      <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.62" stroke="#d8c078" stroke-opacity="0.7"/>
     ${heraldryMark}
     <rect x="232" y="66" width="${metaWidth}" height="34" rx="10" fill="#07111f" fill-opacity="0.52" stroke="#9fb0c2" stroke-opacity="0.34"/>
     <text x="250" y="90" fill="#d9e4f2" font-size="20" font-weight="800">${escapedRealmLabel}</text>
     ${titleText}
     <line x1="232" y1="${kindY - 36}" x2="${Math.min(panelWidth - 34, 620)}" y2="${kindY - 36}" stroke="#c8b16a" stroke-opacity="0.32" stroke-width="2"/>
-    <rect x="232" y="${kindY - 22}" width="${kindWidth}" height="34" rx="10" fill="url(#sceneBadge)" stroke="#d8c078" stroke-opacity="0.72"/>
+    <rect x="232" y="${kindY - 22}" width="${kindWidth}" height="34" rx="10" fill="url(#sceneBadge)" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.72">
+      <animate attributeName="fill-opacity" values="0.58;1;0.58" dur="2.2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.56;1;0.56" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
     <text x="250" y="${kindY + 2}" fill="#f6edcf" font-size="20" font-weight="800">${escapedKindLabel}</text>
+    ${dbSummary}
   </g>`;
+}
+
+function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: number): string {
+  const dbX = 74;
+  const dbY = 278;
+  const rowGap = 28;
+  const labelX = dbX + 20;
+  const valueX = dbX + 134;
+  const rows = [
+    ["정본명", scene.title],
+    ["국가", scene.realmName ?? "-"],
+    ["분류", kindLabel],
+    ["호출키", scene.key],
+    ["이미지DB", scene.imageUrl ? "등록됨" : "-"]
+  ];
+  const rowText = rows
+    .map(([label, value], index) => {
+      const y = dbY + 58 + index * rowGap;
+      const displayValue = truncateDisplay(value, 26);
+      return `<text x="${labelX}" y="${y}" fill="#9fb0c2" font-size="17" font-weight="800">${escapeXml(label)}</text>
+      <text x="${valueX}" y="${y}" fill="#e7edf6" font-size="18" font-weight="750">${escapeXml(displayValue)}</text>`;
+    })
+    .join("\n      ");
+
+  return `<g>
+      <rect x="${dbX}" y="${dbY}" width="${panelWidth - 106}" height="182" rx="16" fill="#07111f" fill-opacity="0.58" stroke="#c8b16a" stroke-opacity="0.34"/>
+      <text x="${labelX}" y="${dbY + 30}" fill="#f6edcf" font-size="20" font-weight="850">DB 요약</text>
+      <line x1="${labelX}" y1="${dbY + 40}" x2="${panelWidth - 58}" y2="${dbY + 40}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
+      ${rowText}
+    </g>`;
 }
 
 function sceneKindLabel(kind: SceneEntry["kind"]): string {

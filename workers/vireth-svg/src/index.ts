@@ -980,8 +980,8 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
       <animate attributeName="stroke-opacity" values="0.56;1;0.56" dur="2.2s" repeatCount="indefinite"/>
     </rect>
     <text x="250" y="${kindY + 2}" fill="#f6edcf" font-size="20" font-weight="800">${escapedKindLabel}</text>
-    <text x="74" y="332" fill="#f6edcf" font-size="24" font-weight="900">장소 DB</text>
-    <text x="178" y="331" fill="#9fb0c2" font-size="16" font-weight="700">챗봇 호출 기준 정보</text>
+    <text x="74" y="332" fill="#f6edcf" font-size="24" font-weight="900">장소 정보</text>
+    <text x="190" y="331" fill="#9fb0c2" font-size="16" font-weight="700">여행자가 눈앞에서 확인할 수 있는 것</text>
     <line x1="74" y1="352" x2="${panelWidth - 60}" y2="352" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
     ${dbSummary}
   </g>`;
@@ -993,12 +993,15 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
   const rowGap = 42;
   const labelX = dbX;
   const valueX = dbX + 140;
+  const scaleLabel = sceneScaleLabel(scene.kind);
+  const functionLabel = sceneFunctionLabel(scene);
+  const accessLabel = sceneAccessLabel(scene);
   const rows = [
-    ["정본명", scene.title],
-    ["국가", scene.realmName ?? "-"],
-    ["분류", kindLabel],
-    ["호출키", scene.key],
-    ["이미지DB", scene.imageUrl ? "등록됨" : "-"]
+    ["규모", scaleLabel],
+    ["소속", scene.realmName ?? "-"],
+    ["성격", kindLabel],
+    ["주요 기능", functionLabel],
+    ["갈 수 있는 곳", accessLabel]
   ];
   const rowText = rows
     .map(([label, value], index) => {
@@ -1030,6 +1033,72 @@ function sceneKindLabel(kind: SceneEntry["kind"]): string {
     return "시설/거점";
   }
   return "개요";
+}
+
+function sceneScaleLabel(kind: SceneEntry["kind"]): string {
+  if (kind === "city") {
+    return "도시급 거점";
+  }
+  if (kind === "village") {
+    return "마을급 생활권";
+  }
+  if (kind === "facility") {
+    return "단일 시설";
+  }
+  return "광역 개요";
+}
+
+function sceneFunctionLabel(scene: SceneEntry): string {
+  const title = scene.title;
+  const caption = scene.caption;
+  const text = `${title} ${caption}`;
+  if (text.includes("성문") || text.includes("검문") || text.includes("레이븐스톤")) {
+    return "검문·통행·장부 확인";
+  }
+  if (text.includes("항") || text.includes("부두") || text.includes("항구")) {
+    return "선박·화물·항만세";
+  }
+  if (text.includes("신전") || text.includes("사원") || text.includes("성소")) {
+    return "의례·중재·봉납";
+  }
+  if (text.includes("시장") || text.includes("상단")) {
+    return "거래·소문·소개";
+  }
+  if (scene.kind === "city") {
+    return "행정·거래·숙박";
+  }
+  if (scene.kind === "village") {
+    return "생활·숙박·소규모 거래";
+  }
+  if (scene.kind === "facility") {
+    return "출입·대기·절차";
+  }
+  return "권역 확인";
+}
+
+function sceneAccessLabel(scene: SceneEntry): string {
+  const title = scene.title;
+  const caption = scene.caption;
+  const text = `${title} ${caption}`;
+  if (text.includes("성문") || text.includes("검문") || text.includes("레이븐스톤")) {
+    return "성문·검문대·장터·여관";
+  }
+  if (text.includes("항") || text.includes("부두") || text.includes("항구")) {
+    return "부두·창고·선원 숙소";
+  }
+  if (text.includes("신전") || text.includes("사원") || text.includes("성소")) {
+    return "예배당·봉납소·중재실";
+  }
+  if (scene.kind === "city") {
+    return "성문·시장·관청·숙소";
+  }
+  if (scene.kind === "village") {
+    return "우물·장터·숙소·농지";
+  }
+  if (scene.kind === "facility") {
+    return "입구·대기열·담당 창구";
+  }
+  return "대표 거점·주요 길";
 }
 
 function titleDisplayLines(title: string): string[] {

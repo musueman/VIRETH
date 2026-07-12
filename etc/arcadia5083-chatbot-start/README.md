@@ -1,6 +1,6 @@
 # 비레스 5083
 
-<img src="./ck5083-free-traveler-start-webtoon-v1.png" alt="비레스 5083 자유 여행자 시작상황 웹툰" width="900">
+<img src="./ck5083-free-traveler-start-webtoon-v1.png" alt="비레스 5083 자유 여행자 시작상황 웹툰" width="750">
 
 비레스의 5083년은 하나의 왕국이나 하나의 전쟁으로만 설명되지 않는다.
 긴 해와 두 달의 조석 아래, 사람들은 왕도와 항만, 성문과 수로, 학당과 창고, 숲길과 등대 사이를 오가며 살아간다.

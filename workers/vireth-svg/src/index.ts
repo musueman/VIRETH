@@ -3,6 +3,7 @@ import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
+import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
 import {
   FANTASY_FRAME_CORNER_TL,
   FANTASY_FRAME_EDGE_H,
@@ -69,11 +70,25 @@ type TalkCharacterEntry = {
 
 type TalkCardEntry = {
   scene: SceneEntry;
+  talkBackground: TalkBackgroundEntry;
   character: TalkCharacterEntry | null;
   speaker: string | null;
   line: string | null;
   placeLabel: string;
   infoLines: string[];
+};
+
+type TalkBackgroundEntry = {
+  key: string;
+  aliases: string[];
+  kind: "city_representative" | "region_default" | "direct" | "scene_fallback";
+  imageUrl: string;
+  regionKey?: string;
+  regionName?: string;
+  cityAlias?: string;
+  bgType?: string;
+  sourceAssetId?: string;
+  priority?: number;
 };
 
 type RandomNpcAsset = {
@@ -291,6 +306,7 @@ const SCENES: SceneEntry[] = [
 const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
 const REGION_MAP_PLACES = GENERATED_REGION_MAP_PLACES as RegionMapPlaceEntry[];
 const RANDOM_NPC_ASSETS = GENERATED_RANDOM_NPC_ASSETS as readonly RandomNpcAsset[];
+const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
 const MAP_PLACE_QUERY_NAMES = [
   "current",
   "currentPlace",
@@ -392,6 +408,7 @@ export default {
     if (
       url.pathname.startsWith("/npc-assets/") ||
       url.pathname.startsWith("/character-assets/") ||
+      url.pathname.startsWith("/talk-background-assets/") ||
       url.pathname.startsWith("/scene-assets/")
     ) {
       return staticAsset(request, env);
@@ -445,6 +462,10 @@ export default {
       return json(resolveTalkCard(url, env));
     }
 
+    if (url.pathname === "/talk-background.json") {
+      return json(resolveTalkBackgroundFromUrl(url, env));
+    }
+
     if (url.pathname === "/scene.json") {
       const scene = resolveScene(url, env);
       return json(scene);
@@ -492,6 +513,11 @@ export default {
         return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
       }
       return assetOrImage(scene.heraldryUrl, request.method, env);
+    }
+
+    if (url.pathname === "/talk-background.webp" || url.pathname === "/talk-background.image") {
+      const background = resolveTalkBackgroundFromUrl(url, env);
+      return assetOrImage(background.imageUrl, request.method, env);
     }
 
     if (url.pathname === "/map.webp" || url.pathname === "/map.image") {
@@ -741,6 +767,7 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const scene = resolveScene(url, env);
   const placeLabel =
     firstQuery(url, ["placeLabel", "place", "city", "region", "장소", "도시", "권역"]) ?? scene.title;
+  const talkBackground = resolveTalkBackground(url, scene, placeLabel, env);
   const character = resolveTalkCharacter(url, speaker, scene);
   const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
   const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
@@ -758,12 +785,125 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
 
   return {
     scene,
+    talkBackground,
     character: resolvedCharacter,
     speaker,
     line,
     placeLabel,
     infoLines
   };
+}
+
+function resolveTalkBackgroundFromUrl(url: URL, env: Env): TalkBackgroundEntry {
+  const direct = firstQuery(url, ["key", "background", "bg", "talkBackground", "talkBg", "bgKey"]);
+  if (direct) {
+    const entry = resolveTalkBackgroundByValue(direct);
+    if (entry) {
+      return entry;
+    }
+  }
+
+  const scene = resolveScene(url, env);
+  const placeLabel =
+    firstQuery(url, ["placeLabel", "place", "city", "region", "?μ냼", "?꾩떆", "沅뚯뿭"]) ?? scene.title;
+  return resolveTalkBackground(url, scene, placeLabel, env);
+}
+
+function resolveTalkBackground(
+  url: URL,
+  scene: SceneEntry,
+  placeLabel: string,
+  env: Env
+): TalkBackgroundEntry {
+  const directImageUrl = firstQuery(url, [
+    "backgroundUrl",
+    "bgUrl",
+    "talkBackgroundUrl",
+    "talkBgUrl"
+  ]);
+  if (directImageUrl) {
+    return {
+      key: "direct-talk-background",
+      aliases: [],
+      kind: "direct",
+      imageUrl: directImageUrl,
+      regionKey: scene.realmKey
+    };
+  }
+
+  const direct = firstQuery(url, ["background", "bg", "talkBackground", "talkBg", "bgKey"]);
+  if (direct) {
+    const entry = resolveTalkBackgroundByValue(direct);
+    if (entry) {
+      return entry;
+    }
+  }
+
+  const sceneValues = [
+    scene.key,
+    scene.title,
+    placeLabel,
+    scene.realmKey ?? "",
+    scene.realmName ?? "",
+    ...scene.aliases
+  ].map(normalizeKey).filter(Boolean);
+  const regionKey = normalizeKey(scene.realmKey ?? "");
+  const regionName = normalizeKey(scene.realmName ?? "");
+  const sceneSpecificValues = sceneValues.filter((value) => value !== regionKey && value !== regionName);
+  const sceneSpecificValueSet = new Set(sceneSpecificValues);
+
+  const scored = TALK_BACKGROUNDS.map((entry) => {
+    const entryRegionKey = normalizeKey(entry.regionKey ?? "");
+    const entryRegionName = normalizeKey(entry.regionName ?? "");
+    const entrySpecificValues = [entry.key, entry.cityAlias ?? "", entry.bgType ?? "", ...entry.aliases]
+      .map(normalizeKey)
+      .filter((value) => value && value !== entryRegionKey && value !== entryRegionName);
+    const exactMatch = entrySpecificValues.some((value) => sceneSpecificValueSet.has(value));
+    const containedMatch = entrySpecificValues.some((value) => value.length >= 5 && sceneSpecificValues.some((sceneValue) => sceneValue.includes(value) || value.includes(sceneValue)));
+    const regionMatch = regionKey && entryRegionKey === regionKey;
+
+    let score = 0;
+    if (exactMatch) {
+      score += 200 + (entry.priority ?? 0);
+    } else if (containedMatch) {
+      score += 120 + (entry.priority ?? 0);
+    } else if (regionMatch) {
+      score += entry.kind === "region_default" ? 90 : 45;
+    }
+    return { entry, score };
+  })
+    .filter((result) => result.score > 0)
+    .sort((a, b) => b.score - a.score || a.entry.key.localeCompare(b.entry.key));
+
+  if (scored[0]) {
+    return scored[0].entry;
+  }
+
+  return {
+    key: `scene-fallback-${scene.key}`,
+    aliases: [scene.key],
+    kind: "scene_fallback",
+    imageUrl: scene.imageUrl || env.DEFAULT_IMAGE_URL,
+    regionKey: scene.realmKey,
+    regionName: scene.realmName
+  };
+}
+
+function resolveTalkBackgroundByValue(value: string): TalkBackgroundEntry | null {
+  const normalized = normalizeKey(value);
+  if (!normalized) {
+    return null;
+  }
+
+  return (
+    TALK_BACKGROUNDS.find(
+      (entry) =>
+        normalizeKey(entry.key) === normalized ||
+        normalizeKey(entry.regionKey ?? "") === normalized ||
+        normalizeKey(entry.cityAlias ?? "") === normalized ||
+        entry.aliases.some((alias) => normalizeKey(alias) === normalized)
+    ) ?? null
+  );
 }
 
 function resolveTalkCharacter(url: URL, speaker: string | null, scene: SceneEntry): TalkCharacterEntry | null {
@@ -975,6 +1115,10 @@ function heraldryProxyUrl(origin: string, sceneKey: string): string {
   return `${origin}/heraldry.image?key=${encodeURIComponent(sceneKey)}`;
 }
 
+function talkBackgroundImageUrl(origin: string, backgroundKey: string): string {
+  return `${origin}/talk-background.image?key=${encodeURIComponent(backgroundKey)}`;
+}
+
 function mapImageUrl(origin: string, mapKey: string): string {
   return `${origin}/map.image?key=${encodeURIComponent(mapKey)}`;
 }
@@ -1064,12 +1208,12 @@ async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: 
 
 async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
   const inlineAssets = shouldInlineAssets(url);
-  const backgroundProxyUrl = sceneImageUrl(origin, card.scene.key);
+  const backgroundProxyUrl = talkBackgroundImageUrl(origin, card.talkBackground.key);
   const backgroundUrl = escapeXml(
     inlineAssets
       ? (await fetchInlineImageDataUri(
-          card.scene.imageUrl,
-          absoluteImageUrl(card.scene.imageUrl, origin),
+          card.talkBackground.imageUrl,
+          absoluteImageUrl(card.talkBackground.imageUrl, origin),
           env
         )) ?? backgroundProxyUrl
       : backgroundProxyUrl
@@ -2081,6 +2225,7 @@ function isWorkerAssetPath(imageUrl: string): boolean {
   return (
     imageUrl.startsWith("/npc-assets/") ||
     imageUrl.startsWith("/character-assets/") ||
+    imageUrl.startsWith("/talk-background-assets/") ||
     imageUrl.startsWith("/scene-assets/")
   );
 }

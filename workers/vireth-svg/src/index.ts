@@ -533,22 +533,20 @@ export default {
 
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
       const scene = resolveScene(url, env);
-      return new Response(await renderSceneSvg(scene, url.origin, url, env), { headers: SVG_HEADERS });
+      return svg(await renderSceneSvg(scene, url.origin, url, env), request.method);
     }
 
     if (url.pathname === "/talk" || url.pathname === "/talk.svg") {
       const card = resolveTalkCard(url, env);
-      return new Response(await renderTalkSvg(card, url.origin, url, env), { headers: SVG_HEADERS });
+      return svg(await renderTalkSvg(card, url.origin, url, env), request.method);
     }
 
     if (url.pathname === "/map" || url.pathname === "/map.svg") {
       const map = resolveRegionMap(url, env);
       if (!map) {
-        return new Response(renderPendingMapSvg(pendingRegionMap(url).title), {
-          headers: SVG_HEADERS
-        });
+        return svg(renderPendingMapSvg(pendingRegionMap(url).title), request.method);
       }
-      return new Response(await renderRegionMapSvg(map, url.origin, url, env), { headers: SVG_HEADERS });
+      return svg(await renderRegionMapSvg(map, url.origin, url, env), request.method);
     }
 
     return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
@@ -1142,6 +1140,16 @@ function shouldInlineAssets(url: URL): boolean {
   return !(normalized === "0" || normalized === "false" || normalized === "no" || normalized === "off");
 }
 
+function shouldInlineMapAssets(url: URL): boolean {
+  const inlineValue = firstQuery(url, ["embed", "inline", "datauri", "data"]);
+  if (!inlineValue) {
+    return false;
+  }
+
+  const normalized = normalizeKey(inlineValue);
+  return normalized === "1" || normalized === "true" || normalized === "yes" || normalized === "on";
+}
+
 async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: Env): Promise<string> {
   const title = escapeXml(scene.title);
   const caption = escapeXml(scene.caption);
@@ -1360,7 +1368,7 @@ async function renderRegionMapWideSvg(
   env: Env
 ): Promise<string> {
   const title = escapeXml(map.title);
-  const inlineAssets = shouldInlineAssets(url);
+  const inlineAssets = shouldInlineMapAssets(url);
   const imageProxyUrl = mapImageUrl(origin, map.key);
   const imageUrl = escapeXml(inlineAssets ? (await fetchDataUri(map.imageUrl)) ?? imageProxyUrl : imageProxyUrl);
   const places = regionMapPlaces(map.key);
@@ -1438,7 +1446,7 @@ async function renderRegionMapMobileSvg(
   env: Env
 ): Promise<string> {
   const title = escapeXml(map.title);
-  const inlineAssets = shouldInlineAssets(url);
+  const inlineAssets = shouldInlineMapAssets(url);
   const imageProxyUrl = mapImageUrl(origin, map.key);
   const imageUrl = escapeXml(inlineAssets ? (await fetchDataUri(map.imageUrl)) ?? imageProxyUrl : imageProxyUrl);
   const places = regionMapPlaces(map.key);
@@ -2135,6 +2143,13 @@ function json(data: unknown, status = 200): Response {
       ...TEXT_HEADERS,
       "Content-Type": "application/json; charset=utf-8"
     }
+  });
+}
+
+function svg(body: string, method: string, status = 200): Response {
+  return new Response(method === "HEAD" ? null : body, {
+    status,
+    headers: SVG_HEADERS
   });
 }
 

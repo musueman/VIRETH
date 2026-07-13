@@ -1692,31 +1692,29 @@ function renderTalkInfoPanel(
   title: string,
   line: string | null
 ): string {
-  const panelX = 36;
-  const panelY = 38;
-  const panelW = 408;
-  const innerX = 72;
-  const contentW = 320;
+  const panelX = 40;
+  const panelY = 52;
+  const panelW = 420;
+  const innerX = 76;
+  const contentW = 326;
   const titleLineCount = wrapDisplayText(title, 13, 2).length;
   const role = card.infoLines[0] ?? "현장 인물";
   const details = card.infoLines.slice(1, 4);
-  const titleY = 86;
-  const roleY = titleY + (titleLineCount - 1) * 48 + 46;
-  const dividerY = roleY + 30;
-  const detailStartY = dividerY + 42;
-  const detailBlocks = details.map((value) => wrapDisplayText(value, 28, 2));
-  const detailRows = detailBlocks.map((lines) => 30 + Math.max(0, lines.length - 1) * 30);
-  const detailGap = details.length <= 2 ? 24 : 20;
+  const titleY = 116;
+  const roleY = titleY + (titleLineCount - 1) * 48 + 50;
+  const dividerY = roleY + 34;
+  const detailStartY = dividerY + 52;
+  const detailBlocks = details.map((value) => wrapDisplayText(value, 27, 2));
+  const detailRows = detailBlocks.map((lines) => 32 + Math.max(0, lines.length - 1) * 30);
+  const detailGap = details.length <= 2 ? 28 : 24;
   const rows = details
     .map((value, index) => {
       const previousHeight = detailRows.slice(0, index).reduce((sum, height) => sum + height + detailGap, 0);
       const y = detailStartY + previousHeight;
-      const textY = y + 4;
-      const lineY = y + detailRows[index] + 16;
+      const textY = y;
       return `<g>
-        <circle cx="${innerX}" cy="${textY - 7}" r="3.5" fill="#c8b16a" fill-opacity="0.92"/>
-        ${renderTalkTextBlock(value, innerX + 18, textY, 28, 2, 23, "#f1f6ff", "740")}
-        <line x1="${innerX}" y1="${lineY}" x2="${panelX + panelW - 34}" y2="${lineY}" stroke="#f6edcf" stroke-opacity="0.13" stroke-width="1"/>
+        <circle cx="${innerX}" cy="${textY - 8}" r="3.5" fill="#c8b16a" fill-opacity="0.92"/>
+        ${renderTalkTextBlock(value, innerX + 20, textY, 27, 2, 23, "#f1f6ff", "740")}
       </g>`;
     })
     .join("\n      ");
@@ -1730,14 +1728,14 @@ function renderTalkInfoPanel(
       ${renderTalkTextBlock(line, innerX + 18, quoteY + 34, 25, 2, 21, "#f6edcf", "760")}`
     : "";
   const contentBottom = line ? quoteY + 102 : detailBottom;
-  const panelH = Math.min(582, Math.max(line ? 502 : 276, contentBottom - panelY + 20));
+  const panelH = Math.min(582, Math.max(line ? 502 : 332, contentBottom - panelY + 28));
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" filter="url(#talkPanelShadow)">
       <rect x="${panelX}" y="${panelY}" width="${panelW}" height="${panelH}" rx="18" fill="url(#talkPanel)" stroke="#c8b16a" stroke-opacity="0.58" stroke-width="2"/>
       <rect x="${panelX + 14}" y="${panelY + 14}" width="${panelW - 28}" height="${panelH - 28}" rx="14" fill="none" stroke="#f6edcf" stroke-opacity="0.16"/>
       ${renderTalkTextBlock(title, innerX, titleY, 13, 2, 43, "#f6edcf", "850")}
       ${renderTalkTextBlock(role, innerX, roleY, 20, 1, 24, "#f1f6ff", "810")}
-      <line x1="${innerX}" y1="${dividerY}" x2="${panelX + panelW - 34}" y2="${dividerY}" stroke="url(#talkPanelEdge)" stroke-width="2"/>
+      <line x1="${innerX}" y1="${dividerY}" x2="${panelX + panelW - 38}" y2="${dividerY}" stroke="url(#talkPanelEdge)" stroke-width="2"/>
       <g filter="url(#talkTextShadow)">
       ${rows}
       </g>

@@ -1633,7 +1633,20 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
   const line = card.line ? truncateDisplay(card.line, 48) : null;
   const ariaLabel = escapeXml(`${card.character?.displayName ?? card.speaker ?? "장소"} 대화 카드`);
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
-  const infoPanel = renderTalkInfoPanel(card, title, line);
+  const rawHeraldryUrl = card.scene.heraldryUrl ? absoluteImageUrl(card.scene.heraldryUrl, origin) : null;
+  const inlineHeraldryUrl =
+    card.scene.heraldryUrl && rawHeraldryUrl && inlineAssets
+      ? await fetchInlineImageDataUri(card.scene.heraldryUrl, rawHeraldryUrl, env)
+      : null;
+  const heraldryUrl =
+    rawHeraldryUrl
+      ? escapeXml(
+          inlineAssets
+            ? inlineHeraldryUrl ?? heraldryProxyUrl(origin, card.scene.key)
+            : heraldryProxyUrl(origin, card.scene.key)
+        )
+      : null;
+  const infoPanel = renderTalkInfoPanel(card, title, line, heraldryUrl);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
@@ -1687,31 +1700,66 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
   </g>`;
 }
 
-function renderTalkInfoPanel(card: TalkCardEntry, title: string, line: string | null): string {
-  const titleLineCount = wrapDisplayText(title, 12, 2).length;
+function renderTalkInfoPanel(
+  card: TalkCardEntry,
+  title: string,
+  line: string | null,
+  heraldryUrl: string | null
+): string {
+  const panelX = 38;
+  const panelY = 64;
+  const panelW = 404;
+  const innerX = 72;
+  const contentW = 314;
+  const titleLineCount = wrapDisplayText(title, heraldryUrl ? 10 : 12, 2).length;
   const role = card.infoLines[0] ?? "현장 인물";
   const details = card.infoLines.slice(1, 4);
-  const roleY = titleLineCount > 1 ? 206 : 160;
+  const titleY = 112;
+  const roleY = titleY + (titleLineCount - 1) * 50 + 48;
   const dividerY = roleY + 34;
-  const detailStartY = dividerY + 54;
+  const detailStartY = dividerY + 48;
+  const detailBlocks = details.map((value) => wrapDisplayText(value, 24, 2));
+  const detailRows = detailBlocks.map((lines) => 30 + Math.max(0, lines.length - 1) * 28);
+  const detailGap = details.length <= 2 ? 30 : 24;
   const rows = details
     .map((value, index) => {
-      const y = detailStartY + index * 88;
-      const wrapped = renderTalkTextBlock(value, 72, y, 27, 3, 20, "#f1f6ff", "710");
-      return `${wrapped}`;
+      const previousHeight = detailRows.slice(0, index).reduce((sum, height) => sum + height + detailGap, 0);
+      const y = detailStartY + previousHeight;
+      const textY = y + 4;
+      const lineY = y + detailRows[index] + 16;
+      return `<g>
+        <circle cx="${innerX}" cy="${textY - 7}" r="3.5" fill="#c8b16a" fill-opacity="0.92"/>
+        ${renderTalkTextBlock(value, innerX + 18, textY, 24, 2, 22, "#f1f6ff", "730")}
+        <line x1="${innerX}" y1="${lineY}" x2="${panelX + panelW - 34}" y2="${lineY}" stroke="#f6edcf" stroke-opacity="0.13" stroke-width="1"/>
+      </g>`;
     })
     .join("\n      ");
+  const detailBottom =
+    details.length > 0
+      ? detailStartY + detailRows.reduce((sum, height) => sum + height + detailGap, 0) - detailGap + 30
+      : detailStartY + 8;
+  const quoteY = Math.max(detailBottom + 22, 444);
   const quote = line
-    ? `<rect x="68" y="548" width="318" height="74" rx="12" fill="#050b14" fill-opacity="0.48" stroke="#f6edcf" stroke-opacity="0.24"/>
-      ${renderTalkTextBlock(line, 88, 582, 25, 2, 20, "#f6edcf", "760")}`
+    ? `<rect x="${innerX}" y="${quoteY}" width="${contentW}" height="78" rx="12" fill="#050b14" fill-opacity="0.50" stroke="#f6edcf" stroke-opacity="0.24"/>
+      ${renderTalkTextBlock(line, innerX + 18, quoteY + 34, 25, 2, 21, "#f6edcf", "760")}`
+    : "";
+  const contentBottom = line ? quoteY + 102 : detailBottom;
+  const panelH = Math.min(582, Math.max(line ? 502 : 320, contentBottom - panelY + 20));
+  const crest = heraldryUrl
+    ? `<g opacity="0.92">
+        <rect x="${panelX + panelW - 94}" y="${panelY + 28}" width="64" height="82" rx="15" fill="#050b14" fill-opacity="0.42" stroke="#f6edcf" stroke-opacity="0.18"/>
+        <image href="${heraldryUrl}" x="${panelX + panelW - 88}" y="${panelY + 34}" width="52" height="62" preserveAspectRatio="xMidYMid slice"/>
+        <text x="${panelX + panelW - 62}" y="${panelY + 124}" text-anchor="middle" fill="#d8c078" font-size="13" font-weight="760">${escapeXml(card.scene.realmName ?? card.scene.heraldryName ?? "")}</text>
+      </g>`
     : "";
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" filter="url(#talkPanelShadow)">
-      <rect x="38" y="54" width="390" height="592" rx="18" fill="url(#talkPanel)" stroke="#c8b16a" stroke-opacity="0.50" stroke-width="2"/>
-      <rect x="52" y="68" width="362" height="564" rx="14" fill="none" stroke="#f6edcf" stroke-opacity="0.15"/>
-      ${renderTalkTextBlock(title, 68, 112, 12, 2, 44, "#f6edcf", "830")}
-      ${renderTalkTextBlock(role, 72, roleY, 20, 1, 22, "#f1f6ff", "780")}
-      <line x1="68" y1="${dividerY}" x2="388" y2="${dividerY}" stroke="url(#talkPanelEdge)" stroke-width="2"/>
+      <rect x="${panelX}" y="${panelY}" width="${panelW}" height="${panelH}" rx="18" fill="url(#talkPanel)" stroke="#c8b16a" stroke-opacity="0.58" stroke-width="2"/>
+      <rect x="${panelX + 14}" y="${panelY + 14}" width="${panelW - 28}" height="${panelH - 28}" rx="14" fill="none" stroke="#f6edcf" stroke-opacity="0.16"/>
+      ${crest}
+      ${renderTalkTextBlock(title, innerX, titleY, heraldryUrl ? 10 : 12, 2, 42, "#f6edcf", "840")}
+      ${renderTalkTextBlock(role, innerX, roleY, 18, 1, 22, "#f1f6ff", "800")}
+      <line x1="${innerX}" y1="${dividerY}" x2="${panelX + panelW - 34}" y2="${dividerY}" stroke="url(#talkPanelEdge)" stroke-width="2"/>
       <g filter="url(#talkTextShadow)">
       ${rows}
       </g>

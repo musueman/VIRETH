@@ -1069,11 +1069,13 @@ function talkInfoLines(
   const summary = cleanTalkInfoValue(character?.summary, character, scene, placeLabel);
   const affiliation = cleanTalkInfoValue(character?.affiliation, character, scene, placeLabel);
   const override = cleanTalkInfoValue(infoOverride, character, scene, placeLabel);
+  const inferredRole = inferred[0] ?? null;
+  const inferredDetails = inferred.slice(1);
   const lines = uniqueTalkInfoLines([
-    role,
+    role ?? inferredRole,
     override,
     summary,
-    ...inferred,
+    ...inferredDetails,
     affiliation
   ]);
 
@@ -1171,15 +1173,15 @@ function inferTalkCharacterInfo(
   if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
     return [
       "성문 검문관",
-      "통행 표식과 장부 확인을 맡는다.",
-      "말수는 적고 절차를 쉽게 넘기지 않는다."
+      "통행 표식과 장부를 확인한다.",
+      "말수는 적고 절차에 엄격하다."
     ];
   }
 
   if (sceneText.includes("항만") || sceneText.includes("부두") || sceneText.includes("선박") || sceneText.includes("port")) {
     return [
       "항만 실무자",
-      "선박명과 화물 표식을 먼저 확인한다.",
+      "선박명과 화물 표식을 확인한다.",
       "손실과 보증 문제에 민감하다."
     ];
   }
@@ -1187,7 +1189,7 @@ function inferTalkCharacterInfo(
   if (sceneText.includes("시장") || sceneText.includes("상단") || sceneText.includes("거래")) {
     return [
       "거래 현장의 사람",
-      "값과 보증, 소문에 빠르게 반응한다.",
+      "값과 보증, 소문을 살핀다.",
       "말보다 물건의 출처를 먼저 본다."
     ];
   }
@@ -1203,7 +1205,7 @@ function inferTalkCharacterInfo(
   if (sceneText.includes("학당") || sceneText.includes("기록") || sceneText.includes("서고")) {
     return [
       "기록을 다루는 사람",
-      "문서의 출처와 필체를 먼저 확인한다.",
+      "문서의 출처와 필체를 확인한다.",
       "말보다 남은 기록을 더 믿는다."
     ];
   }
@@ -1515,10 +1517,16 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
 }
 
 function renderTalkInfoPanel(card: TalkCardEntry, title: string, line: string | null): string {
-  const rows = card.infoLines
+  const titleLineCount = wrapDisplayText(title, 12, 2).length;
+  const role = card.infoLines[0] ?? "현장 인물";
+  const details = card.infoLines.slice(1, 4);
+  const roleY = titleLineCount > 1 ? 206 : 160;
+  const dividerY = roleY + 34;
+  const detailStartY = dividerY + 54;
+  const rows = details
     .map((value, index) => {
-      const y = 260 + index * 58;
-      const wrapped = renderTalkTextBlock(value, 72, y, 23, 2, 21, "#f1f6ff", "710");
+      const y = detailStartY + index * 88;
+      const wrapped = renderTalkTextBlock(value, 72, y, 27, 3, 20, "#f1f6ff", "710");
       return `${wrapped}`;
     })
     .join("\n      ");
@@ -1530,8 +1538,9 @@ function renderTalkInfoPanel(card: TalkCardEntry, title: string, line: string | 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" filter="url(#talkPanelShadow)">
       <rect x="38" y="54" width="390" height="592" rx="18" fill="url(#talkPanel)" stroke="#c8b16a" stroke-opacity="0.50" stroke-width="2"/>
       <rect x="52" y="68" width="362" height="564" rx="14" fill="none" stroke="#f6edcf" stroke-opacity="0.15"/>
-      ${renderTalkTextBlock(title, 68, 132, 12, 2, 44, "#f6edcf", "830")}
-      <line x1="68" y1="214" x2="388" y2="214" stroke="url(#talkPanelEdge)" stroke-width="2"/>
+      ${renderTalkTextBlock(title, 68, 112, 12, 2, 44, "#f6edcf", "830")}
+      ${renderTalkTextBlock(role, 72, roleY, 20, 1, 22, "#f1f6ff", "780")}
+      <line x1="68" y1="${dividerY}" x2="388" y2="${dividerY}" stroke="url(#talkPanelEdge)" stroke-width="2"/>
       <g filter="url(#talkTextShadow)">
       ${rows}
       </g>

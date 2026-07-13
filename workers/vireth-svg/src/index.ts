@@ -81,7 +81,13 @@ type TalkCardEntry = {
 type TalkBackgroundEntry = {
   key: string;
   aliases: string[];
-  kind: "city_representative" | "region_default" | "direct" | "scene_fallback";
+  kind:
+    | "city_representative"
+    | "region_default"
+    | "place_type"
+    | "general_archetype"
+    | "direct"
+    | "scene_fallback";
   imageUrl: string;
   regionKey?: string;
   regionName?: string;
@@ -319,6 +325,96 @@ const MAP_PLACE_QUERY_NAMES = [
   "정본장소명",
   "key"
 ];
+const TALK_BACKGROUND_TYPE_QUERY_NAMES = [
+  "type",
+  "bgType",
+  "placeType",
+  "placeKind",
+  "기능",
+  "장소유형",
+  "유형"
+];
+const TALK_BACKGROUND_FUNCTION_HINTS = new Set(
+  [
+    "ADM",
+    "COM",
+    "REL",
+    "MIL",
+    "EDU",
+    "POR",
+    "RES",
+    "NAT",
+    "SPC",
+    "행정",
+    "관청",
+    "기록",
+    "장부",
+    "검문",
+    "허가",
+    "상업",
+    "시장",
+    "거래",
+    "상단",
+    "장터",
+    "종교",
+    "신전",
+    "사원",
+    "성소",
+    "예배",
+    "군사",
+    "요새",
+    "성문",
+    "초소",
+    "무기",
+    "학술",
+    "학당",
+    "도서관",
+    "문서고",
+    "교육",
+    "항구",
+    "부두",
+    "등대",
+    "선착장",
+    "항만",
+    "주거",
+    "골목",
+    "숙소",
+    "거주지",
+    "마을",
+    "자연",
+    "숲길",
+    "농촌",
+    "야영",
+    "산길",
+    "외곽",
+    "특수기관",
+    "기관",
+    "봉인",
+    "등록소",
+    "보관소",
+    "administration",
+    "archive",
+    "trade",
+    "market",
+    "temple",
+    "sanctuary",
+    "military",
+    "fortress",
+    "gate",
+    "school",
+    "library",
+    "harbor",
+    "pier",
+    "lighthouse",
+    "residential",
+    "lane",
+    "forest",
+    "rural",
+    "camp",
+    "storehouse",
+    "registry"
+  ].map(normalizeKey)
+);
 
 const TALK_CHARACTERS = GENERATED_TALK_CHARACTERS as readonly TalkCharacterEntry[];
 
@@ -838,14 +934,15 @@ function resolveTalkBackground(
     }
   }
 
-  const sceneValues = [
+  const sceneValues = expandTalkBackgroundSearchValues([
     scene.key,
     scene.title,
     placeLabel,
     scene.realmKey ?? "",
     scene.realmName ?? "",
-    ...scene.aliases
-  ].map(normalizeKey).filter(Boolean);
+    ...scene.aliases,
+    firstQuery(url, TALK_BACKGROUND_TYPE_QUERY_NAMES) ?? ""
+  ]);
   const regionKey = normalizeKey(scene.realmKey ?? "");
   const regionName = normalizeKey(scene.realmName ?? "");
   const sceneSpecificValues = sceneValues.filter((value) => value !== regionKey && value !== regionName);
@@ -854,20 +951,53 @@ function resolveTalkBackground(
   const scored = TALK_BACKGROUNDS.map((entry) => {
     const entryRegionKey = normalizeKey(entry.regionKey ?? "");
     const entryRegionName = normalizeKey(entry.regionName ?? "");
+    if (entry.kind === "place_type" && regionKey && entryRegionKey === regionKey) {
+      const functionValues = [entry.bgType ?? "", ...entry.aliases]
+        .map(normalizeKey)
+        .filter((value) => value && TALK_BACKGROUND_FUNCTION_HINTS.has(value));
+      const hasExplicitFunction = functionValues.some((value) => sceneSpecificValueSet.has(value));
+      if (!hasExplicitFunction) {
+        return { entry, score: 0 };
+      }
+    }
     const entrySpecificValues = [entry.key, entry.cityAlias ?? "", entry.bgType ?? "", ...entry.aliases]
       .map(normalizeKey)
       .filter((value) => value && value !== entryRegionKey && value !== entryRegionName);
-    const exactMatch = entrySpecificValues.some((value) => sceneSpecificValueSet.has(value));
-    const containedMatch = entrySpecificValues.some((value) => value.length >= 5 && sceneSpecificValues.some((sceneValue) => sceneValue.includes(value) || value.includes(sceneValue)));
+    const entryFunctionValues = entrySpecificValues.filter((value) =>
+      TALK_BACKGROUND_FUNCTION_HINTS.has(value)
+    );
+    const hasFunctionMatch =
+      entryFunctionValues.some((value) => sceneSpecificValueSet.has(value)) ||
+      entryFunctionValues.some((value) =>
+        sceneSpecificValues.some((sceneValue) => sceneValue.includes(value) || value.includes(sceneValue))
+      );
     const regionMatch = regionKey && entryRegionKey === regionKey;
+    const allowSpecificMatch = entry.kind !== "place_type" || (Boolean(regionMatch) && hasFunctionMatch);
+    const exactMatches = entrySpecificValues.filter((value) => sceneSpecificValueSet.has(value));
+    const containedMatches = entrySpecificValues.filter(
+      (value) =>
+        sceneSpecificValues.some(
+          (sceneValue) =>
+            isTalkBackgroundContainedMatchComparable(value, sceneValue) &&
+            isTalkBackgroundContainedMatch(value, sceneValue)
+        )
+    );
 
     let score = 0;
-    if (exactMatch) {
-      score += 200 + (entry.priority ?? 0);
-    } else if (containedMatch) {
-      score += 120 + (entry.priority ?? 0);
-    } else if (regionMatch) {
-      score += entry.kind === "region_default" ? 90 : 45;
+    if (allowSpecificMatch && exactMatches.length > 0) {
+      score += 200 + (entry.priority ?? 0) + exactMatches.length * 25;
+    } else if (allowSpecificMatch && containedMatches.length > 0) {
+      score += 120 + (entry.priority ?? 0) + containedMatches.length * 10;
+    }
+
+    if (regionMatch) {
+      if (entry.kind === "region_default") {
+        score += 90;
+      } else if (entry.kind === "place_type") {
+        score += 40;
+      } else {
+        score += 45;
+      }
     }
     return { entry, score };
   })
@@ -1303,6 +1433,47 @@ function normalizeKey(value: string): string {
     .toLowerCase()
     .replace(/[\s_]+/g, "-")
     .replace(/[^\p{Letter}\p{Number}-]+/gu, "");
+}
+
+function hasSearchText(value: string): boolean {
+  return /[\p{Letter}\p{Number}]/u.test(value);
+}
+
+function expandTalkBackgroundSearchValues(values: string[]): string[] {
+  const expanded: string[] = [];
+  for (const rawValue of values) {
+    const value = normalizeKey(rawValue);
+    if (!value || !hasSearchText(value)) {
+      continue;
+    }
+    expanded.push(value);
+    for (const part of value.split("-")) {
+      if (part.length >= 2 && hasSearchText(part)) {
+        expanded.push(part);
+      }
+    }
+  }
+  return [...new Set(expanded)];
+}
+
+function isTalkBackgroundContainedMatchComparable(left: string, right: string): boolean {
+  if (!hasSearchText(left) || !hasSearchText(right)) {
+    return false;
+  }
+  if (TALK_BACKGROUND_FUNCTION_HINTS.has(left) || TALK_BACKGROUND_FUNCTION_HINTS.has(right)) {
+    return true;
+  }
+  return left.length >= 5 && right.length >= 5;
+}
+
+function isTalkBackgroundContainedMatch(left: string, right: string): boolean {
+  if (right.includes(left)) {
+    return true;
+  }
+  if (TALK_BACKGROUND_FUNCTION_HINTS.has(left)) {
+    return false;
+  }
+  return right.length >= 5 && left.includes(right);
 }
 
 function canonicalSceneKey(value: string): string {

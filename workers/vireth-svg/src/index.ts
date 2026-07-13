@@ -118,6 +118,31 @@ const ASSET_BASE =
   "https://raw.githubusercontent.com/musueman/VIRETH/4ea459a80dede9062523c5540427acbaa103e2ae/etc/arcadia5083-scene-router";
 const CURRENT_SCENE_ASSET_REF = "bed5811995c024c95aad40857cf1183536c995ee";
 
+// Keep SVG typography semantic so scene, talk, and map cards do not drift apart.
+const TEXT_SIZE = {
+  display: 64,
+  displayCompact: 54,
+  talkName: 50,
+  title: 42,
+  titleSmall: 40,
+  section: 32,
+  subtitle: 30,
+  bodyLarge: 28,
+  body: 24,
+  paragraph: 22,
+  caption: 18,
+  label: 14,
+  labelMobile: 16,
+  listOrder: 19,
+  markerDesktop: 13,
+  markerMobile: 18
+} as const;
+
+const TEXT_LINE_HEIGHT = {
+  normal: 1.28,
+  paragraph: 1.34
+} as const;
+
 const SCENES: SceneEntry[] = [
   ...(GENERATED_SCENES as SceneEntry[]),
   {
@@ -1629,11 +1654,25 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
             : rawCharacterImageUrl
         )
       : null;
+  const rawHeraldryImageUrl = card.scene.heraldryUrl
+    ? absoluteImageUrl(card.scene.heraldryUrl, origin)
+    : null;
+  const inlineHeraldryImageUrl =
+    card.scene.heraldryUrl && rawHeraldryImageUrl && inlineAssets
+      ? await fetchInlineImageDataUri(card.scene.heraldryUrl, rawHeraldryImageUrl, env)
+      : null;
+  const heraldryImageUrl =
+    rawHeraldryImageUrl
+      ? escapeXml(
+          inlineAssets
+            ? inlineHeraldryImageUrl ?? rawHeraldryImageUrl
+            : rawHeraldryImageUrl
+        )
+      : null;
   const title = card.character?.displayName ?? card.speaker ?? card.scene.title;
-  const line = card.line ? truncateDisplay(card.line, 48) : null;
   const ariaLabel = escapeXml(`${card.character?.displayName ?? card.speaker ?? "장소"} 대화 카드`);
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
-  const infoPanel = renderTalkInfoPanel(card, title, line);
+  const infoPanel = renderTalkInfoPanel(card, title, heraldryImageUrl);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
@@ -1670,6 +1709,12 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
     <filter id="talkTextShadow" x="-10%" y="-30%" width="120%" height="160%">
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
     </filter>
+    <filter id="talkCrestShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.66"/>
+    </filter>
+    <mask id="talkCrestMask" maskUnits="userSpaceOnUse" x="54" y="488" width="68" height="68">
+      <circle cx="88" cy="522" r="30" fill="#ffffff"/>
+    </mask>
     <linearGradient id="talkCharacterFade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
       <stop offset="80%" stop-color="#ffffff" stop-opacity="1"/>
@@ -1699,38 +1744,38 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
 function renderTalkInfoPanel(
   card: TalkCardEntry,
   title: string,
-  line: string | null
+  heraldryImageUrl: string | null
 ): string {
   const role = card.infoLines[0] ?? "현장 인물";
-  const details = card.infoLines.slice(1, 4);
-  const bandY = 526;
-  const bandH = 174;
+  const details = card.infoLines.slice(1, 3);
+  const bandY = 596;
+  const bandH = 104;
   const contentX = 64;
-  const roleY = line ? 578 : 570;
-  const titleY = line ? 632 : 622;
-  const detailY = 678;
-  const detailGap = details.length >= 3 ? 298 : 374;
-  const detailMaxLength = details.length >= 3 ? 20 : 25;
-  const quote = line
-    ? `${renderTalkTextBlock(line, contentX, bandY + 34, 44, 1, 21, "#e9f0fb", "690")}`
+  const crest = heraldryImageUrl
+    ? `<image href="${heraldryImageUrl}" x="58" y="492" width="60" height="60" preserveAspectRatio="xMidYMid slice" mask="url(#talkCrestMask)" filter="url(#talkCrestShadow)"/>`
     : "";
+  const roleY = 566;
+  const titleY = 616;
+  const detailY = 668;
+  const detailGap = 360;
+  const detailMaxLength = 34;
   const rows = details
     .map((value, index) => {
       const x = contentX + index * detailGap;
       return `<g>
-        ${renderTalkTextBlock(`- ${value}`, x, detailY, detailMaxLength, 1, 22, "#f1f6ff", "690")}
+        ${renderTalkTextBlock(`- ${value}`, x, detailY, detailMaxLength, 1, TEXT_SIZE.paragraph, "#f1f6ff", "690")}
       </g>`;
     })
     .join("\n      ");
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-      <rect x="0" y="${bandY - 58}" width="1000" height="58" fill="url(#talkLowerFade)"/>
+      <rect x="0" y="${bandY - 104}" width="1000" height="104" fill="url(#talkLowerFade)"/>
       <rect x="0" y="${bandY}" width="1000" height="${bandH}" fill="url(#talkLowerBand)"/>
       <line x1="0" y1="${bandY}" x2="1000" y2="${bandY}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
       <g filter="url(#talkTextShadow)">
-      ${quote}
-      ${renderTalkTextBlock(role, contentX, roleY, 24, 1, 24, "#e8eef7", "760")}
-      ${renderTalkTextBlock(title, contentX, titleY, 14, 1, 50, "#f6edcf", "850")}
+      ${crest}
+      ${renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.body, "#e8eef7", "760")}
+      ${renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.talkName, "#f6edcf", "850")}
       </g>
       <g filter="url(#talkTextShadow)">
       ${rows}
@@ -1751,12 +1796,19 @@ function renderTalkTextBlock(
   const lines = wrapDisplayText(value, maxDisplayLength, maxLines);
   const tspans = lines
     .map((line, index) => {
-      const dy = index === 0 ? 0 : Math.round(fontSize * 1.28);
+      const dy = index === 0 ? 0 : textLineOffset(fontSize);
       return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`;
     })
     .join("");
 
   return `<text x="${x}" y="${y}" fill="${fill}" font-size="${fontSize}" font-weight="${fontWeight}" filter="url(#talkTextShadow)">${tspans}</text>`;
+}
+
+function textLineOffset(
+  fontSize: number,
+  lineHeight: number = TEXT_LINE_HEIGHT.normal
+): number {
+  return Math.round(fontSize * lineHeight);
 }
 
 async function renderRegionMapSvg(
@@ -1960,7 +2012,7 @@ function renderRegionMapHeader(
   const escapedSentence = escapeXml(sentence);
   const crest = heraldryUrl
     ? `<image href="${heraldryUrl}" x="772" y="66" width="96" height="124" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionCrestClip)"/>`
-    : `<text x="820" y="140" text-anchor="middle" fill="#f6edcf" font-size="30" font-weight="850">${escapeXml(
+    : `<text x="820" y="140" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.subtitle}" font-weight="850">${escapeXml(
         regionTitle.slice(0, 2)
       )}</text>`;
 
@@ -1968,10 +2020,10 @@ function renderRegionMapHeader(
       <rect x="760" y="54" width="120" height="150" rx="18" fill="#050b14" fill-opacity="0.58" stroke="#d8c078" stroke-opacity="0.62"/>
       ${crest}
       <rect x="902" y="66" width="218" height="38" rx="11" fill="#07111f" fill-opacity="0.58" stroke="#9fb0c2" stroke-opacity="0.28"/>
-      <text x="920" y="92" fill="#d9e4f2" font-size="20" font-weight="850">국가: ${escapedTitle}</text>
-      <text x="902" y="148" fill="#f6edcf" font-size="40" font-weight="850">거점 지도</text>
-      <text x="902" y="188" fill="#d9e4f2" font-size="22" font-weight="700">${escapedSentence}</text>
-      <text x="772" y="246" fill="#f6edcf" font-size="27" font-weight="850">거점 목록</text>
+      <text x="920" y="92" fill="#d9e4f2" font-size="${TEXT_SIZE.caption}" font-weight="850">국가: ${escapedTitle}</text>
+      <text x="902" y="148" fill="#f6edcf" font-size="${TEXT_SIZE.titleSmall}" font-weight="850">거점 지도</text>
+      <text x="902" y="188" fill="#d9e4f2" font-size="${TEXT_SIZE.paragraph}" font-weight="700">${escapedSentence}</text>
+      <text x="772" y="246" fill="#f6edcf" font-size="${TEXT_SIZE.bodyLarge}" font-weight="850">거점 목록</text>
       <line x1="772" y1="268" x2="1324" y2="268" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
     </g>`;
 }
@@ -1985,19 +2037,19 @@ function renderRegionMapMobileHeader(
   const escapedSentence = escapeXml(sentence);
   const crest = heraldryUrl
     ? `<image href="${heraldryUrl}" x="64" y="858" width="86" height="110" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileCrestClip)"/>`
-    : `<text x="107" y="924" text-anchor="middle" fill="#f6edcf" font-size="28" font-weight="850">${escapeXml(
+    : `<text x="107" y="924" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.bodyLarge}" font-weight="850">${escapeXml(
         regionTitle.slice(0, 2)
       )}</text>`;
 
   return `<g>
       <rect x="54" y="846" width="106" height="134" rx="18" fill="#050b14" fill-opacity="0.54" stroke="#d8c078" stroke-opacity="0.58"/>
       ${crest}
-      <text x="190" y="878" fill="#9fb0c2" font-size="23" font-weight="720">국가</text>
-      <text x="258" y="878" fill="#d9e4f2" font-size="25" font-weight="740">${escapedTitle}</text>
-      <text x="190" y="936" fill="#f6edcf" font-size="48" font-weight="800">거점 지도</text>
-      <text x="190" y="990" fill="#d9e4f2" font-size="25" font-weight="650">${escapedSentence}</text>
+      <text x="190" y="878" fill="#9fb0c2" font-size="${TEXT_SIZE.body}" font-weight="720">국가</text>
+      <text x="258" y="878" fill="#d9e4f2" font-size="${TEXT_SIZE.body}" font-weight="740">${escapedTitle}</text>
+      <text x="190" y="936" fill="#f6edcf" font-size="${TEXT_SIZE.talkName}" font-weight="800">거점 지도</text>
+      <text x="190" y="990" fill="#d9e4f2" font-size="${TEXT_SIZE.body}" font-weight="650">${escapedSentence}</text>
       <line x1="68" y1="1054" x2="796" y2="1054" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
-      <text x="68" y="1112" fill="#f6edcf" font-size="32" font-weight="780">거점 목록</text>
+      <text x="68" y="1112" fill="#f6edcf" font-size="${TEXT_SIZE.section}" font-weight="780">거점 목록</text>
     </g>`;
 }
 
@@ -2038,7 +2090,9 @@ function renderMapPointMarkers(
       const textFill = current ? "#07111f" : "#f6edcf";
       const order = String(place.order).padStart(2, "0");
       const strokeWidth = Math.max(3, (isMobileMap ? 3.8 : 3) * scale);
-      const fontSize = Math.round((isMobileMap ? 18 : 13) * scale);
+      const fontSize = Math.round(
+        (isMobileMap ? TEXT_SIZE.markerMobile : TEXT_SIZE.markerDesktop) * scale
+      );
       const textY = y + (isMobileMap ? 7.8 : 6) * scale;
 
       return `<g aria-label="${escapeXml(order)} ${escapeXml(place.title)}">
@@ -2069,7 +2123,9 @@ function renderCurrentPlaceMarker(
   const labelY = y > mapY + 120 * scale ? y - 80 * scale : y + 42 * scale;
   const lineEndY = labelY > y ? y + 26 * scale : y - 28 * scale;
   const order = String(place.order).padStart(2, "0");
-  const currentNumberSize = Math.round((isMobileMap ? 18 : 13) * scale);
+  const currentNumberSize = Math.round(
+    (isMobileMap ? TEXT_SIZE.markerMobile : TEXT_SIZE.markerDesktop) * scale
+  );
   const currentNumberY = y + (isMobileMap ? 7.8 : 6) * scale;
 
   return `<g aria-label="현재 위치" filter="url(#markerGlow)">
@@ -2094,7 +2150,7 @@ function renderCurrentPlaceMarker(
     </rect>
     <text x="${(labelX + labelWidth / 2).toFixed(1)}" y="${(labelY + 26 * scale).toFixed(
       1
-    )}" text-anchor="middle" fill="#f6edcf" font-size="${Math.round(20 * scale)}" font-weight="850">현재 위치</text>
+    )}" text-anchor="middle" fill="#f6edcf" font-size="${Math.round(TEXT_SIZE.paragraph * scale)}" font-weight="850">현재 위치</text>
   </g>`;
 }
 
@@ -2103,7 +2159,7 @@ function renderRegionMapLegend(
   currentPlace: RegionMapPlaceEntry | null
 ): string {
   if (places.length === 0) {
-    return `<text x="772" y="376" fill="#e7edf6" font-size="24">등록된 거점 좌표 없음</text>`;
+    return `<text x="772" y="376" fill="#e7edf6" font-size="${TEXT_SIZE.body}">등록된 거점 좌표 없음</text>`;
   }
 
   const columns = places.length > 9 ? 2 : 1;
@@ -2134,15 +2190,15 @@ function renderRegionMapLegend(
       <rect x="${x + boxWidth - 78}" y="${y - 23}" width="58" height="24" rx="9" fill="url(#currentBadge)" fill-opacity="0.95">
         <animate attributeName="fill-opacity" values="0.78;1;0.78" dur="1.8s" repeatCount="indefinite"/>
       </rect>
-      <text x="${x + boxWidth - 49}" y="${y - 6}" text-anchor="middle" fill="#07111f" font-size="14" font-weight="900">현재</text>`
+      <text x="${x + boxWidth - 49}" y="${y - 6}" text-anchor="middle" fill="#07111f" font-size="${TEXT_SIZE.label}" font-weight="900">현재</text>`
         : "";
       const orderFill = current ? "#f6edcf" : "#f6edcf";
       const titleFill = current ? "#fff6d7" : "#e7edf6";
 
       return `<g>
       ${highlight}
-      <text x="${x}" y="${y}" fill="${orderFill}" font-size="19" font-weight="800">${order}</text>
-      <text x="${x + 42}" y="${y}" fill="${titleFill}" font-size="23" font-weight="750">${title}</text>
+      <text x="${x}" y="${y}" fill="${orderFill}" font-size="${TEXT_SIZE.listOrder}" font-weight="800">${order}</text>
+      <text x="${x + 42}" y="${y}" fill="${titleFill}" font-size="${TEXT_SIZE.paragraph}" font-weight="750">${title}</text>
     </g>`;
     })
     .join("\n    ");
@@ -2153,7 +2209,7 @@ function renderRegionMapMobileLegend(
   currentPlace: RegionMapPlaceEntry | null
 ): string {
   if (places.length === 0) {
-    return `<text x="64" y="1124" fill="#e7edf6" font-size="24">등록된 거점 좌표 없음</text>`;
+    return `<text x="64" y="1124" fill="#e7edf6" font-size="${TEXT_SIZE.body}">등록된 거점 좌표 없음</text>`;
   }
 
   const columns = places.length > 8 ? 2 : 1;
@@ -2184,14 +2240,14 @@ function renderRegionMapMobileLegend(
       <rect x="${x + boxWidth - 70}" y="${y - 25}" width="54" height="30" rx="10" fill="url(#currentBadge)" fill-opacity="0.95">
         <animate attributeName="fill-opacity" values="0.78;1;0.78" dur="1.8s" repeatCount="indefinite"/>
       </rect>
-      <text x="${x + boxWidth - 43}" y="${y - 4}" text-anchor="middle" fill="#07111f" font-size="16" font-weight="760">현재</text>`
+      <text x="${x + boxWidth - 43}" y="${y - 4}" text-anchor="middle" fill="#07111f" font-size="${TEXT_SIZE.labelMobile}" font-weight="760">현재</text>`
         : "";
       const titleFill = current ? "#fff6d7" : "#e7edf6";
 
       return `<g>
       ${highlight}
-      <text x="${x}" y="${y}" fill="#f6edcf" font-size="23" font-weight="720">${order}</text>
-      <text x="${x + 54}" y="${y}" fill="${titleFill}" font-size="28" font-weight="660">${title}</text>
+      <text x="${x}" y="${y}" fill="#f6edcf" font-size="${TEXT_SIZE.body}" font-weight="720">${order}</text>
+      <text x="${x + 54}" y="${y}" fill="${titleFill}" font-size="${TEXT_SIZE.bodyLarge}" font-weight="660">${title}</text>
     </g>`;
     })
     .join("\n    ");
@@ -2302,7 +2358,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
   const titleText = titleLines
     .map((line, index) => {
       const y = titleBaseY + index * titleLineGap;
-      const fontSize = titleLines.length === 1 ? 64 : 54;
+      const fontSize = titleLines.length === 1 ? TEXT_SIZE.display : TEXT_SIZE.displayCompact;
       const approximateWidth = displayLength(line) * fontSize * 0.74;
       const fitAttrs =
         titleLines.length === 1 && approximateWidth > maxTitleWidth
@@ -2313,7 +2369,7 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
     .join("\n    ");
   const heraldryMark = heraldryUrl
     ? `<image href="${escapeXml(heraldryUrl)}" x="${crestImageX - crestBleed}" y="${crestImageY - crestBleed}" width="${crestImageWidth + crestBleed * 2}" height="${crestImageHeight + crestBleed * 2}" preserveAspectRatio="xMidYMid slice" clip-path="url(#crestClip)"/>`
-    : `<text x="${crestX + crestWidth / 2}" y="${crestY + crestHeight / 2 + 14}" text-anchor="middle" fill="#f6edcf" font-size="42" font-weight="800">${escapeXml(
+    : `<text x="${crestX + crestWidth / 2}" y="${crestY + crestHeight / 2 + 14}" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.title}" font-weight="800">${escapeXml(
         (scene.realmName ?? scene.title).slice(0, 3)
       )}</text>`;
 
@@ -2328,15 +2384,15 @@ function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): s
     <rect x="${crestImageX}" y="${crestImageY}" width="${crestImageWidth}" height="${crestImageHeight}" rx="8" fill="#020711" fill-opacity="0.28" stroke="#f6edcf" stroke-opacity="0.38" stroke-width="2"/>
     ${heraldryMark}
     <rect x="${crestImageX + 8}" y="${crestImageY + 8}" width="${crestImageWidth - 16}" height="${crestImageHeight - 16}" rx="6" fill="none" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="1.5"/>
-    <text x="${textX}" y="${realmY}" fill="#d9e4f2" font-size="31" font-weight="700" filter="url(#sceneTextShadow)">소속 ${escapedRealmLabel}</text>
+    <text x="${textX}" y="${realmY}" fill="#d9e4f2" font-size="${TEXT_SIZE.section}" font-weight="700" filter="url(#sceneTextShadow)">소속 ${escapedRealmLabel}</text>
     ${titleText}
     <rect x="${textX}" y="${badgeY}" width="${kindWidth}" height="44" rx="10" fill="url(#sceneBadge)" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.66">
       <animate attributeName="fill-opacity" values="0.58;1;0.58" dur="2.2s" repeatCount="indefinite"/>
       <animate attributeName="stroke-opacity" values="0.56;1;0.56" dur="2.2s" repeatCount="indefinite"/>
     </rect>
-    <text x="${textX + 24}" y="${badgeTextY}" fill="#f6edcf" font-size="30" font-weight="720" filter="url(#sceneTextShadow)">${escapedKindLabel}</text>
-    <text x="${textX}" y="${accessY}" fill="#b9cee8" font-size="29" font-weight="700" filter="url(#sceneTextShadow)">대표 지점</text>
-    <text x="${textX + 142}" y="${accessY}" fill="#f1f6ff" font-size="34" font-weight="720" filter="url(#sceneTextShadow)">${escapedAccessLabel}</text>
+    <text x="${textX + 24}" y="${badgeTextY}" fill="#f6edcf" font-size="${TEXT_SIZE.subtitle}" font-weight="720" filter="url(#sceneTextShadow)">${escapedKindLabel}</text>
+    <text x="${textX}" y="${accessY}" fill="#b9cee8" font-size="${TEXT_SIZE.bodyLarge}" font-weight="700" filter="url(#sceneTextShadow)">대표 지점</text>
+    <text x="${textX + 142}" y="${accessY}" fill="#f1f6ff" font-size="${TEXT_SIZE.section}" font-weight="720" filter="url(#sceneTextShadow)">${escapedAccessLabel}</text>
   </g>`;
 }
 
@@ -2361,12 +2417,12 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
     .map(([label, value], index) => {
       const rowTop = rowTopY + index * rowHeight;
       const y = rowTop + textBaselineOffset;
-      const wrappedValue = renderWrappedSvgText(value, valueX, y, 18, 2, 27);
+      const wrappedValue = renderWrappedSvgText(value, valueX, y, 18, 2, TEXT_SIZE.bodyLarge);
       const divider =
         index < rows.length - 1
           ? `<line x1="${labelX}" y1="${rowTop + rowHeight}" x2="${panelWidth - 60}" y2="${rowTop + rowHeight}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
           : "";
-      return `<text x="${labelX}" y="${y}" fill="#b9cee8" font-size="23" font-weight="800" filter="url(#sceneTextShadow)">${escapeXml(label)}</text>
+      return `<text x="${labelX}" y="${y}" fill="#b9cee8" font-size="${TEXT_SIZE.paragraph}" font-weight="800" filter="url(#sceneTextShadow)">${escapeXml(label)}</text>
       ${wrappedValue}
       ${divider}`;
     })
@@ -2388,7 +2444,7 @@ function renderWrappedSvgText(
   const lines = wrapDisplayText(value, maxDisplayLength, maxLines);
   const tspans = lines
     .map((line, index) => {
-      const dy = index === 0 ? 0 : fontSize + 4;
+      const dy = index === 0 ? 0 : textLineOffset(fontSize, TEXT_LINE_HEIGHT.paragraph);
       return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`;
     })
     .join("");
@@ -2534,8 +2590,8 @@ function displayLength(value: string): number {
 function renderTextOverlay(title: string, caption: string): string {
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
     <rect x="48" y="48" width="690" height="112" rx="18" fill="#07111f" fill-opacity="0.72" stroke="#c8b16a" stroke-opacity="0.78"/>
-    <text x="78" y="98" fill="#f6edcf" font-size="34" font-weight="800">${title}</text>
-    <text x="78" y="136" fill="#d9e4f2" font-size="18">${caption}</text>
+    <text x="78" y="98" fill="#f6edcf" font-size="${TEXT_SIZE.section}" font-weight="800">${title}</text>
+    <text x="78" y="136" fill="#d9e4f2" font-size="${TEXT_SIZE.caption}">${caption}</text>
   </g>`;
 }
 
@@ -2544,7 +2600,7 @@ function renderNotFoundSvg(): string {
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="not found">
   <rect width="1000" height="700" fill="#07111f"/>
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <text x="500" y="350" text-anchor="middle" fill="#f6edcf" font-size="36">Vireth scene not found</text>
+    <text x="500" y="350" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.titleSmall}">Vireth scene not found</text>
   </g>
 </svg>`;
 }
@@ -2557,8 +2613,8 @@ function renderPendingMapSvg(title: string): string {
   <rect width="1536" height="360" fill="#07111f"/>
   <rect x="48" y="48" width="1440" height="264" rx="24" fill="#101b2b" stroke="#c8b16a" stroke-opacity="0.54"/>
   <g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <text x="768" y="160" text-anchor="middle" fill="#f6edcf" font-size="42" font-weight="800">${escapedTitle}</text>
-    <text x="768" y="218" text-anchor="middle" fill="#d9e4f2" font-size="24">이 권역 지도는 아직 등록되지 않았다.</text>
+    <text x="768" y="160" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.title}" font-weight="800">${escapedTitle}</text>
+    <text x="768" y="218" text-anchor="middle" fill="#d9e4f2" font-size="${TEXT_SIZE.body}">이 권역 지도는 아직 등록되지 않았다.</text>
   </g>
 </svg>`;
 }

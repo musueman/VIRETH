@@ -345,12 +345,29 @@ const MAP_PLACE_QUERY_NAMES = [
   "currentPlace",
   "place",
   "city",
+  "detail",
+  "detailPlace",
+  "placeDetail",
+  "site",
+  "spot",
   "장소",
   "도시",
   "현재",
   "현재장소",
   "정본장소명",
   "key"
+];
+const REGION_QUERY_NAMES = ["region", "realm", "area", "country"];
+const PLACE_QUERY_NAMES = ["place", "city", "location", "currentPlace"];
+const DETAIL_PLACE_QUERY_NAMES = [
+  "detail",
+  "detailPlace",
+  "placeDetail",
+  "site",
+  "spot",
+  "subplace",
+  "subPlace",
+  "facility"
 ];
 const TALK_BACKGROUND_TYPE_QUERY_NAMES = [
   "type",
@@ -678,10 +695,47 @@ export default {
 } satisfies ExportedHandler<Env>;
 
 function resolveScene(url: URL, env: Env): SceneEntry {
-  const queryValue =
-    firstQuery(url, ["key", "scene", "place", "city", "region", "장소", "도시", "권역"]) ??
-    "world-overview";
-  return resolveSceneByValue(queryValue, env);
+  const queryValues = sceneQueryValues(url);
+  let unresolved: SceneEntry | null = null;
+  for (const queryValue of queryValues) {
+    const scene = resolveSceneByValue(queryValue, env);
+    if (!isUnresolvedScene(scene)) {
+      return scene;
+    }
+    unresolved ??= scene;
+  }
+  return unresolved ?? resolveSceneByValue("world-overview", env);
+}
+
+function sceneQueryValues(url: URL): string[] {
+  const direct = firstQuery(url, ["key", "scene"]);
+  if (direct) {
+    return [direct];
+  }
+
+  const region = firstQuery(url, REGION_QUERY_NAMES);
+  const place = firstQuery(url, PLACE_QUERY_NAMES);
+  const detail = firstQuery(url, DETAIL_PLACE_QUERY_NAMES);
+  const values = [
+    combineQueryParts(region, place, detail),
+    combineQueryParts(region, detail),
+    combineQueryParts(place, detail),
+    combineQueryParts(region, place),
+    place,
+    detail,
+    region
+  ].filter((value): value is string => Boolean(value));
+
+  return [...new Set(values.length > 0 ? values : ["world-overview"])];
+}
+
+function combineQueryParts(...parts: Array<string | null>): string | null {
+  const clean = parts.map((part) => part?.trim()).filter((part): part is string => Boolean(part));
+  return clean.length > 0 ? clean.join(" ") : null;
+}
+
+function isUnresolvedScene(scene: SceneEntry): boolean {
+  return scene.kind === "overview" && scene.aliases.length === 0 && scene.key !== "world-overview";
 }
 
 function resolveSceneByValue(queryValue: string, env: Env): SceneEntry {
@@ -883,12 +937,23 @@ function pendingRegionMap(url: URL): RegionMapEntry {
   };
 }
 
+function structuredPlaceLabel(url: URL, scene: SceneEntry): string {
+  const explicit = firstQuery(url, ["placeLabel"]);
+  if (explicit) {
+    return explicit;
+  }
+
+  const region = firstQuery(url, REGION_QUERY_NAMES);
+  const place = firstQuery(url, PLACE_QUERY_NAMES);
+  const detail = firstQuery(url, DETAIL_PLACE_QUERY_NAMES);
+  return combineQueryParts(place, detail) ?? place ?? detail ?? region ?? scene.title;
+}
+
 function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const speaker = firstQuery(url, ["name", "speaker", "character", "이름", "화자"]);
   const line = firstQuery(url, ["line", "dialogue", "text", "quote", "대사"]);
   const scene = resolveScene(url, env);
-  const placeLabel =
-    firstQuery(url, ["placeLabel", "place", "city", "region", "장소", "도시", "권역"]) ?? scene.title;
+  const placeLabel = structuredPlaceLabel(url, scene);
   const talkBackground = resolveTalkBackground(url, scene, placeLabel, env);
   const character = resolveTalkCharacter(url, speaker, scene);
   const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
@@ -926,8 +991,7 @@ function resolveTalkBackgroundFromUrl(url: URL, env: Env): TalkBackgroundEntry {
   }
 
   const scene = resolveScene(url, env);
-  const placeLabel =
-    firstQuery(url, ["placeLabel", "place", "city", "region", "?μ냼", "?꾩떆", "沅뚯뿭"]) ?? scene.title;
+  const placeLabel = structuredPlaceLabel(url, scene);
   return resolveTalkBackground(url, scene, placeLabel, env);
 }
 
@@ -965,6 +1029,7 @@ function resolveTalkBackground(
   const sceneValues = expandTalkBackgroundSearchValues([
     scene.key,
     scene.title,
+    scene.caption,
     placeLabel,
     scene.realmKey ?? "",
     scene.realmName ?? "",
@@ -1011,6 +1076,12 @@ function resolveTalkBackground(
             isTalkBackgroundContainedMatch(value, sceneValue)
         )
     );
+    const exactFunctionMatches = exactMatches.filter((value) =>
+      TALK_BACKGROUND_FUNCTION_HINTS.has(value)
+    );
+    const containedFunctionMatches = containedMatches.filter((value) =>
+      TALK_BACKGROUND_FUNCTION_HINTS.has(value)
+    );
     const crossRegion = Boolean(regionKey && entryRegionKey && entryRegionKey !== regionKey);
     const exactNonFunctionMatches = exactMatches.filter(
       (value) => !TALK_BACKGROUND_FUNCTION_HINTS.has(value)
@@ -1031,7 +1102,11 @@ function resolveTalkBackground(
 
     let score = 0;
     if (genericArchetype && !explicitBgType) {
-      if (allowSpecificMatch && exactMatches.length > 0) {
+      if (allowSpecificMatch && exactFunctionMatches.length > 0) {
+        score += 120 + (entry.priority ?? 0) / 4 + exactFunctionMatches.length * 8;
+      } else if (allowSpecificMatch && containedFunctionMatches.length > 0) {
+        score += 105 + (entry.priority ?? 0) / 4 + containedFunctionMatches.length * 5;
+      } else if (allowSpecificMatch && exactMatches.length > 0) {
         score += 30 + (entry.priority ?? 0) / 4 + exactMatches.length * 3;
       } else if (allowSpecificMatch && containedMatches.length > 0) {
         score += 20 + (entry.priority ?? 0) / 4 + containedMatches.length * 2;

@@ -12,15 +12,15 @@ Internal `key`, `region`, `bgType`, and direct asset URLs are supported for debu
 ## Routes
 
 - `/health` - JSON health check.
-- `/scene?place=베크켈카르(레이븐스톤)%20성문` - top scene card SVG.
+- `/scene?region=티리스&place=레이븐스톤%20성문` - top scene card SVG.
 - `/scene.image?place=...` - direct scene WebP.
 - `/scene.json?place=...` - resolved scene metadata.
-- `/talk?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문` - dialogue card SVG.
+- `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - dialogue card SVG.
 - `/talk.json?name=...&place=...` - resolved dialogue card metadata.
 - `/talk-background.json?place=...` - resolved talk background metadata.
 - `/talk.characters.json` - registered fixed-character metadata.
 - `/talk.npcs.json` - random NPC pool summary.
-- `/map?place=베크켈카르(레이븐스톤)%20성문` - regional map SVG with current place highlight.
+- `/map?region=티리스&place=레이븐스톤%20성문` - regional map SVG with current place highlight.
 - `/map.image?place=...` - direct regional map WebP.
 - `/map.json?place=...` - resolved region map metadata.
 - `/map.places.json?place=...` - region place list.
@@ -30,11 +30,11 @@ SVG routes inline raster assets by default because LunaTalk and Markdown surface
 ## LunaTalk Output Pattern
 
 ~~~md
-![](https://vireth-svg.musueman.workers.dev/scene?place=베크켈카르(레이븐스톤)%20성문)
+![](https://vireth-svg.musueman.workers.dev/scene?region=티리스&place=레이븐스톤%20성문)
 
 본문 서술...
 
-![](https://vireth-svg.musueman.workers.dev/talk?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문)
+![](https://vireth-svg.musueman.workers.dev/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문)
 베켈 오르민 | 목패.
 
 베켈 오르민 | 오래됐군. 어디서 받은 거지?
@@ -47,7 +47,7 @@ SVG routes inline raster assets by default because LunaTalk and Markdown surface
 🎯 목표: 성문 안 기록원에게 편지의 수신인을 확인하기
 ```
 
-![](https://vireth-svg.musueman.workers.dev/map?place=베크켈카르(레이븐스톤)%20성문)
+![](https://vireth-svg.musueman.workers.dev/map?region=티리스&place=레이븐스톤%20성문)
 ~~~
 
 Rules:
@@ -86,9 +86,9 @@ Every public display asset must be optimized before pushing.
 ```powershell
 $base = 'https://vireth-svg.musueman.workers.dev'
 $urls = @(
-  "$base/scene?place=베크켈카르(레이븐스톤)%20성문",
-  "$base/talk?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문",
-  "$base/map?place=베크켈카르(레이븐스톤)%20성문",
+  "$base/scene?region=티리스&place=레이븐스톤%20성문",
+  "$base/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문",
+  "$base/map?region=티리스&place=레이븐스톤%20성문",
   "$base/talk.json?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문",
   "$base/map.json?place=베크켈카르(레이븐스톤)%20성문"
 )

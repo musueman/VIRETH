@@ -961,6 +961,7 @@ function resolveTalkBackground(
     }
   }
 
+  const explicitBgType = firstQuery(url, TALK_BACKGROUND_TYPE_QUERY_NAMES);
   const sceneValues = expandTalkBackgroundSearchValues([
     scene.key,
     scene.title,
@@ -968,7 +969,7 @@ function resolveTalkBackground(
     scene.realmKey ?? "",
     scene.realmName ?? "",
     ...scene.aliases,
-    firstQuery(url, TALK_BACKGROUND_TYPE_QUERY_NAMES) ?? ""
+    explicitBgType ?? ""
   ]);
   const regionKey = normalizeKey(scene.realmKey ?? "");
   const regionName = normalizeKey(scene.realmName ?? "");
@@ -999,6 +1000,7 @@ function resolveTalkBackground(
         sceneSpecificValues.some((sceneValue) => sceneValue.includes(value) || value.includes(sceneValue))
       );
     const regionMatch = regionKey && entryRegionKey === regionKey;
+    const genericArchetype = entry.kind === "general_archetype";
     const allowSpecificMatch = entry.kind !== "place_type" || (Boolean(regionMatch) && hasFunctionMatch);
     const exactMatches = entrySpecificValues.filter((value) => sceneSpecificValueSet.has(value));
     const containedMatches = entrySpecificValues.filter(
@@ -1011,7 +1013,13 @@ function resolveTalkBackground(
     );
 
     let score = 0;
-    if (allowSpecificMatch && exactMatches.length > 0) {
+    if (genericArchetype && !explicitBgType) {
+      if (allowSpecificMatch && exactMatches.length > 0) {
+        score += 30 + (entry.priority ?? 0) / 4 + exactMatches.length * 3;
+      } else if (allowSpecificMatch && containedMatches.length > 0) {
+        score += 20 + (entry.priority ?? 0) / 4 + containedMatches.length * 2;
+      }
+    } else if (allowSpecificMatch && exactMatches.length > 0) {
       score += 200 + (entry.priority ?? 0) + exactMatches.length * 25;
     } else if (allowSpecificMatch && containedMatches.length > 0) {
       score += 120 + (entry.priority ?? 0) + containedMatches.length * 10;
@@ -1750,9 +1758,9 @@ function renderTalkInfoPanel(
   const bandY = 594;
   const bandH = 106;
   const contentX = 64;
-  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 358, 128, 172, card.scene.realmName ?? card.scene.title);
-  const roleY = 574;
-  const titleY = 620;
+  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 332, 144, 194, card.scene.realmName ?? card.scene.title);
+  const roleY = 558;
+  const titleY = 606;
   const detailY = 672;
   const detailGap = 380;
   const detailMaxLength = 34;

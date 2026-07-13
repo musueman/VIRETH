@@ -1,6 +1,8 @@
 import { GENERATED_SCENES } from "./generated-scenes";
 import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
+import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
+import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
 import {
   FANTASY_FRAME_CORNER_TL,
   FANTASY_FRAME_EDGE_H,
@@ -45,6 +47,50 @@ type RegionMapPlaceEntry = {
   mapXPct: number;
   mapYPct: number;
   order: number;
+};
+
+type TalkCharacterEntry = {
+  key: string;
+  aliases: string[];
+  displayName: string;
+  role?: string;
+  affiliation?: string;
+  summary?: string;
+  imageUrl?: string;
+  characterId?: string;
+  npcAssetId?: string;
+  gender?: string;
+  species?: string;
+  tier?: string;
+  sourceIndex?: number;
+  bytes?: number;
+  sourceFile?: string;
+};
+
+type TalkCardEntry = {
+  scene: SceneEntry;
+  character: TalkCharacterEntry | null;
+  speaker: string | null;
+  line: string | null;
+  placeLabel: string;
+  infoLines: string[];
+};
+
+type RandomNpcAsset = {
+  assetId: string;
+  imagePath: string;
+  gender: string;
+  species: string;
+  tier: "curated" | "loose_review";
+  sourceId: string;
+  sourceRoleHint: string;
+  sourceCultureHint: string;
+  sourceAgeHint: string;
+  bytes: number;
+};
+
+type EnvWithAssets = Env & {
+  ASSETS?: Fetcher;
 };
 
 const ASSET_BASE =
@@ -244,6 +290,7 @@ const SCENES: SceneEntry[] = [
 
 const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
 const REGION_MAP_PLACES = GENERATED_REGION_MAP_PLACES as RegionMapPlaceEntry[];
+const RANDOM_NPC_ASSETS = GENERATED_RANDOM_NPC_ASSETS as readonly RandomNpcAsset[];
 const MAP_PLACE_QUERY_NAMES = [
   "current",
   "currentPlace",
@@ -256,6 +303,67 @@ const MAP_PLACE_QUERY_NAMES = [
   "정본장소명",
   "key"
 ];
+
+const TALK_CHARACTERS = GENERATED_TALK_CHARACTERS as readonly TalkCharacterEntry[];
+
+const SCENE_KEY_ALIASES: Record<string, string> = {
+  "레이븐스톤-성문": "bekkellkar-ravenstone",
+  "베크켈카르-성문": "bekkellkar-ravenstone",
+  "베크켈카르레이븐스톤-성문": "bekkellkar-ravenstone",
+  "베크켈카르-레이븐스톤-성문": "bekkellkar-ravenstone",
+  "raebnseuton-seongmun": "bekkellkar-ravenstone",
+  "ravenstone-gate": "bekkellkar-ravenstone",
+  "ravenstone-seongmun": "bekkellkar-ravenstone",
+  "bekkellkar-ravenstone-gate": "bekkellkar-ravenstone"
+};
+
+const REGION_KEY_ALIASES: Record<string, string> = {
+  "tiris-west": "tiris",
+  "tiris-western": "tiris",
+  "west-tiris": "tiris"
+};
+
+const NPC_GENDER_ALIASES: Record<string, string> = {
+  m: "male",
+  male: "male",
+  man: "male",
+  nam: "male",
+  "남": "male",
+  "남성": "male",
+  f: "female",
+  female: "female",
+  woman: "female",
+  yeo: "female",
+  "여": "female",
+  "여성": "female"
+};
+
+const NPC_SPECIES_ALIASES: Record<string, string> = {
+  human: "human_lineage",
+  humanlineage: "human_lineage",
+  "human-lineage": "human_lineage",
+  "인간": "human_lineage",
+  "인간계": "human_lineage",
+  mixed: "mixed_contact_humanoid",
+  "mixed-contact": "mixed_contact_humanoid",
+  "mixed-contact-humanoid": "mixed_contact_humanoid",
+  "혼혈": "mixed_contact_humanoid",
+  "혼성": "mixed_contact_humanoid",
+  outer: "outer_sea_lighthouse_lineage",
+  "outer-sea": "outer_sea_lighthouse_lineage",
+  "outer-sea-lighthouse": "outer_sea_lighthouse_lineage",
+  "외해": "outer_sea_lighthouse_lineage",
+  lighthouse: "outer_sea_lighthouse_lineage",
+  sylvania: "sylvania_forestline",
+  forest: "sylvania_forestline",
+  "숲": "sylvania_forestline",
+  "실바니아": "sylvania_forestline",
+  masked: "beastlike_or_masked_misc",
+  beastlike: "beastlike_or_masked_misc",
+  "beastlike-masked": "beastlike_or_masked_misc",
+  "가면": "beastlike_or_masked_misc",
+  "수인": "beastlike_or_masked_misc"
+};
 
 const TEXT_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -281,18 +389,60 @@ export default {
       return json({ error: "method_not_allowed" }, 405);
     }
 
+    if (
+      url.pathname.startsWith("/npc-assets/") ||
+      url.pathname.startsWith("/character-assets/") ||
+      url.pathname.startsWith("/scene-assets/")
+    ) {
+      return staticAsset(request, env);
+    }
+
     if (url.pathname === "/" || url.pathname === "/health") {
       return json({
         ok: true,
         service: env.SERVICE_NAME,
+        talkCharacters: TALK_CHARACTERS.length,
+        randomNpcAssets: RANDOM_NPC_ASSETS.length,
         routes: [
           "/scene?key=world-overview",
           "/scene.json?key=world-overview",
+          "/talk?name=gatekeeper&place=bekkellkar-ravenstone",
+          "/talk.json?name=gatekeeper&place=bekkellkar-ravenstone",
+          "/talk.characters.json",
+          "/talk.npcs.json",
           "/map?region=tiris",
           "/map.json?region=tiris",
           "/map.places.json?region=tiris"
         ]
       });
+    }
+
+    if (url.pathname === "/talk.npcs.json") {
+      return json({
+        ok: true,
+        count: RANDOM_NPC_ASSETS.length,
+        groups: randomNpcGroupCounts()
+      });
+    }
+
+    if (url.pathname === "/talk.characters.json") {
+      return json({
+        ok: true,
+        count: TALK_CHARACTERS.length,
+        characters: TALK_CHARACTERS.map((character) => ({
+          key: character.key,
+          characterId: character.characterId,
+          displayName: character.displayName,
+          aliases: character.aliases,
+          imageUrl: character.imageUrl,
+          bytes: character.bytes,
+          sourceFile: character.sourceFile
+        }))
+      });
+    }
+
+    if (url.pathname === "/talk.json") {
+      return json(resolveTalkCard(url, env));
     }
 
     if (url.pathname === "/scene.json") {
@@ -333,7 +483,7 @@ export default {
 
     if (url.pathname === "/scene.webp" || url.pathname === "/scene.image") {
       const scene = resolveScene(url, env);
-      return image(scene.imageUrl, request.method);
+      return assetOrImage(scene.imageUrl, request.method, env);
     }
 
     if (url.pathname === "/heraldry.webp" || url.pathname === "/heraldry.image") {
@@ -341,7 +491,7 @@ export default {
       if (!scene.heraldryUrl) {
         return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
       }
-      return image(scene.heraldryUrl, request.method);
+      return assetOrImage(scene.heraldryUrl, request.method, env);
     }
 
     if (url.pathname === "/map.webp" || url.pathname === "/map.image") {
@@ -357,7 +507,12 @@ export default {
 
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
       const scene = resolveScene(url, env);
-      return new Response(await renderSceneSvg(scene, url.origin), { headers: SVG_HEADERS });
+      return new Response(await renderSceneSvg(scene, url.origin, url, env), { headers: SVG_HEADERS });
+    }
+
+    if (url.pathname === "/talk" || url.pathname === "/talk.svg") {
+      const card = resolveTalkCard(url, env);
+      return new Response(await renderTalkSvg(card, url.origin, url, env), { headers: SVG_HEADERS });
     }
 
     if (url.pathname === "/map" || url.pathname === "/map.svg") {
@@ -382,7 +537,7 @@ function resolveScene(url: URL, env: Env): SceneEntry {
 }
 
 function resolveSceneByValue(queryValue: string, env: Env): SceneEntry {
-  const normalized = normalizeKey(queryValue);
+  const normalized = canonicalSceneKey(queryValue);
 
   const direct = SCENES.find((scene) => normalizeKey(scene.key) === normalized);
   if (direct) {
@@ -401,6 +556,16 @@ function resolveSceneByValue(queryValue: string, env: Env): SceneEntry {
     return aliasMatches[0];
   }
 
+  const contained = resolveSceneByContainedValue(normalized);
+  if (contained) {
+    return contained;
+  }
+
+  const regionDefault = resolveDefaultSceneByRegionValue(normalized);
+  if (regionDefault) {
+    return regionDefault;
+  }
+
   return {
     key: normalized || "pending",
     aliases: [],
@@ -411,6 +576,62 @@ function resolveSceneByValue(queryValue: string, env: Env): SceneEntry {
       ? `${queryValue}에 연결된 도시·마을 전경 이미지는 아직 등록되지 않았다.`
       : "아직 이 장소키에 연결된 도시·마을 전경 이미지가 없다."
   };
+}
+
+function resolveSceneByContainedValue(normalized: string): SceneEntry | null {
+  if (!normalized) {
+    return null;
+  }
+
+  const matches: Array<{ scene: SceneEntry; score: number }> = [];
+  for (const scene of SCENES) {
+    const realmKey = normalizeKey(scene.realmKey ?? "");
+    const realmName = normalizeKey(scene.realmName ?? "");
+    const values = [scene.key, scene.title, ...scene.aliases];
+    for (const value of values) {
+      const candidate = normalizeKey(value);
+      if (
+        candidate.length < 4 ||
+        candidate === realmKey ||
+        candidate === realmName ||
+        !(normalized.includes(candidate) || candidate.includes(normalized))
+      ) {
+        continue;
+      }
+      matches.push({ scene, score: candidate.length });
+    }
+  }
+
+  matches.sort((a, b) => {
+    if (b.score !== a.score) {
+      return b.score - a.score;
+    }
+    if (a.scene.kind !== b.scene.kind) {
+      return a.scene.kind === "city" ? -1 : 1;
+    }
+    return a.scene.key.localeCompare(b.scene.key);
+  });
+
+  return matches[0]?.scene ?? null;
+}
+
+function resolveDefaultSceneByRegionValue(normalized: string): SceneEntry | null {
+  const region = canonicalRegionKey(normalized);
+  const directRegion = SCENES.find(
+    (scene) => scene.kind === "city" && scene.realmKey && normalizeKey(scene.realmKey) === region
+  );
+  if (directRegion) {
+    return directRegion;
+  }
+
+  return (
+    SCENES.find(
+      (scene) =>
+        scene.kind === "city" &&
+        scene.realmName &&
+        normalizeKey(scene.realmName) === region
+    ) ?? null
+  );
 }
 
 function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
@@ -430,7 +651,7 @@ function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
     return null;
   }
 
-  const normalized = normalizeKey(queryValue);
+  const normalized = canonicalRegionKey(queryValue);
   const direct = REGION_MAPS.find(
     (map) =>
       normalizeKey(map.key) === normalized ||
@@ -514,6 +735,206 @@ function pendingRegionMap(url: URL): RegionMapEntry {
   };
 }
 
+function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
+  const speaker = firstQuery(url, ["name", "speaker", "character", "이름", "화자"]);
+  const line = firstQuery(url, ["line", "dialogue", "text", "quote", "대사"]);
+  const scene = resolveScene(url, env);
+  const placeLabel =
+    firstQuery(url, ["placeLabel", "place", "city", "region", "장소", "도시", "권역"]) ?? scene.title;
+  const character = resolveTalkCharacter(url, speaker, scene);
+  const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
+  const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
+  const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
+  const resolvedCharacter =
+    character && (roleOverride || affiliationOverride || infoOverride)
+      ? {
+          ...character,
+          role: roleOverride ?? character.role,
+          affiliation: affiliationOverride ?? character.affiliation,
+          summary: infoOverride ?? character.summary
+        }
+      : character;
+  const infoLines = talkInfoLines(resolvedCharacter, scene, placeLabel, infoOverride);
+
+  return {
+    scene,
+    character: resolvedCharacter,
+    speaker,
+    line,
+    placeLabel,
+    infoLines
+  };
+}
+
+function resolveTalkCharacter(url: URL, speaker: string | null, scene: SceneEntry): TalkCharacterEntry | null {
+  const directImageUrl = firstQuery(url, [
+    "characterUrl",
+    "characterImage",
+    "portrait",
+    "portraitUrl",
+    "image",
+    "인물이미지"
+  ]);
+  const registered = speaker ? resolveTalkCharacterByValue(speaker) : null;
+
+  if (registered && directImageUrl) {
+    return { ...registered, imageUrl: directImageUrl };
+  }
+
+  if (registered) {
+    return registered;
+  }
+
+  const randomNpc = resolveRandomNpcAsset(url, speaker, scene);
+  if (randomNpc && !directImageUrl) {
+    return randomNpcTalkCharacter(randomNpc, url, speaker, scene);
+  }
+
+  if (!speaker && !directImageUrl) {
+    return null;
+  }
+
+  return {
+    key: normalizeKey(speaker ?? "unregistered-character"),
+    aliases: speaker ? [speaker] : [],
+    displayName: speaker ?? "이름 미상",
+    role: firstQuery(url, ["role", "job", "title", "역할", "직능"]) ?? undefined,
+    affiliation: firstQuery(url, ["affiliation", "group", "소속"]) ?? undefined,
+    summary: firstQuery(url, ["info", "note", "summary", "정보", "설명"]) ?? undefined,
+    imageUrl: directImageUrl ?? undefined
+  };
+}
+
+function resolveTalkCharacterByValue(value: string): TalkCharacterEntry | null {
+  const normalized = normalizeKey(value);
+  if (!normalized) {
+    return null;
+  }
+
+  return (
+    TALK_CHARACTERS.find(
+      (character) =>
+        normalizeKey(character.key) === normalized ||
+        normalizeKey(character.displayName) === normalized ||
+        character.aliases.some((alias) => normalizeKey(alias) === normalized)
+    ) ?? null
+  );
+}
+
+function resolveRandomNpcAsset(url: URL, speaker: string | null, scene: SceneEntry): RandomNpcAsset | null {
+  const explicitAssetId = firstQuery(url, ["npcAssetId", "npcAsset", "portraitId", "assetId"]);
+  if (explicitAssetId) {
+    const explicit = RANDOM_NPC_ASSETS.find((asset) => normalizeKey(asset.assetId) === normalizeKey(explicitAssetId));
+    if (explicit) {
+      return explicit;
+    }
+  }
+
+  const npcMode = normalizeKey(firstQuery(url, ["npc", "randomNpc", "autoNpc", "npcMode"]) ?? "");
+  if (npcMode === "0" || npcMode === "false" || npcMode === "off" || npcMode === "none") {
+    return null;
+  }
+
+  if (!speaker && npcMode !== "auto" && npcMode !== "1" && npcMode !== "true" && npcMode !== "on") {
+    return null;
+  }
+
+  const gender = canonicalNpcGender(firstQuery(url, ["gender", "sex", "성별"]));
+  const species = canonicalNpcSpecies(firstQuery(url, ["species", "speciesGroup", "lineage", "종족", "계통"]));
+  const role = firstQuery(url, ["role", "job", "title", "역할", "직능"]) ?? "";
+  const seed =
+    firstQuery(url, ["seed", "npcSeed", "session", "인물키"]) ??
+    [speaker ?? "background-npc", scene.key, role, gender ?? "", species ?? ""].join("|");
+
+  let candidates = RANDOM_NPC_ASSETS.filter(
+    (asset) => (!gender || asset.gender === gender) && (!species || asset.species === species)
+  );
+  if (!candidates.length && gender) {
+    candidates = RANDOM_NPC_ASSETS.filter((asset) => asset.gender === gender);
+  }
+  if (!candidates.length && species) {
+    candidates = RANDOM_NPC_ASSETS.filter((asset) => asset.species === species);
+  }
+  if (!candidates.length) {
+    candidates = RANDOM_NPC_ASSETS;
+  }
+  if (!candidates.length) {
+    return null;
+  }
+
+  return candidates[stableHash(seed) % candidates.length];
+}
+
+function randomNpcTalkCharacter(
+  asset: RandomNpcAsset,
+  url: URL,
+  speaker: string | null,
+  scene: SceneEntry
+): TalkCharacterEntry {
+  return {
+    key: normalizeKey(speaker ?? asset.assetId),
+    aliases: speaker ? [speaker, asset.assetId] : [asset.assetId],
+    displayName: speaker ?? "이름 미상",
+    role: firstQuery(url, ["role", "job", "title", "역할", "직능"]) ?? "현장 인물",
+    affiliation: firstQuery(url, ["affiliation", "group", "소속"]) ?? scene.realmName ?? undefined,
+    summary: firstQuery(url, ["info", "note", "summary", "정보", "설명"]) ?? scene.caption,
+    imageUrl: asset.imagePath,
+    npcAssetId: asset.assetId,
+    gender: asset.gender,
+    species: asset.species,
+    tier: asset.tier
+  };
+}
+
+function canonicalNpcGender(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+  const normalized = normalizeKey(value);
+  return NPC_GENDER_ALIASES[normalized] ?? null;
+}
+
+function canonicalNpcSpecies(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+  const normalized = normalizeKey(value);
+  return NPC_SPECIES_ALIASES[normalized] ?? normalized.replace(/-/g, "_");
+}
+
+function stableHash(value: string): number {
+  let hash = 2166136261;
+  for (const char of Array.from(value)) {
+    hash ^= char.codePointAt(0) ?? 0;
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function randomNpcGroupCounts(): Record<string, number> {
+  return RANDOM_NPC_ASSETS.reduce<Record<string, number>>((groups, asset) => {
+    const key = `${asset.gender}__${asset.species}`;
+    groups[key] = (groups[key] ?? 0) + 1;
+    return groups;
+  }, {});
+}
+
+function talkInfoLines(
+  character: TalkCharacterEntry | null,
+  scene: SceneEntry,
+  placeLabel: string,
+  infoOverride: string | null
+): string[] {
+  const lines = [
+    character?.affiliation ?? scene.realmName ?? scene.heraldryName ?? "소속 미상",
+    character?.role ?? sceneKindLabel(scene.kind),
+    `현재 위치: ${placeLabel || scene.title}`,
+    character?.summary ?? infoOverride ?? scene.caption
+  ];
+
+  return lines.filter((line): line is string => Boolean(line)).map((line) => truncateDisplay(line, 34)).slice(0, 4);
+}
+
 function firstQuery(url: URL, names: string[]): string | null {
   for (const name of names) {
     const value = url.searchParams.get(name);
@@ -532,18 +953,71 @@ function normalizeKey(value: string): string {
     .replace(/[^\p{Letter}\p{Number}-]+/gu, "");
 }
 
+function canonicalSceneKey(value: string): string {
+  const normalized = normalizeKey(value);
+  return SCENE_KEY_ALIASES[normalized] ?? normalized;
+}
+
+function canonicalRegionKey(value: string): string {
+  const normalized = normalizeKey(value);
+  return REGION_KEY_ALIASES[normalized] ?? normalized;
+}
+
 function assetUrl(path: string): string {
   return `${ASSET_BASE}/${path}`;
 }
 
-async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string> {
+function sceneImageUrl(origin: string, sceneKey: string): string {
+  return `${origin}/scene.image?key=${encodeURIComponent(sceneKey)}`;
+}
+
+function heraldryProxyUrl(origin: string, sceneKey: string): string {
+  return `${origin}/heraldry.image?key=${encodeURIComponent(sceneKey)}`;
+}
+
+function mapImageUrl(origin: string, mapKey: string): string {
+  return `${origin}/map.image?key=${encodeURIComponent(mapKey)}`;
+}
+
+function absoluteImageUrl(imageUrl: string, origin: string): string {
+  return new URL(imageUrl, origin).toString();
+}
+
+function shouldInlineAssets(url: URL): boolean {
+  const externalValue = normalizeKey(firstQuery(url, ["external", "proxy", "noembed", "외부"]) ?? "");
+  if (externalValue === "1" || externalValue === "true" || externalValue === "yes" || externalValue === "on") {
+    return false;
+  }
+
+  const inlineValue = firstQuery(url, ["embed", "inline", "datauri", "data", "인라인"]);
+  if (!inlineValue) {
+    return true;
+  }
+
+  const normalized = normalizeKey(inlineValue);
+  return !(normalized === "0" || normalized === "false" || normalized === "no" || normalized === "off");
+}
+
+async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: Env): Promise<string> {
   const title = escapeXml(scene.title);
   const caption = escapeXml(scene.caption);
-  const imageDataUri = await fetchDataUri(scene.imageUrl);
-  const heraldryDataUri = scene.heraldryUrl ? await fetchDataUri(scene.heraldryUrl) : null;
-  const imageUrl = escapeXml(imageDataUri ?? scene.imageUrl);
+  const inlineAssets = shouldInlineAssets(url);
+  const imageProxyUrl = sceneImageUrl(origin, scene.key);
+  const imageUrl = escapeXml(
+    inlineAssets
+      ? (await fetchInlineImageDataUri(scene.imageUrl, absoluteImageUrl(scene.imageUrl, origin), env)) ?? imageProxyUrl
+      : imageProxyUrl
+  );
   const heraldryUrl = scene.heraldryUrl
-    ? heraldryDataUri ?? `${origin}/heraldry.image?key=${encodeURIComponent(scene.key)}`
+    ? escapeXml(
+        inlineAssets
+          ? (await fetchInlineImageDataUri(
+              scene.heraldryUrl,
+              absoluteImageUrl(scene.heraldryUrl, origin),
+              env
+            )) ?? heraldryProxyUrl(origin, scene.key)
+          : heraldryProxyUrl(origin, scene.key)
+      )
     : null;
   const overlay = scene.heraldryUrl
     ? renderHeraldryOverlay(scene, heraldryUrl)
@@ -565,6 +1039,15 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
       <stop offset="0%" stop-color="#c8b16a" stop-opacity="0.35"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.18"/>
     </linearGradient>
+    <linearGradient id="identityBand" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#020711" stop-opacity="0.86"/>
+      <stop offset="58%" stop-color="#07111f" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="identityFade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0.74"/>
+    </linearGradient>
     <filter id="scenePanelShadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.38"/>
     </filter>
@@ -577,6 +1060,140 @@ async function renderSceneSvg(scene: SceneEntry, origin: string): Promise<string
   <rect width="1000" height="700" fill="url(#shade)"/>
   ${overlay}
 </svg>`;
+}
+
+async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
+  const inlineAssets = shouldInlineAssets(url);
+  const backgroundProxyUrl = sceneImageUrl(origin, card.scene.key);
+  const backgroundUrl = escapeXml(
+    inlineAssets
+      ? (await fetchInlineImageDataUri(
+          card.scene.imageUrl,
+          absoluteImageUrl(card.scene.imageUrl, origin),
+          env
+        )) ?? backgroundProxyUrl
+      : backgroundProxyUrl
+  );
+  const rawCharacterImageUrl = card.character?.imageUrl ? absoluteImageUrl(card.character.imageUrl, origin) : null;
+  const inlineCharacterImageUrl =
+    card.character?.imageUrl && rawCharacterImageUrl && inlineAssets
+      ? await fetchInlineImageDataUri(card.character.imageUrl, rawCharacterImageUrl, env)
+      : null;
+  const characterImageUrl =
+    rawCharacterImageUrl
+      ? escapeXml(
+          inlineAssets
+            ? inlineCharacterImageUrl ?? rawCharacterImageUrl
+            : rawCharacterImageUrl
+        )
+      : null;
+  const title = card.character?.displayName ?? card.speaker ?? card.scene.title;
+  const subtitle = card.character ? "화자 정보" : "장소 정보";
+  const line = card.line ? truncateDisplay(card.line, 48) : null;
+  const ariaLabel = escapeXml(`${card.character?.displayName ?? card.speaker ?? "장소"} 대화 카드`);
+  const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
+  const infoPanel = renderTalkInfoPanel(card, subtitle, title, line);
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
+  <defs>
+    <linearGradient id="talkShade" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.40"/>
+      <stop offset="48%" stop-color="#07111f" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#020711" stop-opacity="0.50"/>
+    </linearGradient>
+    <linearGradient id="talkPanel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#162033" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="talkPanelEdge" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#f6edcf" stop-opacity="0.74"/>
+      <stop offset="100%" stop-color="#c8b16a" stop-opacity="0.20"/>
+    </linearGradient>
+    <linearGradient id="talkRightFade" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#020711" stop-opacity="0.34"/>
+    </linearGradient>
+    <filter id="talkPanelShadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="talkTextShadow" x="-10%" y="-30%" width="120%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
+    </filter>
+    <linearGradient id="talkCharacterFade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="80%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="500" y="12" width="470" height="670">
+      <rect x="500" y="12" width="470" height="670" fill="url(#talkCharacterFade)"/>
+    </mask>
+  </defs>
+  <rect width="1000" height="700" fill="#07111f"/>
+  <image href="${backgroundUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1000" height="700" fill="url(#talkShade)"/>
+  <rect x="430" y="0" width="570" height="700" fill="url(#talkRightFade)"/>
+  ${characterLayer}
+  ${infoPanel}
+</svg>`;
+}
+
+function renderTalkCharacterLayer(characterImageUrl: string, character: TalkCharacterEntry | null): string {
+  const label = escapeXml(character?.displayName ?? "character");
+
+  return `<g aria-label="${label}">
+    <image href="${characterImageUrl}" x="500" y="12" width="470" height="670" preserveAspectRatio="xMidYMid meet" mask="url(#talkCharacterMask)"/>
+  </g>`;
+}
+
+function renderTalkInfoPanel(card: TalkCardEntry, subtitle: string, title: string, line: string | null): string {
+  const rows = card.infoLines
+    .map((value, index) => {
+      const y = 304 + index * 56;
+      const wrapped = renderTalkTextBlock(value, 72, y, 23, 2, 21, "#f1f6ff", "710");
+      return `${wrapped}`;
+    })
+    .join("\n      ");
+  const place = escapeXml(truncateDisplay(card.placeLabel, 28));
+  const quote = line
+    ? `<rect x="68" y="548" width="318" height="74" rx="12" fill="#050b14" fill-opacity="0.48" stroke="#f6edcf" stroke-opacity="0.24"/>
+      ${renderTalkTextBlock(line, 88, 582, 25, 2, 20, "#f6edcf", "760")}`
+    : "";
+
+  return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" filter="url(#talkPanelShadow)">
+      <rect x="38" y="54" width="390" height="592" rx="18" fill="url(#talkPanel)" stroke="#c8b16a" stroke-opacity="0.50" stroke-width="2"/>
+      <rect x="52" y="68" width="362" height="564" rx="14" fill="none" stroke="#f6edcf" stroke-opacity="0.15"/>
+      <rect x="68" y="90" width="142" height="34" rx="10" fill="#050b14" fill-opacity="0.58" stroke="#9fb0c2" stroke-opacity="0.26"/>
+      <text x="88" y="113" fill="#d9e4f2" font-size="17" font-weight="780" filter="url(#talkTextShadow)">${escapeXml(subtitle)}</text>
+      <line x1="68" y1="144" x2="388" y2="144" stroke="url(#talkPanelEdge)" stroke-width="2"/>
+      ${renderTalkTextBlock(title, 68, 198, 12, 2, 44, "#f6edcf", "830")}
+      <text x="72" y="266" fill="#b9cee8" font-size="18" font-weight="720" filter="url(#talkTextShadow)">${place}</text>
+      <g filter="url(#talkTextShadow)">
+      ${rows}
+      </g>
+      ${quote}
+    </g>`;
+}
+
+function renderTalkTextBlock(
+  value: string,
+  x: number,
+  y: number,
+  maxDisplayLength: number,
+  maxLines: number,
+  fontSize: number,
+  fill: string,
+  fontWeight: string
+): string {
+  const lines = wrapDisplayText(value, maxDisplayLength, maxLines);
+  const tspans = lines
+    .map((line, index) => {
+      const dy = index === 0 ? 0 : Math.round(fontSize * 1.28);
+      return `<tspan x="${x}" dy="${dy}">${escapeXml(line)}</tspan>`;
+    })
+    .join("");
+
+  return `<text x="${x}" y="${y}" fill="${fill}" font-size="${fontSize}" font-weight="${fontWeight}" filter="url(#talkTextShadow)">${tspans}</text>`;
 }
 
 async function renderRegionMapSvg(
@@ -599,8 +1216,9 @@ async function renderRegionMapWideSvg(
   env: Env
 ): Promise<string> {
   const title = escapeXml(map.title);
-  const imageDataUri = await fetchDataUri(map.imageUrl);
-  const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
+  const inlineAssets = shouldInlineAssets(url);
+  const imageProxyUrl = mapImageUrl(origin, map.key);
+  const imageUrl = escapeXml(inlineAssets ? (await fetchDataUri(map.imageUrl)) ?? imageProxyUrl : imageProxyUrl);
   const places = regionMapPlaces(map.key);
   const currentPlace = resolveCurrentMapPlace(url, map, env);
   const legend = renderRegionMapLegend(places, currentPlace);
@@ -614,8 +1232,9 @@ async function renderRegionMapWideSvg(
   const heraldryImageUrl =
     heraldryScene?.heraldryUrl
       ? escapeXml(
-          (await fetchDataUri(heraldryScene.heraldryUrl)) ??
-            `${origin}/heraldry.image?key=${encodeURIComponent(heraldryScene.key)}`
+          inlineAssets
+            ? (await fetchDataUri(heraldryScene.heraldryUrl)) ?? heraldryProxyUrl(origin, heraldryScene.key)
+            : heraldryProxyUrl(origin, heraldryScene.key)
         )
       : null;
   const header = renderRegionMapHeader(map.title, regionSentence, heraldryImageUrl);
@@ -675,8 +1294,9 @@ async function renderRegionMapMobileSvg(
   env: Env
 ): Promise<string> {
   const title = escapeXml(map.title);
-  const imageDataUri = await fetchDataUri(map.imageUrl);
-  const imageUrl = escapeXml(imageDataUri ?? `${origin}/map.image?key=${encodeURIComponent(map.key)}`);
+  const inlineAssets = shouldInlineAssets(url);
+  const imageProxyUrl = mapImageUrl(origin, map.key);
+  const imageUrl = escapeXml(inlineAssets ? (await fetchDataUri(map.imageUrl)) ?? imageProxyUrl : imageProxyUrl);
   const places = regionMapPlaces(map.key);
   const currentPlace = resolveCurrentMapPlace(url, map, env);
   const placeMarkers = renderMapPointMarkers(places, currentPlace, 48, 48, 768);
@@ -689,14 +1309,15 @@ async function renderRegionMapMobileSvg(
   const heraldryImageUrl =
     heraldryScene?.heraldryUrl
       ? escapeXml(
-          (await fetchDataUri(heraldryScene.heraldryUrl)) ??
-            `${origin}/heraldry.image?key=${encodeURIComponent(heraldryScene.key)}`
+          inlineAssets
+            ? (await fetchDataUri(heraldryScene.heraldryUrl)) ?? heraldryProxyUrl(origin, heraldryScene.key)
+            : heraldryProxyUrl(origin, heraldryScene.key)
         )
       : null;
   const header = renderRegionMapMobileHeader(map.title, sentence, heraldryImageUrl);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1740" viewBox="0 0 864 1740" role="img" aria-label="${title} 세로 지도">
+<svg xmlns="http://www.w3.org/2000/svg" width="864" height="1640" viewBox="0 0 864 1640" role="img" aria-label="${title} 세로 지도">
   <defs>
     <linearGradient id="mapBg" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0%" stop-color="#111827"/>
@@ -728,9 +1349,9 @@ async function renderRegionMapMobileSvg(
     <clipPath id="mobileMapClip"><rect x="48" y="48" width="768" height="768" rx="24"/></clipPath>
     <clipPath id="mobileCrestClip"><rect x="64" y="858" width="86" height="110" rx="13"/></clipPath>
   </defs>
-  <rect width="864" height="1740" fill="url(#mapBg)"/>
-  <rect x="0" y="0" width="864" height="1740" rx="0" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(0, 0, 864, 1740, 0, { sliceSize: 42, opacity: 0.78 })}
+  <rect width="864" height="1640" fill="url(#mapBg)"/>
+  <rect x="0" y="0" width="864" height="1640" rx="0" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
+  ${renderOrnateFrame(0, 0, 864, 1640, 0, { sliceSize: 42, opacity: 0.78 })}
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
@@ -792,12 +1413,12 @@ function renderRegionMapMobileHeader(
   return `<g>
       <rect x="54" y="846" width="106" height="134" rx="18" fill="#050b14" fill-opacity="0.54" stroke="#d8c078" stroke-opacity="0.58"/>
       ${crest}
-      <text x="190" y="878" fill="#9fb0c2" font-size="19" font-weight="850">국가</text>
-      <text x="248" y="878" fill="#d9e4f2" font-size="21" font-weight="850">${escapedTitle}</text>
-      <text x="190" y="928" fill="#f6edcf" font-size="42" font-weight="900">거점 지도</text>
-      <text x="190" y="976" fill="#d9e4f2" font-size="22" font-weight="750">${escapedSentence}</text>
-      <line x1="58" y1="1024" x2="806" y2="1024" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
-      <text x="64" y="1060" fill="#f6edcf" font-size="28" font-weight="900">거점 목록</text>
+      <text x="190" y="878" fill="#9fb0c2" font-size="23" font-weight="720">국가</text>
+      <text x="258" y="878" fill="#d9e4f2" font-size="25" font-weight="740">${escapedTitle}</text>
+      <text x="190" y="936" fill="#f6edcf" font-size="48" font-weight="800">거점 지도</text>
+      <text x="190" y="990" fill="#d9e4f2" font-size="25" font-weight="650">${escapedSentence}</text>
+      <line x1="68" y1="1054" x2="796" y2="1054" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
+      <text x="68" y="1112" fill="#f6edcf" font-size="32" font-weight="780">거점 목록</text>
     </g>`;
 }
 
@@ -830,15 +1451,20 @@ function renderMapPointMarkers(
       placed.push({ x, y });
 
       const current = isSameMapPlace(place, currentPlace);
-      const radius = current ? 17 : 14;
+      const scale = mapSize / 640;
+      const isMobileMap = mapSize >= 700;
+      const radius = current ? (isMobileMap ? 23 * scale : 17 * scale) : (isMobileMap ? 20 * scale : 14 * scale);
       const fill = current ? "#f59e0b" : "#07111f";
       const stroke = current ? "#f6edcf" : "#d8c078";
       const textFill = current ? "#07111f" : "#f6edcf";
       const order = String(place.order).padStart(2, "0");
+      const strokeWidth = Math.max(3, (isMobileMap ? 3.8 : 3) * scale);
+      const fontSize = Math.round((isMobileMap ? 18 : 13) * scale);
+      const textY = y + (isMobileMap ? 7.8 : 6) * scale;
 
       return `<g aria-label="${escapeXml(order)} ${escapeXml(place.title)}">
-      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${radius}" fill="${fill}" fill-opacity="0.86" stroke="${stroke}" stroke-opacity="0.92" stroke-width="3"/>
-      <text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" fill="${textFill}" font-size="13" font-weight="900">${order}</text>
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${radius.toFixed(1)}" fill="${fill}" fill-opacity="0.86" stroke="${stroke}" stroke-opacity="0.92" stroke-width="${strokeWidth.toFixed(1)}"/>
+      <text x="${x.toFixed(1)}" y="${textY.toFixed(1)}" text-anchor="middle" fill="${textFill}" font-size="${fontSize}" font-weight="820">${order}</text>
     </g>`;
     })
     .join("\n  ");
@@ -856,34 +1482,40 @@ function renderCurrentPlaceMarker(
 
   const x = mapX + (place.mapXPct / 100) * mapSize;
   const y = mapY + (place.mapYPct / 100) * mapSize;
-  const labelX = Math.min(Math.max(x - 78, mapX + 24), mapX + mapSize - 176);
-  const labelY = y > 140 ? y - 80 : y + 42;
-  const lineEndY = labelY > y ? y + 26 : y - 28;
+  const scale = mapSize / 640;
+  const isMobileMap = mapSize >= 700;
+  const labelWidth = 152 * scale;
+  const labelHeight = 38 * scale;
+  const labelX = Math.min(Math.max(x - (labelWidth / 2), mapX + 24), mapX + mapSize - labelWidth - 24);
+  const labelY = y > mapY + 120 * scale ? y - 80 * scale : y + 42 * scale;
+  const lineEndY = labelY > y ? y + 26 * scale : y - 28 * scale;
   const order = String(place.order).padStart(2, "0");
+  const currentNumberSize = Math.round((isMobileMap ? 18 : 13) * scale);
+  const currentNumberY = y + (isMobileMap ? 7.8 : 6) * scale;
 
   return `<g aria-label="현재 위치" filter="url(#markerGlow)">
-    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="48" fill="#f59e0b" fill-opacity="0.12">
-      <animate attributeName="r" values="38;62;38" dur="2.2s" repeatCount="indefinite"/>
+    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(48 * scale).toFixed(1)}" fill="#f59e0b" fill-opacity="0.12">
+      <animate attributeName="r" values="${(38 * scale).toFixed(1)};${(62 * scale).toFixed(1)};${(38 * scale).toFixed(1)}" dur="2.2s" repeatCount="indefinite"/>
       <animate attributeName="fill-opacity" values="0.08;0.24;0.08" dur="2.2s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="31" fill="none" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="5">
+    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(31 * scale).toFixed(1)}" fill="none" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="${(5 * scale).toFixed(1)}">
       <animate attributeName="stroke-opacity" values="0.58;1;0.58" dur="1.8s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-width" values="4;7;4" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-width" values="${(4 * scale).toFixed(1)};${(7 * scale).toFixed(1)};${(4 * scale).toFixed(1)}" dur="1.8s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="15" fill="#f59e0b" stroke="#07111f" stroke-width="5"/>
-    <text x="${x.toFixed(1)}" y="${(y + 5).toFixed(1)}" text-anchor="middle" fill="#07111f" font-size="13" font-weight="900">${order}</text>
-    <path d="M ${x.toFixed(1)} ${(y - 34).toFixed(1)} L ${(x - 14).toFixed(1)} ${(y - 10).toFixed(
+    <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(15 * scale).toFixed(1)}" fill="#f59e0b" stroke="#07111f" stroke-width="${(5 * scale).toFixed(1)}"/>
+    <text x="${x.toFixed(1)}" y="${currentNumberY.toFixed(1)}" text-anchor="middle" fill="#07111f" font-size="${currentNumberSize}" font-weight="820">${order}</text>
+    <path d="M ${x.toFixed(1)} ${(y - 34 * scale).toFixed(1)} L ${(x - 14 * scale).toFixed(1)} ${(y - 10 * scale).toFixed(
       1
-    )} L ${(x + 14).toFixed(1)} ${(y - 10).toFixed(1)} Z" fill="#f6edcf" fill-opacity="0.92"/>
-    <line x1="${x.toFixed(1)}" y1="${lineEndY.toFixed(1)}" x2="${(labelX + 76).toFixed(
+    )} L ${(x + 14 * scale).toFixed(1)} ${(y - 10 * scale).toFixed(1)} Z" fill="#f6edcf" fill-opacity="0.92"/>
+    <line x1="${x.toFixed(1)}" y1="${lineEndY.toFixed(1)}" x2="${(labelX + labelWidth / 2).toFixed(
       1
-    )}" y2="${(labelY + 16).toFixed(1)}" stroke="#f6edcf" stroke-opacity="0.82" stroke-width="3"/>
-    <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="152" height="38" rx="12" fill="#07111f" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="2">
+    )}" y2="${(labelY + 16 * scale).toFixed(1)}" stroke="#f6edcf" stroke-opacity="0.82" stroke-width="${(3 * scale).toFixed(1)}"/>
+    <rect x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}" width="${labelWidth.toFixed(1)}" height="${labelHeight.toFixed(1)}" rx="${(12 * scale).toFixed(1)}" fill="#07111f" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.88" stroke-width="${(2 * scale).toFixed(1)}">
       <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.4s" repeatCount="indefinite"/>
     </rect>
-    <text x="${(labelX + 76).toFixed(1)}" y="${(labelY + 26).toFixed(
+    <text x="${(labelX + labelWidth / 2).toFixed(1)}" y="${(labelY + 26 * scale).toFixed(
       1
-    )}" text-anchor="middle" fill="#f6edcf" font-size="20" font-weight="850">현재 위치</text>
+    )}" text-anchor="middle" fill="#f6edcf" font-size="${Math.round(20 * scale)}" font-weight="850">현재 위치</text>
   </g>`;
 }
 
@@ -945,39 +1577,49 @@ function renderRegionMapMobileLegend(
     return `<text x="64" y="1124" fill="#e7edf6" font-size="24">등록된 거점 좌표 없음</text>`;
   }
 
-  const startX = 64;
-  const startY = 1110;
-  const rowHeight = places.length > 14 ? 36 : 44;
-  const boxWidth = 736;
+  const columns = places.length > 8 ? 2 : 1;
+  const rowsPerColumn = Math.ceil(places.length / columns);
+  const startX = 68;
+  const startY = 1174;
+  const rowHeight = 58;
+  const columnWidth = columns === 2 ? 358 : 0;
+  const boxWidth = columns === 2 ? 340 : 728;
 
   return places
     .map((place, index) => {
-      const y = startY + index * rowHeight;
+      const column = Math.floor(index / rowsPerColumn);
+      const row = index % rowsPerColumn;
+      const x = startX + column * columnWidth;
+      const y = startY + row * rowHeight;
       const order = String(place.order).padStart(2, "0");
-      const title = escapeXml(truncateDisplay(place.title, 25));
+      const title = escapeXml(truncateDisplay(mapLegendTitle(place.title), columns === 2 ? 10 : 20));
       const current = isSameMapPlace(place, currentPlace);
       const highlight = current
-        ? `<rect x="${startX - 16}" y="${y - 30}" width="${boxWidth}" height="44" rx="13" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
+        ? `<rect x="${x - 18}" y="${y - 39}" width="${boxWidth}" height="58" rx="13" fill="url(#currentBox)" fill-opacity="0.78" stroke="#f6edcf" stroke-opacity="0.9" stroke-width="2" filter="url(#markerGlow)">
         <animate attributeName="fill-opacity" values="0.54;0.9;0.54" dur="2.1s" repeatCount="indefinite"/>
         <animate attributeName="stroke-opacity" values="0.55;1;0.55" dur="2.1s" repeatCount="indefinite"/>
       </rect>
-      <rect x="${startX - 16}" y="${y - 30}" width="7" height="44" rx="4" fill="#f59e0b">
+      <rect x="${x - 18}" y="${y - 39}" width="8" height="58" rx="4" fill="#f59e0b">
         <animate attributeName="opacity" values="0.55;1;0.55" dur="1.8s" repeatCount="indefinite"/>
       </rect>
-      <rect x="${startX + boxWidth - 78}" y="${y - 19}" width="58" height="22" rx="9" fill="url(#currentBadge)" fill-opacity="0.95">
+      <rect x="${x + boxWidth - 70}" y="${y - 25}" width="54" height="30" rx="10" fill="url(#currentBadge)" fill-opacity="0.95">
         <animate attributeName="fill-opacity" values="0.78;1;0.78" dur="1.8s" repeatCount="indefinite"/>
       </rect>
-      <text x="${startX + boxWidth - 49}" y="${y - 3}" text-anchor="middle" fill="#07111f" font-size="13" font-weight="900">현재</text>`
+      <text x="${x + boxWidth - 43}" y="${y - 4}" text-anchor="middle" fill="#07111f" font-size="16" font-weight="760">현재</text>`
         : "";
       const titleFill = current ? "#fff6d7" : "#e7edf6";
 
       return `<g>
       ${highlight}
-      <text x="${startX}" y="${y}" fill="#f6edcf" font-size="18" font-weight="850">${order}</text>
-      <text x="${startX + 48}" y="${y}" fill="${titleFill}" font-size="24" font-weight="780">${title}</text>
+      <text x="${x}" y="${y}" fill="#f6edcf" font-size="23" font-weight="720">${order}</text>
+      <text x="${x + 54}" y="${y}" fill="${titleFill}" font-size="28" font-weight="660">${title}</text>
     </g>`;
     })
     .join("\n    ");
+}
+
+function mapLegendTitle(title: string): string {
+  return title.replace(/\([^)]*\)/g, "").trim();
 }
 
 function truncateDisplay(value: string, maxLength: number): string {
@@ -1052,62 +1694,80 @@ function renderOrnateFrame(
 }
 
 function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): string {
-  const titleLines = titleDisplayLines(scene.title);
-  const titleText = titleLines
-    .map((line, index) => {
-      const y = titleLines.length === 1 ? 158 : 132 + index * 45;
-      return `<text x="232" y="${y}" fill="#f6edcf" font-size="42" font-weight="850" filter="url(#sceneTextShadow)">${escapeXml(line)}</text>`;
-    })
-    .join("\n    ");
+  const textX = 338;
+  const maxTitleWidth = 1000 - textX - 28;
+  const titleLines = scene.title.length <= 17 ? [scene.title] : titleDisplayLines(scene.title);
   const realmLabel = scene.realmName ? `국가: ${scene.realmName}` : scene.heraldryName ?? "지역 정보";
-  const escapedRealmLabel = escapeXml(realmLabel);
+  const escapedRealmLabel = escapeXml(realmLabel.replace("국가: ", "국가 "));
   const kindLabel = sceneKindLabel(scene.kind);
   const escapedKindLabel = escapeXml(kindLabel);
-  const panelHeight = 700;
-  const panelWidth = 540;
-  const crestFrameHeight = 234;
-  const crestHeight = 210;
-  const kindY = titleLines.length === 1 ? 206 : 218;
-  const kindWidth = Math.max(138, Math.ceil(54 + displayLength(kindLabel) * 17));
-  const dbSummary = renderSceneDbSummary(scene, kindLabel, panelWidth);
+  const accessLabel = sceneAccessLabel(scene);
+  const escapedAccessLabel = escapeXml(truncateDisplay(accessLabel, 22));
+  const crestX = 56;
+  const crestY = 336;
+  const crestWidth = 236;
+  const crestHeight = 320;
+  const crestInset = 10;
+  const crestBleed = 18;
+  const crestImageX = crestX + crestInset;
+  const crestImageY = crestY + crestInset;
+  const crestImageWidth = crestWidth - crestInset * 2;
+  const crestImageHeight = crestHeight - crestInset * 2;
+  const accessY = titleLines.length === 1 ? crestY + crestHeight - 18 : crestY + crestHeight - 12;
+  const badgeY = accessY - 82;
+  const badgeTextY = badgeY + 32;
+  const titleBaseY = titleLines.length === 1 ? badgeY - 56 : badgeY - 112;
+  const titleLineGap = 58;
+  const realmY = titleBaseY - 74;
+  const kindWidth = Math.max(184, Math.ceil(80 + displayLength(kindLabel) * 22));
+  const titleText = titleLines
+    .map((line, index) => {
+      const y = titleBaseY + index * titleLineGap;
+      const fontSize = titleLines.length === 1 ? 64 : 54;
+      const approximateWidth = displayLength(line) * fontSize * 0.74;
+      const fitAttrs =
+        titleLines.length === 1 && approximateWidth > maxTitleWidth
+          ? ` textLength="${maxTitleWidth}" lengthAdjust="spacingAndGlyphs"`
+          : "";
+      return `<text x="${textX}" y="${y}" fill="#f6edcf" font-size="${fontSize}" font-weight="760" filter="url(#sceneTextShadow)"${fitAttrs}>${escapeXml(line)}</text>`;
+    })
+    .join("\n    ");
   const heraldryMark = heraldryUrl
-    ? `<image href="${escapeXml(heraldryUrl)}" x="68" y="61" width="132" height="${crestHeight}" preserveAspectRatio="xMidYMid slice" clip-path="url(#crestClip)"/>`
-    : `<text x="134" y="${panelHeight / 2 + 24}" text-anchor="middle" fill="#f6edcf" font-size="34" font-weight="800">${escapeXml(
+    ? `<image href="${escapeXml(heraldryUrl)}" x="${crestImageX - crestBleed}" y="${crestImageY - crestBleed}" width="${crestImageWidth + crestBleed * 2}" height="${crestImageHeight + crestBleed * 2}" preserveAspectRatio="xMidYMid slice" clip-path="url(#crestClip)"/>`
+    : `<text x="${crestX + crestWidth / 2}" y="${crestY + crestHeight / 2 + 14}" text-anchor="middle" fill="#f6edcf" font-size="42" font-weight="800">${escapeXml(
         (scene.realmName ?? scene.title).slice(0, 3)
       )}</text>`;
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <clipPath id="crestClip"><rect x="68" y="61" width="132" height="${crestHeight}" rx="12"/></clipPath>
-    <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="url(#scenePanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#scenePanelShadow)"/>
-    ${renderOrnateFrame(0, 0, panelWidth, panelHeight, 0, { sliceSize: 48, opacity: 0.82, jewelPlacement: "top" })}
-    <rect x="0" y="0" width="${panelWidth}" height="${panelHeight}" rx="0" fill="none" stroke="#f6edcf" stroke-opacity="0" stroke-width="2">
-      <animate attributeName="stroke-opacity" values="0;0.44;0" dur="3.4s" repeatCount="indefinite"/>
+    <clipPath id="crestClip"><rect x="${crestImageX}" y="${crestImageY}" width="${crestImageWidth}" height="${crestImageHeight}" rx="8"/></clipPath>
+    <rect x="0" y="336" width="1000" height="364" fill="url(#identityFade)"/>
+    <rect x="0" y="378" width="1000" height="276" fill="url(#identityBand)"/>
+    <rect x="${crestX}" y="${crestY}" width="${crestWidth}" height="${crestHeight}" rx="0" fill="#050b14" fill-opacity="0.74" stroke="#f6edcf" stroke-opacity="0.86" stroke-width="3">
+      <animate attributeName="stroke-opacity" values="0.54;0.96;0.54" dur="3s" repeatCount="indefinite"/>
     </rect>
-    <rect x="58" y="54" width="152" height="${crestFrameHeight}" rx="18" fill="#050b14" fill-opacity="0.48" stroke="#d8c078" stroke-opacity="0.12"/>
-    ${renderOrnateFrame(58, 54, 152, crestFrameHeight, 18, { sliceSize: 30, opacity: 0.66, variant: "secondary" })}
+    <rect x="${crestX + 8}" y="${crestY + 8}" width="${crestWidth - 16}" height="${crestHeight - 16}" rx="0" fill="none" stroke="#c8b16a" stroke-opacity="0.42" stroke-width="2"/>
+    <rect x="${crestImageX}" y="${crestImageY}" width="${crestImageWidth}" height="${crestImageHeight}" rx="8" fill="#020711" fill-opacity="0.28" stroke="#f6edcf" stroke-opacity="0.38" stroke-width="2"/>
     ${heraldryMark}
-    <text x="232" y="86" fill="#b9cee8" font-size="20" font-weight="850" filter="url(#sceneTextShadow)">소속 국가</text>
-    <text x="326" y="86" fill="#e7edf6" font-size="23" font-weight="850" filter="url(#sceneTextShadow)">${escapedRealmLabel.replace("국가: ", "")}</text>
+    <rect x="${crestImageX + 8}" y="${crestImageY + 8}" width="${crestImageWidth - 16}" height="${crestImageHeight - 16}" rx="6" fill="none" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="1.5"/>
+    <text x="${textX}" y="${realmY}" fill="#d9e4f2" font-size="31" font-weight="700" filter="url(#sceneTextShadow)">소속 ${escapedRealmLabel}</text>
     ${titleText}
-    <line x1="232" y1="${kindY - 36}" x2="${Math.min(panelWidth - 34, 620)}" y2="${kindY - 36}" stroke="#c8b16a" stroke-opacity="0.32" stroke-width="2"/>
-    <rect x="232" y="${kindY - 22}" width="${kindWidth}" height="34" rx="10" fill="url(#sceneBadge)" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.72">
+    <rect x="${textX}" y="${badgeY}" width="${kindWidth}" height="44" rx="10" fill="url(#sceneBadge)" fill-opacity="0.78" stroke="#d8c078" stroke-opacity="0.66">
       <animate attributeName="fill-opacity" values="0.58;1;0.58" dur="2.2s" repeatCount="indefinite"/>
       <animate attributeName="stroke-opacity" values="0.56;1;0.56" dur="2.2s" repeatCount="indefinite"/>
     </rect>
-    <text x="250" y="${kindY + 3}" fill="#f6edcf" font-size="22" font-weight="800" filter="url(#sceneTextShadow)">${escapedKindLabel}</text>
-    <text x="74" y="333" fill="#f6edcf" font-size="27" font-weight="900" filter="url(#sceneTextShadow)">장소 정보</text>
-    <line x1="74" y1="352" x2="${panelWidth - 60}" y2="352" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
-    ${dbSummary}
+    <text x="${textX + 24}" y="${badgeTextY}" fill="#f6edcf" font-size="30" font-weight="720" filter="url(#sceneTextShadow)">${escapedKindLabel}</text>
+    <text x="${textX}" y="${accessY}" fill="#b9cee8" font-size="29" font-weight="700" filter="url(#sceneTextShadow)">대표 지점</text>
+    <text x="${textX + 142}" y="${accessY}" fill="#f1f6ff" font-size="34" font-weight="720" filter="url(#sceneTextShadow)">${escapedAccessLabel}</text>
   </g>`;
 }
 
 function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: number): string {
   const dbX = 74;
-  const rowTopY = 360;
-  const rowHeight = 56;
-  const textBaselineOffset = 34;
+  const rowTopY = 374;
+  const rowHeight = 61;
+  const textBaselineOffset = 39;
   const labelX = dbX;
-  const valueX = dbX + 140;
+  const valueX = dbX + 154;
   const scaleLabel = sceneScaleLabel(scene.kind);
   const functionLabel = sceneFunctionLabel(scene);
   const accessLabel = sceneAccessLabel(scene);
@@ -1116,18 +1776,18 @@ function renderSceneDbSummary(scene: SceneEntry, kindLabel: string, panelWidth: 
     ["소속", scene.realmName ?? "-"],
     ["성격", kindLabel],
     ["주요 기능", functionLabel],
-    ["갈 수 있는 곳", accessLabel]
+    ["대표 지점", accessLabel]
   ];
   const rowText = rows
     .map(([label, value], index) => {
       const rowTop = rowTopY + index * rowHeight;
       const y = rowTop + textBaselineOffset;
-      const wrappedValue = renderWrappedSvgText(value, valueX, y, 22, 2, 21);
+      const wrappedValue = renderWrappedSvgText(value, valueX, y, 18, 2, 27);
       const divider =
         index < rows.length - 1
           ? `<line x1="${labelX}" y1="${rowTop + rowHeight}" x2="${panelWidth - 60}" y2="${rowTop + rowHeight}" stroke="#9fb0c2" stroke-opacity="0.14" stroke-width="1"/>`
           : "";
-      return `<text x="${labelX}" y="${y}" fill="#b9cee8" font-size="18" font-weight="800" filter="url(#sceneTextShadow)">${escapeXml(label)}</text>
+      return `<text x="${labelX}" y="${y}" fill="#b9cee8" font-size="23" font-weight="800" filter="url(#sceneTextShadow)">${escapeXml(label)}</text>
       ${wrappedValue}
       ${divider}`;
     })
@@ -1334,6 +1994,34 @@ function json(data: unknown, status = 200): Response {
   });
 }
 
+async function staticAsset(request: Request, env: Env): Promise<Response> {
+  const assets = (env as EnvWithAssets).ASSETS;
+  if (!assets) {
+    return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
+  }
+
+  const response = await assets.fetch(request);
+  if (!response.ok) {
+    return new Response(renderNotFoundSvg(), { status: response.status, headers: SVG_HEADERS });
+  }
+
+  const headers = new Headers(response.headers);
+  headers.set("Access-Control-Allow-Origin", "*");
+  headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  return new Response(request.method === "HEAD" ? null : response.body, {
+    status: response.status,
+    headers
+  });
+}
+
+async function assetOrImage(imageUrl: string, method: string, env: Env): Promise<Response> {
+  if (isWorkerAssetPath(imageUrl)) {
+    return staticAsset(new Request(`https://vireth-assets.local${imageUrl}`, { method }), env);
+  }
+
+  return image(imageUrl, method);
+}
+
 async function image(imageUrl: string, method: string): Promise<Response> {
   const upstream = await fetch(imageUrl, { method: method === "HEAD" ? "HEAD" : "GET" });
   const headers = new Headers(IMAGE_HEADERS);
@@ -1373,6 +2061,34 @@ async function fetchDataUri(url: string): Promise<string | null> {
   }
 
   return null;
+}
+
+async function fetchInlineImageDataUri(imageUrl: string, absoluteUrl: string, env: Env): Promise<string | null> {
+  if (isWorkerAssetPath(imageUrl)) {
+    const assets = (env as EnvWithAssets).ASSETS;
+    if (assets) {
+      const upstream = await assets.fetch(new Request(`https://vireth-assets.local${imageUrl}`));
+      if (upstream.ok) {
+        return responseToDataUri(upstream, absoluteUrl);
+      }
+    }
+  }
+
+  return fetchDataUri(absoluteUrl);
+}
+
+function isWorkerAssetPath(imageUrl: string): boolean {
+  return (
+    imageUrl.startsWith("/npc-assets/") ||
+    imageUrl.startsWith("/character-assets/") ||
+    imageUrl.startsWith("/scene-assets/")
+  );
+}
+
+async function responseToDataUri(response: Response, fallbackUrl: string): Promise<string> {
+  const contentType = response.headers.get("Content-Type") ?? inferImageContentType(fallbackUrl);
+  const base64 = arrayBufferToBase64(await response.arrayBuffer());
+  return `data:${contentType};base64,${base64}`;
 }
 
 function dataUriCandidates(url: string): string[] {

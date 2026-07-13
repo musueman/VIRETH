@@ -12,12 +12,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "라드아르할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-leonia-radarhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-leonia-radarhal-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 중심도시 후보. 왕도, 관청, 성문, 시장, 대규모 성벽이 잘 보임.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "marnabmir",
@@ -31,12 +31,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르나브미르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-norghard-marnabmir-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-norghard-marnabmir-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 북방 군항 후보. 조선 시설, 방파제, 산악 배경, 해안 방어 기능이 잘 보임.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "radbarhal",
@@ -50,12 +50,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "라드바르할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-radbarhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-radbarhal-imagegen-v1-scene-v2.webp",
     "caption": "티리스 중심도시 후보. 기록, 법정, 신전, 길드권 분위기가 백과형 도시 전경으로 읽힘.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "renumga",
@@ -69,12 +69,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "레눔가",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-linrenet-renumga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-linrenet-renumga-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 대표도시 후보. 기록, 극장, 공방, 문서고와 수로형 도시 구조가 잘 보임.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dorkar",
@@ -88,12 +88,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르카르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-bekdoret-dorkar-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 대표도시 후보. 내성, 성문, 병영, 검문 시설이 뚜렷한 요새·관문도시로 읽힘.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "senpukum",
@@ -107,12 +107,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "센푸쿰",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-senhalet-senpukum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-senhalet-senpukum-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 대표도시 후보. 공동 창고, 수문, 종자 보관, 농경 배후지가 명확함. 도시보다는 생활·물류 중심 정착지 성격이 강함.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hespukum",
@@ -126,12 +126,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤스푸쿰",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesferet-hespukum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesferet-hespukum-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 대표도시 후보. 고개 시장, 창고, 감시 초소, 산악 통행권이 잘 보임. 인물 수는 최종 후보에서 줄일 수 있음.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "markelmir",
@@ -145,12 +145,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르켈미르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-kelnabet-markelmir-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 대표도시 후보. 해도 창고, 선박 검문, 자유항, 조선 시설이 명확함.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bekhespukum",
@@ -164,12 +164,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "베크헤스푸쿰",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesbeket-bekhespukum-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 대표도시 후보. 혹한 통행, 공동주거, 비상 창고, 생존형 공공시설이 잘 보임. 인물 수는 최종 후보에서 줄일 수 있음.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yenwokel",
@@ -183,12 +183,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "옌워켈",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-yenmebet-yenwokel-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 중심도시 후보. 고공길, 기상 경고, 장비 점검, 산악 표식도시 성격이 잘 보임.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yalbekum",
@@ -202,12 +202,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "얄베크움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimnaret-yalbekum-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 중심도시 후보. 감찰, 외부자 대기, 봉인 창고, 제한 학술권 성격이 뚜렷함.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silmermar",
@@ -221,12 +221,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실메르마르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silnimet-silmermar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silnimet-silmermar-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 대표도시 후보. 습지 수로, 강하 교역, 약초·저지 생업권이 명확함.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dorsorhal",
@@ -240,12 +240,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르소르할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-ardolet-dorsorhal-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 대표도시 후보. 산악 관측, 수도원, 약초권, 고산 경로가 잘 보임.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "tikmebhal",
@@ -259,12 +259,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "틱메브할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-garmebet-tikmebhal-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 대표 거점 후보. 계절 야영, 가축 교역, 저장권이 분명함. 인물·가축 수는 최종 후보에서 줄일 수 있음.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "merbelmar",
@@ -278,12 +278,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메르벨마르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-merhalet-merbelmar-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 강하 항구 후보. 항만, 상단, 창고 거리, 하구 수로가 명확함.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silsorsan",
@@ -297,12 +297,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실소르산",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silhalet-silsorsan-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 성림 중심지 후보. 성림 의례, 숲 감시, 채집 허가, 왕실 정원권이 잘 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nimhal",
@@ -316,12 +316,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "님할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimsolet-nimhal-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 중심도시 후보. 학당, 후원청, 종교 강의, 공개 시험장 기능이 분명함.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silensan",
@@ -335,12 +335,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실렌산",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-sylvania-silensan-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-sylvania-silensan-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 전승지 후보. 숲 전승, 탐사 거점, 안개길, 사본 열람지 성격이 잘 드러남.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "narmarkel",
@@ -354,12 +354,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나르마르켈",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-dragonspire-narmarkel-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 기준 항만 후보. 화산 항로, 피난 표식, 현무암 항만, 화산 위험권이 명확함.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dunartore",
@@ -373,12 +373,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "둔아르토르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-fenrir-eye-dunartore-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 표식지 후보. 등대, 외해 관측, 구조 신호, 금기 해안권이 잘 보임.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "jirbar-et",
@@ -392,12 +392,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "지르바르에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-leonia-jirbar-et-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-leonia-jirbar-et-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 기사 봉토권 군사 후원도시 후보. 기사단 훈련장, 전마 거래, 서임문, 봉토 계약 기능이 보임.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "paltekumga",
@@ -411,12 +411,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "팔테쿰가",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-leonia-paltekumga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-leonia-paltekumga-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 왕실 직할 공방도시 후보. 납품장, 품질 검사, 장인 보증, 공방과 창고 기능이 분명함.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "remdatum",
@@ -430,12 +430,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렘다트움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-leonia-remdatum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-leonia-remdatum-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 접견 관문도시 후보. 외교 숙소, 통역소, 선물 검수, 통행 허가 기능이 관문 구조로 읽힘.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "pernav-pier",
@@ -449,12 +449,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "페르나브부두",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-norghard-pernav-pier-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-norghard-pernav-pier-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 철강 부두·조선소 후보. 철강 하역, 선박 수리, 공구 거래, 부두 검표 기능이 잘 보임.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "armartor",
@@ -468,12 +468,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "아르마르토르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-norghard-armartor-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-norghard-armartor-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 등대 해안권 항로 표식도시 후보. 등대 관리, 해무 경고, 난파 보고, 연안 구조 기능이 보임.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nabhalga",
@@ -487,32 +487,34 @@ export const GENERATED_SCENES = [
     ],
     "title": "나브할가",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-norghard-nabhalga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-norghard-nabhalga-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 선원 숙박권 항만 소도시 후보. 선원 숙소, 단기 계약, 주점 정보, 하급 보험 기능이 하층 항구로 읽힘.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bekkellkar-ravenstone",
     "aliases": [
       "티리스",
       "티리스 베크켈카르",
+      "티리스 베크켈카르(레이븐스톤)",
       "tiris",
       "tiris-bekkellkar-ravenstone",
       "bekkellkar-ravenstone",
+      "베크켈카르(레이븐스톤)",
       "베크켈카르",
       "레이븐스톤"
     ],
-    "title": "베크켈카르 / 레이븐스톤",
+    "title": "베크켈카르(레이븐스톤)",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-bekkellkar-ravenstone-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-bekkellkar-ravenstone-imagegen-v1-scene-v2.webp",
     "caption": "티리스 서부 접경 관문과 방어 성문도시 후보. 검문, 피난민 분류, 병참, 접경 법정 기능이 분명함.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "garmev-et",
@@ -526,12 +528,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "가르메브에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-garmev-et-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-garmev-et-imagegen-v1-scene-v2.webp",
     "caption": "티리스 곡물·목축 영지권 지방 장터도시 후보. 곡물세, 목축 거래, 수레 수리, 겨울 저장 기능이 잘 보임.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "belsor-el",
@@ -545,12 +547,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨소르엘",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-belsor-el-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-belsor-el-imagegen-v1-scene-v2.webp",
     "caption": "티리스 수로·정화권 물길 도시 후보. 수문 관리, 하천 분쟁, 정화 의례, 물맛 기록 기능이 수로 도시로 읽힘.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "siltek-et",
@@ -564,12 +566,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실테크에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-siltek-et-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-siltek-et-imagegen-v1-scene-v2.webp",
     "caption": "티리스 숲·목재권 목재 도시 후보. 벌목 허가, 목재 검사, 숲길 증언, 사냥권 기능이 구분됨.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "soriel-tor",
@@ -583,12 +585,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "소르이엘토르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-soriel-tor-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-soriel-tor-imagegen-v1-scene-v2.webp",
     "caption": "티리스 신전·관측권 의례 도시 후보. 신전 일정, 관측표, 장례 기록, 의례 해석 기능이 분명함. 관측 장치는 약간 장식적이나 현대 장비로 보이지 않음.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "greenhollow",
@@ -602,12 +604,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "그린할로우",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-greenhollow-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-greenhollow-imagegen-v1-scene-v2.webp",
     "caption": "티리스 상실지 기억이 남은 폐허·농경 재건지 후보. 잔존 농지, 장례 기억, 소유권 분쟁, 신앙 흔적이 폐허와 재건지로 읽힘.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "newhollow",
@@ -621,12 +623,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "뉴할로우",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-tiris-newhollow-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-tiris-newhollow-imagegen-v1-scene-v2.webp",
     "caption": "티리스 5069년 이후 신생 피난 재정착권 후보. 공동 창고, 새 영지 장부, 피난민 노동, 약초 처방 기능이 재정착 도시로 읽힘.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "linsanga",
@@ -640,12 +642,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "린산가",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-linrenet-linsanga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-linrenet-linsanga-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 극장·공개 낭독 학예 도시 후보. 공연, 후원 계약, 공개 반론, 여론 형성 기능이 광장형 학예권으로 보임.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nimrenhal",
@@ -659,12 +661,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "님렌할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-linrenet-nimrenhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-linrenet-nimrenhal-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 학예 학교권 교육 도시 후보. 수사학, 필사 교육, 학생 숙소, 교재 거래 기능이 학교·교재 장터로 구분됨.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "datkinhal",
@@ -678,12 +680,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "다트킨할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-linrenet-datkinhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-linrenet-datkinhal-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 후원자 저택·예술가 거처 주거도시 후보. 후원 계약, 사교 모임, 초상화, 사본 주문 기능이 주거·공방권으로 읽힘.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "remrenga",
@@ -697,12 +699,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렘렌가",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-linrenet-remrenga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-linrenet-remrenga-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 필사·출판 거리 상업도시 후보. 필사본 제작, 대본 거래, 악보 주석, 검열 전 사본 기능이 긴 상업거리로 읽힘.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "kelkar",
@@ -716,12 +718,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "켈카르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-bekdoret-kelkar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-bekdoret-kelkar-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 외성문권 관문도시 후보. 성문 개폐, 외부자 분류, 세관, 피난 대기 기능이 외성문 앞 질서로 보임.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bekhal",
@@ -735,12 +737,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "베크할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-bekdoret-bekhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-bekdoret-bekhal-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 병영권 군사 거주도시 후보. 병영, 훈련장, 식량 배급, 군법 접수 기능이 분명함.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dortekum",
@@ -754,12 +756,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르테쿰",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-bekdoret-dortekum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-bekdoret-dortekum-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 성벽 공사권 작업도시 후보. 석재 운반, 성벽 보수, 공사 동원, 임금 장부 기능이 성벽 보수 현장으로 읽힘.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "enhalga",
@@ -773,12 +775,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "엔할가",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-bekdoret-enhalga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-bekdoret-enhalga-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 민간 거주권 외곽 소도시 후보. 숙박, 작은 시장, 성벽 노동자 가구, 물자 보관 기능이 성벽 아래 생활권으로 읽힘.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "belbar",
@@ -792,12 +794,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-senhalet-belbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-senhalet-belbar-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 수로 회의 물길 도시 후보. 수문 조정, 관개 분쟁, 물길 장부, 둑 보수 기능이 수로 회의권으로 보임.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "senpuk-et",
@@ -811,12 +813,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "센푸크에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-senhalet-senpuk-et-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-senhalet-senpuk-et-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 종자 보관권 보존 도시 후보. 종자 항아리, 봄 배분, 품종 기록, 곡물 검사 기능이 종자 보존권으로 읽힘.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "garsen-et",
@@ -830,12 +832,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "가르센에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-senhalet-garsen-et-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-senhalet-garsen-et-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 농촌 공동체권 지방 소도시 후보. 공동 경작, 수레 수리, 노동일 배정, 대표 회의 기능이 농촌 공동체권으로 구분됨.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "veprenhal",
@@ -849,12 +851,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벱렌할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-senhalet-veprenhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-senhalet-veprenhal-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 재정착 마을권의 낮은 도시 후보. 외부자 수용소, 새 경작권, 새 창고, 거주 명부 기능이 농경 저지대와 함께 보임.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "heskelkar",
@@ -868,12 +870,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤스켈카르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesferet-heskelkar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesferet-heskelkar-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 고개 초소·산길 숙소 관문도시 후보. 고개 통행, 용병 계약, 눈길 경고, 숙박 기능이 분리되어 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "perbar",
@@ -887,12 +889,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "페르바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesferet-perbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesferet-perbar-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 장인·계약 도시 후보. 무기 보수, 갑옷 거래, 용병 납품, 품질 보증 기능이 공방·계약 광장 중심으로 읽힘.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "ramjirbar",
@@ -906,12 +908,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "람지르바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesferet-ramjirbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesferet-ramjirbar-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 맹세석 회의권 의례 도시 후보. 맹세석 광장, 증인 대기, 장례 각문, 보호 계약 기능이 차분한 공공 광장으로 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "mevkelet",
@@ -925,12 +927,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브켈에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesferet-mevkelet-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesferet-mevkelet-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 초지 접경권 외곽 소도시 후보. 계절 초지, 모피 교역, 물자 교환, 철마다 서는 야영 기능이 초지 가장자리와 함께 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "workbar",
@@ -944,12 +946,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "워크바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-kelnabet-workbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-kelnabet-workbar-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 원정 허가권의 행정 항구 후보. 출항 허가, 발견물 신고, 선박 검사, 귀속 분쟁 기능이 항만 행정 광장으로 읽힘.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "marrenum",
@@ -963,12 +965,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르렌움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-kelnabet-marrenum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-kelnabet-marrenum-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 해도 보관권의 기록 항구 후보. 해도 필사, 항로 주석, 난파 위치, 금기 표식 기능이 기록고와 항만 배경으로 분리됨.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nabhal",
@@ -982,12 +984,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나브할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-kelnabet-nabhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-kelnabet-nabhal-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 선원 숙박권의 항만 소도시 후보. 여관, 선원 중개, 단기 승선, 하역 일거리 기능이 번잡한 항만 생활권으로 보임.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "ummarkel",
@@ -1001,12 +1003,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "움마르켈",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-kelnabet-ummarkel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-kelnabet-ummarkel-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 외해 출항권의 끝항구 후보. 외해 출항, 마지막 보급, 풍향 확인, 사설 무장 준비 기능이 험한 항만으로 보임.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "heswokel",
@@ -1020,12 +1022,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤스워켈",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesbeket-heswokel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesbeket-heswokel-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 겨울 통행권의 관문도시 후보. 길 폐쇄, 통행 허가, 눈길 안내, 구조 대기 기능이 설원 관문과 쉼터로 분리됨.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "narhal",
@@ -1039,12 +1041,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나르할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesbeket-narhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesbeket-narhal-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 불씨 공동주거권의 낮은 도시 후보. 공동 난방, 장작 배분, 공동 취침, 노약자 돌봄 기능이 공동 난방 주거권으로 읽힘.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mevhesbek",
@@ -1058,12 +1060,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브헤스베크",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-hesbeket-mevhesbek-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-hesbeket-mevhesbek-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 사냥·눈길 초소권 외곽 거점 후보. 사냥 초소, 덫 점검, 눈길 표식, 보존육 기능이 외곽 감시·저장 시설로 보임.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yenbekhal",
@@ -1077,12 +1079,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "옌베크할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-yenmebet-yenbekhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-yenmebet-yenbekhal-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 기수단 둥지권의 산악 거점 후보. 기수단 대기, 전령, 산악 구조, 장비 손질 기능이 고공 절벽 거점으로 보임.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silbeket",
@@ -1096,12 +1098,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실베크에트",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-yenmebet-silbeket-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-yenmebet-silbeket-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 산림 경계권의 숲문 도시 후보. 숲 경계 중재, 채집 제한, 산림 감시, 길 표식 기능이 숲문과 감시 시설로 읽힘.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silamrenum",
@@ -1115,12 +1117,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실람렌움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-yenmebet-silamrenum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-yenmebet-silamrenum-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 자연 동맹 기록권의 문서 도시 후보. 생태 기록, 동맹 조약, 산림 경계 주석, 분쟁 중재 기능이 기록원 중심으로 보임.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nimnahal",
@@ -1134,12 +1136,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "님나할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimnaret-nimnahal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimnaret-nimnahal-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 제한 학당권의 학술 도시 후보. 제한 교육, 금기 주석, 학술 서약, 비공개 강의 기능이 폐쇄 학당 구조로 읽힘.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "puknaum",
@@ -1153,12 +1155,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "푸크나움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimnaret-puknaum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimnaret-puknaum-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 봉인 창고권의 보관 도시 후보. 위험 재료 보관, 봉인 기록, 감시 근무, 재고 대조 기능이 폐쇄 창고 구역으로 보임.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hedrenum",
@@ -1172,12 +1174,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤드렌움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimnaret-hedrenum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimnaret-hedrenum-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 재료 장부권의 검사 도시 후보. 재료 검사, 반입 기록, 후원 물자 확인, 압류 기능이 계량·검사 광장으로 읽힘.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "enkelhal",
@@ -1191,12 +1193,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "엔켈할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimnaret-enkelhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimnaret-enkelhal-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 외부자 대기권의 관문 소도시 후보. 허가 대기, 숙박 제한, 동행 감시, 물품 보관 기능이 출입 통제 관문으로 보임.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dorsorsan",
@@ -1210,12 +1212,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르소르산",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silnimet-dorsorsan-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 산악 사원권의 사원도시 후보. 산길 허가, 사원 의례, 필사본, 순례 숙박 기능이 산악 사원 테라스로 읽힘.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silmermir",
@@ -1229,12 +1231,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실메르미르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silnimet-silmermir-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silnimet-silmermir-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 약초 장터권의 거래 도시 후보. 약초 검사, 처방 거래, 건조 재료, 통역 장터 기능이 개방 시장과 건조대 중심으로 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "belmarmir",
@@ -1248,12 +1250,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨마르미르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silnimet-belmarmir-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silnimet-belmarmir-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 강하 항구권의 물류 도시 후보. 강하 운송, 상단 장부, 향료 거래, 항구 보관 기능이 하역장과 강항으로 읽힘.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silsorkel",
@@ -1267,12 +1269,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실소르켈",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silnimet-silsorkel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silnimet-silsorkel-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 성림 접촉권의 숲 경계 도시 후보. 성림 접촉, 의례 통역, 숲길 허가, 채집 제한 기능이 숲문과 경계 시설로 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mevmerkel",
@@ -1286,12 +1288,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브메르켈",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silnimet-mevmerkel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silnimet-mevmerkel-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 초지 교역권의 외곽 교역도시 후보. 유목 물자, 약초 교환, 가축 거래, 계절 상단 기능이 초지 장터와 가축 울타리로 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yenieltor",
@@ -1305,12 +1307,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "옌이엘토르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-ardolet-yenieltor-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-ardolet-yenieltor-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 관측대권의 기록 도시 후보. 구름 기록, 별 주석, 산법, 관측자 숙소 기능이 고산 관측대와 기록 시설로 보임.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "arsorsan",
@@ -1324,12 +1326,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "아르소르산",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-ardolet-arsorsan-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-ardolet-arsorsan-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 봉우리 의례권의 의례 도시 후보. 봉우리 의례, 순례 통제, 제물 보관, 산악 전사 배치 기능이 눈 덮인 의례 테라스로 읽힘.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dorkelbar",
@@ -1343,12 +1345,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르켈바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-ardolet-dorkelbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-ardolet-dorkelbar-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 등정 허가권의 관문 도시 후보. 등정 허가, 장비 확인, 안내인 계약, 구조 준비 기능이 산악 관문과 장비 마당으로 보임.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sorhal",
@@ -1362,12 +1364,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "소르할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-ardolet-sorhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-ardolet-sorhal-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 순례 숙박권의 외곽 소도시 후보. 순례 여관, 식량 보급, 작은 신전, 사본 판매 기능이 고산 숙박 거리로 읽힘.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bellambar",
@@ -1381,12 +1383,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨람바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-garmebet-bellambar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-garmebet-bellambar-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 물가 약속권의 중심지 후보. 물권 중재, 우물 순서, 계절 만남, 가축 급수 기능이 중앙 우물과 증인 좌석으로 보임.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mevbar",
@@ -1400,12 +1402,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-garmebet-mevbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-garmebet-mevbar-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 가축 분쟁권의 장터도시 후보. 가축 표식, 젖나눔, 질병 확인, 보상 협상 기능이 가축 장터와 장로 회의권으로 읽힘.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "belbekel",
@@ -1419,12 +1421,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨베크엘",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-garmebet-belbekel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-garmebet-belbekel-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 우물 감시권의 외곽 소도시 후보. 우물 관리, 순번 기록, 먼지길 숙박, 작은 장터 기능이 건조대 우물 거점으로 보임.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "workrenum",
@@ -1438,12 +1440,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "워크렌움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-garmebet-workrenum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-garmebet-workrenum-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 이동 장부권의 기록 거점 후보. 이동로 기록, 통역, 계절 계약, 상단 동행 기능이 천막 기록소와 상단 대기권으로 읽힘.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "radsilhal",
@@ -1457,12 +1459,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "라드실할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silhalet-radsilhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silhalet-radsilhal-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 왕실 정원권의 정원 도시 후보. 왕실 정원, 수공예, 식물 관리, 신정 외교 기능이 정원 담장과 관리 동선으로 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silbekel",
@@ -1476,12 +1478,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실베크엘",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silhalet-silbekel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silhalet-silbekel-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 숲 감시권의 경계 도시 후보. 숲 감시, 벌목 제한, 사냥권 확인, 외부자 동행 기능이 숲문과 감시 시설로 읽힘.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "siltekel",
@@ -1495,12 +1497,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실테크엘",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silhalet-siltekel-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silhalet-siltekel-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 목재 검사권의 실무 도시 후보. 목재 검사, 수레 적재, 장인 납품, 벌목세 기능이 목재 검사장과 수레 적재장으로 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sildatbar",
@@ -1514,12 +1516,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실다트바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-silhalet-sildatbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-silhalet-sildatbar-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 채집 허가권의 낮은 도시 후보. 약초 채집 허가, 계절 채집, 작은 시장, 숲길 숙박 기능이 채집 허가소와 바구니 검사장으로 읽힘.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mervar",
@@ -1533,12 +1535,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메르바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-merhalet-mervar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-merhalet-mervar-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 상인 의회권의 회의 도시 후보. 상인 의회, 가격 합의, 독점권, 계약 낭독 기능이 회의장과 협상 광장으로 보임.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hedkelbar",
@@ -1552,12 +1554,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤드켈바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-merhalet-hedkelbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-merhalet-hedkelbar-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 통행세권의 관문 도시 후보. 세금 산정, 물품 분류, 통행 보증, 압류 기능이 관문 검표·분류장으로 읽힘.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "puktekum",
@@ -1571,12 +1573,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "푸크테쿰",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-merhalet-puktekum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-merhalet-puktekum-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 창고·하역권의 작업 도시 후보. 창고, 하역장, 물품 보관, 손실 책임 기능이 강변 창고와 도르래 작업장으로 보임.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mernimbar",
@@ -1590,12 +1592,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메르님바르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-merhalet-mernimbar-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-merhalet-mernimbar-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 상업 법정권의 법정 도시 후보. 계약 분쟁, 보관 손실 재판, 상단 중재, 증언 기능이 법정 광장과 보증인 숙소로 읽힘.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nimremhal",
@@ -1609,12 +1611,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "님렘할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimsolet-nimremhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimsolet-nimremhal-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 철학 회합권의 논쟁 도시 후보. 공개 논쟁, 철학 회합, 종교 해석, 필사 기능이 논쟁 광장과 필사 노점으로 보임.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sordatum",
@@ -1628,12 +1630,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "소르다트움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimsolet-sordatum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimsolet-sordatum-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 종교 후원권의 후원 도시 후보. 후원청, 의례 자금, 종교 건축, 신전 기록 기능이 후원청과 건축 자재장으로 읽힘.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "rentekum",
@@ -1647,12 +1649,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렌테쿰",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimsolet-rentekum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimsolet-rentekum-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 필경 작업권의 작업 도시 후보. 필경, 주석 정리, 사본 수리, 잉크 거래 기능이 필사실과 사본 수리 작업장으로 보임.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "renmermir",
@@ -1666,12 +1668,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렌메르미르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-nimsolet-renmermir-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-nimsolet-renmermir-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 사본 교환권의 시장 도시 후보. 사본 교환, 학술 여관, 외부 학자 숙박, 번역 기능이 사본 시장과 학술 숙소로 읽힘.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "workkelhal",
@@ -1685,12 +1687,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "워크켈할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-sylvania-workkelhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-sylvania-workkelhal-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 탐사 거점권의 외부 접촉도시 후보. 탐사 허가, 길잡이 계약, 장비 보관, 후원 기록 기능이 숲문 탐사 거점으로 보임.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "renyalum",
@@ -1704,12 +1706,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렌얄움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-sylvania-renyalum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-sylvania-renyalum-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 사본 열람권의 기록 거점 후보. 고문서 열람, 계보 사본, 주석 비교, 외명 정리 기능이 숲속 기록원으로 읽힘.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "umkelsan",
@@ -1723,12 +1725,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "움켈산",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-sylvania-umkelsan-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-sylvania-umkelsan-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 안개길권의 길잡이 도시 후보. 길 표식, 안개길 숙박, 실종 기록, 통행 안내 기능이 습한 안개길 숙소권으로 보임.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "narvektor",
@@ -1742,12 +1744,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나르베크토르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-dragonspire-narvektor-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-dragonspire-narvektor-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 분화 감시권의 화산 관측 도시 후보. 분화 기록, 화산가스 경고, 피난 신호, 등대 기능이 화산섬 감시 항만으로 읽힘.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "narmarrenum",
@@ -1761,12 +1763,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나르마르렌움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-dragonspire-narmarrenum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-dragonspire-narmarrenum-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 해도 주석권의 항해 기록 도시 후보. 해도 주석, 화산섬 위치, 위험 해역 기록, 항해 보고 기능이 화산 항만 기록원으로 보임.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "marmoshal",
@@ -1780,12 +1782,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르모스할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-dragonspire-marmoshal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-dragonspire-marmoshal-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 항만 대기권의 외곽 항구 후보. 대기 선박, 피난 표식촌, 단기 보급, 수리 기능이 재 낀 항만 대기지로 읽힘.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dunnabrenum",
@@ -1799,12 +1801,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "둔나브렌움",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-fenrir-eye-dunnabrenum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-fenrir-eye-dunnabrenum-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 난파 기록권의 기록 거점 후보. 난파 명부, 해도 필사, 보험 증언, 유품 보관 기능이 거친 외해 기록소로 보임.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "ummarsor",
@@ -1818,12 +1820,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "움마르소르",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-fenrir-eye-ummarsor-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-fenrir-eye-ummarsor-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 외해 금기권의 위험 해안 후보. 금기 표식, 출항 보류, 실종 기록, 선원 구전 기능이 폐쇄 선착장과 금기 해안으로 읽힘.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "vepnabhal",
@@ -1837,12 +1839,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벱나브할",
     "kind": "city",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/city-vistas/ck5083-city-fenrir-eye-vepnabhal-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/city-vistas/ck5083-city-fenrir-eye-vepnabhal-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 구조 대기권의 해안 거점 후보. 구조 대기, 선박 수리, 피난 숙소, 외해 경보 기능이 구조 대기소와 피난 숙소로 보임.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "jirmevga",
@@ -1856,12 +1858,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "지르메브가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-leonia-jirmevga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-leonia-jirmevga-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 지르바르에트 근방의 전마 사육 마을 후보. 말목장, 마구간, 수행원 숙소 기능이 마을 전경으로 보임.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "radgarga",
@@ -1875,12 +1877,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "라드가르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-leonia-radgarga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-leonia-radgarga-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 라드아르할 근방의 봉토 곡물 마을 후보. 곡물 창고, 영지 서리실, 마차 헛간과 들판 경계가 보임.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "paltekga",
@@ -1894,12 +1896,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "팔테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-leonia-paltekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-leonia-paltekga-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 팔테쿰가 근방의 공방 하청 마을 후보. 납품 창고, 검품대, 장인 숙소와 포장·수레 작업이 읽힘.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "remkelga",
@@ -1913,12 +1915,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렘켈가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-leonia-remkelga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-leonia-remkelga-imagegen-v1-scene-v2.webp",
     "caption": "레오니아 렘다트움 근방의 사절 대기 마을 후보. 마차 헛간, 통역소, 손님 여관과 사절 이동로가 보임.",
     "realmKey": "leonia",
     "realmName": "레오니아",
     "heraldryName": "레오니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-crest-v1.webp"
   },
   {
     "key": "martorga",
@@ -1932,12 +1934,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르토르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-norghard-martorga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-norghard-martorga-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 아르마르토르 근방의 등대·구조 마을 후보. 등대, 기름 창고, 구조 종과 해안 감시 기능이 보임.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hesmarga",
@@ -1951,12 +1953,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤스마르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-norghard-hesmarga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-norghard-hesmarga-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 마르나브미르 근방의 어장·난파 감시 마을 후보. 어장 창고, 난파 신고판, 그물막과 해안 감시대가 읽힘.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nabhalgarin",
@@ -1970,12 +1972,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나브할가린",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-norghard-nabhalgarin-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-norghard-nabhalgarin-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 나브할가 근방의 선원 숙박 마을 후보. 침상 여관, 승선 명부소, 주점과 항만 대기 기능이 보임.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "pertekga",
@@ -1989,12 +1991,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "페르테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-norghard-pertekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-norghard-pertekga-imagegen-v1-scene-v2.webp",
     "caption": "노르가르드 페르나브부두 근방의 선박 수리 마을 후보. 조선막, 대장간, 부품 창고와 수리 대기 선박이 보임.",
     "realmKey": "norghard",
     "realmName": "노르가르드",
     "heraldryName": "노르가르드 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-norghard-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hekgarga",
@@ -2008,12 +2010,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤크가르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-tiris-hekgarga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-tiris-hekgarga-imagegen-v1-scene-v2.webp",
     "caption": "티리스 그린할로우 근방의 재개간 마을 후보. 복구 우물, 경작권 게시판, 사당 잔해와 재개간 농지가 보임.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bekvepga",
@@ -2027,12 +2029,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "베크벱가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-tiris-bekvepga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-tiris-bekvepga-imagegen-v1-scene-v2.webp",
     "caption": "티리스 베크켈카르 근방의 피난 대기 마을 후보. 피난 명부소, 보증인 마당, 단기 창고와 접경 대기 흐름이 보임.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "garpukga",
@@ -2046,12 +2048,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "가르푸크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-tiris-garpukga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-tiris-garpukga-imagegen-v1-scene-v2.webp",
     "caption": "티리스 가르메브에트 근방의 곡물·방앗간 마을 후보. 방앗간, 저장고, 수레 수리막과 곡물 수송 기능이 읽힘.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silbekga",
@@ -2065,12 +2067,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실베크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-tiris-silbekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-tiris-silbekga-imagegen-v1-scene-v2.webp",
     "caption": "티리스 실테크에트 근방의 숲문·목재 마을 후보. 숲문, 목재 검사대, 숯가마와 벌목 허가 시설이 보임.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bellelga",
@@ -2084,12 +2086,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨렐가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-tiris-bellelga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-tiris-bellelga-imagegen-v1-scene-v2.webp",
     "caption": "티리스 벨소르엘 근방의 수문·나루 마을 후보. 수문, 물맛 기록판, 나루막과 하천 어업 기능이 보임.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "ieltorga",
@@ -2103,12 +2105,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "이엘토르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-tiris-ieltorga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-tiris-ieltorga-imagegen-v1-scene-v2.webp",
     "caption": "티리스 소르이엘토르 근방의 관측·순례 마을 후보. 관측 언덕, 봉납소, 작은 숙소와 순례 동선이 읽힘.",
     "realmKey": "tiris",
     "realmName": "티리스",
     "heraldryName": "티리스 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-tiris-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "remrenpilga",
@@ -2122,12 +2124,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렘렌필가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-linrenet-remrenpilga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-linrenet-remrenpilga-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 렘렌가 근방의 필사 마을 후보. 필사실, 잉크 창고, 사본 건조대와 제본 작업이 보임.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "renumsukga",
@@ -2141,12 +2143,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "레눔숙가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-linrenet-renumsukga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-linrenet-renumsukga-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 레눔가 근방의 학생 숙박 마을 후보. 학생 여관, 교재 장터, 필기구점과 학술 도시 배후가 보임.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "linsantekga",
@@ -2160,12 +2162,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "린산테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-linrenet-linsantekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-linrenet-linsantekga-imagegen-v1-scene-v2.webp",
     "caption": "린레네트 린산가 근방의 공연·무대 제작 마을 후보. 무대 공방, 의상 창고, 공연 여관과 소품 수리 기능이 보임.",
     "realmKey": "linrenet",
     "realmName": "린레네트",
     "heraldryName": "린레네트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-linrenet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "kelbekga",
@@ -2179,12 +2181,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "켈베크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-bekdoret-kelbekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-bekdoret-kelbekga-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 켈카르 근방의 검문 대기 마을 후보. 검문막, 짐 보관소, 보증인 여관과 대기 행렬이 보임.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bekpukga",
@@ -2198,12 +2200,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "베크푸크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-bekdoret-bekpukga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-bekdoret-bekpukga-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 베크할 근방의 군수 보관 마을 후보. 군수 창고, 배급막, 무기 보관실과 병참 마당이 읽힘.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dortekga",
@@ -2217,12 +2219,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-bekdoret-dortekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-bekdoret-dortekga-imagegen-v1-scene-v2.webp",
     "caption": "벡도레트 도르테쿰 근방의 석재·성벽 보수 마을 후보. 석재장, 공사 장부소, 수레막과 성벽 보수 공사가 보임.",
     "realmKey": "bekdoret",
     "realmName": "벡도레트",
     "heraldryName": "벡도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-bekdoret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "beltekga",
@@ -2236,12 +2238,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-senhalet-beltekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-senhalet-beltekga-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 벨바르 근방의 둑·수문 보수 마을 후보. 둑 공방, 수문 부품창고, 수레막과 수로 보수 현장이 보임.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "bellnabga",
@@ -2255,12 +2257,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨나브가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-senhalet-bellnabga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-senhalet-bellnabga-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 벨바르 근방의 갈대·나루 마을 후보. 나루터, 갈대 말림장, 작은 어창과 습지 수로가 보임.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "garsenga",
@@ -2274,12 +2276,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "가르센가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-senhalet-garsenga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-senhalet-garsenga-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 가르센에트 근방의 공동 경작 마을 후보. 공동 밭, 노동 게시판, 수레 수리막과 노동 마당이 보임.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "senpukga",
@@ -2293,12 +2295,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "센푸크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-senhalet-senpukga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-senhalet-senpukga-imagegen-v1-scene-v2.webp",
     "caption": "센할레트 센푸쿰 근방의 배급·종자 보관 마을 후보. 공동 창고, 종자 항아리실, 배급 마당이 중심 시설로 보임.",
     "realmKey": "senhalet",
     "realmName": "센할레트",
     "heraldryName": "센할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-senhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dorperga",
@@ -2312,12 +2314,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르페르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesferet-dorperga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesferet-dorperga-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 페르바르 근방의 광석·갱도 마을 후보. 갱도 입구, 광석 선별장, 대장간과 북방 광산 마당이 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "hespukga",
@@ -2331,12 +2333,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤스푸크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesferet-hespukga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesferet-hespukga-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 헤스푸쿰 근방의 겨울 물자 마을 후보. 냉저장고, 말린고기 막, 장작더미와 보존식 작업장이 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "ramjirga",
@@ -2350,12 +2352,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "람지르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesferet-ramjirga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesferet-ramjirga-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 람지르바르 근방의 증인·맹세 마을 후보. 증인 숙소, 맹세석 관리막, 장례 각문대가 중심 시설로 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "kelhesga",
@@ -2369,12 +2371,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "켈헤스가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesferet-kelhesga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesferet-kelhesga-imagegen-v1-scene-v2.webp",
     "caption": "헤스페레트 헤스켈카르 근방의 고개 숙박 마을 후보. 산길 숙소, 눈길 표식소, 장작막과 겨울 고개길이 보임.",
     "realmKey": "hesferet",
     "realmName": "헤스페레트",
     "heraldryName": "헤스페레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesferet-imagegen-v2-no-runes-crest-v1.webp"
   },
   {
     "key": "umnabga",
@@ -2388,12 +2390,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "움나브가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-kelnabet-umnabga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-kelnabet-umnabga-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 움마르켈 근방의 마지막 보급 마을 후보. 보급 창고, 닻줄막, 무장 검사소와 외해 출항 대기 기능이 보임.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nabhrenga",
@@ -2407,12 +2409,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나브렌가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-kelnabet-nabhrenga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-kelnabet-nabhrenga-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 마르렌움 근방의 해도 필사 마을 후보. 해도 필사실, 밀봉 지도고, 선장 증언실과 항로 주석 기능이 보임.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "marpuk-island",
@@ -2426,12 +2428,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르푸크섬",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-kelnabet-marpuk-island-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-kelnabet-marpuk-island-imagegen-v1-scene-v2.webp",
     "caption": "켈나베트 마르켈미르 근방의 섬 보급·정박 후보. 물창고, 밧줄막, 작은 선착장과 단기 정박 기능이 보임.",
     "realmKey": "kelnabet",
     "realmName": "켈나베트",
     "heraldryName": "켈나베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-kelnabet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "pukhesga",
@@ -2445,12 +2447,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "푸크헤스가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesbeket-pukhesga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesbeket-pukhesga-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 베크헤스푸쿰 근방의 보존식·방한구 마을 후보. 보존식 작업막, 저장 장부실, 방한구 수리막이 보임.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hesnarga",
@@ -2464,12 +2466,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤스나르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesbeket-hesnarga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesbeket-hesnarga-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 나르할 근방의 장작·공동난방 마을 후보. 불씨집, 장작 배분소, 공동 취침장과 혹한기 생활 시설이 보임.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mevhesga",
@@ -2483,12 +2485,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브헤스가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-hesbeket-mevhesga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-hesbeket-mevhesga-imagegen-v1-scene-v2.webp",
     "caption": "헤스베케트 메브헤스베크 근방의 사냥 초소 마을 후보. 사냥 초소, 덫 신고판, 보존육 걸이와 눈길 감시 기능이 보임.",
     "realmKey": "hesbeket",
     "realmName": "헤스베케트",
     "heraldryName": "헤스베케트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-hesbeket-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yenkelga",
@@ -2502,12 +2504,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "옌켈가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-yenmebet-yenkelga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-yenmebet-yenkelga-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 옌워켈 근방의 고공 통행 마을 후보. 고공 숙소, 바람 종, 짐꾼 마당과 산악 통행 대기 기능이 보임.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silamga",
@@ -2521,12 +2523,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실람가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-yenmebet-silamga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-yenmebet-silamga-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 실람렌움 근방의 경계 기록 마을 후보. 목패 기록실, 경계 지도막, 중재 숙소와 숲 경계 시설이 보임.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yentekga",
@@ -2540,12 +2542,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "옌테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-yenmebet-yentekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-yenmebet-yentekga-imagegen-v1-scene-v2.webp",
     "caption": "옌메베트 옌베크할 근방의 산악 장비 마을 후보. 장비 공방, 안장 수리막, 구조 장비고와 고산 통행 지원 기능이 보임.",
     "realmKey": "yenmebet",
     "realmName": "옌메베트",
     "heraldryName": "옌메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-yenmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yalbekga",
@@ -2559,12 +2561,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "얄베크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-nimnaret-yalbekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-nimnaret-yalbekga-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 엔켈할 근방의 감찰·허가 마을 후보. 감찰 초소, 허가 대기막, 물품 보관실과 폐쇄 학술권 출입 심사가 보임.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hedrenga",
@@ -2578,12 +2580,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤드렌가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-nimnaret-hedrenga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-nimnaret-hedrenga-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 헤드렌움 근방의 계량·압류 마을 후보. 검사 대기막, 압류 창고, 계량대와 운반 짐꾼 숙박 기능이 보임.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "pukbekum",
@@ -2597,12 +2599,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "푸크베크움",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-nimnaret-pukbekum-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-nimnaret-pukbekum-imagegen-v1-scene-v2.webp",
     "caption": "님나레트 푸크나움 근방의 봉인·감시 마을 후보. 봉인 창고, 철문 수리막, 감시 숙소와 재료 보관 기능이 보임.",
     "realmKey": "nimnaret",
     "realmName": "님나레트",
     "heraldryName": "님나레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimnaret-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mevmerga",
@@ -2616,12 +2618,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브메르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silnimet-mevmerga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silnimet-mevmerga-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 메브메르켈 근방의 천막 장터 마을 후보. 천막 장터, 가축 울타리, 통역막과 계절 교역 기능이 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silmerga",
@@ -2635,12 +2637,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실메르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silnimet-silmerga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silnimet-silmerga-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 실메르미르 근방의 약초·건조 마을 후보. 건조 헛간, 약초 검사대, 채집 허가소와 저지 수로가 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sorsanga",
@@ -2654,12 +2656,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "소르산가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silnimet-sorsanga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silnimet-sorsanga-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 도르소르산 근방의 순례·숙박 마을 후보. 순례 여관, 향 재료 창고, 작은 식당과 산지 통행 지원 기능이 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silsorga",
@@ -2673,12 +2675,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실소르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silnimet-silsorga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silnimet-silsorga-imagegen-v1-scene-v2.webp",
     "caption": "실니메트 실소르켈 근방의 성림 진입 마을 후보. 성림 안내소, 숲길 허가막, 통역 숙소와 통제 통행 기능이 보임.",
     "realmKey": "silnimet",
     "realmName": "실니메트",
     "heraldryName": "실니메트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silnimet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sorhalga",
@@ -2692,12 +2694,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "소르할가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-ardolet-sorhalga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-ardolet-sorhalga-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 소르할 근방의 순례·보급 마을 후보. 순례 여관, 식량 보급소, 작은 신전과 고산길 통행 기능이 보임.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dorkelga",
@@ -2711,12 +2713,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "도르켈가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-ardolet-dorkelga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-ardolet-dorkelga-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 도르켈바르 근방의 등정·구조 마을 후보. 안내인 회관, 구조 장비고, 산길 여관과 등정 대기 기능이 보임.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "yentorga",
@@ -2730,12 +2732,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "옌토르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-ardolet-yentorga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-ardolet-yentorga-imagegen-v1-scene-v2.webp",
     "caption": "아르도레트 옌이엘토르 근방의 관측자 마을 후보. 관측자 숙소, 구름표 보관막, 기록지 말림대와 고산 관측 기능이 보임.",
     "realmKey": "ardolet",
     "realmName": "아르도레트",
     "heraldryName": "아르도레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-ardolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "belmevga",
@@ -2749,12 +2751,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "벨메브가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-garmebet-belmevga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-garmebet-belmevga-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 벨람바르 근방의 가축·물권 마을 후보. 우물, 가축 물자리, 물권 증언석과 계절 만남 기능이 보임.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "tikramga",
@@ -2768,12 +2770,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "틱람가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-garmebet-tikramga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-garmebet-tikramga-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 틱메브할 근방의 회의·계절 장부 마을 후보. 회의 원, 장부막, 천막 자리표와 계절 집결 기능이 보임.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mevtekga",
@@ -2787,12 +2789,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메브테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-garmebet-mevtekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-garmebet-mevtekga-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 메브바르 근방의 가축·가죽 처리 마을 후보. 가죽 말림대, 질병 확인막, 보상 협상장과 유목 생업권이 보임.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "wokhrenga",
@@ -2806,12 +2808,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "워크렌가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-garmebet-wokhrenga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-garmebet-wokhrenga-imagegen-v1-scene-v2.webp",
     "caption": "가르메베트 워크렌움 근방의 이동·통역 마을 후보. 이동 장부소, 통역막, 길목 숙소와 상단 동행 기능이 보임.",
     "realmKey": "garmebet",
     "realmName": "가르메베트",
     "heraldryName": "가르메베트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-garmebet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sildatga",
@@ -2825,12 +2827,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실다트가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silhalet-sildatga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silhalet-sildatga-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 실다트바르 근방의 채집·검사 마을 후보. 채집 허가소, 바구니 검사대, 작은 숙소와 숲길 숙박 기능이 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silmunga",
@@ -2844,12 +2846,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실문가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silhalet-silmunga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silhalet-silmunga-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 실소르산 근방의 숲문·동행 마을 후보. 숲문, 동행 대기소, 목패 보관막과 성림 통제 기능이 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "siltekga",
@@ -2863,12 +2865,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silhalet-siltekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silhalet-siltekga-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 실테크엘 근방의 벌목·목재 검사 마을 후보. 벌목 숙소, 목재 검사대, 적재장과 수레 적재 기능이 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "radsilga",
@@ -2882,12 +2884,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "라드실가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-silhalet-radsilga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-silhalet-radsilga-imagegen-v1-scene-v2.webp",
     "caption": "실할레트 라드실할 근방의 왕실 정원 관리 마을 후보. 정원 관리소, 수공예 공방, 씨앗실과 식물 보관 기능이 보임.",
     "realmKey": "silhalet",
     "realmName": "실할레트",
     "heraldryName": "실할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-silhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "mernavga",
@@ -2901,12 +2903,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "메르나브가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-merhalet-mernavga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-merhalet-mernavga-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 메르벨마르 근방의 하역·상단 숙박 마을 후보. 하역장, 상단 숙소, 물품 봉인소와 강하 운송 기능이 보임.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "hedmerga",
@@ -2920,12 +2922,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "헤드메르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-merhalet-hedmerga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-merhalet-hedmerga-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 헤드켈바르 근방의 세금·분류 마을 후보. 세금 대기막, 분류장, 보증인 여관과 하역 전 대기 기능이 보임.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "pukmerga",
@@ -2939,12 +2941,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "푸크메르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-merhalet-pukmerga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-merhalet-pukmerga-imagegen-v1-scene-v2.webp",
     "caption": "메르할레트 푸크테쿰 근방의 창고·도르래 마을 후보. 창고 거리, 도르래 작업장, 손실 장부실과 보관 책임 기능이 보임.",
     "realmKey": "merhalet",
     "realmName": "메르할레트",
     "heraldryName": "메르할레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-merhalet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "rentekga",
@@ -2958,12 +2960,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "렌테크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-nimsolet-rentekga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-nimsolet-rentekga-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 렌테쿰 근방의 필사·수리 마을 후보. 필경실, 잉크 창고, 사본 수리대와 문서 작업 기능이 보임.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "nimrenga",
@@ -2977,12 +2979,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "님렌가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-nimsolet-nimrenga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-nimsolet-nimrenga-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 님할 근방의 학술 숙박 마을 후보. 학술 여관, 사본 안내소, 논쟁 게시판과 외부 학자 숙박 기능이 보임.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "sordatga",
@@ -2996,12 +2998,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "소르다트가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-nimsolet-sordatga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-nimsolet-sordatga-imagegen-v1-scene-v2.webp",
     "caption": "님소레트 소르다트움 근방의 봉납·의례 마을 후보. 작은 신전, 봉납 명단판, 의례 도구방과 신전 관리 기능이 보임.",
     "realmKey": "nimsolet",
     "realmName": "님소레트",
     "heraldryName": "님소레트 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-nimsolet-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "woksilga",
@@ -3015,12 +3017,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "워크실가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-sylvania-woksilga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-sylvania-woksilga-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 워크켈할 근방의 길잡이·탐사 보조 마을 후보. 길잡이 숙소, 장비 점검막, 안개 경고판과 탐사 허가 보조 기능이 보임.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "silkinga",
@@ -3034,12 +3036,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "실킨가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-sylvania-silkinga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-sylvania-silkinga-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 실렌산 근방의 계보·장례 기억 마을 후보. 계보집, 장례 목패실, 숲 표식길과 전승 보관 기능이 보임.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "umkelga",
@@ -3053,12 +3055,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "움켈가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-sylvania-umkelga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-sylvania-umkelga-imagegen-v1-scene-v2.webp",
     "caption": "실바니아 움켈산 근방의 안개길·실종 기록 마을 후보. 안개길 숙소, 실종 명부, 길 표식소와 안개길 통행 기능이 보임.",
     "realmKey": "sylvania",
     "realmName": "실바니아",
     "heraldryName": "실바니아 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-sylvania-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "narmosga",
@@ -3072,12 +3074,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나르모스가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-dragonspire-narmosga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-dragonspire-narmosga-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 나르마르켈 근방의 피난·분화 경고 마을 후보. 피난 깃발대, 경고 종, 단기 창고와 항만 대기 기능이 보임.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "narperga",
@@ -3091,12 +3093,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "나르페르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-dragonspire-narperga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-dragonspire-narperga-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 나르베크토르 근방의 화산석·관측 보조 마을 후보. 화산석 작업장, 방열 창고, 관측자 숙소와 채취 허가 기능이 보임.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "marnarga",
@@ -3110,12 +3112,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "마르나르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-dragonspire-marnarga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-dragonspire-marnarga-imagegen-v1-scene-v2.webp",
     "caption": "드래곤스파이어 마르모스할 근방의 보급·수리 마을 후보. 보급 선착장, 수리막, 대기 창고와 선박 대기 기능이 보임.",
     "realmKey": "dragonspire",
     "realmName": "드래곤스파이어",
     "heraldryName": "드래곤스파이어 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-dragonspire-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "duntorga",
@@ -3129,12 +3131,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "둔토르가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-fenrir-eye-duntorga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-fenrir-eye-duntorga-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 둔아르토르 근방의 등대·구조 마을 후보. 등대, 구조 종, 기름 창고와 외해 관측 기능이 보임.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "dunpukga",
@@ -3148,12 +3150,12 @@ export const GENERATED_SCENES = [
     ],
     "title": "둔푸크가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-fenrir-eye-dunpukga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-fenrir-eye-dunpukga-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 둔나브렌움 근방의 유품·증언 마을 후보. 유품 보관소, 보험 증언실, 젖은 명부대와 난파 명부 보조 기능이 보임.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   },
   {
     "key": "vepnabga",
@@ -3167,11 +3169,11 @@ export const GENERATED_SCENES = [
     ],
     "title": "벱나브가",
     "kind": "village",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/village-vistas/ck5083-village-fenrir-eye-vepnabga-imagegen-v1-scene-v2.webp",
+    "imageUrl": "/scene-assets/village-vistas/ck5083-village-fenrir-eye-vepnabga-imagegen-v1-scene-v2.webp",
     "caption": "펜리르의 눈 벱나브할 근방의 구조·피난 마을 후보. 구조 대기소, 피난 숙소, 외해 경보 종과 선원 피난 기능이 보임.",
     "realmKey": "fenrir-eye",
     "realmName": "펜리르의 눈",
     "heraldryName": "펜리르의 눈 문장",
-    "heraldryUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
+    "heraldryUrl": "/scene-assets/heraldry/ck5083-heraldry-fenrir-eye-imagegen-v1-crest-v1.webp"
   }
 ];

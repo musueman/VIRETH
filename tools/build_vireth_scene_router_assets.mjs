@@ -5,11 +5,10 @@ import path from "node:path";
 const root = process.cwd();
 const generatedRoot = path.join(root, "assets", "illustrations", "generated_outputs");
 const reviewIndexPath = path.join(generatedRoot, "ck5083-generated-image-review-index-v1.md");
-const exportRoot = path.join(root, "workers", "vireth-svg", "export-assets");
+const exportRoot = path.join(root, "workers", "vireth-svg", "public", "scene-assets");
 const scenesOutPath = path.join(root, "workers", "vireth-svg", "src", "generated-scenes.ts");
 
-const assetBase =
-  "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-scene-router";
+const assetBase = "/scene-assets";
 
 const regions = [
   ["dragonspire", "드래곤스파이어"],
@@ -104,14 +103,14 @@ function convertScene(src, dst) {
   execFileSync("magick", [
     src,
     "-resize",
-    "1536x864^",
+    "1000x700^",
     "-gravity",
     "center",
     "-extent",
-    "1536x864",
+    "1000x700",
     "-strip",
     "-quality",
-    "82",
+    "58",
     "-define",
     "webp:method=6",
     dst
@@ -130,16 +129,41 @@ function convertHeraldry(src, dst) {
     "512x512",
     "-strip",
     "-quality",
-    "88",
+    "78",
     "-define",
     "webp:method=6",
     dst
   ]);
 }
 
+function titleParts(title) {
+  return title.split("/").map((part) => part.trim()).filter(Boolean);
+}
+
+function displayTitleFor(title) {
+  const parts = titleParts(title);
+  if (parts.length === 2) {
+    return `${parts[0]}(${parts[1]})`;
+  }
+  return title.trim();
+}
+
 function aliasesFor(row, regionName, regionSlug, placeSlug) {
-  const titles = row.title.split("/").map((part) => part.trim()).filter(Boolean);
-  return [...new Set([regionName, `${regionName} ${titles[0]}`, regionSlug, `${regionSlug}-${placeSlug}`, placeSlug, ...titles])];
+  const titles = titleParts(row.title);
+  const displayTitle = displayTitleFor(row.title);
+  const primaryTitle = titles[0] ?? displayTitle;
+  return [
+    ...new Set([
+      regionName,
+      `${regionName} ${primaryTitle}`,
+      `${regionName} ${displayTitle}`,
+      regionSlug,
+      `${regionSlug}-${placeSlug}`,
+      placeSlug,
+      displayTitle,
+      ...titles
+    ])
+  ];
 }
 
 function assetUrl(rel) {
@@ -174,7 +198,7 @@ function build() {
     scenes.push({
       key: placeSlug,
       aliases: aliasesFor(row, regionName, regionSlug, placeSlug),
-      title: row.title,
+      title: displayTitleFor(row.title),
       kind: row.kind,
       imageUrl: assetUrl(rel),
       caption: row.caption,

@@ -364,9 +364,9 @@ export const GENERATED_REGION_MAP_PLACES = [
     "regionKey": "tiris",
     "regionName": "티리스",
     "outputOrder": 3,
-    "title": "라드바르할 / 실버킵",
+    "title": "라드바르할(실버킵)",
     "aliases": [
-      "라드바르할 / 실버킵"
+      "라드바르할(실버킵)"
     ],
     "kind": "도시·거점",
     "icon": "castle",
@@ -382,9 +382,9 @@ export const GENERATED_REGION_MAP_PLACES = [
     "regionKey": "tiris",
     "regionName": "티리스",
     "outputOrder": 3,
-    "title": "베크켈카르 / 레이븐스톤",
+    "title": "베크켈카르(레이븐스톤)",
     "aliases": [
-      "베크켈카르 / 레이븐스톤"
+      "베크켈카르(레이븐스톤)"
     ],
     "kind": "도시·거점",
     "icon": "castle",

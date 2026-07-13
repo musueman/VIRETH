@@ -1011,6 +1011,23 @@ function resolveTalkBackground(
             isTalkBackgroundContainedMatch(value, sceneValue)
         )
     );
+    const crossRegion = Boolean(regionKey && entryRegionKey && entryRegionKey !== regionKey);
+    const exactNonFunctionMatches = exactMatches.filter(
+      (value) => !TALK_BACKGROUND_FUNCTION_HINTS.has(value)
+    );
+    const containedNonFunctionMatches = containedMatches.filter(
+      (value) => !TALK_BACKGROUND_FUNCTION_HINTS.has(value)
+    );
+
+    if (
+      explicitBgType &&
+      crossRegion &&
+      !genericArchetype &&
+      exactNonFunctionMatches.length === 0 &&
+      containedNonFunctionMatches.length === 0
+    ) {
+      return { entry, score: 0 };
+    }
 
     let score = 0;
     if (genericArchetype && !explicitBgType) {

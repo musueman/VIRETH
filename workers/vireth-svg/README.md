@@ -1,126 +1,104 @@
-# Vireth Scene Worker
+# Vireth SVG Worker
 
-Cloudflare Worker that receives chatbot image-call query strings and returns the matching Vireth / Arcadia 5083 location image.
+Cloudflare Worker for LunaTalk image calls in Arcadia 5083.
+
+The chatbot should use visible names, not internal registry keys:
+
+- `place`: current canonical place name shown to the user.
+- `name`: the speaker name exactly as printed before `|`.
+
+Internal `key`, `region`, `bgType`, and direct asset URLs are supported for debugging and tooling, but should not be the default LunaTalk output.
 
 ## Routes
 
 - `/health` - JSON health check.
-- `/scene?key=world-overview` - SVG response with scene image and heraldry overlay.
-- `/scene.svg?key=world-overview` - alias of `/scene`.
-- `/scene.webp?key=world-overview` - direct raster image response for chatbot renderers that block SVG or nested SVG images.
-- `/scene.image?key=world-overview` - alias of `/scene.webp`.
-- `/scene.json?key=world-overview` - resolved scene metadata.
-- `/talk?name=gatekeeper&place=bekkellkar-ravenstone` - dialogue card SVG with scene background, optional right-side character image, and left-side character/place info.
-- `/talk.svg?name=gatekeeper&place=bekkellkar-ravenstone` - alias of `/talk`.
-- `/talk.json?name=gatekeeper&place=bekkellkar-ravenstone` - resolved dialogue card metadata.
-- `/map?region=tiris` - SVG response with compact regional map panel and sorted place legend.
-- `/map?place=radbarhal` - regional map SVG with the resolved current place highlighted when it matches a registered map entry.
-- `/map.svg?place=radbarhal` - alias of `/map`; `place` can be a registered city/village scene key.
-- `/map.webp?region=tiris` - direct regional map image response.
-- `/map.image?place=radbarhal` - alias of `/map.webp`.
-- `/map.json?place=radbarhal` - resolved regional map metadata.
-- `/map.places.json?place=radbarhal` - sorted city/village/base entries for the resolved regional map.
+- `/scene?place=베크켈카르(레이븐스톤)%20성문` - top scene card SVG.
+- `/scene.image?place=...` - direct scene WebP.
+- `/scene.json?place=...` - resolved scene metadata.
+- `/talk?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문` - dialogue card SVG.
+- `/talk.json?name=...&place=...` - resolved dialogue card metadata.
+- `/talk-background.json?place=...` - resolved talk background metadata.
+- `/talk.characters.json` - registered fixed-character metadata.
+- `/talk.npcs.json` - random NPC pool summary.
+- `/map?place=베크켈카르(레이븐스톤)%20성문` - regional map SVG with current place highlight.
+- `/map.image?place=...` - direct regional map WebP.
+- `/map.json?place=...` - resolved region map metadata.
+- `/map.places.json?place=...` - region place list.
 
-The resolver accepts `key`, `scene`, `place`, `city`, `region`, and Korean aliases `장소`, `도시`, `권역`.
-If a requested key is not registered, the default overview image is used.
-SVG routes inline raster assets by default because some LunaTalk / Markdown surfaces break nested external images inside SVG. `external=1` is a debug-only light SVG mode and must not be used as the chatbot default until the target renderer is proven to load nested SVG images correctly.
-The `/talk` resolver accepts `name`, `speaker`, `character`, `이름`, `화자` for the visible speaker and uses the same place resolver as `/scene`.
+SVG routes inline raster assets by default because LunaTalk and Markdown surfaces can break nested external image references inside SVG. `external=1` is debug-only unless the target renderer has been screenshot-verified.
 
-## Chatbot Call Examples
+## LunaTalk Output Pattern
 
-SVG wrapper:
+~~~md
+![](https://vireth-svg.musueman.workers.dev/scene?place=베크켈카르(레이븐스톤)%20성문)
 
-```md
-![](https://vireth-svg.musueman.workers.dev/scene?key=world-overview)
-![](https://vireth-svg.musueman.workers.dev/scene?key=radarhal)
-![](https://vireth-svg.musueman.workers.dev/scene?place=radbarhal)
-![](https://vireth-svg.musueman.workers.dev/scene?city=yenwokel)
+본문 서술...
+
+![](https://vireth-svg.musueman.workers.dev/talk?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문)
+베켈 오르민 | 목패.
+
+베켈 오르민 | 오래됐군. 어디서 받은 거지?
+
+```text
+🕰 시간: 5083년 · 수로·정화절 무렵 · 흐린 오후
+🧍 상태: 검문 중
+💰 소지금: 동전 몇 닢
+🎒 소지품: 낡은 통행 목패, 빈 편지 봉투, 작은 칼
+🎯 목표: 성문 안 기록원에게 편지의 수신인을 확인하기
 ```
 
-Dialogue card above a LunaTalk `name | line` response:
+![](https://vireth-svg.musueman.workers.dev/map?place=베크켈카르(레이븐스톤)%20성문)
+~~~
 
-```md
-![](https://vireth-svg.musueman.workers.dev/talk?name=gatekeeper&place=bekkellkar-ravenstone&role=gate%20inspector)
-Gatekeeper | Papers. Show them before you step through.
-```
+Rules:
 
-Korean chatbot form:
+- `/scene` appears once on the first response line.
+- `/talk` appears only above each speaker's first line in a single response.
+- `/map` appears once below the status code block.
+- Do not output internal image keys in the chat body.
+- If a fixed character is missing, `/talk` still renders using a generated NPC or background-only fallback.
 
-```md
-![](https://vireth-svg.musueman.workers.dev/talk?이름=검문관&장소=베크켈카르%20%2F%20레이븐스톤&역할=성문%20검문관)
-검문관 | 목패. 낡았군. 어디서 받은 거지?
-```
+## Background Resolution
 
-If a character image is not registered, `/talk` still returns a background-only card using the resolved scene. Temporary testing can pass `characterUrl=...`; the permanent production path should use a generated character registry instead of long query URLs.
+Talk background fallback order:
 
-Scene plus regional map for LunaTalk:
+1. Explicit background key or direct URL, for tooling only.
+2. Registered place-type background for the current region and place type.
+3. Current region city representative image.
+4. Current region default image.
+5. General archetype background.
+6. Scene image fallback.
 
-```md
-![](https://vireth-svg.musueman.workers.dev/scene?장소=베크켈카르%20%2F%20레이븐스톤)
-![](https://vireth-svg.musueman.workers.dev/map?장소=베크켈카르%20%2F%20레이븐스톤)
-```
-
-Raster endpoint for LunaTalk or other Markdown surfaces that do not render SVG reliably:
-
-```md
-![](https://vireth-svg.musueman.workers.dev/scene.webp?place=tiris)
-![](https://vireth-svg.musueman.workers.dev/map.webp?region=tiris)
-```
-
-Place legend JSON:
-
-```txt
-https://vireth-svg.musueman.workers.dev/map.places.json?장소=베크켈카르%20%2F%20레이븐스톤
-```
-
-Current place highlighting uses `place`, `city`, `장소`, `도시`, `현재`, `현재장소`, `정본장소명`, or `key`. Region-only calls such as `map?region=tiris` show the legend without a current-place highlight.
-
-## Registered Scenes
-
-The generated registry currently loads 97 city/base scenes, 70 unique village scenes, 20 regional heraldry images, 20 regional maps, and 166 regional map place entries.
-Registered city and village scenes can render the matching regional heraldry image at the top-left of the SVG route.
-Registered city and village scenes can also resolve `/map?place=...` to the matching regional map through their `realmKey`.
-Use `/scene.webp` for the most compatible display path because it returns the scene image itself instead of an SVG wrapper.
+`bgType` must never select another region's representative image by itself.
 
 ## Asset Size Rules
 
-SVG output size is dominated by inlined raster images. Every new or replaced image must be pre-sized before it is pushed to GitHub.
+Every public display asset must be optimized before pushing.
 
-Target image budgets:
-
-- City / base scene image: `1000x700` WebP, quality `74-78`, target `<=120KB`.
+- City/base scene image: `1000x700` WebP, quality `74-78`, target `<=120KB`.
+- Talk background image: `1000x700` WebP, target usually `<=120KB`.
 - Regional map image: `768x768` WebP, quality `68-72`, target `<=220KB`.
 - Heraldry image: WebP, target `<=50KB`.
-- Do not push multi-megabyte source renders into the Worker registry path. Keep source-quality renders outside the public router path.
+- Do not push source-quality renders into the Worker public registry path.
 
-Reference conversion commands:
-
-```powershell
-magick input.webp -resize 1000x700^ -gravity center -extent 1000x700 -quality 76 output-scene.webp
-magick input.webp -resize 768x768^ -gravity center -extent 768x768 -quality 70 output-map.webp
-```
-
-Size check after deploying or changing image URLs:
+## Quick Audit
 
 ```powershell
+$base = 'https://vireth-svg.musueman.workers.dev'
 $urls = @(
-  @('scene','https://vireth-svg.musueman.workers.dev/scene?key=bekkellkar-ravenstone'),
-  @('map','https://vireth-svg.musueman.workers.dev/map?region=tiris&place=bekkellkar-ravenstone&layout=mobile')
+  "$base/scene?place=베크켈카르(레이븐스톤)%20성문",
+  "$base/talk?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문",
+  "$base/map?place=베크켈카르(레이븐스톤)%20성문",
+  "$base/talk.json?name=베켈%20오르민&place=베크켈카르(레이븐스톤)%20성문",
+  "$base/map.json?place=베크켈카르(레이븐스톤)%20성문"
 )
-$result = foreach($u in $urls){
-  $resp = Invoke-WebRequest -Uri $u[1] -UseBasicParsing
-  $bytes = [Text.Encoding]::UTF8.GetByteCount([string]$resp.Content)
-  [pscustomobject]@{Name=$u[0]; KB=[math]::Round($bytes/1kb,1)}
+foreach ($url in $urls) {
+  $r = Invoke-WebRequest -Uri $url -UseBasicParsing
+  [pscustomobject]@{
+    Status = $r.StatusCode
+    Type = $r.Headers.'Content-Type'
+    KB = [math]::Round(([Text.Encoding]::UTF8.GetByteCount([string]$r.Content) / 1KB), 1)
+    Url = $url
+  }
 }
-$result | Format-Table -AutoSize
 ```
-
-Current practical targets for default inlined SVG:
-
-- Scene SVG should normally stay under `250KB`.
-- Map SVG should normally stay under `500KB`.
-- If a map SVG exceeds `700KB`, optimize the regional map image before changing Worker logic.
-
-## Source Rule
-
-This Worker does not decide generation rules. Image generation and review stay outside the Worker. The Worker only maps a scene/location key from the chatbot call to a pre-registered public image URL.

@@ -4,12 +4,6 @@ import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
-import {
-  FANTASY_FRAME_CORNER_TL,
-  FANTASY_FRAME_EDGE_H,
-  FANTASY_FRAME_EDGE_V,
-  FANTASY_FRAME_JEWEL_H
-} from "./generated-frame-assets";
 
 type SceneEntry = {
   key: string;
@@ -142,6 +136,14 @@ const TEXT_LINE_HEIGHT = {
   normal: 1.28,
   paragraph: 1.34
 } as const;
+
+// Mobile maps use an 864px viewBox while scene and talk cards use 1000px.
+// This keeps equal rendered widths on the same visual text scale.
+const MOBILE_MAP_TEXT_SCALE = 864 / 1000;
+
+function mobileMapTextSize(fontSize: number): number {
+  return Math.max(10, Math.round(fontSize * MOBILE_MAP_TEXT_SCALE));
+}
 
 const SCENES: SceneEntry[] = [
   ...(GENERATED_SCENES as SceneEntry[]),
@@ -510,7 +512,7 @@ const TEXT_HEADERS = {
 const SVG_HEADERS = {
   "Content-Type": "image/svg+xml; charset=utf-8",
   "Access-Control-Allow-Origin": "*",
-  "Cache-Control": "public, max-age=300"
+  "Cache-Control": "no-cache"
 };
 
 const IMAGE_HEADERS = {
@@ -1710,11 +1712,8 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
     </filter>
     <filter id="talkCrestShadow" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.66"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.62"/>
     </filter>
-    <mask id="talkCrestMask" maskUnits="userSpaceOnUse" x="54" y="488" width="68" height="68">
-      <circle cx="88" cy="522" r="30" fill="#ffffff"/>
-    </mask>
     <linearGradient id="talkCharacterFade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
       <stop offset="80%" stop-color="#ffffff" stop-opacity="1"/>
@@ -1748,16 +1747,14 @@ function renderTalkInfoPanel(
 ): string {
   const role = card.infoLines[0] ?? "현장 인물";
   const details = card.infoLines.slice(1, 3);
-  const bandY = 596;
-  const bandH = 104;
+  const bandY = 594;
+  const bandH = 106;
   const contentX = 64;
-  const crest = heraldryImageUrl
-    ? `<image href="${heraldryImageUrl}" x="58" y="492" width="60" height="60" preserveAspectRatio="xMidYMid slice" mask="url(#talkCrestMask)" filter="url(#talkCrestShadow)"/>`
-    : "";
-  const roleY = 566;
-  const titleY = 616;
-  const detailY = 668;
-  const detailGap = 360;
+  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 358, 128, 172, card.scene.realmName ?? card.scene.title);
+  const roleY = 574;
+  const titleY = 620;
+  const detailY = 672;
+  const detailGap = 380;
   const detailMaxLength = 34;
   const rows = details
     .map((value, index) => {
@@ -1772,14 +1769,41 @@ function renderTalkInfoPanel(
       <rect x="0" y="${bandY - 104}" width="1000" height="104" fill="url(#talkLowerFade)"/>
       <rect x="0" y="${bandY}" width="1000" height="${bandH}" fill="url(#talkLowerBand)"/>
       <line x1="0" y1="${bandY}" x2="1000" y2="${bandY}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
-      <g filter="url(#talkTextShadow)">
       ${crest}
+      <g filter="url(#talkTextShadow)">
       ${renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.body, "#e8eef7", "760")}
       ${renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.talkName, "#f6edcf", "850")}
       </g>
       <g filter="url(#talkTextShadow)">
       ${rows}
       </g>
+    </g>`;
+}
+
+function renderTalkHeraldryFrame(
+  heraldryImageUrl: string | null,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  fallbackText: string
+): string {
+  const inset = 8;
+  const innerX = x + inset;
+  const innerY = y + inset;
+  const innerWidth = width - inset * 2;
+  const innerHeight = height - inset * 2;
+  const mark = heraldryImageUrl
+    ? `<image href="${heraldryImageUrl}" x="${innerX}" y="${innerY}" width="${innerWidth}" height="${innerHeight}" preserveAspectRatio="xMidYMid slice"/>`
+    : `<text x="${x + width / 2}" y="${y + height / 2 + 12}" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.title}" font-weight="850">${escapeXml(
+        fallbackText.slice(0, 2)
+      )}</text>`;
+
+  return `<g aria-label="${escapeXml(fallbackText)} 문장" filter="url(#talkCrestShadow)">
+      <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="0" fill="#050b14" fill-opacity="0.72" stroke="#f6edcf" stroke-opacity="0.76" stroke-width="2.5"/>
+      <rect x="${x + 6}" y="${y + 6}" width="${width - 12}" height="${height - 12}" rx="0" fill="none" stroke="#c8b16a" stroke-opacity="0.42" stroke-width="1.5"/>
+      <rect x="${innerX}" y="${innerY}" width="${innerWidth}" height="${innerHeight}" rx="0" fill="#020711" fill-opacity="0.22" stroke="#f6edcf" stroke-opacity="0.22" stroke-width="1"/>
+      ${mark}
     </g>`;
 }
 
@@ -1893,11 +1917,9 @@ async function renderRegionMapWideSvg(
       <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.48"/>
     </filter>
     <clipPath id="regionMapClip"><rect x="64" y="40" width="640" height="640" rx="18"/></clipPath>
-    <clipPath id="regionCrestClip"><rect x="772" y="66" width="96" height="124" rx="14"/></clipPath>
   </defs>
   <rect width="1536" height="720" rx="0" fill="url(#mapBg)"/>
   <rect x="0" y="0" width="1536" height="720" rx="0" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(0, 0, 1536, 720, 0, { sliceSize: 44, opacity: 0.78 })}
   <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#mapPanelShadow)"/>
   <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)"/>
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18"/>
@@ -1978,11 +2000,9 @@ async function renderRegionMapMobileSvg(
       <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.48"/>
     </filter>
     <clipPath id="mobileMapClip"><rect x="48" y="48" width="768" height="768" rx="24"/></clipPath>
-    <clipPath id="mobileCrestClip"><rect x="64" y="858" width="86" height="110" rx="13"/></clipPath>
   </defs>
   <rect width="864" height="1640" fill="url(#mapBg)"/>
   <rect x="0" y="0" width="864" height="1640" rx="0" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
-  ${renderOrnateFrame(0, 0, 864, 1640, 0, { sliceSize: 42, opacity: 0.78 })}
   <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
@@ -2010,21 +2030,16 @@ function renderRegionMapHeader(
 ): string {
   const escapedTitle = escapeXml(regionTitle);
   const escapedSentence = escapeXml(sentence);
-  const crest = heraldryUrl
-    ? `<image href="${heraldryUrl}" x="772" y="66" width="96" height="124" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionCrestClip)"/>`
-    : `<text x="820" y="140" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.subtitle}" font-weight="850">${escapeXml(
-        regionTitle.slice(0, 2)
-      )}</text>`;
+  const crest = renderMapHeraldryFrame(heraldryUrl, 760, 54, 132, 174, regionTitle, TEXT_SIZE.title);
 
   return `<g>
-      <rect x="760" y="54" width="120" height="150" rx="18" fill="#050b14" fill-opacity="0.58" stroke="#d8c078" stroke-opacity="0.62"/>
       ${crest}
       <rect x="902" y="66" width="218" height="38" rx="11" fill="#07111f" fill-opacity="0.58" stroke="#9fb0c2" stroke-opacity="0.28"/>
       <text x="920" y="92" fill="#d9e4f2" font-size="${TEXT_SIZE.caption}" font-weight="850">국가: ${escapedTitle}</text>
       <text x="902" y="148" fill="#f6edcf" font-size="${TEXT_SIZE.titleSmall}" font-weight="850">거점 지도</text>
       <text x="902" y="188" fill="#d9e4f2" font-size="${TEXT_SIZE.paragraph}" font-weight="700">${escapedSentence}</text>
-      <text x="772" y="246" fill="#f6edcf" font-size="${TEXT_SIZE.bodyLarge}" font-weight="850">거점 목록</text>
-      <line x1="772" y1="268" x2="1324" y2="268" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
+      <text x="772" y="284" fill="#f6edcf" font-size="${TEXT_SIZE.bodyLarge}" font-weight="850">거점 목록</text>
+      <line x1="772" y1="306" x2="1324" y2="306" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
     </g>`;
 }
 
@@ -2035,21 +2050,55 @@ function renderRegionMapMobileHeader(
 ): string {
   const escapedTitle = escapeXml(regionTitle);
   const escapedSentence = escapeXml(sentence);
-  const crest = heraldryUrl
-    ? `<image href="${heraldryUrl}" x="64" y="858" width="86" height="110" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileCrestClip)"/>`
-    : `<text x="107" y="924" text-anchor="middle" fill="#f6edcf" font-size="${TEXT_SIZE.bodyLarge}" font-weight="850">${escapeXml(
-        regionTitle.slice(0, 2)
-      )}</text>`;
+  const labelSize = mobileMapTextSize(TEXT_SIZE.body);
+  const titleSize = mobileMapTextSize(TEXT_SIZE.titleSmall);
+  const sectionSize = mobileMapTextSize(TEXT_SIZE.section);
+  const crest = renderMapHeraldryFrame(
+    heraldryUrl,
+    54,
+    846,
+    118,
+    154,
+    regionTitle,
+    mobileMapTextSize(TEXT_SIZE.title)
+  );
 
   return `<g>
-      <rect x="54" y="846" width="106" height="134" rx="18" fill="#050b14" fill-opacity="0.54" stroke="#d8c078" stroke-opacity="0.58"/>
       ${crest}
-      <text x="190" y="878" fill="#9fb0c2" font-size="${TEXT_SIZE.body}" font-weight="720">국가</text>
-      <text x="258" y="878" fill="#d9e4f2" font-size="${TEXT_SIZE.body}" font-weight="740">${escapedTitle}</text>
-      <text x="190" y="936" fill="#f6edcf" font-size="${TEXT_SIZE.talkName}" font-weight="800">거점 지도</text>
-      <text x="190" y="990" fill="#d9e4f2" font-size="${TEXT_SIZE.body}" font-weight="650">${escapedSentence}</text>
+      <text x="206" y="878" fill="#9fb0c2" font-size="${labelSize}" font-weight="720">국가</text>
+      <text x="274" y="878" fill="#d9e4f2" font-size="${labelSize}" font-weight="740">${escapedTitle}</text>
+      <text x="206" y="936" fill="#f6edcf" font-size="${titleSize}" font-weight="800">거점 지도</text>
+      <text x="206" y="990" fill="#d9e4f2" font-size="${labelSize}" font-weight="650">${escapedSentence}</text>
       <line x1="68" y1="1054" x2="796" y2="1054" stroke="#c8b16a" stroke-opacity="0.48" stroke-width="2"/>
-      <text x="68" y="1112" fill="#f6edcf" font-size="${TEXT_SIZE.section}" font-weight="780">거점 목록</text>
+      <text x="68" y="1112" fill="#f6edcf" font-size="${sectionSize}" font-weight="780">거점 목록</text>
+    </g>`;
+}
+
+function renderMapHeraldryFrame(
+  heraldryUrl: string | null,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+  fallbackText: string,
+  fallbackFontSize: number
+): string {
+  const inset = Math.max(7, Math.round(width * 0.06));
+  const innerX = x + inset;
+  const innerY = y + inset;
+  const innerWidth = width - inset * 2;
+  const innerHeight = height - inset * 2;
+  const mark = heraldryUrl
+    ? `<image href="${heraldryUrl}" x="${innerX}" y="${innerY}" width="${innerWidth}" height="${innerHeight}" preserveAspectRatio="xMidYMid slice"/>`
+    : `<text x="${x + width / 2}" y="${y + height / 2 + fallbackFontSize / 3}" text-anchor="middle" fill="#f6edcf" font-size="${fallbackFontSize}" font-weight="850">${escapeXml(
+        fallbackText.slice(0, 2)
+      )}</text>`;
+
+  return `<g aria-label="${escapeXml(fallbackText)} 문장">
+      <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="0" fill="#050b14" fill-opacity="0.74" stroke="#f6edcf" stroke-opacity="0.72" stroke-width="2"/>
+      <rect x="${x + 6}" y="${y + 6}" width="${width - 12}" height="${height - 12}" rx="0" fill="none" stroke="#c8b16a" stroke-opacity="0.38" stroke-width="1.5"/>
+      <rect x="${innerX}" y="${innerY}" width="${innerWidth}" height="${innerHeight}" rx="0" fill="#020711" fill-opacity="0.26" stroke="#f6edcf" stroke-opacity="0.22" stroke-width="1"/>
+      ${mark}
     </g>`;
 }
 
@@ -2090,9 +2139,10 @@ function renderMapPointMarkers(
       const textFill = current ? "#07111f" : "#f6edcf";
       const order = String(place.order).padStart(2, "0");
       const strokeWidth = Math.max(3, (isMobileMap ? 3.8 : 3) * scale);
-      const fontSize = Math.round(
-        (isMobileMap ? TEXT_SIZE.markerMobile : TEXT_SIZE.markerDesktop) * scale
-      );
+      const baseMarkerFontSize = isMobileMap
+        ? mobileMapTextSize(TEXT_SIZE.markerMobile)
+        : TEXT_SIZE.markerDesktop;
+      const fontSize = Math.round(baseMarkerFontSize * scale);
       const textY = y + (isMobileMap ? 7.8 : 6) * scale;
 
       return `<g aria-label="${escapeXml(order)} ${escapeXml(place.title)}">
@@ -2123,8 +2173,12 @@ function renderCurrentPlaceMarker(
   const labelY = y > mapY + 120 * scale ? y - 80 * scale : y + 42 * scale;
   const lineEndY = labelY > y ? y + 26 * scale : y - 28 * scale;
   const order = String(place.order).padStart(2, "0");
-  const currentNumberSize = Math.round(
-    (isMobileMap ? TEXT_SIZE.markerMobile : TEXT_SIZE.markerDesktop) * scale
+  const baseCurrentNumberSize = isMobileMap
+    ? mobileMapTextSize(TEXT_SIZE.markerMobile)
+    : TEXT_SIZE.markerDesktop;
+  const currentNumberSize = Math.round(baseCurrentNumberSize * scale);
+  const currentLabelSize = Math.round(
+    (isMobileMap ? mobileMapTextSize(TEXT_SIZE.paragraph) : TEXT_SIZE.paragraph) * scale
   );
   const currentNumberY = y + (isMobileMap ? 7.8 : 6) * scale;
 
@@ -2150,7 +2204,7 @@ function renderCurrentPlaceMarker(
     </rect>
     <text x="${(labelX + labelWidth / 2).toFixed(1)}" y="${(labelY + 26 * scale).toFixed(
       1
-    )}" text-anchor="middle" fill="#f6edcf" font-size="${Math.round(TEXT_SIZE.paragraph * scale)}" font-weight="850">현재 위치</text>
+    )}" text-anchor="middle" fill="#f6edcf" font-size="${currentLabelSize}" font-weight="850">현재 위치</text>
   </g>`;
 }
 
@@ -2209,7 +2263,7 @@ function renderRegionMapMobileLegend(
   currentPlace: RegionMapPlaceEntry | null
 ): string {
   if (places.length === 0) {
-    return `<text x="64" y="1124" fill="#e7edf6" font-size="${TEXT_SIZE.body}">등록된 거점 좌표 없음</text>`;
+    return `<text x="64" y="1124" fill="#e7edf6" font-size="${mobileMapTextSize(TEXT_SIZE.body)}">등록된 거점 좌표 없음</text>`;
   }
 
   const columns = places.length > 8 ? 2 : 1;
@@ -2219,6 +2273,9 @@ function renderRegionMapMobileLegend(
   const rowHeight = 58;
   const columnWidth = columns === 2 ? 358 : 0;
   const boxWidth = columns === 2 ? 340 : 728;
+  const orderSize = mobileMapTextSize(TEXT_SIZE.body);
+  const itemSize = mobileMapTextSize(TEXT_SIZE.bodyLarge);
+  const badgeSize = mobileMapTextSize(TEXT_SIZE.labelMobile);
 
   return places
     .map((place, index) => {
@@ -2240,14 +2297,14 @@ function renderRegionMapMobileLegend(
       <rect x="${x + boxWidth - 70}" y="${y - 25}" width="54" height="30" rx="10" fill="url(#currentBadge)" fill-opacity="0.95">
         <animate attributeName="fill-opacity" values="0.78;1;0.78" dur="1.8s" repeatCount="indefinite"/>
       </rect>
-      <text x="${x + boxWidth - 43}" y="${y - 4}" text-anchor="middle" fill="#07111f" font-size="${TEXT_SIZE.labelMobile}" font-weight="760">현재</text>`
+      <text x="${x + boxWidth - 43}" y="${y - 4}" text-anchor="middle" fill="#07111f" font-size="${badgeSize}" font-weight="760">현재</text>`
         : "";
       const titleFill = current ? "#fff6d7" : "#e7edf6";
 
       return `<g>
       ${highlight}
-      <text x="${x}" y="${y}" fill="#f6edcf" font-size="${TEXT_SIZE.body}" font-weight="720">${order}</text>
-      <text x="${x + 54}" y="${y}" fill="${titleFill}" font-size="${TEXT_SIZE.bodyLarge}" font-weight="660">${title}</text>
+      <text x="${x}" y="${y}" fill="#f6edcf" font-size="${orderSize}" font-weight="720">${order}</text>
+      <text x="${x + 54}" y="${y}" fill="${titleFill}" font-size="${itemSize}" font-weight="660">${title}</text>
     </g>`;
     })
     .join("\n    ");
@@ -2271,61 +2328,6 @@ function truncateDisplay(value: string, maxLength: number): string {
     output += char;
   }
   return `${output}…`;
-}
-
-type OrnateFrameOptions = {
-  opacity?: number;
-  sliceSize?: number;
-  jewelPlacement?: "both" | "top" | "none";
-  variant?: "primary" | "secondary";
-};
-
-function renderOrnateFrame(
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  rx: number,
-  options: OrnateFrameOptions = {}
-): string {
-  const variant = options.variant ?? "primary";
-  const opacity = options.opacity ?? 0.68;
-  const slice = options.sliceSize ?? (variant === "secondary" ? 28 : 44);
-  const safeSlice = Math.max(10, Math.min(slice, Math.floor(Math.min(width, height) / 2)));
-  const middleWidth = Math.max(0, width - safeSlice * 2);
-  const middleHeight = Math.max(0, height - safeSlice * 2);
-  const rxValue = variant === "primary" ? 0 : Math.max(0, rx);
-  const strokeWidth = variant === "primary" ? 3 : 2;
-  const jewelWidth =
-    variant === "primary" && width >= 320 && height >= 180
-      ? Math.min(220, Math.max(160, width * 0.18), width - safeSlice * 2 - 32)
-      : 0;
-  const jewelHeight = Math.round(jewelWidth * 0.3);
-  const jewelX = x + (width - jewelWidth) / 2;
-  const jewelOpacity = Math.min(0.96, opacity + 0.1);
-  const jewelPlacement = options.jewelPlacement ?? "both";
-  const jewels =
-    jewelWidth > 0 && jewelPlacement !== "none"
-      ? `<image href="${FANTASY_FRAME_JEWEL_H}" x="${jewelX}" y="${y}" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/>
-    ${
-      jewelPlacement === "both"
-        ? `<g transform="translate(${x + width} ${y + height}) scale(-1 -1)"><image href="${FANTASY_FRAME_JEWEL_H}" x="${(width - jewelWidth) / 2}" y="0" width="${jewelWidth}" height="${jewelHeight}" preserveAspectRatio="none" opacity="${jewelOpacity}"/></g>`
-        : ""
-    }`
-      : "";
-
-  return `<g aria-hidden="true" pointer-events="none">
-    <rect x="${x}" y="${y}" width="${width}" height="${height}" rx="${rxValue}" fill="none" stroke="#2a2114" stroke-opacity="${Math.min(0.78, opacity + 0.16)}" stroke-width="${strokeWidth}"/>
-    <image href="${FANTASY_FRAME_EDGE_H}" x="${x + safeSlice}" y="${y}" width="${middleWidth}" height="${safeSlice}" preserveAspectRatio="none" opacity="${opacity}"/>
-    <image href="${FANTASY_FRAME_CORNER_TL}" x="${x}" y="${y}" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/>
-    <g transform="translate(${x + width} ${y}) scale(-1 1)"><image href="${FANTASY_FRAME_CORNER_TL}" x="0" y="0" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/></g>
-    <g transform="translate(${x} ${y + height}) scale(1 -1)"><image href="${FANTASY_FRAME_CORNER_TL}" x="0" y="0" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/></g>
-    <g transform="translate(${x + width} ${y + height}) scale(-1 -1)"><image href="${FANTASY_FRAME_CORNER_TL}" x="0" y="0" width="${safeSlice}" height="${safeSlice}" opacity="${opacity}"/></g>
-    <g transform="translate(${x} ${y + height}) scale(1 -1)"><image href="${FANTASY_FRAME_EDGE_H}" x="${safeSlice}" y="0" width="${middleWidth}" height="${safeSlice}" preserveAspectRatio="none" opacity="${opacity}"/></g>
-    <image href="${FANTASY_FRAME_EDGE_V}" x="${x}" y="${y + safeSlice}" width="${safeSlice}" height="${middleHeight}" preserveAspectRatio="none" opacity="${opacity}"/>
-    <g transform="translate(${x + width} ${y}) scale(-1 1)"><image href="${FANTASY_FRAME_EDGE_V}" x="0" y="${safeSlice}" width="${safeSlice}" height="${middleHeight}" preserveAspectRatio="none" opacity="${opacity}"/></g>
-    ${jewels}
-  </g>`;
 }
 
 function renderHeraldryOverlay(scene: SceneEntry, heraldryUrl: string | null): string {

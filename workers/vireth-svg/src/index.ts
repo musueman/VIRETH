@@ -1141,13 +1141,18 @@ function shouldInlineAssets(url: URL): boolean {
 }
 
 function shouldInlineMapAssets(url: URL): boolean {
+  const externalValue = normalizeKey(firstQuery(url, ["external", "proxy", "noembed"]) ?? "");
+  if (externalValue === "1" || externalValue === "true" || externalValue === "yes" || externalValue === "on") {
+    return false;
+  }
+
   const inlineValue = firstQuery(url, ["embed", "inline", "datauri", "data"]);
   if (!inlineValue) {
     return false;
   }
 
   const normalized = normalizeKey(inlineValue);
-  return normalized === "1" || normalized === "true" || normalized === "yes" || normalized === "on";
+  return !(normalized === "0" || normalized === "false" || normalized === "no" || normalized === "off");
 }
 
 async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: Env): Promise<string> {
@@ -1428,7 +1433,7 @@ async function renderRegionMapWideSvg(
   <rect x="0" y="0" width="1536" height="720" rx="0" fill="#07111f" fill-opacity="0.46" stroke="#c8b16a" stroke-opacity="0.12"/>
   ${renderOrnateFrame(0, 0, 1536, 720, 0, { sliceSize: 44, opacity: 0.78 })}
   <rect x="736" y="40" width="736" height="640" rx="24" fill="url(#mapPanel)" stroke="#c8b16a" stroke-opacity="0.12" filter="url(#mapPanelShadow)"/>
-  <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)" filter="url(#mapPanelShadow)"/>
+  <image href="${imageUrl}" x="64" y="40" width="640" height="640" preserveAspectRatio="xMidYMid slice" clip-path="url(#regionMapClip)"/>
   <rect x="64" y="40" width="640" height="640" rx="18" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18"/>
   ${placeMarkers}
   ${currentMarker}
@@ -1504,7 +1509,7 @@ async function renderRegionMapMobileSvg(
   <rect width="864" height="1640" fill="url(#mapBg)"/>
   <rect x="0" y="0" width="864" height="1640" rx="0" fill="url(#mobilePanel)" stroke="#c8b16a" stroke-opacity="0.12"/>
   ${renderOrnateFrame(0, 0, 864, 1640, 0, { sliceSize: 42, opacity: 0.78 })}
-  <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)" filter="url(#mapPanelShadow)"/>
+  <image href="${imageUrl}" x="48" y="48" width="768" height="768" preserveAspectRatio="xMidYMid slice" clip-path="url(#mobileMapClip)"/>
   <rect x="48" y="48" width="768" height="768" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.16"/>
   ${placeMarkers}
   ${currentMarker}
@@ -2276,14 +2281,19 @@ function inferImageContentType(url: string): string {
 
 function arrayBufferToBase64(buffer: ArrayBuffer): string {
   const bytes = new Uint8Array(buffer);
-  let binary = "";
-  const chunkSize = 0x8000;
+  let base64 = "";
+  const chunkSize = 0x3000;
 
   for (let i = 0; i < bytes.length; i += chunkSize) {
-    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+    const end = Math.min(i + chunkSize, bytes.length);
+    let binary = "";
+    for (let j = i; j < end; j += 1) {
+      binary += String.fromCharCode(bytes[j]);
+    }
+    base64 += btoa(binary);
   }
 
-  return btoa(binary);
+  return base64;
 }
 
 function escapeXml(value: string): string {

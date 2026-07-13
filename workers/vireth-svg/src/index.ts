@@ -1064,14 +1064,225 @@ function talkInfoLines(
   placeLabel: string,
   infoOverride: string | null
 ): string[] {
-  const lines = [
-    character?.affiliation ?? scene.realmName ?? scene.heraldryName ?? "소속 미상",
-    character?.role ?? sceneKindLabel(scene.kind),
-    `현재 위치: ${placeLabel || scene.title}`,
-    character?.summary ?? infoOverride ?? scene.caption
+  const inferred = inferTalkCharacterInfo(character, scene, placeLabel);
+  const role = cleanTalkInfoValue(character?.role, character, scene, placeLabel);
+  const summary = cleanTalkInfoValue(character?.summary, character, scene, placeLabel);
+  const affiliation = cleanTalkInfoValue(character?.affiliation, character, scene, placeLabel);
+  const override = cleanTalkInfoValue(infoOverride, character, scene, placeLabel);
+  const lines = uniqueTalkInfoLines([
+    role,
+    override,
+    summary,
+    ...inferred,
+    affiliation
+  ]);
+
+  return lines.map((line) => truncateDisplay(line, 34)).slice(0, 4);
+}
+
+function cleanTalkInfoValue(
+  value: string | null | undefined,
+  character: TalkCharacterEntry | null,
+  scene: SceneEntry,
+  placeLabel: string
+): string | null {
+  if (!value) {
+    return null;
+  }
+  const text = value.trim();
+  if (!text || isGenericTalkInfoValue(text) || isSceneOnlyTalkInfo(text, character, scene, placeLabel)) {
+    return null;
+  }
+  return text;
+}
+
+function uniqueTalkInfoLines(values: (string | null | undefined)[]): string[] {
+  const seen = new Set<string>();
+  const lines: string[] = [];
+  for (const value of values) {
+    if (!value) {
+      continue;
+    }
+    const normalized = normalizeKey(value);
+    if (!normalized || seen.has(normalized)) {
+      continue;
+    }
+    seen.add(normalized);
+    lines.push(value);
+  }
+  return lines;
+}
+
+function isGenericTalkInfoValue(value: string): boolean {
+  const normalized = normalizeKey(value);
+  return [
+    normalizeKey("화자 정보"),
+    normalizeKey("장소 정보"),
+    normalizeKey("등장 인물"),
+    normalizeKey("현장 인물"),
+    normalizeKey("이름 미상"),
+    normalizeKey("소속 미상"),
+    normalizeKey("도시/거점"),
+    normalizeKey("마을/거점"),
+    normalizeKey("시설/거점"),
+    normalizeKey("개요")
+  ].includes(normalized);
+}
+
+function isSceneOnlyTalkInfo(
+  value: string,
+  character: TalkCharacterEntry | null,
+  scene: SceneEntry,
+  placeLabel: string
+): boolean {
+  const normalized = normalizeKey(value.replace(/^현재\s*위치\s*[:：]\s*/u, ""));
+  const sceneValues = [
+    scene.title,
+    scene.caption,
+    scene.realmName,
+    scene.heraldryName,
+    placeLabel,
+    sceneKindLabel(scene.kind),
+    character?.displayName
   ];
 
-  return lines.filter((line): line is string => Boolean(line)).map((line) => truncateDisplay(line, 34)).slice(0, 4);
+  return sceneValues.some((sceneValue) => sceneValue && normalizeKey(sceneValue) === normalized);
+}
+
+function inferTalkCharacterInfo(
+  character: TalkCharacterEntry | null,
+  scene: SceneEntry,
+  placeLabel: string
+): string[] {
+  const speaker = character?.displayName ?? "";
+  const sceneText = normalizeKey(`${scene.key} ${scene.title} ${scene.caption} ${placeLabel}`);
+  const speakerText = normalizeKey(speaker);
+  const bystanderInfo = inferBystanderTalkInfo(speakerText, sceneText);
+  const merchantInfo = inferMerchantTalkInfo(speakerText, sceneText);
+
+  if (bystanderInfo) {
+    return bystanderInfo;
+  }
+
+  if (merchantInfo) {
+    return merchantInfo;
+  }
+
+  if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
+    return [
+      "성문 검문관",
+      "통행 표식과 장부 확인을 맡는다.",
+      "말수는 적고 절차를 쉽게 넘기지 않는다."
+    ];
+  }
+
+  if (sceneText.includes("항만") || sceneText.includes("부두") || sceneText.includes("선박") || sceneText.includes("port")) {
+    return [
+      "항만 실무자",
+      "선박명과 화물 표식을 먼저 확인한다.",
+      "손실과 보증 문제에 민감하다."
+    ];
+  }
+
+  if (sceneText.includes("시장") || sceneText.includes("상단") || sceneText.includes("거래")) {
+    return [
+      "거래 현장의 사람",
+      "값과 보증, 소문에 빠르게 반응한다.",
+      "말보다 물건의 출처를 먼저 본다."
+    ];
+  }
+
+  if (sceneText.includes("신전") || sceneText.includes("사원") || sceneText.includes("의례")) {
+    return [
+      "의례를 아는 사람",
+      "말의 순서와 예법을 가볍게 넘기지 않는다.",
+      "공개된 죄책과 금기를 먼저 살핀다."
+    ];
+  }
+
+  if (sceneText.includes("학당") || sceneText.includes("기록") || sceneText.includes("서고")) {
+    return [
+      "기록을 다루는 사람",
+      "문서의 출처와 필체를 먼저 확인한다.",
+      "말보다 남은 기록을 더 믿는다."
+    ];
+  }
+
+  if (character) {
+    return [
+      "이 장면에서 마주친 인물",
+      "말과 태도는 현재 장소의 규칙에 묶여 있다."
+    ];
+  }
+
+  return [
+    "현재 장소의 기척",
+    "인물이 없어도 장면의 분위기를 받쳐준다."
+  ];
+}
+
+function inferBystanderTalkInfo(speakerText: string, sceneText: string): string[] | null {
+  if (!speakerLooksLikeBystander(speakerText)) {
+    return null;
+  }
+  if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
+    return [
+      "대기열에 섞인 사람",
+      "날씨와 지체에 먼저 반응한다.",
+      "장면의 압박을 드러내는 주변 인물."
+    ];
+  }
+  return [
+    "곁을 지나던 사람",
+    "큰 설명보다 짧은 반응으로 장면을 밀어낸다.",
+    "현재 장소의 분위기를 먼저 드러낸다."
+  ];
+}
+
+function inferMerchantTalkInfo(speakerText: string, sceneText: string): string[] | null {
+  if (!speakerLooksLikeMerchant(speakerText)) {
+    return null;
+  }
+  if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
+    return [
+      "검문 대기 중인 상인",
+      "표식과 짐수레 통과를 신경 쓴다.",
+      "지체와 날씨 변화에 예민하다."
+    ];
+  }
+  return [
+    "거래 현장의 상인",
+    "물건의 출처와 보증을 먼저 따진다.",
+    "손해가 될 말에는 빠르게 반응한다."
+  ];
+}
+
+function speakerLooksLikeBystander(speakerText: string): boolean {
+  return [
+    "뒷사람",
+    "앞사람",
+    "행인",
+    "군중",
+    "노인",
+    "아이",
+    "여인",
+    "남자",
+    "사람",
+    "구경꾼",
+    "대기열"
+  ].some((keyword) => speakerText.includes(normalizeKey(keyword)));
+}
+
+function speakerLooksLikeMerchant(speakerText: string): boolean {
+  return [
+    "상인",
+    "장사꾼",
+    "상단",
+    "짐수레",
+    "곡물",
+    "화물",
+    "운반꾼"
+  ].some((keyword) => speakerText.includes(normalizeKey(keyword)));
 }
 
 function firstQuery(url: URL, names: string[]): string | null {
@@ -1246,11 +1457,10 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
         )
       : null;
   const title = card.character?.displayName ?? card.speaker ?? card.scene.title;
-  const subtitle = card.character ? "화자 정보" : "장소 정보";
   const line = card.line ? truncateDisplay(card.line, 48) : null;
   const ariaLabel = escapeXml(`${card.character?.displayName ?? card.speaker ?? "장소"} 대화 카드`);
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
-  const infoPanel = renderTalkInfoPanel(card, subtitle, title, line);
+  const infoPanel = renderTalkInfoPanel(card, title, line);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
@@ -1304,15 +1514,14 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
   </g>`;
 }
 
-function renderTalkInfoPanel(card: TalkCardEntry, subtitle: string, title: string, line: string | null): string {
+function renderTalkInfoPanel(card: TalkCardEntry, title: string, line: string | null): string {
   const rows = card.infoLines
     .map((value, index) => {
-      const y = 304 + index * 56;
+      const y = 260 + index * 58;
       const wrapped = renderTalkTextBlock(value, 72, y, 23, 2, 21, "#f1f6ff", "710");
       return `${wrapped}`;
     })
     .join("\n      ");
-  const place = escapeXml(truncateDisplay(card.placeLabel, 28));
   const quote = line
     ? `<rect x="68" y="548" width="318" height="74" rx="12" fill="#050b14" fill-opacity="0.48" stroke="#f6edcf" stroke-opacity="0.24"/>
       ${renderTalkTextBlock(line, 88, 582, 25, 2, 20, "#f6edcf", "760")}`
@@ -1321,11 +1530,8 @@ function renderTalkInfoPanel(card: TalkCardEntry, subtitle: string, title: strin
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" filter="url(#talkPanelShadow)">
       <rect x="38" y="54" width="390" height="592" rx="18" fill="url(#talkPanel)" stroke="#c8b16a" stroke-opacity="0.50" stroke-width="2"/>
       <rect x="52" y="68" width="362" height="564" rx="14" fill="none" stroke="#f6edcf" stroke-opacity="0.15"/>
-      <rect x="68" y="90" width="142" height="34" rx="10" fill="#050b14" fill-opacity="0.58" stroke="#9fb0c2" stroke-opacity="0.26"/>
-      <text x="88" y="113" fill="#d9e4f2" font-size="17" font-weight="780" filter="url(#talkTextShadow)">${escapeXml(subtitle)}</text>
-      <line x1="68" y1="144" x2="388" y2="144" stroke="url(#talkPanelEdge)" stroke-width="2"/>
-      ${renderTalkTextBlock(title, 68, 198, 12, 2, 44, "#f6edcf", "830")}
-      <text x="72" y="266" fill="#b9cee8" font-size="18" font-weight="720" filter="url(#talkTextShadow)">${place}</text>
+      ${renderTalkTextBlock(title, 68, 132, 12, 2, 44, "#f6edcf", "830")}
+      <line x1="68" y1="214" x2="388" y2="214" stroke="url(#talkPanelEdge)" stroke-width="2"/>
       <g filter="url(#talkTextShadow)">
       ${rows}
       </g>

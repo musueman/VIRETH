@@ -409,6 +409,7 @@ export default {
       url.pathname.startsWith("/npc-assets/") ||
       url.pathname.startsWith("/character-assets/") ||
       url.pathname.startsWith("/talk-background-assets/") ||
+      url.pathname.startsWith("/map-assets/") ||
       url.pathname.startsWith("/scene-assets/")
     ) {
       return staticAsset(request, env);
@@ -528,7 +529,7 @@ export default {
           headers: SVG_HEADERS
         });
       }
-      return image(map.imageUrl, request.method);
+      return assetOrImage(map.imageUrl, request.method, env);
     }
 
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
@@ -1148,7 +1149,7 @@ function shouldInlineMapAssets(url: URL): boolean {
 
   const inlineValue = firstQuery(url, ["embed", "inline", "datauri", "data"]);
   if (!inlineValue) {
-    return false;
+    return true;
   }
 
   const normalized = normalizeKey(inlineValue);
@@ -1375,7 +1376,11 @@ async function renderRegionMapWideSvg(
   const title = escapeXml(map.title);
   const inlineAssets = shouldInlineMapAssets(url);
   const imageProxyUrl = mapImageUrl(origin, map.key);
-  const imageUrl = escapeXml(inlineAssets ? (await fetchDataUri(map.imageUrl)) ?? imageProxyUrl : imageProxyUrl);
+  const imageUrl = escapeXml(
+    inlineAssets
+      ? (await fetchInlineImageDataUri(map.imageUrl, absoluteImageUrl(map.imageUrl, origin), env)) ?? imageProxyUrl
+      : imageProxyUrl
+  );
   const places = regionMapPlaces(map.key);
   const currentPlace = resolveCurrentMapPlace(url, map, env);
   const legend = renderRegionMapLegend(places, currentPlace);
@@ -1390,7 +1395,11 @@ async function renderRegionMapWideSvg(
     heraldryScene?.heraldryUrl
       ? escapeXml(
           inlineAssets
-            ? (await fetchDataUri(heraldryScene.heraldryUrl)) ?? heraldryProxyUrl(origin, heraldryScene.key)
+            ? (await fetchInlineImageDataUri(
+                heraldryScene.heraldryUrl,
+                absoluteImageUrl(heraldryScene.heraldryUrl, origin),
+                env
+              )) ?? heraldryProxyUrl(origin, heraldryScene.key)
             : heraldryProxyUrl(origin, heraldryScene.key)
         )
       : null;
@@ -1453,7 +1462,11 @@ async function renderRegionMapMobileSvg(
   const title = escapeXml(map.title);
   const inlineAssets = shouldInlineMapAssets(url);
   const imageProxyUrl = mapImageUrl(origin, map.key);
-  const imageUrl = escapeXml(inlineAssets ? (await fetchDataUri(map.imageUrl)) ?? imageProxyUrl : imageProxyUrl);
+  const imageUrl = escapeXml(
+    inlineAssets
+      ? (await fetchInlineImageDataUri(map.imageUrl, absoluteImageUrl(map.imageUrl, origin), env)) ?? imageProxyUrl
+      : imageProxyUrl
+  );
   const places = regionMapPlaces(map.key);
   const currentPlace = resolveCurrentMapPlace(url, map, env);
   const placeMarkers = renderMapPointMarkers(places, currentPlace, 48, 48, 768);
@@ -1467,7 +1480,11 @@ async function renderRegionMapMobileSvg(
     heraldryScene?.heraldryUrl
       ? escapeXml(
           inlineAssets
-            ? (await fetchDataUri(heraldryScene.heraldryUrl)) ?? heraldryProxyUrl(origin, heraldryScene.key)
+            ? (await fetchInlineImageDataUri(
+                heraldryScene.heraldryUrl,
+                absoluteImageUrl(heraldryScene.heraldryUrl, origin),
+                env
+              )) ?? heraldryProxyUrl(origin, heraldryScene.key)
             : heraldryProxyUrl(origin, heraldryScene.key)
         )
       : null;
@@ -2246,6 +2263,7 @@ function isWorkerAssetPath(imageUrl: string): boolean {
     imageUrl.startsWith("/npc-assets/") ||
     imageUrl.startsWith("/character-assets/") ||
     imageUrl.startsWith("/talk-background-assets/") ||
+    imageUrl.startsWith("/map-assets/") ||
     imageUrl.startsWith("/scene-assets/")
   );
 }

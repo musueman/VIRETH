@@ -7,7 +7,7 @@ export const GENERATED_REGION_MAPS = [
       "레오니아"
     ],
     "title": "레오니아",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-leonia-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-leonia-v56-1024.webp",
     "sourceFile": "01-leonia-v56-generated-source.png",
     "reviewFile": "01-leonia-v59-name-labeled-1600.png"
   },
@@ -18,7 +18,7 @@ export const GENERATED_REGION_MAPS = [
       "노르가르드"
     ],
     "title": "노르가르드",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-norghard-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-norghard-v56-1024.webp",
     "sourceFile": "02-norghard-v56-generated-source.png",
     "reviewFile": "02-norghard-v59-name-labeled-1600.png"
   },
@@ -29,7 +29,7 @@ export const GENERATED_REGION_MAPS = [
       "티리스"
     ],
     "title": "티리스",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-tiris-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-tiris-v56-1024.webp",
     "sourceFile": "03-tiris-v56-generated-source.png",
     "reviewFile": "03-tiris-v59-name-labeled-1600.png"
   },
@@ -40,7 +40,7 @@ export const GENERATED_REGION_MAPS = [
       "린레네트"
     ],
     "title": "린레네트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-linrenet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-linrenet-v56-1024.webp",
     "sourceFile": "04-linrenet-v56-generated-source.png",
     "reviewFile": "04-linrenet-v59-name-labeled-1600.png"
   },
@@ -51,7 +51,7 @@ export const GENERATED_REGION_MAPS = [
       "벡도레트"
     ],
     "title": "벡도레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-bekdoret-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-bekdoret-v56-1024.webp",
     "sourceFile": "05-bekdoret-v56-generated-source.png",
     "reviewFile": "05-bekdoret-v59-name-labeled-1600.png"
   },
@@ -62,7 +62,7 @@ export const GENERATED_REGION_MAPS = [
       "센할레트"
     ],
     "title": "센할레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-senhalet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-senhalet-v56-1024.webp",
     "sourceFile": "06-senhalet-v56-generated-source.png",
     "reviewFile": "06-senhalet-v59-name-labeled-1600.png"
   },
@@ -73,7 +73,7 @@ export const GENERATED_REGION_MAPS = [
       "헤스페레트"
     ],
     "title": "헤스페레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-hesferet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-hesferet-v56-1024.webp",
     "sourceFile": "07-hesferet-v56-generated-source.png",
     "reviewFile": "07-hesferet-v59-name-labeled-1600.png"
   },
@@ -84,7 +84,7 @@ export const GENERATED_REGION_MAPS = [
       "켈나베트"
     ],
     "title": "켈나베트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-kelnabet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-kelnabet-v56-1024.webp",
     "sourceFile": "08-kelnabet-v56-generated-source.png",
     "reviewFile": "08-kelnabet-v59-name-labeled-1600.png"
   },
@@ -95,7 +95,7 @@ export const GENERATED_REGION_MAPS = [
       "헤스베케트"
     ],
     "title": "헤스베케트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-hesbeket-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-hesbeket-v56-1024.webp",
     "sourceFile": "09-hesbeket-v56-generated-source.png",
     "reviewFile": "09-hesbeket-v59-name-labeled-1600.png"
   },
@@ -106,7 +106,7 @@ export const GENERATED_REGION_MAPS = [
       "옌메베트"
     ],
     "title": "옌메베트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-yenmebet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-yenmebet-v56-1024.webp",
     "sourceFile": "10-yenmebet-v56-generated-source.png",
     "reviewFile": "10-yenmebet-v59-name-labeled-1600.png"
   },
@@ -117,7 +117,7 @@ export const GENERATED_REGION_MAPS = [
       "님나레트"
     ],
     "title": "님나레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-nimnaret-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-nimnaret-v56-1024.webp",
     "sourceFile": "11-nimnaret-v56-generated-source.png",
     "reviewFile": "11-nimnaret-v59-name-labeled-1600.png"
   },
@@ -128,7 +128,7 @@ export const GENERATED_REGION_MAPS = [
       "실니메트"
     ],
     "title": "실니메트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-silnimet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-silnimet-v56-1024.webp",
     "sourceFile": "12-silnimet-v56-generated-source.png",
     "reviewFile": "12-silnimet-v59-name-labeled-1600.png"
   },
@@ -139,7 +139,7 @@ export const GENERATED_REGION_MAPS = [
       "아르도레트"
     ],
     "title": "아르도레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-ardolet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-ardolet-v56-1024.webp",
     "sourceFile": "13-ardolet-v56-generated-source.png",
     "reviewFile": "13-ardolet-v59-name-labeled-1600.png"
   },
@@ -150,7 +150,7 @@ export const GENERATED_REGION_MAPS = [
       "가르메베트"
     ],
     "title": "가르메베트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-garmebet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-garmebet-v56-1024.webp",
     "sourceFile": "14-garmebet-v56-generated-source.png",
     "reviewFile": "14-garmebet-v59-name-labeled-1600.png"
   },
@@ -161,7 +161,7 @@ export const GENERATED_REGION_MAPS = [
       "실할레트"
     ],
     "title": "실할레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-silhalet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-silhalet-v56-1024.webp",
     "sourceFile": "15-silhalet-v56-generated-source.png",
     "reviewFile": "15-silhalet-v59-name-labeled-1600.png"
   },
@@ -172,7 +172,7 @@ export const GENERATED_REGION_MAPS = [
       "메르할레트"
     ],
     "title": "메르할레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-merhalet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-merhalet-v56-1024.webp",
     "sourceFile": "16-merhalet-v56-generated-source.png",
     "reviewFile": "16-merhalet-v59-name-labeled-1600.png"
   },
@@ -183,7 +183,7 @@ export const GENERATED_REGION_MAPS = [
       "님소레트"
     ],
     "title": "님소레트",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-nimsolet-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-nimsolet-v56-1024.webp",
     "sourceFile": "17-nimsolet-v56-generated-source.png",
     "reviewFile": "17-nimsolet-v59-name-labeled-1600.png"
   },
@@ -194,7 +194,7 @@ export const GENERATED_REGION_MAPS = [
       "실바니아"
     ],
     "title": "실바니아",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-sylvania-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-sylvania-v56-1024.webp",
     "sourceFile": "18-sylvania-v56-generated-source.png",
     "reviewFile": "18-sylvania-v59-name-labeled-1600.png"
   },
@@ -205,7 +205,7 @@ export const GENERATED_REGION_MAPS = [
       "드래곤스파이어"
     ],
     "title": "드래곤스파이어",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-dragonspire-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-dragonspire-v56-1024.webp",
     "sourceFile": "19-dragonspire-v56-generated-source.png",
     "reviewFile": "19-dragonspire-v59-name-labeled-1600.png"
   },
@@ -218,7 +218,7 @@ export const GENERATED_REGION_MAPS = [
       "펜리르"
     ],
     "title": "펜리르의 눈",
-    "imageUrl": "https://raw.githubusercontent.com/musueman/VIRETH/main/etc/arcadia5083-region-map-router/region-maps/ck5083-region-map-fenrir-s-eye-v56-1024.webp",
+    "imageUrl": "/map-assets/region-maps/ck5083-region-map-fenrir-s-eye-v56-1024.webp",
     "sourceFile": "20-fenrir-s-eye-v56-generated-source.png",
     "reviewFile": "20-fenrir-s-eye-v59-name-labeled-1600.png"
   }

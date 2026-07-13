@@ -1717,7 +1717,7 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
       <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.42"/>
     </filter>
     <filter id="talkTextShadow" x="-10%" y="-30%" width="120%" height="160%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.4" flood-color="#000000" flood-opacity="0.68"/>
     </filter>
     <filter id="talkCrestShadow" x="-40%" y="-40%" width="180%" height="180%">
       <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.62"/>
@@ -1758,17 +1758,17 @@ function renderTalkInfoPanel(
   const bandY = 594;
   const bandH = 106;
   const contentX = 64;
-  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 332, 144, 194, card.scene.realmName ?? card.scene.title);
-  const roleY = 558;
-  const titleY = 606;
-  const detailY = 672;
-  const detailGap = 380;
+  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 342, 124, 166, card.scene.realmName ?? card.scene.title);
+  const roleY = 548;
+  const titleY = 608;
+  const detailY = 670;
+  const detailGap = 480;
   const detailMaxLength = 34;
   const rows = details
     .map((value, index) => {
       const x = contentX + index * detailGap;
       return `<g>
-        ${renderTalkTextBlock(`- ${value}`, x, detailY, detailMaxLength, 1, TEXT_SIZE.paragraph, "#f1f6ff", "690")}
+        ${renderTalkTextBlock(`- ${value}`, x, detailY, detailMaxLength, 1, 26, "#f1f6ff", "500")}
       </g>`;
     })
     .join("\n      ");
@@ -1779,8 +1779,8 @@ function renderTalkInfoPanel(
       <line x1="0" y1="${bandY}" x2="1000" y2="${bandY}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
       ${crest}
       <g filter="url(#talkTextShadow)">
-      ${renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.body, "#e8eef7", "760")}
-      ${renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.talkName, "#f6edcf", "850")}
+      ${renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.subtitle, "#e8eef7", "560")}
+      ${renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.displayCompact, "#f6edcf", "760")}
       </g>
       <g filter="url(#talkTextShadow)">
       ${rows}

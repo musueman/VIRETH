@@ -4,14 +4,17 @@ Cloudflare Worker for LunaTalk image calls in Arcadia 5083.
 
 The chatbot should use visible names, not internal registry keys:
 
+- `region`: current region or country name shown to the user.
 - `place`: current canonical place name shown to the user.
 - `name`: the speaker name exactly as printed before `|`.
 
-Internal `key`, `region`, `bgType`, and direct asset URLs are supported for debugging and tooling, but should not be the default LunaTalk output.
+Internal `key`, `bgType`, and direct asset URLs are supported for debugging and tooling, but should not be the default LunaTalk output.
 
 ## Routes
 
 - `/health` - JSON health check.
+- `/place?region=티리스&place=레이븐스톤%20성문` - combined scene and compact regional map SVG.
+- `/place.json?region=...&place=...` - resolved scene, map, and current-place metadata.
 - `/scene?region=티리스&place=레이븐스톤%20성문` - top scene card SVG.
 - `/scene.image?place=...` - direct scene WebP.
 - `/scene.json?place=...` - resolved scene metadata.
@@ -30,7 +33,7 @@ SVG routes inline raster assets by default because LunaTalk and Markdown surface
 ## LunaTalk Output Pattern
 
 ~~~md
-![](https://vireth-svg.musueman.workers.dev/scene?region=티리스&place=레이븐스톤%20성문)
+![](https://vireth-svg.musueman.workers.dev/place?region=티리스&place=레이븐스톤%20성문)
 
 본문 서술...
 
@@ -46,15 +49,13 @@ SVG routes inline raster assets by default because LunaTalk and Markdown surface
 🎒 소지품: 낡은 통행 목패, 빈 편지 봉투, 작은 칼
 🎯 목표: 성문 안 기록원에게 편지의 수신인을 확인하기
 ```
-
-![](https://vireth-svg.musueman.workers.dev/map?region=티리스&place=레이븐스톤%20성문)
 ~~~
 
 Rules:
 
-- `/scene` appears once on the first response line.
+- `/place` appears once on the first response line.
 - `/talk` appears only above each speaker's first line in a single response.
-- `/map` appears once below the status code block.
+- `/map` is the detailed map and appears only in a `!장소` response.
 - Do not output internal image keys in the chat body.
 - If a fixed character is missing, `/talk` still renders using a generated NPC or background-only fallback.
 
@@ -86,6 +87,7 @@ Every public display asset must be optimized before pushing.
 ```powershell
 $base = 'https://vireth-svg.musueman.workers.dev'
 $urls = @(
+  "$base/place?region=티리스&place=레이븐스톤%20성문",
   "$base/scene?region=티리스&place=레이븐스톤%20성문",
   "$base/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문",
   "$base/map?region=티리스&place=레이븐스톤%20성문",

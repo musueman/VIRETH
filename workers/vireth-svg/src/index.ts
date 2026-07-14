@@ -562,6 +562,8 @@ export default {
         talkCharacters: TALK_CHARACTERS.length,
         randomNpcAssets: RANDOM_NPC_ASSETS.length,
         routes: [
+          "/place?region=티리스&place=레이븐스톤%20성문",
+          "/place.json?region=티리스&place=레이븐스톤%20성문",
           "/scene?key=world-overview",
           "/scene.json?key=world-overview",
           "/talk?name=gatekeeper&place=bekkellkar-ravenstone",
@@ -605,6 +607,13 @@ export default {
 
     if (url.pathname === "/talk-background.json") {
       return json(resolveTalkBackgroundFromUrl(url, env));
+    }
+
+    if (url.pathname === "/place.json") {
+      const scene = resolveScene(url, env);
+      const map = resolveRegionMap(url, env);
+      const currentPlace = map ? resolveCurrentMapPlace(url, map, env) : null;
+      return json({ scene, map, currentPlace });
     }
 
     if (url.pathname === "/scene.json") {
@@ -675,6 +684,12 @@ export default {
     if (url.pathname === "/scene" || url.pathname === "/scene.svg") {
       const scene = resolveScene(url, env);
       return svg(await renderSceneSvg(scene, url.origin, url, env), request.method);
+    }
+
+    if (url.pathname === "/place" || url.pathname === "/place.svg") {
+      const scene = resolveScene(url, env);
+      const map = resolveRegionMap(url, env);
+      return svg(await renderPlaceSvg(scene, map, url.origin, url, env), request.method);
     }
 
     if (url.pathname === "/talk" || url.pathname === "/talk.svg") {
@@ -1731,6 +1746,107 @@ async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: 
 </svg>`;
 }
 
+async function renderPlaceSvg(
+  scene: SceneEntry,
+  map: RegionMapEntry | null,
+  origin: string,
+  url: URL,
+  env: Env
+): Promise<string> {
+  if (!map) {
+    return renderSceneSvg(scene, origin, url, env);
+  }
+
+  const title = escapeXml(scene.title);
+  const inlineSceneAssets = shouldInlineAssets(url);
+  const inlineMapAssets = shouldInlineMapAssets(url);
+  const sceneProxyUrl = sceneImageUrl(origin, scene.key);
+  const mapProxyUrl = mapImageUrl(origin, map.key);
+  const sceneImageSource = escapeXml(
+    inlineSceneAssets
+      ? (await fetchInlineImageDataUri(scene.imageUrl, absoluteImageUrl(scene.imageUrl, origin), env)) ?? sceneProxyUrl
+      : sceneProxyUrl
+  );
+  const mapImageSource = escapeXml(
+    inlineMapAssets
+      ? (await fetchInlineImageDataUri(map.imageUrl, absoluteImageUrl(map.imageUrl, origin), env)) ?? mapProxyUrl
+      : mapProxyUrl
+  );
+  const heraldryUrl = scene.heraldryUrl
+    ? escapeXml(
+        inlineSceneAssets
+          ? (await fetchInlineImageDataUri(
+              scene.heraldryUrl,
+              absoluteImageUrl(scene.heraldryUrl, origin),
+              env
+            )) ?? heraldryProxyUrl(origin, scene.key)
+          : heraldryProxyUrl(origin, scene.key)
+      )
+    : null;
+  const overlay = scene.heraldryUrl
+    ? renderHeraldryOverlay(scene, heraldryUrl)
+    : renderTextOverlay(title, escapeXml(scene.caption));
+  const places = regionMapPlaces(map.key);
+  const currentPlace = resolveCurrentMapPlace(url, map, env);
+  const mapX = 50;
+  const mapY = 750;
+  const mapSize = 900;
+  const pointMarkers = renderCompactMapPointMarkers(places, currentPlace, mapX, mapY, mapSize);
+  const currentMarker = renderCurrentPlaceMarker(currentPlace, mapX, mapY, mapSize);
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1700" viewBox="0 0 1000 1700" role="img" aria-label="${title}">
+  <defs>
+    <linearGradient id="shade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.12"/>
+      <stop offset="72%" stop-color="#07111f" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0.62"/>
+    </linearGradient>
+    <linearGradient id="scenePanel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.66"/>
+      <stop offset="100%" stop-color="#182435" stop-opacity="0.46"/>
+    </linearGradient>
+    <linearGradient id="sceneBadge" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#c8b16a" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="identityBand" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#020711" stop-opacity="0.86"/>
+      <stop offset="58%" stop-color="#07111f" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="identityFade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#07111f" stop-opacity="0.74"/>
+    </linearGradient>
+    <linearGradient id="mapShade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="scenePanelShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="sceneTextShadow" x="-10%" y="-30%" width="120%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
+    </filter>
+    <filter id="markerGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#f59e0b" flood-opacity="0.9"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.48"/>
+    </filter>
+    <clipPath id="placeMapClip"><rect x="${mapX}" y="${mapY}" width="${mapSize}" height="${mapSize}" rx="24"/></clipPath>
+  </defs>
+  <rect width="1000" height="1700" fill="#07111f"/>
+  <image href="${sceneImageSource}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="0" y="0" width="1000" height="700" fill="url(#shade)"/>
+  ${overlay}
+  <line x1="50" y1="724" x2="950" y2="724" stroke="#c8b16a" stroke-opacity="0.34" stroke-width="2"/>
+  <image href="${mapImageSource}" x="${mapX}" y="${mapY}" width="${mapSize}" height="${mapSize}" preserveAspectRatio="xMidYMid slice" clip-path="url(#placeMapClip)"/>
+  <rect x="${mapX}" y="${mapY}" width="${mapSize}" height="${mapSize}" rx="24" fill="url(#mapShade)" stroke="#d8c078" stroke-opacity="0.18" stroke-width="2"/>
+  ${pointMarkers}
+  ${currentMarker}
+</svg>`;
+}
+
 async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
   const inlineAssets = shouldInlineAssets(url);
   const backgroundProxyUrl = talkBackgroundImageUrl(origin, card.talkBackground.key);
@@ -2249,6 +2365,28 @@ function renderMapPointMarkers(
       <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${radius.toFixed(1)}" fill="${fill}" fill-opacity="0.86" stroke="${stroke}" stroke-opacity="0.92" stroke-width="${strokeWidth.toFixed(1)}"/>
       <text x="${x.toFixed(1)}" y="${textY.toFixed(1)}" text-anchor="middle" fill="${textFill}" font-size="${fontSize}" font-weight="820">${order}</text>
     </g>`;
+    })
+    .join("\n  ");
+}
+
+function renderCompactMapPointMarkers(
+  places: RegionMapPlaceEntry[],
+  currentPlace: RegionMapPlaceEntry | null,
+  mapX: number,
+  mapY: number,
+  mapSize: number
+): string {
+  const radius = Math.max(7, Math.round(mapSize / 110));
+  const strokeWidth = Math.max(2, Math.round(mapSize / 360));
+
+  return places
+    .filter((place) => !isSameMapPlace(place, currentPlace))
+    .map((place) => {
+      const x = mapX + (place.mapXPct / 100) * mapSize;
+      const y = mapY + (place.mapYPct / 100) * mapSize;
+      return `<circle aria-label="${escapeXml(place.title)}" cx="${x.toFixed(1)}" cy="${y.toFixed(
+        1
+      )}" r="${radius}" fill="#07111f" fill-opacity="0.72" stroke="#d8c078" stroke-opacity="0.88" stroke-width="${strokeWidth}"/>`;
     })
     .join("\n  ");
 }

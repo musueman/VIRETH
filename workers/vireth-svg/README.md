@@ -57,7 +57,12 @@ Rules:
 - `/talk` appears only above each speaker's first line in a single response.
 - `/map` is the detailed map and appears only in a `!장소` response.
 - Do not output internal image keys in the chat body.
-- If a fixed character is missing, `/talk` still renders using a generated NPC or background-only fallback.
+- If a fixed character is missing, `/talk` uses an anonymous hooded adult cutout with normal lower-face anatomy and shadow-hidden eyes.
+- Generic cutouts are split into `civilian`, `guard/labor`, `scholar/clerk`, and `merchant/upper` roles, with male and female variants for each role.
+- All generic cutouts preserve the same head-to-upper-thigh framing so the waist, belt, hands, and role tools remain visible. Role families use distinct silhouettes and equipment rather than hood color alone.
+- `role`, `job`, or `title` selects the role family; Korean role words in the speaker name are also recognized. Unknown roles fall back to `civilian`.
+- `gender=male|female` selects the matching variant. Without a gender value, explicit gender words are recognized first, then the speaker name alone selects one consistently across locations.
+- An explicit `npcAssetId` remains available for debugging and legacy pinned NPC portraits.
 
 ## Background Resolution
 

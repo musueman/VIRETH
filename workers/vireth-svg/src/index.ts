@@ -339,6 +339,122 @@ const SCENES: SceneEntry[] = [
 const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
 const REGION_MAP_PLACES = GENERATED_REGION_MAP_PLACES as RegionMapPlaceEntry[];
 const RANDOM_NPC_ASSETS = GENERATED_RANDOM_NPC_ASSETS as readonly RandomNpcAsset[];
+type AnonymousNpcRole = "civilian" | "guard" | "scholar" | "merchant";
+type AnonymousNpcGender = "male" | "female";
+
+const GENERIC_ANONYMOUS_NPC_ASSETS: Record<
+  AnonymousNpcRole,
+  Record<AnonymousNpcGender, RandomNpcAsset>
+> = {
+  civilian: {
+    male: {
+      assetId: "generic-anon-civilian-male-v1",
+      imagePath: "/npc-assets/generic-anon-civilian-male-v1.webp",
+      gender: "male",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-civilian-male-v1",
+      sourceRoleHint: "anonymous civilian, traveler, or resident",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 36796
+    },
+    female: {
+      assetId: "generic-anon-civilian-female-v1",
+      imagePath: "/npc-assets/generic-anon-civilian-female-v1.webp",
+      gender: "female",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-civilian-female-v1",
+      sourceRoleHint: "anonymous civilian, traveler, or resident",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 37256
+    }
+  },
+  guard: {
+    male: {
+      assetId: "generic-anon-guard-male-v1",
+      imagePath: "/npc-assets/generic-anon-guard-male-v1.webp",
+      gender: "male",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-guard-male-v1",
+      sourceRoleHint: "anonymous guard, laborer, watchman, or porter",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 38356
+    },
+    female: {
+      assetId: "generic-anon-guard-female-v1",
+      imagePath: "/npc-assets/generic-anon-guard-female-v1.webp",
+      gender: "female",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-guard-female-v1",
+      sourceRoleHint: "anonymous guard, laborer, watchwoman, or porter",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 41388
+    }
+  },
+  scholar: {
+    male: {
+      assetId: "generic-anon-scholar-male-v1",
+      imagePath: "/npc-assets/generic-anon-scholar-male-v1.webp",
+      gender: "male",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-scholar-male-v1",
+      sourceRoleHint: "anonymous clerk, scholar, scribe, or archivist",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 37594
+    },
+    female: {
+      assetId: "generic-anon-scholar-female-v1",
+      imagePath: "/npc-assets/generic-anon-scholar-female-v1.webp",
+      gender: "female",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-scholar-female-v1",
+      sourceRoleHint: "anonymous clerk, scholar, scribe, or archivist",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 37782
+    }
+  },
+  merchant: {
+    male: {
+      assetId: "generic-anon-merchant-male-v1",
+      imagePath: "/npc-assets/generic-anon-merchant-male-v1.webp",
+      gender: "male",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-merchant-male-v1",
+      sourceRoleHint: "anonymous merchant, guild officer, or upper household agent",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 44998
+    },
+    female: {
+      assetId: "generic-anon-merchant-female-v1",
+      imagePath: "/npc-assets/generic-anon-merchant-female-v1.webp",
+      gender: "female",
+      species: "human",
+      tier: "curated",
+      sourceId: "generic-anon-merchant-female-v1",
+      sourceRoleHint: "anonymous merchant, guild officer, or upper household agent",
+      sourceCultureHint: "region-neutral Arcadia",
+      sourceAgeHint: "adult",
+      bytes: 44038
+    }
+  }
+};
+
+const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASSETS).flatMap(
+  (roleAssets) => Object.values(roleAssets)
+);
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
 const MAP_PLACE_QUERY_NAMES = [
   "current",
@@ -492,33 +608,6 @@ const NPC_GENDER_ALIASES: Record<string, string> = {
   yeo: "female",
   "여": "female",
   "여성": "female"
-};
-
-const NPC_SPECIES_ALIASES: Record<string, string> = {
-  human: "human_lineage",
-  humanlineage: "human_lineage",
-  "human-lineage": "human_lineage",
-  "인간": "human_lineage",
-  "인간계": "human_lineage",
-  mixed: "mixed_contact_humanoid",
-  "mixed-contact": "mixed_contact_humanoid",
-  "mixed-contact-humanoid": "mixed_contact_humanoid",
-  "혼혈": "mixed_contact_humanoid",
-  "혼성": "mixed_contact_humanoid",
-  outer: "outer_sea_lighthouse_lineage",
-  "outer-sea": "outer_sea_lighthouse_lineage",
-  "outer-sea-lighthouse": "outer_sea_lighthouse_lineage",
-  "외해": "outer_sea_lighthouse_lineage",
-  lighthouse: "outer_sea_lighthouse_lineage",
-  sylvania: "sylvania_forestline",
-  forest: "sylvania_forestline",
-  "숲": "sylvania_forestline",
-  "실바니아": "sylvania_forestline",
-  masked: "beastlike_or_masked_misc",
-  beastlike: "beastlike_or_masked_misc",
-  "beastlike-masked": "beastlike_or_masked_misc",
-  "가면": "beastlike_or_masked_misc",
-  "수인": "beastlike_or_masked_misc"
 };
 
 const TEXT_HEADERS = {
@@ -1196,7 +1285,7 @@ function resolveTalkCharacter(url: URL, speaker: string | null, scene: SceneEntr
     return registered;
   }
 
-  const randomNpc = resolveRandomNpcAsset(url, speaker, scene);
+  const randomNpc = resolveRandomNpcAsset(url, speaker);
   if (randomNpc && !directImageUrl) {
     return randomNpcTalkCharacter(randomNpc, url, speaker, scene);
   }
@@ -1232,10 +1321,19 @@ function resolveTalkCharacterByValue(value: string): TalkCharacterEntry | null {
   );
 }
 
-function resolveRandomNpcAsset(url: URL, speaker: string | null, scene: SceneEntry): RandomNpcAsset | null {
+function resolveRandomNpcAsset(url: URL, speaker: string | null): RandomNpcAsset | null {
   const explicitAssetId = firstQuery(url, ["npcAssetId", "npcAsset", "portraitId", "assetId"]);
   if (explicitAssetId) {
-    const explicit = RANDOM_NPC_ASSETS.find((asset) => normalizeKey(asset.assetId) === normalizeKey(explicitAssetId));
+    const normalizedAssetId = normalizeKey(explicitAssetId);
+    const legacyGeneric =
+      normalizedAssetId === normalizeKey("generic-faceless-male-v1")
+        ? GENERIC_ANONYMOUS_NPC_ASSETS.civilian.male
+        : normalizedAssetId === normalizeKey("generic-faceless-female-v1")
+          ? GENERIC_ANONYMOUS_NPC_ASSETS.civilian.female
+          : null;
+    const explicit = legacyGeneric ?? [...GENERIC_ANONYMOUS_NPC_ASSET_LIST, ...RANDOM_NPC_ASSETS].find(
+      (asset) => normalizeKey(asset.assetId) === normalizeKey(explicitAssetId)
+    );
     if (explicit) {
       return explicit;
     }
@@ -1250,30 +1348,102 @@ function resolveRandomNpcAsset(url: URL, speaker: string | null, scene: SceneEnt
     return null;
   }
 
-  const gender = canonicalNpcGender(firstQuery(url, ["gender", "sex", "성별"]));
-  const species = canonicalNpcSpecies(firstQuery(url, ["species", "speciesGroup", "lineage", "종족", "계통"]));
-  const role = firstQuery(url, ["role", "job", "title", "역할", "직능"]) ?? "";
-  const seed =
-    firstQuery(url, ["seed", "npcSeed", "session", "인물키"]) ??
-    [speaker ?? "background-npc", scene.key, role, gender ?? "", species ?? ""].join("|");
+  const role = inferAnonymousNpcRole(url, speaker);
+  const gender = inferAnonymousNpcGender(url, speaker);
+  return GENERIC_ANONYMOUS_NPC_ASSETS[role][gender];
+}
 
-  let candidates = RANDOM_NPC_ASSETS.filter(
-    (asset) => (!gender || asset.gender === gender) && (!species || asset.species === species)
+function inferAnonymousNpcRole(url: URL, speaker: string | null): AnonymousNpcRole {
+  const roleValue = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
+  const roleText = normalizeKey([roleValue, speaker].filter(Boolean).join(" "));
+  const matches = (terms: string[]) => terms.some((term) => roleText.includes(normalizeKey(term)));
+
+  if (
+    matches([
+      "경비",
+      "초병",
+      "순찰",
+      "병사",
+      "문지기",
+      "수위",
+      "짐꾼",
+      "일꾼",
+      "노동",
+      "guard",
+      "watch",
+      "soldier",
+      "porter",
+      "laborer",
+      "worker"
+    ])
+  ) {
+    return "guard";
+  }
+
+  if (
+    matches([
+      "서기",
+      "학자",
+      "학술",
+      "기록",
+      "사서",
+      "필사",
+      "교사",
+      "연구",
+      "clerk",
+      "scholar",
+      "scribe",
+      "archivist",
+      "teacher"
+    ])
+  ) {
+    return "scholar";
+  }
+
+  if (
+    matches([
+      "상인",
+      "상단",
+      "길드",
+      "귀족",
+      "관료",
+      "관리",
+      "집사",
+      "사절",
+      "merchant",
+      "trader",
+      "guild",
+      "noble",
+      "official",
+      "steward",
+      "envoy"
+    ])
+  ) {
+    return "merchant";
+  }
+
+  return "civilian";
+}
+
+function inferAnonymousNpcGender(url: URL, speaker: string | null): AnonymousNpcGender {
+  const explicitGender = canonicalNpcGender(firstQuery(url, ["gender", "sex", "성별"]));
+  if (explicitGender === "male" || explicitGender === "female") {
+    return explicitGender;
+  }
+
+  const identityText = normalizeKey(
+    [speaker, firstQuery(url, ["role", "job", "title", "역할", "직능"])].filter(Boolean).join(" ")
   );
-  if (!candidates.length && gender) {
-    candidates = RANDOM_NPC_ASSETS.filter((asset) => asset.gender === gender);
+  const matches = (terms: string[]) => terms.some((term) => identityText.includes(normalizeKey(term)));
+  if (matches(["여자", "여성", "여인", "부인", "아낙", "woman", "female", "lady"])) {
+    return "female";
   }
-  if (!candidates.length && species) {
-    candidates = RANDOM_NPC_ASSETS.filter((asset) => asset.species === species);
-  }
-  if (!candidates.length) {
-    candidates = RANDOM_NPC_ASSETS;
-  }
-  if (!candidates.length) {
-    return null;
+  if (matches(["남자", "남성", "사내", "남정네", "man", "male", "gentleman"])) {
+    return "male";
   }
 
-  return candidates[stableHash(seed) % candidates.length];
+  // A repeated unnamed speaker keeps the same presentation across locations.
+  return stableHash(normalizeKey(speaker ?? "background-npc")) % 2 === 0 ? "female" : "male";
 }
 
 function randomNpcTalkCharacter(
@@ -1303,14 +1473,6 @@ function canonicalNpcGender(value: string | null): string | null {
   }
   const normalized = normalizeKey(value);
   return NPC_GENDER_ALIASES[normalized] ?? null;
-}
-
-function canonicalNpcSpecies(value: string | null): string | null {
-  if (!value) {
-    return null;
-  }
-  const normalized = normalizeKey(value);
-  return NPC_SPECIES_ALIASES[normalized] ?? normalized.replace(/-/g, "_");
 }
 
 function stableHash(value: string): number {

@@ -1,0 +1,3584 @@
+{
+  "version": 1,
+  "source": "D:/OneDrive/333_죽지않는기사와_비단요람/001_신설정/arcadia_updated_md/Arcadia_루나톡_위키DB_실투입_v9.md",
+  "regions": [
+    {
+      "id": "R001",
+      "key": "leonia",
+      "name": "레오니아",
+      "aliases": [
+        "leonia",
+        "레오니아"
+      ]
+    },
+    {
+      "id": "R002",
+      "key": "norghard",
+      "name": "노르가르드",
+      "aliases": [
+        "norghard",
+        "노르가르드"
+      ]
+    },
+    {
+      "id": "R003",
+      "key": "tiris",
+      "name": "티리스",
+      "aliases": [
+        "tiris",
+        "티리스"
+      ]
+    },
+    {
+      "id": "R004",
+      "key": "linrenet",
+      "name": "린레네트",
+      "aliases": [
+        "linrenet",
+        "린레네트"
+      ]
+    },
+    {
+      "id": "R005",
+      "key": "bekdoret",
+      "name": "벡도레트",
+      "aliases": [
+        "bekdoret",
+        "벡도레트"
+      ]
+    },
+    {
+      "id": "R006",
+      "key": "senhalet",
+      "name": "센할레트",
+      "aliases": [
+        "senhalet",
+        "센할레트"
+      ]
+    },
+    {
+      "id": "R007",
+      "key": "hesferet",
+      "name": "헤스페레트",
+      "aliases": [
+        "hesferet",
+        "헤스페레트"
+      ]
+    },
+    {
+      "id": "R008",
+      "key": "kelnabet",
+      "name": "켈나베트",
+      "aliases": [
+        "kelnabet",
+        "켈나베트"
+      ]
+    },
+    {
+      "id": "R009",
+      "key": "hesbeket",
+      "name": "헤스베케트",
+      "aliases": [
+        "hesbeket",
+        "헤스베케트"
+      ]
+    },
+    {
+      "id": "R010",
+      "key": "yenmebet",
+      "name": "옌메베트",
+      "aliases": [
+        "yenmebet",
+        "옌메베트"
+      ]
+    },
+    {
+      "id": "R011",
+      "key": "nimnaret",
+      "name": "님나레트",
+      "aliases": [
+        "nimnaret",
+        "님나레트"
+      ]
+    },
+    {
+      "id": "R012",
+      "key": "silnimet",
+      "name": "실니메트",
+      "aliases": [
+        "silnimet",
+        "실니메트"
+      ]
+    },
+    {
+      "id": "R013",
+      "key": "ardolet",
+      "name": "아르도레트",
+      "aliases": [
+        "ardolet",
+        "아르도레트"
+      ]
+    },
+    {
+      "id": "R014",
+      "key": "garmebet",
+      "name": "가르메베트",
+      "aliases": [
+        "garmebet",
+        "가르메베트"
+      ]
+    },
+    {
+      "id": "R015",
+      "key": "silhalet",
+      "name": "실할레트",
+      "aliases": [
+        "silhalet",
+        "실할레트"
+      ]
+    },
+    {
+      "id": "R016",
+      "key": "merhalet",
+      "name": "메르할레트",
+      "aliases": [
+        "merhalet",
+        "메르할레트"
+      ]
+    },
+    {
+      "id": "R017",
+      "key": "nimsolet",
+      "name": "님소레트",
+      "aliases": [
+        "nimsolet",
+        "님소레트"
+      ]
+    },
+    {
+      "id": "R018",
+      "key": "sylvania",
+      "name": "실바니아",
+      "aliases": [
+        "sylvania",
+        "실바니아"
+      ]
+    },
+    {
+      "id": "R019",
+      "key": "dragonspire",
+      "name": "드래곤스파이어",
+      "aliases": [
+        "dragonspire",
+        "드래곤스파이어"
+      ]
+    },
+    {
+      "id": "R020",
+      "key": "fenrir-s-eye",
+      "name": "펜리르의 눈",
+      "aliases": [
+        "fenrir-s-eye",
+        "펜리르의 눈",
+        "fenrir-eye",
+        "펜리르"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "L001",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "렘다트움",
+      "aliases": [
+        "렘다트움"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L002",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "라드아르할",
+      "aliases": [
+        "라드아르할"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L003",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "렘켈가",
+      "aliases": [
+        "렘켈가"
+      ],
+      "kind": "숙소촌",
+      "order": 3
+    },
+    {
+      "id": "L004",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "지르바르에트",
+      "aliases": [
+        "지르바르에트"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L005",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "라드가르가",
+      "aliases": [
+        "라드가르가"
+      ],
+      "kind": "마을",
+      "order": 5
+    },
+    {
+      "id": "L006",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "지르메브가",
+      "aliases": [
+        "지르메브가"
+      ],
+      "kind": "마을",
+      "order": 6
+    },
+    {
+      "id": "L007",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "팔테쿰가",
+      "aliases": [
+        "팔테쿰가"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L008",
+      "regionId": "R001",
+      "regionKey": "leonia",
+      "regionName": "레오니아",
+      "name": "팔테크가",
+      "aliases": [
+        "팔테크가"
+      ],
+      "kind": "작업촌",
+      "order": 8
+    },
+    {
+      "id": "L009",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "마르토르가",
+      "aliases": [
+        "마르토르가"
+      ],
+      "kind": "구조물 마을",
+      "order": 1
+    },
+    {
+      "id": "L010",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "아르마르토르",
+      "aliases": [
+        "아르마르토르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L011",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "마르나브미르",
+      "aliases": [
+        "마르나브미르"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L012",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "헤스마르가",
+      "aliases": [
+        "헤스마르가"
+      ],
+      "kind": "어항",
+      "order": 4
+    },
+    {
+      "id": "L013",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "페르나브부두",
+      "aliases": [
+        "페르나브부두"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L014",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "페르테크가",
+      "aliases": [
+        "페르테크가"
+      ],
+      "kind": "작업촌",
+      "order": 6
+    },
+    {
+      "id": "L015",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "나브할가",
+      "aliases": [
+        "나브할가"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L016",
+      "regionId": "R002",
+      "regionKey": "norghard",
+      "regionName": "노르가르드",
+      "name": "나브할가린",
+      "aliases": [
+        "나브할가린"
+      ],
+      "kind": "숙소촌",
+      "order": 8
+    },
+    {
+      "id": "L017",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "실테크에트",
+      "aliases": [
+        "실테크에트"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L018",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "실베크가",
+      "aliases": [
+        "실베크가"
+      ],
+      "kind": "마을",
+      "order": 2
+    },
+    {
+      "id": "L019",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "소르이엘토르",
+      "aliases": [
+        "소르이엘토르"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L020",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "이엘토르가",
+      "aliases": [
+        "이엘토르가"
+      ],
+      "kind": "신전촌",
+      "order": 4
+    },
+    {
+      "id": "L021",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "라드바르할(실버킵)",
+      "aliases": [
+        "라드바르할(실버킵)"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L022",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "베크켈카르(레이븐스톤)",
+      "aliases": [
+        "베크켈카르(레이븐스톤)"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L023",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "베크벱가",
+      "aliases": [
+        "베크벱가"
+      ],
+      "kind": "피난촌",
+      "order": 7
+    },
+    {
+      "id": "L024",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "벨소르엘",
+      "aliases": [
+        "벨소르엘"
+      ],
+      "kind": "도시·거점",
+      "order": 8
+    },
+    {
+      "id": "L025",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "그린할로우",
+      "aliases": [
+        "그린할로우"
+      ],
+      "kind": "도시·거점",
+      "order": 9
+    },
+    {
+      "id": "L026",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "헤크가르가",
+      "aliases": [
+        "헤크가르가"
+      ],
+      "kind": "재개간촌",
+      "order": 10
+    },
+    {
+      "id": "L027",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "가르메브에트",
+      "aliases": [
+        "가르메브에트"
+      ],
+      "kind": "도시·거점",
+      "order": 11
+    },
+    {
+      "id": "L028",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "벨렐가",
+      "aliases": [
+        "벨렐가"
+      ],
+      "kind": "마을",
+      "order": 12
+    },
+    {
+      "id": "L029",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "가르푸크가",
+      "aliases": [
+        "가르푸크가"
+      ],
+      "kind": "마을",
+      "order": 13
+    },
+    {
+      "id": "L030",
+      "regionId": "R003",
+      "regionKey": "tiris",
+      "regionName": "티리스",
+      "name": "뉴할로우",
+      "aliases": [
+        "뉴할로우"
+      ],
+      "kind": "도시·거점",
+      "order": 14
+    },
+    {
+      "id": "L031",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "렘렌가",
+      "aliases": [
+        "렘렌가"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L032",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "렘렌필가",
+      "aliases": [
+        "렘렌필가"
+      ],
+      "kind": "작업가",
+      "order": 2
+    },
+    {
+      "id": "L033",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "다트킨할",
+      "aliases": [
+        "다트킨할"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L034",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "레눔가",
+      "aliases": [
+        "레눔가"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L035",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "린산가",
+      "aliases": [
+        "린산가"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L036",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "레눔숙가",
+      "aliases": [
+        "레눔숙가"
+      ],
+      "kind": "숙소가",
+      "order": 6
+    },
+    {
+      "id": "L037",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "님렌할",
+      "aliases": [
+        "님렌할"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L038",
+      "regionId": "R004",
+      "regionKey": "linrenet",
+      "regionName": "린레네트",
+      "name": "린산테크가",
+      "aliases": [
+        "린산테크가"
+      ],
+      "kind": "작업촌",
+      "order": 8
+    },
+    {
+      "id": "L039",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "도르테쿰",
+      "aliases": [
+        "도르테쿰"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L040",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "켈카르",
+      "aliases": [
+        "켈카르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L041",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "도르테크가",
+      "aliases": [
+        "도르테크가"
+      ],
+      "kind": "작업촌",
+      "order": 3
+    },
+    {
+      "id": "L042",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "도르카르",
+      "aliases": [
+        "도르카르"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L043",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "켈베크가",
+      "aliases": [
+        "켈베크가"
+      ],
+      "kind": "관문촌",
+      "order": 5
+    },
+    {
+      "id": "L044",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "베크할",
+      "aliases": [
+        "베크할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L045",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "엔할가",
+      "aliases": [
+        "엔할가"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L046",
+      "regionId": "R005",
+      "regionKey": "bekdoret",
+      "regionName": "벡도레트",
+      "name": "베크푸크가",
+      "aliases": [
+        "베크푸크가"
+      ],
+      "kind": "창고촌",
+      "order": 8
+    },
+    {
+      "id": "L047",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "센푸크에트",
+      "aliases": [
+        "센푸크에트"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L048",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "센푸쿰",
+      "aliases": [
+        "센푸쿰"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L049",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "센푸크가",
+      "aliases": [
+        "센푸크가"
+      ],
+      "kind": "마을",
+      "order": 3
+    },
+    {
+      "id": "L050",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "벨바르",
+      "aliases": [
+        "벨바르"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L051",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "벨테크가",
+      "aliases": [
+        "벨테크가"
+      ],
+      "kind": "작업촌",
+      "order": 5
+    },
+    {
+      "id": "L052",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "벱렌할",
+      "aliases": [
+        "벱렌할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L053",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "벨나브가",
+      "aliases": [
+        "벨나브가"
+      ],
+      "kind": "나루촌",
+      "order": 7
+    },
+    {
+      "id": "L054",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "가르센에트",
+      "aliases": [
+        "가르센에트"
+      ],
+      "kind": "도시·거점",
+      "order": 8
+    },
+    {
+      "id": "L055",
+      "regionId": "R006",
+      "regionKey": "senhalet",
+      "regionName": "센할레트",
+      "name": "가르센가",
+      "aliases": [
+        "가르센가"
+      ],
+      "kind": "마을",
+      "order": 9
+    },
+    {
+      "id": "L056",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "헤스켈카르",
+      "aliases": [
+        "헤스켈카르"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L057",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "헤스푸쿰",
+      "aliases": [
+        "헤스푸쿰"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L058",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "켈헤스가",
+      "aliases": [
+        "켈헤스가"
+      ],
+      "kind": "숙소촌",
+      "order": 3
+    },
+    {
+      "id": "L059",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "헤스푸크가",
+      "aliases": [
+        "헤스푸크가"
+      ],
+      "kind": "마을",
+      "order": 4
+    },
+    {
+      "id": "L060",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "도르페르가",
+      "aliases": [
+        "도르페르가"
+      ],
+      "kind": "광산촌",
+      "order": 5
+    },
+    {
+      "id": "L061",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "페르바르",
+      "aliases": [
+        "페르바르"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L062",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "람지르가",
+      "aliases": [
+        "람지르가"
+      ],
+      "kind": "숙소촌",
+      "order": 7
+    },
+    {
+      "id": "L063",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "람지르바르",
+      "aliases": [
+        "람지르바르"
+      ],
+      "kind": "도시·거점",
+      "order": 8
+    },
+    {
+      "id": "L064",
+      "regionId": "R007",
+      "regionKey": "hesferet",
+      "regionName": "헤스페레트",
+      "name": "메브켈에트",
+      "aliases": [
+        "메브켈에트"
+      ],
+      "kind": "도시·거점",
+      "order": 9
+    },
+    {
+      "id": "L065",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "워크바르",
+      "aliases": [
+        "워크바르"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L066",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "마르켈미르",
+      "aliases": [
+        "마르켈미르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L067",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "마르푸크섬",
+      "aliases": [
+        "마르푸크섬"
+      ],
+      "kind": "선착장",
+      "order": 3
+    },
+    {
+      "id": "L068",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "나브렌가",
+      "aliases": [
+        "나브렌가"
+      ],
+      "kind": "기록촌",
+      "order": 4
+    },
+    {
+      "id": "L069",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "마르렌움",
+      "aliases": [
+        "마르렌움"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L070",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "나브할",
+      "aliases": [
+        "나브할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L071",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "움마르켈",
+      "aliases": [
+        "움마르켈"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L072",
+      "regionId": "R008",
+      "regionKey": "kelnabet",
+      "regionName": "켈나베트",
+      "name": "움나브가",
+      "aliases": [
+        "움나브가"
+      ],
+      "kind": "항구촌",
+      "order": 8
+    },
+    {
+      "id": "L073",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "베크헤스푸쿰",
+      "aliases": [
+        "베크헤스푸쿰"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L074",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "푸크헤스가",
+      "aliases": [
+        "푸크헤스가"
+      ],
+      "kind": "작업촌",
+      "order": 2
+    },
+    {
+      "id": "L075",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "나르할",
+      "aliases": [
+        "나르할"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L076",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "헤스나르가",
+      "aliases": [
+        "헤스나르가"
+      ],
+      "kind": "공동주거촌",
+      "order": 4
+    },
+    {
+      "id": "L077",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "헤스워켈",
+      "aliases": [
+        "헤스워켈"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L078",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "메브헤스베크",
+      "aliases": [
+        "메브헤스베크"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L079",
+      "regionId": "R009",
+      "regionKey": "hesbeket",
+      "regionName": "헤스베케트",
+      "name": "메브헤스가",
+      "aliases": [
+        "메브헤스가"
+      ],
+      "kind": "초소",
+      "order": 7
+    },
+    {
+      "id": "L080",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "옌베크할",
+      "aliases": [
+        "옌베크할"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L081",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "옌워켈",
+      "aliases": [
+        "옌워켈"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L082",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "옌테크가",
+      "aliases": [
+        "옌테크가"
+      ],
+      "kind": "작업촌",
+      "order": 3
+    },
+    {
+      "id": "L083",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "옌켈가",
+      "aliases": [
+        "옌켈가"
+      ],
+      "kind": "숙소촌",
+      "order": 4
+    },
+    {
+      "id": "L084",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "실베크에트",
+      "aliases": [
+        "실베크에트"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L085",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "실람렌움",
+      "aliases": [
+        "실람렌움"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L086",
+      "regionId": "R010",
+      "regionKey": "yenmebet",
+      "regionName": "옌메베트",
+      "name": "실람가",
+      "aliases": [
+        "실람가"
+      ],
+      "kind": "기록촌",
+      "order": 7
+    },
+    {
+      "id": "L087",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "님나할",
+      "aliases": [
+        "님나할"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L088",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "얄베크움",
+      "aliases": [
+        "얄베크움"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L089",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "얄베크가",
+      "aliases": [
+        "얄베크가"
+      ],
+      "kind": "초소",
+      "order": 3
+    },
+    {
+      "id": "L090",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "푸크베크움",
+      "aliases": [
+        "푸크베크움"
+      ],
+      "kind": "보관시설",
+      "order": 4
+    },
+    {
+      "id": "L091",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "푸크나움",
+      "aliases": [
+        "푸크나움"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L092",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "엔켈할",
+      "aliases": [
+        "엔켈할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L093",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "헤드렌움",
+      "aliases": [
+        "헤드렌움"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L094",
+      "regionId": "R011",
+      "regionKey": "nimnaret",
+      "regionName": "님나레트",
+      "name": "헤드렌가",
+      "aliases": [
+        "헤드렌가"
+      ],
+      "kind": "대기촌",
+      "order": 8
+    },
+    {
+      "id": "L095",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "실소르가",
+      "aliases": [
+        "실소르가"
+      ],
+      "kind": "숲문 마을",
+      "order": 1
+    },
+    {
+      "id": "L096",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "실소르켈",
+      "aliases": [
+        "실소르켈"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L097",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "도르소르산",
+      "aliases": [
+        "도르소르산"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L098",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "실메르가",
+      "aliases": [
+        "실메르가"
+      ],
+      "kind": "채집촌",
+      "order": 4
+    },
+    {
+      "id": "L099",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "실메르미르",
+      "aliases": [
+        "실메르미르"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L100",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "소르산가",
+      "aliases": [
+        "소르산가"
+      ],
+      "kind": "신전촌",
+      "order": 6
+    },
+    {
+      "id": "L101",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "메브메르켈",
+      "aliases": [
+        "메브메르켈"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L102",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "메브메르가",
+      "aliases": [
+        "메브메르가"
+      ],
+      "kind": "야영지",
+      "order": 8
+    },
+    {
+      "id": "L103",
+      "regionId": "R012",
+      "regionKey": "silnimet",
+      "regionName": "실니메트",
+      "name": "벨마르미르",
+      "aliases": [
+        "벨마르미르"
+      ],
+      "kind": "도시·거점",
+      "order": 9
+    },
+    {
+      "id": "L104",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "옌토르가",
+      "aliases": [
+        "옌토르가"
+      ],
+      "kind": "숙소촌",
+      "order": 1
+    },
+    {
+      "id": "L105",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "옌이엘토르",
+      "aliases": [
+        "옌이엘토르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L106",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "도르소르할",
+      "aliases": [
+        "도르소르할"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L107",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "아르소르산",
+      "aliases": [
+        "아르소르산"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L108",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "도르켈가",
+      "aliases": [
+        "도르켈가"
+      ],
+      "kind": "산길 마을",
+      "order": 5
+    },
+    {
+      "id": "L109",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "도르켈바르",
+      "aliases": [
+        "도르켈바르"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L110",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "소르할",
+      "aliases": [
+        "소르할"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L111",
+      "regionId": "R013",
+      "regionKey": "ardolet",
+      "regionName": "아르도레트",
+      "name": "소르할가",
+      "aliases": [
+        "소르할가"
+      ],
+      "kind": "숙소촌",
+      "order": 8
+    },
+    {
+      "id": "L112",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "벨메브가",
+      "aliases": [
+        "벨메브가"
+      ],
+      "kind": "야영지",
+      "order": 1
+    },
+    {
+      "id": "L113",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "벨람바르",
+      "aliases": [
+        "벨람바르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L114",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "워크렌가",
+      "aliases": [
+        "워크렌가"
+      ],
+      "kind": "숙소촌",
+      "order": 3
+    },
+    {
+      "id": "L115",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "워크렌움",
+      "aliases": [
+        "워크렌움"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L116",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "틱람가",
+      "aliases": [
+        "틱람가"
+      ],
+      "kind": "야영지",
+      "order": 5
+    },
+    {
+      "id": "L117",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "틱메브할",
+      "aliases": [
+        "틱메브할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L118",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "메브바르",
+      "aliases": [
+        "메브바르"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L119",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "메브테크가",
+      "aliases": [
+        "메브테크가"
+      ],
+      "kind": "작업촌",
+      "order": 8
+    },
+    {
+      "id": "L120",
+      "regionId": "R014",
+      "regionKey": "garmebet",
+      "regionName": "가르메베트",
+      "name": "벨베크엘",
+      "aliases": [
+        "벨베크엘"
+      ],
+      "kind": "도시·거점",
+      "order": 9
+    },
+    {
+      "id": "L121",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "라드실할",
+      "aliases": [
+        "라드실할"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L122",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실베크엘",
+      "aliases": [
+        "실베크엘"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L123",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "라드실가",
+      "aliases": [
+        "라드실가"
+      ],
+      "kind": "작업촌",
+      "order": 3
+    },
+    {
+      "id": "L124",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실소르산",
+      "aliases": [
+        "실소르산"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L125",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실문가",
+      "aliases": [
+        "실문가"
+      ],
+      "kind": "숲문 마을",
+      "order": 5
+    },
+    {
+      "id": "L126",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실다트바르",
+      "aliases": [
+        "실다트바르"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L127",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실다트가",
+      "aliases": [
+        "실다트가"
+      ],
+      "kind": "채집촌",
+      "order": 7
+    },
+    {
+      "id": "L128",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실테크엘",
+      "aliases": [
+        "실테크엘"
+      ],
+      "kind": "도시·거점",
+      "order": 8
+    },
+    {
+      "id": "L129",
+      "regionId": "R015",
+      "regionKey": "silhalet",
+      "regionName": "실할레트",
+      "name": "실테크가",
+      "aliases": [
+        "실테크가"
+      ],
+      "kind": "숙소촌",
+      "order": 9
+    },
+    {
+      "id": "L130",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "헤드메르가",
+      "aliases": [
+        "헤드메르가"
+      ],
+      "kind": "대기촌",
+      "order": 1
+    },
+    {
+      "id": "L131",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "헤드켈바르",
+      "aliases": [
+        "헤드켈바르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L132",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "메르바르",
+      "aliases": [
+        "메르바르"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L133",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "메르벨마르",
+      "aliases": [
+        "메르벨마르"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L134",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "푸크메르가",
+      "aliases": [
+        "푸크메르가"
+      ],
+      "kind": "창고촌",
+      "order": 5
+    },
+    {
+      "id": "L135",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "푸크테쿰",
+      "aliases": [
+        "푸크테쿰"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L136",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "메르나브가",
+      "aliases": [
+        "메르나브가"
+      ],
+      "kind": "항구가",
+      "order": 7
+    },
+    {
+      "id": "L137",
+      "regionId": "R016",
+      "regionKey": "merhalet",
+      "regionName": "메르할레트",
+      "name": "메르님바르",
+      "aliases": [
+        "메르님바르"
+      ],
+      "kind": "도시·거점",
+      "order": 8
+    },
+    {
+      "id": "L138",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "님렘할",
+      "aliases": [
+        "님렘할"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L139",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "렌메르미르",
+      "aliases": [
+        "렌메르미르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L140",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "님렌가",
+      "aliases": [
+        "님렌가"
+      ],
+      "kind": "숙소가",
+      "order": 3
+    },
+    {
+      "id": "L141",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "님할",
+      "aliases": [
+        "님할"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L142",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "소르다트가",
+      "aliases": [
+        "소르다트가"
+      ],
+      "kind": "신전촌",
+      "order": 5
+    },
+    {
+      "id": "L143",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "소르다트움",
+      "aliases": [
+        "소르다트움"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L144",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "렌테쿰",
+      "aliases": [
+        "렌테쿰"
+      ],
+      "kind": "도시·거점",
+      "order": 7
+    },
+    {
+      "id": "L145",
+      "regionId": "R017",
+      "regionKey": "nimsolet",
+      "regionName": "님소레트",
+      "name": "렌테크가",
+      "aliases": [
+        "렌테크가"
+      ],
+      "kind": "작업가",
+      "order": 8
+    },
+    {
+      "id": "L146",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "워크실가",
+      "aliases": [
+        "워크실가"
+      ],
+      "kind": "마을",
+      "order": 1
+    },
+    {
+      "id": "L147",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "워크켈할",
+      "aliases": [
+        "워크켈할"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L148",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "실렌산",
+      "aliases": [
+        "실렌산"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L149",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "실킨가",
+      "aliases": [
+        "실킨가"
+      ],
+      "kind": "마을",
+      "order": 4
+    },
+    {
+      "id": "L150",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "렌얄움",
+      "aliases": [
+        "렌얄움"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L151",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "움켈산",
+      "aliases": [
+        "움켈산"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L152",
+      "regionId": "R018",
+      "regionKey": "sylvania",
+      "regionName": "실바니아",
+      "name": "움켈가",
+      "aliases": [
+        "움켈가"
+      ],
+      "kind": "숙소촌",
+      "order": 7
+    },
+    {
+      "id": "L153",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "나르베크토르",
+      "aliases": [
+        "나르베크토르"
+      ],
+      "kind": "도시·거점",
+      "order": 1
+    },
+    {
+      "id": "L154",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "나르페르가",
+      "aliases": [
+        "나르페르가"
+      ],
+      "kind": "작업촌",
+      "order": 2
+    },
+    {
+      "id": "L155",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "나르마르켈",
+      "aliases": [
+        "나르마르켈"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L156",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "나르마르렌움",
+      "aliases": [
+        "나르마르렌움"
+      ],
+      "kind": "도시·거점",
+      "order": 4
+    },
+    {
+      "id": "L157",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "나르모스가",
+      "aliases": [
+        "나르모스가"
+      ],
+      "kind": "피난촌",
+      "order": 5
+    },
+    {
+      "id": "L158",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "마르모스할",
+      "aliases": [
+        "마르모스할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L159",
+      "regionId": "R019",
+      "regionKey": "dragonspire",
+      "regionName": "드래곤스파이어",
+      "name": "마르나르가",
+      "aliases": [
+        "마르나르가"
+      ],
+      "kind": "선착장",
+      "order": 7
+    },
+    {
+      "id": "L160",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "둔토르가",
+      "aliases": [
+        "둔토르가"
+      ],
+      "kind": "등대촌",
+      "order": 1
+    },
+    {
+      "id": "L161",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "둔아르토르",
+      "aliases": [
+        "둔아르토르"
+      ],
+      "kind": "도시·거점",
+      "order": 2
+    },
+    {
+      "id": "L162",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "둔나브렌움",
+      "aliases": [
+        "둔나브렌움"
+      ],
+      "kind": "도시·거점",
+      "order": 3
+    },
+    {
+      "id": "L163",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "둔푸크가",
+      "aliases": [
+        "둔푸크가"
+      ],
+      "kind": "보관시설",
+      "order": 4
+    },
+    {
+      "id": "L164",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "움마르소르",
+      "aliases": [
+        "움마르소르"
+      ],
+      "kind": "도시·거점",
+      "order": 5
+    },
+    {
+      "id": "L165",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "벱나브할",
+      "aliases": [
+        "벱나브할"
+      ],
+      "kind": "도시·거점",
+      "order": 6
+    },
+    {
+      "id": "L166",
+      "regionId": "R020",
+      "regionKey": "fenrir-s-eye",
+      "regionName": "펜리르의 눈",
+      "name": "벱나브가",
+      "aliases": [
+        "벱나브가"
+      ],
+      "kind": "구조 거점",
+      "order": 7
+    }
+  ],
+  "characters": [
+    {
+      "id": "C001",
+      "name": "아렐 라드킨",
+      "gender": "남",
+      "age": "중년",
+      "region": "레오니아",
+      "place": "라드아르할",
+      "culture": "인간계·레오니아 궁정권",
+      "role": "궁정 권위대표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "레오니아/라드아르할, 궁정 권위대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C002",
+      "name": "지렌 도르발",
+      "gender": "남",
+      "age": "중년",
+      "region": "레오니아",
+      "place": "지르바르에트",
+      "culture": "인간계·레오니아 궁정권",
+      "role": "기사 봉토 집행자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "레오니아/지르바르에트, 기사 봉토 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C003",
+      "name": "팔리아 렘킨",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "레오니아",
+      "place": "팔테쿰가",
+      "culture": "인간계·레오니아 궁정권",
+      "role": "궁정 납품 해설자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다.",
+      "knowledge": "레오니아/팔테쿰가, 궁정 납품 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C004",
+      "name": "아르덴 라드킨",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "레오니아",
+      "place": "라드아르할",
+      "culture": "인간계·레오니아 궁정권",
+      "role": "궁정 출입 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "레오니아/라드아르할, 궁정 출입 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C005",
+      "name": "지르마 렌발",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "레오니아",
+      "place": "지르바르에트",
+      "culture": "인간계·레오니아 궁정권",
+      "role": "전마·수행 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "레오니아/지르바르에트, 전마·수행 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C006",
+      "name": "마렌 헤드릭",
+      "gender": "여",
+      "age": "중년",
+      "region": "노르가르드",
+      "place": "마르나브미르",
+      "culture": "인간계·노르가르드 항만권",
+      "role": "항만 권위대표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "노르가르드/마르나브미르, 항만 권위대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C007",
+      "name": "페린 토르바",
+      "gender": "여",
+      "age": "중년",
+      "region": "노르가르드",
+      "place": "페르나브부두",
+      "culture": "인간계·노르가르드 항만권",
+      "role": "철강 부두 집행자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "노르가르드/페르나브부두, 철강 부두 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C008",
+      "name": "아르나 렘비르",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "노르가르드",
+      "place": "아르마르토르",
+      "culture": "인간계·노르가르드 항만권",
+      "role": "등대·난파 해설자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "노르가르드/아르마르토르, 등대·난파 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C009",
+      "name": "마르나 세딘",
+      "gender": "여",
+      "age": "중년",
+      "region": "노르가르드",
+      "place": "마르나브미르",
+      "culture": "인간계·노르가르드 항만권",
+      "role": "군항 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "노르가르드/마르나브미르, 군항 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C010",
+      "name": "페르두 나비아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "노르가르드",
+      "place": "페르나브부두",
+      "culture": "인간계·노르가르드 항만권",
+      "role": "철강 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "노르가르드/페르나브부두, 철강 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C011",
+      "name": "바렐 가르딘",
+      "gender": "남",
+      "age": "중년",
+      "region": "티리스",
+      "place": "라드바르할",
+      "culture": "인간계·티리스 서부 접경권",
+      "role": "왕실 법정 대표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "티리스/라드바르할, 왕실 법정 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C012",
+      "name": "베켈 오르민",
+      "gender": "남",
+      "age": "중년",
+      "region": "티리스",
+      "place": "베크켈카르",
+      "culture": "인간계·티리스 서부 접경권",
+      "role": "접경 성문 집행자",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "티리스/베크켈카르, 접경 성문 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C013",
+      "name": "소리엘 렌티스",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "티리스",
+      "place": "소르이엘토르",
+      "culture": "인간계·티리스 서부 접경권",
+      "role": "신전·관측 해설자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을 달고 있다.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "티리스/소르이엘토르, 신전·관측 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C014",
+      "name": "바르나 실킨",
+      "gender": "남",
+      "age": "중년",
+      "region": "티리스",
+      "place": "라드바르할",
+      "culture": "인간계·티리스 서부 접경권",
+      "role": "왕실 법정 좌표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "티리스/라드바르할, 왕실 법정 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C015",
+      "name": "베크라 소멘",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "티리스",
+      "place": "베크켈카르",
+      "culture": "인간계·티리스 서부 접경권",
+      "role": "성문 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "티리스/베크켈카르, 성문 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C016",
+      "name": "레나 다트린",
+      "gender": "여",
+      "age": "중년",
+      "region": "린레네트",
+      "place": "레눔가",
+      "culture": "인간계·린레네트 학예권",
+      "role": "기록원 권위대표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "린레네트/레눔가, 기록원 권위대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C017",
+      "name": "린델 바르나",
+      "gender": "여",
+      "age": "중년",
+      "region": "린레네트",
+      "place": "린산가",
+      "culture": "인간계·린레네트 학예권",
+      "role": "극장 질서 집행자",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "린레네트/린산가, 극장 질서 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C018",
+      "name": "렘리아 필렌",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "린레네트",
+      "place": "렘렌가",
+      "culture": "인간계·린레네트 학예권",
+      "role": "필사 거리 해설자",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "린레네트/렘렌가, 필사 거리 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C019",
+      "name": "레눔 세나",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "린레네트",
+      "place": "레눔가",
+      "culture": "인간계·린레네트 학예권",
+      "role": "기록원 좌표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "린레네트/레눔가, 기록원 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C020",
+      "name": "린사 엘디아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "린레네트",
+      "place": "린산가",
+      "culture": "인간계·린레네트 학예권",
+      "role": "극장 좌표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "린레네트/린산가, 극장 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C021",
+      "name": "도렌 베크람",
+      "gender": "남",
+      "age": "중년",
+      "region": "벡도레트",
+      "place": "도르카르",
+      "culture": "인간계·벡도레트 성채권",
+      "role": "방어 평의회 대표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "벡도레트/도르카르, 방어 평의회 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C022",
+      "name": "켈디 엔바",
+      "gender": "남",
+      "age": "중년",
+      "region": "벡도레트",
+      "place": "켈카르",
+      "culture": "인간계·벡도레트 성채권",
+      "role": "외성문 집행자",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "벡도레트/켈카르, 외성문 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C023",
+      "name": "테르도 말렌",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "벡도레트",
+      "place": "도르테쿰",
+      "culture": "인간계·벡도레트 성채권",
+      "role": "성벽 공사 해설자",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "벡도레트/도르테쿰, 성벽 공사 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C024",
+      "name": "도르민 베시아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "벡도레트",
+      "place": "도르카르",
+      "culture": "인간계·벡도레트 성채권",
+      "role": "내성 좌표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "벡도레트/도르카르, 내성 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C025",
+      "name": "켈라 바스틴",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "벡도레트",
+      "place": "켈카르",
+      "culture": "인간계·벡도레트 성채권",
+      "role": "외성문 좌표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "벡도레트/켈카르, 외성문 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C026",
+      "name": "세나 푸르딘",
+      "gender": "여",
+      "age": "중년",
+      "region": "센할레트",
+      "place": "센푸쿰",
+      "culture": "인간계·센할레트 공동창고권",
+      "role": "공동 창고 대표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에.",
+      "tendency": "신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다.",
+      "knowledge": "센할레트/센푸쿰, 공동 창고 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C027",
+      "name": "벨리 헤드라",
+      "gender": "여",
+      "age": "중년",
+      "region": "센할레트",
+      "place": "벨바르",
+      "culture": "인간계·센할레트 공동창고권",
+      "role": "수로 회의 집행자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에 감는다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "센할레트/벨바르, 수로 회의 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C028",
+      "name": "가르센 미아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "센할레트",
+      "place": "가르센에트",
+      "culture": "인간계·센할레트 공동창고권",
+      "role": "농촌 공동체 해설자",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "센할레트/가르센에트, 농촌 공동체 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "상대의 처지를 살피지만 공동체 질서와 보증인을 먼저 확인한다."
+    },
+    {
+      "id": "C029",
+      "name": "센푸 에르나",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "센할레트",
+      "place": "센푸쿰",
+      "culture": "인간계·센할레트 공동창고권",
+      "role": "공동 창고 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에.",
+      "tendency": "신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다.",
+      "knowledge": "센할레트/센푸쿰, 공동 창고 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C030",
+      "name": "벨바 세딘",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "센할레트",
+      "place": "벨바르",
+      "culture": "인간계·센할레트 공동창고권",
+      "role": "수로 회의 좌표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에 감는다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "센할레트/벨바르, 수로 회의 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C031",
+      "name": "헤스란 바르크",
+      "gender": "남",
+      "age": "중년",
+      "region": "헤스페레트",
+      "place": "헤스푸쿰",
+      "culture": "북방 혼거권·헤스페레트 문화권",
+      "role": "저장고 산악 대표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "헤스페레트/헤스푸쿰, 저장고 산악 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C032",
+      "name": "켈헤스 베르단",
+      "gender": "남",
+      "age": "중년",
+      "region": "헤스페레트",
+      "place": "헤스켈카르",
+      "culture": "북방 혼거권·헤스페레트 문화권",
+      "role": "고개 초소 집행자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을 달고 있다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "헤스페레트/헤스켈카르, 고개 초소 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C033",
+      "name": "페르세크 란딘",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "헤스페레트",
+      "place": "페르바르",
+      "culture": "북방 혼거권·헤스페레트 문화권",
+      "role": "무기 중개 해설자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 낡은 가죽 보호대와 무기 손질 자국, 팔뚝의 훈련 흉터가 드러난다.",
+      "tendency": "안전, 명령 체계, 동료 보호를 중시하고 불필요한 영웅담을 경계한다.",
+      "knowledge": "헤스페레트/페르바르, 무기 중개 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C034",
+      "name": "헤스푸 네르딘",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "헤스페레트",
+      "place": "헤스푸쿰",
+      "culture": "북방 혼거권·헤스페레트 문화권",
+      "role": "저장고 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "헤스페레트/헤스푸쿰, 저장고 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C035",
+      "name": "켈헤스 오리안",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "헤스페레트",
+      "place": "헤스켈카르",
+      "culture": "북방 혼거권·헤스페레트 문화권",
+      "role": "고개 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "헤스페레트/헤스켈카르, 고개 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C036",
+      "name": "마르켄 렘바",
+      "gender": "여",
+      "age": "중년",
+      "region": "켈나베트",
+      "place": "마르켈미르",
+      "culture": "북방 혼거권·켈나베트 문화권",
+      "role": "자유항 의회 대표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "켈나베트/마르켈미르, 자유항 의회 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C037",
+      "name": "워크나브 세란",
+      "gender": "여",
+      "age": "중년",
+      "region": "켈나베트",
+      "place": "워크바르",
+      "culture": "북방 혼거권·켈나베트 문화권",
+      "role": "원정 허가 집행자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "켈나베트/워크바르, 원정 허가 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C038",
+      "name": "마렐렌 이움",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "켈나베트",
+      "place": "마르렌움",
+      "culture": "북방 혼거권·켈나베트 문화권",
+      "role": "해도 보관 해설자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "켈나베트/마르렌움, 해도 보관 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C039",
+      "name": "마르켈 일도르",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "켈나베트",
+      "place": "마르켈미르",
+      "culture": "북방 혼거권·켈나베트 문화권",
+      "role": "자유항 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "켈나베트/마르켈미르, 자유항 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C040",
+      "name": "워크바 에리온",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "켈나베트",
+      "place": "워크바르",
+      "culture": "북방 혼거권·켈나베트 문화권",
+      "role": "원정 허가 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "켈나베트/워크바르, 원정 허가 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C041",
+      "name": "베라크 헤스민",
+      "gender": "남",
+      "age": "중년",
+      "region": "헤스베케트",
+      "place": "베크헤스푸쿰",
+      "culture": "북방 혼거권·헤스베케트 문화권",
+      "role": "혹한 저장 대표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "헤스베케트/베크헤스푸쿰, 혹한 저장 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C042",
+      "name": "워켈 나르딘",
+      "gender": "남",
+      "age": "중년",
+      "region": "헤스베케트",
+      "place": "헤스워켈",
+      "culture": "북방 혼거권·헤스베케트 문화권",
+      "role": "겨울 통행 집행자",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "헤스베케트/헤스워켈, 겨울 통행 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C043",
+      "name": "나렐 벱하스",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "헤스베케트",
+      "place": "나르할",
+      "culture": "북방 혼거권·헤스베케트 문화권",
+      "role": "불씨 공동주거 해설자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "헤스베케트/나르할, 불씨 공동주거 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C044",
+      "name": "베크헤사 룬딘",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "헤스베케트",
+      "place": "베크헤스푸쿰",
+      "culture": "북방 혼거권·헤스베케트 문화권",
+      "role": "혹한 저장 좌표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "헤스베케트/베크헤스푸쿰, 혹한 저장 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C045",
+      "name": "헤스워 라켄",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "헤스베케트",
+      "place": "헤스워켈",
+      "culture": "북방 혼거권·헤스베케트 문화권",
+      "role": "겨울 통행 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "헤스베케트/헤스워켈, 겨울 통행 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C046",
+      "name": "옌라 실멘",
+      "gender": "여",
+      "age": "중년",
+      "region": "옌메베트",
+      "place": "옌워켈",
+      "culture": "산악·학술 혼거권·옌메베트 문화권",
+      "role": "고공 통행 대표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "옌메베트/옌워켈, 고공 통행 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "상대의 처지를 살피지만 공동체 질서와 보증인을 먼저 확인한다."
+    },
+    {
+      "id": "C047",
+      "name": "베크엔 아르니",
+      "gender": "여",
+      "age": "중년",
+      "region": "옌메베트",
+      "place": "옌베크할",
+      "culture": "산악·학술 혼거권·옌메베트 문화권",
+      "role": "기수단 집행자",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 낡은 가죽 보호대와 무기 손질 자국, 팔뚝의 훈련 흉터가.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "옌메베트/옌베크할, 기수단 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C048",
+      "name": "실람 렌비아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "옌메베트",
+      "place": "실람렌움",
+      "culture": "산악·학술 혼거권·옌메베트 문화권",
+      "role": "동맹 기록 해설자",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "옌메베트/실람렌움, 동맹 기록 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C049",
+      "name": "옌워 세리아",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "옌메베트",
+      "place": "옌워켈",
+      "culture": "산악·학술 혼거권·옌메베트 문화권",
+      "role": "고공 통행 좌표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "옌메베트/옌워켈, 고공 통행 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C050",
+      "name": "옌베르 카이안",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "옌메베트",
+      "place": "옌베크할",
+      "culture": "산악·학술 혼거권·옌메베트 문화권",
+      "role": "기수단 좌표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 낡은 가죽 보호대와 무기 손질 자국, 팔뚝의 훈련 흉터가 드러난다.",
+      "tendency": "안전, 명령 체계, 동료 보호를 중시하고 불필요한 영웅담을 경계한다.",
+      "knowledge": "옌메베트/옌베크할, 기수단 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C051",
+      "name": "얄렌 베크사",
+      "gender": "남",
+      "age": "중년",
+      "region": "님나레트",
+      "place": "얄베크움",
+      "culture": "산악·학술 혼거권·님나레트 문화권",
+      "role": "감찰 대표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "님나레트/얄베크움, 감찰 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C052",
+      "name": "헤드라 나움",
+      "gender": "남",
+      "age": "중년",
+      "region": "님나레트",
+      "place": "헤드렌움",
+      "culture": "산악·학술 혼거권·님나레트 문화권",
+      "role": "재료 장부 집행자",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "님나레트/헤드렌움, 재료 장부 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C053",
+      "name": "님레아 할킨",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "님나레트",
+      "place": "님나할",
+      "culture": "산악·학술 혼거권·님나레트 문화권",
+      "role": "제한 학당 해설자",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "님나레트/님나할, 제한 학당 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C054",
+      "name": "얄베아 세크린",
+      "gender": "남",
+      "age": "중년",
+      "region": "님나레트",
+      "place": "얄베크움",
+      "culture": "산악·학술 혼거권·님나레트 문화권",
+      "role": "감찰 좌표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "님나레트/얄베크움, 감찰 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C055",
+      "name": "님나 리벨",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "님나레트",
+      "place": "님나할",
+      "culture": "산악·학술 혼거권·님나레트 문화권",
+      "role": "제한 학당 좌표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "님나레트/님나할, 제한 학당 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C056",
+      "name": "도르셀 소리아",
+      "gender": "여",
+      "age": "중년",
+      "region": "실니메트",
+      "place": "도르소르산",
+      "culture": "산악·학술 혼거권·실니메트 문화권",
+      "role": "산악 사원 대표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "실니메트/도르소르산, 산악 사원 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C057",
+      "name": "실메아 베르민",
+      "gender": "여",
+      "age": "중년",
+      "region": "실니메트",
+      "place": "실메르미르",
+      "culture": "산악·학술 혼거권·실니메트 문화권",
+      "role": "약초 장터 집행자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에 감는다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "실니메트/실메르미르, 약초 장터 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C058",
+      "name": "벨마린 세르토",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "실니메트",
+      "place": "벨마르미르",
+      "culture": "산악·학술 혼거권·실니메트 문화권",
+      "role": "강하 교역 해설자",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실니메트/벨마르미르, 강하 교역 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "지역 말투를 쓰되, 자신이 직접 확인한 범위를 넘으면 단정하지 않는다."
+    },
+    {
+      "id": "C059",
+      "name": "도르소라 엘민",
+      "gender": "여",
+      "age": "중년",
+      "region": "실니메트",
+      "place": "도르소르산",
+      "culture": "산악·학술 혼거권·실니메트 문화권",
+      "role": "산악 사원 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "실니메트/도르소르산, 산악 사원 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C060",
+      "name": "실메르 로시아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "실니메트",
+      "place": "실메르미르",
+      "culture": "산악·학술 혼거권·실니메트 문화권",
+      "role": "약초 장터 좌표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에 감는다.",
+      "tendency": "신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다.",
+      "knowledge": "실니메트/실메르미르, 약초 장터 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C061",
+      "name": "소르할 아르덴",
+      "gender": "남",
+      "age": "중년",
+      "region": "아르도레트",
+      "place": "도르소르할",
+      "culture": "산악·학술 혼거권·아르도레트 문화권",
+      "role": "산악 신정 대표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "아르도레트/도르소르할, 산악 신정 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C062",
+      "name": "이엘토 렌민",
+      "gender": "남",
+      "age": "중년",
+      "region": "아르도레트",
+      "place": "옌이엘토르",
+      "culture": "산악·학술 혼거권·아르도레트 문화권",
+      "role": "관측대 집행자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을 달고 있다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "아르도레트/옌이엘토르, 관측대 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C063",
+      "name": "도르켈 바레스",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "아르도레트",
+      "place": "도르켈바르",
+      "culture": "산악·학술 혼거권·아르도레트 문화권",
+      "role": "등정 해설자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을 달고 있다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "아르도레트/도르켈바르, 등정 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C064",
+      "name": "도르할 세니아",
+      "gender": "남",
+      "age": "중년",
+      "region": "아르도레트",
+      "place": "도르소르할",
+      "culture": "산악·학술 혼거권·아르도레트 문화권",
+      "role": "수도원 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "아르도레트/도르소르할, 수도원 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C065",
+      "name": "이엘렌 토리아",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "아르도레트",
+      "place": "옌이엘토르",
+      "culture": "산악·학술 혼거권·아르도레트 문화권",
+      "role": "관측대 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 두꺼운 겉옷과 무릎의 흙먼지, 약초 주머니나 산길 표식을.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "아르도레트/옌이엘토르, 관측대 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C066",
+      "name": "틱렌 메반",
+      "gender": "여",
+      "age": "중년",
+      "region": "가르메베트",
+      "place": "틱메브할",
+      "culture": "초지 유목 혼거권·가르메베트 문화권",
+      "role": "계절 야영 대표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 바람막이 두건과 말가죽 끈, 이동 생활에 맞춘 짧은 장식을 단다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "가르메베트/틱메브할, 계절 야영 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "상대의 처지를 살피지만 공동체 질서와 보증인을 먼저 확인한다."
+    },
+    {
+      "id": "C067",
+      "name": "벨람 세르나",
+      "gender": "여",
+      "age": "중년",
+      "region": "가르메베트",
+      "place": "벨람바르",
+      "culture": "초지 유목 혼거권·가르메베트 문화권",
+      "role": "물가 약속 집행자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "가르메베트/벨람바르, 물가 약속 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C068",
+      "name": "워크렌 티아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "가르메베트",
+      "place": "워크렌움",
+      "culture": "초지 유목 혼거권·가르메베트 문화권",
+      "role": "이동 장부 해설자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "가르메베트/워크렌움, 이동 장부 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C069",
+      "name": "틱메아 바렌",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "가르메베트",
+      "place": "틱메브할",
+      "culture": "초지 유목 혼거권·가르메베트 문화권",
+      "role": "계절 야영 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 바람막이 두건과 말가죽 끈, 이동 생활에 맞춘 짧은 장식을 단다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "가르메베트/틱메브할, 계절 야영 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "상대의 처지를 살피지만 공동체 질서와 보증인을 먼저 확인한다."
+    },
+    {
+      "id": "C070",
+      "name": "벨라미 세르딘",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "가르메베트",
+      "place": "벨람바르",
+      "culture": "초지 유목 혼거권·가르메베트 문화권",
+      "role": "물가 약속 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "가르메베트/벨람바르, 물가 약속 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C071",
+      "name": "실소라 렌실",
+      "gender": "남",
+      "age": "중년",
+      "region": "실할레트",
+      "place": "실소르산",
+      "culture": "성림 혼거권·실할레트 문화권",
+      "role": "성림 대표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실할레트/실소르산, 성림 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C072",
+      "name": "실베나 켈시",
+      "gender": "남",
+      "age": "중년",
+      "region": "실할레트",
+      "place": "실베크엘",
+      "culture": "성림 혼거권·실할레트 문화권",
+      "role": "숲 감시 집행자",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "실할레트/실베크엘, 숲 감시 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C073",
+      "name": "라드실 에리나",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "실할레트",
+      "place": "라드실할",
+      "culture": "성림 혼거권·실할레트 문화권",
+      "role": "왕실 정원 해설자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실할레트/라드실할, 왕실 정원 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "지역 말투를 쓰되, 자신이 직접 확인한 범위를 넘으면 단정하지 않는다."
+    },
+    {
+      "id": "C074",
+      "name": "실소르 리아킨",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "실할레트",
+      "place": "실소르산",
+      "culture": "성림 혼거권·실할레트 문화권",
+      "role": "성림 의례 좌표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실할레트/실소르산, 성림 의례 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C075",
+      "name": "라드실 페리나",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "실할레트",
+      "place": "라드실할",
+      "culture": "성림 혼거권·실할레트 문화권",
+      "role": "왕실 정원 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실할레트/라드실할, 왕실 정원 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "지역 말투를 쓰되, 자신이 직접 확인한 범위를 넘으면 단정하지 않는다."
+    },
+    {
+      "id": "C076",
+      "name": "메르벨 하디아",
+      "gender": "여",
+      "age": "중년",
+      "region": "메르할레트",
+      "place": "메르벨마르",
+      "culture": "강하 교역 혼거권·메르할레트 문화권",
+      "role": "강하 항구 대표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "메르할레트/메르벨마르, 강하 항구 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C077",
+      "name": "헤드켈 바린",
+      "gender": "여",
+      "age": "중년",
+      "region": "메르할레트",
+      "place": "헤드켈바르",
+      "culture": "강하 교역 혼거권·메르할레트 문화권",
+      "role": "세금 관문 집행자",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "메르할레트/헤드켈바르, 세금 관문 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C078",
+      "name": "메르님 소반",
+      "gender": "남",
+      "age": "중년",
+      "region": "메르할레트",
+      "place": "메르님바르",
+      "culture": "강하 교역 혼거권·메르할레트 문화권",
+      "role": "상업 법정 해설자",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 옷깃과 허리띠가 단정하고, 문장 반지나 봉인 끈을 늘 몸 가까이 둔다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "메르할레트/메르님바르, 상업 법정 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C079",
+      "name": "메르벨 나비온",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "메르할레트",
+      "place": "메르벨마르",
+      "culture": "강하 교역 혼거권·메르할레트 문화권",
+      "role": "강하 항구 좌표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "메르할레트/메르벨마르, 강하 항구 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C080",
+      "name": "메르바 이도르",
+      "gender": "남",
+      "age": "중년",
+      "region": "메르할레트",
+      "place": "메르바르",
+      "culture": "강하 교역 혼거권·메르할레트 문화권",
+      "role": "상인 의회 좌표",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 손바닥이 거칠고, 저울추나 창고 열쇠를 매단 끈을 허리에 감는다.",
+      "tendency": "신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다.",
+      "knowledge": "메르할레트/메르바르, 상인 의회 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "명령과 절차를 짧게 말하며, 권한 밖의 질문은 담당 기관으로 돌린다."
+    },
+    {
+      "id": "C081",
+      "name": "님할 세리온",
+      "gender": "남",
+      "age": "중년",
+      "region": "님소레트",
+      "place": "님할",
+      "culture": "강하 교역 혼거권·님소레트 문화권",
+      "role": "학문·종교 대표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "님소레트/님할, 학문·종교 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C082",
+      "name": "님렘 바리아",
+      "gender": "남",
+      "age": "중년",
+      "region": "님소레트",
+      "place": "님렘할",
+      "culture": "강하 교역 혼거권·님소레트 문화권",
+      "role": "철학 회합 집행자",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "님소레트/님렘할, 철학 회합 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C083",
+      "name": "렌메르 이사딘",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "님소레트",
+      "place": "렌메르미르",
+      "culture": "강하 교역 혼거권·님소레트 문화권",
+      "role": "사본 교환 해설자",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "님소레트/렌메르미르, 사본 교환 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C084",
+      "name": "님할 오리세",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "님소레트",
+      "place": "님할",
+      "culture": "강하 교역 혼거권·님소레트 문화권",
+      "role": "학당 좌표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "님소레트/님할, 학당 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C085",
+      "name": "님렘 세르핀",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "님소레트",
+      "place": "님렘할",
+      "culture": "강하 교역 혼거권·님소레트 문화권",
+      "role": "철학 회합 좌표",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "님소레트/님렘할, 철학 회합 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "말이 빠르고 비유가 많지만, 거래·소문·공연성 정보를 잘 끌어낸다."
+    },
+    {
+      "id": "C086",
+      "name": "실렌 렌사",
+      "gender": "여",
+      "age": "중년",
+      "region": "실바니아",
+      "place": "실렌산",
+      "culture": "성림·탐사 혼거권·실바니아 문화권",
+      "role": "숲 전승 대표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실바니아/실렌산, 숲 전승 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C087",
+      "name": "워크실 칼렌",
+      "gender": "여",
+      "age": "중년",
+      "region": "실바니아",
+      "place": "워크켈할",
+      "culture": "성림·탐사 혼거권·실바니아 문화권",
+      "role": "탐사 허가 집행자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "실바니아/워크켈할, 탐사 허가 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C088",
+      "name": "렌얄 오미아",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "실바니아",
+      "place": "렌얄움",
+      "culture": "성림·탐사 혼거권·실바니아 문화권",
+      "role": "사본 열람 해설자",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 잉크 얼룩, 얇은 독서 안경, 접은 색인끈이 직업적 흔적으로 남아 있다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "실바니아/렌얄움, 사본 열람 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C089",
+      "name": "실레나 목린",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "실바니아",
+      "place": "실렌산",
+      "culture": "성림·탐사 혼거권·실바니아 문화권",
+      "role": "숲 전승 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실바니아/실렌산, 숲 전승 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "완곡하지만 기준은 분명하며, 신앙·기억·증언의 층을 조심스럽게 가른다."
+    },
+    {
+      "id": "C090",
+      "name": "워크실 데리안",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "실바니아",
+      "place": "워크켈할",
+      "culture": "성림·탐사 혼거권·실바니아 문화권",
+      "role": "탐사 거점 좌표",
+      "appearance": "중간 키에 넓은 손, 회색빛 눈매와 오래 닳은 장갑 자국이 남아 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "실바니아/워크켈할, 탐사 거점 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C091",
+      "name": "나르마 셀킨",
+      "gender": "남",
+      "age": "중년",
+      "region": "드래곤스파이어",
+      "place": "나르마르켈",
+      "culture": "화산섬호 혼거권·드래곤스파이어 문화권",
+      "role": "화산 항로 대표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "드래곤스파이어/나르마르켈, 화산 항로 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C092",
+      "name": "나르베아 토란",
+      "gender": "남",
+      "age": "중년",
+      "region": "드래곤스파이어",
+      "place": "나르베크토르",
+      "culture": "화산섬호 혼거권·드래곤스파이어 문화권",
+      "role": "분화 감시 집행자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 화산재가 스민 망토 끝과 열기 그을음, 붉은 광물 부적을 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "드래곤스파이어/나르베크토르, 분화 감시 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C093",
+      "name": "모스할 라비온",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "드래곤스파이어",
+      "place": "마르모스할",
+      "culture": "화산섬호 혼거권·드래곤스파이어 문화권",
+      "role": "항만 대기 해설자",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다.",
+      "knowledge": "드래곤스파이어/마르모스할, 항만 대기 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "지역 말투를 쓰되, 자신이 직접 확인한 범위를 넘으면 단정하지 않는다."
+    },
+    {
+      "id": "C094",
+      "name": "나르마 세딘",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "드래곤스파이어",
+      "place": "나르마르켈",
+      "culture": "화산섬호 혼거권·드래곤스파이어 문화권",
+      "role": "화산 항로 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "생존 규칙, 침묵, 보호 의무를 중시하고 무모한 탐험을 낮게 본다.",
+      "knowledge": "드래곤스파이어/나르마르켈, 화산 항로 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C095",
+      "name": "나르베 토리안",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "드래곤스파이어",
+      "place": "나르베크토르",
+      "culture": "화산섬호 혼거권·드래곤스파이어 문화권",
+      "role": "분화 감시 좌표",
+      "appearance": "작은 키에 빠른 걸음, 밝은 갈색 머리를 천끈으로 묶고 귀 옆에 작은 금속 고리를 단다. 화산재가 스민 망토 끝과 열기 그을음, 붉은 광물 부적을.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "드래곤스파이어/나르베크토르, 분화 감시 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "근거와 기록을 먼저 요구하고, 추측은 추측이라고 분리한다."
+    },
+    {
+      "id": "C096",
+      "name": "둔아르 베티스",
+      "gender": "여",
+      "age": "중년",
+      "region": "펜리르의 눈",
+      "place": "둔아르토르",
+      "culture": "외해 등대 혼거권·펜리르의 눈 문화권",
+      "role": "등대권 대표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "펜리르의 눈/둔아르토르, 등대권 대표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C097",
+      "name": "둔나비 렌움",
+      "gender": "여",
+      "age": "중년",
+      "region": "펜리르의 눈",
+      "place": "둔나브렌움",
+      "culture": "외해 등대 혼거권·펜리르의 눈 문화권",
+      "role": "난파 기록 집행자",
+      "appearance": "곧은 체형에 땋아 올린 흑갈색 머리, 차분한 눈매와 잉크 묻은 손끝이 보인다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "절차, 책임 소재, 문서 권위를 중시하고 위험 감수는 보증이 있을 때만 허용한다.",
+      "knowledge": "펜리르의 눈/둔나브렌움, 난파 기록 집행자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C098",
+      "name": "벱나 리오스",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "펜리르의 눈",
+      "place": "벱나브할",
+      "culture": "외해 등대 혼거권·펜리르의 눈 문화권",
+      "role": "구조 대기 해설자",
+      "appearance": "단단한 어깨와 낮은 자세, 검은 머리를 뒤로 넘기고 눈가에 깊은 주름이 있다. 지역 표식이 들어간 작은 장신구와 오래 쓴 일터 도구를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "펜리르의 눈/벱나브할, 구조 대기 해설자 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "짧고 현장 중심으로 말하며, 물건 상태와 위험을 먼저 본다."
+    },
+    {
+      "id": "C099",
+      "name": "둔아르 세론",
+      "gender": "여",
+      "age": "청년~중년",
+      "region": "펜리르의 눈",
+      "place": "둔아르토르",
+      "culture": "외해 등대 혼거권·펜리르의 눈 문화권",
+      "role": "등대 좌표",
+      "appearance": "긴 외투에 어울리는 날렵한 체격, 회색 눈과 바람에 거칠어진 피부가 특징이다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다.",
+      "knowledge": "펜리르의 눈/둔아르토르, 등대 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    },
+    {
+      "id": "C100",
+      "name": "둔나비 에르딘",
+      "gender": "남",
+      "age": "청년~중년",
+      "region": "펜리르의 눈",
+      "place": "둔나브렌움",
+      "culture": "외해 등대 혼거권·펜리르의 눈 문화권",
+      "role": "난파 기록 좌표",
+      "appearance": "마른 장신에 짧게 묶은 짙은 갈색 머리, 햇볕에 탄 피부, 손등의 잔 흉터가 눈에 띈다. 소금기 묻은 머리칼과 젖은 밧줄 냄새, 항만 표식 팔찌를 지닌다.",
+      "tendency": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
+      "knowledge": "펜리르의 눈/둔나브렌움, 난파 기록 좌표 중심. 먼 권역과 숨은 역사는 단정하지 않는다.",
+      "speech": "차분하고 실무적이며, 장부·표식·순서를 어기면 대화를 멈춘다."
+    }
+  ]
+}

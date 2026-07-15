@@ -4,6 +4,7 @@ import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
+import { GENERATED_WIKI_PLACES, GENERATED_WIKI_REGIONS } from "./generated-wiki-ids";
 
 type SceneEntry = {
   key: string;
@@ -41,6 +42,24 @@ type RegionMapPlaceEntry = {
   pixelY: number;
   mapXPct: number;
   mapYPct: number;
+  order: number;
+};
+
+type WikiRegionEntry = {
+  id: string;
+  key: string;
+  name: string;
+  aliases: readonly string[];
+};
+
+type WikiPlaceEntry = {
+  id: string;
+  regionId: string;
+  regionKey: string;
+  regionName: string;
+  name: string;
+  aliases: readonly string[];
+  kind: string;
   order: number;
 };
 
@@ -338,6 +357,8 @@ const SCENES: SceneEntry[] = [
 
 const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
 const REGION_MAP_PLACES = GENERATED_REGION_MAP_PLACES as RegionMapPlaceEntry[];
+const WIKI_REGIONS = GENERATED_WIKI_REGIONS as readonly WikiRegionEntry[];
+const WIKI_PLACES = GENERATED_WIKI_PLACES as readonly WikiPlaceEntry[];
 const RANDOM_NPC_ASSETS = GENERATED_RANDOM_NPC_ASSETS as readonly RandomNpcAsset[];
 type AnonymousNpcRole = "civilian" | "guard" | "scholar" | "merchant";
 type AnonymousNpcGender = "male" | "female";
@@ -457,6 +478,11 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
 );
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
 const MAP_PLACE_QUERY_NAMES = [
+  "placeId",
+  "locationId",
+  "placeCode",
+  "locationCode",
+  "장소코드",
   "current",
   "currentPlace",
   "place",
@@ -473,8 +499,18 @@ const MAP_PLACE_QUERY_NAMES = [
   "정본장소명",
   "key"
 ];
-const REGION_QUERY_NAMES = ["region", "realm", "area", "country"];
-const PLACE_QUERY_NAMES = ["place", "city", "location", "currentPlace"];
+const REGION_QUERY_NAMES = ["regionId", "regionCode", "지역코드", "region", "realm", "area", "country"];
+const PLACE_QUERY_NAMES = [
+  "placeId",
+  "locationId",
+  "placeCode",
+  "locationCode",
+  "장소코드",
+  "place",
+  "city",
+  "location",
+  "currentPlace"
+];
 const DETAIL_PLACE_QUERY_NAMES = [
   "detail",
   "detailPlace",
@@ -814,11 +850,11 @@ function resolveScene(url: URL, env: Env): SceneEntry {
 function sceneQueryValues(url: URL): string[] {
   const direct = firstQuery(url, ["key", "scene"]);
   if (direct) {
-    return [direct];
+    return [wikiLookupValue(direct)];
   }
 
-  const region = firstQuery(url, REGION_QUERY_NAMES);
-  const place = firstQuery(url, PLACE_QUERY_NAMES);
+  const region = wikiLookupValueOrNull(firstQuery(url, REGION_QUERY_NAMES));
+  const place = wikiLookupValueOrNull(firstQuery(url, PLACE_QUERY_NAMES));
   const detail = firstQuery(url, DETAIL_PLACE_QUERY_NAMES);
   const values = [
     combineQueryParts(region, place, detail),
@@ -836,6 +872,47 @@ function sceneQueryValues(url: URL): string[] {
 function combineQueryParts(...parts: Array<string | null>): string | null {
   const clean = parts.map((part) => part?.trim()).filter((part): part is string => Boolean(part));
   return clean.length > 0 ? clean.join(" ") : null;
+}
+
+function resolveWikiRegionByValue(value: string): WikiRegionEntry | null {
+  const normalized = normalizeKey(value);
+  if (!normalized) return null;
+  return (
+    WIKI_REGIONS.find(
+      (region) =>
+        normalizeKey(region.id) === normalized ||
+        normalizeKey(region.key) === normalized ||
+        normalizeKey(region.name) === normalized ||
+        region.aliases.some((alias) => normalizeKey(alias) === normalized)
+    ) ?? null
+  );
+}
+
+function resolveWikiPlaceByValue(value: string, regionValue?: string | null): WikiPlaceEntry | null {
+  const normalized = normalizeKey(value);
+  if (!normalized) return null;
+  const region = regionValue ? resolveWikiRegionByValue(regionValue) : null;
+  const candidates = WIKI_PLACES.filter(
+    (place) =>
+      normalizeKey(place.id) === normalized ||
+      normalizeKey(place.name) === normalized ||
+      place.aliases.some((alias) => normalizeKey(alias) === normalized)
+  );
+  if (region) {
+    return candidates.find((place) => place.regionId === region.id) ?? null;
+  }
+  return candidates.length === 1 ? candidates[0] : candidates.find((place) => normalizeKey(place.id) === normalized) ?? null;
+}
+
+function wikiLookupValue(value: string): string {
+  const place = resolveWikiPlaceByValue(value);
+  if (place) return `${place.regionKey} ${place.name}`;
+  const region = resolveWikiRegionByValue(value);
+  return region?.key ?? value;
+}
+
+function wikiLookupValueOrNull(value: string | null): string | null {
+  return value ? wikiLookupValue(value) : null;
 }
 
 function isUnresolvedScene(scene: SceneEntry): boolean {
@@ -941,7 +1018,10 @@ function resolveDefaultSceneByRegionValue(normalized: string): SceneEntry | null
 }
 
 function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
-  const queryValue = firstQuery(url, [
+  const rawQueryValue = firstQuery(url, [
+    "regionId",
+    "regionCode",
+    "지역코드",
     "key",
     "map",
     "region",
@@ -953,9 +1033,10 @@ function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
     "권역",
     "지도"
   ]);
-  if (!queryValue) {
+  if (!rawQueryValue) {
     return null;
   }
+  const queryValue = wikiLookupValue(rawQueryValue);
 
   const normalized = canonicalRegionKey(queryValue);
   const direct = REGION_MAPS.find(
@@ -984,10 +1065,12 @@ function regionMapPlaces(regionKey: string): RegionMapPlaceEntry[] {
 }
 
 function resolveCurrentMapPlace(url: URL, map: RegionMapEntry, env: Env): RegionMapPlaceEntry | null {
-  const queryValue = firstQuery(url, MAP_PLACE_QUERY_NAMES);
-  if (!queryValue) {
+  const rawQueryValue = firstQuery(url, MAP_PLACE_QUERY_NAMES);
+  if (!rawQueryValue) {
     return null;
   }
+  const wikiPlace = resolveWikiPlaceByValue(rawQueryValue, map.key);
+  const queryValue = wikiPlace?.name ?? rawQueryValue;
 
   const direct = resolveMapPlaceByValue(queryValue, map.key);
   if (direct) {
@@ -1055,11 +1138,12 @@ function structuredPlaceLabel(url: URL, scene: SceneEntry): string {
 
 function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const speaker = firstQuery(url, ["name", "speaker", "character", "이름", "화자"]);
+  const characterCode = firstQuery(url, ["id", "characterId", "characterCode", "wikiId", "인물코드", "캐릭터코드"]);
   const line = firstQuery(url, ["line", "dialogue", "text", "quote", "대사"]);
   const scene = resolveScene(url, env);
   const placeLabel = structuredPlaceLabel(url, scene);
   const talkBackground = resolveTalkBackground(url, scene, placeLabel, env);
-  const character = resolveTalkCharacter(url, speaker, scene);
+  const character = resolveTalkCharacter(url, speaker, scene, characterCode);
   const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
   const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
   const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
@@ -1266,7 +1350,12 @@ function resolveTalkBackgroundByValue(value: string): TalkBackgroundEntry | null
   );
 }
 
-function resolveTalkCharacter(url: URL, speaker: string | null, scene: SceneEntry): TalkCharacterEntry | null {
+function resolveTalkCharacter(
+  url: URL,
+  speaker: string | null,
+  scene: SceneEntry,
+  characterCode: string | null = null
+): TalkCharacterEntry | null {
   const directImageUrl = firstQuery(url, [
     "characterUrl",
     "characterImage",
@@ -1275,7 +1364,8 @@ function resolveTalkCharacter(url: URL, speaker: string | null, scene: SceneEntr
     "image",
     "인물이미지"
   ]);
-  const registered = speaker ? resolveTalkCharacterByValue(speaker) : null;
+  const registeredByCode = characterCode ? resolveTalkCharacterByValue(characterCode) : null;
+  const registered = registeredByCode ?? (speaker ? resolveTalkCharacterByValue(speaker) : null);
 
   if (registered && directImageUrl) {
     return { ...registered, imageUrl: directImageUrl };
@@ -1314,6 +1404,7 @@ function resolveTalkCharacterByValue(value: string): TalkCharacterEntry | null {
   return (
     TALK_CHARACTERS.find(
       (character) =>
+        normalizeKey(character.characterId ?? "") === normalized ||
         normalizeKey(character.key) === normalized ||
         normalizeKey(character.displayName) === normalized ||
         character.aliases.some((alias) => normalizeKey(alias) === normalized)

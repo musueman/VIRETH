@@ -13,12 +13,14 @@ Internal `key`, `bgType`, and direct asset URLs are supported for debugging and 
 ## Routes
 
 - `/health` - JSON health check.
-- `/place?region=티리스&place=레이븐스톤%20성문` - combined scene and compact regional map SVG.
+- `/place?regionId=R003&placeId=L022` - wiki-code lookup for the combined place card.
+- `/place?region=티리스&place=레이븐스톤%20성문` - backward-compatible name lookup.
 - `/place.json?region=...&place=...` - resolved scene, map, and current-place metadata.
 - `/scene?region=티리스&place=레이븐스톤%20성문` - top scene card SVG.
 - `/scene.image?place=...` - direct scene WebP.
 - `/scene.json?place=...` - resolved scene metadata.
-- `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - dialogue card SVG.
+- `/talk?id=C012&regionId=R003&placeId=L022` - wiki-code lookup for a fixed character card.
+- `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - backward-compatible name lookup.
 - `/talk.json?name=...&place=...` - resolved dialogue card metadata.
 - `/talk-background.json?place=...` - resolved talk background metadata.
 - `/talk.characters.json` - registered fixed-character metadata.

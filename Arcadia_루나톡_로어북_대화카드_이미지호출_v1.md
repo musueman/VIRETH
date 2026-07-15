@@ -9,15 +9,15 @@
 ## 본문
 
 ```md
-R=현재 권역/국가명, P=현재 세부장소명. 첫 줄에 전경+축약지도를 합친 `![](https://vireth-svg.musueman.workers.dev/place?region=R&place=P)` 1회. `/map`은 `!장소` 요청에서만 상세 지도로 출력한다.
+R=위키 지역코드, L=위키 장소코드, C=위키 캐릭터코드. 위키에 코드가 있으면 이름 대신 코드를 쓴다. 첫 줄에 `![](https://vireth-svg.musueman.workers.dev/place?regionId=R&placeId=L)` 1회. `/map`은 `!장소` 요청에서만 출력한다.
 
-N=대사 앞 이름. 대사는 `N | 대사`. 한 응답에서 같은 N의 첫 발화 바로 위에만 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&region=R&place=P)` 1회. 다른 N은 각 1회. 반복 금지. 내부키·이미지키·역할·bgType 쓰지 않음. 대사가 없으면 `/talk` 없음.
+대사는 `이름 | 대사`. 고정 인물은 첫 발화 위에 `/talk?id=C&regionId=R&placeId=L` 1회. 코드 없는 임시 인물만 `name=이름`을 쓴다. 같은 인물의 카드는 응답당 1회. 대사가 없으면 `/talk` 없음. 코드를 추측하지 말고 위키값만 사용한다.
 ```
 
 ## 검수
 
-- 첫 줄은 `/place?region=R&place=P`.
+- 첫 줄은 `/place?regionId=R&placeId=L`.
 - 평상시 응답에는 별도 `/scene`과 `/map`이 없음.
 - `/map`은 `!장소` 요청에서만 사용.
-- 같은 N의 `/talk`는 한 응답에서 첫 발화 위 1회.
+- 고정 인물은 `/talk?id=C`, 임시 인물은 `/talk?name=N`을 첫 발화 위 1회.
 - 대사가 없으면 `/talk` 없음.

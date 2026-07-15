@@ -5,6 +5,9 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const wikiPath = process.argv[2] ??
   "D:/OneDrive/333_죽지않는기사와_비단요람/001_신설정/arcadia_updated_md/Arcadia_루나톡_위키DB_실투입_v9.md";
+const canonDirectory = path.dirname(wikiPath);
+const integratedDbPath = path.join(canonDirectory, "Arcadia_루나톡_통합DB_실투입_v9.md");
+const characterDbPath = path.join(canonDirectory, "Arcadia_루나톡_캐릭터DB_실투입_v8.md");
 
 const regionSource = path.join(root, "workers/vireth-svg/src/generated-region-maps.ts");
 const placeSource = path.join(root, "workers/vireth-svg/src/generated-region-map-places.ts");
@@ -93,6 +96,29 @@ const places = placesRaw.map((place, index) => {
   };
 });
 
+function normalizeLookup(value = "") {
+  return value.toLowerCase().replace(/[\s_()\[\]·/.-]+/g, "");
+}
+
+function characterPlace(character) {
+  const region = regions.find((entry) => entry.name === character.region);
+  if (!region) throw new Error(`Unknown character region ${character.id}: ${character.region}`);
+  const target = normalizeLookup(character.place);
+  const candidates = places.filter((place) => place.regionId === region.id);
+  const place = candidates.find((entry) =>
+    [entry.name, ...entry.aliases].some((alias) => {
+      const normalized = normalizeLookup(alias);
+      return normalized === target || normalized.includes(target) || target.includes(normalized);
+    })
+  );
+  if (!place) throw new Error(`Unknown character place ${character.id}: ${character.region}/${character.place}`);
+  return { regionId: region.id, placeId: place.id };
+}
+
+for (const character of wikiCharacters) {
+  Object.assign(character, characterPlace(character));
+}
+
 const characterById = new Map(wikiCharacters.map((character) => [character.id, character]));
 const characterByName = new Map(wikiCharacters.map((character) => [character.name, character]));
 for (const character of talkCharacters) {
@@ -165,7 +191,60 @@ function annotateWiki(markdown) {
   }
   return updated;
 }
-fs.writeFileSync(wikiPath, annotateWiki(wiki), "utf8");
+
+const characterRules = `<!-- VIRETH_WIKI_ID_RULES_START -->
+## 정본 식별 코드
+
+고정 캐릭터 100명은 \`C001\`부터 \`C100\`까지의 영구 정본 코드를 사용한다. 이 코드는 위키 DB, 객관정보 통합DB, 캐릭터 이미지와 대화카드 매핑에서 같은 인물을 가리킨다. 직책·소속·위치·별칭이 바뀌어도 코드는 유지한다.
+
+- 일반 서술과 대사에는 인물명을 사용한다.
+- 코드는 DB 연결과 이미지 호출에만 사용한다.
+- 이름과 코드가 충돌하면 위키 DB의 코드와 인물명을 우선한다.
+- \`C101\` 이후 로컬 확장 인물은 위키 등록 전까지 정본 코드가 아니다.
+- 코드가 없는 임시 인물에게 임의의 C코드를 만들지 않는다.
+- 지역은 \`R001~R020\`, 장소는 \`L001~L166\`을 사용하며 각 인물의 위치 아래에 함께 기록한다.
+<!-- VIRETH_WIKI_ID_RULES_END -->`;
+
+function annotateCharacterDatabase(markdown, expectedCharacters) {
+  let updated = markdown.replace(/\r\n/g, "\n");
+  updated = updated.replace(/\n?<!-- VIRETH_WIKI_ID_RULES_START -->[\s\S]*?<!-- VIRETH_WIKI_ID_RULES_END -->\n?/g, "\n");
+  const characterHeading = /^\uFEFF?# 캐릭터\s*$/m;
+  if (!characterHeading.test(updated)) throw new Error("Character database heading not found");
+  updated = updated.replace(/^(\uFEFF?# 캐릭터)[ \t]*\n(?:[ \t]*\n)*/m, "$1\n");
+  updated = updated.replace(characterHeading, (heading) => `${heading}\n\n${characterRules}\n`);
+  updated = updated.replace(/^장소 코드: R\d{3}\/L\d{3}\s*\n/gm, "");
+
+  for (const character of wikiCharacters) {
+    const heading = `## ${character.id} [[${character.name}]]`;
+    const start = updated.indexOf(heading);
+    if (start < 0) throw new Error(`Character heading missing: ${heading}`);
+    const next = updated.indexOf("\n## C", start + heading.length);
+    const end = next < 0 ? updated.length : next;
+    const block = updated.slice(start, end);
+    const locationLine = block.match(/^위치:.*$/m)?.[0];
+    if (!locationLine) throw new Error(`Character location missing: ${character.id}`);
+    const insertAt = start + block.indexOf(locationLine) + locationLine.length;
+    updated = `${updated.slice(0, insertAt)}\n장소 코드: ${character.regionId}/${character.placeId}${updated.slice(insertAt)}`;
+  }
+
+  const parsed = parseWikiCharacters(updated);
+  if (parsed.length !== expectedCharacters) throw new Error(`Expected ${expectedCharacters} characters after annotation, found ${parsed.length}`);
+  for (const canonical of wikiCharacters) {
+    const current = parsed.find((entry) => entry.id === canonical.id);
+    if (!current || current.name !== canonical.name || current.region !== canonical.region || current.place !== canonical.place) {
+      throw new Error(`Canonical character mismatch after annotation: ${canonical.id}`);
+    }
+  }
+  return updated;
+}
+
+const wikiWithLocationIds = annotateCharacterDatabase(annotateWiki(wiki), 100);
+fs.writeFileSync(wikiPath, wikiWithLocationIds, "utf8");
+if (!fs.existsSync(integratedDbPath)) throw new Error(`Required local database missing: ${integratedDbPath}`);
+const integratedDb = annotateWiki(fs.readFileSync(integratedDbPath, "utf8"));
+fs.writeFileSync(integratedDbPath, annotateCharacterDatabase(integratedDb, 100), "utf8");
+if (!fs.existsSync(characterDbPath)) throw new Error(`Required local database missing: ${characterDbPath}`);
+fs.writeFileSync(characterDbPath, annotateCharacterDatabase(fs.readFileSync(characterDbPath, "utf8"), 100), "utf8");
 
 function parseLocalCharacterLines(markdown) {
   return [...markdown.matchAll(/^- C\d{3} \[\[([^\]]+)\]\].*$/gm)].map((match) => ({ name: match[1], line: match[0] }));

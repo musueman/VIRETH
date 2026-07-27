@@ -20,6 +20,7 @@ Internal `key`, `bgType`, and direct asset URLs are supported for debugging and 
 - `/scene.image?place=...` - direct scene WebP.
 - `/scene.json?place=...` - resolved scene metadata.
 - `/talk?id=C012&regionId=R003&placeId=L022` - wiki-code lookup for a fixed character card.
+- `/talk?id=C012&e=a&regionId=R003&placeId=L022` - fixed character card with an approved emotion asset.
 - `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - backward-compatible name lookup.
 - `/talk.json?name=...&place=...` - resolved dialogue card metadata.
 - `/talk-background.json?place=...` - resolved talk background metadata.
@@ -57,6 +58,8 @@ Rules:
 
 - `/place` appears once on the first response line.
 - `/talk` appears only above each speaker's first line in a single response.
+- Fixed-character emotion codes are `n` neutral, `sm` faint smile, `p` pleased, `c` concerned, `s` sad/resigned, `a` restrained anger, `u` surprised/alert, and `x` measured explanation.
+- Missing, invalid, or unavailable emotion codes fall back to the existing canonical portrait. Temporary speakers ignore emotion codes.
 - `/map` is the detailed map and appears only in a `!장소` response.
 - Do not output internal image keys in the chat body.
 - If a fixed character is missing, `/talk` uses an anonymous hooded adult cutout with normal lower-face anatomy and shadow-hidden eyes.
@@ -65,6 +68,7 @@ Rules:
 - `role`, `job`, or `title` selects the role family; Korean role words in the speaker name are also recognized. Unknown roles fall back to `civilian`.
 - `gender=male|female` selects the matching variant. Without a gender value, explicit gender words are recognized first, then the speaker name alone selects one consistently across locations.
 - An explicit `npcAssetId` remains available for debugging and legacy pinned NPC portraits.
+- Only wiki-registered characters display canonical role and summary copy. Unregistered or temporary speakers show their name and generated portrait without inferred profile text.
 
 ## Background Resolution
 
@@ -87,6 +91,7 @@ Every public display asset must be optimized before pushing.
 - Talk background image: `1000x700` WebP, target usually `<=120KB`.
 - Regional map image: `768x768` WebP, quality `68-72`, target `<=220KB`.
 - Heraldry image: WebP, target `<=50KB`.
+- Character and emotion cutout: transparent `560x760` WebP, target `<=100KB`.
 - Do not push source-quality renders into the Worker public registry path.
 
 ## Quick Audit

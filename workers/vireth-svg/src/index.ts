@@ -3,6 +3,7 @@ import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
+import { GENERATED_TALK_EMOTIONS } from "./generated-talk-emotions";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
 import { GENERATED_WIKI_PLACES, GENERATED_WIKI_REGIONS } from "./generated-wiki-ids";
 
@@ -89,6 +90,7 @@ type TalkCardEntry = {
   line: string | null;
   placeLabel: string;
   infoLines: string[];
+  emotionCode: string | null;
 };
 
 type TalkBackgroundEntry = {
@@ -477,6 +479,68 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
   (roleAssets) => Object.values(roleAssets)
 );
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
+const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
+const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
+  "characterUrl",
+  "characterImage",
+  "portrait",
+  "portraitUrl",
+  "image",
+  "인물이미지"
+];
+const TALK_EMOTION_ALIASES: Record<string, string> = {
+  n: "n",
+  neutral: "n",
+  default: "n",
+  "중립": "n",
+  "평상": "n",
+  sm: "sm",
+  smile: "sm",
+  faintsmile: "sm",
+  "faint-smile": "sm",
+  "미소": "sm",
+  "옅은미소": "sm",
+  "옅은-미소": "sm",
+  p: "p",
+  pleased: "p",
+  happy: "p",
+  "만족": "p",
+  "기쁨": "p",
+  c: "c",
+  concerned: "c",
+  concern: "c",
+  worried: "c",
+  "걱정": "c",
+  "근심": "c",
+  s: "s",
+  sad: "s",
+  sadresigned: "s",
+  "sad-resigned": "s",
+  resigned: "s",
+  "슬픔": "s",
+  "체념": "s",
+  a: "a",
+  anger: "a",
+  restrainedanger: "a",
+  "restrained-anger": "a",
+  "분노": "a",
+  "절제된분노": "a",
+  "절제된-분노": "a",
+  u: "u",
+  surprised: "u",
+  alert: "u",
+  surprisedalert: "u",
+  "surprised-alert": "u",
+  "놀람": "u",
+  "경계": "u",
+  x: "x",
+  explain: "x",
+  explanation: "x",
+  measuredexplanation: "x",
+  "measured-explanation": "x",
+  "설명": "x",
+  "설득": "x"
+};
 const MAP_PLACE_QUERY_NAMES = [
   "placeId",
   "locationId",
@@ -673,6 +737,7 @@ export default {
     if (
       url.pathname.startsWith("/npc-assets/") ||
       url.pathname.startsWith("/character-assets/") ||
+      url.pathname.startsWith("/character-emotion-assets/") ||
       url.pathname.startsWith("/talk-background-assets/") ||
       url.pathname.startsWith("/map-assets/") ||
       url.pathname.startsWith("/scene-assets/")
@@ -685,6 +750,7 @@ export default {
         ok: true,
         service: env.SERVICE_NAME,
         talkCharacters: TALK_CHARACTERS.length,
+        talkEmotionCharacters: Object.keys(TALK_EMOTIONS).length,
         randomNpcAssets: RANDOM_NPC_ASSETS.length,
         routes: [
           "/place?region=티리스&place=레이븐스톤%20성문",
@@ -692,6 +758,7 @@ export default {
           "/scene?key=world-overview",
           "/scene.json?key=world-overview",
           "/talk?name=gatekeeper&place=bekkellkar-ravenstone",
+          "/talk?id=C012&e=a&regionId=R003&placeId=L022",
           "/talk.json?name=gatekeeper&place=bekkellkar-ravenstone",
           "/talk.characters.json",
           "/talk.npcs.json",
@@ -1147,6 +1214,7 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
   const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
   const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
+  const requestedEmotionCode = resolveTalkEmotionCode(url);
   const resolvedCharacter =
     character && (roleOverride || affiliationOverride || infoOverride)
       ? {
@@ -1156,17 +1224,40 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
           summary: infoOverride ?? character.summary
         }
       : character;
-  const infoLines = talkInfoLines(resolvedCharacter, scene, placeLabel, infoOverride);
+  const directCharacterImage = firstQuery(url, TALK_CHARACTER_IMAGE_QUERY_NAMES);
+  const emotionImageUrl =
+    !directCharacterImage && resolvedCharacter?.characterId && requestedEmotionCode
+      ? resolveTalkEmotionImage(resolvedCharacter.characterId, requestedEmotionCode)
+      : null;
+  const emotionCode = emotionImageUrl ? requestedEmotionCode : null;
+  const renderedCharacter =
+    resolvedCharacter && emotionImageUrl
+      ? { ...resolvedCharacter, imageUrl: emotionImageUrl }
+      : resolvedCharacter;
+  const infoLines = talkInfoLines(renderedCharacter, scene, placeLabel, infoOverride);
 
   return {
     scene,
     talkBackground,
-    character: resolvedCharacter,
+    character: renderedCharacter,
     speaker,
     line,
     placeLabel,
-    infoLines
+    infoLines,
+    emotionCode
   };
+}
+
+function resolveTalkEmotionCode(url: URL): string | null {
+  const value = firstQuery(url, ["e", "emotion", "expression", "mood", "감정", "표정"]);
+  if (!value) {
+    return null;
+  }
+  return TALK_EMOTION_ALIASES[normalizeKey(value)] ?? null;
+}
+
+function resolveTalkEmotionImage(characterId: string, emotionCode: string): string | null {
+  return TALK_EMOTIONS[characterId.toUpperCase()]?.[emotionCode] ?? null;
 }
 
 function resolveTalkBackgroundFromUrl(url: URL, env: Env): TalkBackgroundEntry {
@@ -1356,14 +1447,7 @@ function resolveTalkCharacter(
   scene: SceneEntry,
   characterCode: string | null = null
 ): TalkCharacterEntry | null {
-  const directImageUrl = firstQuery(url, [
-    "characterUrl",
-    "characterImage",
-    "portrait",
-    "portraitUrl",
-    "image",
-    "인물이미지"
-  ]);
+  const directImageUrl = firstQuery(url, TALK_CHARACTER_IMAGE_QUERY_NAMES);
   const registeredByCode = characterCode ? resolveTalkCharacterByValue(characterCode) : null;
   const registered = registeredByCode ?? (speaker ? resolveTalkCharacterByValue(speaker) : null);
 
@@ -1589,6 +1673,12 @@ function talkInfoLines(
   placeLabel: string,
   infoOverride: string | null
 ): string[] {
+  // Only wiki-registered characters have canonical profile copy. Anonymous NPCs
+  // keep their generated portrait and name without inheriting scene-based traits.
+  if (!character?.characterId) {
+    return [];
+  }
+
   const inferred = inferTalkCharacterInfo(character, scene, placeLabel);
   const role = cleanTalkInfoValue(character?.role, character, scene, placeLabel);
   const summary = cleanTalkInfoValue(character?.summary, character, scene, placeLabel);
@@ -1599,8 +1689,8 @@ function talkInfoLines(
   const lines = uniqueTalkInfoLines([
     role ?? inferredRole,
     override,
-    summary,
     ...inferredDetails,
+    summary,
     affiliation
   ]);
 
@@ -2214,7 +2304,7 @@ function renderTalkInfoPanel(
   title: string,
   heraldryImageUrl: string | null
 ): string {
-  const role = card.infoLines[0] ?? "현장 인물";
+  const role = card.infoLines[0] ?? null;
   const details = card.infoLines.slice(1, 3);
   const bandY = 594;
   const bandH = 106;
@@ -2240,7 +2330,7 @@ function renderTalkInfoPanel(
       <line x1="0" y1="${bandY}" x2="1000" y2="${bandY}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
       ${crest}
       <g filter="url(#talkTextShadow)">
-      ${renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.subtitle, "#e8eef7", "560")}
+      ${role ? renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.subtitle, "#e8eef7", "560") : ""}
       ${renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.displayCompact, "#f6edcf", "760")}
       </g>
       <g filter="url(#talkTextShadow)">
@@ -3216,6 +3306,7 @@ function isWorkerAssetPath(imageUrl: string): boolean {
   return (
     imageUrl.startsWith("/npc-assets/") ||
     imageUrl.startsWith("/character-assets/") ||
+    imageUrl.startsWith("/character-emotion-assets/") ||
     imageUrl.startsWith("/talk-background-assets/") ||
     imageUrl.startsWith("/map-assets/") ||
     imageUrl.startsWith("/scene-assets/")

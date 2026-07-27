@@ -5,18 +5,23 @@
 ~~~md
 [이미지출력]
 통합장소카드는 항상 응답 첫 줄에 1회 둔다. 도시 전경과 축약 지도를 한 장에 표시한다.
-형식=`![](https://vireth-svg.musueman.workers.dev/place?regionId={지역코드}&placeId={장소코드})`.
+형식=`![](https://vireth-svg.musueman.workers.dev/place?regionId={지역코드}&amp;placeId={장소코드})`.
 
 대화카드는 대사 카드 전용이다. `/place`를 대신하지 않는다.
 대사는 `이름 | 대사` 형식으로 쓴다.
-고정 캐릭터는 같은 이름의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id={캐릭터코드}&regionId={지역코드}&placeId={장소코드})`를 1회 둔다.
+고정 캐릭터는 같은 이름의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id={캐릭터코드}&amp;e={감정코드}&amp;regionId={지역코드}&amp;placeId={장소코드})`를 1회 둔다.
+감정코드는 대사 직전의 표정과 태도를 기준으로 고른다. `n`=중립, `sm`=옅은 미소, `p`=기쁨, `c`=걱정, `s`=슬픔·체념, `a`=절제된 분노, `u`=놀람·경계, `x`=차분한 설명이다. 불명확하면 `n`을 쓴다.
+해당 감정 에셋이 없거나 감정코드가 잘못되면 워커가 기본 초상으로 대체하므로 카드 호출은 생략하지 않는다.
 위키 코드가 없는 임시 인물만 `name={이름}`을 사용한다.
+임시 인물도 완성된 `![](https://vireth-svg.musueman.workers.dev/talk?name={이름}&amp;region={정본지역명}&amp;place={정본장소명})` 한 줄로 출력한다.
+임시 인물에는 감정코드를 넣지 않는다.
+URL값의 공백은 `%20`으로 바꾸고 `/talk?...` 경로나 URL만 단독 출력하지 않는다.
 서로 다른 인물이 말하면 각 인물의 첫 발화 위에 1회씩 둔다.
 같은 인물의 두 번째 발화부터는 대화카드를 반복하지 않는다.
 대사가 없으면 `/talk`를 만들지 않는다.
 
 상세지도는 일반 응답에 출력하지 않는다.
-`!장소` 요청에서만 `![](https://vireth-svg.musueman.workers.dev/map?regionId={지역코드}&placeId={장소코드})`로 출력한다.
+`!장소` 요청에서만 `![](https://vireth-svg.musueman.workers.dev/map?regionId={지역코드}&amp;placeId={장소코드})`로 출력한다.
 
 [호출값]
 AI는 위키에 기록된 코드만 사용하고 코드를 추측하지 않는다.
@@ -41,7 +46,7 @@ AI는 위키에 기록된 코드만 사용하고 코드를 추측하지 않는�
 ```
 
 [검수]
-응답 첫 줄이 `/place?regionId=...&placeId=...`가 아니면 실패.
+응답 첫 줄이 완성된 `/place?regionId=...&amp;placeId=...` 이미지 마크다운이 아니면 실패.
 위키 고정 인물의 첫 발화 위에 `/talk?id=...`가 없으면 실패.
 같은 이름의 `/talk`를 한 응답에서 반복하면 실패.
 일반 응답에서 `/scene` 또는 `/map`을 따로 출력하면 실패.
@@ -54,15 +59,13 @@ AI는 위키에 기록된 코드만 사용하고 코드를 추측하지 않는�
 별도 로어북 엔트리 `Arcadia_루나톡_로어북_대화카드_이미지호출_v1.md`의 500자 이하 본문을 사용한다.
 
 ~~~md
-R=위키 지역코드, L=위키 장소코드, C=위키 캐릭터코드. 첫 줄에 `![](https://vireth-svg.musueman.workers.dev/place?regionId=R&placeId=L)`를 1회 출력한다. 일반 응답에서 `/scene`과 `/map`을 따로 출력하지 않는다. 상세 `/map`은 `!장소` 응답에서만 출력한다.
-
-대사는 `이름 | 대사`. 고정 인물은 첫 발화 위에 `/talk?id=C&regionId=R&placeId=L` 1회. 코드 없는 임시 인물만 `name=이름`을 쓴다. 반복 금지. 코드는 위키값만 사용한다.
+C=고정인물코드,N=화자명,R=지역코드,L=장소코드,E=감정. 고정 인물의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;regionId=R&amp;placeId=L)` 1회. E=`n`중립·`sm`옅은미소·`p`기쁨·`c`걱정·`s`슬픔/체념·`a`절제된분노·`u`놀람/경계·`x`차분한설명. 대사 직전 표정 기준이며 불명확하면 `n`. 감정 에셋이 없으면 기본초상으로 자동 대체. 임시 인물은 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;region=정본지역명&amp;place=정본장소명)`만 사용하며 E를 넣지 않는다. URL 공백=`%20`, 구분자=`&amp;`. 다음 줄=`N | 대사`. 같은 응답에서 같은 화자 카드 1회, 다른 화자는 각 1회. 대사 없으면 호출 없음. 경로·URL 단독, 코드블록 금지.
 ~~~
 
 ## 응답 예시: 대사 없는 장면
 
 ~~~md
-![](https://vireth-svg.musueman.workers.dev/place?regionId=R003&placeId=L022)
+![](https://vireth-svg.musueman.workers.dev/place?regionId=R003&amp;placeId=L022)
 
 *레이븐스톤 성문 앞, 젖은 돌바닥 위로 대기열이 천천히 줄어든다. 당신 차례가 가까워질수록 문지기의 손은 장부 위에서 조금씩 빨라진다.*
 
@@ -79,18 +82,18 @@ R=위키 지역코드, L=위키 장소코드, C=위키 캐릭터코드. 첫 줄�
 ## 응답 예시: 대사 있는 장면
 
 ~~~md
-![](https://vireth-svg.musueman.workers.dev/place?regionId=R003&placeId=L022)
+![](https://vireth-svg.musueman.workers.dev/place?regionId=R003&amp;placeId=L022)
 
 *검문대 앞쪽에서 장부를 넘기던 남자가 고개를 든다.*
 
-![](https://vireth-svg.musueman.workers.dev/talk?id=C012&regionId=R003&placeId=L022)
+![](https://vireth-svg.musueman.workers.dev/talk?id=C012&amp;e=n&amp;regionId=R003&amp;placeId=L022)
 베켈 오르민 | 목패.
 
 *그가 손을 내밀었다.*
 
 베켈 오르민 | 오래됐군. 어디서 받은 거지?
 
-![](https://vireth-svg.musueman.workers.dev/talk?name=세렌&regionId=R003&placeId=L022)
+![](https://vireth-svg.musueman.workers.dev/talk?name=세렌&amp;regionId=R003&amp;placeId=L022)
 세렌 | 뉴할로우에서 왔어요. 기록원에게 확인받을 편지가 있습니다.
 
 ```text

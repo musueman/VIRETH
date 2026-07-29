@@ -758,7 +758,7 @@ export default {
           "/scene?key=world-overview",
           "/scene.json?key=world-overview",
           "/talk?name=gatekeeper&place=bekkellkar-ravenstone",
-          "/talk?id=C012&e=a&regionId=R003&placeId=L022",
+          "/talk?id=C012&e=a&placeId=L022",
           "/talk.json?name=gatekeeper&place=bekkellkar-ravenstone",
           "/talk.characters.json",
           "/talk.npcs.json",
@@ -1253,7 +1253,14 @@ function resolveTalkEmotionCode(url: URL): string | null {
   if (!value) {
     return null;
   }
-  return TALK_EMOTION_ALIASES[normalizeKey(value)] ?? null;
+  const direct = TALK_EMOTION_ALIASES[normalizeKey(value)];
+  if (direct) {
+    return direct;
+  }
+
+  // Some Markdown renderers decode "&reg" in "&regionId" as "®".
+  const repaired = value.match(/^(sm|n|p|c|s|a|u|x)®ionid=/iu)?.[1];
+  return repaired ? TALK_EMOTION_ALIASES[normalizeKey(repaired)] ?? null : null;
 }
 
 function resolveTalkEmotionImage(characterId: string, emotionCode: string): string | null {

@@ -9,7 +9,7 @@
 ## 본문
 
 ```md
-C=고정인물코드,N=화자명,R=지역코드,L=장소코드,E=감정. 고정 인물의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;regionId=R&amp;placeId=L)` 1회. E=`n`중립·`sm`옅은미소·`p`기쁨·`c`걱정·`s`슬픔/체념·`a`절제된분노·`u`놀람/경계·`x`차분한설명. 대사 직전 표정 기준이며 불명확하면 `n`. 감정 에셋이 없으면 기본초상으로 자동 대체. 임시 인물은 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;region=정본지역명&amp;place=정본장소명)`만 사용하며 E를 넣지 않는다. URL 공백=`%20`, 구분자=`&amp;`. 다음 줄=`N | 대사`. 같은 응답에서 같은 화자 카드 1회, 다른 화자는 각 1회. 대사 없으면 호출 없음. 경로·URL 단독, 코드블록 금지.
+C=고정인물코드,N=화자명,L=장소코드,E=감정. 고정 인물 첫 발화 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L)` 1회. E=`n`중립·`sm`옅은미소·`p`기쁨·`c`걱정·`s`슬픔/체념·`a`절제된분노·`u`놀람/경계·`x`차분한설명. 직전 표정 기준, 불명확=`n`. 임시 인물은 L이 있으면 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L)`, 없으면 `![](https://vireth-svg.musueman.workers.dev/talk?region=정본지역명&amp;place=정본장소명&amp;name=N)`. 임시에는 E 금지. 구분자=`&amp;`, 공백=`%20`. 다음 줄=`N | 대사`. 한 응답에서 화자별 첫 발화에만 1회. 대사 없으면 호출 없음. URL 단독·코드블록 금지.
 ```
 
 ## 검수

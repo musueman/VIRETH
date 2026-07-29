@@ -10,6 +10,8 @@
 대화카드는 대사 카드 전용이다. `/place`를 대신하지 않는다.
 대사는 `이름 | 대사` 형식으로 쓴다.
 고정 캐릭터는 같은 이름의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id={캐릭터코드}&amp;e={감정코드}&amp;placeId={장소코드})`를 1회 둔다.
+대화카드의 `placeId`는 반드시 같은 응답 첫 줄 장소카드의 `placeId`를 그대로 재사용한다. 캐릭터의 소속·고향·출신 장소코드로 바꾸지 않는다.
+대화카드 배경은 이 `placeId`를 사용하고, 문장은 고정 캐릭터 코드에 등록된 정본 소속을 사용한다.
 감정코드는 대사 직전의 표정과 태도를 기준으로 고른다. `n`=중립, `sm`=옅은 미소, `p`=기쁨, `c`=걱정, `s`=슬픔·체념, `a`=절제된 분노, `u`=놀람·경계, `x`=차분한 설명이다. 불명확하면 `n`을 쓴다.
 해당 감정 에셋이 없거나 감정코드가 잘못되면 워커가 기본 초상으로 대체하므로 카드 호출은 생략하지 않는다.
 위키 코드가 없는 임시 인물만 `name={이름}`을 사용한다.
@@ -59,7 +61,7 @@ AI는 위키에 기록된 코드만 사용하고 코드를 추측하지 않는�
 별도 로어북 엔트리 `Arcadia_루나톡_로어북_대화카드_이미지호출_v1.md`의 500자 이하 본문을 사용한다.
 
 ~~~md
-C=고정인물코드,N=화자명,L=장소코드,E=감정. 고정 인물 첫 발화 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L)` 1회. E=`n`중립·`sm`옅은미소·`p`기쁨·`c`걱정·`s`슬픔/체념·`a`절제된분노·`u`놀람/경계·`x`차분한설명. 직전 표정 기준, 불명확=`n`. 임시 인물은 L이 있으면 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L)`, 없으면 `![](https://vireth-svg.musueman.workers.dev/talk?region=정본지역명&amp;place=정본장소명&amp;name=N)`. 임시에는 E 금지. 구분자=`&amp;`, 공백=`%20`. 다음 줄=`N | 대사`. 한 응답에서 화자별 첫 발화에만 1회. 대사 없으면 호출 없음. URL 단독·코드블록 금지.
+C=고정인물코드,N=화자명,L=현재장소코드,E=감정. 카드 배경은 L, 문장은 C 정본 소속을 쓴다. L은 첫 줄 `/place`의 `placeId`와 같고 화자 소속·고향 코드로 바꾸지 않는다. 고정 인물 첫 대사 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L)` 1회. E=`n`중립·`sm`미소·`p`기쁨·`c`걱정·`s`슬픔·`a`분노·`u`경계·`x`설명, 불명확=`n`. 임시는 L이 있으면 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L)`, 없으면 `![](https://vireth-svg.musueman.workers.dev/talk?region=정본지역명&amp;place=정본장소명&amp;name=N)`. 임시에는 E 금지. 다음 줄=`N | 대사`. 응답 내 화자별 첫 대사에만 1회.
 ~~~
 
 ## 응답 예시: 대사 없는 장면

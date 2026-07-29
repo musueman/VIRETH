@@ -1503,6 +1503,27 @@ function resolveTalkCharacterByValue(value: string): TalkCharacterEntry | null {
   );
 }
 
+function resolveTalkHeraldryScene(
+  character: TalkCharacterEntry | null,
+  fallbackScene: SceneEntry
+): SceneEntry {
+  if (!character?.characterId || !character.affiliation) {
+    return fallbackScene;
+  }
+
+  const affiliation = normalizeKey(character.affiliation);
+  const affiliationScene = SCENES.find(
+    (scene) =>
+      scene.heraldryUrl &&
+      [scene.realmKey, scene.realmName].some((value) => {
+        const normalized = normalizeKey(value ?? "");
+        return normalized && affiliation.includes(normalized);
+      })
+  );
+
+  return affiliationScene ?? fallbackScene;
+}
+
 function resolveRandomNpcAsset(url: URL, speaker: string | null): RandomNpcAsset | null {
   const explicitAssetId = firstQuery(url, ["npcAssetId", "npcAsset", "portraitId", "assetId"]);
   if (explicitAssetId) {
@@ -2237,6 +2258,7 @@ async function renderPlaceSvg(
 
 async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
   const inlineAssets = shouldInlineAssets(url);
+  const heraldryScene = resolveTalkHeraldryScene(card.character, card.scene);
   const backgroundProxyUrl = talkBackgroundImageUrl(origin, card.talkBackground.key);
   const backgroundUrl = escapeXml(
     inlineAssets
@@ -2260,12 +2282,12 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
             : rawCharacterImageUrl
         )
       : null;
-  const rawHeraldryImageUrl = card.scene.heraldryUrl
-    ? absoluteImageUrl(card.scene.heraldryUrl, origin)
+  const rawHeraldryImageUrl = heraldryScene.heraldryUrl
+    ? absoluteImageUrl(heraldryScene.heraldryUrl, origin)
     : null;
   const inlineHeraldryImageUrl =
-    card.scene.heraldryUrl && rawHeraldryImageUrl && inlineAssets
-      ? await fetchInlineImageDataUri(card.scene.heraldryUrl, rawHeraldryImageUrl, env)
+    heraldryScene.heraldryUrl && rawHeraldryImageUrl && inlineAssets
+      ? await fetchInlineImageDataUri(heraldryScene.heraldryUrl, rawHeraldryImageUrl, env)
       : null;
   const heraldryImageUrl =
     rawHeraldryImageUrl
@@ -2278,7 +2300,8 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
   const title = card.character?.displayName ?? card.speaker ?? card.scene.title;
   const ariaLabel = escapeXml(`${card.character?.displayName ?? card.speaker ?? "장소"} 대화 카드`);
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
-  const infoPanel = renderTalkInfoPanel(card, title, heraldryImageUrl);
+  const heraldryLabel = heraldryScene.realmName ?? heraldryScene.heraldryName ?? heraldryScene.title;
+  const infoPanel = renderTalkInfoPanel(card, title, heraldryImageUrl, heraldryLabel);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
@@ -2347,14 +2370,15 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
 function renderTalkInfoPanel(
   card: TalkCardEntry,
   title: string,
-  heraldryImageUrl: string | null
+  heraldryImageUrl: string | null,
+  heraldryLabel: string
 ): string {
   const role = card.infoLines[0] ?? null;
   const details = card.infoLines.slice(1, 3);
   const bandY = 594;
   const bandH = 106;
   const contentX = 64;
-  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 342, 124, 166, card.scene.realmName ?? card.scene.title);
+  const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 342, 124, 166, heraldryLabel);
   const roleY = 548;
   const titleY = 608;
   const detailY = 670;

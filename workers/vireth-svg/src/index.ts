@@ -1679,22 +1679,196 @@ function talkInfoLines(
     return [];
   }
 
-  const inferred = inferTalkCharacterInfo(character, scene, placeLabel);
   const role = cleanTalkInfoValue(character?.role, character, scene, placeLabel);
   const summary = cleanTalkInfoValue(character?.summary, character, scene, placeLabel);
   const affiliation = cleanTalkInfoValue(character?.affiliation, character, scene, placeLabel);
   const override = cleanTalkInfoValue(infoOverride, character, scene, placeLabel);
-  const inferredRole = inferred[0] ?? null;
-  const inferredDetails = inferred.slice(1);
+  const canonicalDetails = canonicalTalkCharacterDetails(character);
   const lines = uniqueTalkInfoLines([
-    role ?? inferredRole,
+    role,
     override,
-    ...inferredDetails,
+    ...canonicalDetails,
     summary,
     affiliation
   ]);
 
   return lines.map((line) => truncateDisplay(line, 34)).slice(0, 4);
+}
+
+type TalkRoleCopyRule = {
+  patterns: string[];
+  duty: string;
+  behavior: string;
+};
+
+const TALK_ROLE_COPY_RULES: TalkRoleCopyRule[] = [
+  {
+    patterns: ["법정"],
+    duty: "재판 기록과 증언의 순서를 맞춘다.",
+    behavior: "기록과 증언의 어긋남을 가려낸다."
+  },
+  {
+    patterns: ["성문", "관문", "통행", "출입", "고개", "내성"],
+    duty: "목패와 출입 기록의 일치를 확인한다.",
+    behavior: "보증 없는 예외는 허용하지 않는다."
+  },
+  {
+    patterns: ["항만", "항구", "부두", "군항", "자유항"],
+    duty: "선박과 화물 표식을 장부와 맞춘다.",
+    behavior: "손실과 보증의 책임부터 따진다."
+  },
+  {
+    patterns: ["등대", "난파", "구조 대기"],
+    duty: "등화 기록과 조난 신호를 확인한다.",
+    behavior: "작은 조난 신호도 넘기지 않는다."
+  },
+  {
+    patterns: ["해도", "항로"],
+    duty: "항로 기록과 이동 표식을 대조한다.",
+    behavior: "날씨와 길의 변화를 먼저 경계한다."
+  },
+  {
+    patterns: ["창고", "저장", "재료 장부"],
+    duty: "봉인과 재고, 반출입 장부를 맞춘다.",
+    behavior: "수량과 납기의 어긋남을 먼저 찾는다."
+  },
+  {
+    patterns: ["기록원", "필사", "사본", "동맹 기록", "이동 장부"],
+    duty: "문서의 출처와 열람 기록을 확인한다.",
+    behavior: "소문과 확인된 기록을 나눠 말한다."
+  },
+  {
+    patterns: ["학당", "학문", "철학 회합"],
+    duty: "열람 권한과 논의 기록을 관리한다.",
+    behavior: "주장보다 근거와 출처를 먼저 묻는다."
+  },
+  {
+    patterns: ["신전", "사원", "신정", "수도원", "성림", "의례"],
+    duty: "의례 순서와 금기, 봉납을 살핀다.",
+    behavior: "직접 본 것과 전승을 구분해 말한다."
+  },
+  {
+    patterns: ["관측대", "신전·관측"],
+    duty: "관측 기록과 시기별 징후를 대조한다.",
+    behavior: "확인 못한 징조는 단정하지 않는다."
+  },
+  {
+    patterns: ["교역", "상업", "상인", "물가 약속", "무기 중개"],
+    duty: "출처와 값, 보증인을 확인한다.",
+    behavior: "명분보다 납기와 거래 지속성을 본다."
+  },
+  {
+    patterns: ["수로"],
+    duty: "수문 일정과 물길 기록을 맞춘다.",
+    behavior: "공동 사용의 순서와 책임을 중시한다."
+  },
+  {
+    patterns: ["약초 장터"],
+    duty: "약초의 산지와 채집 허가를 확인한다.",
+    behavior: "출처와 보관 상태를 먼저 본다."
+  },
+  {
+    patterns: ["숲", "성림"],
+    duty: "채집 경계와 숲길 기록을 살핀다.",
+    behavior: "금기와 계절 변화를 존중한다."
+  },
+  {
+    patterns: ["기수단", "전마", "기사", "군사", "방어", "무기"],
+    duty: "장비 상태와 명령 체계를 점검한다.",
+    behavior: "안전과 동료 보호를 앞세운다."
+  },
+  {
+    patterns: ["원정", "탐사", "등정", "분화 감시", "고공"],
+    duty: "허가와 장비, 귀환 조건을 확인한다.",
+    behavior: "날씨와 생존 규칙을 먼저 따진다."
+  },
+  {
+    patterns: ["겨울", "혹한"],
+    duty: "기온과 비축량, 이동 시간을 살핀다.",
+    behavior: "생존 조건을 먼저 따진다."
+  },
+  {
+    patterns: ["계절 야영"],
+    duty: "야영 순서와 공동 물자를 조율한다.",
+    behavior: "지역 관습과 동행의 보증을 중시한다."
+  },
+  {
+    patterns: ["농촌", "공동주거"],
+    duty: "공동 작업과 배급 순서를 확인한다.",
+    behavior: "마을의 약속과 보증을 먼저 본다."
+  },
+  {
+    patterns: ["극장"],
+    duty: "출입 순서와 공연 기록을 관리한다.",
+    behavior: "소문과 실제 무대의 일을 구분한다."
+  },
+  {
+    patterns: ["정원"],
+    duty: "출입 허가와 재배 구역을 관리한다.",
+    behavior: "계절의 순서를 함부로 바꾸지 않는다."
+  },
+  {
+    patterns: ["공사", "철강"],
+    duty: "자재 상태와 작업 순서를 점검한다.",
+    behavior: "현장의 손상과 위험을 먼저 본다."
+  },
+  {
+    patterns: ["감찰"],
+    duty: "보고와 현장 기록의 차이를 대조한다.",
+    behavior: "책임 소재가 잡힐 때까지 확인한다."
+  },
+  {
+    patterns: ["궁정"],
+    duty: "권한과 추천장, 절차를 확인한다.",
+    behavior: "권한 밖의 부탁은 담당처로 돌린다."
+  },
+  {
+    patterns: ["평의회", "의회"],
+    duty: "발언과 합의 기록을 정리한다.",
+    behavior: "개인 주장보다 공동 책임을 따진다."
+  }
+];
+
+function canonicalTalkCharacterDetails(character: TalkCharacterEntry): string[] {
+  const role = normalizeKey(character.role ?? "");
+  const rule = TALK_ROLE_COPY_RULES.find((entry) =>
+    entry.patterns.some((pattern) => role.includes(normalizeKey(pattern)))
+  );
+
+  if (rule) {
+    return [rule.duty, rule.behavior];
+  }
+
+  return [
+    "자신의 직무와 관련 기록을 확인한다.",
+    compactTalkCharacterTendency(character.summary)
+  ].filter((value): value is string => Boolean(value));
+}
+
+function compactTalkCharacterTendency(summary: string | null | undefined): string | null {
+  const normalized = normalizeKey(summary ?? "");
+  if (!normalized) {
+    return null;
+  }
+  if (normalized.includes(normalizeKey("절차, 책임 소재, 문서 권위"))) {
+    return "절차와 책임 소재를 먼저 따진다.";
+  }
+  if (normalized.includes(normalizeKey("신뢰, 손익, 납기, 물자 흐름"))) {
+    return "신뢰와 납기, 물자 흐름을 중시한다.";
+  }
+  if (normalized.includes(normalizeKey("생존 규칙, 침묵, 보호 의무"))) {
+    return "생존 규칙과 보호 의무를 중시한다.";
+  }
+  if (normalized.includes(normalizeKey("기억의 보존, 출처, 문서 접근권"))) {
+    return "기록의 출처와 접근권을 중시한다.";
+  }
+  if (normalized.includes(normalizeKey("안전, 명령 체계, 동료 보호"))) {
+    return "안전과 동료 보호를 우선한다.";
+  }
+  if (normalized.includes(normalizeKey("일터의 신뢰, 지역 관습"))) {
+    return "지역 관습과 보증 관계를 중시한다.";
+  }
+  return null;
 }
 
 function cleanTalkInfoValue(
@@ -1764,142 +1938,6 @@ function isSceneOnlyTalkInfo(
   ];
 
   return sceneValues.some((sceneValue) => sceneValue && normalizeKey(sceneValue) === normalized);
-}
-
-function inferTalkCharacterInfo(
-  character: TalkCharacterEntry | null,
-  scene: SceneEntry,
-  placeLabel: string
-): string[] {
-  const speaker = character?.displayName ?? "";
-  const sceneText = normalizeKey(`${scene.key} ${scene.title} ${scene.caption} ${placeLabel}`);
-  const speakerText = normalizeKey(speaker);
-  const bystanderInfo = inferBystanderTalkInfo(speakerText, sceneText);
-  const merchantInfo = inferMerchantTalkInfo(speakerText, sceneText);
-
-  if (bystanderInfo) {
-    return bystanderInfo;
-  }
-
-  if (merchantInfo) {
-    return merchantInfo;
-  }
-
-  if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
-    return [
-      "성문 검문관",
-      "통행 표식과 장부를 확인한다.",
-      "말수는 적고 절차에 엄격하다."
-    ];
-  }
-
-  if (sceneText.includes("항만") || sceneText.includes("부두") || sceneText.includes("선박") || sceneText.includes("port")) {
-    return [
-      "항만 실무자",
-      "선박명과 화물 표식을 확인한다.",
-      "손실과 보증 문제에 민감하다."
-    ];
-  }
-
-  if (sceneText.includes("시장") || sceneText.includes("상단") || sceneText.includes("거래")) {
-    return [
-      "거래 현장의 사람",
-      "값과 보증, 소문을 살핀다.",
-      "말보다 물건의 출처를 먼저 본다."
-    ];
-  }
-
-  if (sceneText.includes("신전") || sceneText.includes("사원") || sceneText.includes("의례")) {
-    return [
-      "의례를 아는 사람",
-      "말의 순서와 예법을 가볍게 넘기지 않는다.",
-      "공개된 죄책과 금기를 먼저 살핀다."
-    ];
-  }
-
-  if (sceneText.includes("학당") || sceneText.includes("기록") || sceneText.includes("서고")) {
-    return [
-      "기록을 다루는 사람",
-      "문서의 출처와 필체를 확인한다.",
-      "말보다 남은 기록을 더 믿는다."
-    ];
-  }
-
-  if (character) {
-    return [
-      "이 장면에서 마주친 인물",
-      "말과 태도는 현재 장소의 규칙에 묶여 있다."
-    ];
-  }
-
-  return [
-    "현재 장소의 기척",
-    "인물이 없어도 장면의 분위기를 받쳐준다."
-  ];
-}
-
-function inferBystanderTalkInfo(speakerText: string, sceneText: string): string[] | null {
-  if (!speakerLooksLikeBystander(speakerText)) {
-    return null;
-  }
-  if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
-    return [
-      "대기열에 섞인 사람",
-      "날씨와 지체에 먼저 반응한다.",
-      "장면의 압박을 드러내는 주변 인물."
-    ];
-  }
-  return [
-    "곁을 지나던 사람",
-    "큰 설명보다 짧은 반응으로 장면을 밀어낸다.",
-    "현재 장소의 분위기를 먼저 드러낸다."
-  ];
-}
-
-function inferMerchantTalkInfo(speakerText: string, sceneText: string): string[] | null {
-  if (!speakerLooksLikeMerchant(speakerText)) {
-    return null;
-  }
-  if (sceneText.includes("성문") || sceneText.includes("검문") || sceneText.includes("관문") || sceneText.includes("gate")) {
-    return [
-      "검문 대기 중인 상인",
-      "표식과 짐수레 통과를 신경 쓴다.",
-      "지체와 날씨 변화에 예민하다."
-    ];
-  }
-  return [
-    "거래 현장의 상인",
-    "물건의 출처와 보증을 먼저 따진다.",
-    "손해가 될 말에는 빠르게 반응한다."
-  ];
-}
-
-function speakerLooksLikeBystander(speakerText: string): boolean {
-  return [
-    "뒷사람",
-    "앞사람",
-    "행인",
-    "군중",
-    "노인",
-    "아이",
-    "여인",
-    "남자",
-    "사람",
-    "구경꾼",
-    "대기열"
-  ].some((keyword) => speakerText.includes(normalizeKey(keyword)));
-}
-
-function speakerLooksLikeMerchant(speakerText: string): boolean {
-  return [
-    "상인",
-    "장사꾼",
-    "상단",
-    "짐수레",
-    "곡물",
-    "화물",
-    "운반꾼"
-  ].some((keyword) => speakerText.includes(normalizeKey(keyword)));
 }
 
 function firstQuery(url: URL, names: string[]): string | null {

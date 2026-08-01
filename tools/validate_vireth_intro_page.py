@@ -47,6 +47,16 @@ EXPECTED_START_CARD_TYPES = {
     "START 07": "역할형 시작",
     "START 08": "역할형 시작",
 }
+EXPECTED_START_CARD_TITLES = {
+    "START 01": "성문 앞에서 시작",
+    "START 02": "비 오는 밤의 성문 근무",
+    "START 03": "떠돌이 용병의 첫 계약",
+    "START 04": "항구에서 묶인 짐",
+    "START 05": "사냥꾼의 이상한 발자국",
+    "START 06": "장터와 납품 장부",
+    "START 07": "피난민 배급 줄",
+    "START 08": "항만과 선착장의 새벽",
+}
 EXPECTED_START_IMAGES = {
     "START 01": "https://vireth-starting-records.musueman.chatgpt.site/assets/start-situations/gate-arrival.webp",
     "START 02": "https://vireth-svg.musueman.workers.dev/scene-assets/city-vistas/ck5083-city-tiris-bekkellkar-ravenstone-imagegen-v1-scene-v2.webp",
@@ -122,11 +132,16 @@ class IntroParser(HTMLParser):
         self.framed_sections: list[str] = []
         self.text_parts: list[str] = []
         self.start_card_texts: list[tuple[str, str]] = []
+        self.start_card_titles: list[tuple[str, str]] = []
         self._active_card_id: str | None = None
         self._active_card_tag: str | None = None
         self._active_card_depth: int | None = None
         self._active_card_text: list[str] = []
         self._tag_stack: list[str] = []
+        self._active_summary_card_id: str | None = None
+        self._active_summary_depth: int | None = None
+        self._summary_strong_titles: list[str] = []
+        self._active_summary_strong_text: list[str] | None = None
 
     def _collect_start_tag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = dict(attrs)
@@ -162,6 +177,14 @@ class IntroParser(HTMLParser):
         if tag == "img":
             self.image_srcs.append(attributes.get("src") or "")
 
+        if tag == "summary" and self._active_card_id is not None:
+            self._active_summary_card_id = self._active_card_id
+            self._active_summary_depth = len(self._tag_stack)
+            self._summary_strong_titles = []
+
+        if tag == "strong" and self._active_summary_card_id is not None:
+            self._active_summary_strong_text = []
+
         if "data-ui-frame" in attributes:
             self.frames.append(attributes["data-ui-frame"] or "")
 
@@ -196,6 +219,21 @@ class IntroParser(HTMLParser):
         self._collect_start_tag(tag, attrs)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "strong" and self._active_summary_strong_text is not None:
+            self._summary_strong_titles.append("".join(self._active_summary_strong_text))
+            self._active_summary_strong_text = None
+
+        if (
+            tag == "summary"
+            and self._active_summary_card_id is not None
+            and self._active_summary_depth == len(self._tag_stack) - 1
+        ):
+            title = self._summary_strong_titles[0] if len(self._summary_strong_titles) == 1 else ""
+            self.start_card_titles.append((self._active_summary_card_id, title))
+            self._active_summary_card_id = None
+            self._active_summary_depth = None
+            self._summary_strong_titles = []
+
         if (
             self._active_card_id is not None
             and tag == self._active_card_tag
@@ -216,6 +254,8 @@ class IntroParser(HTMLParser):
         self.text_parts.append(data)
         if self._active_card_id is not None:
             self._active_card_text.append(data)
+        if self._active_summary_strong_text is not None:
+            self._active_summary_strong_text.append(data)
 
 
 def validate_intro(path: Path) -> list[str]:
@@ -245,6 +285,10 @@ def validate_intro(path: Path) -> list[str]:
         matching_cards = [text for current_id, text in parser.start_card_texts if current_id == card_id]
         if len(matching_cards) != 1 or card_type not in matching_cards[0]:
             errors.append(f"start card type mismatch: {card_id} expected {card_type}")
+    for card_id, card_title in EXPECTED_START_CARD_TITLES.items():
+        matching_titles = [title for current_id, title in parser.start_card_titles if current_id == card_id]
+        if len(matching_titles) != 1 or matching_titles[0] != card_title:
+            errors.append(f"start card title mismatch: {card_id} expected {card_title}")
     if len(parser.start_images) != 8:
         errors.append(f"expected 8 start images, found {len(parser.start_images)}")
     if len(set(parser.start_images)) != 8:

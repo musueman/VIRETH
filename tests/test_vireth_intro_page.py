@@ -143,6 +143,32 @@ class VirethIntroContractTest(unittest.TestCase):
         self.assertIn("start card order mismatch", "\n".join(errors))
         self.assertIn("start card type mismatch", "\n".join(errors))
 
+    def test_rejects_swapped_start_titles(self) -> None:
+        first_title = START_CARDS[0][2]
+        second_title = START_CARDS[1][2]
+        html = canonical_fixture()
+        html = html.replace(
+            f"<strong>{first_title}</strong>",
+            "<strong>TITLE_PLACEHOLDER</strong>",
+            1,
+        )
+        html = html.replace(
+            f"<strong>{second_title}</strong>",
+            f"<strong>{first_title}</strong>",
+            1,
+        )
+        html = html.replace(
+            "<strong>TITLE_PLACEHOLDER</strong>",
+            f"<strong>{second_title}</strong>",
+            1,
+        )
+
+        errors = validate_fixture(html)
+        error_text = "\n".join(errors)
+
+        self.assertIn("start card title mismatch: START 01", error_text)
+        self.assertIn("start card title mismatch: START 02", error_text)
+
     def test_rejects_cta_data_value_that_differs_from_href(self) -> None:
         html = canonical_fixture().replace(
             f'href="{ARCHIVE_URL}"', 'href="https://example.test/wrong"', 1

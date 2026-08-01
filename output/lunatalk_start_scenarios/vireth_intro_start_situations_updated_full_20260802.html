@@ -229,13 +229,30 @@
       text-shadow: 0 2px 6px rgba(0, 0, 0, .95);
     }
 
-    #vireth-intro-20260802 [data-ui-frame="start-card"] > summary > img {
+    #vireth-intro-20260802 [data-ui-frame="start-card"] > summary > img[data-start-image] {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       pointer-events: none;
+    }
+
+    #vireth-intro-20260802 .vireth-disclosure-icon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 22px;
+      height: 22px;
+      filter: invert(1) drop-shadow(0 1px 2px rgba(0, 0, 0, .9));
+      opacity: .92;
+      pointer-events: none;
+      transition: transform .16s ease;
+    }
+
+    #vireth-intro-20260802 [data-ui-frame="start-card"][open] > summary > .vireth-disclosure-icon {
+      transform: rotate(180deg);
     }
 
     #vireth-intro-20260802 .vireth-card-shade {
@@ -528,6 +545,7 @@
             alt="성문 앞에 도착한 여행자의 시작 장면"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 01 · 기본 시작</span>
             <strong>성문 앞에서 시작</strong>
@@ -550,6 +568,7 @@
             alt="비 오는 밤의 성문과 초소"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 02 · 역할형 시작</span>
             <strong>비 오는 밤의 성문 근무</strong>
@@ -572,6 +591,7 @@
             alt="떠돌이 용병이 계약을 받는 여관"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 03 · 역할형 시작</span>
             <strong>떠돌이 용병의 첫 계약</strong>
@@ -594,6 +614,7 @@
             alt="화물과 짐표가 놓인 항구"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 04 · 역할형 시작</span>
             <strong>항구에서 묶인 짐</strong>
@@ -616,6 +637,7 @@
             alt="이상한 발자국이 남은 숲길"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 05 · 역할형 시작</span>
             <strong>사냥꾼의 이상한 발자국</strong>
@@ -638,6 +660,7 @@
             alt="납품 장부를 확인하는 장터"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 06 · 역할형 시작</span>
             <strong>장터와 납품 장부</strong>
@@ -660,6 +683,7 @@
             alt="공동 창고 앞 피난민 배급 줄"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 07 · 역할형 시작</span>
             <strong>피난민 배급 줄</strong>
@@ -682,6 +706,7 @@
             alt="새벽의 항만과 선착장"
           >
           <span class="vireth-card-shade"></span>
+          <img class="vireth-disclosure-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@0.468.0/icons/chevron-down.svg" alt="">
           <span class="vireth-card-title">
             <span class="vireth-card-meta">START 08 · 역할형 시작</span>
             <strong>항만과 선착장의 새벽</strong>

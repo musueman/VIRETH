@@ -103,6 +103,10 @@
       background: linear-gradient(90deg, rgba(7, 13, 18, .88), rgba(7, 13, 18, .57) 50%, rgba(7, 13, 18, .88));
     }
 
+    #vireth-intro-20260802 .vireth-guide-stage {
+      display: contents;
+    }
+
     #vireth-intro-20260802 .vireth-guide {
       position: absolute;
       bottom: 0;
@@ -123,7 +127,6 @@
     }
 
     #vireth-intro-20260802 .vireth-intro-copy {
-      position: relative;
       z-index: 1;
       width: min(100%, 660px);
       padding: 0 24px;
@@ -430,14 +433,31 @@
 
       #vireth-intro-20260802 [data-section="intro"] {
         min-height: 470px;
+        padding-top: 20px;
         padding-right: 8px;
+        padding-bottom: 20px;
         padding-left: 8px;
       }
 
+      #vireth-intro-20260802 .vireth-guide-stage {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 236px);
+        height: 142px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin: 8px auto 0;
+        pointer-events: none;
+      }
+
       #vireth-intro-20260802 .vireth-guide {
-        width: 24%;
-        max-height: 50%;
-        opacity: .78;
+        position: static;
+        width: auto;
+        max-width: 45%;
+        height: 142px;
+        max-height: none;
+        opacity: 1;
       }
 
       #vireth-intro-20260802 .vireth-intro-copy {
@@ -445,8 +465,23 @@
       }
 
       #vireth-intro-20260802 .vireth-cta-row {
-        align-items: stretch;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: minmax(0, .95fr) minmax(0, 1.15fr);
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      #vireth-intro-20260802 [data-ui-frame="cta"] {
+        min-width: 0;
+        min-height: 64px;
+        padding: 8px 7px;
+        font-size: 13px;
+      }
+
+      #vireth-intro-20260802 [data-ui-frame="cta"] img {
+        width: 16px;
+        height: 16px;
+        flex-basis: 16px;
       }
 
       #vireth-intro-20260802 #vireth-start-grid {
@@ -488,22 +523,24 @@
       alt=""
     >
     <span class="vireth-intro-shade"></span>
-    <img
-      class="vireth-guide vireth-guide-ren"
-      src="https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/ren-cutout.png"
-      alt="렌"
-    >
-    <img
-      class="vireth-guide vireth-guide-duran"
-      src="https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/duran-cutout.png"
-      alt="듀란"
-    >
     <div class="vireth-intro-copy">
       <span class="vireth-kicker">VIRETH 5083</span>
       <h1>비레스 5083</h1>
       <p>정해진 답을 고르기보다, 눈앞의 사람과 장소를 따라 직접 움직이는 판타지 여행입니다.</p>
       <p>출신과 목표를 다 정하지 않아도 괜찮습니다. 마음에 드는 첫 장면을 골라 말을 걸어보세요.</p>
       <div class="vireth-guide-caption">비레스를 먼저 걷고 있는 여행자, 렌과 듀란</div>
+      <div class="vireth-guide-stage" aria-hidden="true">
+        <img
+          class="vireth-guide vireth-guide-ren"
+          src="https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/ren-cutout.png"
+          alt=""
+        >
+        <img
+          class="vireth-guide vireth-guide-duran"
+          src="https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/duran-cutout.png"
+          alt=""
+        >
+      </div>
       <div class="vireth-cta-row">
         <a
           data-cta="#vireth-starts"

@@ -5,6 +5,9 @@ import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
+from urllib.request import Request, urlopen
 
 
 REQUIRED_SECTIONS = [
@@ -107,6 +110,7 @@ VOID_TAGS = {
     "track",
     "wbr",
 }
+URL_REQUEST_HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 
 class IntroParser(HTMLParser):
@@ -128,6 +132,7 @@ class IntroParser(HTMLParser):
         self.start_image_srcs: list[str] = []
         self.start_image_cards: list[str] = []
         self.image_srcs: list[str] = []
+        self.remote_attributes: list[str] = []
         self.cta_records: list[tuple[str, str, str, str]] = []
         self.framed_sections: list[str] = []
         self.text_parts: list[str] = []
@@ -145,6 +150,10 @@ class IntroParser(HTMLParser):
 
     def _collect_start_tag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = dict(attrs)
+
+        for name, value in attrs:
+            if name == "href" or (tag == "img" and name == "src"):
+                self.remote_attributes.append(value or "")
 
         if "data-vireth-intro" in attributes:
             self.root_markers.append(attributes["data-vireth-intro"] or "")
@@ -368,9 +377,64 @@ def validate_intro(path: Path) -> list[str]:
     return errors
 
 
+def collect_remote_urls(path: Path) -> list[str]:
+    if not path.exists():
+        return []
+
+    parser = IntroParser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    parser.close()
+
+    remote_urls: list[str] = []
+    seen: set[str] = set()
+    for value in parser.remote_attributes:
+        if urlparse(value).scheme.lower() not in {"http", "https"}:
+            continue
+        if value not in seen:
+            seen.add(value)
+            remote_urls.append(value)
+    return remote_urls
+
+
+def _check_url_response(url: str, method: str) -> str | None:
+    request = Request(url, headers=URL_REQUEST_HEADERS, method=method)
+    try:
+        with urlopen(request, timeout=15) as response:
+            status = response.getcode()
+        if method == "HEAD" and status == 405:
+            return _check_url_response(url, "GET")
+    except HTTPError as error:
+        status = error.code
+        reason = error.reason
+        error.close()
+        if method == "HEAD" and status == 405:
+            return _check_url_response(url, "GET")
+        if 200 <= status <= 399:
+            return None
+        return f"{url}: HTTP {status} {reason}"
+    except URLError as error:
+        return f"{url}: {error}"
+    except OSError as error:
+        return f"{url}: {error}"
+
+    if 200 <= status <= 399:
+        return None
+    return f"{url}: HTTP {status}"
+
+
+def check_remote_urls(urls: list[str]) -> list[str]:
+    errors: list[str] = []
+    for url in urls:
+        error = _check_url_response(url, "HEAD")
+        if error is not None:
+            errors.append(error)
+    return errors
+
+
 def main() -> int:
     argument_parser = argparse.ArgumentParser()
     argument_parser.add_argument("path", type=Path)
+    argument_parser.add_argument("--check-urls", action="store_true")
     args = argument_parser.parse_args()
 
     errors = validate_intro(args.path)
@@ -378,6 +442,15 @@ def main() -> int:
         for error in errors:
             print(error)
         return 1
+
+    if args.check_urls:
+        remote_urls = collect_remote_urls(args.path)
+        url_errors = check_remote_urls(remote_urls)
+        if url_errors:
+            for error in url_errors:
+                print(f"URL check failed: {error}")
+            return 1
+        print(f"OK: {len(remote_urls)} unique remote URLs reachable")
 
     print(f"OK: {args.path}")
     return 0

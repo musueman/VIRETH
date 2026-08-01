@@ -2,7 +2,10 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import textwrap
 import unittest
+from urllib.error import HTTPError, URLError
+from unittest.mock import patch
 
+from tools import validate_vireth_intro_page as validator
 from tools.validate_vireth_intro_page import validate_intro
 
 
@@ -118,6 +121,125 @@ def validate_fixture(html: str) -> list[str]:
         path = Path(temporary_directory) / "fixture.html"
         path.write_text(html, encoding="utf-8")
         return validate_intro(path)
+
+
+class FakeResponse:
+    def __init__(self, status: int, url: str) -> None:
+        self.status = status
+        self.url = url
+
+    def __enter__(self) -> "FakeResponse":
+        return self
+
+    def __exit__(self, *args: object) -> None:
+        return None
+
+    def getcode(self) -> int:
+        return self.status
+
+    def geturl(self) -> str:
+        return self.url
+
+
+def remote_api(name: str):
+    function = getattr(validator, name, None)
+    if function is None:
+        raise AssertionError(f"validator API is missing: {name}")
+    return function
+
+
+class VirethIntroRemoteUrlTest(unittest.TestCase):
+    def test_collect_remote_urls_returns_unique_http_urls_in_document_order(self) -> None:
+        html = """
+        <a href="https://example.test/archive">archive</a>
+        <a href="#local">local</a>
+        <img src="https://example.test/image.webp">
+        <img src="https://example.test/image.webp">
+        <a href="http://example.test/icon.svg">icon</a>
+        <a href="mailto:test@example.test">mail</a>
+        """
+
+        with TemporaryDirectory() as temporary_directory:
+            path = Path(temporary_directory) / "fixture.html"
+            path.write_text(html, encoding="utf-8")
+
+            urls = remote_api("collect_remote_urls")(path)
+
+        self.assertEqual(
+            [
+                "https://example.test/archive",
+                "https://example.test/image.webp",
+                "http://example.test/icon.svg",
+            ],
+            urls,
+        )
+
+    @patch("tools.validate_vireth_intro_page.urlopen", create=True)
+    def test_check_remote_urls_accepts_successful_head(self, urlopen) -> None:
+        requests = []
+
+        def respond(request, timeout):
+            requests.append((request.get_method(), request.full_url, timeout))
+            return FakeResponse(200, request.full_url)
+
+        urlopen.side_effect = respond
+
+        self.assertEqual(
+            [], remote_api("check_remote_urls")(["https://example.test/asset.webp"])
+        )
+        self.assertEqual(
+            [("HEAD", "https://example.test/asset.webp", 15)],
+            requests,
+        )
+
+    @patch("tools.validate_vireth_intro_page.urlopen", create=True)
+    def test_check_remote_urls_falls_back_to_get_for_head_405(self, urlopen) -> None:
+        requests = []
+        url = "https://example.test/head-rejected.webp"
+
+        def respond(request, timeout):
+            requests.append((request.get_method(), request.full_url, timeout))
+            if request.get_method() == "HEAD":
+                raise HTTPError(url, 405, "Method Not Allowed", {}, None)
+            return FakeResponse(200, url)
+
+        urlopen.side_effect = respond
+
+        self.assertEqual([], remote_api("check_remote_urls")([url]))
+        self.assertEqual(["HEAD", "GET"], [method for method, _, _ in requests])
+
+    @patch("tools.validate_vireth_intro_page.urlopen", create=True)
+    def test_check_remote_urls_accepts_final_response_after_redirect(self, urlopen) -> None:
+        source_url = "https://example.test/redirect"
+        final_url = "https://cdn.example.test/asset.webp"
+        urlopen.return_value = FakeResponse(200, final_url)
+
+        self.assertEqual([], remote_api("check_remote_urls")([source_url]))
+        request = urlopen.call_args.args[0]
+        self.assertEqual("HEAD", request.get_method())
+        self.assertEqual(source_url, request.full_url)
+
+    @patch("tools.validate_vireth_intro_page.urlopen", create=True)
+    def test_check_remote_urls_reports_failing_http_status(self, urlopen) -> None:
+        url = "https://example.test/missing.webp"
+        urlopen.side_effect = HTTPError(url, 404, "Not Found", {}, None)
+
+        errors = remote_api("check_remote_urls")([url])
+
+        self.assertEqual(1, len(errors))
+        self.assertIn(url, errors[0])
+        self.assertIn("HTTP 404", errors[0])
+
+    @patch("tools.validate_vireth_intro_page.urlopen", create=True)
+    def test_check_remote_urls_reports_transport_error(self, urlopen) -> None:
+        url = "https://example.test/offline.webp"
+        urlopen.side_effect = URLError("connection refused")
+
+        errors = remote_api("check_remote_urls")([url])
+
+        self.assertEqual(1, len(errors))
+        self.assertIn(url, errors[0])
+        self.assertIn("connection refused", errors[0])
 
 
 class VirethIntroContractTest(unittest.TestCase):

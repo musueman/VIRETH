@@ -158,9 +158,9 @@ def canonical_fixture() -> str:
     return textwrap.dedent(
         f'''\
         <div id="vireth-intro-20260802" data-vireth-intro="20260802" data-character-idx="70170">
-          <section data-section="notice"><div data-ui-frame="notice">업데이트가 조금 늦어질 수 있습니다. {accident}</div></section>
-          <section data-section="updates"><details data-ui-frame="details-control"><summary>업데이트 내역</summary><div><ol class="vireth-update-timeline">{updates}</ol></div></details></section>
-          <section data-section="intro">
+          <div data-section="notice"><div data-ui-frame="notice">업데이트가 조금 늦어질 수 있습니다. {accident}</div></div>
+          <div data-section="updates"><details data-ui-frame="details-control"><summary>업데이트 내역</summary><div><ol class="vireth-update-timeline">{updates}</ol></div></details></div>
+          <div data-section="intro">
             <h1>비레스 5083</h1>
             <p>비레스를 먼저 걷고 있는 여행자, 렌과 듀란</p>
             <img src="https://vireth-starting-records.musueman.chatgpt.site/assets/start-situations/gate-arrival.webp" alt="도시">
@@ -168,10 +168,10 @@ def canonical_fixture() -> str:
             <img data-guide="duran" src="{GUIDE_IMAGES["duran"]}" alt="듀란">
             <a data-cta="#vireth-starts" href="#vireth-starts">비레스를 먼저 둘러보기</a>
             <a data-cta="{ARCHIVE_URL}" href="{ARCHIVE_URL}" target="_blank" rel="noopener noreferrer">이야기 읽기</a>
-          </section>
-          <section data-section="starts"><p>{STARTS_LEAD}</p>{cards}</section>
-          <section data-section="play-flow"><p>장면을 고릅니다</p></section>
-          <section data-section="commands"><details data-ui-frame="details-control"><summary>막혔을 때 이렇게 불러보세요</summary></details></section>
+          </div>
+          <div data-section="starts"><p>{STARTS_LEAD}</p>{cards}</div>
+          <div data-section="play-flow"><p>장면을 고릅니다</p></div>
+          <div data-section="commands"><details data-ui-frame="details-control"><summary>막혔을 때 이렇게 불러보세요</summary></details></div>
         </div>'''
     )
 
@@ -509,6 +509,39 @@ class VirethIntroContractTest(unittest.TestCase):
 
         self.assertIn(
             "style tags are not allowed in the LunaTalk fragment; use inline styles",
+            "\n".join(errors),
+        )
+
+    def test_rejects_section_tag_that_lunatalk_unwraps(self) -> None:
+        html = canonical_fixture().replace(
+            '<div data-section="intro">',
+            '<section data-section="intro">',
+            1,
+        ).replace(
+            '<div data-section="starts">',
+            '</section><div data-section="starts">',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            "section tags are not allowed because LunaTalk unwraps them; use div",
+            "\n".join(errors),
+        )
+
+    def test_rejects_positioned_image_with_empty_alt(self) -> None:
+        html = canonical_fixture().replace(
+            'alt="도시">',
+            'class="vireth-intro-city" alt="" '
+            'style="position:absolute;object-fit:cover;">',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            "positioned images must use non-empty alt text for LunaTalk style preservation",
             "\n".join(errors),
         )
 

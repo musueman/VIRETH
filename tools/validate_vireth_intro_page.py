@@ -176,6 +176,8 @@ class IntroParser(HTMLParser):
         self.style_tags: int = 0
         self.meta_tags: int = 0
         self.iframes: int = 0
+        self.section_tags: int = 0
+        self.unsafe_empty_alt_images: list[str] = []
         self.summary_background_urls: list[str] = []
 
         self.root_markers: list[str] = []
@@ -257,6 +259,22 @@ class IntroParser(HTMLParser):
 
         if tag == "img":
             self.image_srcs.append(attributes.get("src") or "")
+            image_style = attributes.get("style") or ""
+            image_classes = set((attributes.get("class") or "").split())
+            is_hero_or_guide = bool(
+                image_classes & {"vireth-intro-city", "vireth-guide"}
+            )
+            if (
+                is_hero_or_guide
+                and not (attributes.get("alt") or "").strip()
+                and re.search(
+                r"(?:^|;)\s*(?:position\s*:\s*absolute|inset\s*:|"
+                r"z-index\s*:|object-fit\s*:)",
+                image_style,
+                re.IGNORECASE,
+                )
+            ):
+                self.unsafe_empty_alt_images.append(attributes.get("src") or "")
             if "data-guide" in attributes:
                 self.guide_images.append(
                     (
@@ -321,6 +339,9 @@ class IntroParser(HTMLParser):
 
         if tag == "iframe":
             self.iframes += 1
+
+        if tag == "section":
+            self.section_tags += 1
 
         if tag == "summary":
             self._active_summary_text = []
@@ -445,6 +466,15 @@ def validate_intro(path: Path) -> list[str]:
         errors.append("meta tags are not allowed in the LunaTalk fragment")
     if parser.iframes:
         errors.append("iframe tags are not allowed in the LunaTalk fragment")
+    if parser.section_tags:
+        errors.append(
+            "section tags are not allowed because LunaTalk unwraps them; use div"
+        )
+    if parser.unsafe_empty_alt_images:
+        errors.append(
+            "positioned images must use non-empty alt text for LunaTalk style "
+            "preservation"
+        )
     if parser.summary_background_urls:
         errors.append("summary elements must use real img elements, not CSS background URLs")
 

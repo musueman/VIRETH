@@ -527,6 +527,59 @@ class VirethIntroContractTest(unittest.TestCase):
             error_text,
         )
 
+    def test_rejects_update_history_titles_and_bodies_swapped_between_dates(self) -> None:
+        first_date, first_title, first_body = UPDATE_HISTORY[0]
+        second_date, second_title, second_body = UPDATE_HISTORY[1]
+        self.assertNotEqual(first_date, second_date)
+
+        html = canonical_fixture()
+        html = html.replace(first_title, "__FIRST_TITLE__", 1)
+        html = html.replace(second_title, first_title, 1)
+        html = html.replace("__FIRST_TITLE__", second_title, 1)
+        html = html.replace(first_body, "__FIRST_BODY__", 1)
+        html = html.replace(second_body, first_body, 1)
+        html = html.replace("__FIRST_BODY__", second_body, 1)
+
+        errors = validate_fixture(html)
+
+        self.assertIn("update history records mismatch", "\n".join(errors))
+
+    def test_rejects_update_history_body_with_appended_excluded_text(self) -> None:
+        approved_body = UPDATE_HISTORY[0][2]
+        html = canonical_fixture().replace(
+            approved_body,
+            f"{approved_body} 전체 재색인 후보 데이터를 추가했습니다.",
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn("update history records mismatch", "\n".join(errors))
+
+    def test_rejects_approved_update_copy_moved_outside_its_row(self) -> None:
+        approved_body = UPDATE_HISTORY[0][2]
+        html = canonical_fixture().replace(approved_body, "", 1)
+        html = html.replace(
+            "<div data-section=\"intro\">",
+            f"<div data-section=\"intro\"><p>{approved_body}</p>",
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn("update history records mismatch", "\n".join(errors))
+
+    def test_rejects_time_element_outside_update_history_rows(self) -> None:
+        html = canonical_fixture().replace(
+            "<div data-section=\"intro\">",
+            "<div data-section=\"intro\"><time datetime=\"2026-08-03\">2026. 08. 03.</time>",
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn("update history has time element outside update rows", "\n".join(errors))
+
     def test_rejects_changed_approved_starts_lead(self) -> None:
         html = canonical_fixture().replace(
             STARTS_LEAD,

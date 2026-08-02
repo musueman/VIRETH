@@ -210,6 +210,9 @@ class IntroParser(HTMLParser):
         self.summary_texts: list[str] = []
         self.update_dates: list[str] = []
         self.update_records: list[tuple[str, str]] = []
+        self.update_row_records: list[tuple[str, str, str, str]] = []
+        self.update_row_structure_errors: list[str] = []
+        self.update_times_outside_rows: int = 0
         self._active_card_id: str | None = None
         self._active_card_tag: str | None = None
         self._active_card_depth: int | None = None
@@ -221,6 +224,13 @@ class IntroParser(HTMLParser):
         self._active_summary_strong_text: list[str] | None = None
         self._active_summary_text: list[str] | None = None
         self._active_update_date: str | None = None
+        self._active_update_depth: int | None = None
+        self._active_update_time_datetimes: list[str] = []
+        self._active_update_titles: list[str] = []
+        self._active_update_bodies: list[str] = []
+        self._active_update_extra_text: list[str] = []
+        self._active_update_text_tag: str | None = None
+        self._active_update_text_parts: list[str] = []
 
     def _collect_start_tag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = dict(attrs)
@@ -253,12 +263,33 @@ class IntroParser(HTMLParser):
         if "data-update-date" in attributes:
             update_date = attributes["data-update-date"] or ""
             self.update_dates.append(update_date)
-            self._active_update_date = update_date
+            if tag != "li":
+                self.update_row_structure_errors.append(
+                    f"update history record must be an li: {update_date}"
+                )
+            else:
+                self._active_update_date = update_date
+                self._active_update_depth = len(self._tag_stack)
+                self._active_update_time_datetimes = []
+                self._active_update_titles = []
+                self._active_update_bodies = []
+                self._active_update_extra_text = []
+                self._active_update_text_tag = None
+                self._active_update_text_parts = []
 
-        if tag == "time" and self._active_update_date is not None:
-            self.update_records.append(
-                (self._active_update_date, attributes.get("datetime") or "")
-            )
+        if tag == "time":
+            if self._active_update_date is None:
+                self.update_times_outside_rows += 1
+            else:
+                time_datetime = attributes.get("datetime") or ""
+                self.update_records.append((self._active_update_date, time_datetime))
+                self._active_update_time_datetimes.append(time_datetime)
+                self._active_update_text_tag = "time"
+                self._active_update_text_parts = []
+
+        if tag in {"strong", "p"} and self._active_update_date is not None:
+            self._active_update_text_tag = tag
+            self._active_update_text_parts = []
 
         if "data-start-image" in attributes:
             self.start_images.append(attributes["data-start-image"] or "")
@@ -369,6 +400,15 @@ class IntroParser(HTMLParser):
         self._collect_start_tag(tag, attrs)
 
     def handle_endtag(self, tag: str) -> None:
+        if self._active_update_text_tag == tag:
+            update_text = " ".join("".join(self._active_update_text_parts).split())
+            if tag == "strong":
+                self._active_update_titles.append(update_text)
+            elif tag == "p":
+                self._active_update_bodies.append(update_text)
+            self._active_update_text_tag = None
+            self._active_update_text_parts = []
+
         if tag == "summary" and self._active_summary_text is not None:
             self.summary_texts.append(
                 " ".join("".join(self._active_summary_text).split())
@@ -403,8 +443,39 @@ class IntroParser(HTMLParser):
             self._active_card_depth = None
             self._active_card_text = []
 
-        if tag == "li" and self._active_update_date is not None:
+        if (
+            tag == "li"
+            and self._active_update_date is not None
+            and self._active_update_depth == len(self._tag_stack) - 1
+        ):
+            update_date = self._active_update_date
+            time_values = self._active_update_time_datetimes
+            titles = self._active_update_titles
+            bodies = self._active_update_bodies
+            self.update_row_records.append(
+                (
+                    update_date,
+                    time_values[0] if len(time_values) == 1 else "",
+                    titles[0] if len(titles) == 1 else "",
+                    bodies[0] if len(bodies) == 1 else "",
+                )
+            )
+            if len(time_values) != 1 or len(titles) != 1 or len(bodies) != 1:
+                self.update_row_structure_errors.append(
+                    "update history record must contain exactly one time, strong, and p: "
+                    f"{update_date}"
+                )
+            extra_text = " ".join("".join(self._active_update_extra_text).split())
+            if extra_text:
+                self.update_row_structure_errors.append(
+                    f"update history record has text outside time, strong, and p: {update_date}"
+                )
             self._active_update_date = None
+            self._active_update_depth = None
+            self._active_update_time_datetimes = []
+            self._active_update_titles = []
+            self._active_update_bodies = []
+            self._active_update_extra_text = []
 
         if self._tag_stack:
             self._tag_stack.pop()
@@ -417,6 +488,10 @@ class IntroParser(HTMLParser):
             self._active_summary_strong_text.append(data)
         if self._active_summary_text is not None:
             self._active_summary_text.append(data)
+        if self._active_update_text_tag is not None:
+            self._active_update_text_parts.append(data)
+        elif self._active_update_date is not None and data.strip():
+            self._active_update_extra_text.append(data)
 
 
 def validate_intro(path: Path) -> list[str]:
@@ -598,6 +673,18 @@ def validate_intro(path: Path) -> list[str]:
                 "update history date attributes must match: "
                 f"{update_date} != {time_datetime}"
             )
+    expected_update_records = [
+        (update_date, update_date, title, body)
+        for update_date, title, body in UPDATE_HISTORY
+    ]
+    if parser.update_row_records != expected_update_records:
+        errors.append(
+            "update history records mismatch: "
+            f"{parser.update_row_records} != {expected_update_records}"
+        )
+    errors.extend(parser.update_row_structure_errors)
+    if parser.update_times_outside_rows:
+        errors.append("update history has time element outside update rows")
 
     for fact in ACCIDENT_FACTS:
         if fact not in text:

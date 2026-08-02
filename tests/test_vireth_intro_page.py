@@ -14,7 +14,25 @@ TARGET = ROOT / "output" / "lunatalk_start_scenarios" / (
     "vireth_intro_start_situations_updated_full_20260802.html"
 )
 
-ARCHIVE_URL = "https://vireth-starting-records.musueman.chatgpt.site/#story-starts"
+ARCHIVE_BASE_URL = "https://vireth-starting-records.musueman.chatgpt.site/reader?v=24"
+STORY_SCENARIOS = (
+    "gate-arrival",
+    "gate-watch",
+    "mercenary-contract",
+    "held-cargo",
+    "strange-tracks",
+    "market-ledger",
+    "ration-line",
+    "harbor-dawn",
+)
+STORY_URLS = tuple(
+    f"{ARCHIVE_BASE_URL}#scenario={scenario}" for scenario in STORY_SCENARIOS
+)
+ARCHIVE_URL = STORY_URLS[0]
+GUIDE_IMAGES = {
+    "ren": "https://vireth-starting-records.musueman.chatgpt.site/assets/story-guides/ren-ending-guide.png",
+    "duran": "https://vireth-starting-records.musueman.chatgpt.site/assets/story-guides/duran-ending-guide.png",
+}
 STARTS_LEAD = (
     "처음 정한 길을 끝까지 따를 필요는 없습니다. "
     "지금 끌리는 장면에서 시작해 보세요."
@@ -93,9 +111,11 @@ def canonical_fixture() -> str:
   <summary><img data-start-image="{image_url}" src="{image_url}" alt="{title}">
     <span>{card_id} · {kind}</span><strong>{title}</strong>
   </summary>
-  <div>상황 설명. 예시 입력: 주변을 살핀다. !역할시작</div>
+  <div>상황 설명. 예시 입력: 주변을 살핀다. !역할시작
+    <a class="vireth-archive-link" href="{STORY_URLS[index]}" target="_blank" rel="noopener noreferrer">이 시작과 이어지는 이야기 읽기</a>
+  </div>
 </details>'''
-        for card_id, kind, title, image_url in START_CARDS
+        for index, (card_id, kind, title, image_url) in enumerate(START_CARDS)
     )
     accident = " ".join(ACCIDENT_FACTS)
     updates = " ".join(UPDATE_FACTS)
@@ -107,8 +127,8 @@ def canonical_fixture() -> str:
             <h1>비레스 5083</h1>
             <p>비레스를 먼저 걷고 있는 여행자, 렌과 듀란</p>
             <img src="https://vireth-starting-records.musueman.chatgpt.site/assets/start-situations/gate-arrival.webp" alt="도시">
-            <img src="https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/ren-cutout.png" alt="렌">
-            <img src="https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/duran-cutout.png" alt="듀란">
+            <img data-guide="ren" src="{GUIDE_IMAGES["ren"]}" alt="렌">
+            <img data-guide="duran" src="{GUIDE_IMAGES["duran"]}" alt="듀란">
             <a data-cta="#vireth-starts" href="#vireth-starts">비레스를 먼저 둘러보기</a>
             <a data-cta="{ARCHIVE_URL}" href="{ARCHIVE_URL}" target="_blank" rel="noopener noreferrer">이야기 읽기</a>
           </section>
@@ -318,6 +338,44 @@ class VirethIntroContractTest(unittest.TestCase):
         self.assertIn("start image URL mismatch", error_text)
         self.assertIn("rendered start image asset mismatch", error_text)
 
+    def test_rejects_unmatched_guide_image_pair(self) -> None:
+        html = canonical_fixture().replace(
+            GUIDE_IMAGES["ren"],
+            "https://vireth-starting-records.musueman.chatgpt.site/assets/archive-stage/ren-cutout.png",
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn("guide image mismatch: ren", "\n".join(errors))
+
+    def test_rejects_wrong_story_archive_scenario_link(self) -> None:
+        html = canonical_fixture().replace(
+            STORY_URLS[3],
+            STORY_URLS[2],
+            1,
+        )
+
+        errors = validate_fixture(html)
+        error_text = "\n".join(errors)
+
+        self.assertIn("story archive link mismatch: START 04", error_text)
+        self.assertIn("story archive scenario links must be unique", error_text)
+
+    def test_rejects_story_archive_link_without_external_link_protection(self) -> None:
+        html = canonical_fixture().replace(
+            'target="_blank" rel="noopener noreferrer">이 시작과 이어지는 이야기 읽기',
+            'target="_self">이 시작과 이어지는 이야기 읽기',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            "story archive link must use target=\"_blank\" and rel=\"noopener noreferrer\": START 01",
+            "\n".join(errors),
+        )
+
     def test_rejects_wrong_binding_facts_and_guide_scope(self) -> None:
         html = canonical_fixture()
         html = html.replace('data-character-idx="70170"', "", 1)
@@ -370,6 +428,34 @@ class VirethIntroContractTest(unittest.TestCase):
 
         self.assertIn(
             "meta tags are not allowed in the LunaTalk fragment",
+            "\n".join(errors),
+        )
+
+    def test_rejects_iframe_in_lunatalk_fragment(self) -> None:
+        html = canonical_fixture().replace(
+            "</div>",
+            '<iframe src="https://example.test/embed"></iframe></div>',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            "iframe tags are not allowed in the LunaTalk fragment",
+            "\n".join(errors),
+        )
+
+    def test_rejects_unprotected_arbitrary_external_link(self) -> None:
+        html = canonical_fixture().replace(
+            "</div>",
+            '<a href="https://example.test/more">외부 자료</a></div>',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            'external link must use target="_blank" and rel="noopener noreferrer": https://example.test/more',
             "\n".join(errors),
         )
 

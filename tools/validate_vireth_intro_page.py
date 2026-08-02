@@ -24,12 +24,29 @@ ALLOWED_FRAMES = {
     "start-card",
     "details-control",
 }
-EXPECTED_ARCHIVE_URL = (
-    "https://vireth-starting-records.musueman.chatgpt.site/#story-starts"
+ARCHIVE_BASE_URL = "https://vireth-starting-records.musueman.chatgpt.site/reader?v=24"
+EXPECTED_STORY_SCENARIOS = (
+    "gate-arrival",
+    "gate-watch",
+    "mercenary-contract",
+    "held-cargo",
+    "strange-tracks",
+    "market-ledger",
+    "ration-line",
+    "harbor-dawn",
 )
+EXPECTED_STORY_URLS = tuple(
+    f"{ARCHIVE_BASE_URL}#scenario={scenario}"
+    for scenario in EXPECTED_STORY_SCENARIOS
+)
+EXPECTED_ARCHIVE_URL = EXPECTED_STORY_URLS[0]
 EXPECTED_INTERNAL_START_URL = "#vireth-starts"
 EXPECTED_CHARACTER_IDX = "70170"
 EXPECTED_ROOT_TAG = "div"
+EXPECTED_GUIDE_IMAGES = {
+    "ren": "https://vireth-starting-records.musueman.chatgpt.site/assets/story-guides/ren-ending-guide.png",
+    "duran": "https://vireth-starting-records.musueman.chatgpt.site/assets/story-guides/duran-ending-guide.png",
+}
 EXPECTED_STARTS_LEAD = (
     "처음 정한 길을 끝까지 따를 필요는 없습니다. "
     "지금 끌리는 장면에서 시작해 보세요."
@@ -127,6 +144,7 @@ class IntroParser(HTMLParser):
         self.ctas: list[str] = []
         self.scripts: int = 0
         self.meta_tags: int = 0
+        self.iframes: int = 0
         self.summary_background_urls: list[str] = []
 
         self.root_markers: list[str] = []
@@ -139,10 +157,13 @@ class IntroParser(HTMLParser):
         self.image_srcs: list[str] = []
         self.remote_attributes: list[str] = []
         self.cta_records: list[tuple[str, str, str, str]] = []
+        self.link_records: list[tuple[str, str, str]] = []
         self.framed_sections: list[str] = []
         self.text_parts: list[str] = []
         self.start_card_texts: list[tuple[str, str]] = []
         self.start_card_titles: list[tuple[str, str]] = []
+        self.guide_images: list[tuple[str, str]] = []
+        self.story_archive_links: list[tuple[str, str, str, str]] = []
         self._active_card_id: str | None = None
         self._active_card_tag: str | None = None
         self._active_card_depth: int | None = None
@@ -190,6 +211,25 @@ class IntroParser(HTMLParser):
 
         if tag == "img":
             self.image_srcs.append(attributes.get("src") or "")
+            if "data-guide" in attributes:
+                self.guide_images.append(
+                    (
+                        attributes["data-guide"] or "",
+                        attributes.get("src") or "",
+                    )
+                )
+
+        if tag == "a" and "vireth-archive-link" in (
+            attributes.get("class") or ""
+        ).split():
+            self.story_archive_links.append(
+                (
+                    self._active_card_id or "",
+                    attributes.get("href") or "",
+                    attributes.get("target") or "",
+                    attributes.get("rel") or "",
+                )
+            )
 
         if tag == "summary" and self._active_card_id is not None:
             self._active_summary_card_id = self._active_card_id
@@ -215,11 +255,23 @@ class IntroParser(HTMLParser):
                 )
             )
 
+        if tag == "a":
+            self.link_records.append(
+                (
+                    attributes.get("href") or "",
+                    attributes.get("target") or "",
+                    attributes.get("rel") or "",
+                )
+            )
+
         if tag == "script":
             self.scripts += 1
 
         if tag == "meta":
             self.meta_tags += 1
+
+        if tag == "iframe":
+            self.iframes += 1
 
         if tag == "summary":
             style = attributes.get("style") or ""
@@ -326,11 +378,51 @@ def validate_intro(path: Path) -> list[str]:
         errors.append("script tags are not allowed")
     if parser.meta_tags:
         errors.append("meta tags are not allowed in the LunaTalk fragment")
+    if parser.iframes:
+        errors.append("iframe tags are not allowed in the LunaTalk fragment")
     if parser.summary_background_urls:
         errors.append("summary elements must use real img elements, not CSS background URLs")
 
     if parser.framed_sections:
         errors.append(f"sections must not use data-ui-frame: {parser.framed_sections}")
+
+    guide_images_by_role = dict(parser.guide_images)
+    for role, expected_url in EXPECTED_GUIDE_IMAGES.items():
+        if guide_images_by_role.get(role) != expected_url:
+            errors.append(
+                f"guide image mismatch: {role} expected {expected_url}"
+            )
+    if len(parser.guide_images) != len(EXPECTED_GUIDE_IMAGES):
+        errors.append(
+            f"expected {len(EXPECTED_GUIDE_IMAGES)} guide images, "
+            f"found {len(parser.guide_images)}"
+        )
+
+    expected_story_links = list(zip(EXPECTED_START_CARDS, EXPECTED_STORY_URLS))
+    for card_id, expected_url in expected_story_links:
+        matching_links = [
+            href
+            for current_card_id, href, _, _ in parser.story_archive_links
+            if current_card_id == card_id
+        ]
+        if matching_links != [expected_url]:
+            errors.append(
+                f"story archive link mismatch: {card_id} expected {expected_url}"
+            )
+    story_archive_urls = [href for _, href, _, _ in parser.story_archive_links]
+    if len(story_archive_urls) != len(set(story_archive_urls)):
+        errors.append("story archive scenario links must be unique")
+    if len(parser.story_archive_links) != len(EXPECTED_START_CARDS):
+        errors.append(
+            f"expected {len(EXPECTED_START_CARDS)} story archive links, "
+            f"found {len(parser.story_archive_links)}"
+        )
+    for card_id, _, target, rel in parser.story_archive_links:
+        if target != "_blank" or rel != "noopener noreferrer":
+            errors.append(
+                "story archive link must use target=\"_blank\" "
+                f"and rel=\"noopener noreferrer\": {card_id}"
+            )
 
     for index, tag in enumerate(parser.start_image_tags):
         if tag != "img":
@@ -356,6 +448,14 @@ def validate_intro(path: Path) -> list[str]:
         ):
             errors.append(
                 f"external CTA must use target=\"_blank\" and rel=\"noopener noreferrer\": {href}"
+            )
+    for href, target, rel in parser.link_records:
+        if urlparse(href).scheme.lower() not in {"http", "https"}:
+            continue
+        if target != "_blank" or rel != "noopener noreferrer":
+            errors.append(
+                "external link must use target=\"_blank\" "
+                f"and rel=\"noopener noreferrer\": {href}"
             )
 
     for label in (f"START {index:02d}" for index in range(1, 9)):

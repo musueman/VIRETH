@@ -327,6 +327,21 @@ class VirethIntroContractTest(unittest.TestCase):
         )
         self.assertEqual(9, len(parser.update_records))
 
+        expected_facts_by_date = {
+            "2026-08-01": ("8개", "14편", "30장", "14세트"),
+            "2026-07-31": ("20개 권역", "166개 장소"),
+            "2026-07-27": ("100명", "800장"),
+        }
+        for date, facts in expected_facts_by_date.items():
+            date_marker = f'data-update-date="{date}"'
+            self.assertIn(date_marker, html)
+            date_position = html.index(date_marker)
+            record_start = html.rfind("<li", 0, date_position)
+            record_end = html.index("</li>", record_start) + len("</li>")
+            record = html[record_start:record_end]
+            for fact in facts:
+                self.assertIn(fact, record)
+
         errors = validate_intro(TARGET)
         self.assertEqual([], errors, "\n".join(errors))
 
@@ -344,7 +359,6 @@ class VirethIntroContractTest(unittest.TestCase):
         self.assertEqual([], validate_fixture(canonical_fixture()))
 
     def test_update_history_preserves_legacy_dates_and_verified_counts(self) -> None:
-        html = TARGET.read_text(encoding="utf-8")
         dates = tuple(date for date, _, _ in UPDATE_HISTORY)
 
         self.assertEqual(
@@ -361,20 +375,15 @@ class VirethIntroContractTest(unittest.TestCase):
                 "2026-07-10",
             ),
         )
+        bodies_by_date = {date: body for date, _, body in UPDATE_HISTORY}
         expected_facts_by_date = {
             "2026-08-01": ("8개", "14편", "30장", "14세트"),
             "2026-07-31": ("20개 권역", "166개 장소"),
             "2026-07-27": ("100명", "800장"),
         }
         for date, facts in expected_facts_by_date.items():
-            date_marker = f'data-update-date="{date}"'
-            self.assertIn(date_marker, html)
-            date_position = html.index(date_marker)
-            record_start = html.rfind("<li", 0, date_position)
-            record_end = html.index("</li>", record_start) + len("</li>")
-            record = html[record_start:record_end]
             for fact in facts:
-                self.assertIn(fact, record)
+                self.assertIn(fact, bodies_by_date[date])
 
     def test_rejects_wrong_start_order_and_role_mix(self) -> None:
         html = canonical_fixture()

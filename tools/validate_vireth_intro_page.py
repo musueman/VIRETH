@@ -173,6 +173,7 @@ class IntroParser(HTMLParser):
         self.frames: list[str] = []
         self.ctas: list[str] = []
         self.scripts: int = 0
+        self.style_tags: int = 0
         self.meta_tags: int = 0
         self.iframes: int = 0
         self.summary_background_urls: list[str] = []
@@ -312,6 +313,9 @@ class IntroParser(HTMLParser):
         if tag == "script":
             self.scripts += 1
 
+        if tag == "style":
+            self.style_tags += 1
+
         if tag == "meta":
             self.meta_tags += 1
 
@@ -433,6 +437,10 @@ def validate_intro(path: Path) -> list[str]:
         errors.append("deprecated public name found")
     if parser.scripts:
         errors.append("script tags are not allowed")
+    if parser.style_tags:
+        errors.append(
+            "style tags are not allowed in the LunaTalk fragment; use inline styles"
+        )
     if parser.meta_tags:
         errors.append("meta tags are not allowed in the LunaTalk fragment")
     if parser.iframes:

@@ -498,6 +498,20 @@ class VirethIntroContractTest(unittest.TestCase):
             "\n".join(errors),
         )
 
+    def test_rejects_style_tag_that_lunatalk_exposes_as_text(self) -> None:
+        html = canonical_fixture().replace(
+            'data-character-idx="70170">',
+            'data-character-idx="70170"><style>.card { color: red; }</style>',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            "style tags are not allowed in the LunaTalk fragment; use inline styles",
+            "\n".join(errors),
+        )
+
     def test_rejects_iframe_in_lunatalk_fragment(self) -> None:
         html = canonical_fixture().replace(
             "</div>",

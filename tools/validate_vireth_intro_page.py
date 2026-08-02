@@ -12,11 +12,11 @@ from urllib.request import Request, urlopen
 
 REQUIRED_SECTIONS = [
     "notice",
+    "updates",
     "intro",
     "starts",
     "play-flow",
     "commands",
-    "updates",
 ]
 ALLOWED_FRAMES = {
     "notice",

@@ -159,6 +159,7 @@ def canonical_fixture() -> str:
         f'''\
         <div id="vireth-intro-20260802" data-vireth-intro="20260802" data-character-idx="70170">
           <section data-section="notice"><div data-ui-frame="notice">업데이트가 조금 늦어질 수 있습니다. {accident}</div></section>
+          <section data-section="updates"><details data-ui-frame="details-control"><summary>업데이트 내역</summary><div><ol class="vireth-update-timeline">{updates}</ol></div></details></section>
           <section data-section="intro">
             <h1>비레스 5083</h1>
             <p>비레스를 먼저 걷고 있는 여행자, 렌과 듀란</p>
@@ -171,7 +172,6 @@ def canonical_fixture() -> str:
           <section data-section="starts"><p>{STARTS_LEAD}</p>{cards}</section>
           <section data-section="play-flow"><p>장면을 고릅니다</p></section>
           <section data-section="commands"><details data-ui-frame="details-control"><summary>막혔을 때 이렇게 불러보세요</summary></details></section>
-          <section data-section="updates"><details data-ui-frame="details-control"><summary>업데이트 내역</summary><div><ol class="vireth-update-timeline">{updates}</ol></div></details></section>
         </div>'''
     )
 
@@ -306,6 +306,16 @@ class VirethIntroContractTest(unittest.TestCase):
     def test_intro_contract(self) -> None:
         errors = validate_intro(TARGET)
         self.assertEqual([], errors, "\n".join(errors))
+
+    def test_updates_follow_notice_before_intro(self) -> None:
+        parser = validator.IntroParser()
+        parser.feed(TARGET.read_text(encoding="utf-8"))
+        parser.close()
+
+        self.assertEqual(
+            ["notice", "updates", "intro", "starts", "play-flow", "commands"],
+            parser.sections,
+        )
 
     def test_canonical_fixture_satisfies_full_contract(self) -> None:
         self.assertEqual([], validate_fixture(canonical_fixture()))

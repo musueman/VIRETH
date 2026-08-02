@@ -7,13 +7,15 @@ DONE
 - Isolated worktree: `C:\Users\musue\.codex\worktrees\vireth-intro-task-4`
 - Branch: `codex/vireth-intro-task-4`
 - Starting commit: `16be790a6663eeb0905f5b2056b79dd07937ce6c`
-- Final commit: `9d75d4c6759ec8328fc2d866935e15c42d45aa6b`
-- Commit message: `fix: polish vireth intro responsive layout`
-- Final worktree status: clean
+- Pre-fix visual commit: `9d75d4c6759ec8328fc2d866935e15c42d45aa6b`
+- Integrated final visual commit: `b0b46ea1ed721067868807b0deba164a277634e5`
+- Integrated commit message: `fix: keep mobile guide anchors visible`
 
-The commit contains only:
+The integrated Task 4 commit contains only:
 
 `output/lunatalk_start_scenarios/vireth_intro_start_situations_updated_full_20260802.html`
+
+`.superpowers/sdd/2026-08-02-vireth-lunatalk-character-intro-implementation/task-4-report.md`
 
 ## Visual Defect And Fix
 

@@ -30,6 +30,10 @@ EXPECTED_ARCHIVE_URL = (
 EXPECTED_INTERNAL_START_URL = "#vireth-starts"
 EXPECTED_CHARACTER_IDX = "70170"
 EXPECTED_ROOT_TAG = "div"
+EXPECTED_STARTS_LEAD = (
+    "처음 정한 길을 끝까지 따를 필요는 없습니다. "
+    "지금 끌리는 장면에서 시작해 보세요."
+)
 EXPECTED_START_CARDS = [
     "START 01",
     "START 02",
@@ -122,6 +126,7 @@ class IntroParser(HTMLParser):
         self.frames: list[str] = []
         self.ctas: list[str] = []
         self.scripts: int = 0
+        self.meta_tags: int = 0
         self.summary_background_urls: list[str] = []
 
         self.root_markers: list[str] = []
@@ -212,6 +217,9 @@ class IntroParser(HTMLParser):
 
         if tag == "script":
             self.scripts += 1
+
+        if tag == "meta":
+            self.meta_tags += 1
 
         if tag == "summary":
             style = attributes.get("style") or ""
@@ -310,10 +318,14 @@ def validate_intro(path: Path) -> list[str]:
         errors.append("missing production story archive CTA")
     if EXPECTED_INTERNAL_START_URL not in parser.ctas:
         errors.append("missing internal start-scene CTA")
-    if "Arcadia" in html or "아르카디아" in html:
+    if EXPECTED_STARTS_LEAD not in text:
+        errors.append("approved starts lead mismatch")
+    if re.search(r"arcadia", html, re.IGNORECASE) or "아르카디아" in html:
         errors.append("deprecated public name found")
     if parser.scripts:
         errors.append("script tags are not allowed")
+    if parser.meta_tags:
+        errors.append("meta tags are not allowed in the LunaTalk fragment")
     if parser.summary_background_urls:
         errors.append("summary elements must use real img elements, not CSS background URLs")
 

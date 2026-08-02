@@ -15,6 +15,10 @@ TARGET = ROOT / "output" / "lunatalk_start_scenarios" / (
 )
 
 ARCHIVE_URL = "https://vireth-starting-records.musueman.chatgpt.site/#story-starts"
+STARTS_LEAD = (
+    "처음 정한 길을 끝까지 따를 필요는 없습니다. "
+    "지금 끌리는 장면에서 시작해 보세요."
+)
 START_CARDS = [
     (
         "START 01",
@@ -108,7 +112,7 @@ def canonical_fixture() -> str:
             <a data-cta="#vireth-starts" href="#vireth-starts">비레스를 먼저 둘러보기</a>
             <a data-cta="{ARCHIVE_URL}" href="{ARCHIVE_URL}" target="_blank" rel="noopener noreferrer">이야기 읽기</a>
           </section>
-          <section data-section="starts">{cards}</section>
+          <section data-section="starts"><p>{STARTS_LEAD}</p>{cards}</section>
           <section data-section="play-flow"><p>장면을 고릅니다</p></section>
           <section data-section="commands"><details data-ui-frame="details-control"><summary>막혔을 때 이렇게 불러보세요</summary></details></section>
           <section data-section="updates"><details data-ui-frame="details-control"><summary>최근 달라진 점</summary><div>{updates}</div></details></section>
@@ -332,6 +336,42 @@ class VirethIntroContractTest(unittest.TestCase):
         self.assertIn("missing accident fact: 갈비뼈 5개 골절", error_text)
         self.assertIn("missing 2026-08-01 update fact", error_text)
         self.assertIn("Ren/Duran guide role must remain traveler/visual-guide only", error_text)
+
+    def test_rejects_changed_approved_starts_lead(self) -> None:
+        html = canonical_fixture().replace(
+            STARTS_LEAD,
+            "마음에 드는 장면에서 바로 시작해 보세요.",
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn("approved starts lead mismatch", "\n".join(errors))
+
+    def test_rejects_deprecated_english_name_case_insensitively(self) -> None:
+        html = canonical_fixture().replace(
+            "<h1>비레스 5083</h1>",
+            "<h1>비레스 5083</h1><p>ARCADIA legacy label</p>",
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn("deprecated public name found", "\n".join(errors))
+
+    def test_rejects_meta_tag_in_lunatalk_fragment(self) -> None:
+        html = canonical_fixture().replace(
+            'data-character-idx="70170">',
+            'data-character-idx="70170"><meta charset="UTF-8">',
+            1,
+        )
+
+        errors = validate_fixture(html)
+
+        self.assertIn(
+            "meta tags are not allowed in the LunaTalk fragment",
+            "\n".join(errors),
+        )
 
 
 if __name__ == "__main__":

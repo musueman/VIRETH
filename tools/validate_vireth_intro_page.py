@@ -100,12 +100,42 @@ ACCIDENT_FACTS = (
     "비레스 업데이트가 예상보다 늦어졌습니다",
     "업데이트는 중단되지 않았고 앞으로도 꾸준히 이어갈 예정입니다",
 )
-UPDATE_FACTS = (
-    "루나톡 기준으로 시작 선택 화면을 기본 시작 1개와 역할형 시작 7개, 총 8개로 다시 맞췄습니다.",
-    "장터와 납품 장부, 피난민 배급 줄, 항만과 선착장의 새벽은 2026년 7월 28일 라이브 로어북 등록분을 반영했습니다.",
-    "대화카드는 현재 장소의 배경을 따르고, 인물의 소속과 표식은 정본 기준을 따르도록 운용 규칙을 정리했습니다.",
-    "v11 정본동기화 후보, v61 좌표보정 지도, v62 출판·웹용 선별 라벨 지도를 기준으로 문서 정합성을 계속 맞추고 있습니다.",
-    "긴 웹툰형 이미지는 순차적으로 추가하고, 소개 화면에서는 도시·장소 배경 이미지를 분리해 보여주는 방향으로 정리했습니다.",
+UPDATE_HISTORY = (
+    (
+        "2026-08-02",
+        "소개페이지와 이야기 서고 연결",
+        "소개 화면을 비레스의 풍경과 렌·듀란 안내 이미지 중심으로 개편했습니다. 8개 시작 장면에서 각 상황과 이어지는 이야기 기록으로 바로 이동할 수 있습니다.",
+    ),
+    (
+        "2026-07-29",
+        "루나톡 대화와 인물 운용 정리",
+        "대화카드 배경, 인물 표식, 감정 이미지 호출이 현재 장소와 인물 설정을 안정적으로 따르도록 정리했습니다. 고정 인물과 즉석 인물의 등장 범위를 나누고 역할별 설명을 다듬었습니다.",
+    ),
+    (
+        "2026-07-27",
+        "인물 감정 이미지 확장",
+        "주요 인물들이 대화 장면의 감정과 분위기에 맞는 표정으로 등장하도록 이미지 구성을 확장했습니다.",
+    ),
+    (
+        "2026-07-15",
+        "새로운 시작 장면과 인물 표현 추가",
+        "자유 여행자와 용병 계약 시작 장면을 추가했습니다. 장소 식별 기준과 역할별 즉석 인물 이미지를 연결했습니다.",
+    ),
+    (
+        "2026-07-14",
+        "장소·대화카드 표현 개선",
+        "현재 지역과 장소를 한눈에 확인할 수 있는 장소 카드를 추가했습니다. 모바일에서도 대화카드의 인물 정보와 소속 표식이 읽히도록 조정했습니다.",
+    ),
+    (
+        "2026-07-12",
+        "비레스 5083 시작 안내 공개",
+        "정해진 선택지 없이 주변 사람과 장소를 따라 움직이는 기본 시작 방식을 소개했습니다. 기본 시작과 역할형 시작을 고를 수 있는 안내를 마련했습니다.",
+    ),
+    (
+        "2026-07-10",
+        "지도와 도시 장면 연결",
+        "도시·장소 배경을 대화에 불러오는 장면 시스템에 지역 지도를 연결했습니다. 현재 장소 표시를 더해 이동 흐름을 확인할 수 있게 했습니다.",
+    ),
 )
 REN_DURAN_GUIDE_TEXT = "비레스를 먼저 걷고 있는 여행자, 렌과 듀란"
 FORBIDDEN_GUIDE_CLAIMS = (
@@ -164,6 +194,9 @@ class IntroParser(HTMLParser):
         self.start_card_titles: list[tuple[str, str]] = []
         self.guide_images: list[tuple[str, str]] = []
         self.story_archive_links: list[tuple[str, str, str, str]] = []
+        self.summary_texts: list[str] = []
+        self.update_dates: list[str] = []
+        self.update_records: list[tuple[str, str]] = []
         self._active_card_id: str | None = None
         self._active_card_tag: str | None = None
         self._active_card_depth: int | None = None
@@ -173,6 +206,8 @@ class IntroParser(HTMLParser):
         self._active_summary_depth: int | None = None
         self._summary_strong_titles: list[str] = []
         self._active_summary_strong_text: list[str] | None = None
+        self._active_summary_text: list[str] | None = None
+        self._active_update_date: str | None = None
 
     def _collect_start_tag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = dict(attrs)
@@ -201,6 +236,16 @@ class IntroParser(HTMLParser):
             self._active_card_tag = tag
             self._active_card_depth = len(self._tag_stack)
             self._active_card_text = []
+
+        if "data-update-date" in attributes:
+            update_date = attributes["data-update-date"] or ""
+            self.update_dates.append(update_date)
+            self._active_update_date = update_date
+
+        if tag == "time" and self._active_update_date is not None:
+            self.update_records.append(
+                (self._active_update_date, attributes.get("datetime") or "")
+            )
 
         if "data-start-image" in attributes:
             self.start_images.append(attributes["data-start-image"] or "")
@@ -274,6 +319,7 @@ class IntroParser(HTMLParser):
             self.iframes += 1
 
         if tag == "summary":
+            self._active_summary_text = []
             style = attributes.get("style") or ""
             self.summary_background_urls.extend(
                 re.findall(r"url\(\s*['\"]?([^'\")]+)['\"]?\s*\)", style, re.IGNORECASE)
@@ -288,6 +334,12 @@ class IntroParser(HTMLParser):
         self._collect_start_tag(tag, attrs)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "summary" and self._active_summary_text is not None:
+            self.summary_texts.append(
+                " ".join("".join(self._active_summary_text).split())
+            )
+            self._active_summary_text = None
+
         if tag == "strong" and self._active_summary_strong_text is not None:
             self._summary_strong_titles.append("".join(self._active_summary_strong_text))
             self._active_summary_strong_text = None
@@ -316,6 +368,9 @@ class IntroParser(HTMLParser):
             self._active_card_depth = None
             self._active_card_text = []
 
+        if tag == "li" and self._active_update_date is not None:
+            self._active_update_date = None
+
         if self._tag_stack:
             self._tag_stack.pop()
 
@@ -325,6 +380,8 @@ class IntroParser(HTMLParser):
             self._active_card_text.append(data)
         if self._active_summary_strong_text is not None:
             self._active_summary_strong_text.append(data)
+        if self._active_summary_text is not None:
+            self._active_summary_text.append(data)
 
 
 def validate_intro(path: Path) -> list[str]:
@@ -467,17 +524,40 @@ def validate_intro(path: Path) -> list[str]:
         "업데이트가 조금 늦어질 수 있습니다",
         "비레스 5083",
         "막혔을 때 이렇게 불러보세요",
-        "최근 달라진 점",
     ):
         if required_text not in text:
             errors.append(f"missing required text: {required_text}")
 
+    if parser.summary_texts.count("업데이트 내역") != 1:
+        errors.append("update summary must be exactly: 업데이트 내역")
+    if "최근 달라진 점" in text:
+        errors.append("deprecated update summary found: 최근 달라진 점")
+
+    expected_update_dates = [date for date, _, _ in UPDATE_HISTORY]
+    if parser.update_dates != expected_update_dates:
+        errors.append(
+            "update history date order mismatch: "
+            f"{parser.update_dates} != {expected_update_dates}"
+        )
+    if len(parser.update_records) != len(UPDATE_HISTORY):
+        errors.append(
+            "update history must contain exactly "
+            f"{len(UPDATE_HISTORY)} semantic time records"
+        )
+    for update_date, time_datetime in parser.update_records:
+        if update_date != time_datetime:
+            errors.append(
+                "update history date attributes must match: "
+                f"{update_date} != {time_datetime}"
+            )
+
     for fact in ACCIDENT_FACTS:
         if fact not in text:
             errors.append(f"missing accident fact: {fact}")
-    for fact in UPDATE_FACTS:
-        if fact not in text:
-            errors.append(f"missing 2026-08-01 update fact: {fact}")
+    for _, title, body in UPDATE_HISTORY:
+        for fact in (title, body):
+            if fact not in text:
+                errors.append(f"missing update history fact: {fact}")
     if REN_DURAN_GUIDE_TEXT not in text:
         errors.append("Ren/Duran guide role must remain traveler/visual-guide only")
     for claim in FORBIDDEN_GUIDE_CLAIMS:

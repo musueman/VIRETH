@@ -408,13 +408,58 @@
       padding-bottom: 24px;
     }
 
-    #vireth-intro-20260802 .vireth-update-list {
+    #vireth-intro-20260802 .vireth-update-timeline {
+      list-style: none;
       margin: 0;
-      padding-left: 20px;
+      padding: 2px 0 0;
     }
 
-    #vireth-intro-20260802 .vireth-update-list li + li {
-      margin-top: 8px;
+    #vireth-intro-20260802 .vireth-update-timeline > li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 16px;
+      margin: 0;
+      padding: 0 0 22px 20px;
+      border-left: 1px solid #40535e;
+    }
+
+    #vireth-intro-20260802 .vireth-update-timeline > li:last-child {
+      padding-bottom: 0;
+    }
+
+    #vireth-intro-20260802 .vireth-update-timeline > li::before {
+      position: absolute;
+      top: 6px;
+      left: -5px;
+      width: 9px;
+      height: 9px;
+      border: 2px solid #17232c;
+      border-radius: 50%;
+      background: #dfb85f;
+      content: "";
+    }
+
+    #vireth-intro-20260802 .vireth-update-timeline time {
+      color: #dfc37f;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 1.55;
+      white-space: nowrap;
+    }
+
+    #vireth-intro-20260802 .vireth-update-timeline strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #fff0c8;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    #vireth-intro-20260802 .vireth-update-timeline p {
+      margin: 0;
+      color: #cbd7dc;
+      line-height: 1.75;
     }
 
     @media (min-width: 760px) {
@@ -436,6 +481,13 @@
         padding-right: 8px;
         padding-bottom: 20px;
         padding-left: 8px;
+      }
+
+      #vireth-intro-20260802 .vireth-update-timeline > li {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 3px;
+        padding-bottom: 20px;
+        padding-left: 18px;
       }
 
       #vireth-intro-20260802 .vireth-guide-stage {
@@ -834,15 +886,59 @@
 
   <section id="vireth-updates" data-section="updates">
     <details data-ui-frame="details-control">
-      <summary>최근 달라진 점</summary>
+      <summary>업데이트 내역</summary>
       <div class="vireth-details-body">
-        <ul class="vireth-update-list">
-          <li>루나톡 기준으로 시작 선택 화면을 기본 시작 1개와 역할형 시작 7개, 총 8개로 다시 맞췄습니다.</li>
-          <li>장터와 납품 장부, 피난민 배급 줄, 항만과 선착장의 새벽은 2026년 7월 28일 라이브 로어북 등록분을 반영했습니다.</li>
-          <li>대화카드는 현재 장소의 배경을 따르고, 인물의 소속과 표식은 정본 기준을 따르도록 운용 규칙을 정리했습니다.</li>
-          <li>v11 정본동기화 후보, v61 좌표보정 지도, v62 출판·웹용 선별 라벨 지도를 기준으로 문서 정합성을 계속 맞추고 있습니다.</li>
-          <li>긴 웹툰형 이미지는 순차적으로 추가하고, 소개 화면에서는 도시·장소 배경 이미지를 분리해 보여주는 방향으로 정리했습니다.</li>
-        </ul>
+        <ol class="vireth-update-timeline">
+          <li data-update-date="2026-08-02">
+            <time datetime="2026-08-02">2026. 08. 02.</time>
+            <div>
+              <strong>소개페이지와 이야기 서고 연결</strong>
+              <p>소개 화면을 비레스의 풍경과 렌·듀란 안내 이미지 중심으로 개편했습니다. 8개 시작 장면에서 각 상황과 이어지는 이야기 기록으로 바로 이동할 수 있습니다.</p>
+            </div>
+          </li>
+          <li data-update-date="2026-07-29">
+            <time datetime="2026-07-29">2026. 07. 29.</time>
+            <div>
+              <strong>루나톡 대화와 인물 운용 정리</strong>
+              <p>대화카드 배경, 인물 표식, 감정 이미지 호출이 현재 장소와 인물 설정을 안정적으로 따르도록 정리했습니다. 고정 인물과 즉석 인물의 등장 범위를 나누고 역할별 설명을 다듬었습니다.</p>
+            </div>
+          </li>
+          <li data-update-date="2026-07-27">
+            <time datetime="2026-07-27">2026. 07. 27.</time>
+            <div>
+              <strong>인물 감정 이미지 확장</strong>
+              <p>주요 인물들이 대화 장면의 감정과 분위기에 맞는 표정으로 등장하도록 이미지 구성을 확장했습니다.</p>
+            </div>
+          </li>
+          <li data-update-date="2026-07-15">
+            <time datetime="2026-07-15">2026. 07. 15.</time>
+            <div>
+              <strong>새로운 시작 장면과 인물 표현 추가</strong>
+              <p>자유 여행자와 용병 계약 시작 장면을 추가했습니다. 장소 식별 기준과 역할별 즉석 인물 이미지를 연결했습니다.</p>
+            </div>
+          </li>
+          <li data-update-date="2026-07-14">
+            <time datetime="2026-07-14">2026. 07. 14.</time>
+            <div>
+              <strong>장소·대화카드 표현 개선</strong>
+              <p>현재 지역과 장소를 한눈에 확인할 수 있는 장소 카드를 추가했습니다. 모바일에서도 대화카드의 인물 정보와 소속 표식이 읽히도록 조정했습니다.</p>
+            </div>
+          </li>
+          <li data-update-date="2026-07-12">
+            <time datetime="2026-07-12">2026. 07. 12.</time>
+            <div>
+              <strong>비레스 5083 시작 안내 공개</strong>
+              <p>정해진 선택지 없이 주변 사람과 장소를 따라 움직이는 기본 시작 방식을 소개했습니다. 기본 시작과 역할형 시작을 고를 수 있는 안내를 마련했습니다.</p>
+            </div>
+          </li>
+          <li data-update-date="2026-07-10">
+            <time datetime="2026-07-10">2026. 07. 10.</time>
+            <div>
+              <strong>지도와 도시 장면 연결</strong>
+              <p>도시·장소 배경을 대화에 불러오는 장면 시스템에 지역 지도를 연결했습니다. 현재 장소 표시를 더해 이동 흐름을 확인할 수 있게 했습니다.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </details>
   </section>

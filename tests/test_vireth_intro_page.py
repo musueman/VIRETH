@@ -96,12 +96,42 @@ ACCIDENT_FACTS = (
     "비레스 업데이트가 예상보다 늦어졌습니다",
     "업데이트는 중단되지 않았고 앞으로도 꾸준히 이어갈 예정입니다",
 )
-UPDATE_FACTS = (
-    "루나톡 기준으로 시작 선택 화면을 기본 시작 1개와 역할형 시작 7개, 총 8개로 다시 맞췄습니다.",
-    "장터와 납품 장부, 피난민 배급 줄, 항만과 선착장의 새벽은 2026년 7월 28일 라이브 로어북 등록분을 반영했습니다.",
-    "대화카드는 현재 장소의 배경을 따르고, 인물의 소속과 표식은 정본 기준을 따르도록 운용 규칙을 정리했습니다.",
-    "v11 정본동기화 후보, v61 좌표보정 지도, v62 출판·웹용 선별 라벨 지도를 기준으로 문서 정합성을 계속 맞추고 있습니다.",
-    "긴 웹툰형 이미지는 순차적으로 추가하고, 소개 화면에서는 도시·장소 배경 이미지를 분리해 보여주는 방향으로 정리했습니다.",
+UPDATE_HISTORY = (
+    (
+        "2026-08-02",
+        "소개페이지와 이야기 서고 연결",
+        "소개 화면을 비레스의 풍경과 렌·듀란 안내 이미지 중심으로 개편했습니다. 8개 시작 장면에서 각 상황과 이어지는 이야기 기록으로 바로 이동할 수 있습니다.",
+    ),
+    (
+        "2026-07-29",
+        "루나톡 대화와 인물 운용 정리",
+        "대화카드 배경, 인물 표식, 감정 이미지 호출이 현재 장소와 인물 설정을 안정적으로 따르도록 정리했습니다. 고정 인물과 즉석 인물의 등장 범위를 나누고 역할별 설명을 다듬었습니다.",
+    ),
+    (
+        "2026-07-27",
+        "인물 감정 이미지 확장",
+        "주요 인물들이 대화 장면의 감정과 분위기에 맞는 표정으로 등장하도록 이미지 구성을 확장했습니다.",
+    ),
+    (
+        "2026-07-15",
+        "새로운 시작 장면과 인물 표현 추가",
+        "자유 여행자와 용병 계약 시작 장면을 추가했습니다. 장소 식별 기준과 역할별 즉석 인물 이미지를 연결했습니다.",
+    ),
+    (
+        "2026-07-14",
+        "장소·대화카드 표현 개선",
+        "현재 지역과 장소를 한눈에 확인할 수 있는 장소 카드를 추가했습니다. 모바일에서도 대화카드의 인물 정보와 소속 표식이 읽히도록 조정했습니다.",
+    ),
+    (
+        "2026-07-12",
+        "비레스 5083 시작 안내 공개",
+        "정해진 선택지 없이 주변 사람과 장소를 따라 움직이는 기본 시작 방식을 소개했습니다. 기본 시작과 역할형 시작을 고를 수 있는 안내를 마련했습니다.",
+    ),
+    (
+        "2026-07-10",
+        "지도와 도시 장면 연결",
+        "도시·장소 배경을 대화에 불러오는 장면 시스템에 지역 지도를 연결했습니다. 현재 장소 표시를 더해 이동 흐름을 확인할 수 있게 했습니다.",
+    ),
 )
 
 
@@ -118,7 +148,13 @@ def canonical_fixture() -> str:
         for index, (card_id, kind, title, image_url) in enumerate(START_CARDS)
     )
     accident = " ".join(ACCIDENT_FACTS)
-    updates = " ".join(UPDATE_FACTS)
+    updates = "\n".join(
+        f'''<li data-update-date="{date}">
+  <time datetime="{date}">{date.replace("-", ". ")}.</time>
+  <div><strong>{title}</strong><p>{body}</p></div>
+</li>'''
+        for date, title, body in UPDATE_HISTORY
+    )
     return textwrap.dedent(
         f'''\
         <div id="vireth-intro-20260802" data-vireth-intro="20260802" data-character-idx="70170">
@@ -135,7 +171,7 @@ def canonical_fixture() -> str:
           <section data-section="starts"><p>{STARTS_LEAD}</p>{cards}</section>
           <section data-section="play-flow"><p>장면을 고릅니다</p></section>
           <section data-section="commands"><details data-ui-frame="details-control"><summary>막혔을 때 이렇게 불러보세요</summary></details></section>
-          <section data-section="updates"><details data-ui-frame="details-control"><summary>최근 달라진 점</summary><div>{updates}</div></details></section>
+          <section data-section="updates"><details data-ui-frame="details-control"><summary>업데이트 내역</summary><div><ol class="vireth-update-timeline">{updates}</ol></div></details></section>
         </div>'''
     )
 
@@ -380,7 +416,7 @@ class VirethIntroContractTest(unittest.TestCase):
         html = canonical_fixture()
         html = html.replace('data-character-idx="70170"', "", 1)
         html = html.replace("갈비뼈 5개 골절", "갈비뼈 1개 골절", 1)
-        html = html.replace(UPDATE_FACTS[2], "운용 규칙을 바꾸지 않았습니다.", 1)
+        html = html.replace(UPDATE_HISTORY[1][2], "운용 규칙을 바꾸지 않았습니다.", 1)
         html = html.replace(
             "비레스를 먼저 걷고 있는 여행자, 렌과 듀란",
             "렌과 듀란이 비레스의 저자이며 모든 사건에 참여합니다",
@@ -392,8 +428,29 @@ class VirethIntroContractTest(unittest.TestCase):
 
         self.assertIn("character idx must be exactly 70170", error_text)
         self.assertIn("missing accident fact: 갈비뼈 5개 골절", error_text)
-        self.assertIn("missing 2026-08-01 update fact", error_text)
+        self.assertIn("missing update history fact", error_text)
         self.assertIn("Ren/Duran guide role must remain traveler/visual-guide only", error_text)
+
+    def test_rejects_old_update_summary(self) -> None:
+        html = canonical_fixture().replace("업데이트 내역", "최근 달라진 점", 1)
+
+        errors = validate_fixture(html)
+
+        self.assertIn("update summary must be exactly: 업데이트 내역", "\n".join(errors))
+
+    def test_rejects_update_history_order_and_time_mismatch(self) -> None:
+        html = canonical_fixture()
+        html = html.replace('data-update-date="2026-08-02"', 'data-update-date="2026-07-01"', 1)
+        html = html.replace('datetime="2026-07-29"', 'datetime="2026-07-28"', 1)
+
+        errors = validate_fixture(html)
+        error_text = "\n".join(errors)
+
+        self.assertIn("update history date order mismatch", error_text)
+        self.assertIn(
+            "update history date attributes must match: 2026-07-29 != 2026-07-28",
+            error_text,
+        )
 
     def test_rejects_changed_approved_starts_lead(self) -> None:
         html = canonical_fixture().replace(

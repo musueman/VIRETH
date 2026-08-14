@@ -58,7 +58,7 @@ Rules:
 
 - `/place` appears once on the first response line.
 - `/talk` appears only above each speaker's first line in a single response.
-- Fixed-character emotion codes are `n` neutral, `sm` faint smile, `p` pleased, `c` concerned, `s` sad/resigned, `a` restrained anger, `u` surprised/alert, and `x` measured explanation.
+- Fixed-character emotion codes are `n` neutral, `sm` faint smile (latest happy asset), `p` happy, `c` anxious, `s` sad, `a` angry, `u` surprised, `d` disgust, and `x` neutral fallback.
 - Missing, invalid, or unavailable emotion codes fall back to the existing canonical portrait. Temporary speakers ignore emotion codes.
 - `/map` is the detailed map and appears only in a `!장소` response.
 - Do not output internal image keys in the chat body.

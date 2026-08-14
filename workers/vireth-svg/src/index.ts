@@ -533,6 +533,11 @@ const TALK_EMOTION_ALIASES: Record<string, string> = {
   "surprised-alert": "u",
   "놀람": "u",
   "경계": "u",
+  d: "d",
+  disgust: "d",
+  disgusted: "d",
+  "혐오": "d",
+  "불쾌": "d",
   x: "x",
   explain: "x",
   explanation: "x",
@@ -1259,7 +1264,7 @@ function resolveTalkEmotionCode(url: URL): string | null {
   }
 
   // Some Markdown renderers decode "&reg" in "&regionId" as "®".
-  const repaired = value.match(/^(sm|n|p|c|s|a|u|x)®ionid=/iu)?.[1];
+  const repaired = value.match(/^(sm|n|p|c|s|a|u|d|x)®ionid=/iu)?.[1];
   return repaired ? TALK_EMOTION_ALIASES[normalizeKey(repaired)] ?? null : null;
 }
 

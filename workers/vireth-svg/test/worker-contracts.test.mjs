@@ -114,6 +114,16 @@ test("combines the rotating banner into the existing scene card URL", async () =
   assert.doesNotMatch(svg, /data-scene-map="vireth-map"/);
 });
 
+test("inlines banner images for chat image embedding", async () => {
+  const response = await fetch(`${baseUrl}/scene?regionId=R003&placeId=L022&seed=chat-embed`);
+  const svg = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(svg, /data-scene-banner="vireth-banner"/);
+  assert.match(svg, /data:image\/webp;base64,/);
+  assert.doesNotMatch(svg, /href="https?:\/\/[^"]+\/b\//);
+});
+
 test("keeps the canonical current place label when its visual scene falls back", async () => {
   const { response, body } = await getJson("/place.json?placeId=L003");
   assert.equal(response.status, 200);

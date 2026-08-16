@@ -2266,7 +2266,7 @@ async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: 
   const overlay = scene.heraldryUrl
     ? renderHeraldryOverlay(scene, heraldryUrl)
     : renderTextOverlay(title, caption);
-  const banner = renderEmbeddedBannerSvg(url, origin);
+  const banner = await renderEmbeddedBannerSvg(url, origin, env);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 ${SCENE_CARD_WIDTH} ${COMBINED_SCENE_HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${title}" style="display:block;width:100%;max-width:100%;height:auto;">
@@ -2311,7 +2311,7 @@ async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: 
 </svg>`;
 }
 
-function renderEmbeddedBannerSvg(url: URL, origin: string): string {
+async function renderEmbeddedBannerSvg(url: URL, origin: string, env: Env): Promise<string> {
   const topAsset = BANNER_ASSETS.find((asset) => asset.id === "t");
   const layerAssets = BANNER_ASSETS.filter((asset) => asset.id !== "t");
   if (!topAsset || layerAssets.length === 0) {
@@ -2320,7 +2320,8 @@ function renderEmbeddedBannerSvg(url: URL, origin: string): string {
 
   const count = clampBannerCount(firstQuery(url, ["bannerCount", "count", "n"]));
   const selectedAssets = selectBannerLayers(layerAssets, count, makeBannerSeed(url));
-  const layerHrefs = selectedAssets.map((asset) => bannerAssetUrl(origin, asset));
+  const layerHrefs = await Promise.all(selectedAssets.map((asset) => bannerAssetHref(origin, asset, env)));
+  const topHref = await bannerAssetHref(origin, topAsset, env);
   const deckHrefs = [...layerHrefs, layerHrefs[0]];
   const timing = bannerSlideTiming(selectedAssets.length);
   const layers = deckHrefs
@@ -2341,7 +2342,7 @@ function renderEmbeddedBannerSvg(url: URL, origin: string): string {
         <animateTransform attributeName="transform" type="translate" dur="${timing.durationSeconds}s" repeatCount="indefinite" values="${timing.values}" keyTimes="${timing.keyTimes}" calcMode="spline" keySplines="${timing.keySplines}"/>
       </g>
     </g>
-    <image href="${escapeXml(bannerAssetUrl(origin, topAsset))}" x="0" y="0" width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}" preserveAspectRatio="xMidYMid slice"/>
+    <image href="${escapeXml(topHref)}" x="0" y="0" width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}" preserveAspectRatio="xMidYMid slice"/>
   </svg>`;
 }
 
@@ -2353,6 +2354,12 @@ function clampBannerCount(value: string | null): number {
 function bannerAssetUrl(origin: string, asset: BannerAssetEntry): string {
   const path = asset.output.startsWith("/") ? asset.output : `/${asset.output}`;
   return `${origin}${path}`;
+}
+
+async function bannerAssetHref(origin: string, asset: BannerAssetEntry, env: Env): Promise<string> {
+  const assetPath = asset.output.startsWith("/") ? asset.output : `/${asset.output}`;
+  const dataUri = await fetchInlineImageDataUri(assetPath, bannerAssetUrl(origin, asset), env);
+  return dataUri ?? bannerAssetUrl(origin, asset);
 }
 
 function selectBannerLayers(assets: readonly BannerAssetEntry[], count: number, seed: string): BannerAssetEntry[] {
@@ -3664,7 +3671,8 @@ function isWorkerAssetPath(imageUrl: string): boolean {
     imageUrl.startsWith("/character-emotion-assets/") ||
     imageUrl.startsWith("/talk-background-assets/") ||
     imageUrl.startsWith("/map-assets/") ||
-    imageUrl.startsWith("/scene-assets/")
+    imageUrl.startsWith("/scene-assets/") ||
+    imageUrl.startsWith("/b/")
   );
 }
 

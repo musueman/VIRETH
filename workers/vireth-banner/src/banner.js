@@ -53,7 +53,7 @@ export function renderBannerSvg({
     .join("\n  ");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" role="img" aria-label="Vireth LunaTalk banner" data-hold-seconds="${holdSeconds}" data-slide-seconds="${slideSeconds}">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 ${WIDTH} ${HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Vireth LunaTalk banner" style="display:block;width:100%;max-width:100%;height:auto;" data-hold-seconds="${holdSeconds}" data-slide-seconds="${slideSeconds}">
   <defs>
     <clipPath id="b-clip"><rect x="0" y="0" width="${WIDTH}" height="${HEIGHT}"/></clipPath>
   </defs>

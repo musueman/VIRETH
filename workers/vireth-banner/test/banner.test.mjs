@@ -61,7 +61,11 @@ test("renderBannerSvg puts random layers below the fixed top layer", () => {
   const firstLayer = svg.indexOf('href="/b/001.webp"');
   const topLayer = svg.indexOf('href="/b/t.webp"');
 
-  assert.match(svg, /<svg[^>]+width="1920"[^>]+height="684"/);
+  assert.match(svg, /<svg[^>]+width="100%"/);
+  assert.match(svg, /<svg[^>]+height="auto"/);
+  assert.match(svg, /viewBox="0 0 1920 684"/);
+  assert.match(svg, /preserveAspectRatio="xMidYMid meet"/);
+  assert.match(svg, /style="display:block;width:100%;max-width:100%;height:auto;"/);
   assert.equal((svg.match(/class="b-layer"/g) ?? []).length, 6);
   assert.ok(firstLayer > -1);
   assert.ok(topLayer > firstLayer);

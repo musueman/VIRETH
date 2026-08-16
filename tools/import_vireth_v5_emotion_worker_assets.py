@@ -9,7 +9,7 @@ from pathlib import Path
 from PIL import Image
 
 
-TARGET_SIZE = (560, 760)
+TARGET_SIZE = (705, 1005)
 SOURCE_EMOTIONS = ("happy", "angry", "sad", "anxious", "disgust", "surprised")
 SLOT_SOURCES = {
     "n": "neutral",

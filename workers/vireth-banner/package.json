@@ -1,0 +1,14 @@
+{
+  "name": "vireth-banner-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --test test/banner.test.mjs && npx.cmd wrangler deploy --dry-run",
+    "dev": "wrangler dev --port 8788",
+    "deploy": "npx.cmd wrangler deploy",
+    "types": "wrangler types"
+  },
+  "devDependencies": {
+    "wrangler": "^4.123.0"
+  }
+}

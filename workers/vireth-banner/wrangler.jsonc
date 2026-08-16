@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "vireth-banner",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-16",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "vars": {
+    "SERVICE_NAME": "vireth-banner"
+  }
+}

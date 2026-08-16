@@ -3,8 +3,9 @@ export const HEIGHT = 684;
 export const DEFAULT_COUNT = 5;
 export const MIN_COUNT = 4;
 export const MAX_COUNT = 5;
-export const DEFAULT_HOLD_SECONDS = 2;
+export const DEFAULT_HOLD_SECONDS = 3.5;
 export const DEFAULT_SLIDE_SECONDS = 0.8;
+export const SLIDE_EASE = "0.42 0 0.58 1";
 
 export function bannerLayerAssets(assets) {
   return assets.filter((asset) => asset.id !== "t");
@@ -60,7 +61,7 @@ export function renderBannerSvg({
   <g clip-path="url(#b-clip)">
   <g>
   ${layers}
-    <animateTransform attributeName="transform" type="translate" dur="${timing.durationSeconds}s" repeatCount="indefinite" values="${timing.values}" keyTimes="${timing.keyTimes}" calcMode="linear"/>
+    <animateTransform attributeName="transform" type="translate" dur="${timing.durationSeconds}s" repeatCount="indefinite" values="${timing.values}" keyTimes="${timing.keyTimes}" calcMode="spline" keySplines="${timing.keySplines}"/>
   </g>
   </g>
   <image href="${escapeXml(topHref)}" x="0" y="0" width="${WIDTH}" height="${HEIGHT}" preserveAspectRatio="xMidYMid slice"/>
@@ -95,8 +96,13 @@ function slideTiming(layerCount, holdSeconds, slideSeconds) {
   return {
     durationSeconds,
     values: values.join(";"),
-    keyTimes: keyTimes.join(";")
+    keyTimes: keyTimes.join(";"),
+    keySplines: slideKeySplines(values.length).join(";")
   };
+}
+
+function slideKeySplines(valueCount) {
+  return Array.from({ length: valueCount - 1 }, () => SLIDE_EASE);
 }
 
 function roundSeconds(value) {

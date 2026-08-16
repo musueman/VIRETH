@@ -65,9 +65,13 @@ test("renderBannerSvg puts random layers below the fixed top layer", () => {
   assert.equal((svg.match(/class="b-layer"/g) ?? []).length, 6);
   assert.ok(firstLayer > -1);
   assert.ok(topLayer > firstLayer);
-  assert.match(svg, /data-hold-seconds="2"/);
+  assert.match(svg, /data-hold-seconds="3.5"/);
+  assert.match(svg, /data-slide-seconds="0.8"/);
   assert.match(svg, /<animateTransform attributeName="transform"/);
   assert.match(svg, /type="translate"/);
+  assert.match(svg, /calcMode="spline"/);
+  assert.match(svg, /keySplines="/);
+  assert.match(svg, /dur="21.5s"/);
   assert.doesNotMatch(svg, /attributeName="opacity"/);
   assert.equal((svg.match(/href="\/b\/001\.webp"/g) ?? []).length, 2);
   const keyTimes = svg.match(/keyTimes="([^"]+)"/)[1].split(";");

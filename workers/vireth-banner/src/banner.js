@@ -3,7 +3,8 @@ export const HEIGHT = 684;
 export const DEFAULT_COUNT = 5;
 export const MIN_COUNT = 4;
 export const MAX_COUNT = 5;
-export const DEFAULT_DURATION_SECONDS = 20;
+export const DEFAULT_HOLD_SECONDS = 2;
+export const DEFAULT_SLIDE_SECONDS = 0.8;
 
 export function bannerLayerAssets(assets) {
   return assets.filter((asset) => asset.id !== "t");
@@ -12,12 +13,6 @@ export function bannerLayerAssets(assets) {
 export function clampBannerCount(value) {
   const count = Number.parseInt(value ?? "", 10);
   return count === MIN_COUNT || count === MAX_COUNT ? count : DEFAULT_COUNT;
-}
-
-export function clampDurationSeconds(value) {
-  const duration = Number.parseInt(value ?? "", 10);
-  if (!Number.isFinite(duration)) return DEFAULT_DURATION_SECONDS;
-  return Math.min(60, Math.max(8, duration));
 }
 
 export function buildAssetPath(asset) {
@@ -41,26 +36,33 @@ export function selectBannerLayers(assets, count, seed) {
   return selected;
 }
 
-export function renderBannerSvg({ topHref, layerHrefs, durationSeconds = DEFAULT_DURATION_SECONDS }) {
-  const layerCount = layerHrefs.length;
-  const segment = 1 / layerCount;
-  const layers = layerHrefs
-    .map((href, index) => {
-      const visibleStart = index * segment;
-      const visibleEnd = (index + 1) * segment;
-      const values = opacityValues(layerCount, index);
-      const keyTimes = opacityKeyTimes(layerCount, index);
-
-      return `<image class="b-layer" href="${escapeXml(href)}" x="0" y="0" width="${WIDTH}" height="${HEIGHT}" preserveAspectRatio="xMidYMid slice" opacity="${index === 0 ? "1" : "0"}">
-    <animate attributeName="opacity" dur="${durationSeconds}s" repeatCount="indefinite" values="${values}" keyTimes="${keyTimes}" calcMode="linear"/>
-  </image>`;
-    })
+export function renderBannerSvg({
+  topHref,
+  layerHrefs,
+  holdSeconds = DEFAULT_HOLD_SECONDS,
+  slideSeconds = DEFAULT_SLIDE_SECONDS
+}) {
+  const deckHrefs = [...layerHrefs, layerHrefs[0]];
+  const timing = slideTiming(layerHrefs.length, holdSeconds, slideSeconds);
+  const layers = deckHrefs
+    .map(
+      (href, index) =>
+        `<image class="b-layer" href="${escapeXml(href)}" x="${index * WIDTH}" y="0" width="${WIDTH}" height="${HEIGHT}" preserveAspectRatio="xMidYMid slice"/>`
+    )
     .join("\n  ");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" role="img" aria-label="Vireth LunaTalk banner">
+<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}" role="img" aria-label="Vireth LunaTalk banner" data-hold-seconds="${holdSeconds}" data-slide-seconds="${slideSeconds}">
+  <defs>
+    <clipPath id="b-clip"><rect x="0" y="0" width="${WIDTH}" height="${HEIGHT}"/></clipPath>
+  </defs>
   <rect width="${WIDTH}" height="${HEIGHT}" fill="#000"/>
+  <g clip-path="url(#b-clip)">
+  <g>
   ${layers}
+    <animateTransform attributeName="transform" type="translate" dur="${timing.durationSeconds}s" repeatCount="indefinite" values="${timing.values}" keyTimes="${timing.keyTimes}" calcMode="linear"/>
+  </g>
+  </g>
   <image href="${escapeXml(topHref)}" x="0" y="0" width="${WIDTH}" height="${HEIGHT}" preserveAspectRatio="xMidYMid slice"/>
 </svg>`;
 }
@@ -77,15 +79,32 @@ export function makeSeed(url) {
   return new URL(url).searchParams.get("seed") ?? `${Date.now()}-${Math.random()}`;
 }
 
-function opacityValues(layerCount, targetIndex) {
-  return Array.from({ length: layerCount + 1 }, (_, tick) => {
-    const index = tick === layerCount ? 0 : tick;
-    return index === targetIndex ? "1" : "0";
-  }).join(";");
+function slideTiming(layerCount, holdSeconds, slideSeconds) {
+  const cycleSeconds = holdSeconds + slideSeconds;
+  const durationSeconds = roundSeconds(layerCount * cycleSeconds);
+  const values = ["0 0"];
+  const keyTimes = ["0"];
+
+  for (let index = 0; index < layerCount; index += 1) {
+    values.push(`${-index * WIDTH} 0`);
+    keyTimes.push(formatKeyTime((index * cycleSeconds + holdSeconds) / durationSeconds));
+    values.push(`${-(index + 1) * WIDTH} 0`);
+    keyTimes.push(formatKeyTime(((index + 1) * cycleSeconds) / durationSeconds));
+  }
+
+  return {
+    durationSeconds,
+    values: values.join(";"),
+    keyTimes: keyTimes.join(";")
+  };
 }
 
-function opacityKeyTimes(layerCount) {
-  return Array.from({ length: layerCount + 1 }, (_, tick) => (tick / layerCount).toFixed(3)).join(";");
+function roundSeconds(value) {
+  return Number.parseFloat(value.toFixed(2));
+}
+
+function formatKeyTime(value) {
+  return value.toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
 }
 
 function seededRandom(seed) {

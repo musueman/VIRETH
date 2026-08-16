@@ -62,10 +62,16 @@ test("renderBannerSvg puts random layers below the fixed top layer", () => {
   const topLayer = svg.indexOf('href="/b/t.webp"');
 
   assert.match(svg, /<svg[^>]+width="1920"[^>]+height="684"/);
-  assert.equal((svg.match(/class="b-layer"/g) ?? []).length, 5);
+  assert.equal((svg.match(/class="b-layer"/g) ?? []).length, 6);
   assert.ok(firstLayer > -1);
   assert.ok(topLayer > firstLayer);
-  assert.match(svg, /<animate attributeName="opacity"/);
+  assert.match(svg, /data-hold-seconds="2"/);
+  assert.match(svg, /<animateTransform attributeName="transform"/);
+  assert.match(svg, /type="translate"/);
+  assert.doesNotMatch(svg, /attributeName="opacity"/);
+  assert.equal((svg.match(/href="\/b\/001\.webp"/g) ?? []).length, 2);
+  const keyTimes = svg.match(/keyTimes="([^"]+)"/)[1].split(";");
+  assert.equal(new Set(keyTimes).size, keyTimes.length);
 });
 
 test("isFaviconPath recognizes the browser favicon probe", () => {

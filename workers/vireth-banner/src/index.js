@@ -3,7 +3,6 @@ import {
   bannerLayerAssets,
   buildAssetPath,
   clampBannerCount,
-  clampDurationSeconds,
   isFaviconPath,
   makeSeed,
   renderBannerSvg,
@@ -54,11 +53,10 @@ export default {
 
     const inline = shouldInline(url);
     const selection = selectForUrl(url);
-    const durationSeconds = clampDurationSeconds(url.searchParams.get("duration"));
     const topHref = await assetHref(selection.top, inline, env);
     const layerHrefs = await Promise.all(selection.layers.map((asset) => assetHref(asset, inline, env)));
 
-    return new Response(renderBannerSvg({ topHref, layerHrefs, durationSeconds }), {
+    return new Response(renderBannerSvg({ topHref, layerHrefs }), {
       headers: responseHeaders("image/svg+xml; charset=utf-8")
     });
   }

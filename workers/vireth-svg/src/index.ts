@@ -6,6 +6,7 @@ import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
 import { GENERATED_TALK_EMOTIONS } from "./generated-talk-emotions";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
 import { GENERATED_WIKI_PLACES, GENERATED_WIKI_REGIONS } from "./generated-wiki-ids";
+import GENERATED_BANNER_ASSETS from "../banner-assets.json";
 
 type SceneEntry = {
   key: string;
@@ -62,6 +63,14 @@ type WikiPlaceEntry = {
   aliases: readonly string[];
   kind: string;
   order: number;
+};
+
+type BannerAssetEntry = {
+  id: string;
+  output: string;
+  width: number;
+  height: number;
+  bytes: number;
 };
 
 type TalkCharacterEntry = {
@@ -361,6 +370,7 @@ const REGION_MAPS = GENERATED_REGION_MAPS as RegionMapEntry[];
 const REGION_MAP_PLACES = GENERATED_REGION_MAP_PLACES as RegionMapPlaceEntry[];
 const WIKI_REGIONS = GENERATED_WIKI_REGIONS as readonly WikiRegionEntry[];
 const WIKI_PLACES = GENERATED_WIKI_PLACES as readonly WikiPlaceEntry[];
+const BANNER_ASSETS = GENERATED_BANNER_ASSETS as readonly BannerAssetEntry[];
 const RANDOM_NPC_ASSETS = GENERATED_RANDOM_NPC_ASSETS as readonly RandomNpcAsset[];
 type AnonymousNpcRole = "civilian" | "guard" | "scholar" | "merchant";
 type AnonymousNpcGender = "male" | "female";
@@ -697,7 +707,8 @@ const SCENE_KEY_ALIASES: Record<string, string> = {
 const REGION_KEY_ALIASES: Record<string, string> = {
   "tiris-west": "tiris",
   "tiris-western": "tiris",
-  "west-tiris": "tiris"
+  "west-tiris": "tiris",
+  "fenrir-eye": "fenrir-s-eye"
 };
 
 const NPC_GENDER_ALIASES: Record<string, string> = {
@@ -726,6 +737,28 @@ const SVG_HEADERS = {
   "Cache-Control": "no-cache"
 };
 
+const SCENE_CARD_WIDTH = 1000;
+const SCENE_CARD_HEIGHT = 700;
+const BANNER_SOURCE_WIDTH = 1920;
+const BANNER_SOURCE_HEIGHT = 684;
+const BANNER_DEFAULT_COUNT = 5;
+const BANNER_MIN_COUNT = 4;
+const BANNER_MAX_COUNT = 5;
+const BANNER_HOLD_SECONDS = 3.5;
+const BANNER_SLIDE_SECONDS = 0.8;
+const BANNER_SLIDE_EASE = "0.42 0 0.58 1";
+const SCENE_BANNER_HEIGHT = 356.25;
+const COMBINED_SCENE_HEIGHT = SCENE_BANNER_HEIGHT + SCENE_CARD_HEIGHT;
+
+const TALK_CHARACTER_DISPLAY_SCALE = 1.5;
+const TALK_CHARACTER_BASE_FRAME = {
+  x: 500,
+  y: 12,
+  width: 470,
+  height: 670
+};
+const TALK_CHARACTER_FRAME = scaleFrameFromCenter(TALK_CHARACTER_BASE_FRAME, TALK_CHARACTER_DISPLAY_SCALE);
+
 const IMAGE_HEADERS = {
   "Access-Control-Allow-Origin": "*",
   "Cache-Control": "public, max-age=300"
@@ -733,7 +766,7 @@ const IMAGE_HEADERS = {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
+    const url = new URL(repairMalformedQueryUrl(request.url));
 
     if (request.method !== "GET" && request.method !== "HEAD") {
       return json({ error: "method_not_allowed" }, 405);
@@ -745,7 +778,8 @@ export default {
       url.pathname.startsWith("/character-emotion-assets/") ||
       url.pathname.startsWith("/talk-background-assets/") ||
       url.pathname.startsWith("/map-assets/") ||
-      url.pathname.startsWith("/scene-assets/")
+      url.pathname.startsWith("/scene-assets/") ||
+      url.pathname.startsWith("/b/")
     ) {
       return staticAsset(request, env);
     }
@@ -798,6 +832,11 @@ export default {
       });
     }
 
+    const locationError = resolveLocationError(url);
+    if (locationError) {
+      return json(locationError, 400);
+    }
+
     if (url.pathname === "/talk.json") {
       return json(resolveTalkCard(url, env));
     }
@@ -807,10 +846,11 @@ export default {
     }
 
     if (url.pathname === "/place.json") {
-      const scene = resolveScene(url, env);
+      const visualScene = resolveScene(url, env);
       const map = resolveRegionMap(url, env);
-      const currentPlace = map ? resolveCurrentMapPlace(url, map, env) : null;
-      return json({ scene, map, currentPlace });
+      const currentPlace = resolveCurrentPlace(url);
+      const mapPlace = map ? resolveCurrentMapPlace(url, map, env) : null;
+      return json({ scene: visualScene, visualScene, map, currentPlace, mapPlace });
     }
 
     if (url.pathname === "/scene.json") {
@@ -886,7 +926,7 @@ export default {
     if (url.pathname === "/place" || url.pathname === "/place.svg") {
       const scene = resolveScene(url, env);
       const map = resolveRegionMap(url, env);
-      return svg(await renderPlaceSvg(scene, map, url.origin, url, env), request.method);
+      return svg(await renderPlaceSvg(resolveCurrentPlace(url), scene, map, url.origin, url, env), request.method);
     }
 
     if (url.pathname === "/talk" || url.pathname === "/talk.svg") {
@@ -906,17 +946,103 @@ export default {
   }
 } satisfies ExportedHandler<Env>;
 
+function repairMalformedQueryUrl(value: string): string {
+  return value
+    .replace(/%C2%AEionId(?:%3D|=)/giu, "&regionId=")
+    .replace(/%C2%AEion(?:%3D|=)/giu, "&region=")
+    .replace(/®ionId=/giu, "&regionId=")
+    .replace(/®ion=/giu, "&region=");
+}
+
+function scaleFrameFromCenter(
+  frame: { x: number; y: number; width: number; height: number },
+  scale: number
+): { x: number; y: number; width: number; height: number } {
+  const width = frame.width * scale;
+  const height = frame.height * scale;
+  return {
+    x: frame.x - (width - frame.width) / 2,
+    y: frame.y - (height - frame.height) / 2,
+    width,
+    height
+  };
+}
+
+function resolveLocationError(
+  url: URL
+):
+  | { error: "invalid_place_id"; placeId: string }
+  | { error: "invalid_region_id"; regionId: string }
+  | { error: "region_place_mismatch"; regionId: string; placeId: string }
+  | null {
+  const explicitPlaceId = firstQuery(url, ["placeId", "locationId", "placeCode", "locationCode", "장소코드"]);
+  const place = resolveCurrentPlace(url);
+  if (explicitPlaceId && !place) {
+    return { error: "invalid_place_id", placeId: explicitPlaceId };
+  }
+
+  const explicitRegionId = firstQuery(url, ["regionId", "regionCode", "지역코드"]);
+  const regionValue = firstQuery(url, REGION_QUERY_NAMES);
+  const region = regionValue ? resolveWikiRegionByValue(regionValue) : null;
+  if (explicitRegionId && !region) {
+    return { error: "invalid_region_id", regionId: explicitRegionId };
+  }
+
+  if (place && region && place.regionId !== region.id) {
+    return { error: "region_place_mismatch", regionId: region.id, placeId: place.id };
+  }
+
+  return null;
+}
+
+function resolveCurrentPlace(url: URL): WikiPlaceEntry | null {
+  const exactPlaceId = firstQuery(url, ["placeId", "locationId", "placeCode", "locationCode", "장소코드"]);
+  if (exactPlaceId) {
+    const normalized = normalizeKey(exactPlaceId);
+    return WIKI_PLACES.find((place) => normalizeKey(place.id) === normalized) ?? null;
+  }
+
+  const fuzzyPlace = firstQuery(url, ["place", "city", "location", "currentPlace", "장소", "도시", "현재장소", "정본장소명"]);
+  const regionValue = firstQuery(url, REGION_QUERY_NAMES);
+  return fuzzyPlace ? resolveWikiPlaceByValue(fuzzyPlace, regionValue) : null;
+}
+
+function resolveSceneForCurrentPlace(place: WikiPlaceEntry, env: Env): SceneEntry {
+  const placeName = normalizeKey(place.name);
+  const regionKey = canonicalRegionKey(place.regionKey);
+  const direct = SCENES.find(
+    (scene) =>
+      canonicalRegionKey(scene.realmKey ?? "") === regionKey &&
+      [scene.key, scene.title, ...scene.aliases].some((value) => normalizeKey(value) === placeName)
+  );
+
+  return canonicalSceneRegion(direct ?? resolveDefaultSceneByRegionValue(regionKey) ?? resolveSceneByValue(place.regionKey, env));
+}
+
+function canonicalSceneRegion(scene: SceneEntry): SceneEntry {
+  if (!scene.realmKey) {
+    return scene;
+  }
+
+  const realmKey = canonicalRegionKey(scene.realmKey);
+  return realmKey === scene.realmKey ? scene : { ...scene, realmKey };
+}
+
 function resolveScene(url: URL, env: Env): SceneEntry {
+  const currentPlace = resolveCurrentPlace(url);
+  if (currentPlace) {
+    return resolveSceneForCurrentPlace(currentPlace, env);
+  }
   const queryValues = sceneQueryValues(url);
   let unresolved: SceneEntry | null = null;
   for (const queryValue of queryValues) {
     const scene = resolveSceneByValue(queryValue, env);
     if (!isUnresolvedScene(scene)) {
-      return scene;
+      return canonicalSceneRegion(scene);
     }
     unresolved ??= scene;
   }
-  return unresolved ?? resolveSceneByValue("world-overview", env);
+  return canonicalSceneRegion(unresolved ?? resolveSceneByValue("world-overview", env));
 }
 
 function sceneQueryValues(url: URL): string[] {
@@ -1090,6 +1216,12 @@ function resolveDefaultSceneByRegionValue(normalized: string): SceneEntry | null
 }
 
 function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
+  const currentPlace = resolveCurrentPlace(url);
+  if (currentPlace) {
+    const regionKey = canonicalRegionKey(currentPlace.regionKey);
+    return REGION_MAPS.find((map) => canonicalRegionKey(map.key) === regionKey) ?? null;
+  }
+
   const rawQueryValue = firstQuery(url, [
     "regionId",
     "regionCode",
@@ -1123,7 +1255,7 @@ function resolveRegionMap(url: URL, env: Env): RegionMapEntry | null {
 
   const scene = resolveSceneByValue(queryValue, env);
   if (scene.realmKey) {
-    return REGION_MAPS.find((map) => normalizeKey(map.key) === normalizeKey(scene.realmKey ?? "")) ?? null;
+    return REGION_MAPS.find((map) => canonicalRegionKey(map.key) === canonicalRegionKey(scene.realmKey ?? "")) ?? null;
   }
 
   return null;
@@ -1137,6 +1269,11 @@ function regionMapPlaces(regionKey: string): RegionMapPlaceEntry[] {
 }
 
 function resolveCurrentMapPlace(url: URL, map: RegionMapEntry, env: Env): RegionMapPlaceEntry | null {
+  const currentPlace = resolveCurrentPlace(url);
+  if (currentPlace) {
+    return resolveMapPlaceByValue(currentPlace.name, map.key);
+  }
+
   const rawQueryValue = firstQuery(url, MAP_PLACE_QUERY_NAMES);
   if (!rawQueryValue) {
     return null;
@@ -1202,9 +1339,14 @@ function structuredPlaceLabel(url: URL, scene: SceneEntry): string {
     return explicit;
   }
 
+  const detail = firstQuery(url, DETAIL_PLACE_QUERY_NAMES);
+  const currentPlace = resolveCurrentPlace(url);
+  if (currentPlace) {
+    return combineQueryParts(currentPlace.name, detail) ?? currentPlace.name;
+  }
+
   const region = firstQuery(url, REGION_QUERY_NAMES);
   const place = firstQuery(url, PLACE_QUERY_NAMES);
-  const detail = firstQuery(url, DETAIL_PLACE_QUERY_NAMES);
   return combineQueryParts(place, detail) ?? place ?? detail ?? region ?? scene.title;
 }
 
@@ -1221,7 +1363,9 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
   const requestedEmotionCode = resolveTalkEmotionCode(url);
   const resolvedCharacter =
-    character && (roleOverride || affiliationOverride || infoOverride)
+    character &&
+    !character.characterId &&
+    (roleOverride || affiliationOverride || infoOverride)
       ? {
           ...character,
           role: roleOverride ?? character.role,
@@ -1239,7 +1383,12 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
     resolvedCharacter && emotionImageUrl
       ? { ...resolvedCharacter, imageUrl: emotionImageUrl }
       : resolvedCharacter;
-  const infoLines = talkInfoLines(renderedCharacter, scene, placeLabel, infoOverride);
+  const infoLines = talkInfoLines(
+    renderedCharacter,
+    scene,
+    placeLabel,
+    renderedCharacter?.characterId ? null : infoOverride
+  );
 
   return {
     scene,
@@ -1277,7 +1426,7 @@ function resolveTalkBackgroundFromUrl(url: URL, env: Env): TalkBackgroundEntry {
   if (direct) {
     const entry = resolveTalkBackgroundByValue(direct);
     if (entry) {
-      return entry;
+      return canonicalTalkBackground(entry);
     }
   }
 
@@ -1304,7 +1453,7 @@ function resolveTalkBackground(
       aliases: [],
       kind: "direct",
       imageUrl: directImageUrl,
-      regionKey: scene.realmKey
+      regionKey: scene.realmKey ? canonicalRegionKey(scene.realmKey) : undefined
     };
   }
 
@@ -1312,7 +1461,7 @@ function resolveTalkBackground(
   if (direct) {
     const entry = resolveTalkBackgroundByValue(direct);
     if (entry) {
-      return entry;
+      return canonicalTalkBackground(entry);
     }
   }
 
@@ -1327,13 +1476,13 @@ function resolveTalkBackground(
     ...scene.aliases,
     explicitBgType ?? ""
   ]);
-  const regionKey = normalizeKey(scene.realmKey ?? "");
+  const regionKey = canonicalRegionKey(scene.realmKey ?? "");
   const regionName = normalizeKey(scene.realmName ?? "");
   const sceneSpecificValues = sceneValues.filter((value) => value !== regionKey && value !== regionName);
   const sceneSpecificValueSet = new Set(sceneSpecificValues);
 
   const scored = TALK_BACKGROUNDS.map((entry) => {
-    const entryRegionKey = normalizeKey(entry.regionKey ?? "");
+    const entryRegionKey = canonicalRegionKey(entry.regionKey ?? "");
     const entryRegionName = normalizeKey(entry.regionName ?? "");
     if (entry.kind === "place_type" && regionKey && entryRegionKey === regionKey) {
       const functionValues = [entry.bgType ?? "", ...entry.aliases]
@@ -1373,7 +1522,6 @@ function resolveTalkBackground(
     const containedFunctionMatches = containedMatches.filter((value) =>
       TALK_BACKGROUND_FUNCTION_HINTS.has(value)
     );
-    const crossRegion = Boolean(regionKey && entryRegionKey && entryRegionKey !== regionKey);
     const exactNonFunctionMatches = exactMatches.filter(
       (value) => !TALK_BACKGROUND_FUNCTION_HINTS.has(value)
     );
@@ -1381,41 +1529,31 @@ function resolveTalkBackground(
       (value) => !TALK_BACKGROUND_FUNCTION_HINTS.has(value)
     );
 
-    if (
-      explicitBgType &&
-      crossRegion &&
-      !genericArchetype &&
-      exactNonFunctionMatches.length === 0 &&
-      containedNonFunctionMatches.length === 0
-    ) {
-      return { entry, score: 0 };
-    }
-
     let score = 0;
-    if (genericArchetype && !explicitBgType) {
-      if (allowSpecificMatch && exactFunctionMatches.length > 0) {
-        score += 120 + (entry.priority ?? 0) / 4 + exactFunctionMatches.length * 8;
-      } else if (allowSpecificMatch && containedFunctionMatches.length > 0) {
-        score += 105 + (entry.priority ?? 0) / 4 + containedFunctionMatches.length * 5;
-      } else if (allowSpecificMatch && exactMatches.length > 0) {
-        score += 30 + (entry.priority ?? 0) / 4 + exactMatches.length * 3;
-      } else if (allowSpecificMatch && containedMatches.length > 0) {
-        score += 20 + (entry.priority ?? 0) / 4 + containedMatches.length * 2;
-      }
-    } else if (allowSpecificMatch && exactMatches.length > 0) {
-      score += 200 + (entry.priority ?? 0) + exactMatches.length * 25;
-    } else if (allowSpecificMatch && containedMatches.length > 0) {
-      score += 120 + (entry.priority ?? 0) + containedMatches.length * 10;
-    }
+    const functionSpecificity =
+      exactFunctionMatches.length * 25 + containedFunctionMatches.length * 10;
+    const identitySpecificity =
+      exactNonFunctionMatches.length * 25 + containedNonFunctionMatches.length * 10;
+    const priority = entry.priority ?? 0;
 
-    if (regionMatch) {
-      if (entry.kind === "region_default") {
-        score += 90;
-      } else if (entry.kind === "place_type") {
-        score += 40;
-      } else {
-        score += 45;
+    if (entry.kind === "place_type") {
+      if ((!regionKey || regionMatch) && hasFunctionMatch) {
+        score = (identitySpecificity > 0 ? 6000 : 4000) + functionSpecificity + identitySpecificity + priority;
       }
+    } else if (entry.kind === "city_representative") {
+      if (regionMatch || (!regionKey && identitySpecificity > 0)) {
+        score = (identitySpecificity > 0 ? 5000 : 3000) + identitySpecificity + priority;
+      }
+    } else if (entry.kind === "region_default") {
+      if (regionMatch || (!regionKey && identitySpecificity > 0)) {
+        score = 2000 + identitySpecificity + priority;
+      }
+    } else if (
+      genericArchetype &&
+      allowSpecificMatch &&
+      (functionSpecificity > 0 || identitySpecificity > 0)
+    ) {
+      score = (functionSpecificity > 0 ? 3500 : 1000) + functionSpecificity + identitySpecificity + priority;
     }
     return { entry, score };
   })
@@ -1423,7 +1561,7 @@ function resolveTalkBackground(
     .sort((a, b) => b.score - a.score || a.entry.key.localeCompare(b.entry.key));
 
   if (scored[0]) {
-    return scored[0].entry;
+    return canonicalTalkBackground(scored[0].entry);
   }
 
   return {
@@ -1431,9 +1569,13 @@ function resolveTalkBackground(
     aliases: [scene.key],
     kind: "scene_fallback",
     imageUrl: scene.imageUrl || env.DEFAULT_IMAGE_URL,
-    regionKey: scene.realmKey,
+    regionKey: scene.realmKey ? canonicalRegionKey(scene.realmKey) : undefined,
     regionName: scene.realmName
   };
+}
+
+function canonicalTalkBackground(entry: TalkBackgroundEntry): TalkBackgroundEntry {
+  return entry.regionKey ? { ...entry, regionKey: canonicalRegionKey(entry.regionKey) } : entry;
 }
 
 function resolveTalkBackgroundByValue(value: string): TalkBackgroundEntry | null {
@@ -1446,7 +1588,7 @@ function resolveTalkBackgroundByValue(value: string): TalkBackgroundEntry | null
     TALK_BACKGROUNDS.find(
       (entry) =>
         normalizeKey(entry.key) === normalized ||
-        normalizeKey(entry.regionKey ?? "") === normalized ||
+        canonicalRegionKey(entry.regionKey ?? "") === canonicalRegionKey(value) ||
         normalizeKey(entry.cityAlias ?? "") === normalized ||
         entry.aliases.some((alias) => normalizeKey(alias) === normalized)
     ) ?? null
@@ -1461,7 +1603,7 @@ function resolveTalkCharacter(
 ): TalkCharacterEntry | null {
   const directImageUrl = firstQuery(url, TALK_CHARACTER_IMAGE_QUERY_NAMES);
   const registeredByCode = characterCode ? resolveTalkCharacterByValue(characterCode) : null;
-  const registered = registeredByCode ?? (speaker ? resolveTalkCharacterByValue(speaker) : null);
+  const registered = characterCode ? registeredByCode : speaker ? resolveTalkCharacterByValue(speaker) : null;
 
   if (registered && directImageUrl) {
     return { ...registered, imageUrl: directImageUrl };
@@ -1474,6 +1616,10 @@ function resolveTalkCharacter(
   const randomNpc = resolveRandomNpcAsset(url, speaker);
   if (randomNpc && !directImageUrl) {
     return randomNpcTalkCharacter(randomNpc, url, speaker, scene);
+  }
+
+  if (characterCode && !registeredByCode && !directImageUrl) {
+    return randomNpcTalkCharacter(GENERIC_ANONYMOUS_NPC_ASSETS.civilian.male, url, null, scene);
   }
 
   if (!speaker && !directImageUrl) {
@@ -2120,9 +2266,13 @@ async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: 
   const overlay = scene.heraldryUrl
     ? renderHeraldryOverlay(scene, heraldryUrl)
     : renderTextOverlay(title, caption);
+  const banner = renderEmbeddedBannerSvg(url, origin);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${title}">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 ${SCENE_CARD_WIDTH} ${COMBINED_SCENE_HEIGHT}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${title}" style="display:block;width:100%;max-width:100%;height:auto;">
+  <metadata data-scene-banner="vireth-banner" data-scene-card="vireth-location" data-banner-height="${SCENE_BANNER_HEIGHT}"/>
+  ${banner}
+  <g data-scene-card="vireth-location" transform="translate(0 ${SCENE_BANNER_HEIGHT})">
   <defs>
     <linearGradient id="shade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#07111f" stop-opacity="0.12"/>
@@ -2153,20 +2303,149 @@ async function renderSceneSvg(scene: SceneEntry, origin: string, url: URL, env: 
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.78"/>
     </filter>
   </defs>
-  <rect width="1000" height="700" fill="#07111f"/>
-  <image href="${imageUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
-  <rect width="1000" height="700" fill="url(#shade)"/>
+  <rect width="${SCENE_CARD_WIDTH}" height="${SCENE_CARD_HEIGHT}" fill="#07111f"/>
+  <image href="${imageUrl}" x="0" y="0" width="${SCENE_CARD_WIDTH}" height="${SCENE_CARD_HEIGHT}" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="${SCENE_CARD_WIDTH}" height="${SCENE_CARD_HEIGHT}" fill="url(#shade)"/>
   ${overlay}
+  </g>
 </svg>`;
 }
 
+function renderEmbeddedBannerSvg(url: URL, origin: string): string {
+  const topAsset = BANNER_ASSETS.find((asset) => asset.id === "t");
+  const layerAssets = BANNER_ASSETS.filter((asset) => asset.id !== "t");
+  if (!topAsset || layerAssets.length === 0) {
+    return renderFallbackBannerSvg();
+  }
+
+  const count = clampBannerCount(firstQuery(url, ["bannerCount", "count", "n"]));
+  const selectedAssets = selectBannerLayers(layerAssets, count, makeBannerSeed(url));
+  const layerHrefs = selectedAssets.map((asset) => bannerAssetUrl(origin, asset));
+  const deckHrefs = [...layerHrefs, layerHrefs[0]];
+  const timing = bannerSlideTiming(selectedAssets.length);
+  const layers = deckHrefs
+    .map(
+      (href, index) =>
+        `<image class="b-layer" href="${escapeXml(href)}" x="${index * BANNER_SOURCE_WIDTH}" y="0" width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}" preserveAspectRatio="xMidYMid slice"/>`
+    )
+    .join("\n      ");
+
+  return `<svg x="0" y="0" width="${SCENE_CARD_WIDTH}" height="${SCENE_BANNER_HEIGHT}" viewBox="0 0 ${BANNER_SOURCE_WIDTH} ${BANNER_SOURCE_HEIGHT}" preserveAspectRatio="xMidYMid meet" data-scene-banner="vireth-banner" data-hold-seconds="${BANNER_HOLD_SECONDS}" data-slide-seconds="${BANNER_SLIDE_SECONDS}">
+    <defs>
+      <clipPath id="b-clip"><rect x="0" y="0" width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}"/></clipPath>
+    </defs>
+    <rect width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}" fill="#000"/>
+    <g clip-path="url(#b-clip)">
+      <g>
+      ${layers}
+        <animateTransform attributeName="transform" type="translate" dur="${timing.durationSeconds}s" repeatCount="indefinite" values="${timing.values}" keyTimes="${timing.keyTimes}" calcMode="spline" keySplines="${timing.keySplines}"/>
+      </g>
+    </g>
+    <image href="${escapeXml(bannerAssetUrl(origin, topAsset))}" x="0" y="0" width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}" preserveAspectRatio="xMidYMid slice"/>
+  </svg>`;
+}
+
+function clampBannerCount(value: string | null): number {
+  const count = Number.parseInt(value ?? "", 10);
+  return count === BANNER_MIN_COUNT || count === BANNER_MAX_COUNT ? count : BANNER_DEFAULT_COUNT;
+}
+
+function bannerAssetUrl(origin: string, asset: BannerAssetEntry): string {
+  const path = asset.output.startsWith("/") ? asset.output : `/${asset.output}`;
+  return `${origin}${path}`;
+}
+
+function selectBannerLayers(assets: readonly BannerAssetEntry[], count: number, seed: string): BannerAssetEntry[] {
+  const selected: BannerAssetEntry[] = [];
+  const remaining = [...assets];
+  const random = seededRandom(seed);
+
+  while (selected.length < count && remaining.length > 0) {
+    const index = Math.floor(random() * remaining.length);
+    selected.push(remaining.splice(index, 1)[0]);
+  }
+
+  return selected;
+}
+
+function makeBannerSeed(url: URL): string {
+  return firstQuery(url, ["seed", "bannerSeed", "s"]) ?? `${Date.now()}-${Math.random()}`;
+}
+
+function bannerSlideTiming(layerCount: number): {
+  durationSeconds: number;
+  values: string;
+  keyTimes: string;
+  keySplines: string;
+} {
+  const cycleSeconds = BANNER_HOLD_SECONDS + BANNER_SLIDE_SECONDS;
+  const durationSeconds = roundBannerSeconds(layerCount * cycleSeconds);
+  const values = ["0 0"];
+  const keyTimes = ["0"];
+
+  for (let index = 0; index < layerCount; index += 1) {
+    values.push(`${-index * BANNER_SOURCE_WIDTH} 0`);
+    keyTimes.push(formatBannerKeyTime((index * cycleSeconds + BANNER_HOLD_SECONDS) / durationSeconds));
+    values.push(`${-(index + 1) * BANNER_SOURCE_WIDTH} 0`);
+    keyTimes.push(formatBannerKeyTime(((index + 1) * cycleSeconds) / durationSeconds));
+  }
+
+  return {
+    durationSeconds,
+    values: values.join(";"),
+    keyTimes: keyTimes.join(";"),
+    keySplines: Array.from({ length: values.length - 1 }, () => BANNER_SLIDE_EASE).join(";")
+  };
+}
+
+function roundBannerSeconds(value: number): number {
+  return Number.parseFloat(value.toFixed(2));
+}
+
+function formatBannerKeyTime(value: number): string {
+  return value.toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
+}
+
+function seededRandom(seed: string): () => number {
+  let state = hashSeed(seed);
+  return () => {
+    state = (state * 1664525 + 1013904223) >>> 0;
+    return state / 0x100000000;
+  };
+}
+
+function hashSeed(seed: string): number {
+  let hash = 2166136261;
+  for (const char of String(seed)) {
+    hash ^= char.codePointAt(0) ?? 0;
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+function renderFallbackBannerSvg(): string {
+  return `<svg x="0" y="0" width="${SCENE_CARD_WIDTH}" height="${SCENE_BANNER_HEIGHT}" viewBox="0 0 ${BANNER_SOURCE_WIDTH} ${BANNER_SOURCE_HEIGHT}" preserveAspectRatio="xMidYMid meet" data-scene-banner="vireth-banner-fallback">
+    <rect width="${BANNER_SOURCE_WIDTH}" height="${BANNER_SOURCE_HEIGHT}" fill="#050505"/>
+    <rect x="1113" y="0" width="807" height="${BANNER_SOURCE_HEIGHT}" fill="#808080"/>
+    <text x="1548" y="578" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="140" font-weight="900">VIRETH</text>
+  </svg>`;
+}
+
 async function renderPlaceSvg(
-  scene: SceneEntry,
+  currentPlace: WikiPlaceEntry | null,
+  visualScene: SceneEntry,
   map: RegionMapEntry | null,
   origin: string,
   url: URL,
   env: Env
 ): Promise<string> {
+  const scene = currentPlace
+    ? {
+        ...visualScene,
+        title: currentPlace.name,
+        caption: `${currentPlace.regionName} · ${currentPlace.kind}`
+      }
+    : visualScene;
   if (!map) {
     return renderSceneSvg(scene, origin, url, env);
   }
@@ -2174,11 +2453,11 @@ async function renderPlaceSvg(
   const title = escapeXml(scene.title);
   const inlineSceneAssets = shouldInlineAssets(url);
   const inlineMapAssets = shouldInlineMapAssets(url);
-  const sceneProxyUrl = sceneImageUrl(origin, scene.key);
+  const sceneProxyUrl = sceneImageUrl(origin, visualScene.key);
   const mapProxyUrl = mapImageUrl(origin, map.key);
   const sceneImageSource = escapeXml(
     inlineSceneAssets
-      ? (await fetchInlineImageDataUri(scene.imageUrl, absoluteImageUrl(scene.imageUrl, origin), env)) ?? sceneProxyUrl
+      ? (await fetchInlineImageDataUri(visualScene.imageUrl, absoluteImageUrl(visualScene.imageUrl, origin), env)) ?? sceneProxyUrl
       : sceneProxyUrl
   );
   const mapImageSource = escapeXml(
@@ -2186,27 +2465,27 @@ async function renderPlaceSvg(
       ? (await fetchInlineImageDataUri(map.imageUrl, absoluteImageUrl(map.imageUrl, origin), env)) ?? mapProxyUrl
       : mapProxyUrl
   );
-  const heraldryUrl = scene.heraldryUrl
+  const heraldryUrl = visualScene.heraldryUrl
     ? escapeXml(
         inlineSceneAssets
           ? (await fetchInlineImageDataUri(
-              scene.heraldryUrl,
-              absoluteImageUrl(scene.heraldryUrl, origin),
+              visualScene.heraldryUrl,
+              absoluteImageUrl(visualScene.heraldryUrl, origin),
               env
             )) ?? heraldryProxyUrl(origin, scene.key)
           : heraldryProxyUrl(origin, scene.key)
       )
     : null;
-  const overlay = scene.heraldryUrl
+  const overlay = visualScene.heraldryUrl
     ? renderHeraldryOverlay(scene, heraldryUrl)
     : renderTextOverlay(title, escapeXml(scene.caption));
   const places = regionMapPlaces(map.key);
-  const currentPlace = resolveCurrentMapPlace(url, map, env);
+  const currentMapPlace = resolveCurrentMapPlace(url, map, env);
   const mapX = 50;
   const mapY = 750;
   const mapSize = 900;
-  const pointMarkers = renderCompactMapPointMarkers(places, currentPlace, mapX, mapY, mapSize);
-  const currentMarker = renderCurrentPlaceMarker(currentPlace, mapX, mapY, mapSize);
+  const pointMarkers = renderCompactMapPointMarkers(places, currentMapPlace, mapX, mapY, mapSize);
+  const currentMarker = renderCurrentPlaceMarker(currentMapPlace, mapX, mapY, mapSize);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1700" viewBox="0 0 1000 1700" role="img" aria-label="${title}">
@@ -2310,6 +2589,7 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
+  <metadata data-talk-character-display-scale="${TALK_CHARACTER_DISPLAY_SCALE}"/>
   <defs>
     <linearGradient id="talkShade" x1="0" x2="1" y1="0" y2="1">
       <stop offset="0%" stop-color="#07111f" stop-opacity="0.40"/>
@@ -2351,8 +2631,8 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
       <stop offset="80%" stop-color="#ffffff" stop-opacity="1"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
-    <mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="500" y="12" width="470" height="670">
-      <rect x="500" y="12" width="470" height="670" fill="url(#talkCharacterFade)"/>
+    <mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}">
+      <rect x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}" fill="url(#talkCharacterFade)"/>
     </mask>
   </defs>
   <rect width="1000" height="700" fill="#07111f"/>
@@ -2368,7 +2648,7 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
   const label = escapeXml(character?.displayName ?? "character");
 
   return `<g aria-label="${label}">
-    <image href="${characterImageUrl}" x="500" y="12" width="470" height="670" preserveAspectRatio="xMidYMid meet" mask="url(#talkCharacterMask)"/>
+    <image href="${characterImageUrl}" x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}" preserveAspectRatio="xMidYMid meet" mask="url(#talkCharacterMask)"/>
   </g>`;
 }
 
@@ -3299,7 +3579,8 @@ async function staticAsset(request: Request, env: Env): Promise<Response> {
     return new Response(renderNotFoundSvg(), { status: 404, headers: SVG_HEADERS });
   }
 
-  const response = await assets.fetch(request);
+  const url = new URL(request.url);
+  const response = await assets.fetch(new Request(`https://vireth-assets.local${url.pathname}`, { method: request.method }));
   if (!response.ok) {
     return new Response(renderNotFoundSvg(), { status: response.status, headers: SVG_HEADERS });
   }

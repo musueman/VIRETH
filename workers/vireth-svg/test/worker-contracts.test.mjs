@@ -178,23 +178,17 @@ test("keeps fixed-character canon when query overrides are supplied", async () =
   assert.deepEqual(overridden.body.infoLines, base.body.infoLines);
 });
 
-test("renders talk character art at the configured display scale", async () => {
+test("keeps the full character canvas inside the card with top and side margins", async () => {
   const response = await fetch(`${baseUrl}/talk?id=C012&e=a&placeId=L022&external=1`);
   const svg = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(
-    svg,
-    /<metadata data-talk-character-display-scale="1\.5"\/>/
-  );
-  assert.match(
-    svg,
-    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="382\.5" y="-155\.5" width="705" height="1005">/
-  );
-  assert.match(
-    svg,
-    /<image href="[^"]+" x="382\.5" y="-155\.5" width="705" height="1005" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
-  );
+  const frame = svg.match(/<image href="[^"]+" x="([\d.-]+)" y="([\d.-]+)" width="([\d.]+)" height="([\d.]+)" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/);
+  assert.ok(frame, "character image must preserve its aspect ratio");
+  const [x, y, width, height] = frame.slice(1).map(Number);
+  assert.ok(y >= 12, `top margin must be at least 12px, received ${y}`);
+  assert.ok(x >= 0 && x + width <= 988, "character canvas must not clip either side");
+  assert.ok(y + height <= 700, "character canvas must fit the card height");
 });
 
 test("prefers a matching place function over a region-only city representative", async () => {

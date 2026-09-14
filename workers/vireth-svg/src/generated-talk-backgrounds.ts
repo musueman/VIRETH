@@ -2030,7 +2030,10 @@ export const GENERATED_TALK_BACKGROUNDS = [
       "tiris",
       "티리스",
       "radvarhal",
+      "radbarhal",
+      "라드바르할",
       "tiris-radvarhal",
+      "tiris-radbarhal",
       "ADM"
     ],
     "kind": "city_representative",

@@ -1,0 +1,8 @@
+{
+  "source": "https://lunatalk.chat/public/img/common/favicon.png",
+  "discoveredFrom": "https://lunatalk.chat/",
+  "retrieved": "2026-09-16",
+  "use": "Official site favicon reused unchanged to identify an outbound LunaTalk link; CSS inverts it on dark header backgrounds.",
+  "destination": "https://lunatalk.chat/character/detail/70170",
+  "destinationNote": "Existing project CTA, character introduction entry. Unauthenticated request redirects via script to /login?reason=adult. Not a user-specific chat session."
+}

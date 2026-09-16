@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-09-16",
+  "mappingAuthority": "D:/OneDrive/444_비레스/00_최신본/01_문서_정본/Arcadia_기준시대_5083_이미지매핑_DB_v1.md",
+  "coordinateSource": "D:/OneDrive/444_비레스/00_최신본/02_지도/15_출판웹_선별라벨지도_v62/_data/ck5083-place-publish-label-placement-v62.csv",
+  "coordinateFilter": "v62_output = vireth-ck5083-v62-full-boundaries-minimal-labels-12800.png",
+  "masterDimensions": [12800, 19200],
+  "coordinateStatus": "Use render_pixel_x/y; existing city positions remain canon candidates. No new coordinate approval inferred.",
+  "places": [
+    {"name": "라드아르할", "region": "레오니아", "pixel": [5376,8064], "file": "leonia-radarhal.png", "sourceRecord": "provenance.json"},
+    {"name": "아르마르토르", "region": "노르가르드", "pixel": [5443,3447], "file": "norghard-armartor.png", "source": "D:/OneDrive/444_비레스/00_최신본/04_장소_문장_이미지/generated_outputs/city_vistas/ck5083-city-norghard-armartor-imagegen-v1-2560-labeled.png", "sha256": "8676311A04ED2EE62998CAB4256D25F9899CF3644E430F38A9DCE69A288E76D7"},
+    {"name": "린산가", "region": "린레네트", "pixel": [7424,8832], "file": "linrenet-linsanga.png", "source": "D:/OneDrive/444_비레스/00_최신본/04_장소_문장_이미지/generated_outputs/city_vistas/ck5083-city-linrenet-linsanga-imagegen-v1-2560-labeled.png", "sha256": "9FF81E3A7F0B90D7E79680E197C99F7D0D2D16E45BBAFDC72011790317D40373"}
+  ],
+  "review": "Both added 2560x1440 labeled originals were visually inspected and copied unchanged from active mapped city-vista assets. No AI regeneration or invented marker coordinates. Prototype selection covers three places only; no country polygon hover implementation is claimed."
+}

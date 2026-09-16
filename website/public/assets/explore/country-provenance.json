@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-09-16",
+  "supersedes": "City-first interaction-provenance.json for active H3 content; previous assets preserved.",
+  "canon": "D:/OneDrive/444_비레스/00_최신본/01_문서_정본/Arcadia_비레스_세계관_DB_최종통합본_v1.md sections 4.2.1, 4.2.2, 4.2.4",
+  "mapping": "D:/OneDrive/444_비레스/00_최신본/01_문서_정본/Arcadia_기준시대_5083_이미지매핑_DB_v1.md",
+  "sourceRoot": "D:/OneDrive/444_비레스/00_최신본/04_장소_문장_이미지/generated_outputs/",
+  "review": "Capital identities verified against current canon. Capital vistas and three crests visually inspected. Crest art uses the same active version's unlabeled 2048 original, not a prior revision. Originals copied unchanged; no generated or edited bitmap.",
+  "assets": [
+    {"file":"norghard-marnabmir.png","source":"city_vistas/ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.png","sha256":"DB549AED688455A5623F902B78F972709118436442B18F20E984AF57AF32E5E1"},
+    {"file":"linrenet-renumga.png","source":"city_vistas/ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.png","sha256":"4950D18357EDCBBD91D3FD7239EEB1C463CC7E1E80524A5117424B8A86221F0E"},
+    {"file":"leonia-crest-v3.png","source":"heraldry/ck5083-heraldry-leonia-imagegen-v3-dragon-crest-2048.png","sha256":"92F18D2F4587C6550ACBE7870871B137B8BF31BA95F81B13C3C51C190CBADFD7"},
+    {"file":"norghard-crest-v1.png","source":"heraldry/ck5083-heraldry-norghard-imagegen-v1-2048.png","sha256":"9B36958582AC639BFDE1BCFE70FA671490817D4BDA223185889CA53A978DB345"},
+    {"file":"linrenet-crest-v1.png","source":"heraldry/ck5083-heraldry-linrenet-imagegen-v1-2048.png","sha256":"D22503BFDF740BF6B2F237D25256BD30640C63F827D24983B68A7B577DC3CD52"}
+  ],
+  "coordinates": {
+    "source": "v62 _data/ck5083-place-publish-label-placement-v62.csv",
+    "filter": "vireth-ck5083-v62-full-boundaries-minimal-labels-12800.png",
+    "masterSize": [12800,19200],
+    "capitalAnchors": {"leonia":[5376,8064],"norghard":[6272,3840],"linrenet":[7296,8640]},
+    "note": "Country selection flags use existing capital render coordinates, not country boundary centers; no new coordinate canon asserted."
+  }
+}

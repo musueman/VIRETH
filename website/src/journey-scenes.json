@@ -1,0 +1,302 @@
+[
+  {
+    "id": "harbor-rope",
+    "title": "새벽 항구의 동행",
+    "category": "만남 · 협력",
+    "startId": "harbor-dawn",
+    "src": "/assets/journey-scenes/v3/01_harbor-rope.webp",
+    "alt": "새벽 항구의 동행 — 만남과 협력",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "market-spill",
+    "title": "장터에서 벌어진 작은 소동",
+    "category": "사건 · 장터",
+    "startId": "market-ledger",
+    "src": "/assets/journey-scenes/v1/02_market-spill.webp",
+    "alt": "장터에서 벌어진 작은 소동 — 사건과 장터",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "forest-tracks",
+    "title": "숲길에 남은 흔적",
+    "category": "모험 · 추적",
+    "startId": "strange-tracks",
+    "src": "/assets/journey-scenes/v4/03_forest-tracks.webp",
+    "alt": "숲길에 남은 흔적 — 모험과 추적",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "gate-token",
+    "title": "성문 앞의 첫 질문",
+    "category": "만남 · 성문",
+    "startId": "gate-arrival",
+    "src": "/assets/journey-scenes/v1/04_gate-token.webp",
+    "alt": "성문 앞의 첫 질문 — 만남과 성문",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "night-gate",
+    "title": "밤중에 울리는 문 두드림",
+    "category": "사건 · 야간 경비",
+    "startId": "gate-watch",
+    "src": "/assets/journey-scenes/v2/05_night-gate.webp",
+    "alt": "밤중에 울리는 문 두드림 — 사건과 야간 경비",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "contract-table",
+    "title": "첫 계약의 빈칸",
+    "category": "선택 · 호위",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v2/06_contract-table.webp",
+    "alt": "첫 계약의 빈칸 — 선택과 호위",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "cargo-dispute",
+    "title": "짐 하나, 서로 다른 기록",
+    "category": "사건 · 항구",
+    "startId": "held-cargo",
+    "src": "/assets/journey-scenes/v1/07_cargo-dispute.webp",
+    "alt": "짐 하나, 서로 다른 기록 — 사건과 항구",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "bridge-help",
+    "title": "흔들리는 다리 너머로",
+    "category": "모험 · 동행",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v1/08_bridge-help.webp",
+    "alt": "흔들리는 다리 너머로 — 모험과 동행",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "wagon-mud",
+    "title": "짐을 나누는 동행",
+    "category": "사건 · 길 위에서",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v3/09_wagon-mud.webp",
+    "alt": "짐을 나누는 동행 — 사건과 길 위에서",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "rain-shelter",
+    "title": "비를 피하는 동안",
+    "category": "만남 · 여관",
+    "startId": "gate-arrival",
+    "src": "/assets/journey-scenes/v1/10_rain-shelter.webp",
+    "alt": "비를 피하는 동안 — 만남과 여관",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "herb-seal",
+    "title": "봉인끈이 다른 약초 꾸러미",
+    "category": "사건 · 장터",
+    "startId": "market-ledger",
+    "src": "/assets/journey-scenes/v1/11_herb-seal.webp",
+    "alt": "봉인끈이 다른 약초 꾸러미 — 사건과 장터",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "ration-help",
+    "title": "누군가의 몫을 찾아서",
+    "category": "만남 · 공동 창고",
+    "startId": "ration-line",
+    "src": "/assets/journey-scenes/v1/12_ration-help.webp",
+    "alt": "누군가의 몫을 찾아서 — 만남과 공동 창고",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "wrong-boat",
+    "title": "떠나기 전, 한 번 더",
+    "category": "사건 · 선착장",
+    "startId": "harbor-dawn",
+    "src": "/assets/journey-scenes/v1/13_wrong-boat.webp",
+    "alt": "떠나기 전, 한 번 더 — 사건과 선착장",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "inn-rumor",
+    "title": "여관 구석에서 들은 이야기",
+    "category": "만남 · 소문",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v1/14_inn-rumor.webp",
+    "alt": "여관 구석에서 들은 이야기 — 만남과 소문",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "boundary-marker",
+    "title": "뒤집힌 길의 표식",
+    "category": "모험 · 탐색",
+    "startId": "strange-tracks",
+    "src": "/assets/journey-scenes/v2/15_boundary-marker.webp",
+    "alt": "뒤집힌 길의 표식 — 모험과 탐색",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "ferry-crossing",
+    "title": "강을 건너는 사람들",
+    "category": "모험 · 여행",
+    "startId": "harbor-dawn",
+    "src": "/assets/journey-scenes/v2/16_ferry-crossing.webp",
+    "alt": "강을 건너는 사람들 — 모험과 여행",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "sparring-yard",
+    "title": "첫 검술 연습",
+    "category": "모험 · 훈련",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v4/17_sparring-yard.webp",
+    "alt": "첫 검술 연습 — 모험과 훈련",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "lost-pouch",
+    "title": "떨어진 주머니의 주인",
+    "category": "사건 · 만남",
+    "startId": "market-ledger",
+    "src": "/assets/journey-scenes/v1/18_lost-pouch.webp",
+    "alt": "떨어진 주머니의 주인 — 사건과 만남",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "mountain-route",
+    "title": "눈길에서 고르는 방향",
+    "category": "모험 · 산길",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v1/19_mountain-route.webp",
+    "alt": "눈길에서 고르는 방향 — 모험과 산길",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "lantern-search",
+    "title": "등불을 따라 찾는 흔적",
+    "category": "모험 · 조사",
+    "startId": "gate-watch",
+    "src": "/assets/journey-scenes/v1/20_lantern-search.webp",
+    "alt": "등불을 따라 찾는 흔적 — 모험과 조사",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "torn-sail",
+    "title": "출항을 앞둔 손길",
+    "category": "사건 · 협력",
+    "startId": "harbor-dawn",
+    "src": "/assets/journey-scenes/v2/21_torn-sail.webp",
+    "alt": "출항을 앞둔 손길 — 사건과 협력",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "campfire",
+    "title": "모닥불 곁의 새 친구",
+    "category": "만남 · 휴식",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v1/22_campfire.webp",
+    "alt": "모닥불 곁의 새 친구 — 만남과 휴식",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "workshop",
+    "title": "장인의 작업대 앞에서",
+    "category": "만남 · 기술",
+    "startId": "gate-arrival",
+    "src": "/assets/journey-scenes/v1/23_workshop.webp",
+    "alt": "장인의 작업대 앞에서 — 만남과 기술",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "river-rescue",
+    "title": "강가에서 잡은 손",
+    "category": "모험 · 도움",
+    "startId": "ration-line",
+    "src": "/assets/journey-scenes/v2/24_river-rescue.webp",
+    "alt": "강가에서 잡은 손 — 모험과 도움",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "ledger-clue",
+    "title": "장부 사이의 단서",
+    "category": "사건 · 조사",
+    "startId": "held-cargo",
+    "src": "/assets/journey-scenes/v1/25_ledger-clue.webp",
+    "alt": "장부 사이의 단서 — 사건과 조사",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "festival",
+    "title": "낯선 도시의 저녁 잔치",
+    "category": "만남 · 일상",
+    "startId": "gate-arrival",
+    "src": "/assets/journey-scenes/v1/26_festival.webp",
+    "alt": "낯선 도시의 저녁 잔치 — 만남과 일상",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "harbor-view",
+    "title": "배가 머무는 새벽",
+    "category": "장소 · 항구",
+    "startId": "harbor-dawn",
+    "src": "/assets/journey-scenes/v1/27_harbor-view.webp",
+    "alt": "배가 머무는 새벽 — 장소과 항구",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "forest-view",
+    "title": "다음 굽이의 숲길",
+    "category": "장소 · 숲길",
+    "startId": "strange-tracks",
+    "src": "/assets/journey-scenes/v1/28_forest-view.webp",
+    "alt": "다음 굽이의 숲길 — 장소과 숲길",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "mountain-inn",
+    "title": "고갯길 끝의 불빛",
+    "category": "장소 · 여관",
+    "startId": "mercenary-contract",
+    "src": "/assets/journey-scenes/v2/29_mountain-inn.webp",
+    "alt": "고갯길 끝의 불빛 — 장소과 여관",
+    "width": 1536,
+    "height": 864
+  },
+  {
+    "id": "market-view",
+    "title": "하루가 시작되는 장터",
+    "category": "장소 · 생활",
+    "startId": "market-ledger",
+    "src": "/assets/journey-scenes/v1/30_market-view.webp",
+    "alt": "하루가 시작되는 장터 — 장소과 생활",
+    "width": 1536,
+    "height": 864
+  }
+]

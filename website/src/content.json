@@ -1,0 +1,5062 @@
+{
+  "regions": [
+    {
+      "id": "leonia",
+      "name": "레오니아",
+      "capital": "라드아르할",
+      "capitalType": "수도",
+      "kind": "왕국",
+      "isRegion": false,
+      "copy": "궁정과 기사들의 영지가 이어진 대국이에요. 넓이보다 왕실의 권위와 기사단, 주변 나라에 미치는 힘에 주목해 보세요."
+    },
+    {
+      "id": "norghard",
+      "name": "노르가르드",
+      "capital": "마르나브미르",
+      "capitalType": "수도",
+      "kind": "왕국",
+      "isRegion": false,
+      "copy": "해군과 항구, 철을 다루는 기술로 힘을 떨치는 대국이에요. 땅의 넓이보다 바닷길과 교역에서 드러나는 힘을 살펴보세요."
+    },
+    {
+      "id": "tiris",
+      "name": "티리스",
+      "capital": "라드바르할",
+      "capitalType": "수도",
+      "kind": "군주국",
+      "isRegion": false,
+      "copy": "넓은 들과 숲, 여러 영지를 품은 중견 왕국이에요. 땅은 넓지만 두 대국만큼 주변을 좌우하지는 않아요. 곡식과 양을 돌보는 사람들의 삶을 만나보세요."
+    },
+    {
+      "id": "linrenet",
+      "name": "린레네트",
+      "capital": "레눔가",
+      "capitalType": "중심도시",
+      "kind": "공화 도시국가",
+      "isRegion": false,
+      "copy": "기록원과 극장, 배움터가 한 도시에 모인 공화국이에요. 땅은 작아도 기록과 학문으로 이웃 나라들과 이어지는 이야기는 풍성하답니다."
+    },
+    {
+      "id": "bekdoret",
+      "name": "벡도레트",
+      "capital": "도르카르",
+      "capitalType": "중심도시",
+      "kind": "군사 도시국가",
+      "isRegion": false,
+      "copy": "성벽과 병영, 무기를 만드는 공방이 한 도시에 모인 나라예요. 땅의 넓이보다 성문을 지키고 방어를 준비하는 이들의 솜씨를 만나보세요."
+    },
+    {
+      "id": "senhalet",
+      "name": "센할레트",
+      "capital": "센푸쿰",
+      "capitalType": "중심도시",
+      "kind": "공동체 농업 국가",
+      "isRegion": false,
+      "copy": "수로와 창고를 함께 돌보며 농사를 짓는 나라예요. 씨앗을 보관하고 먹을거리를 나누는 사람들을 만나보세요."
+    },
+    {
+      "id": "hesferet",
+      "name": "헤스페레트",
+      "capital": "헤스푸쿰",
+      "capitalType": "중심도시",
+      "kind": "북방 복합 권역",
+      "isRegion": true,
+      "copy": "추운 산과 광산, 초지가 이어지는 북쪽 땅이에요. 산길을 오가는 이들과 모피와 갑옷을 만드는 장인들의 삶을 둘러보세요."
+    },
+    {
+      "id": "kelnabet",
+      "name": "켈나베트",
+      "capital": "마르켈미르",
+      "capitalType": "수도",
+      "kind": "항해·탐험 연방",
+      "isRegion": false,
+      "copy": "먼 바다로 향하는 항해자와 탐험가들이 모이는 연방이에요. 자유로운 항구에서 새로운 바닷길의 이야기를 만나보세요."
+    },
+    {
+      "id": "hesbeket",
+      "name": "헤스베케트",
+      "capital": "베크헤스푸쿰",
+      "capitalType": "수도",
+      "kind": "군주국",
+      "isRegion": false,
+      "copy": "넓은 겨울 땅에 도시들이 드문드문 자리한 나라예요. 따뜻한 옷과 오래 두는 먹을거리를 준비하며 추위를 함께 견디는 지혜를 만나보세요."
+    },
+    {
+      "id": "yenmebet",
+      "name": "옌메베트",
+      "capital": "옌워켈",
+      "capitalType": "수도",
+      "kind": "군주국",
+      "isRegion": false,
+      "copy": "높은 산길과 숲을 삶의 터전으로 삼은 나라예요. 날씨를 살피며 길을 안내하고 숲을 돌보는 이들을 만나보세요."
+    },
+    {
+      "id": "nimnaret",
+      "name": "님나레트",
+      "capital": "얄베크움",
+      "capitalType": "수도",
+      "kind": "학술·연성 국가",
+      "isRegion": false,
+      "copy": "쉽게 공개하지 않는 지식과 특별한 재료를 연구하는 나라예요. 조심스레 보관한 기록과 연구의 흔적을 살펴보세요."
+    },
+    {
+      "id": "silnimet",
+      "name": "실니메트",
+      "capital": "도르소르산",
+      "capitalType": "중심도시",
+      "kind": "남방 복합 권역",
+      "isRegion": true,
+      "copy": "산과 숲, 강과 초지가 어우러진 남쪽 땅이에요. 약초를 모으고 가축을 돌보며 강을 따라 오가는 사람들을 만나보세요."
+    },
+    {
+      "id": "ardolet",
+      "name": "아르도레트",
+      "capital": "도르소르할",
+      "capitalType": "수도",
+      "kind": "산악 신정 왕국",
+      "isRegion": false,
+      "copy": "높은 산에 수도원과 하늘을 살피는 관측대가 자리한 왕국이에요. 별의 움직임을 기록하고 약초를 모으는 일상을 만나보세요."
+    },
+    {
+      "id": "garmebet",
+      "name": "가르메베트",
+      "capital": "틱메브할",
+      "capitalType": "중심거점",
+      "kind": "유목 부족 연합",
+      "isRegion": false,
+      "copy": "넓은 초지에서 계절에 따라 물과 풀을 찾아 이동하는 부족들의 연합이에요. 큰 도시보다 물가와 야영지를 따라 이어지는 삶을 만나보세요."
+    },
+    {
+      "id": "silhalet",
+      "name": "실할레트",
+      "capital": "실소르산",
+      "capitalType": "수도",
+      "kind": "숲 신정 군주국",
+      "isRegion": false,
+      "copy": "소중히 지키는 숲과 왕실의 정원이 펼쳐진 나라예요. 나무와 약초를 돌보고 손으로 물건을 만드는 사람들을 만나보세요."
+    },
+    {
+      "id": "merhalet",
+      "name": "메르할레트",
+      "capital": "메르벨마르",
+      "capitalType": "수도",
+      "kind": "상업 공화국",
+      "isRegion": false,
+      "copy": "작은 땅에 항구와 장터, 창고가 모인 공화국이에요. 땅의 넓이보다 강을 따라 오가는 물건과 거래가 이 나라의 살림을 채워요."
+    },
+    {
+      "id": "nimsolet",
+      "name": "님소레트",
+      "capital": "님할",
+      "capitalType": "수도",
+      "kind": "학문·종교 군주국",
+      "isRegion": false,
+      "copy": "배움과 신앙이 함께 뿌리내린 나라예요. 책을 읽고 서로의 생각을 나누는 학당과 모임을 만나보세요."
+    },
+    {
+      "id": "sylvania",
+      "name": "실바니아",
+      "capital": "실렌산",
+      "capitalType": "중심도시",
+      "kind": "주변 대륙권",
+      "isRegion": true,
+      "copy": "안개 낀 숲과 늪에 오래된 기록이 남아 있는 대륙권이에요. 탐사자들이 모은 이야기와 숲의 전승을 따라가 보세요."
+    },
+    {
+      "id": "dragonspire",
+      "name": "드래곤스파이어",
+      "capital": "나르마르켈",
+      "capitalType": "중심거점",
+      "kind": "화산 군도권",
+      "isRegion": true,
+      "copy": "먼 바다에 화산섬들이 이어진 곳이에요. 거친 바닷길을 건너온 항해 기록과 섬에 남은 이야기를 살펴보세요."
+    },
+    {
+      "id": "fenrir-eye",
+      "name": "펜리르의 눈",
+      "capital": "둔아르토르",
+      "capitalType": "중심거점",
+      "kind": "외해 금기권",
+      "isRegion": true,
+      "copy": "뱃사람들이 조심스레 이야기하는 먼 바다의 권역이에요. 사라진 등대와 난파선, 위험한 항로에 얽힌 기록을 만나보세요."
+    }
+  ],
+  "places": [
+    {
+      "id": "place-f76dcd1e8ca3a223",
+      "name": "라드아르할",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "도시",
+      "summary": "온대 내륙 왕도, 궁정 언덕과 장인 거리로 이루어진 궁정도시",
+      "at": [
+        704,
+        552
+      ]
+    },
+    {
+      "id": "place-d3fcde024aeebb50",
+      "name": "지르바르에트",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "도시",
+      "summary": "기사 봉토권의 군사 후원도시",
+      "at": [
+        637,
+        587
+      ]
+    },
+    {
+      "id": "place-0bf2d299ef01d463",
+      "name": "팔테쿰가",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "도시",
+      "summary": "왕실 직할 장인지구가 도시화된 공방도시",
+      "at": [
+        734,
+        533
+      ]
+    },
+    {
+      "id": "place-13f55b748ce8f69a",
+      "name": "렘다트움",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "도시",
+      "summary": "사절과 외부 상단이 머무는 접견 관문도시",
+      "at": [
+        766,
+        603
+      ]
+    },
+    {
+      "id": "place-4f3ed43a65a09f9e",
+      "name": "마르나브미르",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "도시",
+      "summary": "북방 군항 수도, 깊은 항만과 해군 창고가 붙은 도시",
+      "at": [
+        555,
+        451
+      ]
+    },
+    {
+      "id": "place-f0a31f363f261928",
+      "name": "페르나브부두",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "도시",
+      "summary": "철강 부두와 조선소가 붙은 공업 항구",
+      "at": [
+        570,
+        461
+      ]
+    },
+    {
+      "id": "place-f3ca2d3e808f999a",
+      "name": "아르마르토르",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "도시",
+      "summary": "등대 해안권의 항로 표식도시",
+      "at": [
+        548,
+        427
+      ]
+    },
+    {
+      "id": "place-5cddfec379959f81",
+      "name": "나브할가",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "도시",
+      "summary": "선원 숙박권의 항만 소도시",
+      "at": [
+        590,
+        463
+      ]
+    },
+    {
+      "id": "place-c91992123771823b",
+      "name": "라드바르할 / 실버킵",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "왕실권의 성채 수도",
+      "at": [
+        582,
+        737
+      ]
+    },
+    {
+      "id": "place-d6201cae71141b4c",
+      "name": "베크켈카르 / 레이븐스톤",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "서부 접경 관문과 방어 성문도시",
+      "at": [
+        503,
+        756
+      ]
+    },
+    {
+      "id": "place-40ecd7f61b7c7110",
+      "name": "가르메브에트",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "곡물·목축 영지권의 지방 장터도시",
+      "at": [
+        607,
+        848
+      ]
+    },
+    {
+      "id": "place-58f109e57c16ca3d",
+      "name": "벨소르엘",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "수로·정화권의 물길 도시",
+      "at": [
+        560,
+        808
+      ]
+    },
+    {
+      "id": "place-7497bf1905174f40",
+      "name": "실테크에트",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "숲·목재권의 목재 도시",
+      "at": [
+        661,
+        693
+      ]
+    },
+    {
+      "id": "place-68f0aa07327024b6",
+      "name": "소르이엘토르",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "신전·관측권의 의례 도시",
+      "at": [
+        559,
+        705
+      ]
+    },
+    {
+      "id": "place-b12f9ad116dd57dc",
+      "name": "그린할로우",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "상실지 기억이 남은 폐허·농경 재건지",
+      "at": [
+        500,
+        838
+      ]
+    },
+    {
+      "id": "place-2b38c9305566a627",
+      "name": "뉴할로우",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "도시",
+      "summary": "5069년 이후 형성된 신생 피난 재정착권",
+      "at": [
+        524,
+        771
+      ]
+    },
+    {
+      "id": "place-aae1caadc38f650f",
+      "name": "레눔가",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "도시",
+      "summary": "기록원과 도시 의회가 모인 도심",
+      "at": [
+        859,
+        552
+      ]
+    },
+    {
+      "id": "place-9ba8c3cd223a56c1",
+      "name": "린산가",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "도시",
+      "summary": "극장과 공개 낭독장이 모인 학예 도시",
+      "at": [
+        860,
+        572
+      ]
+    },
+    {
+      "id": "place-7a4ef2d18e9220fa",
+      "name": "님렌할",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "도시",
+      "summary": "학예 학교권의 교육 도시",
+      "at": [
+        869,
+        532
+      ]
+    },
+    {
+      "id": "place-03485af79924f731",
+      "name": "다트킨할",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "도시",
+      "summary": "후원자 저택과 예술가 거처가 모인 주거도시",
+      "at": [
+        885,
+        567
+      ]
+    },
+    {
+      "id": "place-688595e7b37b5331",
+      "name": "렘렌가",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "도시",
+      "summary": "필사·출판 거리가 길게 이어진 상업도시",
+      "at": [
+        871,
+        587
+      ]
+    },
+    {
+      "id": "place-46595dfda186932a",
+      "name": "도르카르",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "도시",
+      "summary": "내성과 방어 평의회가 있는 요새 중심도시",
+      "at": [
+        944,
+        556
+      ]
+    },
+    {
+      "id": "place-5ec880affa107282",
+      "name": "켈카르",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "도시",
+      "summary": "외성문권의 관문도시",
+      "at": [
+        911,
+        556
+      ]
+    },
+    {
+      "id": "place-ad2d03f99e8c29c0",
+      "name": "베크할",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "도시",
+      "summary": "병영권의 군사 거주도시",
+      "at": [
+        957,
+        535
+      ]
+    },
+    {
+      "id": "place-9bfd7c9b2638713d",
+      "name": "도르테쿰",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "도시",
+      "summary": "성벽 공사권의 작업도시",
+      "at": [
+        966,
+        571
+      ]
+    },
+    {
+      "id": "place-1af9a9ac0d6ef7ab",
+      "name": "엔할가",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "도시",
+      "summary": "민간 거주권의 외곽 소도시",
+      "at": [
+        932,
+        587
+      ]
+    },
+    {
+      "id": "place-48a1e31eb3432f7a",
+      "name": "센푸쿰",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "도시",
+      "summary": "공동 창고가 중심인 창고도시",
+      "at": [
+        859,
+        672
+      ]
+    },
+    {
+      "id": "place-89253b528d932838",
+      "name": "벨바르",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "도시",
+      "summary": "수로 회의가 열리는 물길 도시",
+      "at": [
+        908,
+        697
+      ]
+    },
+    {
+      "id": "place-5d9faf77370b86a6",
+      "name": "센푸크에트",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "도시",
+      "summary": "종자 보관권의 보존 도시",
+      "at": [
+        840,
+        685
+      ]
+    },
+    {
+      "id": "place-91e5bebd344dbadc",
+      "name": "가르센에트",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "도시",
+      "summary": "농촌 공동체권의 지방 소도시",
+      "at": [
+        866,
+        738
+      ]
+    },
+    {
+      "id": "place-89a7bd71e097d29b",
+      "name": "벱렌할",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "도시",
+      "summary": "재정착 마을권의 낮은 도시",
+      "at": [
+        894,
+        735
+      ]
+    },
+    {
+      "id": "place-29cbdf9865aa1024",
+      "name": "헤스푸쿰",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "도시",
+      "summary": "산악 저장고가 도시 중심인 북방 고을",
+      "at": [
+        749,
+        401
+      ]
+    },
+    {
+      "id": "place-e0107c391e927db4",
+      "name": "헤스켈카르",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "도시",
+      "summary": "고개 초소와 산길 숙소가 붙은 관문도시",
+      "at": [
+        786,
+        347
+      ]
+    },
+    {
+      "id": "place-34f582a0e9cbc23e",
+      "name": "페르바르",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "도시",
+      "summary": "무기 중개권의 장인·계약 도시",
+      "at": [
+        706,
+        385
+      ]
+    },
+    {
+      "id": "place-faa9ae9913c3e305",
+      "name": "람지르바르",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "도시",
+      "summary": "맹세석 회의권의 의례 도시",
+      "at": [
+        789,
+        404
+      ]
+    },
+    {
+      "id": "place-198e481c827e0f9d",
+      "name": "메브켈에트",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "도시",
+      "summary": "초지 접경권의 외곽 소도시",
+      "at": [
+        708,
+        445
+      ]
+    },
+    {
+      "id": "place-28ad48cc8b4dfb1d",
+      "name": "마르켈미르",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "도시",
+      "summary": "자유항과 연합 의회가 있는 항해 중심도시",
+      "at": [
+        441,
+        929
+      ]
+    },
+    {
+      "id": "place-0c4f6cdf1bbebac6",
+      "name": "워크바르",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "도시",
+      "summary": "원정 허가권의 행정 항구",
+      "at": [
+        467,
+        946
+      ]
+    },
+    {
+      "id": "place-3d4cfdb2ea2c95eb",
+      "name": "마르렌움",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "도시",
+      "summary": "해도 보관권의 기록 항구",
+      "at": [
+        457,
+        917
+      ]
+    },
+    {
+      "id": "place-bcab783fc086a342",
+      "name": "나브할",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "도시",
+      "summary": "선원 숙박권의 항만 소도시",
+      "at": [
+        452,
+        941
+      ]
+    },
+    {
+      "id": "place-6672ae3cc647a53f",
+      "name": "움마르켈",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "도시",
+      "summary": "외해 출항권의 끝항구",
+      "at": [
+        447,
+        882
+      ]
+    },
+    {
+      "id": "place-0478f08a70f8a216",
+      "name": "베크헤스푸쿰",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "도시",
+      "summary": "혹한 저장권의 중심 저장도시",
+      "at": [
+        875,
+        276
+      ]
+    },
+    {
+      "id": "place-a41e40a70f1aaa80",
+      "name": "헤스워켈",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "도시",
+      "summary": "겨울 통행권의 관문도시",
+      "at": [
+        896,
+        340
+      ]
+    },
+    {
+      "id": "place-d7e228ecb8381c8d",
+      "name": "나르할",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "도시",
+      "summary": "불씨 공동주거권의 낮은 도시",
+      "at": [
+        865,
+        283
+      ]
+    },
+    {
+      "id": "place-f281ca73eac12b50",
+      "name": "메브헤스베크",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "도시",
+      "summary": "사냥·눈길 초소권의 외곽 거점",
+      "at": [
+        938,
+        290
+      ]
+    },
+    {
+      "id": "place-2ed8c29a33545bbf",
+      "name": "옌워켈",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "도시",
+      "summary": "고공 통행권의 표식도시",
+      "at": [
+        968,
+        776
+      ]
+    },
+    {
+      "id": "place-3163f00f6e3af440",
+      "name": "옌베크할",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "도시",
+      "summary": "기수단 둥지권의 산악 거점",
+      "at": [
+        1007,
+        704
+      ]
+    },
+    {
+      "id": "place-40eb4562ed431902",
+      "name": "실베크에트",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "도시",
+      "summary": "산림 경계권의 숲문 도시",
+      "at": [
+        930,
+        896
+      ]
+    },
+    {
+      "id": "place-9c5d5f6f7ac18582",
+      "name": "실람렌움",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "도시",
+      "summary": "자연 동맹 기록권의 문서 도시",
+      "at": [
+        948,
+        848
+      ]
+    },
+    {
+      "id": "place-4bc2d5185e162623",
+      "name": "얄베크움",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "도시",
+      "summary": "감찰권의 폐쇄 중심도시",
+      "at": [
+        982,
+        424
+      ]
+    },
+    {
+      "id": "place-9428a503d85581f1",
+      "name": "님나할",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "도시",
+      "summary": "제한 학당권의 학술 도시",
+      "at": [
+        965,
+        408
+      ]
+    },
+    {
+      "id": "place-4daaec0eaf426d92",
+      "name": "푸크나움",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "도시",
+      "summary": "봉인 창고권의 보관 도시",
+      "at": [
+        978,
+        398
+      ]
+    },
+    {
+      "id": "place-11708076318aa7c7",
+      "name": "헤드렌움",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "도시",
+      "summary": "재료 장부권의 검사 도시",
+      "at": [
+        992,
+        451
+      ]
+    },
+    {
+      "id": "place-9618712064304902",
+      "name": "엔켈할",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "도시",
+      "summary": "외부자 대기권의 관문 소도시",
+      "at": [
+        953,
+        449
+      ]
+    },
+    {
+      "id": "place-785df4991eafb1dd",
+      "name": "도르소르산",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "도시",
+      "summary": "산악 사원권의 사원도시",
+      "at": [
+        400,
+        1475
+      ]
+    },
+    {
+      "id": "place-3f95725840bc5a59",
+      "name": "실메르미르",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "도시",
+      "summary": "약초 장터권의 거래 도시",
+      "at": [
+        450,
+        1539
+      ]
+    },
+    {
+      "id": "place-2564a83c1458aea0",
+      "name": "벨마르미르",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "도시",
+      "summary": "강하 항구권의 물류 도시",
+      "at": [
+        591,
+        1476
+      ]
+    },
+    {
+      "id": "place-f86469f5544166d2",
+      "name": "실소르켈",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "도시",
+      "summary": "성림 접촉권의 숲 경계 도시",
+      "at": [
+        406,
+        1550
+      ]
+    },
+    {
+      "id": "place-c2bf6f211b92cda3",
+      "name": "메브메르켈",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "도시",
+      "summary": "초지 교역권의 외곽 교역도시",
+      "at": [
+        433,
+        1396
+      ]
+    },
+    {
+      "id": "place-ea0804d14728edbb",
+      "name": "도르소르할",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "도시",
+      "summary": "산악 신정의 수도원 중심도시",
+      "at": [
+        997,
+        1043
+      ]
+    },
+    {
+      "id": "place-29ecffe97ade80cf",
+      "name": "옌이엘토르",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "도시",
+      "summary": "관측대권의 기록 도시",
+      "at": [
+        1031,
+        995
+      ]
+    },
+    {
+      "id": "place-d63fe714da949544",
+      "name": "아르소르산",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "도시",
+      "summary": "봉우리 의례권의 의례 도시",
+      "at": [
+        1038,
+        1055
+      ]
+    },
+    {
+      "id": "place-b2596d262927087a",
+      "name": "도르켈바르",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "도시",
+      "summary": "등정 허가권의 관문 도시",
+      "at": [
+        952,
+        1067
+      ]
+    },
+    {
+      "id": "place-176607d17d7ae972",
+      "name": "소르할",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "도시",
+      "summary": "순례 숙박권의 외곽 소도시",
+      "at": [
+        980,
+        1079
+      ]
+    },
+    {
+      "id": "place-dbc12b4eb54995b3",
+      "name": "틱메브할",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "도시",
+      "summary": "계절 야영권의 회의 거점",
+      "at": [
+        472,
+        1290
+      ]
+    },
+    {
+      "id": "place-aa46da8b52a816ba",
+      "name": "벨람바르",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "도시",
+      "summary": "물가 약속권의 중심지",
+      "at": [
+        510,
+        1336
+      ]
+    },
+    {
+      "id": "place-c4afd2c3f2827202",
+      "name": "메브바르",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "도시",
+      "summary": "가축 분쟁권의 장터도시",
+      "at": [
+        546,
+        1296
+      ]
+    },
+    {
+      "id": "place-ef2d6af050e85818",
+      "name": "벨베크엘",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "도시",
+      "summary": "우물 감시권의 외곽 소도시",
+      "at": [
+        433,
+        1268
+      ]
+    },
+    {
+      "id": "place-e7a7ed0bf072a36b",
+      "name": "워크렌움",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "도시",
+      "summary": "이동 장부권의 기록 거점",
+      "at": [
+        566,
+        1367
+      ]
+    },
+    {
+      "id": "place-18ee482da07a0ab8",
+      "name": "실소르산",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "도시",
+      "summary": "성림권의 의례 중심지",
+      "at": [
+        854,
+        985
+      ]
+    },
+    {
+      "id": "place-c87a2f577a998723",
+      "name": "라드실할",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "도시",
+      "summary": "왕실 정원권의 정원 도시",
+      "at": [
+        875,
+        1008
+      ]
+    },
+    {
+      "id": "place-5b317556ae79294c",
+      "name": "실베크엘",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "도시",
+      "summary": "숲 감시권의 경계 도시",
+      "at": [
+        899,
+        966
+      ]
+    },
+    {
+      "id": "place-4501cf61cfe4356e",
+      "name": "실테크엘",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "도시",
+      "summary": "목재 검사권의 실무 도시",
+      "at": [
+        807,
+        991
+      ]
+    },
+    {
+      "id": "place-66ec813fed40afa0",
+      "name": "실다트바르",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "도시",
+      "summary": "채집 허가권의 낮은 도시",
+      "at": [
+        856,
+        1036
+      ]
+    },
+    {
+      "id": "place-2d9a741f4cd8a622",
+      "name": "메르벨마르",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "도시",
+      "summary": "강하 항구권의 중심 항구",
+      "at": [
+        633,
+        1498
+      ]
+    },
+    {
+      "id": "place-3e8c985df152a82b",
+      "name": "메르바르",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "도시",
+      "summary": "상인 의회권의 회의 도시",
+      "at": [
+        647,
+        1490
+      ]
+    },
+    {
+      "id": "place-b5409aa559f332b3",
+      "name": "헤드켈바르",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "도시",
+      "summary": "통행세권의 관문 도시",
+      "at": [
+        636,
+        1471
+      ]
+    },
+    {
+      "id": "place-efd66f1928487430",
+      "name": "푸크테쿰",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "도시",
+      "summary": "창고·하역권의 작업 도시",
+      "at": [
+        637,
+        1507
+      ]
+    },
+    {
+      "id": "place-4601f56c5e395af9",
+      "name": "메르님바르",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "도시",
+      "summary": "상업 법정권의 법정 도시",
+      "at": [
+        655,
+        1499
+      ]
+    },
+    {
+      "id": "place-4bbb3cf616a981c6",
+      "name": "님할",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "도시",
+      "summary": "학당권의 중심도시",
+      "at": [
+        790,
+        1114
+      ]
+    },
+    {
+      "id": "place-34dbec82b00be25c",
+      "name": "님렘할",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "도시",
+      "summary": "철학 회합권의 논쟁 도시",
+      "at": [
+        806,
+        1119
+      ]
+    },
+    {
+      "id": "place-ae7c6fa8fc16afca",
+      "name": "소르다트움",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "도시",
+      "summary": "종교 후원권의 후원 도시",
+      "at": [
+        785,
+        1137
+      ]
+    },
+    {
+      "id": "place-1209de01bccf5902",
+      "name": "렌테쿰",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "도시",
+      "summary": "필경 작업권의 작업 도시",
+      "at": [
+        766,
+        1101
+      ]
+    },
+    {
+      "id": "place-4c45cf8dee9b70c2",
+      "name": "렌메르미르",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "도시",
+      "summary": "사본 교환권의 시장 도시",
+      "at": [
+        779,
+        1126
+      ]
+    },
+    {
+      "id": "place-16f743361b258a9c",
+      "name": "실렌산",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "도시",
+      "summary": "숲 전승권의 중심 전승지",
+      "at": [
+        259,
+        721
+      ]
+    },
+    {
+      "id": "place-cc53cb2092612005",
+      "name": "워크켈할",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "도시",
+      "summary": "탐사 거점권의 외부 접촉도시",
+      "at": [
+        359,
+        768
+      ]
+    },
+    {
+      "id": "place-e23db14c27654b14",
+      "name": "렌얄움",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "도시",
+      "summary": "사본 열람권의 기록 거점",
+      "at": [
+        232,
+        738
+      ]
+    },
+    {
+      "id": "place-fe2c9d342f4b332e",
+      "name": "움켈산",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "도시",
+      "summary": "안개길권의 길잡이 도시",
+      "at": [
+        281,
+        801
+      ]
+    },
+    {
+      "id": "place-ed121732ca5aefa9",
+      "name": "나르마르켈",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "도시",
+      "summary": "화산 항로권의 기준 항만",
+      "at": [
+        870,
+        1533
+      ]
+    },
+    {
+      "id": "place-2dd6e36bf6c89f29",
+      "name": "나르베크토르",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "도시",
+      "summary": "분화 감시권의 화산 관측 도시",
+      "at": [
+        1018,
+        1428
+      ]
+    },
+    {
+      "id": "place-d6e0b1993391b8c8",
+      "name": "나르마르렌움",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "도시",
+      "summary": "해도 주석권의 항해 기록 도시",
+      "at": [
+        874,
+        1539
+      ]
+    },
+    {
+      "id": "place-61539ca58c3f31e0",
+      "name": "마르모스할",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "도시",
+      "summary": "항만 대기권의 외곽 항구",
+      "at": [
+        1062,
+        1544
+      ]
+    },
+    {
+      "id": "place-5fdffc89c646bbad",
+      "name": "둔아르토르",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "도시",
+      "summary": "등대권의 중심 표식지",
+      "at": [
+        155,
+        294
+      ]
+    },
+    {
+      "id": "place-38a34aace4cd2100",
+      "name": "둔나브렌움",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "도시",
+      "summary": "난파 기록권의 기록 거점",
+      "at": [
+        144,
+        303
+      ]
+    },
+    {
+      "id": "place-ccd145356fafa237",
+      "name": "움마르소르",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "도시",
+      "summary": "외해 금기권의 위험 해안",
+      "at": [
+        179,
+        212
+      ]
+    },
+    {
+      "id": "place-54a222242d510e67",
+      "name": "벱나브할",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "도시",
+      "summary": "구조 대기권의 해안 거점",
+      "at": [
+        126,
+        293
+      ]
+    },
+    {
+      "id": "place-50aa68772a885f92",
+      "name": "라드가르가",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "마을",
+      "summary": "왕도 봉토촌; 곡물, 하인 숙소, 봉토 장부",
+      "at": [
+        685,
+        566
+      ]
+    },
+    {
+      "id": "place-b371154177f7ab6b",
+      "name": "지르메브가",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "마을",
+      "summary": "전마 목장촌; 전마, 마구, 수행원 숙박",
+      "at": [
+        621,
+        579
+      ]
+    },
+    {
+      "id": "place-db2387572b39116d",
+      "name": "팔테크가",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "작업촌",
+      "summary": "장인 위성가; 납품 전 검품, 공방 숙소",
+      "at": [
+        742,
+        546
+      ]
+    },
+    {
+      "id": "place-9cde411459ec9d58",
+      "name": "렘켈가",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "type": "숙소촌",
+      "summary": "사절 마차 숙소촌; 사절 체류, 통역 대기",
+      "at": [
+        756,
+        591
+      ]
+    },
+    {
+      "id": "place-873c4ba0beeeac27",
+      "name": "마르토르가",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "구조물 마을",
+      "summary": "북방 등대촌; 등대, 해무 경고",
+      "at": [
+        551,
+        439
+      ]
+    },
+    {
+      "id": "place-dd37f12f064b6dbc",
+      "name": "페르테크가",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "작업촌",
+      "summary": "조선 수리촌; 선박 수리, 철강 부품",
+      "at": [
+        578,
+        455
+      ]
+    },
+    {
+      "id": "place-f64d083df14f7190",
+      "name": "나브할가린",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "숙소촌",
+      "summary": "선원 여관가; 선원 숙박, 단기 계약",
+      "at": [
+        598,
+        459
+      ]
+    },
+    {
+      "id": "place-a051ba013d5067bb",
+      "name": "헤스마르가",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "type": "어항",
+      "summary": "찬해안 어촌; 연안 어업, 난파 감시",
+      "at": [
+        561,
+        445
+      ]
+    },
+    {
+      "id": "place-5450a1a6f2b494d1",
+      "name": "베크벱가",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "피난촌",
+      "summary": "접경 피난민 대기촌; 피난 분류, 보증인 대기",
+      "at": [
+        513,
+        769
+      ]
+    },
+    {
+      "id": "place-70bcb78178e6e240",
+      "name": "헤크가르가",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "재개간촌",
+      "summary": "폐허 재개간촌; 우물 복구, 경작권 증언",
+      "at": [
+        512,
+        825
+      ]
+    },
+    {
+      "id": "place-dbd14fbd47878cee",
+      "name": "가르푸크가",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "마을",
+      "summary": "곡물 저장·방앗간촌; 방앗간, 겨울 저장",
+      "at": [
+        619,
+        855
+      ]
+    },
+    {
+      "id": "place-170f38db55354b0d",
+      "name": "벨렐가",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "마을",
+      "summary": "수문 마을; 수문, 물맛 기록",
+      "at": [
+        549,
+        823
+      ]
+    },
+    {
+      "id": "place-9b42bd603809c17b",
+      "name": "실베크가",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "마을",
+      "summary": "숲문 마을; 벌목 허가, 숲길 증언",
+      "at": [
+        674,
+        703
+      ]
+    },
+    {
+      "id": "place-5a06fbc07b2a730e",
+      "name": "이엘토르가",
+      "regionId": "tiris",
+      "region": "티리스",
+      "type": "신전촌",
+      "summary": "관측 언덕 마을; 관측표 보관, 봉납",
+      "at": [
+        551,
+        694
+      ]
+    },
+    {
+      "id": "place-3dfa0c27f9104cc1",
+      "name": "센푸크가",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "마을",
+      "summary": "창고 위성마을; 배급, 종자 보관",
+      "at": [
+        851,
+        661
+      ]
+    },
+    {
+      "id": "place-da0aa501f3493f49",
+      "name": "벨테크가",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "작업촌",
+      "summary": "수문 수리촌; 둑 보수, 수로 장비",
+      "at": [
+        907,
+        703
+      ]
+    },
+    {
+      "id": "place-8544704d14890842",
+      "name": "벨나브가",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "나루촌",
+      "summary": "내해 나루 마을; 갈대, 나루, 작은 어업",
+      "at": [
+        881,
+        739
+      ]
+    },
+    {
+      "id": "place-ea8b6099f28fc854",
+      "name": "가르센가",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "type": "마을",
+      "summary": "공동 경작촌; 공동 경작, 노동 명부",
+      "at": [
+        880,
+        730
+      ]
+    },
+    {
+      "id": "place-233632beb785b9c9",
+      "name": "레눔숙가",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "숙소가",
+      "summary": "학생 숙소가; 학생 숙박, 교재 거래",
+      "at": [
+        877,
+        541
+      ]
+    },
+    {
+      "id": "place-2d0a664a79668055",
+      "name": "린산테크가",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "작업촌",
+      "summary": "무대 장인촌; 무대 제작, 의상 보관",
+      "at": [
+        856,
+        581
+      ]
+    },
+    {
+      "id": "place-ed4e3c69ab16725c",
+      "name": "렘렌필가",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "type": "작업가",
+      "summary": "필사 작업가; 사본 제작, 잉크 거래",
+      "at": [
+        879,
+        594
+      ]
+    },
+    {
+      "id": "place-a038797dcc184a97",
+      "name": "켈베크가",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "관문촌",
+      "summary": "검문 대기촌; 외부자 대기, 짐 검사",
+      "at": [
+        917,
+        565
+      ]
+    },
+    {
+      "id": "place-ca795000b8cf412c",
+      "name": "도르테크가",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "작업촌",
+      "summary": "석재 운반촌; 성벽 보수, 석재 수레",
+      "at": [
+        974,
+        578
+      ]
+    },
+    {
+      "id": "place-997827c9969b4c8d",
+      "name": "베크푸크가",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "type": "창고촌",
+      "summary": "군수 창고촌; 식량 배급, 무기 보관",
+      "at": [
+        948,
+        529
+      ]
+    },
+    {
+      "id": "place-bce0633e99956ada",
+      "name": "헤스푸크가",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "마을",
+      "summary": "보존품 저장촌; 보존식, 겨울 물자",
+      "at": [
+        738,
+        413
+      ]
+    },
+    {
+      "id": "place-a6950f6135178f48",
+      "name": "도르페르가",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "광산촌",
+      "summary": "산악 광산촌; 광석, 무기 보수 재료",
+      "at": [
+        697,
+        362
+      ]
+    },
+    {
+      "id": "place-38d60b4b6c8aa2f5",
+      "name": "켈헤스가",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "숙소촌",
+      "summary": "고개 숙소촌; 통행, 눈길 안내",
+      "at": [
+        777,
+        359
+      ]
+    },
+    {
+      "id": "place-2843e5ac81593b06",
+      "name": "람지르가",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "type": "숙소촌",
+      "summary": "맹세 증인 숙소; 증인 대기, 결투 중재",
+      "at": [
+        800,
+        411
+      ]
+    },
+    {
+      "id": "place-0538fd482977fc57",
+      "name": "마르푸크섬",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "선착장",
+      "summary": "서부 보급섬; 물, 밧줄, 선박 보급",
+      "at": [
+        414,
+        646
+      ]
+    },
+    {
+      "id": "place-fa2fff665b7b7313",
+      "name": "나브렌가",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "기록촌",
+      "summary": "해도 필사촌; 해도 사본, 항로 주석",
+      "at": [
+        466,
+        911
+      ]
+    },
+    {
+      "id": "place-35ac987929ee5784",
+      "name": "움나브가",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "type": "항구촌",
+      "summary": "마지막 보급촌; 외해 출항 보급",
+      "at": [
+        463,
+        887
+      ]
+    },
+    {
+      "id": "place-30b833c524328a4c",
+      "name": "헤스나르가",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "공동주거촌",
+      "summary": "불씨 마을; 장작, 공동 난방",
+      "at": [
+        866,
+        296
+      ]
+    },
+    {
+      "id": "place-38b720422d2d19a7",
+      "name": "푸크헤스가",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "작업촌",
+      "summary": "보존식 작업촌; 보존식, 저장품 점검",
+      "at": [
+        884,
+        288
+      ]
+    },
+    {
+      "id": "place-d8d46f050b2b9ab8",
+      "name": "메브헤스가",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "type": "초소",
+      "summary": "눈길 사냥초소; 덫 신고, 보존육",
+      "at": [
+        928,
+        307
+      ]
+    },
+    {
+      "id": "place-274e58be55c17adc",
+      "name": "옌켈가",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "숙소촌",
+      "summary": "고공 숙소촌; 짐꾼, 바람 대기",
+      "at": [
+        956,
+        786
+      ]
+    },
+    {
+      "id": "place-fa9cf89ec8d67dd9",
+      "name": "옌테크가",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "작업촌",
+      "summary": "장비 수리촌; 안장, 등반 장비",
+      "at": [
+        996,
+        716
+      ]
+    },
+    {
+      "id": "place-d1603c1dd12c3c5c",
+      "name": "실람가",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "type": "기록촌",
+      "summary": "경계 기록촌; 경계 목패, 사냥권 기록",
+      "at": [
+        939,
+        862
+      ]
+    },
+    {
+      "id": "place-b1bf32a4e31544fa",
+      "name": "얄베크가",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "초소",
+      "summary": "감찰 초소촌; 허가 심사, 감시",
+      "at": [
+        973,
+        433
+      ]
+    },
+    {
+      "id": "place-ed6e6096c485d9c0",
+      "name": "푸크베크움",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "보관시설",
+      "summary": "봉인 창고 위성구; 봉인, 재료 보관",
+      "at": [
+        985,
+        409
+      ]
+    },
+    {
+      "id": "place-305048f67a71d869",
+      "name": "헤드렌가",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "type": "대기촌",
+      "summary": "재료 대기촌; 계량, 압류 대기",
+      "at": [
+        984,
+        459
+      ]
+    },
+    {
+      "id": "place-d9c79942a92f8b0f",
+      "name": "소르산가",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "신전촌",
+      "summary": "사원 아래 마을; 순례 숙박, 향 재료",
+      "at": [
+        411,
+        1485
+      ]
+    },
+    {
+      "id": "place-a6e06686a6ccb885",
+      "name": "실메르가",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "채집촌",
+      "summary": "약초 채집촌; 약초 건조, 처방 재료",
+      "at": [
+        443,
+        1550
+      ]
+    },
+    {
+      "id": "place-c59534a3e777c2a9",
+      "name": "실소르가",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "숲문 마을",
+      "summary": "성림 안내촌; 의례 안내, 숲길 허가",
+      "at": [
+        416,
+        1561
+      ]
+    },
+    {
+      "id": "place-fc2c76e87ec096d6",
+      "name": "메브메르가",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "type": "야영지",
+      "summary": "초지 교역 야영지; 가축 교역, 통역 장터",
+      "at": [
+        446,
+        1390
+      ]
+    },
+    {
+      "id": "place-884ae7511a68418a",
+      "name": "소르할가",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "숙소촌",
+      "summary": "순례 숙박촌; 순례 숙박, 식량 보급",
+      "at": [
+        970,
+        1090
+      ]
+    },
+    {
+      "id": "place-a5b6edec03d98582",
+      "name": "옌토르가",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "숙소촌",
+      "summary": "관측자 숙소촌; 관측자 숙박, 구름표",
+      "at": [
+        1020,
+        1006
+      ]
+    },
+    {
+      "id": "place-9b31230e2b55a21b",
+      "name": "도르켈가",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "type": "산길 마을",
+      "summary": "안내인 마을; 등정 안내, 구조 대기",
+      "at": [
+        943,
+        1081
+      ]
+    },
+    {
+      "id": "place-2125f510e4192b5b",
+      "name": "벨메브가",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "야영지",
+      "summary": "물가 가축촌; 가축 급수, 물권 증언",
+      "at": [
+        507,
+        1344
+      ]
+    },
+    {
+      "id": "place-d4a3ac1ad7b4c3f2",
+      "name": "틱람가",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "야영지",
+      "summary": "계절 천막장; 족장 회의, 계절 장부",
+      "at": [
+        486,
+        1294
+      ]
+    },
+    {
+      "id": "place-9d387d5e86a3b597",
+      "name": "메브테크가",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "작업촌",
+      "summary": "가죽 말림촌; 가죽, 젖나눔, 질병 확인",
+      "at": [
+        557,
+        1302
+      ]
+    },
+    {
+      "id": "place-8734d18d3b2635b0",
+      "name": "워크렌가",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "type": "숙소촌",
+      "summary": "이동 장부 숙소; 통역, 상단 동행",
+      "at": [
+        577,
+        1375
+      ]
+    },
+    {
+      "id": "place-5fdd40fe31a45d92",
+      "name": "실문가",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "숲문 마을",
+      "summary": "성림 숲문 마을; 외부자 동행, 숲길 통제",
+      "at": [
+        908,
+        973
+      ]
+    },
+    {
+      "id": "place-e78a789659c62199",
+      "name": "라드실가",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "작업촌",
+      "summary": "정원 관리촌; 왕실 정원, 수공예",
+      "at": [
+        886,
+        1017
+      ]
+    },
+    {
+      "id": "place-bc60b7409493a439",
+      "name": "실테크가",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "숙소촌",
+      "summary": "벌목 숙소촌; 목재 검사, 수레 적재",
+      "at": [
+        815,
+        1002
+      ]
+    },
+    {
+      "id": "place-0c3fde9a0d4042b8",
+      "name": "실다트가",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "type": "채집촌",
+      "summary": "채집 허가촌; 약초 바구니 검사",
+      "at": [
+        861,
+        1047
+      ]
+    },
+    {
+      "id": "place-de5f4764540220de",
+      "name": "메르나브가",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "항구가",
+      "summary": "하역 노동자 거리; 하역, 상단 숙박",
+      "at": [
+        641,
+        1501
+      ]
+    },
+    {
+      "id": "place-8679450fc7fb7a3c",
+      "name": "헤드메르가",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "대기촌",
+      "summary": "통행세 대기촌; 세금 이의, 물품 분류",
+      "at": [
+        641,
+        1475
+      ]
+    },
+    {
+      "id": "place-d93afff402abbb2d",
+      "name": "푸크메르가",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "type": "창고촌",
+      "summary": "창고 거리; 보관, 손실 책임",
+      "at": [
+        643,
+        1510
+      ]
+    },
+    {
+      "id": "place-51cf4e6206082123",
+      "name": "님렌가",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "숙소가",
+      "summary": "학술 여관가; 외부 학자 숙박",
+      "at": [
+        800,
+        1107
+      ]
+    },
+    {
+      "id": "place-08f1f683b6c90c98",
+      "name": "렌테크가",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "작업가",
+      "summary": "필경 작업가; 필사, 주석 정리",
+      "at": [
+        759,
+        1110
+      ]
+    },
+    {
+      "id": "place-bc0c37005a14b79c",
+      "name": "소르다트가",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "type": "신전촌",
+      "summary": "작은 후원 신전촌; 봉납, 의례 비용",
+      "at": [
+        789,
+        1148
+      ]
+    },
+    {
+      "id": "place-9a78124f3bd632ca",
+      "name": "실킨가",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "마을",
+      "summary": "계보 마을; 계보, 장례 기억",
+      "at": [
+        245,
+        711
+      ]
+    },
+    {
+      "id": "place-ff831fc6e1249950",
+      "name": "워크실가",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "마을",
+      "summary": "길잡이 마을; 탐사 허가, 길잡이 계약",
+      "at": [
+        347,
+        774
+      ]
+    },
+    {
+      "id": "place-4bab21baf9586f2a",
+      "name": "움켈가",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "type": "숙소촌",
+      "summary": "안개길 숙소; 안개길, 실종 기록",
+      "at": [
+        290,
+        813
+      ]
+    },
+    {
+      "id": "place-94a338523ac463c0",
+      "name": "나르모스가",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "피난촌",
+      "summary": "화산 피난 표식촌; 피난, 분화 경고",
+      "at": [
+        861,
+        1544
+      ]
+    },
+    {
+      "id": "place-f48a1e4fc0d7f0e6",
+      "name": "나르페르가",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "작업촌",
+      "summary": "화산석 작업촌; 화산석, 보수 재료",
+      "at": [
+        1006,
+        1434
+      ]
+    },
+    {
+      "id": "place-dbc1e9a1815eb445",
+      "name": "마르나르가",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "type": "선착장",
+      "summary": "군도 보급 선착장; 단기 보급, 수리",
+      "at": [
+        1070,
+        1550
+      ]
+    },
+    {
+      "id": "place-eea8fdaecb28e2c5",
+      "name": "둔토르가",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "등대촌",
+      "summary": "외해 등대촌; 등대 기록, 구조 신호",
+      "at": [
+        164,
+        297
+      ]
+    },
+    {
+      "id": "place-a351f318df81d1a7",
+      "name": "둔푸크가",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "보관시설",
+      "summary": "난파 유품 보관소; 유품, 보험 증언",
+      "at": [
+        139,
+        294
+      ]
+    },
+    {
+      "id": "place-427b195aa7be2878",
+      "name": "벱나브가",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "type": "구조 거점",
+      "summary": "구조 대기소; 선원 피난, 외해 경보",
+      "at": [
+        132,
+        299
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": "c001",
+      "name": "아렐 라드킨",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "place": "라드아르할",
+      "placeId": "place-f76dcd1e8ca3a223",
+      "role": "궁정 권위대표",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5035년 · 용관력 제17주기",
+      "appearance": "검은 짧은 직모를 낮게 묶음. 짙은 갈색 눈, 길고 수평인 눈매, 짙게 탄 갈색 피부. 마른 장신, 긴 타원형 얼굴.",
+      "clothing": "진홍색 모직 허리맞춤 코트, 높은 세움깃, 갈색 바지. 황동 인장반지와 봉인끈.",
+      "belongings": "봉인끈·추천장 통·작은 문장 반지",
+      "image": "/assets/people/char-c001.webp"
+    },
+    {
+      "id": "c002",
+      "name": "지렌 도르발",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "place": "지르바르에트",
+      "placeId": "place-d3fcde024aeebb50",
+      "role": "기사 봉토 집행자",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5039년 · 용관력 제42주기",
+      "appearance": "선명한 주홍색 올림머리와 옆머리. 회색 눈, 가는 눈매, 올리브빛 피부. 보통 키의 통통한 체형, 각진 얼굴.",
+      "clothing": "황토갈색 모직 튜닉, 짧은 케이프깃, 갈색 바지. 가죽 어깨덧단과 황동패.",
+      "belongings": "영지 집행패·접은 명령서·장갑",
+      "image": "/assets/people/char-c002.webp"
+    },
+    {
+      "id": "c003",
+      "name": "팔리아 렘킨",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "place": "팔테쿰가",
+      "placeId": "place-0bf2d299ef01d463",
+      "role": "궁정 납품 안내인",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5052년 · 용관력 제9주기",
+      "appearance": "붉은 중간 길이 물결머리, 녹색 눈과 치켜올라간 눈매, 짙은 피부. 성숙한 인상, 긴 팔다리, 보통 가슴.",
+      "clothing": "검붉은 모직 밀착 원피스, 높은 목선, 상아색 긴소매. 가는 가죽띠와 황동 인장.",
+      "belongings": "납품표·검품용 끈·작은 저울추",
+      "image": "/assets/people/char-c003.webp"
+    },
+    {
+      "id": "c004",
+      "name": "아르덴 라드킨",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "place": "라드아르할",
+      "placeId": "place-f76dcd1e8ca3a223",
+      "role": "궁정 출입 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5055년 · 용관력 제54주기",
+      "appearance": "밝은 구리주황색 중간머리와 관자놀이의 가는 땋기. 회갈색 깊은 눈, 구릿빛 피부. 보통 체형, 긴 얼굴.",
+      "clothing": "상아색 비대칭 모직 덧댐 코트, 낮은 세움깃, 갈색 바지. 가슴 가죽주머니.",
+      "belongings": "궁정 출입패·열쇠고리·짧은 기록끈",
+      "image": "/assets/people/char-c004.webp"
+    },
+    {
+      "id": "c005",
+      "name": "지르마 렌발",
+      "regionId": "leonia",
+      "region": "레오니아",
+      "place": "지르바르에트",
+      "placeId": "place-d3fcde024aeebb50",
+      "role": "전마·수행 담당",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5049년 · 용관력 제26주기",
+      "appearance": "갈색 옆땋기, 녹색 눈, 탄 피부. 성숙한 인상, 긴 코와 도톰한 입술, 넓은 어깨·골반, 큰 가슴.",
+      "clothing": "짙은 청록색 모직 승마 원피스, 하트형 목선, 팔꿈치 소매. 청록색 허리끈.",
+      "belongings": "말솔·고삐 매듭표·수행원 패",
+      "image": "/assets/people/char-c005.webp"
+    },
+    {
+      "id": "c006",
+      "name": "마렌 헤드릭",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "place": "마르나브미르",
+      "placeId": "place-4f3ed43a65a09f9e",
+      "role": "항만 권위대표",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5038년 · 조류력 제23주기",
+      "appearance": "갈색 짧은 층진 머리, 녹색 눈과 올라간 눈꼬리, 탄 피부. 키 크고 마른 체형, 보통 가슴.",
+      "clothing": "검푸른 모직 허리맞춤 원피스, 낮은 세움깃, 좁은 긴소매. 갈색 기름먹인 가죽 어깨망토와 봉인끈.",
+      "belongings": "항만 장부 조각·밧줄칼·봉인 납표",
+      "image": "/assets/people/char-c006.webp"
+    },
+    {
+      "id": "c007",
+      "name": "페린 토르바",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "place": "페르나브부두",
+      "placeId": "place-f0a31f363f261928",
+      "role": "철강 부두 집행자",
+      "species": "페르브루니르",
+      "gender": "여성",
+      "birth": "서력 5011년 · 조류력 제48주기",
+      "appearance": "주황색 올림머리, 회색 눈과 처진 눈꼬리, 탄 피부. 성숙한 인상, 넓은 어깨와 탄탄한 체형, 큰 가슴.",
+      "clothing": "적갈색 모직 튜닉 원피스, 낮은 둥근 목선, 팔꿈치 소매. 갈색 가죽 어깨덧단과 허벅지 보호대.",
+      "belongings": "쇠갈고리·검품망치·가죽 장갑",
+      "image": "/assets/people/char-c007.webp"
+    },
+    {
+      "id": "c008",
+      "name": "아르나 렘비르",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "place": "아르마르토르",
+      "placeId": "place-f3ca2d3e808f999a",
+      "role": "등대·난파 안내인",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5050년 · 조류력 제6주기",
+      "appearance": "서리빛 청백색 낮은 올림머리, 연한 녹금색 아몬드눈, 회갈색 기의 흰 피부. 긴 팔다리, 높은 광대와 좁은 턱.",
+      "clothing": "남색 모직 세로주름 로브, 낮은 둥근 깃, 긴소매. 갈색 목끈의 황동 펜던트.",
+      "belongings": "등대 기름표·난파 기록편·신호끈",
+      "image": "/assets/people/char-c008.webp"
+    },
+    {
+      "id": "c009",
+      "name": "마르나 세딘",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "place": "마르나브미르",
+      "placeId": "place-4f3ed43a65a09f9e",
+      "role": "군항 담당",
+      "species": "인간계·벨마리르 혼혈",
+      "gender": "여성",
+      "birth": "서력 5040년 · 조류력 제37주기",
+      "appearance": "갈색 중간 길이 직모와 갈라진 앞머리, 파란 눈과 처진 눈꼬리, 흰 피부. 굵은 눈썹, 탄탄한 체형, 작은 가슴.",
+      "clothing": "밝은 회색 모직 후드 코트, 후드는 뒤로 내림. 긴소매와 갈색 바지, 남색 완장.",
+      "belongings": "군항 짐표·접은 명부·호각",
+      "image": "/assets/people/char-c009.webp"
+    },
+    {
+      "id": "c010",
+      "name": "페르두 나비아",
+      "regionId": "norghard",
+      "region": "노르가르드",
+      "place": "페르나브부두",
+      "placeId": "place-f0a31f363f261928",
+      "role": "철강 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5054년 · 조류력 제61주기",
+      "appearance": "호두갈색 굵은 땋은 머리, 짙은 청회색 눈, 황토빛 피부. 넓은 흉곽과 건장한 체형, 긴 얼굴.",
+      "clothing": "검정 모직 짧은 재킷, 넓게 접힌 깃과 긴소매, 갈색 바지. 허리 쇠열쇠.",
+      "belongings": "금속 시편·숯자루·집게",
+      "image": "/assets/people/char-c010.webp"
+    },
+    {
+      "id": "c011",
+      "name": "바렐 가르딘",
+      "regionId": "tiris",
+      "region": "티리스",
+      "place": "라드바르할",
+      "placeId": "place-c91992123771823b",
+      "role": "왕실 법정 대표",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5031년 · 녹지절력 제11주기",
+      "appearance": "짙은 코발트색 짧은 층진 직모, 연한 녹금색 눈, 황토빛 피부. 매우 마른 장신, 둥근 얼굴과 평평한 턱.",
+      "clothing": "짙은 이끼녹색 모직 세로주름 로브, 낮은 둥근 깃과 긴소매. 가슴 녹색 끈.",
+      "belongings": "판결문 통·녹색 봉인끈·장갑",
+      "image": "/assets/people/char-c011.webp"
+    },
+    {
+      "id": "c012",
+      "name": "베켈 오르민",
+      "regionId": "tiris",
+      "region": "티리스",
+      "place": "베크켈카르",
+      "placeId": "place-d6201cae71141b4c",
+      "role": "접경 성문 집행자",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5037년 · 녹지절력 제34주기",
+      "appearance": "은회색 외땋기, 짙은 청회색 긴 눈과 날카로운 눈머리, 흰 피부. 작은 키와 넓은 어깨, 중년 인상.",
+      "clothing": "회색 모직 후드 코트, 후드는 뒤로 내림. 긴소매와 갈색 바지, 갈색 대각 가죽띠.",
+      "belongings": "성문 목패·열쇠·검문 분필",
+      "image": "/assets/people/char-c012.webp"
+    },
+    {
+      "id": "c013",
+      "name": "소리엘 렌티스",
+      "regionId": "tiris",
+      "region": "티리스",
+      "place": "소르이엘토르",
+      "placeId": "place-68f0aa07327024b6",
+      "role": "신전·관측 안내인",
+      "species": "실레니르",
+      "gender": "여성",
+      "birth": "서력 5025년 · 녹지절력 제19주기",
+      "appearance": "회색 비대칭 짧은 머리를 귀 뒤로 넘김. 회색 눈, 굵은 눈썹, 탄 피부. 마른 체형과 긴 팔, 작은 가슴.",
+      "clothing": "회녹색 모직 허리맞춤 원피스, 깊은 사각 목선과 좁은 긴소매. 납작한 갈색 허리주머니.",
+      "belongings": "관측표·작은 해시계·신전끈",
+      "image": "/assets/people/char-c013.webp"
+    },
+    {
+      "id": "c014",
+      "name": "바르나 실킨",
+      "regionId": "tiris",
+      "region": "티리스",
+      "place": "라드바르할",
+      "placeId": "place-c91992123771823b",
+      "role": "왕실 법정 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5042년 · 녹지절력 제57주기",
+      "appearance": "흑갈색 머리를 뒤로 넘겨 낮게 묶음. 안개빛 파란 눈과 처진 눈매, 탄 피부. 보통 체형, 짧은 턱의 하트형 얼굴.",
+      "clothing": "갈색 모직 앞끈 튜닉, 얕은 U형 목선과 팔꿈치 소매, 갈색 바지. 붉은 가슴 천패.",
+      "belongings": "법정 이름패·기록끈·인장 상자",
+      "image": "/assets/people/char-c014.webp"
+    },
+    {
+      "id": "c015",
+      "name": "베크라 소멘",
+      "regionId": "tiris",
+      "region": "티리스",
+      "place": "베크켈카르",
+      "placeId": "place-d6201cae71141b4c",
+      "role": "성문 담당",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5053년 · 녹지절력 제43주기",
+      "appearance": "검은 장발과 옆으로 넘긴 앞머리, 낮은 묶음. 회색 눈과 치켜올라간 눈매, 탄 피부. 작은 체구와 긴 팔, 큰 가슴.",
+      "clothing": "청록색 비대칭 모직 튜닉, 겹목도리깃과 긴소매, 갈색 바지. 팔꿈치 덧댐.",
+      "belongings": "통행표·짐끈·바늘쌈",
+      "image": "/assets/people/char-c015.webp"
+    },
+    {
+      "id": "c016",
+      "name": "레나 다트린",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "place": "레눔가",
+      "placeId": "place-aae1caadc38f650f",
+      "role": "기록원 권위대표",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5034년 · 예술력 제28주기",
+      "appearance": "붉은 짧은 곱슬머리를 귀 뒤로 넘김. 회색 눈과 올라간 눈꼬리, 탄 피부. 성숙한 인상, 마른 장신, 큰 가슴.",
+      "clothing": "검자주색 모직 밀착 원피스, 벨벳 앞판과 높은 목선. 긴소매, 자주색 허리끈과 황동 가슴패.",
+      "belongings": "색인끈·얇은 장갑·기록원 패",
+      "image": "/assets/people/char-c016.webp"
+    },
+    {
+      "id": "c017",
+      "name": "린델 바르나",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "place": "린산가",
+      "placeId": "place-9ba8c3cd223a56c1",
+      "role": "극장 질서 집행자",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5039년 · 예술력 제12주기",
+      "appearance": "검은 머리를 리본으로 낮게 묶음. 파란 눈과 올라간 눈꼬리, 탄 피부. 성숙한 인상, 작은 키와 넓은 어깨, 매우 큰 가슴.",
+      "clothing": "남색 모직 앞끈 튜닉, 얕은 U형 목선과 상아색 소매단. 팔꿈치 소매, 남색 띠와 갈색 바지.",
+      "belongings": "공연 명부·질서봉·표값 주머니",
+      "image": "/assets/people/char-c017.webp"
+    },
+    {
+      "id": "c018",
+      "name": "렘리아 필렌",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "place": "렘렌가",
+      "placeId": "place-688595e7b37b5331",
+      "role": "필사 거리 안내인",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 5019년 · 예술력 제46주기",
+      "appearance": "노란 끝의 라임녹색 물결 단발, 옅은 회색 눈과 수평 눈매, 창백한 피부. 긴 몸선, 홀쭉한 뺨과 육각형 얼굴.",
+      "clothing": "검정 비대칭 모직 튜닉, 겹목도리깃과 긴소매, 갈색 바지. 오른쪽 아래팔 가죽 덧소매.",
+      "belongings": "필사본 꾸러미·갈대펜·잉크마개",
+      "image": "/assets/people/char-c018.webp"
+    },
+    {
+      "id": "c019",
+      "name": "레눔 세나",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "place": "레눔가",
+      "placeId": "place-aae1caadc38f650f",
+      "role": "기록원 담당",
+      "species": "실레니르",
+      "gender": "여성",
+      "birth": "서력 5030년 · 예술력 제31주기",
+      "appearance": "금발 반묶음에 땋기, 노란 눈과 처진 눈꼬리, 짙은 피부. 성숙한 인상, 뾰족한 코와 넓은 어깨, 보통 가슴.",
+      "clothing": "황금갈색 비대칭 모직 튜닉 원피스, 낮은 세움깃과 긴소매. 갈색 목끈의 직사각 펜던트.",
+      "belongings": "서가표·접은 목록·작은 돋보기",
+      "image": "/assets/people/char-c019.webp"
+    },
+    {
+      "id": "c020",
+      "name": "린사 엘디아",
+      "regionId": "linrenet",
+      "region": "린레네트",
+      "place": "린산가",
+      "placeId": "place-9ba8c3cd223a56c1",
+      "role": "극장 담당",
+      "species": "인간계·실레니르 혼혈",
+      "gender": "남성",
+      "birth": "서력 5048년 · 예술력 제63주기",
+      "appearance": "짙은 밤색 일자 단발, 구리갈색의 넓은 아몬드눈, 올리브빛 피부. 마른 긴 몸선, 둥근 얼굴과 가는 코.",
+      "clothing": "연한 보라회색 누빔 모직 재킷, 짧은 세움깃과 어깨 누빔. 긴소매, 갈색 바지와 자주색 소매단.",
+      "belongings": "무대끈·의상 바늘쌈·대본 조각",
+      "image": "/assets/people/char-c020.webp"
+    },
+    {
+      "id": "c021",
+      "name": "도렌 베크람",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "place": "도르카르",
+      "placeId": "place-46595dfda186932a",
+      "role": "방어 평의회 대표",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5032년 · 철문력 제7주기",
+      "appearance": "밝은 원색 금황색 짧은 직모를 낮게 묶음. 옅은 회색 수평눈, 올리브빛 피부. 키 크고 묵직한 체형, 긴 턱.",
+      "clothing": "회색 누빔 모직 비대칭 튜닉, 일체형 목도리깃과 긴소매. 갈색 바지와 황동 가슴패.",
+      "belongings": "평의회 패·성벽 도면 조각·열쇠",
+      "image": "/assets/people/char-c021.webp"
+    },
+    {
+      "id": "c022",
+      "name": "켈디 엔바",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "place": "켈카르",
+      "placeId": "place-5ec880affa107282",
+      "role": "외성문 집행자",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5040년 · 철문력 제39주기",
+      "appearance": "선명한 자두보라색 올림머리와 옆머리. 황토갈색 가는 눈, 짙은 밤갈색 피부. 작은 키, 보통 체형과 둥근 얼굴.",
+      "clothing": "벽돌적색 누빔 모직 긴 조끼와 상아색 긴소매 아마포 셔츠. 갈색 바지와 검정 완장.",
+      "belongings": "검문표·짧은 봉·분필",
+      "image": "/assets/people/char-c022.webp"
+    },
+    {
+      "id": "c023",
+      "name": "테르도 말렌",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "place": "도르테쿰",
+      "placeId": "place-9bfd7c9b2638713d",
+      "role": "성벽 공사 안내인",
+      "species": "페르브루니르",
+      "gender": "여성",
+      "birth": "서력 5036년 · 철문력 제21주기",
+      "appearance": "갈색 중간 길이 물결머리, 갈색 눈과 치켜올라간 눈매, 짙은 피부. 굵은 눈썹과 넓은 어깨, 탄탄한 체형, 큰 가슴.",
+      "clothing": "짙은 갈색 누빔 모직 원피스, 깊은 U형 목선과 팔꿈치 소매. 가죽 어깨보호대와 회색 길드 덧단.",
+      "belongings": "측량끈·쐐기·공사표",
+      "image": "/assets/people/char-c023.webp"
+    },
+    {
+      "id": "c024",
+      "name": "도르민 베시아",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "place": "도르카르",
+      "placeId": "place-46595dfda186932a",
+      "role": "내성 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5051년 · 철문력 제52주기",
+      "appearance": "구리빛 끝의 갈색 중간머리와 가는 관자놀이 땋기. 짙은 헤이즐 눈, 황갈색 피부. 보통 체형, 좁은 턱.",
+      "clothing": "밝은 회색 누빔 모직 재킷, 둥근 깃과 긴소매, 어깨덧단. 갈색 바지와 어깨 쇠열쇠.",
+      "belongings": "내성 열쇠·순번패·기록끈",
+      "image": "/assets/people/char-c024.webp"
+    },
+    {
+      "id": "c025",
+      "name": "켈라 바스틴",
+      "regionId": "bekdoret",
+      "region": "벡도레트",
+      "place": "켈카르",
+      "placeId": "place-5ec880affa107282",
+      "role": "외성문 담당",
+      "species": "인간계·페르브루니르 혼혈",
+      "gender": "여성",
+      "birth": "서력 5045년 · 철문력 제16주기",
+      "appearance": "검은 옆땋기, 청록색 눈과 치켜올라간 눈매, 탄 피부. 긴 코와 도톰한 입술, 작은 키와 넓은 골반, 매우 큰 가슴.",
+      "clothing": "탁한 황색 누빔 모직 앞치마 튜닉, 둥근 목선과 팔꿈치 소매. 내린 두건, 갈색 바지와 완장.",
+      "belongings": "성문 목패·호각·장갑",
+      "image": "/assets/people/char-c025.webp"
+    },
+    {
+      "id": "c026",
+      "name": "세나 푸르딘",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "place": "센푸쿰",
+      "placeId": "place-48a1e31eb3432f7a",
+      "role": "공동 창고 대표",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5037년 · 공동력 제32주기",
+      "appearance": "검은 짧은 층진 머리, 갈색 눈과 올라간 눈꼬리, 탄 피부. 작은 키와 탄탄한 체형, 보통 가슴.",
+      "clothing": "연한 황색 수선한 모직 원피스, 높은 둥근 목선과 짧은 소매. 황색 허리주머니와 끈 펜던트.",
+      "belongings": "창고 열쇠·저울추·종자 봉인",
+      "image": "/assets/people/char-c026.webp"
+    },
+    {
+      "id": "c027",
+      "name": "벨리 헤드라",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "place": "벨바르",
+      "placeId": "place-89253b528d932838",
+      "role": "수로 회의 집행자",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5041년 · 공동력 제58주기",
+      "appearance": "검은 올림머리, 갈색 눈과 처진 눈꼬리, 흰 피부. 작은 키와 넓은 어깨, 보통 가슴.",
+      "clothing": "잎녹색 수선한 모직 재킷, 둥근 깃과 긴소매, 어깨덧단. 갈색 바지와 청색 가슴끈.",
+      "belongings": "수문표·물눈금자·회의끈",
+      "image": "/assets/people/char-c027.webp"
+    },
+    {
+      "id": "c028",
+      "name": "가르센 미아",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "place": "가르센에트",
+      "placeId": "place-91e5bebd344dbadc",
+      "role": "농촌 공동체 안내인",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5048년 · 공동력 제14주기",
+      "appearance": "밝은 불꽃주황색 낮은 올림머리, 청록회색 아몬드눈, 상아빛 피부. 긴 팔다리, 둥근 턱의 사각 얼굴.",
+      "clothing": "황토색 수선한 모직 앞치마 튜닉, 둥근 목선과 팔꿈치 소매. 내린 두건, 갈색 바지와 황토색 완장.",
+      "belongings": "토지 목패·씨앗 봉투·줄자",
+      "image": "/assets/people/char-c028.webp"
+    },
+    {
+      "id": "c029",
+      "name": "센푸 에르나",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "place": "센푸쿰",
+      "placeId": "place-48a1e31eb3432f7a",
+      "role": "공동 창고 담당",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5054년 · 공동력 제45주기",
+      "appearance": "검은 중간 길이 직모와 갈라진 앞머리, 녹색 눈과 처진 눈꼬리, 탄 피부. 굵은 눈썹, 탄탄한 체형과 긴 팔, 큰 가슴.",
+      "clothing": "청색 수선한 모직 비대칭 코트 원피스, 길게 기운 깃과 긴소매. 직사각 가슴 펜던트.",
+      "belongings": "창고 번호패·곡물표·짧은 분필",
+      "image": "/assets/people/char-c029.webp"
+    },
+    {
+      "id": "c030",
+      "name": "벨바 세딘",
+      "regionId": "senhalet",
+      "region": "센할레트",
+      "place": "벨바르",
+      "placeId": "place-89253b528d932838",
+      "role": "수로 회의 담당",
+      "species": "인간계·님소리르 혼혈",
+      "gender": "남성",
+      "birth": "서력 5050년 · 공동력 제25주기",
+      "appearance": "밝은 밤색 굵은 땋은 머리, 회녹색 눈, 흰 피부. 보통 키와 체형, 짧고 각진 얼굴.",
+      "clothing": "탁한 붉은색 수선한 모직 코트, 넓은 숄깃과 긴소매. 가죽 허리띠, 갈색 바지와 청색 끈.",
+      "belongings": "수로 지도 조각·교대끈·작은 삽",
+      "image": "/assets/people/char-c030.webp"
+    },
+    {
+      "id": "c031",
+      "name": "헤스란 바르크",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "place": "헤스푸쿰",
+      "placeId": "place-29cbdf9865aa1024",
+      "role": "저장고·산악 대표",
+      "species": "미상(북방 복합 집단 소속)",
+      "gender": "남성",
+      "birth": "서력 5033년 · 명예력 제9주기",
+      "appearance": "짙은 금갈색 짧은 층진 직모, 청록회색 눈, 흰 피부. 넓은 흉곽과 건장한 체형, 넓은 이마.",
+      "clothing": "숯검정 두꺼운 모직 앞치마 튜닉, 둥근 목선과 팔꿈치 소매. 내린 두건, 갈색 바지와 목패.",
+      "belongings": "저장고 열쇠·서약판·보존식 칼",
+      "image": "/assets/people/char-c031.webp"
+    },
+    {
+      "id": "c032",
+      "name": "켈헤스 베르단",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "place": "헤스켈카르",
+      "placeId": "place-e0107c391e927db4",
+      "role": "고개 초소 집행자",
+      "species": "미상(북방 복합 집단 소속)",
+      "gender": "남성",
+      "birth": "서력 5038년 · 명예력 제38주기",
+      "appearance": "진한 포도보라색 외땋기, 짙은 녹갈색 긴 눈, 금갈색 피부. 통통한 체형, 짧고 각진 얼굴.",
+      "clothing": "뼈상아색 두꺼운 모직 비대칭 코트, 길게 기운 깃과 긴소매. 갈색 바지와 허리 황동 방울.",
+      "belongings": "고개 통행표·바람종·밧줄",
+      "image": "/assets/people/char-c032.webp"
+    },
+    {
+      "id": "c033",
+      "name": "페르세크 란딘",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "place": "페르바르",
+      "placeId": "place-34f582a0e9cbc23e",
+      "role": "무기 중개 안내인",
+      "species": "페르브루니르",
+      "gender": "여성",
+      "birth": "서력 5032년 · 명예력 제22주기",
+      "appearance": "갈색 비대칭 짧은 머리를 귀 뒤로 넘김. 녹색 눈, 굵은 눈썹, 탄 피부. 넓은 어깨와 탄탄한 체형, 보통 가슴.",
+      "clothing": "갈색 두꺼운 모직 밀착 원피스, V형 목선과 긴소매, 버클 허리띠. 회갈색 모피 어깨망토와 철제 가슴패.",
+      "belongings": "금속 시편·무기 손질천·계약끈",
+      "image": "/assets/people/char-c033.webp"
+    },
+    {
+      "id": "c034",
+      "name": "헤스푸 네르딘",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "place": "헤스푸쿰",
+      "placeId": "place-29cbdf9865aa1024",
+      "role": "저장고 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5049년 · 명예력 제49주기",
+      "appearance": "옅은 분홍색 머리를 뒤로 넘겨 낮게 묶음. 회갈색 처진 눈매, 붉은 갈색 피부. 보통 체형, 비대칭 턱선의 각진 얼굴.",
+      "clothing": "짙은 적색 두꺼운 모직 사선여밈 코트, 좁은 세움깃과 긴소매. 갈색 바지와 위팔 천패.",
+      "belongings": "교대표·장작표·짧은 기록판",
+      "image": "/assets/people/char-c034.webp"
+    },
+    {
+      "id": "c035",
+      "name": "켈헤스 오리안",
+      "regionId": "hesferet",
+      "region": "헤스페레트",
+      "place": "헤스켈카르",
+      "placeId": "place-e0107c391e927db4",
+      "role": "고개 담당",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5055년 · 명예력 제16주기",
+      "appearance": "금발 장발과 옆으로 넘긴 앞머리, 낮은 묶음. 파란 눈과 처진 눈꼬리, 탄 피부. 작은 키와 긴 팔, 매우 큰 가슴.",
+      "clothing": "연한 회색 두꺼운 모직 원피스, 앞끈 보디스와 사각 목선, 긴소매. 회갈색 모피 어깨망토와 뼈 펜던트.",
+      "belongings": "눈길표·방한끈·작은 삽",
+      "image": "/assets/people/char-c035.webp"
+    },
+    {
+      "id": "c036",
+      "name": "마르켄 렘바",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "place": "마르켈미르",
+      "placeId": "place-28ad48cc8b4dfb1d",
+      "role": "자유항 의회 대표",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5036년 · 해도력 제18주기",
+      "appearance": "갈색 짧은 곱슬머리를 귀 뒤로 넘김. 녹색 눈과 올라간 눈꼬리, 탄 피부. 성숙한 인상, 마른 장신과 긴 팔, 매우 큰 가슴.",
+      "clothing": "청록색 방수 아마포 랩 원피스, 겹친 V형 깃과 팔꿈치 소매. 청색 가슴끈과 황동 허리패.",
+      "belongings": "보험패·의회표·접은 선박명부",
+      "image": "/assets/people/char-c036.webp"
+    },
+    {
+      "id": "c037",
+      "name": "워크나브 세란",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "place": "워크바르",
+      "placeId": "place-0c4f6cdf1bbebac6",
+      "role": "원정 허가 집행자",
+      "species": "인간계·벨마리르 혼혈",
+      "gender": "여성",
+      "birth": "서력 5039년 · 해도력 제43주기",
+      "appearance": "주황색 끝의 갈색 머리를 리본으로 낮게 묶음. 회색 눈과 올라간 눈꼬리, 흰 피부. 굵은 눈썹과 넓은 어깨, 탄탄한 체형, 매우 큰 가슴.",
+      "clothing": "남색 방수 아마포 사선여밈 코트, 좁은 세움깃과 긴소매. 갈색 바지와 붉은 완장.",
+      "belongings": "원정 허가서·봉인칼·검사끈",
+      "image": "/assets/people/char-c037.webp"
+    },
+    {
+      "id": "c038",
+      "name": "마렐렌 이움",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "place": "마르렌움",
+      "placeId": "place-3d4cfdb2ea2c95eb",
+      "role": "해도 보관 안내인",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 5016년 · 해도력 제7주기",
+      "appearance": "선명한 로열블루 물결 단발, 청회색 수평눈, 짙게 탄 갈색 피부. 보통 체형에 긴 몸선, 좁고 긴 얼굴.",
+      "clothing": "호박갈색 방수 아마포 코트, 짧은 어깨망토와 낮은 세움깃. 긴소매, 갈색 바지와 청색 허리끈.",
+      "belongings": "해도통·주석펜·습기막이 천",
+      "image": "/assets/people/char-c038.webp"
+    },
+    {
+      "id": "c039",
+      "name": "마르켈 일도르",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "place": "마르켈미르",
+      "placeId": "place-28ad48cc8b4dfb1d",
+      "role": "자유항 담당",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5053년 · 해도력 제55주기",
+      "appearance": "금발 반묶음에 땋기, 노란 눈과 처진 눈꼬리, 탄 피부. 성숙한 인상, 뾰족한 코와 탄탄한 체형, 보통 가슴.",
+      "clothing": "연한 황갈색 방수 아마포 랩 튜닉 원피스, V형 깃과 긴소매. 왼쪽 어깨망토와 황동 옷깃패.",
+      "belongings": "항만 등록패·교역전표·작은 주머니",
+      "image": "/assets/people/char-c039.webp"
+    },
+    {
+      "id": "c040",
+      "name": "워크바 에리온",
+      "regionId": "kelnabet",
+      "region": "켈나베트",
+      "place": "워크바르",
+      "placeId": "place-0c4f6cdf1bbebac6",
+      "role": "원정 허가 담당",
+      "species": "벨마리르",
+      "gender": "남성",
+      "birth": "서력 5047년 · 해도력 제29주기",
+      "appearance": "짙은 마호가니색 일자 단발, 적갈색 아몬드눈, 짙은 밤갈색 피부. 마른 체형과 넓은 어깨, 높은 광대.",
+      "clothing": "짙은 청색 방수 아마포 앞끈 조끼와 상아색 긴소매 셔츠. 청색 목천, 갈색 바지와 황동 펜던트.",
+      "belongings": "승선 보증패·나침표식·밧줄칼",
+      "image": "/assets/people/char-c040.webp"
+    },
+    {
+      "id": "c041",
+      "name": "베라크 헤스민",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "place": "베크헤스푸쿰",
+      "placeId": "place-0478f08a70f8a216",
+      "role": "혹한기 저장 대표",
+      "species": "미상(북방 복합 집단 소속)",
+      "gender": "남성",
+      "birth": "서력 5030년 · 저장력 제8주기",
+      "appearance": "짙은 에메랄드색 짧은 직모를 낮게 묶음. 청회색 수평눈, 짙은 밤갈색 피부. 넓은 흉곽과 묵직한 체형, 긴 턱.",
+      "clothing": "흰 두꺼운 누빔 코트, 짧은 어깨망토와 낮은 세움깃. 긴소매, 갈색 바지와 붉은 가슴패.",
+      "belongings": "불씨통·장작표·저장고 열쇠",
+      "image": "/assets/people/char-c041.webp"
+    },
+    {
+      "id": "c042",
+      "name": "워켈 나르딘",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "place": "헤스워켈",
+      "placeId": "place-a41e40a70f1aaa80",
+      "role": "겨울 통행 집행자",
+      "species": "미상(북방 복합 집단 소속)",
+      "gender": "남성",
+      "birth": "서력 5037년 · 저장력 제27주기",
+      "appearance": "철회색 올림머리와 옆머리, 호박갈색 가는 눈, 구릿빛 피부. 보통 체형, 높은 광대와 좁은 턱.",
+      "clothing": "숯검정 두꺼운 누빔 랩 튜닉, 낮은 교차깃과 긴소매. 왼쪽 어깨망토, 갈색 바지와 펜던트.",
+      "belongings": "폐쇄표·눈길 밧줄·호각",
+      "image": "/assets/people/char-c042.webp"
+    },
+    {
+      "id": "c043",
+      "name": "나렐 벱하스",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "place": "나르할",
+      "placeId": "place-d7e228ecb8381c8d",
+      "role": "불씨 공동주거 안내인",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5051년 · 저장력 제40주기",
+      "appearance": "갈색 중간 길이 물결머리, 갈색 눈과 치켜올라간 눈매, 탄 피부. 굵은 눈썹, 긴 팔다리, 작은 가슴.",
+      "clothing": "짙은 녹색 두꺼운 누빔 원피스, 깊은 사각 목선과 긴소매. 뒤로 내린 회갈색 모피 두건과 붉은 가슴패.",
+      "belongings": "불씨표·돌봄 명부·바늘쌈",
+      "image": "/assets/people/char-c043.webp"
+    },
+    {
+      "id": "c044",
+      "name": "베크헤사 룬딘",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "place": "베크헤스푸쿰",
+      "placeId": "place-0478f08a70f8a216",
+      "role": "혹한기 저장 담당",
+      "species": "미상(북방 복합 집단 소속)",
+      "gender": "남성",
+      "birth": "서력 5046년 · 저장력 제15주기",
+      "appearance": "밝은 청록색 중간머리와 가는 관자놀이 땋기. 꿀호박색 깊은 눈, 구릿빛 피부. 건장한 체형, 긴 얼굴.",
+      "clothing": "갈색 두꺼운 누빔 랩 튜닉, V형 깃과 긴소매. 갈색 바지와 허리 끈 펜던트.",
+      "belongings": "저장품 목패·기름병·짧은 칼",
+      "image": "/assets/people/char-c044.webp"
+    },
+    {
+      "id": "c045",
+      "name": "헤스워 라켄",
+      "regionId": "hesbeket",
+      "region": "헤스베케트",
+      "place": "헤스워켈",
+      "placeId": "place-a41e40a70f1aaa80",
+      "role": "겨울 통행 담당",
+      "species": "인간계·페르브루니르 혼혈",
+      "gender": "여성",
+      "birth": "서력 5044년 · 저장력 제33주기",
+      "appearance": "흰 줄무늬가 섞인 검은 옆땋기, 갈색 눈과 치켜올라간 눈매, 흰 피부. 긴 코와 도톰한 입술, 작은 키와 넓은 골반, 큰 가슴.",
+      "clothing": "연한 청회색 누빔 모직 오프숄더 원피스와 긴소매. 갈색 가죽 앞끈 보디스, 앞을 연 회갈색 모피망토.",
+      "belongings": "구조끈·방한포·눈삽 고리",
+      "image": "/assets/people/char-c045.webp"
+    },
+    {
+      "id": "c046",
+      "name": "옌라 실멘",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "place": "옌워켈",
+      "placeId": "place-2ed8c29a33545bbf",
+      "role": "고공 통행 대표",
+      "species": "님소리르",
+      "gender": "여성",
+      "birth": "서력 5028년 · 생태력 제6주기",
+      "appearance": "갈색 짧은 층진 머리, 갈색 눈과 올라간 눈꼬리, 흰 피부. 성숙한 인상, 마른 체형, 큰 가슴.",
+      "clothing": "연한 청회색 방풍 아마포 밀착 원피스와 좁은 긴소매. 같은 색 어깨망토, 몸통 고정끈과 청색 가슴패.",
+      "belongings": "기상표·등정끈·통행패",
+      "image": "/assets/people/char-c046.webp"
+    },
+    {
+      "id": "c047",
+      "name": "베크엔 아르니",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "place": "옌베크할",
+      "placeId": "place-3163f00f6e3af440",
+      "role": "기수단 집행자",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5040년 · 생태력 제24주기",
+      "appearance": "금발 올림머리, 노란 눈과 처진 눈꼬리, 흰 피부. 성숙한 인상, 작은 키와 넓은 어깨, 큰 가슴.",
+      "clothing": "청록색 방풍 아마포 랩 튜닉, V형 깃과 긴소매. 갈색 바지와 대각 가죽띠.",
+      "belongings": "전령통·고삐고리·기수단패",
+      "image": "/assets/people/char-c047.webp"
+    },
+    {
+      "id": "c048",
+      "name": "실람 렌비아",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "place": "실람렌움",
+      "placeId": "place-9c5d5f6f7ac18582",
+      "role": "동맹 기록 안내인",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 5022년 · 생태력 제14주기",
+      "appearance": "밝은 레몬황색 낮은 올림머리, 짙은 갈색 아몬드눈, 황토빛 피부. 긴 팔다리와 긴 몸선, 짧은 턱의 하트형 얼굴.",
+      "clothing": "회갈색 방풍 아마포 허리맞춤 코트, 높은 세움깃과 좁은 긴소매. 갈색 바지와 청록색 허리띠.",
+      "belongings": "동맹문서·색인띠·잉크마개",
+      "image": "/assets/people/char-c048.webp"
+    },
+    {
+      "id": "c049",
+      "name": "옌워 세리아",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "place": "옌워켈",
+      "placeId": "place-2ed8c29a33545bbf",
+      "role": "고공 통행 담당",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5054년 · 생태력 제31주기",
+      "appearance": "회색 중간 길이 직모와 갈라진 앞머리, 회색 눈과 처진 눈꼬리, 흰 피부. 성숙한 인상, 탄탄한 체형, 매우 큰 가슴.",
+      "clothing": "흰 방풍 아마포 튜닉 원피스, 짧은 케이프깃과 긴소매. 넓은 허리띠와 가슴 가죽주머니.",
+      "belongings": "통행표·밧줄고리·작은 망원관",
+      "image": "/assets/people/char-c049.webp"
+    },
+    {
+      "id": "c050",
+      "name": "옌베르 카이안",
+      "regionId": "yenmebet",
+      "region": "옌메베트",
+      "place": "옌베크할",
+      "placeId": "place-3163f00f6e3af440",
+      "role": "기수단 담당",
+      "species": "인간계·님소리르 혼혈",
+      "gender": "남성",
+      "birth": "서력 5049년 · 생태력 제19주기",
+      "appearance": "숯회색 굵은 땋은 머리, 올리브갈색 눈, 금갈색 피부. 보통 체형, 홀쭉한 뺨과 육각형 얼굴.",
+      "clothing": "짙은 녹색 방풍 민소매 덧튜닉과 상아색 긴소매 셔츠. 갈색 바지, 허리 펜던트와 흰 어깨깃털.",
+      "belongings": "전령표·깃털매듭·장갑",
+      "image": "/assets/people/char-c050.webp"
+    },
+    {
+      "id": "c051",
+      "name": "얄렌 베크사",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "place": "얄베크움",
+      "placeId": "place-4bc2d5185e162623",
+      "role": "감찰 대표",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5033년 · 은성력 제12주기",
+      "appearance": "검은 짧은 층진 직모, 짙은 갈색 눈, 금갈색 피부. 마른 장신, 균형 잡힌 타원형 얼굴.",
+      "clothing": "검정 두꺼운 모직 허리맞춤 코트, 상아색 테두리의 높은 깃과 좁은 긴소매. 갈색 바지.",
+      "belongings": "감찰인장·출입목패·봉인끈",
+      "image": "/assets/people/char-c051.webp"
+    },
+    {
+      "id": "c052",
+      "name": "헤드라 나움",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "place": "헤드렌움",
+      "placeId": "place-11708076318aa7c7",
+      "role": "재료 장부 집행자",
+      "species": "페르브루니르",
+      "gender": "남성",
+      "birth": "서력 5007년 · 은성력 제36주기",
+      "appearance": "밝은 청록색 외땋기, 회색 긴 눈과 날카로운 눈머리, 탄 피부. 넓은 어깨와 통통한 체형, 낮은 무게중심.",
+      "clothing": "회색 두꺼운 모직 튜닉, 짧은 케이프깃과 긴소매. 갈색 바지와 납 가슴패.",
+      "belongings": "재료표·금속표본통·장부",
+      "image": "/assets/people/char-c052.webp"
+    },
+    {
+      "id": "c053",
+      "name": "님레아 할킨",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "place": "님나할",
+      "placeId": "place-9428a503d85581f1",
+      "role": "제한 학당 안내인",
+      "species": "실레니르",
+      "gender": "여성",
+      "birth": "서력 5026년 · 은성력 제51주기",
+      "appearance": "붉은 비대칭 짧은 머리를 귀 뒤로 넘김. 녹색 눈, 굵은 눈썹, 탄 피부. 마른 체형과 긴 팔, 보통 가슴.",
+      "clothing": "청회색 두꺼운 모직 원피스, 가슴 위 물방울형 트임과 아마포 긴소매. 가는 남색 허리띠.",
+      "belongings": "주석본·열람패·갈대펜",
+      "image": "/assets/people/char-c053.webp"
+    },
+    {
+      "id": "c054",
+      "name": "얄베아 세크린",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "place": "얄베크움",
+      "placeId": "place-4bc2d5185e162623",
+      "role": "감찰 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5038년 · 은성력 제25주기",
+      "appearance": "선명한 장미적색 머리를 뒤로 넘겨 낮게 묶음. 회갈색 처진 눈매, 바람에 붉어진 피부. 보통 체형과 둥근 얼굴.",
+      "clothing": "회갈색 두꺼운 모직 비대칭 덧댐 코트, 낮은 세움깃과 긴소매. 갈색 바지와 끈 펜던트.",
+      "belongings": "순번표·봉인칼·압류끈",
+      "image": "/assets/people/char-c054.webp"
+    },
+    {
+      "id": "c055",
+      "name": "님나 리벨",
+      "regionId": "nimnaret",
+      "region": "님나레트",
+      "place": "님나할",
+      "placeId": "place-9428a503d85581f1",
+      "role": "제한 학당 담당",
+      "species": "님소리르",
+      "gender": "여성",
+      "birth": "서력 5048년 · 은성력 제44주기",
+      "appearance": "갈색 장발과 옆으로 넘긴 앞머리, 낮은 묶음. 녹색 눈과 처진 눈꼬리, 흰 피부. 마른 장신, 보통 가슴.",
+      "clothing": "회자주색 두꺼운 모직 세로주름 로브, 낮은 둥근 깃과 긴소매. 자주색 손목끈.",
+      "belongings": "열람등급패·색인끈·필사판",
+      "image": "/assets/people/char-c055.webp"
+    },
+    {
+      "id": "c056",
+      "name": "도르셀 소리아",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "place": "도르소르산",
+      "placeId": "place-785df4991eafb1dd",
+      "role": "산악 사원 대표",
+      "species": "님소리르",
+      "gender": "여성",
+      "birth": "서력 5021년 · 관측력·상단 주석력 제15주기",
+      "appearance": "갈색 짧은 곱슬머리를 귀 뒤로 넘김. 녹색 눈과 올라간 눈꼬리, 흰 피부. 성숙한 인상, 마른 체형과 긴 팔, 큰 가슴.",
+      "clothing": "올리브녹색 아마포 민소매 밀착 원피스, 높은 둥근 목선. 분리형 팔보호대와 흰 목선끈.",
+      "belongings": "사원끈·혈통주석·작은 약초함",
+      "image": "/assets/people/char-c056.webp"
+    },
+    {
+      "id": "c057",
+      "name": "실메아 베르민",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "place": "실메르미르",
+      "placeId": "place-3f95725840bc5a59",
+      "role": "약초 장터 집행자",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5039년 · 관측력·상단 주석력 제39주기",
+      "appearance": "주황색 머리를 리본으로 낮게 묶음. 회색 눈과 올라간 눈꼬리, 짙은 피부. 도톰한 입술, 작은 키와 넓은 어깨, 작은 가슴.",
+      "clothing": "청색 아마포 비대칭 덧댐 코트, 낮은 세움깃과 긴소매. 갈색 바지와 흰 완장.",
+      "belongings": "처방표·약초주머니·저울",
+      "image": "/assets/people/char-c057.webp"
+    },
+    {
+      "id": "c058",
+      "name": "벨마린 세르토",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "place": "벨마르미르",
+      "placeId": "place-2564a83c1458aea0",
+      "role": "강하 교역 안내인",
+      "species": "인간계·벨마리르 혼혈",
+      "gender": "남성",
+      "birth": "서력 5049년 · 관측력·상단 주석력 제58주기",
+      "appearance": "청록색 물결 단발, 연한 녹금색 수평눈, 올리브빛 피부. 마른 체형과 넓은 어깨, 좁은 턱.",
+      "clothing": "짙은 적색 아마포 세로주름 로브, 낮은 둥근 깃과 긴소매. 붉은 허리끈의 납 봉인.",
+      "belongings": "물품봉인·강하 장부·밧줄칼",
+      "image": "/assets/people/char-c058.webp"
+    },
+    {
+      "id": "c059",
+      "name": "도르소라 엘민",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "place": "도르소르산",
+      "placeId": "place-785df4991eafb1dd",
+      "role": "산악 사원 담당",
+      "species": "실레니르",
+      "gender": "여성",
+      "birth": "서력 4987년 · 관측력·상단 주석력 제28주기",
+      "appearance": "갈색 반묶음에 땋기, 파란 눈과 처진 눈꼬리, 짙은 피부. 성숙한 인상, 뾰족한 코와 넓은 어깨, 매우 큰 가슴.",
+      "clothing": "흰 아마포 원피스, 교차 보디스와 U형 목선, 긴소매. 두건을 내리고 앞을 연 흰 방수망토와 펜던트.",
+      "belongings": "순례패·향주머니·관측표",
+      "image": "/assets/people/char-c059.webp"
+    },
+    {
+      "id": "c060",
+      "name": "실메르 로시아",
+      "regionId": "silnimet",
+      "region": "실니메트",
+      "place": "실메르미르",
+      "placeId": "place-3f95725840bc5a59",
+      "role": "약초 장터 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5052년 · 관측력·상단 주석력 제9주기",
+      "appearance": "호두갈색 일자 단발, 짙은 청회색 아몬드눈, 구릿빛 피부. 마른 체형과 넓은 흉곽, 둥근 턱의 사각 얼굴.",
+      "clothing": "잎갈색 아마포 짧은 재킷, 넓게 접힌 깃과 긴소매. 갈색 바지와 둥근 허리 가죽주머니.",
+      "belongings": "약초표·저울추·건조망 조각",
+      "image": "/assets/people/char-c060.webp"
+    },
+    {
+      "id": "c061",
+      "name": "소르할 아르덴",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "place": "도르소르할",
+      "placeId": "place-ea0804d14728edbb",
+      "role": "산악 신정 대표",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5029년 · 관측력 제21주기",
+      "appearance": "흰 짧은 직모를 낮게 묶음. 연한 녹금색 수평눈, 구릿빛 피부. 매우 마른 장신과 긴 팔다리, 마름모형 얼굴.",
+      "clothing": "뼈상아색 얇은 모직 세로주름 로브, 금실 테두리의 낮은 둥근 목선과 긴소매.",
+      "belongings": "법원패·순례명부·등정끈",
+      "image": "/assets/people/char-c061.webp"
+    },
+    {
+      "id": "c062",
+      "name": "이엘토 렌민",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "place": "옌이엘토르",
+      "placeId": "place-29ecffe97ade80cf",
+      "role": "관측대 집행자",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 4979년 · 관측력 제47주기",
+      "appearance": "잿갈색 올림머리와 옆머리, 짙은 청회색 가는 눈, 황갈색 피부. 보통 체형과 긴 목, 둥근 턱의 사각 얼굴.",
+      "clothing": "짙은 회색 얇은 모직 후드 코트, 후드는 뒤로 내림. 낮은 세움깃과 긴소매, 갈색 바지와 펜던트.",
+      "belongings": "별눈금판·관측표·필기침",
+      "image": "/assets/people/char-c062.webp"
+    },
+    {
+      "id": "c063",
+      "name": "도르켈 바레스",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "place": "도르켈바르",
+      "placeId": "place-b2596d262927087a",
+      "role": "등정 안내인",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5050년 · 관측력 제6주기",
+      "appearance": "검은 중간 길이 물결머리, 회색 눈과 치켜올라간 눈매, 탄 피부. 성숙한 인상과 긴 팔다리, 보통 가슴.",
+      "clothing": "탁한 금색 얇은 모직 밀착 원피스, V형 목선과 긴소매. 같은 색 어깨망토와 갈색 허리밧줄.",
+      "belongings": "등정허가패·매듭줄·고도표",
+      "image": "/assets/people/char-c063.webp"
+    },
+    {
+      "id": "c064",
+      "name": "도르할 세니아",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "place": "도르소르할",
+      "placeId": "place-ea0804d14728edbb",
+      "role": "수도원 담당",
+      "species": "님소리르",
+      "gender": "남성",
+      "birth": "서력 5024년 · 관측력 제33주기",
+      "appearance": "옅은 라벤더색 중간머리와 가는 관자놀이 땋기. 안개빛 파란 깊은 눈, 회갈색 기의 흰 피부. 긴 목과 짧고 각진 얼굴.",
+      "clothing": "연한 청색 얇은 모직 앞끈 튜닉, 얕은 U형 목선과 팔꿈치 소매. 갈색 바지와 직사각 옷깃 펜던트.",
+      "belongings": "침묵표·기도끈·작은 열쇠",
+      "image": "/assets/people/char-c064.webp"
+    },
+    {
+      "id": "c065",
+      "name": "이엘렌 토리아",
+      "regionId": "ardolet",
+      "region": "아르도레트",
+      "place": "옌이엘토르",
+      "placeId": "place-29ecffe97ade80cf",
+      "role": "관측대 담당",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5047년 · 관측력 제56주기",
+      "appearance": "붉은 옆땋기, 회색 눈, 흰 피부. 긴 코와 도톰한 입술, 넓은 어깨·골반, 작은 가슴.",
+      "clothing": "짙은 갈색 얇은 모직 밀착 원피스, 닫힌 목선과 긴소매, 왼쪽 치마 트임. 청색 허리끈.",
+      "belongings": "관측표·청색매듭·눈가리개",
+      "image": "/assets/people/char-c065.webp"
+    },
+    {
+      "id": "c066",
+      "name": "틱렌 메반",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "place": "틱메브할",
+      "placeId": "place-dbc12b4eb54995b3",
+      "role": "계절 야영 대표",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5035년 · 이동력 제13주기",
+      "appearance": "붉은 짧은 층진 머리, 회색 눈과 올라간 눈꼬리, 흰 피부. 마른 장신, 큰 가슴.",
+      "clothing": "연한 황갈색 아마포 밀착 원피스, 얕은 U형 목선과 팔꿈치 소매. 가슴 아래 묶음과 황갈색 가슴 천패.",
+      "belongings": "천막표·이동장부·가축끈",
+      "image": "/assets/people/char-c066.webp"
+    },
+    {
+      "id": "c067",
+      "name": "벨람 세르나",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "place": "벨람바르",
+      "placeId": "place-aa46da8b52a816ba",
+      "role": "물가 약속 집행자",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5040년 · 이동력 제41주기",
+      "appearance": "검은 올림머리, 파란 눈과 처진 눈꼬리, 탄 피부. 작은 키와 넓은 어깨, 보통 가슴.",
+      "clothing": "남색 아마포 앞끈 튜닉, 얕은 U형 목선과 팔꿈치 소매. 갈색 바지와 청색 손목끈.",
+      "belongings": "물권매듭·작은 물주머니·중재패",
+      "image": "/assets/people/char-c067.webp"
+    },
+    {
+      "id": "c068",
+      "name": "워크렌 티아",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "place": "워크렌움",
+      "placeId": "place-e7a7ed0bf072a36b",
+      "role": "이동 장부 안내인",
+      "species": "인간계 혼혈(북방 복합 집단 혈통의 세부 종족 미상)",
+      "gender": "남성",
+      "birth": "서력 5048년 · 이동력 제25주기",
+      "appearance": "밝은 군청색 낮은 올림머리, 옅은 회색 아몬드눈, 흰 피부. 마른 체형과 긴 팔다리, 비대칭 턱선의 각진 얼굴.",
+      "clothing": "연한 청색 아마포 비대칭 튜닉, 일체형 목도리깃과 긴소매. 갈색 바지와 가슴 장부주머니.",
+      "belongings": "이동장부·길매듭·말뚝표",
+      "image": "/assets/people/char-c068.webp"
+    },
+    {
+      "id": "c069",
+      "name": "틱메아 바렌",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "place": "틱메브할",
+      "placeId": "place-dbc12b4eb54995b3",
+      "role": "계절 야영 담당",
+      "species": "님소리르",
+      "gender": "여성",
+      "birth": "서력 5051년 · 이동력 제52주기",
+      "appearance": "금발 중간 길이 직모와 갈라진 앞머리, 갈색 눈과 처진 눈꼬리, 탄 피부. 굵은 눈썹, 탄탄한 체형과 긴 팔, 매우 큰 가슴.",
+      "clothing": "갈색 아마포 민소매 튜닉 원피스, 낮은 둥근 목선. 분리형 긴소매와 앞 허리매듭.",
+      "belongings": "야영순번끈·천막바늘·작은 칼",
+      "image": "/assets/people/char-c069.webp"
+    },
+    {
+      "id": "c070",
+      "name": "벨라미 세르딘",
+      "regionId": "garmebet",
+      "region": "가르메베트",
+      "place": "벨람바르",
+      "placeId": "place-aa46da8b52a816ba",
+      "role": "물가 약속 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5055년 · 이동력 제7주기",
+      "appearance": "짙은 밤색 굵은 땋은 머리, 구리갈색 눈, 탄 피부. 넓은 흉곽과 건장한 체형, 좁고 긴 얼굴.",
+      "clothing": "마른풀황색 누빔 아마포 재킷, 짧은 세움깃과 어깨 누빔, 긴소매. 갈색 바지와 청색 허리끈.",
+      "belongings": "가축표식·우물패·계절끈",
+      "image": "/assets/people/char-c070.webp"
+    },
+    {
+      "id": "c071",
+      "name": "실소라 렌실",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "place": "실소르산",
+      "placeId": "place-18ee482da07a0ab8",
+      "role": "성림 대표",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 4971년 · 생태력 제11주기",
+      "appearance": "밝은 산호주황색 짧은 층진 직모, 옅은 회색 눈, 탄 피부. 묵직한 체형과 살집 있는 뺨, 짧은 얼굴.",
+      "clothing": "짙은 잎녹색 부드러운 모직 비대칭 튜닉, 목도리깃과 긴소매. 갈색 바지, 잎 모양 황동패의 녹색 허리띠.",
+      "belongings": "계보목패·성림열쇠·잎표식",
+      "image": "/assets/people/char-c071.webp"
+    },
+    {
+      "id": "c072",
+      "name": "실베나 켈시",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "place": "실베크엘",
+      "placeId": "place-5b317556ae79294c",
+      "role": "숲 감시 집행자",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 4990년 · 생태력 제27주기",
+      "appearance": "짙은 회갈색 외땋기, 황토갈색 긴 눈과 날카로운 눈머리, 붉은 갈색 피부. 넓은 어깨와 긴 목, 긴 얼굴.",
+      "clothing": "짙은 갈색 부드러운 모직 긴 조끼와 상아색 넓은 긴소매 셔츠. 갈색 바지와 녹색 대각 천띠.",
+      "belongings": "숲길표·감시끈·작은 칼",
+      "image": "/assets/people/char-c072.webp"
+    },
+    {
+      "id": "c073",
+      "name": "라드실 에리나",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "place": "라드실할",
+      "placeId": "place-c87a2f577a998723",
+      "role": "왕실 정원 안내인",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5049년 · 생태력 제4주기",
+      "appearance": "갈색 비대칭 짧은 머리를 귀 뒤로 넘김. 갈색 눈, 굵은 눈썹, 탄 피부. 긴 팔다리, 작은 가슴.",
+      "clothing": "연한 황녹색 모직 앞끈 보디스와 겹치마, 사각 목선과 팔꿈치 소매. 흰 어깨덧단.",
+      "belongings": "정원목패·접목칼·씨앗통",
+      "image": "/assets/people/char-c073.webp"
+    },
+    {
+      "id": "c074",
+      "name": "실소르 리아킨",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "place": "실소르산",
+      "placeId": "place-18ee482da07a0ab8",
+      "role": "성림 의례 담당",
+      "species": "소르실리르",
+      "gender": "남성",
+      "birth": "서력 5027년 · 생태력 제19주기",
+      "appearance": "선홍색 끝의 흰 머리를 뒤로 넘겨 낮게 묶음. 짙은 헤이즐 처진 눈매, 창백한 피부. 키 크고 어깨가 좁으며 광대가 높음.",
+      "clothing": "흰 부드러운 모직 재킷, 낮은 둥근 깃과 어깨덧단, 긴소매. 갈색 바지와 황녹색 어깨끈.",
+      "belongings": "의례매듭·장례노래판·향주머니",
+      "image": "/assets/people/char-c074.webp"
+    },
+    {
+      "id": "c075",
+      "name": "라드실 페리나",
+      "regionId": "silhalet",
+      "region": "실할레트",
+      "place": "라드실할",
+      "placeId": "place-c87a2f577a998723",
+      "role": "왕실 정원 담당",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5052년 · 생태력 제32주기",
+      "appearance": "검은 장발과 옆으로 넘긴 앞머리, 낮은 묶음. 청록색 눈과 치켜올라간 눈매, 짙은 피부. 작은 키와 긴 팔, 작은 가슴.",
+      "clothing": "적갈색 부드러운 모직 원피스, 둥근 목선과 팔꿈치 소매, 왼쪽 치마 트임. 앞치마띠와 허리 나무함.",
+      "belongings": "종자함·정원표·가위",
+      "image": "/assets/people/char-c075.webp"
+    },
+    {
+      "id": "c076",
+      "name": "메르벨 하디아",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "place": "메르벨마르",
+      "placeId": "place-2d9a741f4cd8a622",
+      "role": "강하 항구 대표",
+      "species": "메르세니르",
+      "gender": "여성",
+      "birth": "서력 5036년 · 시장력 제18주기",
+      "appearance": "회색 짧은 곱슬머리를 귀 뒤로 넘김. 갈색 눈과 올라간 눈꼬리, 짙은 피부. 성숙한 인상, 작은 키와 긴 팔, 큰 가슴.",
+      "clothing": "청색 무광 비단 밀착 원피스, 높은 둥근 목선과 짧은 소매. 가죽 어깨덧단, 납 봉인의 붉은 허리띠.",
+      "belongings": "항구봉인·짐표·작은 장부",
+      "image": "/assets/people/char-c076.webp"
+    },
+    {
+      "id": "c077",
+      "name": "헤드켈 바린",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "place": "헤드켈바르",
+      "placeId": "place-b5409aa559f332b3",
+      "role": "세금 관문 집행자",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5038년 · 시장력 제53주기",
+      "appearance": "검은 머리를 리본으로 낮게 묶음. 갈색 눈과 올라간 눈꼬리, 탄 피부. 성숙한 인상, 작은 키와 넓은 어깨, 매우 큰 가슴.",
+      "clothing": "겨자황색 무광 비단 재킷, 낮은 둥근 깃과 어깨덧단, 긴소매. 갈색 바지와 구슬 달린 검정 허리끈.",
+      "belongings": "세금패·계산끈·저울추",
+      "image": "/assets/people/char-c077.webp"
+    },
+    {
+      "id": "c078",
+      "name": "메르님 소반",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "place": "메르님바르",
+      "placeId": "place-4601f56c5e395af9",
+      "role": "상업 법정 안내인",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5032년 · 시장력 제30주기",
+      "appearance": "밝은 민트청록색 물결 단발, 청록회색 수평눈, 짙은 밤갈색 피부. 긴 팔다리와 긴 얼굴.",
+      "clothing": "점토적색 무광 비단 앞치마 튜닉, 둥근 목선과 팔꿈치 소매. 내린 두건, 갈색 바지와 가죽 허리주머니.",
+      "belongings": "법정장부·계약패·잉크마개",
+      "image": "/assets/people/char-c078.webp"
+    },
+    {
+      "id": "c079",
+      "name": "메르벨 나비온",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "place": "메르벨마르",
+      "placeId": "place-2d9a741f4cd8a622",
+      "role": "강하 항구 담당",
+      "species": "벨마리르",
+      "gender": "여성",
+      "birth": "서력 5050년 · 시장력 제8주기",
+      "appearance": "녹색 반묶음에 땋기, 녹색 눈과 처진 눈꼬리, 짙은 피부. 굵은 눈썹과 뾰족한 코, 넓은 어깨의 근육질 체형, 매우 큰 가슴.",
+      "clothing": "녹색 무광 비단 비대칭 밀착 원피스, 둥근 목선과 팔꿈치 소매, 오른쪽 치마 트임. 직사각 옷깃 펜던트.",
+      "belongings": "짐표·밧줄칼·교역전표",
+      "image": "/assets/people/char-c079.webp"
+    },
+    {
+      "id": "c080",
+      "name": "메르바 이도르",
+      "regionId": "merhalet",
+      "region": "메르할레트",
+      "place": "메르바르",
+      "placeId": "place-3e8c985df152a82b",
+      "role": "상인 의회 담당",
+      "species": "인간계·실레니르 혼혈",
+      "gender": "남성",
+      "birth": "서력 5025년 · 시장력 제44주기",
+      "appearance": "밝은 밤색 일자 단발, 회녹색 아몬드눈, 황갈색 피부. 마른 긴 몸선, 짧은 턱의 하트형 얼굴.",
+      "clothing": "짙은 자주색 무광 비단 코트, 넓은 숄깃과 긴소매. 갈색 바지, 자주색 허리띠와 갈색 끈.",
+      "belongings": "의회패·손익표·작은 주판",
+      "image": "/assets/people/char-c080.webp"
+    },
+    {
+      "id": "c081",
+      "name": "님할 세리온",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "place": "님할",
+      "placeId": "place-4bbb3cf616a981c6",
+      "role": "학문·종교 대표",
+      "species": "님소리르",
+      "gender": "남성",
+      "birth": "서력 5019년 · 관측력·학당 주석력 제17주기",
+      "appearance": "짙은 금갈색 짧은 직모를 낮게 묶음. 청록회색 수평눈, 황갈색 피부. 보통 체형과 좁은 어깨, 넓은 아래턱.",
+      "clothing": "검푸른 모직 앞치마 튜닉, 둥근 목선과 팔꿈치 소매. 내린 두건, 갈색 바지와 흰 안깃.",
+      "belongings": "주석본·신전패·작은 인장",
+      "image": "/assets/people/char-c081.webp"
+    },
+    {
+      "id": "c082",
+      "name": "님렘 바리아",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "place": "님렘할",
+      "placeId": "place-34dbec82b00be25c",
+      "role": "철학 회합 집행자",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5034년 · 관측력·학당 주석력 제42주기",
+      "appearance": "밝은 진홍자홍색 올림머리와 옆머리. 짙은 녹갈색 가는 눈, 구릿빛 피부. 작은 키와 짧은 팔다리, 둥근 배의 통통한 중년 체형.",
+      "clothing": "상아색 비대칭 모직 코트, 왼쪽 사선 옷깃과 나무 토글, 긴소매. 갈색 바지와 자주색 왼팔 천띠.",
+      "belongings": "논쟁표·시간끈·필사판",
+      "image": "/assets/people/char-c082.webp"
+    },
+    {
+      "id": "c083",
+      "name": "렌메르 이사딘",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "place": "렌메르미르",
+      "placeId": "place-4c45cf8dee9b70c2",
+      "role": "사본 교환 안내인",
+      "species": "실레니르",
+      "gender": "여성",
+      "birth": "서력 5021년 · 관측력·학당 주석력 제29주기",
+      "appearance": "갈색 중간 길이 물결머리, 녹색 눈과 치켜올라간 눈매, 흰 피부. 굵은 눈썹과 긴 팔다리, 보통 가슴.",
+      "clothing": "호박황색 모직 허리맞춤 원피스, 깊은 U형 목선과 열린 숄깃, 긴소매. 황색·남색 허리끈.",
+      "belongings": "사본꾸러미·교환패·갈대펜",
+      "image": "/assets/people/char-c083.webp"
+    },
+    {
+      "id": "c084",
+      "name": "님할 오리세",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "place": "님할",
+      "placeId": "place-4bbb3cf616a981c6",
+      "role": "학당 담당",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5053년 · 관측력·학당 주석력 제55주기",
+      "appearance": "밝은 자홍색 중간머리와 가는 관자놀이 땋기. 회갈색 깊은 눈, 상아빛 피부. 보통 체형, 홀쭉한 뺨과 육각형 얼굴.",
+      "clothing": "회색 모직 사선여밈 코트, 좁은 세움깃과 긴소매. 갈색 바지와 소매단 펜던트.",
+      "belongings": "열람패·색인끈·잉크마개",
+      "image": "/assets/people/char-c084.webp"
+    },
+    {
+      "id": "c085",
+      "name": "님렘 세르핀",
+      "regionId": "nimsolet",
+      "region": "님소레트",
+      "place": "님렘할",
+      "placeId": "place-34dbec82b00be25c",
+      "role": "철학 회합 담당",
+      "species": "님소리르",
+      "gender": "여성",
+      "birth": "서력 5046년 · 관측력·학당 주석력 제10주기",
+      "appearance": "금발 옆땋기, 파란 눈과 처진 눈꼬리, 탄 피부. 긴 코와 도톰한 입술, 큰 키와 넓은 골반, 큰 가슴.",
+      "clothing": "자주색 모직 코트, 짧은 어깨망토와 낮은 세움깃, 긴소매. 갈색 바지와 자주색 가슴끈.",
+      "belongings": "좌석표·논쟁끈·메모판",
+      "image": "/assets/people/char-c085.webp"
+    },
+    {
+      "id": "c086",
+      "name": "실렌 렌사",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "place": "실렌산",
+      "placeId": "place-16f743361b258a9c",
+      "role": "숲 전승 대표",
+      "species": "렌실리르",
+      "gender": "여성",
+      "birth": "서력 4945년 · 생태력·안개 주석력 제9주기",
+      "appearance": "갈색 짧은 층진 머리, 녹색 눈과 올라간 눈꼬리, 탄 피부. 마른 장신, 매우 큰 가슴.",
+      "clothing": "연한 회색 수피섬유 밀착 원피스, 낮은 둥근 목선과 긴소매, 세로 봉제선. 같은 색 어깨망토와 끈 펜던트.",
+      "belongings": "계보목패·안개길표·수지봉함",
+      "image": "/assets/people/char-c086.webp"
+    },
+    {
+      "id": "c087",
+      "name": "워크실 칼렌",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "place": "워크켈할",
+      "placeId": "place-cc53cb2092612005",
+      "role": "탐사 허가 집행자",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5037년 · 생태력·안개 주석력 제25주기",
+      "appearance": "주황색 끝의 갈색 올림머리, 회색 눈과 처진 눈꼬리, 흰 피부. 굵은 눈썹, 작은 키와 넓은 어깨, 보통 가슴.",
+      "clothing": "짙은 이끼녹색 수피섬유 사선여밈 코트, 좁은 세움깃과 긴소매. 갈색 바지와 어깨에서 가슴으로 내린 흰 천띠.",
+      "belongings": "탐사허가패·길끈·작은 나침표",
+      "image": "/assets/people/char-c087.webp"
+    },
+    {
+      "id": "c088",
+      "name": "렌얄 오미아",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "place": "렌얄움",
+      "placeId": "place-e23db14c27654b14",
+      "role": "사본 열람 안내인",
+      "species": "실레니르",
+      "gender": "남성",
+      "birth": "서력 5014년 · 생태력·안개 주석력 제16주기",
+      "appearance": "밝은 하늘색 낮은 올림머리, 청회색 아몬드눈, 금갈색 피부. 긴 팔다리와 긴 몸선, 둥근 얼굴.",
+      "clothing": "청록색 수피섬유 코트, 짧은 어깨망토와 낮은 세움깃, 긴소매. 갈색 바지와 갈색 허리띠.",
+      "belongings": "사본통·수피색인·필사침",
+      "image": "/assets/people/char-c088.webp"
+    },
+    {
+      "id": "c089",
+      "name": "실레나 목린",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "place": "실렌산",
+      "placeId": "place-16f743361b258a9c",
+      "role": "숲 전승 담당",
+      "species": "소르실리르",
+      "gender": "여성",
+      "birth": "서력 5024년 · 생태력·안개 주석력 제31주기",
+      "appearance": "검정·금발 투톤의 중간 길이 직모와 갈라진 앞머리. 노란 눈과 처진 눈꼬리, 탄 피부. 마른 장신, 작은 가슴.",
+      "clothing": "연한 황녹색 수피섬유 랩 원피스, V형 깃과 긴소매, 안감 있는 왼쪽 치마 트임. 잎 모양 황동 브로치.",
+      "belongings": "의례표식·향주머니·장례끈",
+      "image": "/assets/people/char-c089.webp"
+    },
+    {
+      "id": "c090",
+      "name": "워크실 데리안",
+      "regionId": "sylvania",
+      "region": "실바니아",
+      "place": "워크켈할",
+      "placeId": "place-cc53cb2092612005",
+      "role": "탐사 거점 담당",
+      "species": "인간계·렌실리르 혼혈",
+      "gender": "남성",
+      "birth": "서력 5041년 · 생태력·안개 주석력 제4주기",
+      "appearance": "짙은 마호가니색 굵은 땋은 머리, 적갈색 눈, 붉은 갈색 피부. 긴 몸선, 좁은 턱과 각진 코끝.",
+      "clothing": "짙은 갈색 수피섬유 앞끈 조끼와 상아색 긴소매 셔츠. 접힌 목천, 갈색 바지와 허리밧줄.",
+      "belongings": "길잡이매듭·숙소패·표식칼",
+      "image": "/assets/people/char-c090.webp"
+    },
+    {
+      "id": "c091",
+      "name": "나르마 셀킨",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "place": "나르마르켈",
+      "placeId": "place-ed121732ca5aefa9",
+      "role": "화산 항로 대표",
+      "species": "드라나리르",
+      "gender": "남성",
+      "birth": "서력 5031년 · 화산 주석력 제20주기",
+      "appearance": "짙은 적갈색 짧은 층진 직모, 청회색 눈, 붉은 갈색 피부. 건장한 체형, 낮고 넓은 사각 얼굴.",
+      "clothing": "숯검정 두꺼운 모직 코트, 짧은 어깨망토와 낮은 세움깃, 긴소매. 갈색 바지와 붉은 완장.",
+      "belongings": "항로표·피난끈·화산석 봉인",
+      "image": "/assets/people/char-c091.webp"
+    },
+    {
+      "id": "c092",
+      "name": "나르베아 토란",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "place": "나르베크토르",
+      "placeId": "place-2dd6e36bf6c89f29",
+      "role": "분화 감시 집행자",
+      "species": "드라나리르",
+      "gender": "남성",
+      "birth": "서력 5036년 · 화산 주석력 제46주기",
+      "appearance": "밝은 파란 끝의 남색 외땋기, 호박갈색 긴 눈, 바람에 붉어진 피부. 넓은 어깨의 마른 체형, 낮은 무게중심.",
+      "clothing": "적갈색 두꺼운 모직 랩 튜닉, 낮은 교차깃과 긴소매. 왼쪽 어깨망토, 갈색 바지와 붉은 어깨덧단.",
+      "belongings": "분화표·경고호각·재채집병",
+      "image": "/assets/people/char-c092.webp"
+    },
+    {
+      "id": "c093",
+      "name": "모스할 라비온",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "place": "마르모스할",
+      "placeId": "place-61539ca58c3f31e0",
+      "role": "항만 대기 안내인",
+      "species": "인간계·벨마리르 혼혈",
+      "gender": "여성",
+      "birth": "서력 5048년 · 화산 주석력 제11주기",
+      "appearance": "갈색 비대칭 짧은 머리를 귀 뒤로 넘김. 갈색 눈, 굵은 눈썹, 흰 피부. 넓은 어깨의 마른 체형, 보통 가슴.",
+      "clothing": "연한 회색 두꺼운 모직 상의·치마, 사각 목선과 긴소매. 갈색 가죽 앞끈 허리 보디스와 어깨덧옷.",
+      "belongings": "대기명부·짐표·물주머니",
+      "image": "/assets/people/char-c093.webp"
+    },
+    {
+      "id": "c094",
+      "name": "나르마 세딘",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "place": "나르마르켈",
+      "placeId": "place-ed121732ca5aefa9",
+      "role": "화산 항로 담당",
+      "species": "드라나리르",
+      "gender": "남성",
+      "birth": "서력 5051년 · 화산 주석력 제59주기",
+      "appearance": "맑은 호박주황색 머리를 뒤로 넘겨 낮게 묶음. 꿀호박색 처진 눈매, 짙게 탄 갈색 피부. 긴 팔다리, 둥근 턱의 사각 얼굴.",
+      "clothing": "연한 황색 두꺼운 모직 랩 튜닉, V형 깃과 긴소매. 갈색 바지, 회색 구슬이 달린 검정 허리끈.",
+      "belongings": "항로목패·부석구슬·밧줄칼",
+      "image": "/assets/people/char-c094.webp"
+    },
+    {
+      "id": "c095",
+      "name": "나르베 토리안",
+      "regionId": "dragonspire",
+      "region": "드래곤스파이어",
+      "place": "나르베크토르",
+      "placeId": "place-2dd6e36bf6c89f29",
+      "role": "분화 감시 담당",
+      "species": "인간계",
+      "gender": "여성",
+      "birth": "서력 5054년 · 화산 주석력 제34주기",
+      "appearance": "흰 줄무늬가 섞인 검은 장발과 낮은 묶음. 갈색 눈과 처진 눈꼬리, 탄 피부. 넓은 어깨와 긴 팔, 작은 가슴.",
+      "clothing": "검붉은 갈색 두꺼운 모직 허리맞춤 코트, 높은 세움깃과 좁은 긴소매. 갈색 바지와 황색 위팔 덧단.",
+      "belongings": "교대표·경고깃·열장갑",
+      "image": "/assets/people/char-c095.webp"
+    },
+    {
+      "id": "c096",
+      "name": "둔아르 베티스",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "place": "둔아르토르",
+      "placeId": "place-5fdffc89c646bbad",
+      "role": "등대권 대표",
+      "species": "벨마리르",
+      "gender": "여성",
+      "birth": "서력 5032년 · 외해 금기력 제14주기",
+      "appearance": "갈색 짧은 곱슬머리를 귀 뒤로 넘김. 갈색 눈과 올라간 눈꼬리, 탄 피부. 성숙한 인상, 넓은 어깨와 긴 팔, 큰 가슴.",
+      "clothing": "짙은 청회색 방수 아마포 원피스, 앞끈 보디스와 사각 목선, 긴소매. 앞을 연 같은 색 폭풍망토와 황색 어깨끈.",
+      "belongings": "등대기록·신호끈·기름표",
+      "image": "/assets/people/char-c096.webp"
+    },
+    {
+      "id": "c097",
+      "name": "둔나비 렌움",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "place": "둔나브렌움",
+      "placeId": "place-38a34aace4cd2100",
+      "role": "난파 기록 집행자",
+      "species": "린마리르",
+      "gender": "여성",
+      "birth": "서력 5035년 · 외해 금기력 제38주기",
+      "appearance": "금발을 리본으로 낮게 묶음. 노란 눈과 올라간 눈꼬리, 짙은 피부. 성숙한 인상, 넓은 어깨와 탄탄한 체형, 큰 가슴.",
+      "clothing": "검정 방수 아마포 랩 튜닉, V형 깃과 긴소매. 갈색 바지와 검정 가죽 아래팔 덧소매.",
+      "belongings": "난파명부·유품패·방수필통",
+      "image": "/assets/people/char-c097.webp"
+    },
+    {
+      "id": "c098",
+      "name": "벱나 리오스",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "place": "벱나브할",
+      "placeId": "place-54a222242d510e67",
+      "role": "구조 대기 안내인",
+      "species": "인간계",
+      "gender": "남성",
+      "birth": "서력 5049년 · 외해 금기력 제57주기",
+      "appearance": "코발트색 끝의 적갈색 물결 단발, 짙은 갈색 수평눈, 구릿빛 피부. 긴 팔다리, 짧고 각진 얼굴.",
+      "clothing": "금황색 방수 아마포 허리맞춤 코트, 높은 세움깃과 좁은 긴소매. 갈색 바지와 흰 어깨밧줄.",
+      "belongings": "구조끈·담요표·호각",
+      "image": "/assets/people/char-c098.webp"
+    },
+    {
+      "id": "c099",
+      "name": "둔아르 세론",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "place": "둔아르토르",
+      "placeId": "place-5fdffc89c646bbad",
+      "role": "등대 담당",
+      "species": "벨마리르",
+      "gender": "여성",
+      "birth": "서력 5052년 · 외해 금기력 제23주기",
+      "appearance": "검은 반묶음에 땋기, 회색 눈과 처진 눈꼬리, 탄 피부. 굵은 눈썹과 뾰족한 코, 넓은 어깨의 근육질 체형, 보통 가슴.",
+      "clothing": "흰 방수 아마포 밀착 튜닉 원피스, 낮은 세움깃과 긴소매. 앞을 연 흰 방수망토와 펜던트 달린 검정 완장.",
+      "belongings": "등대번호패·심지칼·관측표",
+      "image": "/assets/people/char-c099.webp"
+    },
+    {
+      "id": "c100",
+      "name": "둔나비 에르딘",
+      "regionId": "fenrir-eye",
+      "region": "펜리르의 눈",
+      "place": "둔나브렌움",
+      "placeId": "place-38a34aace4cd2100",
+      "role": "난파 기록 담당",
+      "species": "린마리르",
+      "gender": "남성",
+      "birth": "서력 5047년 · 외해 금기력 제49주기",
+      "appearance": "숯회색 일자 단발, 올리브갈색 아몬드눈, 구릿빛 피부. 보통 키의 마른 체형과 긴 목, 비대칭 턱선의 각진 얼굴.",
+      "clothing": "짙은 청회색 방수 아마포 민소매 덧튜닉과 상아색 긴소매 셔츠. 갈색 바지와 청회색 허리끈.",
+      "belongings": "색인끈·해도조각·유품목패",
+      "image": "/assets/people/char-c100.webp"
+    }
+  ],
+  "stories": [
+    {
+      "id": "ini-com-01",
+      "title": "한 해의 첫 장에 적는 것들",
+      "form": "여관 주인의 달력 첫머리",
+      "html": "<h1 id=\"5083년-첫흙-여관-장부-첫-면\">5083년 첫흙 여관 장부 첫 면</h1>\n<p><strong>5083년 녹지절력 첫 주기, 흙여는 날.</strong></p>\n<p>지난해 장부 육백예순 번째 칸에 남은 3호실 미수금부터 이쪽으로 옮긴다. 스물여섯째 종이 울릴 때까지 묵은 손님은 지난해에 잔 빚이니 지난 장부에 두라 했고, 나는 받을 날이 올해이니 새 장부에 적겠다고 했다. 지난 장부는 종이 그친 뒤 묶었고, 돈은 아직 어느 쪽에도 들어오지 않았다.</p>\n<p><strong>지난겨울 큰방 예약 착오</strong></p>\n<ul>\n<li>북방 손님: <code>명예력 둘째 주기 여덟째 날</code>, 이틀.</li>\n<li>선원: <code>해도력 둘째 주기 여덟째 날</code>, 이틀.</li>\n<li>내가 옮겨 적은 날: 둘 다 <code>녹지절력 둘째 주기 여덟째 날</code>.</li>\n</ul>\n<p>우리 녹지절력은 열흘마다 새 주기가 시작한다. 나는 둘째 주기 여덟째 날에 큰방을 비우고 이불을 데웠다. 손님은 오지 않았다. 장작만 반 묶음 들었다.</p>\n<p>다음 날 선원이 왔다. 해도력은 열한 날을 한 주기로 센다며 자기 예약표를 내밀었다. 날짜가 맞았으므로 큰방 열쇠를 주었다.</p>\n<p>그다음 날 북방 손님이 왔다. 명예력은 열두 날을 한 주기로 센다며 자기 예약표를 내밀었다. 그 날짜도 맞았다. 큰방 문을 열어 보니 선원이 자고 있었고, 북방 손님은 자기 방에서 남이 코 고는 것까지 예약한 적은 없다고 했다.</p>\n<p>선원은 부엌에서 자지 않겠다고 했다. 북방 손님도 마구간에서 자지 않겠다고 했다. 두 사람 모두 제날에 왔고, 큰방은 하나였다.</p>\n<p>선원은 부엌 옆 작은방으로 옮겼고 북방 손님에게는 우리 방을 내주었다. 나는 마구간 당번 침상을 썼다.</p>\n<p>올해부터 예약에는 달력 이름과 녹지절력으로 바꾼 날짜를 나란히 적는다. 달력 이름 없이 <code>여덟째 날</code>만 적어 온 사람에게는 먼저 빈 장부칸을 보여 줄 것.</p>\n<p>지난겨울 큰방 착오 손실에는 장작 반 묶음, 부엌 이불 빨래와 마구간 짚값을 적었다. 청구할 손님 이름은 비워 두고, 옮겨 적은 내 이름 옆에 붉은 줄 하나를 그음.</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "셋 다 ‘둘째 주기 여덟째 날’이라 적었지만, 달력마다 한 주기의 길이가 달라 실제 날은 서로 달랐어. 누가 거짓말했는지보다 어떤 달력을 썼는지부터 보는 게 빨라."
+      },
+      "references": [
+        {
+          "term": "스물여섯째 종",
+          "explanation": "비레스의 하루를 스물여섯 구간으로 나눴을 때 마지막 구간입니다. 우리 기준의 시각이라기보다 하루 중 어느 때인지를 나타내는 표현으로 읽으면 됩니다."
+        },
+        {
+          "term": "녹지절력·해도력·명예력",
+          "explanation": "각각 열흘, 열하루, 열이틀을 한 주기로 세는 서로 다른 달력 체계입니다. 같은 숫자가 적혀 있어도 어느 달력을 썼는지에 따라 실제 날짜가 달라질 수 있습니다."
+        },
+        {
+          "term": "육백예순 칸의 한 해",
+          "explanation": "비레스에서는 한 해를 육백예순 날로 셉니다. 문서의 날짜를 비교할 때는 해의 길이와 사용한 달력을 함께 확인해야 합니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "5083년 첫흙 여관 장부 첫 면 5083년 녹지절력 첫 주기, 흙여는 날. 지난해 장부 육백예순 번째 칸에 남은 3호실 미수금부터 이쪽으로 옮긴다. 스물여섯째 종이 울릴 때까지 묵은 손님…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_01_S01",
+          "asset": "/assets/library/VSR_INI_COM_01_S01.webp",
+          "alt": "묵은 장부와 새 장부가 나란히 놓인 밤의 여관 책상",
+          "aspectRatio": "4:5",
+          "afterParagraph": 3
+        },
+        {
+          "id": "VSR_INI_COM_01_S02",
+          "asset": "/assets/library/VSR_INI_COM_01_S02.webp",
+          "alt": "파란 끈과 흰 끈이 달린 두 예약표 위에 가로놓인 하나의 여관방 열쇠",
+          "aspectRatio": "3:2",
+          "afterParagraph": 8
+        }
+      ]
+    },
+    {
+      "id": "ini-com-02",
+      "title": "같은 땅, 두 이름",
+      "form": "통역 필경사가 동생에게 보낸 여행 편지",
+      "html": "<h1 id=\"네디아에게-겨울-장화-꾸러미에-관하여\">네디아에게, 겨울 장화 꾸러미에 관하여</h1>\n<p>네디아.</p>\n<p>지난 편지에서 너는 이렇게 썼지. <code>언니, 지도에 적힌 이름만 쓰면 장화가 우리 집보다 관청을 먼저 찾아갈 거야.</code></p>\n<p>먼저 밝혀 둔다. 네 겨울 장화는 분실되지 않았다. 베크켈카르 세금 창고에서 봉인까지 받은 채 아주 안전했다. 되찾는 데 이틀과 보관료 세 동각이 들었으니, 네 예언은 장화보다 내 자존심을 먼저 찾아왔다.</p>\n<p>첫 겉봉에는 관청 지도에서 베낀 대로 적었다.</p>\n<p><code>베크켈카르. 남문 빵가게 맞은편, 네디아 오르반.</code></p>\n<p>너는 그 아래 <code>레이븐스톤</code>도 쓰라 했고, 나는 통역 필경사에게 지명 쓰는 법을 가르치지 말라 답했다. 이 대목은 어머니에게 읽어 주지 마라.</p>\n<p>짐 나누는 서기는 <code>베크켈카르</code>를 보자 꾸러미를 관청 수레에 실었다. 집으로 가는 짐이라고 붙들었더니, 집 수레는 레이븐스톤으로 간다고 했다. 내가 지도를 펴자 마차꾼은 고삐를 놓고 네 집 가는 길을 손가락으로 그어 보였다.</p>\n<p>“두 이름이 같은 곳이오.”</p>\n<p>내가 말하자 서기는 장부를 두드렸고, 마차꾼은 길바닥을 두드렸다.</p>\n<p>“그럼 종이에는 둘 다 쓰면 되지.”</p>\n<p>그 말을 한 사람은 마차꾼이다. 너와 같은 말을 했다는 사실은 그에게 알려 주지 않았다.</p>\n<p>창고 서리는 도시와 받는 사람은 맞으니 분실이 아니라고 했다. 집으로 가지 않았으니 오배송 아니냐고 묻자, 그는 <code>집 수레 표지가 빠짐</code>이라고 새 칸을 만들었다. 그 칸을 만드는 동안 보관료는 세 동각이 되었다.</p>\n<p>두 번째 겉봉에는 첫 줄에 다시 관청이 알아보는 이름을 썼다. 그 아래에는 마차꾼이 지나치지 못하도록 더 크게 적었다.</p>\n<p><code>베크켈카르</code> <code>레이븐스톤, 남문 빵가게 맞은편</code> <code>네디아 오르반에게</code></p>\n<p>이번에는 서기가 첫 줄을 읽고, 마차꾼이 둘째 줄을 읽었다. 둘이 서로 아는 이름을 찾는 사이 꾸러미는 관청 수레가 아니라 집 수레에 올랐다. 네가 장화를 받았으니, 여기까지는 네가 옳았다.</p>\n<p>장화 안쪽 천 주머니에 동각 둘을 넣었다. 보관료로 쓴 셋 중 마지막 하나는 다음 품삯을 받으면 보내겠다. 네가 받을 돈을 내가 내 실수의 증거처럼 나누어 보내는 것도 썩 기분 좋은 일은 아니다.</p>\n<p>너는 레이븐스톤이 검은 성벽 돌에서 나온 이름이라 했고, 어머니는 남문 밖 옛 까마귀 여관에서 나왔다고 했다. 둘 중 누가 맞는지는 아직 모르겠다. 두 사람이 같은 식탁을 두 이름으로 부르기 시작하기 전에 그 이야기는 그만두어라.</p>\n<p>어머니에게는 장화가 늦었다고만 말해라. 첫 겉봉 사본은 다음 편에 돌려보내 다오. 내가 버리기 전에 한 번 더 보고 부끄러워할 것이 있다.</p>\n<p>세디아.</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "관청은 베크켈카르, 마차꾼은 레이븐스톤이라 불렀지만 같은 도시야. 낯선 곳에서는 정식 이름과 사람들이 실제로 쓰는 이름을 함께 적는 편이 짐보다 싸게 먹혀."
+      },
+      "references": [
+        {
+          "term": "베크켈카르·레이븐스톤",
+          "explanation": "같은 성벽 도시를 가리키는 두 이름입니다. 하나는 관청과 정식 문서에서, 다른 하나는 일상 대화에서 더 자주 쓰일 수 있습니다."
+        },
+        {
+          "term": "봉인",
+          "explanation": "관청이나 창고가 물건을 함부로 옮기거나 열지 못하도록 표시하고 보관하는 절차입니다. 봉인되었다는 사실만으로 분쟁의 결론이 정해지는 것은 아닙니다."
+        },
+        {
+          "term": "보관료",
+          "explanation": "창고나 관청이 물건을 맡아 둔 기간에 따라 받는 비용입니다. 물건값이나 벌금과는 별도로 계산될 수 있습니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "네디아에게, 겨울 장화 꾸러미에 관하여 네디아. 지난 편지에서 너는 이렇게 썼지. 언니, 지도에 적힌 이름만 쓰면 장화가 우리 집보다 관청을 먼저 찾아갈 거야. 먼저 밝혀 둔다. 네 겨울 …",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_02_S01",
+          "asset": "/assets/library/VSR_INI_COM_02_S01.webp",
+          "alt": "장화 꾸러미를 사이에 두고 서로 다른 수레를 가리키는 두 손",
+          "aspectRatio": "3:2",
+          "afterParagraph": 7
+        },
+        {
+          "id": "VSR_INI_COM_02_S02",
+          "asset": "/assets/library/VSR_INI_COM_02_S02.webp",
+          "alt": "어두운 문간에 도착한 천 꾸러미 안의 겨울 장화 한 켤레",
+          "aspectRatio": "4:5",
+          "afterParagraph": 15
+        }
+      ]
+    },
+    {
+      "id": "ini-com-03",
+      "title": "도장 하나가 사람보다 오래 남는 까닭",
+      "form": "은퇴 서기의 사건 메모",
+      "html": "<h1 id=\"연금-보류-사유-제17호에-대한-해명\">연금 보류 사유 제17호에 대한 해명</h1>\n<p>연금 담당 서리께.</p>\n<p>제 석 달 몫이 보류된 까닭이 스물여덟 해 전 곡물 인도 건이라 들었습니다. 당시 장부의 승인점은 제가 찍었습니다. 그 점까지 부인하면 이 편지도 제 글이 아니라고 해야 하니, 거기서는 달아나지 않겠습니다.</p>\n<p>베르칸 영주의 사망 접수는 그날 첫째 종에 영지청으로 들어왔습니다. 영주의 봉인틀은 아직 돌아오지 않은 상태였습니다.</p>\n<p>같은 날 집사 하른이 세금 곡물 열두 자루를 내주라는 인도장을 가져왔습니다. 도장은 진짜였습니다. 하른도, 수레도, 수레꾼 둘도 전에 본 사람들이었습니다. 저는 익숙한 얼굴 셋과 진짜 도장 하나를 믿고 승인점을 찍었습니다.</p>\n<p>조사 때 제 앞에 놓인 기록은 다음과 같습니다.</p>\n<ul>\n<li>영주 사망 접수부: 첫째 종.</li>\n<li>문서실 작성대장: 열한째 종, <code>베르칸 영주 명의 곡물 인도장 제44호</code> 작성.</li>\n<li>봉인틀 반환 장부: 열셋째 종. 반납자 서명 없음.</li>\n<li>창고 접수면: 열넷째 종, 하른이 제44호를 제시하고 제가 승인점을 찍음.</li>\n<li>창고 출발 기록: 열다섯째 종, 하른의 수레가 곡물 열두 자루를 싣고 나감.</li>\n</ul>\n<p>조사관은 출발 시각을 도장이 찍힌 시각으로 쓰지 않았습니다. 대신 첫째 종 사망 접수 뒤 열한째 종에 영주 명의 문서가 새로 작성됐고, 그 문서가 열넷째 종에 승인됐다고 적었습니다. 봉인틀은 진품이었지만 그때 명령을 내릴 영주는 살아 있지 않았습니다.</p>\n<p>작성대장의 필경사 칸과 봉인틀 반환자의 서명 칸은 비어 있습니다. 조사관은 그 두 빈칸 옆에 물음표를 남기고, 제 이름 아래에는 <code>사망 접수 및 이해관계 없는 증인 대조 없이 승인</code>이라고 적었습니다.</p>\n<p>수레꾼 둘은 하른에게 품삯을 받았으므로 그 규정이 말하는 증인이 아니었습니다. 유족은 명령을 부인했고, 하른은 다음 봄 남쪽으로 갔습니다. 곡물은 그 겨울 안에 먹혔거나 팔렸고, 수레는 빚값으로 팔렸습니다.</p>\n<p>봉인틀만 영지청 증거 궤에 남았습니다. 보존용 밀랍과 궤 수리비는 스물여덟 해 동안 장부에서 한 번도 끊기지 않았다고 들었습니다.</p>\n<p>제 연금은 석 달째 끊겼습니다.</p>\n<p>가능하다면 석 달 몫을 보내 주십시오. 불가능하다면 어느 기록을 더 가져와야 하는지 적어 주십시오. 제게 남은 것은 당시 승인점 사본과 이번 보류 통지뿐입니다.</p>\n<p>도르민 베카르.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "도장이 진짜라는 사실과 명령이 유효하다는 판단은 별개다. 시간 순서, 권한, 이해관계 없는 증인을 대조하면 기록이 가리키는 빈칸이 보인다."
+      },
+      "references": [
+        {
+          "term": "첫째 종",
+          "explanation": "비레스의 하루를 스물여섯 구간으로 나눴을 때 첫 번째 구간입니다. 기록에 찍힌 시각을 비교할 때 쓰입니다."
+        },
+        {
+          "term": "봉인틀",
+          "explanation": "문서나 물건에 공식 표식을 찍는 도구입니다. 진짜 도구로 찍힌 표식이라도, 그것을 사용한 사람이 당시 권한을 가졌는지는 따로 확인해야 합니다."
+        },
+        {
+          "term": "승인점",
+          "explanation": "서기가 문서를 접수하거나 확인했다는 뜻으로 남기는 작은 표식입니다. 언제 어느 관청에서 찍혔는지가 함께 중요합니다."
+        },
+        {
+          "term": "이해관계 없는 증인",
+          "explanation": "사건의 결과로 직접 돈이나 이익을 얻지 않는 사람을 뜻합니다. 기록을 확인할 때 한쪽 당사자와 떨어진 증언을 확보하려는 절차입니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "연금 보류 사유 제17호에 대한 해명 연금 담당 서리께. 제 석 달 몫이 보류된 까닭이 스물여덟 해 전 곡물 인도 건이라 들었습니다. 당시 장부의 승인점은 제가 찍었습니다. 그 점까지 부인…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_03_S01",
+          "asset": "/assets/library/VSR_INI_COM_03_S01.webp",
+          "alt": "비어 있는 곡물 창고의 열린 문 밖으로 나간 자루 수레와 안쪽부터 이어진 바퀴자국",
+          "aspectRatio": "3:2",
+          "afterParagraph": 4
+        },
+        {
+          "id": "VSR_INI_COM_03_S02",
+          "asset": "/assets/library/VSR_INI_COM_03_S02.webp",
+          "alt": "남겨진 봉인틀 하나와 비어 있는 지급 그릇 하나, 아래의 작은 붉은 밀랍 자국",
+          "aspectRatio": "4:5",
+          "afterParagraph": 11
+        }
+      ]
+    },
+    {
+      "id": "ini-com-04",
+      "title": "티마의 수레는 어느 문으로 갔는가",
+      "form": "당사자 구술을 대필한 수문 손상액 공제 이의서",
+      "html": "<h1 id=\"벨바르-남쪽-나루-수문-손상액-공제-이의서\">벨바르 남쪽 나루 수문 손상액 공제 이의서</h1>\n<p><strong>받는 곳:</strong> 센할레트 벨바르 수로 회의 접수인 <strong>말한 사람:</strong> 남쪽 나루 장작 수레꾼 티마 <strong>적은 사람:</strong> 대필업자 팔렌 네르비 <strong>앞선 반려:</strong> 수문 관리소에서 <code>수레 문서는 나루 접수소 소관</code>이라 하여 돌려보냄</p>\n<p>티마가 말합니다.</p>\n<p>물이 불어난 날 장작 수레를 몰고 남쪽 나루를 건넜소. 나루지기가 종이에 검댕을 바르고 내 엄지를 눌렀소. 나는 글을 못 읽으니 먼저 읽어 달라 했소. 그는 뒤에 수레가 여섯 대나 밀렸다며, 통행료를 냈으면 얼른 찍으라 했소.</p>\n<p>나는 통행료 영수표인 줄 알고 찍었소.</p>\n<p>팔렌이 지금 <code>당사자가 영수표로 오인함</code>이라고 적었소.</p>\n<p>아니오. 내가 혼자 잘못 짚은 것처럼 쓰지 마시오. 그 사람이 그렇게 알아듣게 말했소.</p>\n<p>팔렌이 문장을 고쳐 적습니다. <code>당사자는 나루지기의 설명을 듣고 통행료 영수표로 이해했다고 진술함.</code></p>\n<p>좋소. 그 문장은 그대로 두시오.</p>\n<p>사흘 뒤 장작값을 받으러 갔더니 내 몫에서 부러진 수문값을 빼겠다고 했소. 내가 엄지를 찍은 종이에 <code>통행 중 생긴 손상을 수레 주인이 부담함</code>이라고 적혀 있다 했소. 통행료를 받는다는 말은 크게 하고, 수문값을 낸다는 말은 왜 삼켰는지 묻는 것이오.</p>\n<p>수문 관리인은 나루 접수소로 가라 했소. 나루 접수소는 손상액을 정한 곳이 수로 회의라 했소. 수로 회의 문지기는 내 수레가 어느 영지 장부에 든 수레인지부터 가져오라 했소.</p>\n<p>세 곳 모두 내 엄지 자국은 알아보았소. 셋 중 누구도 그 종이를 처음부터 끝까지 읽어 주지 않았소.</p>\n<p>내가 요구하는 것은 셋이오.</p>\n<p>첫째, 내가 찍은 종이를 티마와 증인 앞에서 소리 내어 읽을 것. 둘째, 이의에 답할 때까지 장작값에서 수문값을 빼지 말 것. 셋째, 그날 내 뒤에서 술통 수레를 몰던 세른의 말을 들을 것.</p>\n<p>세른은 내가 건너기 전부터 수문이 한쪽으로 기울어 있었다고 했소. 나루지기는 자기가 수문을 열지 않았다고 했지만, 그날 수문 줄을 쥔 사람도 그 나루지기였소.</p>\n<p>장작값 정산일이 닷새 뒤요. 이 글을 받은 셋째 날 저녁 종 전까지, 접수 여부와 낭독 날짜를 남쪽 나루 장작계소에 알려 주시오. 답이 없으면 나는 같은 증인과 같은 수레를 데리고 다시 오겠소.</p>\n<p>팔렌이 <code>같은 수레</code>는 위협처럼 들릴 수 있다고 했소.</p>\n<p>바퀴를 고칠 돈을 빼앗기면 같은 수레밖에 없소. 다음에는 빠진 바퀴로 건널 것이고, 그러면 정말 수문을 부술 수도 있소. 그것도 적으시오.</p>\n<p>이 편지는 처음에 수로 회의가 아니라 수문 관리소로 갔다 돌아왔소. 팔렌은 문 이름이 비슷해서 그랬다고 했소.</p>\n<p>팔렌이 자기 수신처 실수는 이의 내용과 관계없다고 했소.</p>\n<p>내 엄지 실수는 적으면서 자기 문 실수는 빼자는 뜻이면 관계가 아주 많소.</p>\n<p>이상은 티마의 말을 뜻에서 벗어나지 않게 적었습니다. 작성 뒤 티마에게 전부 소리 내어 읽었고, 티마는 <code>오인</code>을 <code>설명을 듣고 이해함</code>으로 고친 뒤 엄지를 찍었습니다.</p>\n<p>이 글이 맞는 문에 닿으면 티마가 제 남은 대필료를 지급합니다. 다시 틀린 문에 닿으면 제가 티마에게 반은을 지급합니다.</p>\n<p>이 마지막 조건도 티마 앞에서 두 번 읽었습니다.</p>\n<p>팔렌 네르비, 대필.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "엄지 자국은 종이에 남았지만, 내용을 읽어 주었는지와 손상 책임이 실제로 누구에게 있는지는 남지 않았다. 서명이나 지문보다 당사자가 무엇에 동의했는지부터 확인해야 한다."
+      },
+      "references": [
+        {
+          "term": "대필",
+          "explanation": "글을 직접 쓰기 어려운 사람의 말을 다른 사람이 받아 적는 일입니다. 대필 문서에서는 말한 사람과 적은 사람을 구분해 확인합니다."
+        },
+        {
+          "term": "손도장·검댕",
+          "explanation": "손가락에 검댕 같은 안료를 묻혀 남기는 확인 표식입니다. 글로 이름을 적는 서명 대신 쓰일 수 있습니다."
+        },
+        {
+          "term": "관할",
+          "explanation": "어떤 장소나 사건을 처리할 권한이 어느 관청에 있는지를 뜻합니다. 같은 수레 문제라도 지나온 문과 수로에 따라 담당 기관이 달라질 수 있습니다."
+        },
+        {
+          "term": "공제",
+          "explanation": "받아야 할 돈에서 수리비나 미리 정한 비용을 빼는 계산입니다. 무엇을 왜 뺐는지는 장부와 합의 내용을 함께 살펴야 합니다."
+        }
+      ],
+      "minutes": 4,
+      "excerpt": "벨바르 남쪽 나루 수문 손상액 공제 이의서 받는 곳: 센할레트 벨바르 수로 회의 접수인 말한 사람: 남쪽 나루 장작 수레꾼 티마 적은 사람: 대필업자 팔렌 네르비 앞선 반려: 수문 관리소에…",
+      "regionIds": [
+        "senhalet"
+      ],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_04_S01",
+          "asset": "/assets/library/VSR_INI_COM_04_S01.webp",
+          "alt": "빈 종이에 검댕 묻은 엄지를 찍는 손과 뒤편의 장작 수레바퀴",
+          "aspectRatio": "3:2",
+          "afterParagraph": 3
+        },
+        {
+          "id": "VSR_INI_COM_04_S02",
+          "asset": "/assets/library/VSR_INI_COM_04_S02.webp",
+          "alt": "손상된 수레바퀴 옆에서 엄지 문서를 든 티마와 같은 문서를 되돌려 내미는 세 관청 창구",
+          "aspectRatio": "3:2",
+          "afterParagraph": 11
+        },
+        {
+          "id": "VSR_INI_COM_04_S03",
+          "asset": "/assets/library/VSR_INI_COM_04_S03.webp",
+          "alt": "되돌아온 종이들을 사이에 두고 다투는 티마와 대필자, 뒤편의 손상된 수레바퀴",
+          "aspectRatio": "4:5",
+          "afterParagraph": 20
+        }
+      ]
+    },
+    {
+      "id": "ini-com-05",
+      "title": "은량을 모르는 조카에게",
+      "form": "서로 다른 환전표를 따지는 가족 편지",
+      "html": "<h1 id=\"토린에게-네-첫-품삯-이야기\">토린에게, 네 첫 품삯 이야기</h1>\n<p>토린아.</p>\n<p>두 은량을 받았다는 줄은 세 번 읽었다. 네가 첫 품삯을 받으면 자랑부터 두 장쯤 올 줄 알았는데, 환전표부터 보낸 것은 잘한 일이다. 아주 잘한 일이라 네 앞에서는 한 번만 말하마.</p>\n<p>그런데 네가 그 아래에 쓴 말은 무엇이냐.</p>\n<p><code>바론도 동각 열하나, 메라도 동각 열하나를 줍니다. 메라는 철각 넷까지 세게 하니 더 복잡하고 수상합니다. 바론이 낫지요?</code></p>\n<p>깔끔하다는 말은 탁자를 닦을 때나 써라. 돈은 깨끗해 보여도 덜 남을 수 있다.</p>\n<p>네가 보낸 두 표를 향신료 저울 옆에 놓고 다시 보았다. 바론의 표에는 <code>수수료 동각 하나</code>라고 되어 있기에 그 옆에 점을 다섯 찍었다. 메라의 표에는 <code>수수료 철각 하나</code>라고 되어 있기에 점을 하나만 찍었다. 종이를 돌려받으면 네 눈으로 세어 보아라.</p>\n<p>너, 장터 가기 전에는 잘도 외웠지. 한 은량은 동각 열둘, 곧 철각 예순. 동각 하나는 철각 다섯. 그런데 바론이 웃으면서 <code>하나만 떼겠습니다</code> 하니 그 하나의 이름은 듣지 않은 모양이다.</p>\n<p>바론에게 주면 네 손에는 동각 열하나, 철각으로 쉰다섯이 남는다. 메라에게 주면 동각 열하나에 철각 넷, 모두 쉰아홉이다. 그 차이 철각 넷이면 죽이 두 그릇이다. 첫 품삯 받은 날에 죽 두 그릇을 남의 웃는 얼굴에 사 줄 생각이었느냐?</p>\n<p>그리고 네가 편지 귀퉁이에 그린 금빛 딱지 말이다. 그것은 금표가 아니다. 진짜 금표는 은량 스무 개 값이고 궁정이나 큰 상단이 큰 거래를 묶을 때 쓴다. 금빛이면 다 금표라 했으니, 내 황동 국자도 지금쯤 배 한 척은 되어야겠다.</p>\n<p>메라는 내가 향신료를 살 때 자리를 빼 주는 사람이다. 그러니 내가 소개했다고 덥석 믿지도 마라. 내가 아는 것은 그 사람이 돈을 받기 전에 수수료를 적고, 손님 앞에서 잔돈을 센다는 데까지다. 사람이 좋은지, 네 돈에 좋은지는 같은 질문이 아니다.</p>\n<p>다음 장날에는 두 표를 들고 한 곳을 더 물어라. 먼저 잔돈을 세어 보여 주는지 보고, 은화를 건네기 전에 네가 철각으로 다시 셈해라.</p>\n<p>그리고 돌아오면 답장을 보내라. 어느 집을 골랐는지, 왜 골랐는지, 남은 돈으로 무엇을 먹었는지까지. 또 <code>하나만 뗀다기에 믿었다</code>고 쓰면, 이번에는 내가 장터로 가서 네 귀부터 하나만 잡을 테다.</p>\n<p>이모 레미아.</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "큰돈 단위만 맞춰도 잔돈과 수수료에서 손해가 날 수 있어. 이 편지는 조카가 틀렸다는 말보다 실제로 주머니에서 오간 철각이 몇 개인지를 먼저 세어 보라는 이야기야."
+      },
+      "references": [
+        {
+          "term": "은량·동각·철각",
+          "explanation": "비레스에서 쓰는 화폐 단위입니다. 한 은량은 열두 동각이고, 한 은량은 예순 철각이므로 단위를 맞춰야 값을 비교할 수 있습니다."
+        },
+        {
+          "term": "금표",
+          "explanation": "큰 거래에서 쓰이는 고액 표로, 문서에서는 스무 은량의 가치로 다뤄집니다. 주로 관청이나 큰 상단에서 확인 절차를 거쳐 사용합니다."
+        },
+        {
+          "term": "환전 수수료",
+          "explanation": "큰돈을 작은 단위로 바꾸거나 다른 화폐로 교환할 때 환전상이 받는 비용입니다. 받은 동전 수만 보지 말고 수수료와 단위를 함께 계산해야 합니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "토린에게, 네 첫 품삯 이야기 토린아. 두 은량을 받았다는 줄은 세 번 읽었다. 네가 첫 품삯을 받으면 자랑부터 두 장쯤 올 줄 알았는데, 환전표부터 보낸 것은 잘한 일이다. 아주 잘한 일…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_05_S01",
+          "asset": "/assets/library/VSR_INI_COM_05_S01.webp",
+          "alt": "큰 구리 동전과 작은 검은 동전을 나누어 세며 수수료 한 닢을 떼는 손",
+          "aspectRatio": "4:3",
+          "afterParagraph": 6
+        }
+      ]
+    },
+    {
+      "id": "ini-com-06",
+      "title": "보리 여덟 자루의 늦은 도착",
+      "form": "추가 운임 노정 계산서",
+      "html": "<h1 id=\"뉴할로우행-보리-운송-추가-청구서\">뉴할로우행 보리 운송 추가 청구서</h1>\n<p><strong>운송물:</strong> 보리 여덟 자루 <strong>길:</strong> 레이븐스톤에서 뉴할로우까지 <strong>마부:</strong> 바르켈 모딘 <strong>도착:</strong> 예정보다 네 종 늦음</p>\n<p>추가로 든 돈과 늦어진 까닭을 아래와 같이 청구한다.</p>\n<p><strong>계약 때 고른 길</strong></p>\n<ul>\n<li>외성문 안쪽 병참길: 하룻밤 거리. 민간 수레 통행표 발급이 이틀 밀려 있었음. 기다리면 숙박 반은과 말먹이 동각 둘이 먼저 듦.</li>\n<li>서쪽 장터 우회길: 이틀 거리. 우리 상단 통행표로 출발 가능.</li>\n</ul>\n<p>거리는 더 길지만 출발할 수 있는 서쪽 길을 골랐음. 병참길 통행표를 기다렸다면 보리는 아직 레이븐스톤에 있었음.</p>\n<p><strong>1. 성문에서 두 종</strong></p>\n<p>동행 수레꾼의 이름패가 비에 불어 글자가 흐려짐. 성문 경비가 보증인이 올 때까지 사람과 수레를 세움. 시장 장부에 좌판과 거주지가 올라 있는 사촌을 찾아 보증인으로 세움. 품삯 동각 둘 지급.</p>\n<p>이 지체는 내 책임이 아님.</p>\n<p><strong>2. 가도에서 한 종</strong></p>\n<p>병참 수레 열한 대가 먼저 지나감. 우리 보리는 군대 납품이 아니므로 길을 비움.</p>\n<p>이 지체도 내 책임이 아님.</p>\n<p><strong>3. 숙소에서 한 종</strong></p>\n<p>숙박비 반은. 말먹이 동각 둘. <code>아침 안개와 짧은 종줄로 출발 늦음.</code> 침상에서는 출발 종이 잘 들리지 않았음.</p>\n<p>붙임: 숙소 영수표 한 장. <code>다섯째 종, 죽 두 그릇.</code> 여백 확인: <code>이날 안개는 저녁 마구간을 닫을 무렵부터. - 숙소지기</code></p>\n<p><strong>4. 도착 상태</strong></p>\n<p>총 네 종 늦음. 보리 한 자루의 아래쪽이 젖음. 곡물 담당자는 젖은 몫을 운임에서 빼겠다고 함. 젖은 자루는 숙소 우물가에 둔 쪽이었으므로 그 공제는 받겠음.</p>\n<p><strong>5. 추가 청구</strong></p>\n<ul>\n<li>보증인 품삯: 동각 둘.</li>\n<li>숙박비: 반은.</li>\n<li>말먹이: 동각 둘.</li>\n<li>합계: 반은과 동각 넷.</li>\n</ul>\n<p>보증인과 숙박과 말먹이는 길에서 실제로 든 돈이다. 위 금액의 지급을 청구한다.</p>\n<p>바르켈 모딘.</p>\n<p><code>숙소 지연 한 종은 확인 뒤 처리.</code> - 뉴할로우 곡물 담당</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "통행패가 있어도 길과 문, 군사 우선권 때문에 늦을 수 있어. 다만 ‘어쩔 수 없었다’는 말과 실제 출발 시각이나 식사 기록은 따로 봐야 해."
+      },
+      "references": [
+        {
+          "term": "통행표",
+          "explanation": "사람이나 수레가 특정 길과 문을 지나도 된다는 것을 보여 주는 문서입니다. 통행표가 있어도 시간대나 길의 용도에 따라 대기할 수 있습니다."
+        },
+        {
+          "term": "보증인",
+          "explanation": "신원이나 거주지를 확인하기 어려운 사람을 대신해 믿을 만하다고 확인해 주는 사람입니다. 보증인의 이름과 자격도 기록의 일부가 됩니다."
+        },
+        {
+          "term": "반은",
+          "explanation": "한 은량의 절반을 뜻하는 생활 속 금액 표현입니다. 실제 지급할 때는 동각이나 철각으로 바꾸어 셀 수 있습니다."
+        },
+        {
+          "term": "병참길",
+          "explanation": "군대의 식량과 장비를 옮기기 위해 우선 관리되는 길입니다. 민간 수레는 허가가 있어도 군수 이동 때문에 기다리거나 다른 길을 써야 할 수 있습니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "뉴할로우행 보리 운송 추가 청구서 운송물: 보리 여덟 자루 길: 레이븐스톤에서 뉴할로우까지 마부: 바르켈 모딘 도착: 예정보다 네 종 늦음 추가로 든 돈과 늦어진 까닭을 아래와 같이 청구한…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_06_S01",
+          "asset": "/assets/library/VSR_INI_COM_06_S01.webp",
+          "alt": "비 내리는 성문 앞에서 통행이 막힌 보리 수레 두 대",
+          "aspectRatio": "3:2",
+          "afterParagraph": 6
+        },
+        {
+          "id": "VSR_INI_COM_06_S02",
+          "asset": "/assets/library/VSR_INI_COM_06_S02.webp",
+          "alt": "모든 짐을 실은 보리 수레와 말이 기다리는 맑은 아침에도 두 번째 죽을 먹는 마부",
+          "aspectRatio": "4:3",
+          "afterParagraph": 13
+        }
+      ]
+    },
+    {
+      "id": "ini-com-07",
+      "title": "고개가 닫혔다고 처음 말한 사람",
+      "form": "숙소주가 순서를 적은 제보 쪽지와 폐쇄표 묶음",
+      "html": "<h1 id=\"북쪽-벽에서-떼어-낸-고개철-쪽지-묶음\">북쪽 벽에서 떼어 낸 고개철 쪽지 묶음</h1>\n<p>벽에서 쪽지를 떼고 겹친 순서를 적은 사람: 전령 숙소주 라티나 켈민.</p>\n<h2 id=\"가장-아래에-붙어-있던-쪽지\">가장 아래에 붙어 있던 쪽지</h2>\n<p><code>북고개 막힘. 저녁 수레는 보내지 마시오.</code> <code>굽이 아래에서 돌 깨지는 소리를 들었음.</code> <code>- …르</code></p>\n<p>거친 숯먹. 글줄이 왼쪽으로 기울었다. 서명이 있던 오른쪽 아래 모서리는 못째로 뜯겨 나갔다.</p>\n<h2 id=\"그날-저녁-라티나가-붙인-숙소-알림\">그날 저녁, 라티나가 붙인 숙소 알림</h2>\n<p>북쪽 고개가 닫혔다는 말이 돌고 있으나 초소의 폐쇄표는 오지 않았습니다.</p>\n<p>큰방을 엿새 잡겠다는 손님에게는 하루치만 받습니다. 길이 열리면 떠나고, 닫히면 내일 다시 내십시오. 소문값까지 제가 외상으로 질 수는 없습니다.</p>\n<p>라티나 켈민.</p>\n<h2 id=\"푸른-먹으로-덧붙인-쪽지\">푸른 먹으로 덧붙인 쪽지</h2>\n<p><code>눈이 허리까지 왔다. 엿새는 열리지 않는다.</code></p>\n<p>크고 곧은 글씨. 남쪽 마부가 이 쪽지를 가리키며 큰방 엿새치를 내려놓았다. 장화에는 눈 대신 붉은 진흙이 말라 있었다.</p>\n<p>다음 날 새벽, 같은 푸른 먹으로 아래 문장이 붙었다.</p>\n<p><code>산 위에서 들은 말이었음. 남은 닷새 방값은 돌려줄 것.</code></p>\n<p>라티나는 하루치만 받았으므로 돌려줄 돈이 없다고 그 아래 적었다.</p>\n<h2 id=\"가느다란-검은-먹으로-덧붙인-쪽지\">가느다란 검은 먹으로 덧붙인 쪽지</h2>\n<p><code>군사 행렬이 북창 아래를 지나 고개를 막음. 직접 봄.</code></p>\n<p>상단 통역인의 글씨. 창밖에 있던 것은 염소 떼와 창을 든 몰이꾼 둘이었다. 쪽지 아랫끈은 나중에 염소 두 마리가 나누어 먹었다.</p>\n<p>염소 주인은 <code>군사인 줄 알았으면 길을 비켰을 것</code>이라고만 적고 자기 이름은 남기지 않았다.</p>\n<h2 id=\"여덟째-날-둘째-종-초소-전령이-가져온-정식-폐쇄표\">여덟째 날 둘째 종, 초소 전령이 가져온 정식 폐쇄표</h2>\n<p>북쪽 길의 통행을 오늘부터 멈춤.</p>\n<p>눈 때문이 아니며 군사 행렬 때문도 아님. 밤사이 고개 바깥 굽이의 땅이 내려앉아 길이 끊어졌음. 초소가 다시 알릴 때까지 모든 여행자는 돌아갈 것.</p>\n<p>붉은 밀랍 봉인. 전령이 숙소주에게 직접 건넸고, 라티나는 앞선 쪽지를 모두 떼어 이 표 뒤에 묶었다.</p>\n<h2 id=\"벽보를-걷은-뒤-나온-것\">벽보를 걷은 뒤 나온 것</h2>\n<p>처음 쪽지에서 뜯긴 듯한 종이 모서리 하나가 못 아래에 끼어 있었다. 앞면에는 서명의 나머지가 없고, 뒷면에는 <code>저녁 말먹이 한 묶음</code>이 같은 거친 숯먹으로 적혀 있다.</p>\n<p>그날 저녁 말먹이 한 묶음을 외상으로 달아 둔 사람은 우편마차꾼 레르단과 채석공 모르간 둘이다.</p>\n<p>레르단은 굽이를 지나지 않았다고 했고, 모르간은 자기가 돌 깨지는 소리를 들었다면 소리의 크기부터 적었을 것이라 했다.</p>\n<p>라티나는 어느 쪽 말먹이 표에서 모서리가 떨어졌는지 적지 못했다. 대신 최초 쪽지와 모서리를 같은 실로 묶어 정식 폐쇄표 뒤에 달아 두었다.</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "고개가 닫혔다는 결과는 맞아도 눈, 군대, 염소 이야기는 가는 동안 서로 덧붙은 거야. 소문은 끝을 알려 줄 수 있어도 원인까지 공짜로 주지는 않아."
+      },
+      "references": [
+        {
+          "term": "명예력",
+          "explanation": "열이틀을 한 주기로 세는 달력 체계입니다. 다른 달력의 같은 날짜 숫자와 그대로 맞춰 보면 안 됩니다."
+        },
+        {
+          "term": "정식 폐쇄표",
+          "explanation": "길이나 고개를 닫았다는 사실을 담당 기관이 공식적으로 알리는 문서입니다. 소문이 먼저 퍼질 수 있어 문서가 도착한 시각도 함께 봐야 합니다."
+        },
+        {
+          "term": "외상표",
+          "explanation": "물건이나 서비스를 먼저 받고 나중에 값을 치르기로 한 내역을 적은 표입니다. 누가 언제 얼마를 갚기로 했는지 확인하는 근거가 됩니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "북쪽 벽에서 떼어 낸 고개철 쪽지 묶음 벽에서 쪽지를 떼고 겹친 순서를 적은 사람: 전령 숙소주 라티나 켈민. 가장 아래에 붙어 있던 쪽지 북고개 막힘. 저녁 수레는 보내지 마시오. 굽이 …",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_COM_07_S01",
+          "asset": "/assets/library/VSR_INI_COM_07_S01.webp",
+          "alt": "어두운 나무벽에 못으로 고정된 찢긴 종이와 세 줄의 거친 숯 흔적",
+          "aspectRatio": "4:5",
+          "afterParagraph": 3
+        },
+        {
+          "id": "VSR_INI_COM_07_S02",
+          "asset": "/assets/library/VSR_INI_COM_07_S02.webp",
+          "alt": "목재 공고벽 앞에서 매달린 빈 공고문을 입으로 잡아당기는 염소 두 마리",
+          "aspectRatio": "3:2",
+          "afterParagraph": 14
+        },
+        {
+          "id": "VSR_INI_COM_07_S03",
+          "asset": "/assets/library/VSR_INI_COM_07_S03.webp",
+          "alt": "산길이 보이는 숙소 창가에서 붉은 밀랍 봉인이 찍힌 폐쇄 공문을 주고받는 두 손",
+          "aspectRatio": "3:2",
+          "afterParagraph": 17
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-01",
+      "title": "용 머리 안에서 재채기한 사람",
+      "form": "동문 교대 기록",
+      "html": "<h1 id=\"베크켈카르-동문-열일곱째-종-교대-기록\">베크켈카르 동문 열일곱째 종 교대 기록</h1>\n<p>열일곱째 종에 린레네트 순회극단이 동문에 도착함.</p>\n<p>통행표 기록:</p>\n<ul>\n<li>배우 여섯.</li>\n<li>악사 둘.</li>\n<li>수레꾼 하나.</li>\n<li>수레 하나.</li>\n<li>공연용 용 머리 하나, 접는 날개 둘.</li>\n</ul>\n<p>문 앞에서 확인한 것:</p>\n<ul>\n<li>배우 넷.</li>\n<li>악사 둘.</li>\n<li>수레꾼 하나.</li>\n<li>용 머리 하나, 접는 날개 둘.</li>\n</ul>\n<p>배우 둘이 부족하다고 하자 극단장은 먼저 들어갔다고 말함. 동문 명부에는 먼저 들어간 극단 배우가 없었음. 극단장은 다른 문으로 갔을 수 있다고 고침.</p>\n<p>용 머리는 사람 둘이 들어야 할 만큼 컸음. 바닥에 신발 자국이 있었으나 극단장은 어제 공연 때 난 자국이라고 함.</p>\n<p>확인 중 용 머리 안에서 재채기 소리.</p>\n<p>극단장은 새로 칠한 비늘이 마르지 않아 열 수 없다고 항의함. 신참 경비 레스가 수레를 문 옆에 세우고 순찰대장을 부름.</p>\n<p>기다리는 동안 용이 두 번 더 재채기하고 한 번 코를 골았음.</p>\n<p>순찰대장 도착 뒤 머리 부분을 분리함. 배우 둘이 나옴. 한 명은 재채기한 것을 인정함. 다른 한 명은 자지 않았고 용의 목소리를 연습한 것이라고 주장함.</p>\n<p>극단장 말: 배우 여섯이 모두 있고 용 머리도 하나 있으므로 통행표의 수는 전부 맞음.</p>\n<p>순찰대장 말: 수는 맞지만 줄이 틀림. 배우 둘을 용 머리 아래에 적을 수는 없음.</p>\n<p>배우 둘의 이름을 성문 명부에 적고 <code>미신고 탑승</code> 사건표를 군법 서리에게 보냄. 순찰대장 지시로 극단을 통과시킴.</p>\n<p>재채기한 배우는 동문이 보이면 용의 입을 열 때까지 나오지 말라는 말을 극단장에게 들었다고 진술함.</p>\n<p>코를 곤 배우는 그 말이 공연장에 닿을 때까지 기다리라는 뜻이었으며, 문 앞에서는 극단장이 조용히 있으라는 눈짓만 했다고 진술함.</p>\n<p>극단장은 눈짓은 비늘 칠이 벗겨지지 않게 수레를 천천히 몰라는 뜻이었다고 답함. 배우를 숨길 이유를 묻자 <code>관객보다 먼저 용의 속을 보여 줄 수는 없다</code>고 말했으나, 그것이 검문을 피하려는 뜻은 아니라고 덧붙임.</p>\n<p>다음 교대는 배우 둘의 탑승 사실은 확인된 것으로 넘겨받음. 극단장이 언제부터 알고 있었는지는 확인하지 못함.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "성문 기록에서는 소품 하나와 사람 둘을 따로 세어야 한다. 숫자의 합계가 맞아도 무엇을 어느 줄에 셌는지가 다르면 통행 기록은 맞지 않는다."
+      },
+      "references": [
+        {
+          "term": "열일곱째 종",
+          "explanation": "비레스의 하루를 스물여섯 구간으로 나눴을 때 열일곱 번째 구간입니다. 교대 시각이나 사건 순서를 맞출 때 사용합니다."
+        },
+        {
+          "term": "교대 기록",
+          "explanation": "근무를 넘겨주는 사람이 다음 근무자에게 남기는 업무 기록입니다. 문 상태, 방문자, 맡긴 물건처럼 이어서 확인할 내용을 적습니다."
+        },
+        {
+          "term": "통행표",
+          "explanation": "성문이나 검문소를 지날 사람과 짐의 정보를 적은 허가 문서입니다. 문서의 이름과 실제 사람·물건이 맞는지 확인하는 절차가 뒤따릅니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "베크켈카르 동문 열일곱째 종 교대 기록 열일곱째 종에 린레네트 순회극단이 동문에 도착함. 통행표 기록: 배우 여섯. 악사 둘. 수레꾼 하나. 수레 하나. 공연용 용 머리 하나, 접는 날개 …",
+      "regionIds": [
+        "linrenet"
+      ],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_01_S01",
+          "asset": "/assets/library/VSR_INI_ROL_01_S01.webp",
+          "alt": "나뭇가지 뿔과 목제 눈, 삼각 이빨을 붙인 값싼 공연용 용 머리 소품",
+          "aspectRatio": "3:2",
+          "afterParagraph": 6
+        },
+        {
+          "id": "VSR_INI_ROL_01_S02",
+          "asset": "/assets/library/VSR_INI_ROL_01_S02.webp",
+          "alt": "두 부분으로 나뉜 목제 공연 구조 아래 각각 놓인 배우 두 명분의 신발 두 켤레",
+          "aspectRatio": "3:2",
+          "afterParagraph": 9
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-02",
+      "title": "세 번째 노새는 누구의 것인가",
+      "form": "호위 품삯과 사후 보관비를 가르는 용병 독촉 편지",
+      "html": "<h1 id=\"북쪽-돌다리-호위-품삯-두-번째-독촉\">북쪽 돌다리 호위 품삯, 두 번째 독촉</h1>\n<p>베론에게.</p>\n<p>지난 쪽지에서 너는 상인의 봉인이 오면 품삯을 보내겠다고 했다. 그전 쪽지에서는 북쪽 장터가 끝나면 보내겠다고 했다. 봉인은 아직 걷고 있고 장터는 세 번 끝났다.</p>\n<p>내 호위 품삯 반은은 네 계약소 궤짝 안에서 겨울을 날 생각인가.</p>\n<p>계약에는 <code>노새 두 마리와 소금 짐을 북쪽 돌다리까지 호위한다</code>고 적혀 있었다. 네가 읽었고 나도 들었다. 그런데 출발 마당에는 세 마리가 서 있었다.</p>\n<p>셋째가 누구 것이냐고 묻자 상인은 자기 것이 아니라고 했다. 짐꾼은 상인이 전날 샀다고 했다. 상인의 아들은 이미 <code>놋단추</code>라는 이름까지 붙였다. 상인은 아이들이 구름에도 이름을 붙인다며, 그것만으로는 주인이 생기지 않는다고 했다.</p>\n<p>셋째 목끈에는 다른 둘과 같은 상단 매듭이 있었다. 진흙 아래 반쯤 묻혀 있었고, 상인은 매듭은 누구나 묶을 수 있다고 했다. 너는 길에서 정리하자고 했다.</p>\n<p>그 말을 한 날부터 네가 길에 관한 약속을 하면 나는 돌다리를 먼저 찾게 된다.</p>\n<p>돌다리에 닿아 계약이 끝났다고 말하고 두 마리 고삐를 상인에게 넘겼다. 상인은 창고 마을까지라고 우겼지만, 종이에는 돌다리라고 적혀 있었다. 그때는 계약서 모서리가 아직 멀쩡했으니 모두가 읽을 수 있었다.</p>\n<p>셋째 노새는 내 뒤에 남았다. 상인은 받지 않았고, 짐꾼도 받지 않았고, 노새도 떠나지 않았다.</p>\n<p>공동 마구간에 맡겼다. 주인이 나타날 때까지 사흘이 걸렸다. 그동안 놋단추는 내 외투 자락, 보존식 주머니와 계약서 모서리를 먹었다. 하필 <code>돌다리</code> 다음 문장부터 씹어 없앤 것은 우연일 것이다. 네게 유리한 우연은 늘 글을 잘 읽는다.</p>\n<p>나흘째 상인의 아들이 와서 이름을 불렀다. 놋단추는 아이에게 곧장 갔다. 상인은 이름에 반응하는 것만으로 소유가 증명되지는 않는다고 했다.</p>\n<p>마구간지기가 목끈의 진흙을 닦아 같은 상단 매듭을 보이자, 상인은 자기 상단에서 잃어버린 짐승일 가능성만 인정했다. 소유는 인정하지 않은 채 보관료 한 은량을 냈고, 영수표에는 <code>본인의 노새로 확인한 것은 아님</code>을 덧붙인 뒤 고삐를 잡아 데려갔다.</p>\n<p>마구간지기는 그 은량에서 칸값과 사흘치 보리를 먼저 뺐다. 남은 반은은 돌다리 뒤에서 내가 고삐를 붙들고 먹인 값으로 받았다. 그것은 네가 맡은 돌다리까지의 호위 품삯이 아니다.</p>\n<p>정리한다.</p>\n<p>상인이 낸 돈은 계약이 끝난 뒤 생긴 마구간·보리·고삐 비용이다. 네가 보낼 반은은 계약대로 돌다리까지 사람과 짐을 지킨 품삯이다.</p>\n<p>노새가 누구 것이었는지는 네 장부에서 더 다투어도 좋다. 내 반은은 그 다툼에 묶어 두지 마라.</p>\n<p>이 편지를 받은 뒤 다섯째 날 저녁 종 전까지, 헤스켈카르 남문 여관주 메라에게 반은을 맡겨라. 네 심부름꾼이 오면 메라는 받은 날과 동전 수를 겉봉 뒤에 적어 줄 것이다.</p>\n<p>다섯째 날이 지나면 세 번째 편지에는 독촉 품삯도 붙이겠다. 그 품삯이 계약서에 없다고 항의해도 된다. 그때는 우리 둘 다 계약 밖 비용이 어떻게 생기는지 잘 알게 되었을 테니까.</p>\n<p>하르벤 도르마.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "비용이 생길 때는 주인 없는 노새라 하고, 되찾을 때는 상단 짐승이라 부른다. 매듭과 마구간 비용, 계약서의 다른 잉크를 보면 책임이 언제 바뀌는지 보인다."
+      },
+      "references": [
+        {
+          "term": "반은",
+          "explanation": "한 은량의 절반을 뜻합니다. 작은 품삯이나 보관 비용을 계산할 때 자주 쓰입니다."
+        },
+        {
+          "term": "공동 마구간",
+          "explanation": "여행자와 상인이 말이나 노새를 함께 맡기는 시설입니다. 먹이, 자리, 돌봄에 대한 비용이 따로 붙을 수 있습니다."
+        },
+        {
+          "term": "보관료·고삐 품삯",
+          "explanation": "짐승을 맡아 두고 돌본 대가와 직접 붙잡아 관리한 노동의 대가입니다. 처음 맺은 호위 계약의 품삯과는 별개의 비용일 수 있습니다."
+        },
+        {
+          "term": "상단 매듭 표식",
+          "explanation": "상인 무리나 운송 조직을 알아보기 위해 끈에 남긴 매듭 표식입니다. 어느 상단과 관련 있는지는 보여 주지만 소유권 전체를 혼자 증명하지는 못합니다."
+        }
+      ],
+      "minutes": 4,
+      "excerpt": "북쪽 돌다리 호위 품삯, 두 번째 독촉 베론에게. 지난 쪽지에서 너는 상인의 봉인이 오면 품삯을 보내겠다고 했다. 그전 쪽지에서는 북쪽 장터가 끝나면 보내겠다고 했다. 봉인은 아직 걷고 있…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_02_S01",
+          "asset": "/assets/library/VSR_INI_ROL_02_S01.webp",
+          "alt": "상인이 고삐를 쥔 두 마리와 진흙 위에 따로 선 세 번째 짐승",
+          "aspectRatio": "3:2",
+          "afterParagraph": 6
+        },
+        {
+          "id": "VSR_INI_ROL_02_S02",
+          "asset": "/assets/library/VSR_INI_ROL_02_S02.webp",
+          "alt": "아이의 작은 주머니 끈을 물고 아이 쪽으로 고개를 내민 세 번째 노새",
+          "aspectRatio": "4:5",
+          "afterParagraph": 11
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-03",
+      "title": "소금물이 장부보다 먼저 샜다",
+      "form": "젖은 소금 포장·하역 분쟁 서류 묶음",
+      "html": "<h1 id=\"젖은-소금-일곱-통-손실-접수본\">젖은 소금 일곱 통 손실 접수본</h1>\n<h2 id=\"첫-접수면\">첫 접수면</h2>\n<ul>\n<li>선박: <code>검은 뱃머리</code></li>\n<li>하역 수량: 소금 열여섯 통</li>\n<li>손상 신고: 돌바닥에 내려놓은 일곱 통</li>\n<li>날씨: 비 없음</li>\n<li>공통 흔적: 아랫테 아래 같은 높이의 어두운 물선, 밑판 이음매에 굳은 젖은 소금</li>\n<li>별도 흔적: 검은 송진으로 덧댄 한 통, 덧댄 판자와 묵은 판자 사이에 새로 벌어진 큰 금</li>\n</ul>\n<p>짚을 걷자 수레바퀴 홈에 바닷물이 두 손가락 높이로 남아 있었다. 일곱 통의 물선은 그 높이와 맞았다. 여섯 통은 밑바닥에서 손바닥 한 뼘까지, 덧댄 한 통은 가운데까지 소금이 굳어 있었다.</p>\n<h2 id=\"소금-상인-헤바-마렌의-항의\">소금 상인 헤바 마렌의 항의</h2>\n<p>돌바닥에 고인 것은 바닷물이라지만, 내게는 다음 계절 품삯이다.</p>\n<p>선장 오르벤은 배 안에서 통이 마른 소리를 냈다고 한다. 하역 감독은 밑판이 이미 벌어져 있었다고 한다. 통장수 페론은 자기가 덧댄 것은 맞지만 두 항해를 버텼으니 세 번째로 만진 손이 물어야 한다고 한다.</p>\n<p>셋 다 그 통을 보았다. 셋 다 자기 손이 닿기 전부터 금이 있었다고 한다. 그렇다면 그 금은 페론의 공방에서 항구까지 제 발로 걸어와, 밀물 시각까지 기다렸다가 벌어진 셈이다.</p>\n<p>나는 젖은 소금을 반값에 넘기기 싫다. 폐기하려고 운반값을 더 내는 것은 더욱 싫다. 누가 내 손실을 샀는지 밝히기 전에는 어느 쪽도 값이라고 부를 수 없다.</p>\n<h2 id=\"선장-오르벤의-답\">선장 오르벤의 답</h2>\n<p>적재 당시 열여섯 통 건조. 적재 상태표 봉인 이상 없음.</p>\n<p>하역 중 도르래 밧줄이 통 옆면을 조였고, 돌바닥에 세울 때 한 차례 큰 소리가 났음. 선내에서 금이 벌어졌다면 적재칸에 소금가루가 남았어야 하나 발견되지 않음.</p>\n<p>검은 송진과 옅은 덧판은 통 제작·수선 기록으로 확인할 사항임.</p>\n<h2 id=\"하역-감독의-답\">하역 감독의 답</h2>\n<p>밧줄은 옆면을 잡았음. 금은 밑판에 있음.</p>\n<p>통을 들기 전부터 검은 송진과 옅은 판자가 보였음. 짐꾼 노르가 그곳에 분필 한 줄을 그었음. 금을 표시했는지 덧댐을 표시했는지는 노르도 기억하지 못함.</p>\n<p>일곱 통의 물선이 같고 수레 홈의 물높이와 맞음. 도르래가 일곱 통의 밑판을 같은 높이로 적실 수는 없음.</p>\n<h2 id=\"통장수-페론의-쪽지\">통장수 페론의 쪽지</h2>\n<p>옅은 판자는 지난 항해철에 맞춘 새 밑판 조각임. 검은 송진은 이음매를 막은 값이며 아직 선장에게 받지 못했음.</p>\n<p>덧댄 통은 그 뒤 두 항해를 버팀. 두 항해를 버틴 수선이 세 번째에 벌어졌다면, 수선한 손만 셀 것이 아니라 세 번째에 통을 든 손도 세어야 함.</p>\n<p>묵은 판자와 새 판자의 경계를 따라 금이 났다는 말만으로 어느 쪽이 먼저 움직였는지는 정할 수 없음.</p>\n<h2 id=\"현장-확인\">현장 확인</h2>\n<p>노르가 짚 아래 물을 손가락으로 찍어 맛보았다. 케빈도 뒤따라 맛보았다. 말코는 맛본 것이 아니라 입술에 튄 것이라고 주장하였다. 세 사람 모두 짰다고 진술하였다.</p>\n<p>왜 세 사람이나 확인했느냐는 질문에 하역 감독은 첫 사람을 믿지 못한 것이 아니라 나머지 둘이 스스로 혀를 내민 것이라고 답하였다.</p>\n<p>일곱 통의 밑판 이음매에는 젖은 소금이 가느다랗게 굳어 있다. 그 높이는 짚 아래 물선과 맞는다. 가장 많이 젖은 통의 굵은 밧줄 자국 둘은 옆면에서 끝나며 밑판까지 이어지지 않는다.</p>\n<p>공통 침수는 확인. 덧댄 한 통의 새 금이 마지막으로 벌어진 시점은 확인하지 못함.</p>\n<h2 id=\"세금-매각-처리\">세금·매각 처리</h2>\n<p>항만세 서리는 선박 신고 당시 마른 소금 열여섯 통의 세금이 이미 납부되었음을 확인하였다. 도착 뒤 값이 줄었다는 사유로 세금을 돌려준 앞선 항목은 없었다.</p>\n<p>폐기 운반인은 먼저 품삯을 요구하였다. 다음 날 가죽 무두장이와 염색장이가 젖은 일곱 통을 작업용으로 반값에 사겠다고 신청하였다.</p>\n<p>헤바 마렌은 첫 제안을 거절하였다. 폐기 운반값을 들은 뒤 두 번째 제안서에는 도장을 찍었다.</p>\n<p>묶음에서 폐기 견적은 빠지고 반값 매각 영수표가 들어갔다. 해상 법원 손실 접수표의 <code>상대방</code> 칸에는 선장과 통장수의 이름이 한 번씩 적혔다 지워져 있다. 하역 감독의 이름은 첫 글자만 남았다.</p>\n<p>두 장은 같은 끈으로 묶여 있다. 매각 영수표에는 도장이 있고, 손실 접수표에는 없다.</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "같은 젖은 소금인데 문턱 어느 쪽에 있었는지에 따라 서로 다른 장부가 책임을 밀었어. 물건값이 줄어드는 동안 세금과 폐기료만 또렷해진 점도 봐 둬."
+      },
+      "references": [
+        {
+          "term": "밀물 물선",
+          "explanation": "바닷물이 가장 높이 들어왔을 때 벽이나 기둥에 남는 흔적입니다. 물건이 어느 높이까지 젖을 수 있었는지 살피는 단서가 됩니다."
+        },
+        {
+          "term": "송진 덧댐",
+          "explanation": "나무 통의 갈라진 곳이나 바닥을 송진으로 메워 물이 새지 않게 하는 수리입니다. 새 통인지 수리한 통인지 구분하는 흔적이 될 수 있습니다."
+        },
+        {
+          "term": "적재 상태표",
+          "explanation": "화물을 배나 수레에 실을 당시의 포장과 상태를 적은 문서입니다. 적재 이후 모든 손상까지 보증한다는 뜻은 아닙니다."
+        },
+        {
+          "term": "항만세",
+          "explanation": "항구 시설과 거래를 이용할 때 내는 세금입니다. 화물 손상에 대한 배상금과는 성격이 다른 비용입니다."
+        },
+        {
+          "term": "손실 접수표의 상대방 칸",
+          "explanation": "손실을 신고하면서 어느 사람이나 조직을 상대로 접수하는지 적는 자리입니다. 그 칸에 이름이 적혔다고 책임이 확정되는 것은 아닙니다."
+        }
+      ],
+      "minutes": 5,
+      "excerpt": "젖은 소금 일곱 통 손실 접수본 첫 접수면 선박: 검은 뱃머리 하역 수량: 소금 열여섯 통 손상 신고: 돌바닥에 내려놓은 일곱 통 날씨: 비 없음 공통 흔적: 아랫테 아래 같은 높이의 어두…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_03_S01",
+          "asset": "/assets/library/VSR_INI_ROL_03_S01.webp",
+          "alt": "같은 높이의 어두운 물선이 남고 한 곳에서 소금 결정이 샌 목제 소금통 일곱 개",
+          "aspectRatio": "3:2",
+          "afterParagraph": 4
+        },
+        {
+          "id": "VSR_INI_ROL_03_S02",
+          "asset": "/assets/library/VSR_INI_ROL_03_S02.webp",
+          "alt": "검은 송진 아래로 세로 이음이 벌어진 목제 소금통 밑판",
+          "aspectRatio": "4:5",
+          "afterParagraph": 9
+        },
+        {
+          "id": "VSR_INI_ROL_03_S03",
+          "asset": "/assets/library/VSR_INI_ROL_03_S03.webp",
+          "alt": "젖은 소금 자루와 작은 통 앞에서 적은 동전 더미를 주고받는 두 손",
+          "aspectRatio": "3:2",
+          "afterParagraph": 27
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-04",
+      "title": "일곱째 덫은 아침 명부에 없었다",
+      "form": "사냥 장비 인계 수첩과 서로 다른 세 사람의 확인",
+      "html": "<h1 id=\"워크켈할-공동-사냥-장비-인계-수첩\">워크켈할 공동 사냥 장비 인계 수첩</h1>\n<h2 id=\"아침-반출\">아침 반출</h2>\n<p>공동 사냥에 가죽 덫 여섯을 내줌.</p>\n<ul>\n<li>에나: 손잡이에 긴 흠집 둘, 두 개.</li>\n<li>소란: 고리에 세모를 새김, 두 개.</li>\n<li>네메: 매듭 아래를 둥글게 태움, 두 개.</li>\n</ul>\n<p>보관 책임자가 빈 바구니 바닥을 두 번 두드려 보인 뒤 여섯 개를 넣음. 에나가 바구니를 짊어짐.</p>\n<h2 id=\"저녁-반환\">저녁 반환</h2>\n<p>바구니를 뒤집자 덫 일곱이 떨어짐.</p>\n<p>긴 흠집 둘, 세모 새김, 둥근 탄 자국이 각각 두 개. 아침 표식 여섯은 빠짐없이 맞음.</p>\n<p>일곱째에는 소유 표식이 없음. 검게 굳은 가죽은 오래 닳았고, 미끄럼 매듭 두 곳에는 밝은 붉은 실이 새로 감겨 있음. 피와 털은 없음.</p>\n<h2 id=\"에나의-말\">에나의 말</h2>\n<p>아침 바구니가 빈 것은 보았음. 첫 풀밭에서 여섯을 땅에 놓고 이름을 불러 두 개씩 나눴음.</p>\n<p>돌아올 때는 소란이 먼저, 네메가 다음, 내가 마지막으로 덫을 넣었음. 각자 손에 든 수는 둘로 보았으나, 바구니에 떨어진 뒤 다시 세지는 않았음.</p>\n<p>등에 멘 빈 바구니에서 무게가 늘어난 때는 느끼지 못했음.</p>\n<h2 id=\"소란의-말\">소란의 말</h2>\n<p>세모 두 개만 손질했음. 한쪽 고리가 뻑뻑해 침을 묻혀 당겼고, 둘 다 내 손으로 바구니에 넣었음.</p>\n<p>붉은 실은 쓰지 않음. 오늘 내 주머니에 있던 실은 누런 삼실 한 토막뿐이며 그대로 남아 있음.</p>\n<p>일곱째를 보았느냐고 묻는다면, 바구니를 뒤집기 전에는 아니라고 답함.</p>\n<h2 id=\"네메의-말\">네메의 말</h2>\n<p>자기 덫 두 개를 넣기 전에 소란이 바구니에서 손을 빼는 것을 보았고, 넣은 뒤에는 에나가 다가오는 것을 보았음. 소란의 손에 몇 개가 있었는지는 보지 못함.</p>\n<p>어릴 적에는 숲이 사냥꾼에게 덫 하나를 돌려준다는 말을 들었음. 어느 마을 이야기인지는 기억나지 않음.</p>\n<p>그 이야기를 오늘 보았다는 뜻은 아님. 오늘 본 것은 바구니에서 일곱이 나온 것뿐임.</p>\n<h2 id=\"보관-책임자-확인\">보관 책임자 확인</h2>\n<p>허가받아 내준 여섯은 소유 표식까지 모두 돌아왔음. 반출 도구의 분실 없음.</p>\n<p>표식 없는 하나는 반환 수량에 더하지 않고 <code>주인 없는 발견물</code>로 적음. 세 사람이 보는 앞에서 마른 천으로 감싸 별도 선반에 놓음. 매듭은 풀지 않음.</p>\n<p>다음 사냥 반출 목록에도 넣지 않음.</p>\n<p>수첩 일곱째 줄에는 물건 모양과 발견 시각만 적었다. 주인 칸은 비워 두었다.</p>\n<p>문을 잠그기 전, 선반의 천이 벌어지지 않도록 붉은 매듭이 보이는 쪽을 위로 돌려놓음.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "여섯 덫과 명부에 없던 일곱째 덫은 같은 물건으로 다루면 안 된다. 전승은 가능성을 주지만 현장의 발자국과 소유 표식은 그보다 좁은 단서를 준다."
+      },
+      "references": [
+        {
+          "term": "반출·반환",
+          "explanation": "공용 장비를 밖으로 가져갈 때와 다시 돌려놓을 때 각각 기록하는 절차입니다. 두 기록의 수량과 상태를 맞춰 봅니다."
+        },
+        {
+          "term": "소유 표식",
+          "explanation": "도구나 물건의 주인 또는 관리 집단을 알아보기 위해 새기거나 묶어 둔 표시입니다. 표식이 지워지거나 옮겨질 가능성도 함께 고려합니다."
+        },
+        {
+          "term": "주인 없는 발견물",
+          "explanation": "현장에서 찾았지만 기존 장비 명부의 주인이 확인되지 않은 물건입니다. 지급한 장비의 반환 수량과 섞지 않고 따로 기록합니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "워크켈할 공동 사냥 장비 인계 수첩 아침 반출 공동 사냥에 가죽 덫 여섯을 내줌. 에나: 손잡이에 긴 흠집 둘, 두 개. 소란: 고리에 세모를 새김, 두 개. 네메: 매듭 아래를 둥글게 태…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_04_S01",
+          "asset": "/assets/library/VSR_INI_ROL_04_S01.webp",
+          "alt": "목재 바닥 위에 세 쌍으로 나뉘어 놓인 가죽 고리 덫 여섯 개",
+          "aspectRatio": "3:2",
+          "afterParagraph": 4
+        },
+        {
+          "id": "VSR_INI_ROL_04_S02",
+          "asset": "/assets/library/VSR_INI_ROL_04_S02.webp",
+          "alt": "낡은 검은 올가미 덫의 미끄럼 매듭 두 곳에 묶인 밝은 붉은 실",
+          "aspectRatio": "4:5",
+          "afterParagraph": 14
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-05",
+      "title": "줄기는 잎의 친척이다",
+      "form": "약초 감별표와 구매자·상인의 겹쳐 쓴 곁글",
+      "html": "<h1 id=\"붉은비탈-잿빛잎-감별-기록\">붉은비탈 잿빛잎 감별 기록</h1>\n<h2 id=\"바구니에-묶여-있던-물건표\">바구니에 묶여 있던 물건표</h2>\n<p><code>붉은비탈 잿빛잎 — 잘 말린 잎 한 바구니</code></p>\n<p>그 아래 가는 필체: <code>윗면에서 잎 세 줌을 확인함 — 미라 벤</code></p>\n<p>굵게 눌러 쓴 곁글: <code>세 줌을 보고 바구니를 샀으면 바구니값을 낼 것 — 케스</code></p>\n<p>가는 필체가 답함: <code>세 줌 아래까지 잎이라고 말했으면 낼 것.</code></p>\n<h2 id=\"바구니를-뒤집은-때\">바구니를 뒤집은 때</h2>\n<p>처방소 약함으로 옮기려 바구니를 기울이자, 아래 삼분의 일에서 짧게 자른 줄기가 먼저 쏟아짐.</p>\n<p>잎과 줄기에는 같은 말림 연기 냄새가 났고, 잘린 자리마다 같은 붉은 묶음 섬유가 붙어 있었음. 감별자는 한 비탈에서 거둔 같은 풀로 보인다고 적음.</p>\n<h2 id=\"감별표\">감별표</h2>\n<div class=\"table-wrap\"><table><thead><tr>\n<th>확인 칸</th>\n<th>감별대 표기</th>\n</tr></thead><tbody>\n<tr>\n<td>식물</td>\n<td>잎과 줄기 모두 붉은비탈 잿빛잎으로 보임</td>\n</tr>\n<tr>\n<td>부위</td>\n<td>잎 약 삼분의 이, 잘린 줄기 약 삼분의 일</td>\n</tr>\n<tr>\n<td>주문 내용</td>\n<td>말린 잎 한 바구니</td>\n</tr>\n<tr>\n<td>처방소 인도</td>\n<td>잎만 가능, 줄기는 보류</td>\n</tr>\n<tr>\n<td>포장자</td>\n<td>확인 못함</td>\n</tr>\n<tr>\n<td>값 조정</td>\n<td>당사자 미합의</td>\n</tr>\n</tbody></table></div>\n<p>감별자는 <code>식물</code>, <code>부위</code>, <code>처방소 인도</code> 세 칸에만 서명함.</p>\n<h2 id=\"케스의-굵은-곁글\">케스의 굵은 곁글</h2>\n<p>줄기는 남의 풀에서 걸어 들어온 것이 아니다. 잎을 달고 같은 불에 말랐고, 붉은 섬유까지 같다.</p>\n<p>내 조카는 마른 묶음을 옮겼을 뿐이다. 빈 바구니는 장터 짐꾼이 가져왔다. 가벼운 잎이 위로 오르고 무거운 줄기가 아래로 간 것은 길이 흔들었기 때문일 수도 있다.</p>\n<p>값을 깎겠다면 줄기 묶음은 돌려줄 것. 잎만 골라 가져가면서 바구니값까지 잎값에서 빼지는 말 것.</p>\n<h2 id=\"미라-벤의-가는-곁글\">미라 벤의 가는 곁글</h2>\n<p>처방표에는 <code>말린 잎</code>이라고 적혀 있다. 줄기가 잎의 친척인 것은 안다. 처방소는 친척까지 주문하지 않았다.</p>\n<p>바구니는 케스 좌판 아래에서 나왔고, 케스의 조카가 붉은 끈을 묶었다. 짐꾼은 손잡이를 들어 감별대까지 옮겼다.</p>\n<p>줄기는 돌려준다. 가르는 품삯은 내지 않는다.</p>\n<h2 id=\"감별대-마감\">감별대 마감</h2>\n<p>포장자 칸의 <code>확인 못함</code> 위에는 케스가 <code>장터 짐꾼</code>이라 썼고, 그 옆에는 미라 벤이 <code>케스의 조카</code>라 썼다. 감별자는 어느 쪽에도 선을 긋지 않았다.</p>\n<p>잎과 줄기를 같은 붉은 끈의 서로 다른 토막으로 묶어 감별대 아래에 두었다.</p>\n<p>해 질 무렵 케스는 줄기 묶음을 가져가지 않았고, 미라 벤은 잎 묶음을 처방소로 옮기지 않았다. 두 사람은 분리 품삯을 누가 낼지 정한 뒤 손을 대겠다고 했다.</p>\n<p>감별대는 그 사이에 끈값만 장부에 올렸다.</p>",
+      "guide": {
+        "id": "ren",
+        "name": "렌",
+        "label": "렌이 짚은 것",
+        "summary": "같은 풀에서 난 잎과 줄기라도 처방이 요구한 부위는 다를 수 있어. 누가 묶었는지와 무엇을 납품했는지는 같은 질문이 아니고, 값 다툼은 그 둘을 가른 뒤에야 시작돼."
+      },
+      "references": [
+        {
+          "term": "감별대",
+          "explanation": "약초나 재료의 종류와 상태를 살펴 분류하는 자리 또는 담당 창구입니다. 납품 이름과 실제 부위가 맞는지 확인합니다."
+        },
+        {
+          "term": "물건표",
+          "explanation": "바구니나 꾸러미 안에 든 물건의 이름, 수량, 보낸 사람 등을 적어 붙인 표입니다. 표의 내용과 실제 물건을 대조해야 합니다."
+        },
+        {
+          "term": "처방소",
+          "explanation": "약재를 정해진 처방에 맞춰 준비하고 나누는 곳입니다. 같은 식물이라도 처방에서 요구한 부위만 받을 수 있습니다."
+        },
+        {
+          "term": "품삯",
+          "explanation": "사람이 한 일에 대해 받는 돈입니다. 약초를 다시 고르거나 분리하는 추가 작업에도 별도 품삯이 붙을 수 있습니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "붉은비탈 잿빛잎 감별 기록 바구니에 묶여 있던 물건표 붉은비탈 잿빛잎 — 잘 말린 잎 한 바구니 그 아래 가는 필체: 윗면에서 잎 세 줌을 확인함 — 미라 벤 굵게 눌러 쓴 곁글: 세 줌을…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_05_S01",
+          "asset": "/assets/library/VSR_INI_ROL_05_S01.webp",
+          "alt": "뒤집힌 약초 바구니에서 같은 붉은 섬유가 붙은 마른 잎과 잘린 줄기가 함께 쏟아진 모습",
+          "aspectRatio": "3:2",
+          "afterParagraph": 6
+        },
+        {
+          "id": "VSR_INI_ROL_05_S02",
+          "asset": "/assets/library/VSR_INI_ROL_05_S02.webp",
+          "alt": "같은 붉은 끈으로 따로 묶인 마른 잎 묶음과 긴 줄기 묶음",
+          "aspectRatio": "4:5",
+          "afterParagraph": 16
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-06",
+      "title": "두 번 퍼도 한 몫이 되지 않은 날",
+      "form": "공동 창고 곡물 배급 중지·보정 기록",
+      "html": "<h1 id=\"창고닫음-전-보리-배급-중지-기록\">창고닫음 전 보리 배급 중지 기록</h1>\n<h2 id=\"첫째-종-배급-시작\">첫째 종, 배급 시작</h2>\n<p>가구 한 곳에 보리 한 몫. 기준은 창고 벽에 매단 큰 배급박 하나임.</p>\n<p>첫 자루를 채우다 큰 배급박의 손잡이가 빠짐. 박은 깨지지 않았으나 손잡이를 다시 박을 때까지 쓰지 않기로 함.</p>\n<p>창고 보조가 예전에 죽콩을 나눌 때 쓰던 반몫박을 가져옴. 반몫박으로 두 번 퍼 주면 큰 배급박 한 번과 같다고 말함.</p>\n<p>대표는 줄이 길고 눈이 오기 시작해 배급을 계속하게 함.</p>\n<h2 id=\"셋째-종-남은-곡물\">셋째 종, 남은 곡물</h2>\n<p>열세 가구 표에 수령 도장을 찍은 뒤, 장부상 준비한 몫보다 곡물이 많이 남아 있었음.</p>\n<p>보조는 사람들이 자루를 작게 가져와 곡물이 겁을 먹고 덜 들어간 것 같다고 말함.</p>\n<p>북쪽 천막의 노인이 자기 자루를 다시 들고 옴. 지난 배급 때와 같은 자루인데 매듭이 손바닥 하나 아래에서 묶인다고 함.</p>\n<h2 id=\"도구-대조\">도구 대조</h2>\n<p>수리한 큰 배급박을 바닥에 놓고 반몫박의 곡물을 두 번 부음.</p>\n<p>큰 배급박의 안쪽 선까지 한 손가락 너비가 비었음.</p>\n<p>반몫박의 테두리는 한쪽이 닳아 낮아져 있었음. 그쪽으로 곡식을 훑을 때마다 반몫보다 적게 담김.</p>\n<p>보조는 그래도 두 번씩 펐다고 말함.</p>\n<p>대표는 푼 횟수는 둘이 맞고, 받은 몫은 하나가 아니라고 기록함.</p>\n<h2 id=\"배급-중지\">배급 중지</h2>\n<p>열넷째 가구부터는 수리한 기준 배급박을 사용함.</p>\n<p>앞서 받아 간 열세 가구에 사람을 보냄. 해 지기 전 가까운 열 가구가 자루를 다시 가져옴. 한 자루씩 기준박에 부어 같은 선까지 보리를 보탬.</p>\n<p>강 건너 벌목막 두 곳과 남쪽 염소우리 한 곳은 이미 돌아갈 길을 떠남. 세 가구 몫의 부족분을 따로 재어 작은 자루에 넣고 가구 표식을 묶음.</p>\n<p>눈이 굵어져 그날 전달하지 못함.</p>\n<h2 id=\"닫기-전-기록\">닫기 전 기록</h2>\n<p>창고 보조에게 반몫박의 닳은 테두리를 언제 알았는지 물음.</p>\n<p>처음에는 큰 배급박에 부어 본 뒤 알았다고 답함. 이어 죽콩을 나눌 때도 한쪽으로 기울여야 했다고 말함. 그때 닳은 것을 보았느냐고 다시 묻자 내일 답하겠다고 함.</p>\n<p>반몫박은 배급 도구에서 빼고 창고 안에 남김. 처분과 보조 책임은 대표 셋이 다음 날 함께 정하기로 함.</p>\n<p>문 안쪽에 부족분 자루 세 개가 놓여 있음. 내일 첫째 종 전에 강 건너 두 곳과 남쪽 한 곳에 보낼 것.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "두 번 퍼냈다는 횟수와 기준 한 몫을 채웠다는 결과는 같지 않다. 닳은 반몫박을 기준박에 부어 본 대조가 사람들의 기억보다 정확하다."
+      },
+      "references": [
+        {
+          "term": "배급박",
+          "explanation": "곡물처럼 부피로 나누는 물품을 일정하게 재기 위한 표준 나무 그릇입니다. 같은 횟수를 퍼도 그릇 크기가 다르면 실제 양이 달라집니다."
+        },
+        {
+          "term": "반몫박",
+          "explanation": "한 사람 몫의 절반을 재도록 만든 작은 계량 그릇입니다. 테두리가 닳거나 깨지면 정해진 절반보다 적게 담길 수 있습니다."
+        },
+        {
+          "term": "가구 표식",
+          "explanation": "배급을 받을 집이나 가족 단위를 구분하는 이름표입니다. 사람 이름뿐 아니라 가구번호와 배급 명부를 함께 확인합니다."
+        },
+        {
+          "term": "보정",
+          "explanation": "기준보다 적거나 많게 나간 양을 다시 계산해 맞추는 절차입니다. 부족분을 언제 어떻게 채울지도 기록으로 남깁니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "창고닫음 전 보리 배급 중지 기록 첫째 종, 배급 시작 가구 한 곳에 보리 한 몫. 기준은 창고 벽에 매단 큰 배급박 하나임. 첫 자루를 채우다 큰 배급박의 손잡이가 빠짐. 박은 깨지지 않…",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_06_S01",
+          "asset": "/assets/library/VSR_INI_ROL_06_S01.webp",
+          "alt": "보리가 안쪽 기준 흔적보다 낮게 차 있는 낮은 목제 기준 배급박",
+          "aspectRatio": "3:2",
+          "afterParagraph": 10
+        },
+        {
+          "id": "VSR_INI_ROL_06_S02",
+          "asset": "/assets/library/VSR_INI_ROL_06_S02.webp",
+          "alt": "폭설이 내리는 열린 창고 문 안에 서로 다른 표식을 달고 남은 부족분 자루 세 개",
+          "aspectRatio": "4:5",
+          "afterParagraph": 20
+        }
+      ]
+    },
+    {
+      "id": "ini-rol-07",
+      "title": "돌기둥에 새 밧줄 자국이 난 새벽",
+      "form": "썰물 중 계류줄 위험으로 작업을 멈춘 하역 보조 진술과 감독 여백",
+      "html": "<h1 id=\"마르켈미르-새벽-하역-중지-진술\">마르켈미르 새벽 하역 중지 진술</h1>\n<p>하역 인력장 품삯 담당에게.</p>\n<p>나는 어제 새벽 <code>긴물결</code>의 타르 통을 내리던 보조 파리아다. 마지막 통 하나를 남겨 두고 작업을 멈춘 까닭과, 멈춘 뒤 두 종 동안의 품삯을 적는다.</p>\n<p>첫째 종에는 배와 돌부두의 높이가 거의 같았다. 발판은 두 사람이 나란히 걸을 만큼 누워 있었고, 선수줄과 선미줄은 돌기둥에 짧게 매여 있었다. 타르 통 셋 가운데 둘을 내릴 때까지 문제는 없었다.</p>\n<p>셋째 통을 그물에 걸 무렵 부두 벽의 젖은 물선이 내 무릎 아래로 내려갔다. 배도 물을 따라 낮아졌다.</p>\n<p>선미줄이 먼저 소리를 냈다. 젖은 밧줄이 돌기둥 모서리를 파고들며 검은 홈을 만들었다. 곧 발판의 배 쪽 걸쇠가 반쯤 들렸고, 선체는 부두 쪽으로 조금 기울었다.</p>\n<p>나는 손을 떼라고 외쳤다. 도르래를 돌리던 두 사람이 멈췄고, 타르 통은 아직 배 위에서 그물에 걸린 채였다.</p>\n<p>하역 감독 세론은 배가 떠난 것도 아닌데 통 하나 때문에 일을 끊느냐고 했다.</p>\n<p>배가 떠나지는 않았다고 답했다. 아래로 내려가고 있을 뿐이라고도 말했다.</p>\n<p>그사이 돌기둥의 홈이 손가락 하나만큼 길어졌다. 선미의 낮은 창이 부두 턱에 가까워졌고, 발판 걸쇠는 손바닥 하나가 들어갈 만큼 들렸다.</p>\n<p>선원 하나와 내가 선미줄을 조금 풀었다. 배가 바로 서자 발판 걸쇠가 다시 내려앉았다. 다만 걸쇠 끝이 휘어 셋째 통은 내리지 않았다.</p>\n<p>물때 담당은 다음 밀물 첫째 종까지 같은 발판을 쓰지 말라고 했다. 하역 감독은 다른 발판을 가져오면 된다고 했으나, 돌기둥의 밧줄 홈과 휜 걸쇠를 본 뒤 더 말하지 않았다.</p>\n<p>타르 통은 깨지지 않았다. 배와 돌부두에도 새 파손은 없다. 선미줄 겉실이 한 뼘 벗겨졌고 발판 걸쇠 하나를 수리소로 보냈다.</p>\n<p>작업 중지는 내 외침으로 시작했지만, 줄을 짧게 맨 사람과 물때를 놓친 사람이 누구인지는 내가 정하지 못한다.</p>\n<p>다음 밀물 첫째 종에 하역을 다시 시작했다. 셋째 통은 다른 발판으로 내렸다.</p>\n<p>대기 두 종의 품삯 칸은 아직 비어 있다.</p>\n<p>파리아.</p>\n<p><strong>하역 감독 세론의 여백</strong></p>\n<p>작업을 멈춘 사실은 맞음. 대기 품삯을 내가 낸다는 뜻은 아님.</p>",
+      "guide": {
+        "id": "duran",
+        "name": "듀란",
+        "label": "듀란의 확인",
+        "summary": "배가 부두에 붙어 있어도 물높이가 바뀌면 줄과 발판에 걸리는 힘은 달라진다. 멈춘 책임과 사고를 막은 판단, 대기 품삯을 누가 낼지는 각각 따로 기록해야 한다."
+      },
+      "references": [
+        {
+          "term": "물때·썰물·밀물",
+          "explanation": "바닷물이 주기적으로 빠지고 들어오는 흐름과 그 시각을 뜻합니다. 배의 높이와 부두 작업 조건이 물때에 따라 달라집니다."
+        },
+        {
+          "term": "계류줄",
+          "explanation": "배가 부두에서 떠밀려 가지 않도록 기둥이나 고리에 묶는 밧줄입니다. 물높이가 바뀌면 줄의 장력도 달라져 조정이 필요합니다."
+        },
+        {
+          "term": "발판 걸쇠",
+          "explanation": "배와 부두 사이의 발판이 미끄러지거나 떨어지지 않게 고정하는 걸쇠입니다. 하역을 시작하기 전에 상태를 확인합니다."
+        },
+        {
+          "term": "대기 두 종의 품삯",
+          "explanation": "작업자가 하루의 두 시간 구간 동안 기다린 노동 대가를 뜻합니다. 대기 원인과 계약 내용에 따라 지급 주체를 따로 확인해야 합니다."
+        }
+      ],
+      "minutes": 3,
+      "excerpt": "마르켈미르 새벽 하역 중지 진술 하역 인력장 품삯 담당에게. 나는 어제 새벽 긴물결 의 타르 통을 내리던 보조 파리아다. 마지막 통 하나를 남겨 두고 작업을 멈춘 까닭과, 멈춘 뒤 두 종 …",
+      "regionIds": [],
+      "illustrations": [
+        {
+          "id": "VSR_INI_ROL_07_S01",
+          "asset": "/assets/library/VSR_INI_ROL_07_S01.webp",
+          "alt": "높은 물때의 돌벽 앞 목제 갑판에서 그물에 든 타르 통을 다루는 작업자들",
+          "aspectRatio": "3:2",
+          "afterParagraph": 3
+        },
+        {
+          "id": "VSR_INI_ROL_07_S02",
+          "asset": "/assets/library/VSR_INI_ROL_07_S02.webp",
+          "alt": "계류 기둥에 묶여 낮은 수면 방향으로 팽팽하게 내려가는 굵은 젖은 밧줄",
+          "aspectRatio": "16:9",
+          "afterParagraph": 9
+        }
+      ]
+    }
+  ],
+  "starts": [
+    {
+      "id": "gate-arrival",
+      "title": "성문 앞에서 시작",
+      "type": "기본 시작상황",
+      "role": "도시에 막 도착한 자유 여행자",
+      "problem": "베켈 오르민이 낡은 목패의 출처와 비어 있는 보증인 칸을 묻는다.",
+      "invitation": "같은 장소도 부르는 이름이 다르고, 같은 표식도 그것을 가진 까닭까지 대신 말해 주지는 않습니다. 이름과 소유, 허가와 보증을 다룬 네 기록을 읽고 베켈에게 무엇을 먼저 설명할지 정해 보세요.",
+      "documentIds": [
+        "ini-com-02",
+        "ini-rol-02",
+        "ini-com-06",
+        "ini-com-03"
+      ],
+      "image": "/assets/starts/gate-arrival.webp",
+      "imageAlt": "낮의 성문으로 걸어가는 자유 여행자"
+    },
+    {
+      "id": "gate-watch",
+      "title": "성문 야간 경비",
+      "type": "완성형 시작상황",
+      "role": "티리스 베크켈카르 서문의 신참 야간 경비",
+      "problem": "흐려진 목패를 든 사람이 야간 개문을 요구한다.",
+      "invitation": "문을 지키는 사람은 무엇을 확인하고, 어디까지 스스로 결정할 수 있을까. 서문 교대 전에 네 기록을 읽어 보세요.",
+      "documentIds": [
+        "ini-com-03",
+        "ini-com-04",
+        "ini-com-07",
+        "ini-rol-01"
+      ],
+      "image": "/assets/starts/gate-watch.webp",
+      "imageAlt": "티리스 베크켈카르의 성문과 성벽"
+    },
+    {
+      "id": "mercenary-contract",
+      "title": "떠돌이 용병의 첫 계약",
+      "type": "완성형 시작상황",
+      "role": "헤스페레트 헤스켈카르의 떠돌이 호위꾼",
+      "problem": "호위 대상과 손실 책임이 빈 계약서에 선금을 제안받는다.",
+      "invitation": "선금은 반갑지만 빈칸은 오래 남습니다. 길과 품삯, 보증을 둘러싼 네 기록을 읽고 첫 계약을 판단해 보세요.",
+      "documentIds": [
+        "ini-com-05",
+        "ini-com-06",
+        "ini-com-04",
+        "ini-rol-02"
+      ],
+      "image": "/assets/starts/mercenary-contract.webp",
+      "imageAlt": "설산 길목의 헤스페레트 헤스켈카르"
+    },
+    {
+      "id": "held-cargo",
+      "title": "항구에서 묶인 짐",
+      "type": "완성형 시작상황",
+      "role": "노르가르드 마르나브미르의 외지 짐 소유자",
+      "problem": "같은 화물이 상인길드 장부와 왕실해군 장부에 다르게 기록되어 있다.",
+      "invitation": "짐은 하나인데 기록은 둘입니다. 이름과 장부, 증언이 어긋난 네 사례를 읽고 무엇부터 대조할지 생각해 보세요.",
+      "documentIds": [
+        "ini-com-02",
+        "ini-com-03",
+        "ini-com-04",
+        "ini-rol-03"
+      ],
+      "image": "/assets/starts/held-cargo.webp",
+      "imageAlt": "노르가르드 마르나브미르의 항구와 부두"
+    },
+    {
+      "id": "strange-tracks",
+      "title": "사냥꾼의 이상한 발자국",
+      "type": "완성형 시작상황",
+      "role": "실바니아 워크켈할 인근 숲가 마을의 추적자",
+      "problem": "낯선 발자국과 방향이 뒤집힌 경계표식을 발견한다.",
+      "invitation": "숲에서는 틀린 표식 하나가 먼 길을 돌아오게 합니다. 시간과 길, 소문과 현장 흔적을 다룬 네 기록을 읽어 보세요.",
+      "documentIds": [
+        "ini-com-01",
+        "ini-com-06",
+        "ini-com-07",
+        "ini-rol-04"
+      ],
+      "image": "/assets/starts/strange-tracks.webp",
+      "imageAlt": "실바니아 워크켈할의 숲가 마을"
+    },
+    {
+      "id": "market-ledger",
+      "title": "장터와 납품 장부",
+      "type": "확장 시작역할",
+      "role": "실니메트 실메르미르 약초 장터의 외지 상인 또는 필사 보조",
+      "problem": "납품표와 봉인끈 표식이 어긋난다.",
+      "invitation": "장터에서는 이름, 값, 표식이 따로 놀 때가 있습니다. 세 가지 생활 기록과 한 건의 약초 분쟁을 읽어 보세요.",
+      "documentIds": [
+        "ini-com-03",
+        "ini-com-05",
+        "ini-com-02",
+        "ini-rol-05"
+      ],
+      "image": "/assets/starts/market-ledger.webp",
+      "imageAlt": "실니메트 실메르미르의 약초 장터"
+    },
+    {
+      "id": "ration-line",
+      "title": "피난민 배급 줄",
+      "type": "확장 시작역할",
+      "role": "센할레트 센푸쿰 공동 창고의 배급 대상자 또는 창고 보조",
+      "problem": "이름패와 배급 명부의 가구번호가 맞지 않는다.",
+      "invitation": "한 사람의 몫은 숫자 하나로 정해지지만, 숫자를 고치는 일은 그보다 복잡합니다. 이름과 표식, 기록의 책임을 다룬 네 편을 읽어 보세요.",
+      "documentIds": [
+        "ini-com-02",
+        "ini-com-03",
+        "ini-com-04",
+        "ini-rol-06"
+      ],
+      "image": "/assets/starts/ration-line.webp",
+      "imageAlt": "수로와 창고가 이어진 센할레트 센푸쿰"
+    },
+    {
+      "id": "harbor-dawn",
+      "title": "항만과 선착장의 새벽",
+      "type": "확장 시작역할",
+      "role": "켈나베트 마르켈미르 자유항의 승객, 짐꾼 또는 선적 보조",
+      "problem": "배표의 선박명과 부두 출항판이 어긋난다.",
+      "invitation": "새벽 항구에서는 시간과 이름과 길이 한꺼번에 움직입니다. 출항 전에 네 기록을 읽고 어떤 말을 곧이곧대로 믿지 않을지 살펴보세요.",
+      "documentIds": [
+        "ini-com-01",
+        "ini-com-02",
+        "ini-com-06",
+        "ini-rol-07"
+      ],
+      "image": "/assets/starts/harbor-dawn.webp",
+      "imageAlt": "켈나베트 마르켈미르 자유항의 선착장"
+    }
+  ],
+  "guide": [
+    {
+      "id": "first",
+      "title": "비레스에 첫발을 들이면",
+      "eyebrow": "처음 만나는 비레스",
+      "storyIds": [
+        "ini-com-01"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "비레스는 두 달이 뜨는 판타지 세계예요. 성벽으로 둘러싸인 도시와 배가 드나드는 항구, 밭과 숲이 가까운 마을이 있고, 그 안에서 다양한 사람들이 살아가요."
+        },
+        {
+          "type": "heading",
+          "text": "어떤 모습을 떠올리면 될까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "쇠를 두드려 도구를 만드는 장인, 수레에 물건을 싣는 상인, 책을 손으로 베끼는 사람을 떠올려보세요. 이곳에는 성채와 선박, 극장과 학교가 있어요. 물건을 만들고 먼 곳의 소식을 전하는 일에는 사람들의 손과 시간이 많이 필요해요."
+        },
+        {
+          "type": "heading",
+          "text": "어떤 이야기를 만날 수 있나요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "우리가 만나볼 때는 5083년이에요. 왕과 기사들의 결정도 중요하지만, 장터의 한 끼와 항구의 일거리에도 이 시대의 사정이 담겨 있어요. 누군가에게는 배가 떠나는 일이, 다른 누군가에게는 고향에 돌아가는 일이 가장 큰 관심사죠."
+        },
+        {
+          "type": "heading",
+          "text": "마음에 드는 곳부터 만나보세요"
+        },
+        {
+          "type": "paragraph",
+          "text": "나라의 이름을 전부 외우지 않아도 괜찮아요. 풍경이 궁금하면 지역 소개를, 사람의 사연이 궁금하면 이야기서고를 펼쳐보세요. 먼저 눈에 들어온 이름 하나에서 시작해도 좋아요."
+        },
+        {
+          "type": "paragraph",
+          "text": "비레스에서 밤하늘을 올려다보면 무엇이 보일까요? 두 달의 이름부터 알아보세요. 하늘 이야기도 어렵게 시작할 필요는 없어요."
+        },
+        {
+          "type": "heading",
+          "text": "두 달을 소개할게요"
+        },
+        {
+          "type": "paragraph",
+          "text": "밝은 달은 ‘카엘룸’, 더 어두운 달은 ‘움브라’예요. 특히 카엘룸은 밤길을 밝히고 바닷물이 들고 나는 데 큰 영향을 줘요. 항구 사람들에게 달의 변화는 배를 움직이고 일을 할 때 살펴야 하는 일이기도 하죠."
+        },
+        {
+          "type": "paragraph",
+          "text": "낮에 비레스를 비추는 별의 이름은 ‘아리온’이에요. 우리에게 태양이 있다면, 비레스에는 아리온이 있다고 생각하시면 쉬워요."
+        },
+        {
+          "type": "heading",
+          "text": "같은 계절에도 풍경이 달라요"
+        },
+        {
+          "type": "paragraph",
+          "text": "비레스의 한 해는 길지만, 어디서나 같은 날씨가 이어지는 건 아니에요. 따뜻한 곳에서는 비가 많이 오는 때와 건조한 때가 중요하고, 추운 북쪽에서는 짧은 동안 먹을거리를 마련해 긴 추위에 대비해야 해요."
+        },
+        {
+          "type": "paragraph",
+          "text": "산이 높아지면 같은 지역에서도 더 춥고 눈이 남아 있을 수 있어요. 어느 나라에 가는지만큼 어떤 길로 가는지도 생활을 바꿔요."
+        },
+        {
+          "type": "heading",
+          "text": "땅에서 얻는 것도 달라요"
+        },
+        {
+          "type": "paragraph",
+          "text": "산에서는 금속과 돌을 얻고, 강과 바다 가까운 낮은 땅에서는 점토와 소금 같은 재료를 얻어요. 주변에서 구할 수 있는 재료는 집을 짓고 물건을 만드는 일에도 영향을 줘요."
+        },
+        {
+          "type": "paragraph",
+          "text": "한 지역의 풍경을 볼 때 공방이나 창고도 함께 살펴보세요. 그 땅에서 무엇을 얻고 어떤 일을 하며 사는지 짐작하는 데 도움이 돼요."
+        },
+        {
+          "type": "heading",
+          "text": "아름다운 곳에도 살펴야 할 일이 있어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "산에서는 눈길과 산사태를, 강가에서는 불어난 물을 조심해야 해요. 화산이 있는 곳에서는 분화의 징후를 살피는 사람들도 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "이곳 사람들은 오래 쌓아온 경험과 관찰, 전해지는 이야기를 바탕으로 자연을 이해해요. 같은 하늘을 보고도 어떤 이는 날씨를 걱정하고 어떤 이는 신앙의 뜻을 찾죠. 그 차이도 비레스의 이야기를 읽는 재미예요."
+        },
+        {
+          "type": "paragraph",
+          "text": "비레스에서는 어떤 사람들을 만나게 될까요? 고향도 모습도 다양한 만큼, 새로운 인물을 알아가는 재미가 있어요. 낯선 집단 이름 몇 가지만 먼저 소개해 드릴게요."
+        },
+        {
+          "type": "heading",
+          "text": "같은 인간이어도 생활은 달라요"
+        },
+        {
+          "type": "paragraph",
+          "text": "인간은 비레스의 여러 나라에서 살아가요. 궁정에서 일하는 사람, 배를 타는 사람, 가축을 기르며 옮겨 다니는 사람의 하루는 많이 다르겠죠. 그래서 종족과 함께 고향과 하는 일도 살펴보면 좋아요."
+        },
+        {
+          "type": "heading",
+          "text": "이름에 담긴 생활을 알아볼까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "‘페르브루니르’는 철맥계라고도 불러요. 금속과 돌을 다루는 일에 오랜 지식을 가진 집단이에요. 광산과 공방뿐 아니라 항구에서 금속을 다루거나 물건을 운반하는 사람도 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "‘실레니르’는 숲기록계예요. 오래된 글과 가문의 기록, 숲길의 표식을 이어온 사람들이죠. 숲에서만 사는 건 아니에요. 도시에서 책을 베끼거나 기록을 살피는 사람도 만날 수 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "‘메르세니르’는 씨앗상단계라고 불러요. 씨앗을 보관하고, 장터에서 거래를 돕고, 물건을 팔러 여러 곳을 오가는 생활과 가까워요."
+        },
+        {
+          "type": "heading",
+          "text": "한 이름으로 모두를 알 수는 없어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "같은 집단이라고 모두 같은 일을 하거나 같은 편을 드는 건 아니에요. 북방의 사람들 역시 하나의 종족으로 묶기 어려울 만큼 다양한 집단이 함께 살아가요. 항구나 국경 가까운 도시에는 서로 다른 고향과 혈통을 가진 가족들도 있고요."
+        },
+        {
+          "type": "paragraph",
+          "text": "인물대백과에서는 한 사람씩 천천히 알아보세요. 무엇을 좋아하는지, 어떤 일을 맡고 있는지까지 읽어보면 이름 뒤에 있는 그 사람의 생활이 보일 거예요."
+        }
+      ]
+    },
+    {
+      "id": "daily",
+      "title": "이곳의 하루는 어떻게 흐를까요?",
+      "eyebrow": "먹고, 쉬고, 살아가는 일",
+      "storyIds": [
+        "ini-com-01",
+        "ini-com-05"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "오늘은 뭘 먹고, 어디에서 쉬면 좋을까요? 비레스의 일상에도 익숙한 고민이 있어요. 작은 생활 모습부터 들여다보면 이곳이 더 쉽게 떠오를 거예요."
+        },
+        {
+          "type": "heading",
+          "text": "어느 식탁이 궁금하세요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스에서는 귀리죽과 보리빵, 양젖 치즈를 먹어요. 특별한 날에는 구운 고기가 식탁에 오르기도 하죠. 노르가르드의 항구에서는 검은 빵과 생선 수프, 절인 뿌리채소를 만날 수 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "린레네트에는 극장 앞에서 파는 간식과 차도 있어요. 다만 같은 도시에서도 형편에 따라 식사는 달라요. 후원자의 만찬과 가난한 학생의 빵 한 조각을 나란히 떠올리면 이곳의 생활이 조금 더 잘 보일 거예요."
+        },
+        {
+          "type": "heading",
+          "text": "낯선 곳에서 하룻밤을 보낸다면"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스에는 마을의 손님방과 여관이 있고, 노르가르드의 선원 숙소에서는 침상 하나씩 값을 받기도 해요. 항구에서는 손님에게 따뜻한 국물과 젖은 옷을 말릴 자리를 내어주면서 어느 배에서 왔는지도 물어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "고향이나 함께 온 사람을 묻는 말은 단순한 인사만은 아니에요. 누가 손님의 사정을 알고 있는지 확인하는 뜻도 있어요."
+        },
+        {
+          "type": "heading",
+          "text": "달력도 조금 달라요"
+        },
+        {
+          "type": "paragraph",
+          "text": "비레스의 하루는 26시간, 한 해는 660일이에요. 지역마다 날짜를 묶어 세는 방법은 달라요. 티리스와 레오니아를 비롯한 중심 지역에서는 열흘을 한 묶음으로 쓰고, 다른 지역에서는 항해나 계절 이동에 맞는 달력을 써요. 모두 외울 필요는 없어요. 방문한 곳의 장날과 쉬는 날부터 알아보면 돼요."
+        },
+        {
+          "type": "heading",
+          "text": "같은 장소에 이름이 둘일 수도 있어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "‘베크켈카르’와 ‘레이븐스톤’은 같은 곳을 가리켜요. 앞의 이름은 관청 문서에서, 뒤의 이름은 일상에서 쓰여요. 처음 보는 이름이 나와도 걱정하지 마세요. 안내와 사전에서 함께 찾아볼 수 있도록 풀어드릴게요."
+        }
+      ]
+    },
+    {
+      "id": "places",
+      "title": "마음이 가는 곳을 찾아서",
+      "eyebrow": "나라와 도시, 그리고 마을",
+      "storyIds": [
+        "ini-com-02"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "비레스에는 어떤 곳들이 있을까요? 여기서는 스무 곳의 나라와 지역을 소개해 드릴 거예요. 먼저 어떤 풍경이 마음에 드는지 골라보세요."
+        },
+        {
+          "type": "heading",
+          "text": "궁정과 항구, 밭과 극장이 궁금하다면"
+        },
+        {
+          "type": "paragraph",
+          "text": "레오니아에서는 궁정과 기사들의 생활을, 노르가르드에서는 배와 철을 다루는 항구의 모습을 만나볼 수 있어요. 티리스에는 농사와 목축으로 살아가는 마을들이 있고, 린레네트에는 극장과 기록원, 글과 예술을 배우는 학교가 모여 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "이 나라들을 포함한 중심 지역을 ‘에덴포르트 중심권’이라고 불러요. 여러 나라를 함께 묶어 부르는 이름으로 생각하시면 돼요. 모두 한 왕의 다스림을 받는다는 뜻은 아니에요."
+        },
+        {
+          "type": "heading",
+          "text": "북쪽으로 가면 무엇이 달라질까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "북쪽에는 추운 날씨와 산길에 익숙한 사람들이 있어요. 헤스페레트에서는 무기와 용병의 이야기뿐 아니라, 겨울을 날 먹을거리를 보관하고 고개를 오가는 사람들의 생활도 살펴볼 수 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "바다 쪽에 관심이 간다면 켈나베트를 찾아보세요. 항해에 쓸 지도를 구하고 먼바다로 떠날 준비를 하는 사람들의 이야기가 기다려요."
+        },
+        {
+          "type": "heading",
+          "text": "산과 숲, 강을 따라가고 싶다면"
+        },
+        {
+          "type": "paragraph",
+          "text": "남쪽의 여러 지역에는 수도원과 약초를 사고파는 곳, 가축과 함께 옮겨 다니는 초지, 숲과 강가의 항구가 있어요. 실니메트의 약초, 가르메베트의 가축과 초지, 메르할레트의 강을 오가는 물건들처럼 각 지역을 알아가는 출발점도 달라요."
+        },
+        {
+          "type": "heading",
+          "text": "아직 다 알려지지 않은 곳도 있어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "실바니아, 드래곤스파이어, 펜리르의 눈은 오래된 글과 탐사 기록, 항해담으로 알려진 곳들이에요. 숲과 화산 군도, 먼바다에 어떤 이야기가 전해지는지 살펴보세요."
+        },
+        {
+          "type": "paragraph",
+          "text": "다만 전해지는 이야기만으로 모든 곳의 모습을 알 수는 없어요. 지역 소개에서는 확인된 내용과 아직 이야기로 전해지는 내용을 함께 구분해 드릴게요."
+        }
+      ]
+    },
+    {
+      "id": "roads",
+      "title": "장터에서 길 끝까지",
+      "eyebrow": "물건과 소식이 오가는 길",
+      "storyIds": [
+        "ini-com-05",
+        "ini-com-06"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "장터에서 산 빵 한 덩이, 수레에 실린 나무 한 묶음은 어디에서 왔을까요? 물건이 오가는 길을 따라가면 비레스의 여러 지역이 어떻게 이어져 있는지 알 수 있어요."
+        },
+        {
+          "type": "heading",
+          "text": "무엇을 하며 먹고살까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스와 센할레트에서는 곡물과 씨앗이 중요하고, 노르가르드에서는 배와 철을 다루는 일이 활발해요. 실니메트에는 약초를 말리고 사고파는 사람들, 린레네트에는 책을 베끼거나 공연을 준비하는 사람들이 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "어떤 일을 하느냐에 따라 필요한 이웃도 달라져요. 배를 고치는 사람에게는 좋은 재료와 숙련된 손이 필요하고, 물건을 파는 사람에게는 제때 짐을 옮겨줄 사람이 필요하죠."
+        },
+        {
+          "type": "heading",
+          "text": "오래 쓸 물건과 오래 둘 먹을거리"
+        },
+        {
+          "type": "paragraph",
+          "text": "장인들은 쇠를 다루고 돌을 깎으며 수레와 배를 고쳐요. 사람들은 먹을거리를 말리거나 소금에 절이고, 창고에 바람이 잘 통하게 해 오래 보관하려고 해요. 기술이 있어도 재료와 일손이 부족하면 어려움을 겪어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "함께 쓰는 창고에서는 오늘 먹을 곡물뿐 아니라 다음 농사에 쓸 씨앗도 챙겨야 해요. 그래서 무엇을 얼마나 남길지가 중요한 이야깃거리가 되죠."
+        },
+        {
+          "type": "heading",
+          "text": "길을 떠날 때는 무엇을 살필까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "수레가 다니는 길과 강, 산길과 바닷길에는 각각 다른 사정이 있어요. 진흙 때문에 수레가 늦어지거나, 눈과 안개 때문에 고개를 넘기 어려워질 수 있어요. 배는 물이 들고 나는 때와 날씨도 살펴야 하고요."
+        },
+        {
+          "type": "paragraph",
+          "text": "소식도 사람과 함께 움직여요. 멀리서 온 이야기는 도착하기까지 시간이 걸리고, 전하는 동안 내용이 달라지기도 해요."
+        },
+        {
+          "type": "heading",
+          "text": "몸이 아프면 어디로 갈까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "약초상이나 신전에서 돌보는 사람들, 수도원과 성채의 치료자에게 도움을 구하기도 해요. 지역마다 아는 치료법과 구할 수 있는 약이 달라서, 낯선 곳에서는 어디에서 도움을 받을 수 있는지 알아두면 좋아요."
+        }
+      ]
+    },
+    {
+      "id": "promises",
+      "title": "함께 살아가며 지키는 약속",
+      "eyebrow": "믿음과 이름, 기록의 힘",
+      "storyIds": [
+        "ini-com-03",
+        "ini-rol-01"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "마을에서 다툼이 생기면 누구를 찾아가야 할까요? 비레스에서는 사는 곳과 문제의 종류에 따라 도움을 구할 곳이 달라요. 사람들이 무엇을 믿고 중요하게 여기는지도 함께 알아볼까요?"
+        },
+        {
+          "type": "heading",
+          "text": "누구에게 물어보면 될까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "왕이 다스리는 나라에도 마을과 영지의 일을 맡은 사람들이 있어요. 항구에서 배의 짐을 두고 생긴 다툼은 항만 법정에서, 장터의 계약 문제는 상업 법원에서 다루기도 해요."
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스의 왕실 법정과 레이븐스톤의 성문, 뉴할로우의 배급소도 맡은 일이 서로 달라요. 한 곳에서 받은 허락으로 모든 일이 해결되는 건 아니에요."
+        },
+        {
+          "type": "heading",
+          "text": "믿음은 일상에도 스며 있어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스에서는 농사와 씨앗을 둘러싼 믿음과 의례를 만날 수 있어요. 노르가르드에는 바다와 관련된 신앙과 난파한 이들을 기리는 장례가 있고요. 실할레트에서는 사람들이 신성하게 여기는 숲에서 나무를 베거나 식물을 채집할 때 지켜야 할 규칙이 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "사람들이 어떤 날을 기리고 무엇을 함부로 건드리지 않는지 알아두면, 그곳의 풍습도 이해하기 쉬워져요."
+        },
+        {
+          "type": "heading",
+          "text": "성문에서 이름을 묻는 까닭"
+        },
+        {
+          "type": "paragraph",
+          "text": "성문에서는 어디에서 왔는지, 왜 들어가려는지, 그 사정을 확인해 줄 사람이 있는지 물을 수 있어요. 물건이나 무기를 가져왔다면 그것도 살펴보고요. 낯선 곳에 들어가기 전에는 필요한 준비를 알아두는 게 좋아요."
+        },
+        {
+          "type": "heading",
+          "text": "‘낮은 율례’는 무슨 뜻일까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스 일부 지역에는 어려운 사람을 대할 때 무엇을 살펴야 하는지 전해 내려오는 말들이 있어요. 이를 ‘낮은 율례’라고 불러요. 정식 법전은 아니지만 법정과 마을에서 판단을 돕는 말로 쓰여요."
+        },
+        {
+          "type": "paragraph",
+          "text": "먹을거리를 셀 때 굶주린 사람의 이름도 살펴야 한다는 뜻이 그 안에 담겨 있어요. 이런 말을 알아두면 서고의 기록에서도 눈에 들어오는 대목이 생길 거예요."
+        }
+      ]
+    },
+    {
+      "id": "history",
+      "title": "오래된 이야기가 오늘에 닿을 때",
+      "eyebrow": "지나온 시간과 지금의 사람들",
+      "storyIds": [
+        "ini-com-07",
+        "ini-rol-06"
+      ],
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "나라의 이름이 바뀌어도 예전의 흔적은 남아요. 마을에서 지키는 약속, 오래된 장소 이름, 할머니와 할아버지에게 들은 이야기 속에도 지나온 시간이 담겨 있죠. 지금의 비레스를 이해하는 데 도움이 되는 옛일을 조금 살펴볼까요?"
+        },
+        {
+          "type": "heading",
+          "text": "함께 먹고살기 위해 약속을 만들었어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "먼 옛날 사람들은 씨앗을 보관하고 우물을 함께 쓰며 살아갔어요. 사람이 모이면서 곡식을 나누고 물길을 관리하는 일이 커졌고, 이를 맡은 곳들이 힘을 얻었어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "센할레트에서 공동 창고와 물길을 중요하게 여기는 데에도 그런 역사가 있어요. 나라의 역사는 왕이 바뀐 이야기뿐 아니라, 사람들이 함께 살아갈 방법을 정해온 이야기이기도 해요."
+        },
+        {
+          "type": "heading",
+          "text": "고향을 떠난 뒤에도 삶은 이어져요"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스 서부의 이야기를 읽을 때는 이 세 시점을 알아두면 좋아요."
+        },
+        {
+          "type": "list",
+          "text": "- 5068년: 노르가르드의 침공으로 티리스의 그린할로우가 무너지고 주민들이 피난을 떠났어요.\n- 5069~5082년: 피난 온 사람들이 뉴할로우에 다시 자리를 잡아갔어요. 씨앗과 목재, 먹을거리가 새 정착지로 모였죠.\n- 5083년: 지금도 고향으로 돌아갈 권리와 새 삶터의 문제를 두고 이야기가 이어지고 있어요."
+        },
+        {
+          "type": "paragraph",
+          "text": "그래서 누군가의 옛 고향 이름은 지금 어디에서 살고 어떤 도움을 받을 수 있는지와도 이어져요."
+        },
+        {
+          "type": "heading",
+          "text": "전해지는 이야기도 만나보세요"
+        },
+        {
+          "type": "paragraph",
+          "text": "레오니아에는 「용의 심장과 빈 왕좌」, 켈나베트에는 「세 번 접힌 해도」라는 전승이 있어요. 전승은 사람들이 오랫동안 전해온 이야기라는 뜻이에요. 해도를 어떻게 펼치느냐에 따라 다른 것이 보인다는 이야기도 전해지죠."
+        },
+        {
+          "type": "paragraph",
+          "text": "이런 이야기가 모두 실제로 일어났다고 확인된 건 아니에요. 그래도 사람들이 무엇을 믿고 두려워했는지는 엿볼 수 있어요."
+        },
+        {
+          "type": "heading",
+          "text": "다음 이야기는 서고에서"
+        },
+        {
+          "type": "paragraph",
+          "text": "큰 흐름을 알았다면 이제 한 사람의 글을 읽어보세요. 편지와 기록에는 그 사람이 직접 보고 들은 일과 생각이 함께 담겨 있어요. 같은 일을 다르게 적은 글을 만나면 무엇이 달랐을지 생각해 보는 재미도 있을 거예요."
+        },
+        {
+          "type": "paragraph",
+          "text": "지금 비레스 사람들은 어떤 일을 겪고 있을까요? 같은 시대를 살아도 궁정과 항구, 농촌에서 들려오는 이야기는 조금씩 달라요."
+        },
+        {
+          "type": "heading",
+          "text": "큰 나라의 일은 어디까지 닿을까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "레오니아는 왕실과 기사들의 힘이 큰 나라예요. 궁정에서 물건을 주문하면 이를 만드는 공방과 재료를 구해오는 사람들도 바빠져요. 주문은 반가운 일감이지만, 약속한 날까지 물건을 만들어야 한다는 부담도 있죠."
+        },
+        {
+          "type": "paragraph",
+          "text": "바닷가의 노르가르드에서는 해군과 항구의 일이 사람들의 생활에 큰 영향을 줘요. 어느 배의 짐을 먼저 내릴지 정하는 일에도 선장과 짐꾼, 배를 고치는 사람들의 사정이 얽혀 있어요."
+        },
+        {
+          "type": "heading",
+          "text": "고향을 떠난 사람들은 어떻게 지낼까요?"
+        },
+        {
+          "type": "paragraph",
+          "text": "티리스에서는 5068년에 그린할로우를 잃은 뒤 고향을 떠나온 사람들이 새 삶을 꾸리고 있어요. 뉴할로우는 이들이 다시 자리를 잡아가는 곳이에요."
+        },
+        {
+          "type": "paragraph",
+          "text": "새 밭을 일구며 머물고 싶은 사람도 있고, 옛집으로 돌아가고 싶은 사람도 있어요. 같은 곳에서 피난 왔다고 바라는 것까지 같지는 않아요. 누구에게 어떤 도움이 필요한지, 예전에 쓰던 땅을 어떻게 인정할지를 두고 이야기가 이어지고 있죠."
+        },
+        {
+          "type": "heading",
+          "text": "한 나라 안에도 여러 하루가 있어요"
+        },
+        {
+          "type": "paragraph",
+          "text": "이런 어려움이 비레스의 모든 마을에서 똑같이 일어나는 건 아니에요. 같은 나라 안에서도 사는 곳과 하는 일에 따라 겪는 일이 달라요."
+        },
+        {
+          "type": "paragraph",
+          "text": "앞으로 한 사람을 만나면 그 사람이 어디에서 살고 무슨 일을 하는지도 살펴보세요. 같은 소식을 듣고도 왜 서로 다르게 받아들이는지 이해하는 데 도움이 될 거예요."
+        }
+      ]
+    }
+  ]
+}

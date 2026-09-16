@@ -1,0 +1,19 @@
+.site-header .header-chatbot {position:relative;display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:50%;transition:background-color .28s ease,box-shadow .28s ease;}
+.header-chatbot img {display:block;width:30px;height:30px;object-fit:contain;filter:invert(1);transition:filter .28s ease;}
+.site-header[data-scrolled='true'] .header-chatbot img {filter:none;}
+.header-chatbot-tip {position:absolute;top:calc(100% + 12px);right:0;white-space:nowrap;padding:9px 12px;border:1px solid #c4a77166;border-radius:3px;background:#071e2af5;color:#f8f2e7;font:400 13px/1.5 var(--font-ui);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s ease;}
+.header-chatbot:is(:hover,:focus-visible) {background:#ffffff1f;box-shadow:0 0 18px #e4c16e24;}
+.site-header[data-scrolled='true'] .header-chatbot:is(:hover,:focus-visible) {background:#1026330a;}
+.header-chatbot:is(:hover,:focus-visible) .header-chatbot-tip {opacity:1;visibility:visible;}
+@media (min-width:681px) and (max-width:1000px) {.site-header {gap:16px;}.site-header .desktop-nav {gap:18px;}.site-header .search-button {padding-left:16px;}}
+@media (min-width:681px) and (max-width:900px) {
+  .site-header .desktop-nav,.site-header .search-button span {display:none;}
+  .site-header .search-button {margin-left:auto;padding:0;}
+  .site-header .search-button::before {display:none;}
+  .site-header .menu-toggle {display:grid;place-items:center;flex:none;width:44px;height:44px;padding:0;}
+  .site-header .mobile-nav {position:absolute;top:90px;left:24px;right:24px;z-index:10;display:flex;flex-direction:column;gap:4px;padding:16px 24px;background:#071e2afa;border:1px solid #c4a77199;box-shadow:0 18px 40px #0005;}
+  .site-header[data-scrolled='true'] .mobile-nav {background:#fff;}
+  .site-header .mobile-nav a {padding:18px 6px;text-align:left;font-size:16px;}
+}
+@media (max-width:680px) {.site-header .header-chatbot {margin-left:-6px;}.header-chatbot img {width:28px;height:28px;}.site-header .menu-toggle {flex-shrink:0;}}
+@media (prefers-reduced-motion:reduce) {.site-header .header-chatbot,.header-chatbot img,.header-chatbot-tip {transition:none;}}

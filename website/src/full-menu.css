@@ -1,0 +1,58 @@
+/* Body portal: page/card 12 < full menu 14 < footer 15 < header 20. */
+html:has(.full-menu){background:#faf8f3;}
+.site-header .menu-toggle{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;}
+.site-header[data-menu-open='true']{box-shadow:none;}
+.site-header[data-menu-open='true'] .desktop-nav{opacity:.35;}
+.full-menu{position:fixed;inset:0;z-index:14;color:#102b37;isolation:isolate;}
+.full-menu-surface{position:absolute;inset:0;background:#faf8f3;transform-origin:top;animation:menu-unfold .48s cubic-bezier(.22,1,.36,1) both;overflow:hidden;}
+.full-menu-surface::before{content:'';position:absolute;width:min(55vw,780px);height:40%;right:-3%;bottom:4%;background:url('/assets/branding/vireth-logo-20260915.png') center/contain no-repeat;filter:brightness(0);opacity:.025;transform:rotate(-8deg);}
+.full-menu-surface::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 85% 5%,#d9c79e25,transparent 60%);}
+.full-menu-scroll{position:absolute;inset:var(--header-height) 0 var(--footer-obstruction,0px);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable;}
+.full-menu-inner{margin:auto;padding:clamp(28px,5vh,64px) var(--content-edge) 40px;}
+.full-menu-kicker{display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.18em;color:#80602e;margin:0 0 16px;}
+.full-menu h2{font:400 clamp(32px,3vw,48px)/1.4 'Nanum Myeongjo',serif;margin:0 0 12px;color:#102b37;}
+.full-menu-intro>p:not(.full-menu-kicker){font-size:16px;color:#667379;margin:0;}
+.full-menu-intro{position:relative;padding-bottom:32px;border-bottom:1px solid #c4a77170;}
+.full-menu-search{display:flex;align-items:center;gap:14px;padding:16px 0;color:#596a70;border:0;border-bottom:1px solid #a4814880;width:min(420px,100%);min-height:56px;font:inherit;font-size:15px;text-align:left;background:transparent;}
+.full-menu-search svg{flex:none;}.full-menu-search svg:last-child{margin-left:auto;}
+.full-menu-columns{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:42px;margin-top:32px;}
+.full-menu-chapter{min-width:0;}
+.full-menu-number{display:flex;align-items:center;gap:12px;color:#9b793c;font-size:19px;letter-spacing:.04em;margin:0 0 14px;}
+.full-menu-number span{font-size:10px;letter-spacing:.12em;}
+.full-menu h3{font:500 22px/1.55 var(--font-ui);margin:0 0 22px;word-break:keep-all;}
+.full-menu a{text-decoration:none;color:inherit;}
+.full-menu-links>a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding:16px 0;border-top:1px solid #c4a77140;font-size:19px;font-family:var(--font-ui);}
+.full-menu a small{display:block;font-size:13px;font-weight:400;line-height:1.7;color:#68767b;margin-top:6px;}
+.full-menu a svg{flex-shrink:0;transition:transform .3s;}
+.full-menu a:hover>svg{transform:translateX(4px);}
+.full-menu :is(a,button,summary):focus-visible{outline:2px solid #80602e;outline-offset:4px;}
+.full-menu-guides{border-top:1px solid #c4a77140;margin-bottom:8px;}
+.full-menu-guides summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:14px 0;font-size:17px;cursor:pointer;list-style:none;}
+.full-menu-guides summary::-webkit-details-marker{display:none;}
+.full-menu-guides[open] summary svg{transform:rotate(45deg);}
+.full-menu-guides nav{border-left:1px solid #c4a77170;margin:0 0 18px 2px;padding-left:16px;}
+.full-menu-guides a{display:flex;align-items:center;justify-content:space-between;min-height:44px;gap:8px;padding:8px 0;font-size:14px;}
+.full-menu-guides a>span{display:flex;align-items:baseline;gap:12px;}
+.full-menu-guides b{color:#957c4d;font-weight:400;font-size:11px;}
+.full-menu-guides a svg{width:15px;}
+.full-menu a[aria-current='page']{color:#80602e;background:linear-gradient(90deg,#e8deca70,transparent);}
+.full-menu-note{padding:24px 0 0;color:#8b7956;}
+.full-menu-note>span{font:52px/1 'Nanum Myeongjo',serif;}
+.full-menu-note p{font:22px/1.9 'Nanum Myeongjo',serif;margin:0;}
+.full-menu-note i{display:block;width:36px;border-top:1px solid #a48148;margin-top:24px;}
+.full-menu-luna{display:flex;align-items:center;gap:14px;padding:20px 16px;margin-top:24px;background:#102b37;color:#faf8f3!important;min-height:88px;font-size:15px;}
+.full-menu-luna img{filter:invert(1);flex:none;}.full-menu-luna svg{margin-left:auto;}
+.full-menu-luna small{color:#cad3d3!important;}
+.full-menu-auth{font-size:11px;line-height:1.8;color:#718087;margin:10px 0;}
+.full-menu-utilities{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid #c4a77170;margin-top:36px;padding-top:12px;}
+.full-menu-utilities a{display:flex;align-items:center;gap:14px;min-height:44px;font-size:13px;color:#68767b;}
+.full-menu-utilities a svg{width:16px;}
+.menu-arrive{animation:menu-content-in .5s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--menu-delay,0ms);}
+.full-menu[data-phase='closing']{pointer-events:none;animation:menu-close .36s ease both;}
+@keyframes menu-unfold{from{clip-path:inset(0 0 100%)}to{clip-path:inset(0)}}
+@keyframes menu-content-in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes menu-close{to{opacity:0;transform:translateY(-12px)}}
+@media(min-width:1101px){.full-menu-search{position:absolute;right:0;bottom:32px;width:34%;}}
+@media(max-width:1100px){.full-menu-inner{padding-inline:var(--content-edge);}.full-menu-columns{grid-template-columns:1fr 1fr;gap:32px;}.full-menu-chapter:last-child{grid-column:2;}.full-menu-chapter:first-child{grid-row:span 2;}.full-menu-search{margin-top:18px;}.full-menu-note{display:none;}}
+@media(max-width:760px){.full-menu-inner{padding-top:28px;padding-bottom:32px;}.full-menu-columns{grid-template-columns:1fr;gap:30px;margin-top:28px;}.full-menu-chapter:last-child{grid-column:auto;}.full-menu-chapter:first-child{grid-row:auto;}.full-menu-intro{padding-bottom:24px;}.full-menu h3{font-size:20px;margin-bottom:14px;}.full-menu-number{margin-bottom:10px;}.full-menu-links>a{font-size:18px;min-height:64px;}.full-menu-utilities{gap:20px;margin-top:26px;}.full-menu-search{font-size:14px;}.full-menu-luna{margin-top:18px;}.full-menu-surface::before{width:90vw;bottom:12%;}.full-menu-scroll{padding-bottom:env(safe-area-inset-bottom,0px);}}
+@media(prefers-reduced-motion:reduce){.full-menu-surface,.menu-arrive,.full-menu[data-phase='closing']{animation:none;}.full-menu a svg{transition:none;}}

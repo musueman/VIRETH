@@ -1,0 +1,366 @@
+{
+  "coordinateSource": "D:\\OneDrive\\444_비레스\\00_최신본\\02_지도\\15_출판웹_선별라벨지도_v62\\_data\\ck5083-place-publish-label-placement-v62.csv",
+  "method": "Original RGB; external silhouette alpha and tight crop. No generative redraw. Capitals are optimized display derivatives of active mapped images.",
+  "assets": [
+    {
+      "id": "leonia",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-leonia-imagegen-v3-dragon-crest-2048.png",
+      "crestSourceSHA256": "92f18d2f4587c6550acbe7870871b137b8bf31ba95f81b13c3c51c190cbadfd7",
+      "crestOutput": "assets\\explore\\crests\\leonia.png",
+      "crestSHA256": "92b040a9b2920f779dedb612dc4d6fc30c3bc1e1f8d882240294662538f6077e",
+      "crop": [
+        349,
+        104,
+        1348,
+        1842
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "d2b165befb5cbe7663f8efcdb13c729f9f377fc30e1e44c4ac9a00fd4a2b70e5",
+      "cityOutput": "assets\\explore\\capitals\\leonia.webp",
+      "citySHA256": "de0a25c68266b3e898e380b7993be0dde0691c1a48811ef59ff1a8595602cafb"
+    },
+    {
+      "id": "norghard",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-norghard-imagegen-v1-2048.png",
+      "crestSourceSHA256": "9b36958582ac639bfde1bcfe70fa671490817d4bda223185889ca53a978db345",
+      "crestOutput": "assets\\explore\\crests\\norghard.png",
+      "crestSHA256": "1a52e1a1993f4a58df72c0e7fd0cb83b1c5dceb6bf902fa371cc5f82cde6a9b2",
+      "crop": [
+        500,
+        156,
+        1047,
+        1703
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-norghard-marnabmir-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "db549aed688455a5623f902b78f972709118436442b18f20e984af57af32e5e1",
+      "cityOutput": "assets\\explore\\capitals\\norghard.webp",
+      "citySHA256": "8f2c58449d995f2e86a3eb076cdd1a9ed645f6f89f7cc990992c84fc06552cb0"
+    },
+    {
+      "id": "tiris",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-tiris-imagegen-v1-2048.png",
+      "crestSourceSHA256": "5420fb3b45ce5dbbb109567435b9c3e16a61877d45512982f3bf69b8017f75d5",
+      "crestOutput": "assets\\explore\\crests\\tiris.png",
+      "crestSHA256": "c5f0a17f7e743961cf2777689547434b65667add77d6546f2873b3c255b25674",
+      "crop": [
+        461,
+        136,
+        1124,
+        1775
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-tiris-radbarhal-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "7249caa662584207a6e8e259474607fe83891d7cedcf2c453a4fe9ffd854c7ff",
+      "cityOutput": "assets\\explore\\capitals\\tiris.webp",
+      "citySHA256": "8c698978ed3ac0a470f76f3f246966605780fa69d0ce746fdabc32002a6c1ee7"
+    },
+    {
+      "id": "linrenet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-linrenet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "d22503bfdf740bf6b2f237d25256bd30640c63f827d24983b68a7b577dc3cd52",
+      "crestOutput": "assets\\explore\\crests\\linrenet.png",
+      "crestSHA256": "156ab31922fba376ff443a7d8f7df543e3fc0a72b5d56987e0571f9a44c592de",
+      "crop": [
+        482,
+        151,
+        1081,
+        1735
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-linrenet-renumga-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "4950d18357edcbbd91d3fd7239eeb1c463cc7e1e80524a5117424b8a86221f0e",
+      "cityOutput": "assets\\explore\\capitals\\linrenet.webp",
+      "citySHA256": "ba80a42f3a8bae074f103fdb67d8638d32137a3e1c98c3d4ce7f71009b354887"
+    },
+    {
+      "id": "bekdoret",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-bekdoret-imagegen-v1-2048.png",
+      "crestSourceSHA256": "f8818318f44dba8c46d4cba58799a4d87b1d340fc940d53e937d9474a1c467a9",
+      "crestOutput": "assets\\explore\\crests\\bekdoret.png",
+      "crestSHA256": "205cadf1f0c13adf4b434c6688e5d380c4fdb7a36ae33de1757d61310d27d718",
+      "crop": [
+        442,
+        182,
+        1158,
+        1663
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-bekdoret-dorkar-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "7b0810c3b1efca132175d02072d6562a20f8e7881aadd9ddeeb4bb3c10105a04",
+      "cityOutput": "assets\\explore\\capitals\\bekdoret.webp",
+      "citySHA256": "11ab3cbd760f1132c9dbd135c519ed9c5a8888c670f7c27f20e5e4dea5014340"
+    },
+    {
+      "id": "senhalet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-senhalet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "4eb6a33d71524846805a41f5963bea91158fa396b7fc117d623303ad47ea8e4f",
+      "crestOutput": "assets\\explore\\crests\\senhalet.png",
+      "crestSHA256": "1f691924807c5c2db6294ed864d4f779d451bdeeac33d096ec60ad8a30847f5d",
+      "crop": [
+        493,
+        158,
+        1061,
+        1688
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-senhalet-senpukum-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "617899d009c2034d297e3c07ad42df2f5c9736f833509b94ecc26191ebc3b816",
+      "cityOutput": "assets\\explore\\capitals\\senhalet.webp",
+      "citySHA256": "4d15180932d291d43b5a8eb395c33c9134220af09a94cebe53c8a90f5f50f90e"
+    },
+    {
+      "id": "hesferet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-hesferet-imagegen-v2-no-runes-2048.png",
+      "crestSourceSHA256": "d0e3d9f753e49a08b9f13de6dc5b4094dfd3872df9818c353f7e6100888c9482",
+      "crestOutput": "assets\\explore\\crests\\hesferet.png",
+      "crestSHA256": "51e9dfdbbb57bff1431c966e5f5280e72fec43fa2fc0e18ef05f8d734e1afb94",
+      "crop": [
+        397,
+        129,
+        1252,
+        1812
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-hesferet-hespukum-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "79400310150c7916b6f260f212357a9a4115ec0351b71736e05fef1c15301c4e",
+      "cityOutput": "assets\\explore\\capitals\\hesferet.webp",
+      "citySHA256": "951cd9be45fefa6ca35604bf8ca6b4fddd4d89e511552f02477c55f251d3bb2a"
+    },
+    {
+      "id": "kelnabet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-kelnabet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "5ad74b70a82a7228583c41438589a572978cb2889cf33ad39342bcc911627a54",
+      "crestOutput": "assets\\explore\\crests\\kelnabet.png",
+      "crestSHA256": "fb2bbe51456d442b101a3e2cd622afc7c3def6845aff67e371c8a43fe75c963a",
+      "crop": [
+        430,
+        169,
+        1187,
+        1755
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-kelnabet-markelmir-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "08bc7a31bf7a2b9ef3786d537567d7ea858c3ebda06472fc50b3b0ff2098991e",
+      "cityOutput": "assets\\explore\\capitals\\kelnabet.webp",
+      "citySHA256": "eca992a7c2cfdc95c6c5eef163e5cfaf6f011d93a12e0f71ef43443dbc799ab2"
+    },
+    {
+      "id": "hesbeket",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-hesbeket-imagegen-v1-2048.png",
+      "crestSourceSHA256": "cf9fe35cd3b5b7b555dddd1e61801ac4dd0dec442c57d5133ae074df0eeb7a7c",
+      "crestOutput": "assets\\explore\\crests\\hesbeket.png",
+      "crestSHA256": "a6d0ed9bf6a697f92e060593c1353fa92a266a9c7c19c71da55ab9abeae8df6b",
+      "crop": [
+        453,
+        216,
+        1140,
+        1613
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-hesbeket-bekhespukum-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "235574ead6cd3a87eb2e57e429f61aab046bf820a3895adc81204c80a93bcfe3",
+      "cityOutput": "assets\\explore\\capitals\\hesbeket.webp",
+      "citySHA256": "0b05cdc8075c723b1bc835438faef00f01265e23f443575813c2628d8c50aba9"
+    },
+    {
+      "id": "yenmebet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-yenmebet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "8c013e11607f1fe4bfd0e49507ad510acf3428ee8aef665ba0a806e167578fa7",
+      "crestOutput": "assets\\explore\\crests\\yenmebet.png",
+      "crestSHA256": "5c4d94a1c8f412cc3964e181e060af6fff9851b65a00bf27c008bd864ca9e3a1",
+      "crop": [
+        484,
+        169,
+        1077,
+        1688
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-yenmebet-yenwokel-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "5715dc54a2151842242f7e909b881f10902042f50f2e557a0cad90cf37c086e0",
+      "cityOutput": "assets\\explore\\capitals\\yenmebet.webp",
+      "citySHA256": "14c2a035b05163d90c69addede8874dd5ecebef86123c7d5a194ee77f0f40791"
+    },
+    {
+      "id": "nimnaret",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-nimnaret-imagegen-v1-2048.png",
+      "crestSourceSHA256": "2bd67136b54f52241e9a3970625e924b6c5b86a34ed7388c4eb942a5ff277cae",
+      "crestOutput": "assets\\explore\\crests\\nimnaret.png",
+      "crestSHA256": "b8707cba6569cf88d7de66b4e78ec7fcace9b8c0d63af91ebeeaf14d5cda32db",
+      "crop": [
+        461,
+        163,
+        1122,
+        1707
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-nimnaret-yalbekum-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "ac9f70148fc67329b06cd190120a7f0d6e77f1721899138ca7cbc42331e4a6b8",
+      "cityOutput": "assets\\explore\\capitals\\nimnaret.webp",
+      "citySHA256": "447ea306ed68999689dd1db20592b71374b1b2af58d269750ff29a0f62f92c7a"
+    },
+    {
+      "id": "silnimet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-silnimet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "3b79914cad37ff3f13f397d8958d71a879c87e8e6c09c8af1657e045d4376136",
+      "crestOutput": "assets\\explore\\crests\\silnimet.png",
+      "crestSHA256": "f8a27673f5d833ad7016705c1a42a6cf0fb07b80ba7d35d42bc06c2def8ba234",
+      "crop": [
+        400,
+        158,
+        1249,
+        1764
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-silnimet-dorsorsan-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "e92e0849feaac1e82e347bc7c067c4d5da3c70c99aa4e85967765dd6fe22acc7",
+      "cityOutput": "assets\\explore\\capitals\\silnimet.webp",
+      "citySHA256": "cd5761972d6a16c22d970590b612664258cf6f2569f6769d652ab507f5fa168b"
+    },
+    {
+      "id": "ardolet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-ardolet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "6cf22babf83b36618a19901d5788084b6e1b202a28f32fadb1ae9e55b70367f6",
+      "crestOutput": "assets\\explore\\crests\\ardolet.png",
+      "crestSHA256": "6ad873fce0985a15d833edaade6d27a6d0eeefe24adb6de985260baaab8d8cdb",
+      "crop": [
+        495,
+        163,
+        1057,
+        1717
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-ardolet-dorsorhal-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "19fdd973a7aeffa1ec25a4514974bbea3e617f9463e432bea7f3f3b4d6906be3",
+      "cityOutput": "assets\\explore\\capitals\\ardolet.webp",
+      "citySHA256": "a973b976264a3fe3856a565de0f26a8786795c197cbc929b00a5e9dd90bd728c"
+    },
+    {
+      "id": "garmebet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-garmebet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "a92218cbe35e1f21726e905c41a026d4189b56b882e07d743dac2235c8dee318",
+      "crestOutput": "assets\\explore\\crests\\garmebet.png",
+      "crestSHA256": "26fcdc5e7dd8977c6283d4addcf59da1fb9f1fc332b6ddbc71d0e39ece1beb3f",
+      "crop": [
+        373,
+        160,
+        1297,
+        1762
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-garmebet-tikmebhal-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "e5629b3dbdf2dcb6e33aa41a306ad93cda3d1204847affee09193e5ac6b06f58",
+      "cityOutput": "assets\\explore\\capitals\\garmebet.webp",
+      "citySHA256": "c0fe2094b384d43381c0fcd1415abe0112796b40a58337ab75265d68372b4612"
+    },
+    {
+      "id": "silhalet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-silhalet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "7ee3365bd1242a4202a6abf79fb72eff484480448e791d779f2165d681d0d7bb",
+      "crestOutput": "assets\\explore\\crests\\silhalet.png",
+      "crestSHA256": "f8f0a574c660dd3d3bafa40e3cf85f261ae671013da112ff5c7df3bd58066c04",
+      "crop": [
+        358,
+        160,
+        1327,
+        1761
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-silhalet-silsorsan-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "955d2e7d8eaf5cf306cfbe7975d628fb6c5936f371b6ba0ce3e1e71b5fe7cf4c",
+      "cityOutput": "assets\\explore\\capitals\\silhalet.webp",
+      "citySHA256": "9d161aa9285da4df49a900087c7075926965d79fb40abf2252c235e5e07497ae"
+    },
+    {
+      "id": "merhalet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-merhalet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "9f416b7029c59f34a80f2d44ddf77e0db4ddfd561a4c2c436db156e84786c14f",
+      "crestOutput": "assets\\explore\\crests\\merhalet.png",
+      "crestSHA256": "ddb80fffe1b8305de4468029dda61a8f99bd3fba49f5c133f0f0753101c317ec",
+      "crop": [
+        457,
+        166,
+        1131,
+        1715
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-merhalet-merbelmar-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "798220cd0405913d8986f2592c81d2748d670386dc1c5e1fa7f42b04f23c1222",
+      "cityOutput": "assets\\explore\\capitals\\merhalet.webp",
+      "citySHA256": "01b95717c7fcf8dfa420a0efdfc12968fafe7e5b2f8a3cc49445e2785a87957a"
+    },
+    {
+      "id": "nimsolet",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-nimsolet-imagegen-v1-2048.png",
+      "crestSourceSHA256": "df09e20fd4d4e448e973c5147655067ab21bc9a97f737708cb693ca8c9b0d2f2",
+      "crestOutput": "assets\\explore\\crests\\nimsolet.png",
+      "crestSHA256": "c711037dc0b8dbe5bc18479a41c168f4f327d0d3ef2e5e36cff7f5652722af4a",
+      "crop": [
+        411,
+        165,
+        1226,
+        1751
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-nimsolet-nimhal-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "adde4b8938e6217f0f1e54c0c8e57f04bbeafbc3403b6c2df7674fa442da2e4a",
+      "cityOutput": "assets\\explore\\capitals\\nimsolet.webp",
+      "citySHA256": "2e52f4813da85a91959d57bc03854b4901220e812e4298bd6be56ec6cd420670"
+    },
+    {
+      "id": "sylvania",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-sylvania-imagegen-v1-2048.png",
+      "crestSourceSHA256": "4a50dfe93e2918b88df86e1a4795c8dfe120e0e585bbe4b30c789ebb1433fa3e",
+      "crestOutput": "assets\\explore\\crests\\sylvania.png",
+      "crestSHA256": "81bd77d83ff6c81a9ca84e872645bfd1a690555d6ac50d62b754396ab1fc372a",
+      "crop": [
+        442,
+        145,
+        1162,
+        1770
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-sylvania-silensan-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "4431e99e95c98200a90908b02453cf6935cd50a59264affeec32a10f07c4b555",
+      "cityOutput": "assets\\explore\\capitals\\sylvania.webp",
+      "citySHA256": "65c42feda96c2c424e819483c10ae54524c101a678e1dcbba3b7837e85e01bb0"
+    },
+    {
+      "id": "dragonspire",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-dragonspire-imagegen-v1-2048.png",
+      "crestSourceSHA256": "286d7901a703226e4fe6e38325b674dab3a3fe1445988beb8313de72e303cfb8",
+      "crestOutput": "assets\\explore\\crests\\dragonspire.png",
+      "crestSHA256": "40f2a1fd923058eca99cdc48b567781f3c1ee0aa8a320ff325b08f7e58fa06d1",
+      "crop": [
+        461,
+        163,
+        1123,
+        1749
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-dragonspire-narmarkel-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "99be2fc68564593573aeba6e0333cc4cb087947aa0c16993ffd184c42bc7a8eb",
+      "cityOutput": "assets\\explore\\capitals\\dragonspire.webp",
+      "citySHA256": "b31d2be920699adbf0affe9888b5066e3e807ffc7f79ba88371bed1a3a7fa30c"
+    },
+    {
+      "id": "fenrir-eye",
+      "crestSource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\heraldry\\ck5083-heraldry-fenrir-eye-imagegen-v1-2048.png",
+      "crestSourceSHA256": "5a54e4e1d59a844f92aaa26574e487f7d3a8bc4329ea1a579f21440a42550ad2",
+      "crestOutput": "assets\\explore\\crests\\fenrir-eye.png",
+      "crestSHA256": "c6ad16e245adc3fedba622c4739bde608a22dd870f91bae10880435150962388",
+      "crop": [
+        460,
+        159,
+        1125,
+        1744
+      ],
+      "originalRGBPreserved": true,
+      "citySource": "D:\\OneDrive\\444_비레스\\00_최신본\\04_장소_문장_이미지\\generated_outputs\\city_vistas\\ck5083-city-fenrir-eye-dunartore-imagegen-v1-2560-labeled.png",
+      "citySourceSHA256": "595dc4c9f325c54bb7d518707ce4fb4196ac705cdd31f4b875d954a54870c396",
+      "cityOutput": "assets\\explore\\capitals\\fenrir-eye.webp",
+      "citySHA256": "c8fb7287b03a42dd29be6a2d37a3a87bc3ae2bdcc8b237cdf35f14efe9a56c1f"
+    }
+  ]
+}

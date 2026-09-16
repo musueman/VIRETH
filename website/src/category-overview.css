@@ -1,0 +1,130 @@
+/* Approved hierarchy 3: peer overview pages only, never their detail routes. */
+.category-overview {
+  container-type:inline-size;
+  --ivory:#102b37;
+  --muted:#46565c;
+  --gold:#896732;
+  color:#102b37;
+  background:#faf8f3;
+}
+.category-overview .page-title {max-width:900px;}
+.category-overview .page-title h1 {font-weight:700;word-break:keep-all;}
+.category-overview .page-title h1::after {
+  content:"";display:block;width:44px;border-bottom:3px solid #a48148;margin-top:24px;
+}
+.category-overview .page-intro {color:#46565c;}
+.category-overview .catalog-introduction {
+  position:relative;isolation:isolate;margin-bottom:60px;
+}
+.category-overview .catalog-introduction .page-title {margin-bottom:0;}
+.category-overview .catalog-intro-backdrop {
+  position:absolute;z-index:-1;pointer-events:none;overflow:hidden;
+  top:-88px;bottom:-60px;left:calc(50% - 50cqw);width:100cqw;
+  mask-image:linear-gradient(#000 58%,#000b 76%,transparent 100%);
+}
+.category-overview .catalog-intro-backdrop::before {
+  content:"";position:absolute;inset:0;z-index:1;
+  background:repeating-linear-gradient(125deg,transparent 0 3px,#102b3714 3px 4px);
+  mask-image:linear-gradient(90deg,transparent 15%,#000 75%);
+}
+.category-overview .catalog-intro-backdrop::after {
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#faf8f3 3%,#faf8f3f7 25%,#faf8f3e8 43%,#faf8f39c 61%,#faf8f333 80%,#faf8f314);
+}
+.category-overview .catalog-intro-art {
+  width:100%;height:100%;object-fit:cover;object-position:center 48%;
+}
+.category-overview .catalog-introduction--stories .catalog-intro-art {object-position:center 56%;}
+.category-overview .catalog-introduction--stories .catalog-intro-backdrop::after {
+  background:linear-gradient(90deg,#faf8f3 3%,#faf8f3fa 25%,#faf8f3eb 45%,#faf8f3bd 60%,#faf8f340 80%,#faf8f314);
+}
+.category-overview .catalog-filters {
+  padding:24px 28px;gap:24px;background:#fff;
+  border:1px solid #ede8df;border-top:3px solid #a48148;
+}
+.category-overview .catalog-filters label {color:#765a2f;}
+.category-overview .catalog-filters :is(input,select) {
+  background:#faf9f6;color:#102b37;border-color:#d8d0c3;
+}
+.category-overview .catalog-filters input::placeholder {color:#67747a;}
+.category-overview .reset-filter {color:#46565c;}
+.category-overview :is(a,button,input,select):focus-visible {outline-color:#896732;}
+.category-overview .result-count {padding-left:2px;color:#59666b;}
+.category-overview :is(.region-tile,.library-entry,.person-card,.start-tile) {
+  display:flex;flex-direction:column;min-width:0;background:#fff;
+  border:1px solid #ede8df;border-top:3px solid #a48148;
+  color:#46565c;padding:0;
+  transition:background-color .4s,border-color .4s;
+}
+.category-overview :is(.region-tile,.library-entry,.person-card,.start-tile):is(:hover,:focus-visible) {
+  background:#f8f3e9;border-color:#c6b18d;
+}
+.category-overview :is(.region-tile,.library-entry,.start-tile)>div {
+  display:flex;flex-direction:column;align-items:flex-start;flex:1;
+  padding:28px 28px 30px;border:0;
+}
+.category-overview :is(.region-tile,.library-entry,.person-card,.start-tile) h2 {
+  font-family:var(--font-ui);font-weight:500;color:#102b37;
+  line-height:1.55;word-break:keep-all;overflow-wrap:anywhere;
+}
+.category-overview :is(.region-tile,.library-entry,.start-tile) p {word-break:keep-all;}
+.category-overview :is(.region-tile,.library-entry,.start-tile) .text-link {
+  margin-top:auto;padding-top:24px;color:#896732;
+}
+.category-overview .portrait-frame {
+  width:100%;flex:none;
+  background:radial-gradient(ellipse at 50% 30%,#f9f6ed,#e5e1d7);
+  mask-image:none;
+}
+.category-overview .person-card-copy {
+  padding:22px 20px 26px;border-top:1px solid #e8dfd0;flex:1;
+}
+.category-overview .person-card-copy h2 {margin-bottom:10px;}
+.category-overview .person-card-copy span {color:#46565c;}
+.category-overview .pagination button {border-color:#cabcaa;color:#46565c;background:#fff;}
+.category-overview .pagination button[aria-current=page] {background:#102b37;color:#fff;border-color:#102b37;}
+.category-overview .start-tile {min-height:0;isolation:auto;overflow:visible;align-items:stretch;}
+.category-overview .start-tile::before {display:none;}
+.category-overview .start-tile>img {
+  position:static;inset:auto;z-index:auto;width:100%;height:auto;
+  aspect-ratio:16/9;object-fit:cover;transform:none;
+}
+.category-overview .start-tile:hover>img {transform:none;}
+.category-overview .start-tile p {color:#46565c;}
+.category-overview .image-fallback {background:#e9e5dc;color:#46565c;}
+.category-overview .regions-introduction {
+  position:relative;isolation:isolate;padding-bottom:44px;margin-bottom:32px;
+}
+.category-overview .regions-introduction .page-title {margin-bottom:0;}
+.category-overview .regions-intro-art {
+  position:absolute;z-index:-1;pointer-events:none;
+  left:calc(50% - 50cqw);top:-88px;
+  width:100cqw;height:calc(100% + 88px);
+  object-fit:cover;object-position:center;
+  mask-image:linear-gradient(#000 65%,transparent 100%);
+}
+.category-overview .region-card-crest {
+  width:72px;height:96px;object-fit:contain;object-position:left center;
+  margin:0 0 16px;flex:none;border:0;box-shadow:none;
+}
+@media(max-width:760px){
+  .category-overview .catalog-introduction {margin-bottom:40px;}
+  .category-overview .catalog-intro-backdrop {top:-56px;bottom:-40px;}
+  .category-overview .catalog-intro-art {object-position:65% center;}
+  .category-overview .catalog-introduction--stories .catalog-intro-art {object-position:70% center;}
+  .category-overview .catalog-introduction .catalog-intro-backdrop::after {
+    background:linear-gradient(90deg,#faf8f3f5,#faf8f3e0 45%,#faf8f3b8);
+  }
+  .category-overview .catalog-filters {padding:22px 20px;gap:18px;}
+  .category-overview :is(.region-tile,.library-entry,.start-tile)>div {padding:24px;}
+  .category-overview .person-card-copy {padding:18px 14px 22px;}
+  .category-overview .person-card-copy h2 {word-break:normal;}
+  .category-overview .catalog-filters .wide-filter {min-width:0;}
+  .category-overview .catalog-filters .reset-filter {flex-basis:100%;text-align:right;padding-block:8px;}
+  .category-overview .regions-introduction {padding-bottom:30px;margin-bottom:24px;}
+  .category-overview .regions-intro-art {top:-56px;height:calc(100% + 56px);object-position:62% center;filter:opacity(.3);}
+  .category-overview .region-card-crest {width:60px;height:80px;margin-bottom:14px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .category-overview :is(.region-tile,.library-entry,.person-card,.start-tile) {transition:none;}
+}

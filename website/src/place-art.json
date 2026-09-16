@@ -1,0 +1,666 @@
+{
+  "place-f76dcd1e8ca3a223": {
+    "src": "/assets/places/place-f76dcd1e8ca3a223.webp",
+    "name": "라드아르할"
+  },
+  "place-d3fcde024aeebb50": {
+    "src": "/assets/places/place-d3fcde024aeebb50.webp",
+    "name": "지르바르에트"
+  },
+  "place-0bf2d299ef01d463": {
+    "src": "/assets/places/place-0bf2d299ef01d463.webp",
+    "name": "팔테쿰가"
+  },
+  "place-13f55b748ce8f69a": {
+    "src": "/assets/places/place-13f55b748ce8f69a.webp",
+    "name": "렘다트움"
+  },
+  "place-4f3ed43a65a09f9e": {
+    "src": "/assets/places/place-4f3ed43a65a09f9e.webp",
+    "name": "마르나브미르"
+  },
+  "place-f0a31f363f261928": {
+    "src": "/assets/places/place-f0a31f363f261928.webp",
+    "name": "페르나브부두"
+  },
+  "place-f3ca2d3e808f999a": {
+    "src": "/assets/places/place-f3ca2d3e808f999a.webp",
+    "name": "아르마르토르"
+  },
+  "place-5cddfec379959f81": {
+    "src": "/assets/places/place-5cddfec379959f81.webp",
+    "name": "나브할가"
+  },
+  "place-c91992123771823b": {
+    "src": "/assets/places/place-c91992123771823b.webp",
+    "name": "라드바르할 / 실버킵"
+  },
+  "place-d6201cae71141b4c": {
+    "src": "/assets/places/place-d6201cae71141b4c.webp",
+    "name": "베크켈카르 / 레이븐스톤"
+  },
+  "place-40ecd7f61b7c7110": {
+    "src": "/assets/places/place-40ecd7f61b7c7110.webp",
+    "name": "가르메브에트"
+  },
+  "place-58f109e57c16ca3d": {
+    "src": "/assets/places/place-58f109e57c16ca3d.webp",
+    "name": "벨소르엘"
+  },
+  "place-7497bf1905174f40": {
+    "src": "/assets/places/place-7497bf1905174f40.webp",
+    "name": "실테크에트"
+  },
+  "place-68f0aa07327024b6": {
+    "src": "/assets/places/place-68f0aa07327024b6.webp",
+    "name": "소르이엘토르"
+  },
+  "place-b12f9ad116dd57dc": {
+    "src": "/assets/places/place-b12f9ad116dd57dc.webp",
+    "name": "그린할로우"
+  },
+  "place-2b38c9305566a627": {
+    "src": "/assets/places/place-2b38c9305566a627.webp",
+    "name": "뉴할로우"
+  },
+  "place-aae1caadc38f650f": {
+    "src": "/assets/places/place-aae1caadc38f650f.webp",
+    "name": "레눔가"
+  },
+  "place-9ba8c3cd223a56c1": {
+    "src": "/assets/places/place-9ba8c3cd223a56c1.webp",
+    "name": "린산가"
+  },
+  "place-7a4ef2d18e9220fa": {
+    "src": "/assets/places/place-7a4ef2d18e9220fa.webp",
+    "name": "님렌할"
+  },
+  "place-03485af79924f731": {
+    "src": "/assets/places/place-03485af79924f731.webp",
+    "name": "다트킨할"
+  },
+  "place-688595e7b37b5331": {
+    "src": "/assets/places/place-688595e7b37b5331.webp",
+    "name": "렘렌가"
+  },
+  "place-46595dfda186932a": {
+    "src": "/assets/places/place-46595dfda186932a.webp",
+    "name": "도르카르"
+  },
+  "place-5ec880affa107282": {
+    "src": "/assets/places/place-5ec880affa107282.webp",
+    "name": "켈카르"
+  },
+  "place-ad2d03f99e8c29c0": {
+    "src": "/assets/places/place-ad2d03f99e8c29c0.webp",
+    "name": "베크할"
+  },
+  "place-9bfd7c9b2638713d": {
+    "src": "/assets/places/place-9bfd7c9b2638713d.webp",
+    "name": "도르테쿰"
+  },
+  "place-1af9a9ac0d6ef7ab": {
+    "src": "/assets/places/place-1af9a9ac0d6ef7ab.webp",
+    "name": "엔할가"
+  },
+  "place-48a1e31eb3432f7a": {
+    "src": "/assets/places/place-48a1e31eb3432f7a.webp",
+    "name": "센푸쿰"
+  },
+  "place-89253b528d932838": {
+    "src": "/assets/places/place-89253b528d932838.webp",
+    "name": "벨바르"
+  },
+  "place-5d9faf77370b86a6": {
+    "src": "/assets/places/place-5d9faf77370b86a6.webp",
+    "name": "센푸크에트"
+  },
+  "place-91e5bebd344dbadc": {
+    "src": "/assets/places/place-91e5bebd344dbadc.webp",
+    "name": "가르센에트"
+  },
+  "place-89a7bd71e097d29b": {
+    "src": "/assets/places/place-89a7bd71e097d29b.webp",
+    "name": "벱렌할"
+  },
+  "place-29cbdf9865aa1024": {
+    "src": "/assets/places/place-29cbdf9865aa1024.webp",
+    "name": "헤스푸쿰"
+  },
+  "place-e0107c391e927db4": {
+    "src": "/assets/places/place-e0107c391e927db4.webp",
+    "name": "헤스켈카르"
+  },
+  "place-34f582a0e9cbc23e": {
+    "src": "/assets/places/place-34f582a0e9cbc23e.webp",
+    "name": "페르바르"
+  },
+  "place-faa9ae9913c3e305": {
+    "src": "/assets/places/place-faa9ae9913c3e305.webp",
+    "name": "람지르바르"
+  },
+  "place-198e481c827e0f9d": {
+    "src": "/assets/places/place-198e481c827e0f9d.webp",
+    "name": "메브켈에트"
+  },
+  "place-28ad48cc8b4dfb1d": {
+    "src": "/assets/places/place-28ad48cc8b4dfb1d.webp",
+    "name": "마르켈미르"
+  },
+  "place-0c4f6cdf1bbebac6": {
+    "src": "/assets/places/place-0c4f6cdf1bbebac6.webp",
+    "name": "워크바르"
+  },
+  "place-3d4cfdb2ea2c95eb": {
+    "src": "/assets/places/place-3d4cfdb2ea2c95eb.webp",
+    "name": "마르렌움"
+  },
+  "place-bcab783fc086a342": {
+    "src": "/assets/places/place-bcab783fc086a342.webp",
+    "name": "나브할"
+  },
+  "place-6672ae3cc647a53f": {
+    "src": "/assets/places/place-6672ae3cc647a53f.webp",
+    "name": "움마르켈"
+  },
+  "place-0478f08a70f8a216": {
+    "src": "/assets/places/place-0478f08a70f8a216.webp",
+    "name": "베크헤스푸쿰"
+  },
+  "place-a41e40a70f1aaa80": {
+    "src": "/assets/places/place-a41e40a70f1aaa80.webp",
+    "name": "헤스워켈"
+  },
+  "place-d7e228ecb8381c8d": {
+    "src": "/assets/places/place-d7e228ecb8381c8d.webp",
+    "name": "나르할"
+  },
+  "place-f281ca73eac12b50": {
+    "src": "/assets/places/place-f281ca73eac12b50.webp",
+    "name": "메브헤스베크"
+  },
+  "place-2ed8c29a33545bbf": {
+    "src": "/assets/places/place-2ed8c29a33545bbf.webp",
+    "name": "옌워켈"
+  },
+  "place-3163f00f6e3af440": {
+    "src": "/assets/places/place-3163f00f6e3af440.webp",
+    "name": "옌베크할"
+  },
+  "place-40eb4562ed431902": {
+    "src": "/assets/places/place-40eb4562ed431902.webp",
+    "name": "실베크에트"
+  },
+  "place-9c5d5f6f7ac18582": {
+    "src": "/assets/places/place-9c5d5f6f7ac18582.webp",
+    "name": "실람렌움"
+  },
+  "place-4bc2d5185e162623": {
+    "src": "/assets/places/place-4bc2d5185e162623.webp",
+    "name": "얄베크움"
+  },
+  "place-9428a503d85581f1": {
+    "src": "/assets/places/place-9428a503d85581f1.webp",
+    "name": "님나할"
+  },
+  "place-4daaec0eaf426d92": {
+    "src": "/assets/places/place-4daaec0eaf426d92.webp",
+    "name": "푸크나움"
+  },
+  "place-11708076318aa7c7": {
+    "src": "/assets/places/place-11708076318aa7c7.webp",
+    "name": "헤드렌움"
+  },
+  "place-9618712064304902": {
+    "src": "/assets/places/place-9618712064304902.webp",
+    "name": "엔켈할"
+  },
+  "place-785df4991eafb1dd": {
+    "src": "/assets/places/place-785df4991eafb1dd.webp",
+    "name": "도르소르산"
+  },
+  "place-3f95725840bc5a59": {
+    "src": "/assets/places/place-3f95725840bc5a59.webp",
+    "name": "실메르미르"
+  },
+  "place-2564a83c1458aea0": {
+    "src": "/assets/places/place-2564a83c1458aea0.webp",
+    "name": "벨마르미르"
+  },
+  "place-f86469f5544166d2": {
+    "src": "/assets/places/place-f86469f5544166d2.webp",
+    "name": "실소르켈"
+  },
+  "place-c2bf6f211b92cda3": {
+    "src": "/assets/places/place-c2bf6f211b92cda3.webp",
+    "name": "메브메르켈"
+  },
+  "place-ea0804d14728edbb": {
+    "src": "/assets/places/place-ea0804d14728edbb.webp",
+    "name": "도르소르할"
+  },
+  "place-29ecffe97ade80cf": {
+    "src": "/assets/places/place-29ecffe97ade80cf.webp",
+    "name": "옌이엘토르"
+  },
+  "place-d63fe714da949544": {
+    "src": "/assets/places/place-d63fe714da949544.webp",
+    "name": "아르소르산"
+  },
+  "place-b2596d262927087a": {
+    "src": "/assets/places/place-b2596d262927087a.webp",
+    "name": "도르켈바르"
+  },
+  "place-176607d17d7ae972": {
+    "src": "/assets/places/place-176607d17d7ae972.webp",
+    "name": "소르할"
+  },
+  "place-dbc12b4eb54995b3": {
+    "src": "/assets/places/place-dbc12b4eb54995b3.webp",
+    "name": "틱메브할"
+  },
+  "place-aa46da8b52a816ba": {
+    "src": "/assets/places/place-aa46da8b52a816ba.webp",
+    "name": "벨람바르"
+  },
+  "place-c4afd2c3f2827202": {
+    "src": "/assets/places/place-c4afd2c3f2827202.webp",
+    "name": "메브바르"
+  },
+  "place-ef2d6af050e85818": {
+    "src": "/assets/places/place-ef2d6af050e85818.webp",
+    "name": "벨베크엘"
+  },
+  "place-e7a7ed0bf072a36b": {
+    "src": "/assets/places/place-e7a7ed0bf072a36b.webp",
+    "name": "워크렌움"
+  },
+  "place-18ee482da07a0ab8": {
+    "src": "/assets/places/place-18ee482da07a0ab8.webp",
+    "name": "실소르산"
+  },
+  "place-c87a2f577a998723": {
+    "src": "/assets/places/place-c87a2f577a998723.webp",
+    "name": "라드실할"
+  },
+  "place-5b317556ae79294c": {
+    "src": "/assets/places/place-5b317556ae79294c.webp",
+    "name": "실베크엘"
+  },
+  "place-4501cf61cfe4356e": {
+    "src": "/assets/places/place-4501cf61cfe4356e.webp",
+    "name": "실테크엘"
+  },
+  "place-66ec813fed40afa0": {
+    "src": "/assets/places/place-66ec813fed40afa0.webp",
+    "name": "실다트바르"
+  },
+  "place-2d9a741f4cd8a622": {
+    "src": "/assets/places/place-2d9a741f4cd8a622.webp",
+    "name": "메르벨마르"
+  },
+  "place-3e8c985df152a82b": {
+    "src": "/assets/places/place-3e8c985df152a82b.webp",
+    "name": "메르바르"
+  },
+  "place-b5409aa559f332b3": {
+    "src": "/assets/places/place-b5409aa559f332b3.webp",
+    "name": "헤드켈바르"
+  },
+  "place-efd66f1928487430": {
+    "src": "/assets/places/place-efd66f1928487430.webp",
+    "name": "푸크테쿰"
+  },
+  "place-4601f56c5e395af9": {
+    "src": "/assets/places/place-4601f56c5e395af9.webp",
+    "name": "메르님바르"
+  },
+  "place-4bbb3cf616a981c6": {
+    "src": "/assets/places/place-4bbb3cf616a981c6.webp",
+    "name": "님할"
+  },
+  "place-34dbec82b00be25c": {
+    "src": "/assets/places/place-34dbec82b00be25c.webp",
+    "name": "님렘할"
+  },
+  "place-ae7c6fa8fc16afca": {
+    "src": "/assets/places/place-ae7c6fa8fc16afca.webp",
+    "name": "소르다트움"
+  },
+  "place-1209de01bccf5902": {
+    "src": "/assets/places/place-1209de01bccf5902.webp",
+    "name": "렌테쿰"
+  },
+  "place-4c45cf8dee9b70c2": {
+    "src": "/assets/places/place-4c45cf8dee9b70c2.webp",
+    "name": "렌메르미르"
+  },
+  "place-16f743361b258a9c": {
+    "src": "/assets/places/place-16f743361b258a9c.webp",
+    "name": "실렌산"
+  },
+  "place-cc53cb2092612005": {
+    "src": "/assets/places/place-cc53cb2092612005.webp",
+    "name": "워크켈할"
+  },
+  "place-e23db14c27654b14": {
+    "src": "/assets/places/place-e23db14c27654b14.webp",
+    "name": "렌얄움"
+  },
+  "place-fe2c9d342f4b332e": {
+    "src": "/assets/places/place-fe2c9d342f4b332e.webp",
+    "name": "움켈산"
+  },
+  "place-ed121732ca5aefa9": {
+    "src": "/assets/places/place-ed121732ca5aefa9.webp",
+    "name": "나르마르켈"
+  },
+  "place-2dd6e36bf6c89f29": {
+    "src": "/assets/places/place-2dd6e36bf6c89f29.webp",
+    "name": "나르베크토르"
+  },
+  "place-d6e0b1993391b8c8": {
+    "src": "/assets/places/place-d6e0b1993391b8c8.webp",
+    "name": "나르마르렌움"
+  },
+  "place-61539ca58c3f31e0": {
+    "src": "/assets/places/place-61539ca58c3f31e0.webp",
+    "name": "마르모스할"
+  },
+  "place-5fdffc89c646bbad": {
+    "src": "/assets/places/place-5fdffc89c646bbad.webp",
+    "name": "둔아르토르"
+  },
+  "place-38a34aace4cd2100": {
+    "src": "/assets/places/place-38a34aace4cd2100.webp",
+    "name": "둔나브렌움"
+  },
+  "place-ccd145356fafa237": {
+    "src": "/assets/places/place-ccd145356fafa237.webp",
+    "name": "움마르소르"
+  },
+  "place-54a222242d510e67": {
+    "src": "/assets/places/place-54a222242d510e67.webp",
+    "name": "벱나브할"
+  },
+  "place-50aa68772a885f92": {
+    "src": "/assets/places/place-50aa68772a885f92.webp",
+    "name": "라드가르가"
+  },
+  "place-b371154177f7ab6b": {
+    "src": "/assets/places/place-b371154177f7ab6b.webp",
+    "name": "지르메브가"
+  },
+  "place-db2387572b39116d": {
+    "src": "/assets/places/place-db2387572b39116d.webp",
+    "name": "팔테크가"
+  },
+  "place-9cde411459ec9d58": {
+    "src": "/assets/places/place-9cde411459ec9d58.webp",
+    "name": "렘켈가"
+  },
+  "place-873c4ba0beeeac27": {
+    "src": "/assets/places/place-873c4ba0beeeac27.webp",
+    "name": "마르토르가"
+  },
+  "place-dd37f12f064b6dbc": {
+    "src": "/assets/places/place-dd37f12f064b6dbc.webp",
+    "name": "페르테크가"
+  },
+  "place-f64d083df14f7190": {
+    "src": "/assets/places/place-f64d083df14f7190.webp",
+    "name": "나브할가린"
+  },
+  "place-a051ba013d5067bb": {
+    "src": "/assets/places/place-a051ba013d5067bb.webp",
+    "name": "헤스마르가"
+  },
+  "place-5450a1a6f2b494d1": {
+    "src": "/assets/places/place-5450a1a6f2b494d1.webp",
+    "name": "베크벱가"
+  },
+  "place-70bcb78178e6e240": {
+    "src": "/assets/places/place-70bcb78178e6e240.webp",
+    "name": "헤크가르가"
+  },
+  "place-dbd14fbd47878cee": {
+    "src": "/assets/places/place-dbd14fbd47878cee.webp",
+    "name": "가르푸크가"
+  },
+  "place-170f38db55354b0d": {
+    "src": "/assets/places/place-170f38db55354b0d.webp",
+    "name": "벨렐가"
+  },
+  "place-9b42bd603809c17b": {
+    "src": "/assets/places/place-9b42bd603809c17b.webp",
+    "name": "실베크가"
+  },
+  "place-5a06fbc07b2a730e": {
+    "src": "/assets/places/place-5a06fbc07b2a730e.webp",
+    "name": "이엘토르가"
+  },
+  "place-3dfa0c27f9104cc1": {
+    "src": "/assets/places/place-3dfa0c27f9104cc1.webp",
+    "name": "센푸크가"
+  },
+  "place-da0aa501f3493f49": {
+    "src": "/assets/places/place-da0aa501f3493f49.webp",
+    "name": "벨테크가"
+  },
+  "place-8544704d14890842": {
+    "src": "/assets/places/place-8544704d14890842.webp",
+    "name": "벨나브가"
+  },
+  "place-ea8b6099f28fc854": {
+    "src": "/assets/places/place-ea8b6099f28fc854.webp",
+    "name": "가르센가"
+  },
+  "place-233632beb785b9c9": {
+    "src": "/assets/places/place-233632beb785b9c9.webp",
+    "name": "레눔숙가"
+  },
+  "place-2d0a664a79668055": {
+    "src": "/assets/places/place-2d0a664a79668055.webp",
+    "name": "린산테크가"
+  },
+  "place-ed4e3c69ab16725c": {
+    "src": "/assets/places/place-ed4e3c69ab16725c.webp",
+    "name": "렘렌필가"
+  },
+  "place-a038797dcc184a97": {
+    "src": "/assets/places/place-a038797dcc184a97.webp",
+    "name": "켈베크가"
+  },
+  "place-ca795000b8cf412c": {
+    "src": "/assets/places/place-ca795000b8cf412c.webp",
+    "name": "도르테크가"
+  },
+  "place-997827c9969b4c8d": {
+    "src": "/assets/places/place-997827c9969b4c8d.webp",
+    "name": "베크푸크가"
+  },
+  "place-bce0633e99956ada": {
+    "src": "/assets/places/place-bce0633e99956ada.webp",
+    "name": "헤스푸크가"
+  },
+  "place-a6950f6135178f48": {
+    "src": "/assets/places/place-a6950f6135178f48.webp",
+    "name": "도르페르가"
+  },
+  "place-38d60b4b6c8aa2f5": {
+    "src": "/assets/places/place-38d60b4b6c8aa2f5.webp",
+    "name": "켈헤스가"
+  },
+  "place-2843e5ac81593b06": {
+    "src": "/assets/places/place-2843e5ac81593b06.webp",
+    "name": "람지르가"
+  },
+  "place-0538fd482977fc57": {
+    "src": "/assets/places/place-0538fd482977fc57.webp",
+    "name": "마르푸크섬"
+  },
+  "place-fa2fff665b7b7313": {
+    "src": "/assets/places/place-fa2fff665b7b7313.webp",
+    "name": "나브렌가"
+  },
+  "place-35ac987929ee5784": {
+    "src": "/assets/places/place-35ac987929ee5784.webp",
+    "name": "움나브가"
+  },
+  "place-30b833c524328a4c": {
+    "src": "/assets/places/place-30b833c524328a4c.webp",
+    "name": "헤스나르가"
+  },
+  "place-38b720422d2d19a7": {
+    "src": "/assets/places/place-38b720422d2d19a7.webp",
+    "name": "푸크헤스가"
+  },
+  "place-d8d46f050b2b9ab8": {
+    "src": "/assets/places/place-d8d46f050b2b9ab8.webp",
+    "name": "메브헤스가"
+  },
+  "place-274e58be55c17adc": {
+    "src": "/assets/places/place-274e58be55c17adc.webp",
+    "name": "옌켈가"
+  },
+  "place-fa9cf89ec8d67dd9": {
+    "src": "/assets/places/place-fa9cf89ec8d67dd9.webp",
+    "name": "옌테크가"
+  },
+  "place-d1603c1dd12c3c5c": {
+    "src": "/assets/places/place-d1603c1dd12c3c5c.webp",
+    "name": "실람가"
+  },
+  "place-b1bf32a4e31544fa": {
+    "src": "/assets/places/place-b1bf32a4e31544fa.webp",
+    "name": "얄베크가"
+  },
+  "place-ed6e6096c485d9c0": {
+    "src": "/assets/places/place-ed6e6096c485d9c0.webp",
+    "name": "푸크베크움"
+  },
+  "place-305048f67a71d869": {
+    "src": "/assets/places/place-305048f67a71d869.webp",
+    "name": "헤드렌가"
+  },
+  "place-d9c79942a92f8b0f": {
+    "src": "/assets/places/place-d9c79942a92f8b0f.webp",
+    "name": "소르산가"
+  },
+  "place-a6e06686a6ccb885": {
+    "src": "/assets/places/place-a6e06686a6ccb885.webp",
+    "name": "실메르가"
+  },
+  "place-c59534a3e777c2a9": {
+    "src": "/assets/places/place-c59534a3e777c2a9.webp",
+    "name": "실소르가"
+  },
+  "place-fc2c76e87ec096d6": {
+    "src": "/assets/places/place-fc2c76e87ec096d6.webp",
+    "name": "메브메르가"
+  },
+  "place-884ae7511a68418a": {
+    "src": "/assets/places/place-884ae7511a68418a.webp",
+    "name": "소르할가"
+  },
+  "place-a5b6edec03d98582": {
+    "src": "/assets/places/place-a5b6edec03d98582.webp",
+    "name": "옌토르가"
+  },
+  "place-9b31230e2b55a21b": {
+    "src": "/assets/places/place-9b31230e2b55a21b.webp",
+    "name": "도르켈가"
+  },
+  "place-2125f510e4192b5b": {
+    "src": "/assets/places/place-2125f510e4192b5b.webp",
+    "name": "벨메브가"
+  },
+  "place-d4a3ac1ad7b4c3f2": {
+    "src": "/assets/places/place-d4a3ac1ad7b4c3f2.webp",
+    "name": "틱람가"
+  },
+  "place-9d387d5e86a3b597": {
+    "src": "/assets/places/place-9d387d5e86a3b597.webp",
+    "name": "메브테크가"
+  },
+  "place-8734d18d3b2635b0": {
+    "src": "/assets/places/place-8734d18d3b2635b0.webp",
+    "name": "워크렌가"
+  },
+  "place-5fdd40fe31a45d92": {
+    "src": "/assets/places/place-5fdd40fe31a45d92.webp",
+    "name": "실문가"
+  },
+  "place-e78a789659c62199": {
+    "src": "/assets/places/place-e78a789659c62199.webp",
+    "name": "라드실가"
+  },
+  "place-bc60b7409493a439": {
+    "src": "/assets/places/place-bc60b7409493a439.webp",
+    "name": "실테크가"
+  },
+  "place-0c3fde9a0d4042b8": {
+    "src": "/assets/places/place-0c3fde9a0d4042b8.webp",
+    "name": "실다트가"
+  },
+  "place-de5f4764540220de": {
+    "src": "/assets/places/place-de5f4764540220de.webp",
+    "name": "메르나브가"
+  },
+  "place-8679450fc7fb7a3c": {
+    "src": "/assets/places/place-8679450fc7fb7a3c.webp",
+    "name": "헤드메르가"
+  },
+  "place-d93afff402abbb2d": {
+    "src": "/assets/places/place-d93afff402abbb2d.webp",
+    "name": "푸크메르가"
+  },
+  "place-51cf4e6206082123": {
+    "src": "/assets/places/place-51cf4e6206082123.webp",
+    "name": "님렌가"
+  },
+  "place-08f1f683b6c90c98": {
+    "src": "/assets/places/place-08f1f683b6c90c98.webp",
+    "name": "렌테크가"
+  },
+  "place-bc0c37005a14b79c": {
+    "src": "/assets/places/place-bc0c37005a14b79c.webp",
+    "name": "소르다트가"
+  },
+  "place-9a78124f3bd632ca": {
+    "src": "/assets/places/place-9a78124f3bd632ca.webp",
+    "name": "실킨가"
+  },
+  "place-ff831fc6e1249950": {
+    "src": "/assets/places/place-ff831fc6e1249950.webp",
+    "name": "워크실가"
+  },
+  "place-4bab21baf9586f2a": {
+    "src": "/assets/places/place-4bab21baf9586f2a.webp",
+    "name": "움켈가"
+  },
+  "place-94a338523ac463c0": {
+    "src": "/assets/places/place-94a338523ac463c0.webp",
+    "name": "나르모스가"
+  },
+  "place-f48a1e4fc0d7f0e6": {
+    "src": "/assets/places/place-f48a1e4fc0d7f0e6.webp",
+    "name": "나르페르가"
+  },
+  "place-dbc1e9a1815eb445": {
+    "src": "/assets/places/place-dbc1e9a1815eb445.webp",
+    "name": "마르나르가"
+  },
+  "place-eea8fdaecb28e2c5": {
+    "src": "/assets/places/place-eea8fdaecb28e2c5.webp",
+    "name": "둔토르가"
+  },
+  "place-a351f318df81d1a7": {
+    "src": "/assets/places/place-a351f318df81d1a7.webp",
+    "name": "둔푸크가"
+  },
+  "place-427b195aa7be2878": {
+    "src": "/assets/places/place-427b195aa7be2878.webp",
+    "name": "벱나브가"
+  }
+}

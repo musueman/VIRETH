@@ -1,0 +1,29 @@
+{
+  "revision": "v63-tiris-riverbank-20260916",
+  "coordinateSystem": "1280 x 1920 image pixels, top-left origin",
+  "approval": "User approved relocating Greenhollow to the Tiris southwest boundary near the river; preserve terrain and national borders.",
+  "places": [
+    {
+      "id": "place-b12f9ad116dd57dc",
+      "name": "그린할로우",
+      "from": [551, 799],
+      "at": [500, 838],
+      "reason": "티리스 서남 경계 하천 가까운 안쪽 육지의 옛 농경 영지·폐허권. 레이븐스톤을 거쳐 뉴할로우로 이어지는 피난 관계를 회복한다."
+    },
+    {
+      "id": "place-70bcb78178e6e240",
+      "name": "헤크가르가",
+      "from": [540, 813],
+      "at": [512, 825],
+      "reason": "그린할로우 인근 북동쪽의 재개간촌. 기존 종속 관계와 우물 복구·경작권 증언 기능을 유지한다."
+    }
+  ],
+  "preserved": {
+    "ravenstone": [503, 756],
+    "newhollow": [524, 771],
+    "bekbepga": [513, 769],
+    "terrainAndBorders": "unchanged"
+  },
+  "canonHandoffThread": "019f412c-6407-7532-9d7e-3da903e9914b",
+  "limits": "A settlement anchor is not the entire estate boundary. No specific invasion landing beach or detailed military route is established by this correction."
+}

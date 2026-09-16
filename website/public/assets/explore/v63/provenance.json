@@ -1,0 +1,12 @@
+{
+  "version": "v63",
+  "source": "D:/OneDrive/444_비레스/00_최신본/02_지도/16_지리확정_지도_v63",
+  "coordinateSystem": "1280 x 1920 image pixels, top-left origin",
+  "sourceHashes": {
+    "terrain.png": "30c70fb1896f01b158ab1203d584f6170b8d68d27011dcc6db04487074fa68ab",
+    "settlement-migration.json": "960e11f6e8f97e0f380f59d1d529be0ee6577953a6dba4f8e0fd38378fc6a968",
+    "territories.json": "d844f13ab0feb27f9db3ae4b796da8a0ccef83f43a5b2c791f10f779767dd881"
+  },
+  "geometryDataSha256": "49091ec1cbe682e1205a585e0b995195819931daf6e1a01e5c0583e9902475d2",
+  "preserved": "Original terrain bytes, capital vistas, crest pixels, country copy, card motion and layout"
+}

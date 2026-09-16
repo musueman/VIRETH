@@ -1,0 +1,189 @@
+{
+  "sourceWorkflow": "C:/ComfyUI_speed_opt_test_py310/ComfyUI/user/default/workflows/메인애니체.json",
+  "sourceSha256": "930056918d110ba46a757b8ce0d7e67605969494c178f58da9e6769aa52f845f",
+  "recordsDirectory": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1",
+  "generatedWith": "ComfyUI local 8189; current 메인애니체; unmodified model and active LoRA weights; 1536x864",
+  "note": "Illustrative possible encounters inspired by canonical starting roles, not new canonical events or named-character portraits. Original workflow unmodified.",
+  "scenes": [
+    {
+      "id": "harbor-rope",
+      "promptId": "d2141681-aeda-48bc-8427-4cb2aada39e4",
+      "sha256": "7e35d4f6b1022469a04d2794499f1343bbfcf630859def1654ff2a352f53bfdd",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v3\\originals\\01_harbor-rope.png"
+    },
+    {
+      "id": "market-spill",
+      "promptId": "e3725fdc-1777-48d6-89c4-7e9e66276555",
+      "sha256": "e451addf1f7ff269697a9d36b3bc1e13191dfe7fde10ee29744286e300ccbd5e",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\02_market-spill.png"
+    },
+    {
+      "id": "forest-tracks",
+      "promptId": "9ec16d7e-57f1-4c03-849c-45e643057420",
+      "sha256": "f78a10e5cfc681e5cf62915a92a73290f43bbbbb024c434e0b6e0e309ab3b090",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v4\\originals\\03_forest-tracks.png"
+    },
+    {
+      "id": "gate-token",
+      "promptId": "19ab6667-6903-4199-92b9-5cb76e1aec4e",
+      "sha256": "47153ebc50ee6a1ade9856e0be20ac36dc1ed17b30e72e90e81bc451a8414393",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\04_gate-token.png"
+    },
+    {
+      "id": "night-gate",
+      "promptId": "7c871e4e-3e96-40b1-9810-99b2b461eda9",
+      "sha256": "4b41b87871815fc038300ac25ab005ef11a3c9c293aea60507a27b1f8d768c4a",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\05_night-gate.png"
+    },
+    {
+      "id": "contract-table",
+      "promptId": "74db278d-69f2-4fa2-87d9-192169aabddb",
+      "sha256": "cf883d9412a6a33341a9b46c0ef063a90347687bb74fd5cf8bb86bd231e3ff64",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\06_contract-table.png"
+    },
+    {
+      "id": "cargo-dispute",
+      "promptId": "508afa8d-0d55-4494-a629-f2132bd7734f",
+      "sha256": "e518c413e3210d821561bd61ed6f405cd38be5d63b778d9ebf5fc17ce4e48376",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\07_cargo-dispute.png"
+    },
+    {
+      "id": "bridge-help",
+      "promptId": "1a900a9f-0da0-4ddd-b3cb-6b77a1af827c",
+      "sha256": "4c8b14efb4400ea565c583c69d4d198565b399c4461263fde7a8690bb8e4a737",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\08_bridge-help.png"
+    },
+    {
+      "id": "wagon-mud",
+      "promptId": "a5e7475c-d302-49d8-9da7-bf40e9c2f5c4",
+      "sha256": "576d24ed86d7395b0a9ffe5c6b6a612fb0ab3bdc32465db7517ab39d72648202",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v3\\originals\\09_wagon-mud.png"
+    },
+    {
+      "id": "rain-shelter",
+      "promptId": "82106f63-dfdd-4cba-9c8c-a80792b7b4cf",
+      "sha256": "5d33ca88c406b84a2d4387b8bdb59d80ffc23af3e741b64147ae3eed2d08f9d4",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\10_rain-shelter.png"
+    },
+    {
+      "id": "herb-seal",
+      "promptId": "965caa0a-89db-49ae-9cb9-2ff9b2309f11",
+      "sha256": "65cd9fc12cdb234390218c8ad3f9c0360439eae404c5d400047700e2ddd03602",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\11_herb-seal.png"
+    },
+    {
+      "id": "ration-help",
+      "promptId": "5de006cb-15bd-4bac-ada4-fab87ac9acd2",
+      "sha256": "006b37ae7fcb9870817e5b12c77647fc2850f896d172584a8a459ad117ec3b3b",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\12_ration-help.png"
+    },
+    {
+      "id": "wrong-boat",
+      "promptId": "bec10056-2318-46a2-9e41-8321021b5f59",
+      "sha256": "f6de100d0074f618025f86228d7d5d258c6da6acb82d50e6c27a69f6b8d697d8",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\13_wrong-boat.png"
+    },
+    {
+      "id": "inn-rumor",
+      "promptId": "6f1becb9-4cd3-44f9-bc2e-bfba80e54166",
+      "sha256": "bc11e3c174fd70328d0a52aefb7114db14d0493a4c44d2e3cf8762e6836257cc",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\14_inn-rumor.png"
+    },
+    {
+      "id": "boundary-marker",
+      "promptId": "4a31f3d4-e150-45ad-a705-91c9f374652d",
+      "sha256": "39609618d52c7688ca82dd8e20efc3f75a85d1d8224581cc1f10f82067bd53ad",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\15_boundary-marker.png"
+    },
+    {
+      "id": "ferry-crossing",
+      "promptId": "8ab1505d-e438-4a9a-bec3-8ba2a62e978f",
+      "sha256": "260375f9e4fc7bc67b740f3a76517b0a25d65bdac09399b74bec23f6a5242da2",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\16_ferry-crossing.png"
+    },
+    {
+      "id": "sparring-yard",
+      "promptId": "adda6bc8-bf14-4ae3-9e64-470fdda760bb",
+      "sha256": "6f80a4eacf18d197be1c712b8b19418e35929d24c2907e07059222dfbde6a147",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v4\\originals\\17_sparring-yard.png"
+    },
+    {
+      "id": "lost-pouch",
+      "promptId": "c55c732f-4781-4396-9a52-40ae353c551b",
+      "sha256": "fd1fb3ff700d0da4d9e8b5d44c276bc42410a154348ce1b6ee5ccced6426fc63",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\18_lost-pouch.png"
+    },
+    {
+      "id": "mountain-route",
+      "promptId": "62a24a18-fee4-43b3-a524-e90781f8330c",
+      "sha256": "97ecbf0f03c1ef69941f60ae13a8a2716cdaec725f79c242e7de1bcdba65a0e9",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\19_mountain-route.png"
+    },
+    {
+      "id": "lantern-search",
+      "promptId": "c4c4d93c-1f88-4c3e-b981-a4115441b029",
+      "sha256": "5114c99bd1f5c73ef554a42d45f2c2801c2f691ebe8fa1cf13971bf15f89c7f4",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\20_lantern-search.png"
+    },
+    {
+      "id": "torn-sail",
+      "promptId": "955df1de-d0e5-40ba-bc7a-fe3536b8d132",
+      "sha256": "ffacb5e19a9ebdce37740b0a6b22c0d66bda3b9effa73c1599deed04789e8010",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\21_torn-sail.png"
+    },
+    {
+      "id": "campfire",
+      "promptId": "7a706071-0c30-429c-a942-09ed314b4583",
+      "sha256": "70dc6d134d80e783b33065be0ee0de6e23dedc9a7f1053449deb75b75f86ef89",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\22_campfire.png"
+    },
+    {
+      "id": "workshop",
+      "promptId": "7885276d-4462-4a66-8428-094acd150198",
+      "sha256": "cfb1fbec4f6ad7fa518b5e2af0ab87b49ea34e338e9d0da14c79ad4cd25d65fd",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\23_workshop.png"
+    },
+    {
+      "id": "river-rescue",
+      "promptId": "ba43afd6-9ae2-48e0-896e-ea0410351ec4",
+      "sha256": "8c5bfe437f6fccfd1a4e300d629f7bb0bb0954e01636a47ffcfc79e605dbd733",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\24_river-rescue.png"
+    },
+    {
+      "id": "ledger-clue",
+      "promptId": "c87e4051-5815-475f-935c-037076292e9a",
+      "sha256": "1c72dce9920c9bf17c7fb7f727317f0931b80ece8f0449af9567727480e10d93",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\25_ledger-clue.png"
+    },
+    {
+      "id": "festival",
+      "promptId": "58752752-2e42-41d3-9f39-2c2b1947ce59",
+      "sha256": "703cbe78bd339603ac6827aca529bcfc3c4844404e0f508b44f6c4225718117a",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\26_festival.png"
+    },
+    {
+      "id": "harbor-view",
+      "promptId": "7d6618ef-8011-4f98-919b-b9bcb1807756",
+      "sha256": "c6aa6844487c3a56163f345990455301a2bcab990b3924a052e6a321453419a1",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\27_harbor-view.png"
+    },
+    {
+      "id": "forest-view",
+      "promptId": "471cb227-a340-4ac7-9132-199b17f4eb42",
+      "sha256": "c1d3f4504d45b53741dc94ffeb20b9fb2c015c680d95d12e2b9ea1d2b31f9a28",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\28_forest-view.png"
+    },
+    {
+      "id": "mountain-inn",
+      "promptId": "656bc847-f607-48e6-80f6-092133fd0c19",
+      "sha256": "ecf42a60f770597b8a05929e4665ab9ddae7edeae32e5fda3d160a871ec6a25d",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\revisions\\v2\\originals\\29_mountain-inn.png"
+    },
+    {
+      "id": "market-view",
+      "promptId": "063cee33-a46e-49b7-8b99-3cc4b8c6ecce",
+      "sha256": "c5dc5b71c89d20a5cbf936bf98483365092e4d5a933965fa7b7798cdddfe3cc0",
+      "source": "D:\\OneDrive\\Documents\\듀란일대기 설정 및 챗봇제작\\output\\vireth-journey-scenes-v1\\originals\\30_market-view.png"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "duran-guide-v2-cutout-20260915.png",
+  "version": "2026-09-15-v2-cutout-1",
+  "source": "output/vireth-home-design/duran-guide-20260915-v2/01_duran-guide.png",
+  "sourceEngine": "ComfyUI 메인애니체",
+  "extractionEngine": "built-in image_gen background extraction",
+  "extractionReason": "The active ComfyUI background-removal loader has no installed model options.",
+  "dimensions": [1086, 1448],
+  "mode": "RGBA",
+  "transparentPixels": 1208618,
+  "prompt": "Remove only the gray backdrop and ground shadow/light patch. Preserve the approved character face, proportions, pose, hands, white hair, red cape, black tunic, navy trousers, belt, pouches, silver bracers, boots, linework and colors. No restyling or added elements. Keep the full silhouette and 3:4 portrait composition with genuine transparent alpha.",
+  "review": "Full character and open-hand guide pose retained; gray backdrop and ground patch removed. Generated extraction is a derivative, not a claim of pixel-identical masking. Original Comfy PNG remains unchanged. No older hood-up v1 candidate was used."
+}

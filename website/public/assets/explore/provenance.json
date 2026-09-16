@@ -1,0 +1,21 @@
+{
+  "verifiedAt": "2026-09-16",
+  "authority": "D:/OneDrive/444_비레스/00_최신본/README_최신본_사용기준.md",
+  "assets": [
+    {
+      "file": "vireth-map-v62.png",
+      "source": "D:/OneDrive/444_비레스/00_최신본/02_지도/15_출판웹_선별라벨지도_v62/00_full_maps/vireth-ck5083-v62-full-boundaries-minimal-labels-preview.png",
+      "sha256": "9065561BC9FB527E5FF6A633954DF9BAFFC83F0D712D4BBF20C3B18A1B865473",
+      "dimensions": [1067, 1600],
+      "status": "Active publication/web derivative v62; visually inspected; unchanged copy, no generated geography."
+    },
+    {
+      "file": "leonia-radarhal.png",
+      "source": "D:/OneDrive/444_비레스/00_최신본/04_장소_문장_이미지/generated_outputs/city_vistas/ck5083-city-leonia-radarhal-imagegen-v1-2560-labeled.png",
+      "sha256": "D2B165BEFB5CBE7663F8EFCDB13C729F9F377FC30E1E44C4AC9A00FD4A2B70E5",
+      "dimensions": [2560, 1440],
+      "status": "Active image mapping DB entry 40; canon image review marked passed. Visually inspected. Unchanged labeled original, no crop. Prototype placement awaiting user feedback."
+    }
+  ],
+  "notes": "Current status comes from active usage instructions and mapping, not filename date/version sorting. No new raster generation. No production deployment."
+}

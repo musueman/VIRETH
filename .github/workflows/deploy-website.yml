@@ -1,0 +1,57 @@
+name: Deploy Vireth homepage
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - '.github/workflows/deploy-website.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vireth-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            website
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - run: npm ci
+      # The original-source audit needs private, local canon/QA input paths.
+      # It is run in the authoring workspace; the portable UI suite runs here.
+      - run: npx vitest run src --environment jsdom --exclude src/catalog-integrity.test.js
+      - run: npx vite build --base=/VIRETH/ && node scripts/prepare-sites-build.mjs
+      - run: node --test tests/pages-build.test.mjs tests/sites-worker.test.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/dist/client
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

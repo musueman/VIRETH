@@ -1,5 +1,10 @@
 # Prototype Instructions
 
+## Shared content-button treatment · 2026-09-17
+
+- User approved extending the hero's left-button design to content navigation/learn-more CTAs throughout the integrated site: square geometry, inset second border, one passing sheen, 2px lift and 4px arrow movement. Use `src/action-buttons.css`, loaded after legacy page styles. Dark/navy CTAs use champagne edges; white/ivory CTAs use dark-gold edges and readable navy text. Preserve font sizes, URLs, card actions and arrow direction.
+- Scope to main content and the portaled country card, including card CTA labels and map destination links. Keep header, hamburger, close, music, slideshow controls, country markers and filters unchanged. Preserve the desktop-hidden enlarged-map link, map CTA's one-line label/right-padded arrow, and compact one-line newcomer CTA. Hover motion runs only on fine hover pointers; keyboard focus gets equivalent emphasis, touch gets pressed feedback, and reduced motion suppresses travel/sheen.
+
 ## Favicon and link preview · 2026-09-17
 
 - Favicon only: two mirrored hot-pink diagonal strokes forming a symmetric V on opaque white. Keep existing header/logo artwork unchanged. Editable source is `public/assets/branding/favicon-v1.svg`; `scripts/build-favicon.cjs` exports PNG sizes and ICO with sharp.

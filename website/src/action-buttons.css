@@ -1,0 +1,85 @@
+/* Content CTAs only: header, map markers, playback and close controls are excluded.
+   The content roots also let these rules supersede older page-specific link styles. */
+:is(.category-overview,.region-discovery,.region-content,.region-people,.place-box) {
+  --action-bg:#fff;--action-fg:#102b37;--action-border:#aa8952;
+  --action-hover:#faf3e6;--action-edge:#80602e;--action-inner:#80602e99;
+  --action-glow:#80602e24;--action-sheen:#d4ad6440;
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,:where(.detail-map-picker>a)) {
+  position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;
+  display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+  max-width:100%;min-height:48px;padding:11px 20px;border-radius:0;
+  border:1px solid var(--action-border,#c4a771);
+  background:var(--action-bg,#0b2936);color:var(--action-fg,#f4ecdd);
+  font-family:var(--font-ui);text-decoration:none;text-shadow:none;
+  transform:none;box-shadow:none;
+  line-height:1.55;word-break:keep-all;overflow-wrap:anywhere;
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease,background-color .28s ease,color .28s ease;
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary) {min-height:54px;padding-inline:24px;}
+#main .intro-link {padding-inline:18px;gap:14px;}
+:is(#main,.place-box) :is(.button-primary,.region-map-button) {
+  --action-bg:#0b2936;--action-fg:#f4ecdd;--action-border:#c4a771;
+  --action-hover:#173b49;--action-edge:#f1d396;--action-inner:#e7c68a99;
+  --action-glow:#e5b65345;--action-sheen:#ffdf9a66;
+}
+:is(#main,.place-box) :is(.button-secondary,.detail-map-picker>a) {
+  --action-bg:#f4ecdd;--action-fg:#102633;--action-border:#b39561;
+  --action-hover:#fff7e9;--action-edge:#80602e;--action-inner:#80602e99;
+  --action-glow:#80602e28;--action-sheen:#fffef4d9;
+}
+:is(#main,.place-box) .detail-map-picker>a {display:flex;width:100%;padding-inline:16px;}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a)>svg {
+  flex:none;margin-left:auto;transform:none;transition:transform .28s ease;
+}
+:is(#main,.place-box) .back-link>svg {margin-left:0;margin-right:4px;}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a)::before {
+  content:'';position:absolute;inset:-40% -15%;z-index:-1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 34%,var(--action-sheen,#ffdf9a66) 49%,transparent 64%);
+  transform:translateX(-120%);opacity:0;animation:none;
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a)::after {
+  content:'';position:absolute;inset:4px;pointer-events:none;
+  border:1px solid var(--action-inner,#e7c68a99);opacity:0;transition:opacity .28s ease;
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):focus-visible,
+#main a:focus-visible>div>.text-link,
+#main .place-directory>a:focus-visible>.text-link {
+  transform:translateY(-2px);background:var(--action-hover,#173b49);
+  color:var(--action-fg,#f4ecdd);border-color:var(--action-edge,#f1d396);
+  box-shadow:0 0 20px var(--action-glow,#e5b65345);outline-color:var(--action-edge,#f1d396);
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):focus-visible::before,
+#main a:focus-visible .text-link::before {animation:action-sheen .85s ease-out both;}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):focus-visible::after,
+#main a:focus-visible .text-link::after {opacity:1;}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.region-map-button,.explore-link,.detail-map-picker>a):focus-visible>svg,
+#main a:focus-visible .text-link>svg {transform:translateX(4px);}
+:is(#main,.place-box) .back-link:focus-visible>svg {transform:translateX(-4px);}
+@media(hover:hover) and (pointer:fine) {
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):not(:disabled):not([aria-disabled=true]):hover,
+  #main a:hover>div>.text-link,#main .place-directory>a:hover>.text-link {
+    transform:translateY(-2px);background:var(--action-hover,#173b49);
+    color:var(--action-fg,#f4ecdd);border-color:var(--action-edge,#f1d396);
+    box-shadow:0 0 20px var(--action-glow,#e5b65345);
+  }
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):not(:disabled):not([aria-disabled=true]):hover::before,
+  #main a:hover .text-link::before {animation:action-sheen .85s ease-out both;}
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):not(:disabled):not([aria-disabled=true]):hover::after,
+  #main a:hover .text-link::after {opacity:1;}
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.region-map-button,.explore-link,.detail-map-picker>a):hover>svg,
+  #main a:hover .text-link>svg {transform:translateX(4px);}
+  :is(#main,.place-box) .back-link:hover>svg {transform:translateX(-4px);}
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):active {
+  transform:translateY(1px);background:var(--action-hover,#173b49);box-shadow:inset 0 0 12px var(--action-glow,#e5b65345);
+}
+:is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a):active::after {opacity:1;}
+@media(min-width:681px) {#main .explore-link {display:none;}}
+@keyframes action-sheen {0%{opacity:0;transform:translateX(-120%);}18%,78%{opacity:1;}100%{opacity:0;transform:translateX(120%);}}
+@media(prefers-reduced-motion:reduce) {
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a),
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a)>svg {transition:none!important;transform:none!important;}
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a)::before {display:none;animation:none!important;}
+  :is(#main,.place-box) :is(.button-primary,.button-secondary,.text-link,.back-link,.region-map-button,.explore-link,.detail-map-picker>a)::after {transition:none;}
+}

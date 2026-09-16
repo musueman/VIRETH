@@ -1,5 +1,11 @@
 # Prototype Instructions
 
+## Favicon and link preview · 2026-09-17
+
+- Favicon only: two mirrored hot-pink diagonal strokes forming a symmetric V on opaque white. Keep existing header/logo artwork unchanged. Editable source is `public/assets/branding/favicon-v1.svg`; `scripts/build-favicon.cjs` exports PNG sizes and ICO with sharp.
+- Share-card correction: use the exact original PNG logo, not an AI-redrawn wordmark. Center it prominently (720px wide on the 1200px card), with a large centered 44px slogan below and a dark readability gradient over the original night-city background. Rebuild with `scripts/build-share-card.cjs`. The generated left-biased trials were rejected; do not use them as live artwork.
+- Use one site-wide, crawler-visible static Open Graph/Twitter preview in index.html: existing night-city/two-moon scenery with VIRETH branding and “누구든, 무엇이든 될 수 있는 곳”. Title: “VIRETH · 당신의 이야기가 시작되는 세계”. Description: “성문 앞에서, 낯선 장터에서, 누군가의 곁에서. 나라와 사람들을 만나고 당신만의 여행을 시작하세요.” Use absolute public image/canonical URLs, Pages-safe icon paths, and a 1200×630 PNG. Hash routes share this preview; do not imply per-story social cards.
+
 ## Compact music footer and stacked map · 2026-09-16
 
 - Replace footer branding with the three supplied BGM tracks and a compact player. Attempt audible autoplay on initial entry; if browser policy blocks it, retry on the first page click/tap or Enter/Space activation. Never auto-resume after explicit pause, and do not show policy-blocked initial autoplay as an error. Keep one audio element across hash routes, repeat the three-track playlist, preserve pause on manual selection, and use a genuine Web Audio analyser for the equalizer. Pause visual sampling in hidden tabs/offscreen footer/reduced motion; do not use fake dancing bars. Retain original audio files and embedded track titles.

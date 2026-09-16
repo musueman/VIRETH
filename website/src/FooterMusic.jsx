@@ -37,17 +37,24 @@ export function FooterMusic({active=true}){
  const [index,setIndex]=useState(0),[playing,setPlaying]=useState(false),[loading,setLoading]=useState(false);
  const [volume,setVolume]=useState(.35),[error,setError]=useState('');
  const volumeRef=useRef(volume);
+ const autoPending=useRef(true);
 
- function prepareAudio(){
+ function prepareAudio(automatic=false){
   if(graph.current)return graph.current.context.resume().catch(()=>{});
   const Context=window.AudioContext||window.webkitAudioContext;
   if(!Context){audio.current.volume=volumeRef.current;return Promise.resolve();}
   let context;
   try{
    context=new Context();
+   // Never route audible native autoplay through a policy-suspended graph.
+   // The first user gesture can attach the analyser once audio is unlocked.
+   if(automatic&&context.state!=='running'){
+    context.close().catch(()=>{});audio.current.volume=volumeRef.current;return Promise.resolve();
+   }
    const analyser=context.createAnalyser(),gain=context.createGain();
    analyser.fftSize=256;analyser.smoothingTimeConstant=.8;gain.gain.value=volumeRef.current;
    const source=context.createMediaElementSource(audio.current);
+   audio.current.volume=1;
    source.connect(analyser);analyser.connect(gain);gain.connect(context.destination);
    graph.current={context,analyser,gain,source};
    return context.resume().catch(()=>{});
@@ -56,34 +63,56 @@ export function FooterMusic({active=true}){
    return Promise.resolve();
   }
  }
- function start(){
+ function start(automatic=false){
+  autoPending.current=automatic;
   const ticket=++intent.current;wantsPlay.current=true;setError('');setLoading(true);
-  const ready=prepareAudio();
+  if(automatic&&!graph.current)audio.current.volume=volumeRef.current;
+  const ready=automatic?Promise.resolve():prepareAudio();
   if(audio.current.error)audio.current.load();
   // Call play in the original tap/click, before awaiting, for mobile gesture policies.
   const playback=audio.current.play();
-  Promise.all([ready,playback]).catch(()=>{
+  Promise.all([ready,playback]).then(()=>{
    if(ticket!==intent.current)return;
-   wantsPlay.current=false;setPlaying(false);setLoading(false);setError('재생 버튼을 다시 눌러주세요.');
+   autoPending.current=false;
+   if(automatic)prepareAudio(true);
+  }).catch(()=>{
+   if(ticket!==intent.current)return;
+   wantsPlay.current=false;setPlaying(false);setLoading(false);
+   if(!automatic)setError('재생 버튼을 다시 눌러주세요.');
   });
  }
  function pause(){
+  autoPending.current=false;
   ++intent.current;wantsPlay.current=false;audio.current.pause();setPlaying(false);setLoading(false);
  }
- function changeTrack(next,continuePlaying=wantsPlay.current){
+ function changeTrack(next,continuePlaying=wantsPlay.current,automatic=false){
   ++intent.current;const value=(next+tracks.length)%tracks.length;
   current.current=value;setIndex(value);setPlaying(false);setError('');
   audio.current.pause();audio.current.src=tracks[value].src;audio.current.load();
-  if(continuePlaying)start();else{wantsPlay.current=false;setLoading(false);}
+  if(continuePlaying)start(automatic);else{wantsPlay.current=false;setLoading(false);}
  }
  function changeVolume(event){
   const value=Number(event.target.value);volumeRef.current=value;setVolume(value);
   if(graph.current)graph.current.gain.gain.value=value;else audio.current.volume=value;
  }
- useEffect(()=>()=>{
-  ++intent.current;wantsPlay.current=false;
-  const context=graph.current?.context;
-  context?.close().catch(()=>{});graph.current=null;
+ useEffect(()=>{
+  const media=audio.current;
+  autoPending.current=true;
+  start(true);
+  const activate=event=>{
+   if(event.target.closest?.('.footer-music'))return;
+   if(event.type==='keydown'&&(event.repeat||!['Enter',' '].includes(event.key)))return;
+   if(autoPending.current)start();
+   else if(wantsPlay.current&&graph.current?.context.state!=='running')prepareAudio();
+  };
+  document.addEventListener('click',activate,true);
+  document.addEventListener('keydown',activate,true);
+  return()=>{
+   document.removeEventListener('click',activate,true);document.removeEventListener('keydown',activate,true);
+   ++intent.current;wantsPlay.current=false;media.pause();
+   const context=graph.current?.context;
+   context?.close().catch(()=>{});graph.current=null;
+  };
  },[]);
 
  return <div className="footer-music" role="group" aria-label="비레스 배경음악" data-playing={playing}>
@@ -92,7 +121,7 @@ export function FooterMusic({active=true}){
   <audio ref={audio} src={tracks[0].src} preload="none"
    onPlaying={()=>{if(wantsPlay.current){setPlaying(true);setLoading(false);}else audio.current.pause();}}
    onPause={()=>{if(audio.current.paused){wantsPlay.current=false;setPlaying(false);setLoading(false);}}} onWaiting={()=>{if(wantsPlay.current)setLoading(true);}}
-   onEnded={()=>changeTrack(current.current+1,true)}
+   onEnded={()=>changeTrack(current.current+1,true,true)}
    onError={()=>{++intent.current;wantsPlay.current=false;setPlaying(false);setLoading(false);setError('음원을 불러오지 못했어요. 다시 재생하거나 다음 곡을 골라주세요.');}}/>
   <button className="music-previous music-control" aria-label="이전 곡" onClick={()=>changeTrack(current.current-1)}><SkipBack size={18} weight="fill"/></button>
   <button className="music-play music-control" aria-label={playing||loading?'배경음악 일시정지':'배경음악 재생'} aria-busy={loading} onClick={()=>wantsPlay.current?pause():start()}>

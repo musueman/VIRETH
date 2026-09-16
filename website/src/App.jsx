@@ -12,6 +12,7 @@ import {Footer} from './HubShared.jsx';
 import {HubPages} from './HubPages.jsx';
 import {useRoute} from './Router.jsx';
 import './hub.css';
+import './footer-music.css';
 
 const assets = '/assets/hero/';
 const notices = {

@@ -79,7 +79,7 @@ describe('gateway preview behavior', () => {
     expect(screen.getByRole('heading',{name:'노르가르드'})).not.toBeNull();
   });
   it('dismisses without movement when reduced motion is requested', () => {
-    vi.stubGlobal('matchMedia',()=>({matches:true,addEventListener(){},removeEventListener(){}}));
+    vi.stubGlobal('matchMedia',query=>({matches:query==='(prefers-reduced-motion: reduce)',addEventListener(){},removeEventListener(){}}));
     render(<App />);
     fireEvent.click(screen.getByRole('button',{name:'레오니아 살펴보기'}));
     fireEvent.click(screen.getByRole('button',{name:'나라 소개 닫기'}));

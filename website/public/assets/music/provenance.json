@@ -1,0 +1,8 @@
+{
+  "source": "User-supplied original MP3 files; copied without transcoding",
+  "tracks": [
+    {"file":"rest-stop.mp3","original":"magnific_create-an-original-emotio_nVtnI1gYQD.mp3","title":"Rest Stop Beneath the Starlit Sky","durationSeconds":152.267755,"sha256":"7f848b5f18588c4b2e917eec1f5764af070076cb26d2f3af3d5a06b63cf390b8"},
+    {"file":"endless-horizons.mp3","original":"magnific_create-an-original-grand-_YMmYM8QWeC.mp3","title":"Embracing Endless Horizons","durationSeconds":147.043265,"sha256":"b26deb4d6a64cb302aba2f4551128a3c6aa848d3886a5fbc1968c4815b90bed1"},
+    {"file":"gateways.mp3","original":"magnific_create-an-original-instru_SyAgoYSUb8.mp3","title":"Gateways to the Vast Unknown","durationSeconds":142.811429,"sha256":"a854f3eca5f922b8dd1140e54d33c360ef2a936c0ec3e4139fdc3d4a339d3b9d"}
+  ]
+}

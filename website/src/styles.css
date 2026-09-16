@@ -243,7 +243,10 @@ h1, h2, p { margin: 0; }
   .atlas-preview { width: min(100%, 560px); margin-inline: 0; }
   .explore-inner { display: block; }
   .explore-empty-mark {right:0;}
-  .place-slot { width: 100%; max-width: 560px; margin: -36px 0 0; }
+  .place-slot { width: 100%; max-width: 560px; margin: 20px 0 0; scroll-margin-top:calc(var(--header-height) + 16px); }
+  .country-picker-stacked {display:flex;align-items:center;gap:16px;max-width:560px;min-height:46px;margin:0 0 14px;padding:0 14px;background:#fff;border:1px solid #c4a77188;color:#102b37;}
+  .country-picker-stacked label {flex:none;font-size:13px;color:#80602e;}
+  .country-picker-stacked select {min-width:0;flex:1;background:#fff;color:#102b37;border:0;padding:10px 0;font-size:16px;}
   .place-box[data-floating='true'] { width: min(540px, calc(100% - var(--content-edge) * 2)); }
   .place-details { padding: 22px; }
   .country-crest { left: 22px; top: 18px; width: 76px; height: auto; }

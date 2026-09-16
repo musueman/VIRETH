@@ -8,6 +8,9 @@ import { Atlas } from './Atlas.jsx';
 // v63 geometry is shared with the enlarged atlas. Existing card motion is kept.
 
 export function Explore({ openMap }) {
+  const [stacked, setStacked] = useState(()=>!!window.matchMedia?.('(max-width: 1000px)').matches);
+  const stackedRef = useRef(stacked);
+  const slotRef = useRef(null);
   const [selected, setSelected] = useState(places[0].id);
   const [floating, setFloating] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
@@ -44,6 +47,7 @@ export function Explore({ openMap }) {
     motion.current.timer = setTimeout(finishExit, 360);
   }
   function positionCard(checkTopBoundary = false) {
+    if (stackedRef.current) return;
     if (motion.current.exiting) return;
     const map = sectionRef.current?.querySelector('.atlas-preview');
     if (!map) return;
@@ -61,6 +65,14 @@ export function Explore({ openMap }) {
 
   function selectPlace(id, event) {
     if (restoringFocus.current) return;
+    if (stackedRef.current) {
+      setSelected(id);
+      // Focus/hover may precede a touch click. Only activation should move the page.
+      if (['click','change','keydown'].includes(event.type)) {
+        slotRef.current?.scrollIntoView({behavior:window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+      }
+      return;
+    }
     clearTimeout(motion.current.timer);
     motion.current.exiting = false;
     motion.current.active = true;
@@ -79,15 +91,26 @@ export function Explore({ openMap }) {
     restoringFocus.current = false;
   }
   function hoverPlace(id, event) {
+    if (stackedRef.current) return;
     // Scroll can move a different marker beneath a stationary pointer.
     // Only deliberate pointer movement may release this guard.
     if (!scrolling.current) selectPlace(id, event);
   }
   function moveOverPlace(id, event) {
+    if (stackedRef.current) return;
     if (pointer.current.x === event.clientX && pointer.current.y === event.clientY) return;
     scrolling.current = false;
     selectPlace(id, event);
   }
+  useEffect(() => {
+    const layout=window.matchMedia?.('(max-width: 1000px)');
+    const change=()=>{
+      stackedRef.current=!!layout?.matches;
+      finishExit();setHasOpened(false);setSlotHeight(0);setStacked(stackedRef.current);
+    };
+    layout?.addEventListener('change',change);
+    return()=>layout?.removeEventListener('change',change);
+  },[]);
   useEffect(() => {
     const onScroll = () => { scrolling.current = true; positionCard(true); };
     const onMove = event => { pointer.current = {x: event.clientX, y: event.clientY}; };
@@ -98,7 +121,7 @@ export function Explore({ openMap }) {
     let observer;
     if (window.IntersectionObserver) {
       observer = new IntersectionObserver(entries => {
-        if (!entries[0].isIntersecting) beginExit();
+        if (!stackedRef.current && !entries[0].isIntersecting) beginExit();
       }, {rootMargin: '-82px 0px 0px 0px'});
       observer.observe(sectionRef.current);
     }
@@ -118,7 +141,14 @@ export function Explore({ openMap }) {
     return () => document.removeEventListener('keydown', onKey);
   }, [floating]);
 
-  const card = <div ref={cardRef} className="place-box" data-floating={floating} data-exiting={exiting} onAnimationEnd={event => { if (event.target === event.currentTarget && motion.current.exiting) finishExit(); }} style={floating ? {bottom: `${bottomInset}px`} : undefined}>
+  const picker = <Reveal className={`country-picker${stacked?' country-picker-stacked':''}`} delay={200}>
+    {stacked&&<label htmlFor="explore-country">나라 선택</label>}
+    <select id="explore-country" aria-label="나라와 권역 고르기" value={selected} onChange={event=>selectPlace(event.target.value,event)}>
+      <optgroup label="비레스의 나라들">{places.filter(place=>!place.isRegion).map(place=><option key={place.id} value={place.id}>{place.name}</option>)}</optgroup>
+      <optgroup label="나라 밖으로 이어지는 권역">{places.filter(place=>place.isRegion).map(place=><option key={place.id} value={place.id}>{place.name} · {place.kind}</option>)}</optgroup>
+    </select>
+  </Reveal>;
+  const card = <div ref={cardRef} className="place-box" data-floating={!stacked&&floating} data-exiting={!stacked&&exiting} onAnimationEnd={event => { if (event.target === event.currentTarget && motion.current.exiting) finishExit(); }} style={!stacked&&floating ? {bottom: `${bottomInset}px`} : undefined}>
     {floating && <button className="country-close" aria-label="나라 소개 닫기" onClick={closeCard}><X size={20} /></button>}
     <div className="place-panels">
       {places.map(place => <article key={place.id} id={`place-${place.id}`} className="place-panel" data-active={selected === place.id} aria-hidden={selected !== place.id}>
@@ -130,30 +160,26 @@ export function Explore({ openMap }) {
       </article>)}
     </div>
   </div>;
-  return <section ref={sectionRef} className="explore-lands" id="explore" aria-labelledby="explore-title">
+  return <section ref={sectionRef} className="explore-lands" id="explore" data-layout={stacked?'stacked':'overlap'} aria-labelledby="explore-title">
     <div className="explore-inner">
       <div className="explore-heading">
         <Reveal className="explore-accent" aria-hidden="true"><Diamond size={16} weight="duotone" /></Reveal>
         <Reveal as="h2" id="explore-title" delay={60}>어떤 곳이 마음에 드세요?</Reveal>
         <Reveal as="p" delay={140}>땅이 넓다고 꼭 더 강한 나라는 아니에요. 나라를 고르고, 저마다의 삶과 힘을 만나보세요.</Reveal>
         <Reveal as="p" className="map-hint" delay={180}>나라의 땅이나 깃발을 짚어보세요. 목록에서도 고를 수 있어요.</Reveal>
-        <Reveal className="country-picker" delay={200}>
-          <select aria-label="나라와 권역 고르기" value={selected} onChange={event => selectPlace(event.target.value, event)}>
-            <optgroup label="비레스의 나라들">{places.filter(place => !place.isRegion).map(place => <option key={place.id} value={place.id}>{place.name}</option>)}</optgroup>
-            <optgroup label="나라 밖으로 이어지는 권역">{places.filter(place => place.isRegion).map(place => <option key={place.id} value={place.id}>{place.name} · {place.kind}</option>)}</optgroup>
-          </select>
-        </Reveal>
+        {!stacked&&picker}
         <Reveal as="button" className="explore-link" delay={180} onClick={openMap}>큰 지도로 둘러보기<CaretRight size={18} /></Reveal>
         <Reveal as="a" className="text-link region-directory-link" delay={220} href="#/regions">나라와 장소 목록<CaretRight size={18}/></Reveal>
       </div>
+      {stacked&&picker}
       <Reveal className="atlas-preview" delay={120}>
         <Atlas selected={selected} onSelect={selectPlace} onHover={hoverPlace} onMove={moveOverPlace} />
       </Reveal>
-      <div className="place-slot" style={{minHeight: hasOpened ? `${slotHeight}px` : undefined}}>
+      <div ref={slotRef} className="place-slot" style={{minHeight: !stacked&&hasOpened ? `${slotHeight}px` : undefined}}>
         <div className="explore-empty-mark" aria-hidden="true"><img src="/assets/branding/vireth-logo-20260915.png" width="1539" height="537" alt="" draggable={false}/></div>
-        {!hasOpened && <Reveal delay={200}>{card}</Reveal>}
+        {stacked?card:!hasOpened&&<Reveal delay={200}>{card}</Reveal>}
       </div>
-      {floating && createPortal(card, document.body)}
+      {!stacked&&floating && createPortal(card, document.body)}
     </div>
     <div className="rule section-rule" aria-hidden="true"><Diamond size={12} /></div>
   </section>;

@@ -1,5 +1,11 @@
 # Prototype Instructions
 
+## Compact music footer and stacked map · 2026-09-16
+
+- Replace footer branding with the three supplied BGM tracks and a compact player. Start silent; explicit user playback only. Keep one audio element across hash routes, repeat the three-track playlist, preserve pause on manual selection, and use a genuine Web Audio analyser for the equalizer. Pause visual sampling in hidden tabs/offscreen footer/reduced motion; do not use fake dancing bars. Retain original audio files and embedded track titles.
+- At widths <=1000px, remove footer navigation and branding from the rendered layout, use a 56px controls row plus bottom safe-area inset, and keep smaller Duran/Bobo above the right edge without covering controls. Wider layouts keep footer navigation and desktop player controls. Preserve the fixed white footer, shared header reveal boundary and measured footer obstruction.
+- The homepage map becomes stacked at the existing 1000px breakpoint. In this layout ONLY, keep the selected country card in normal document flow 20px beneath the main map, never in a fixed portal. Put a thin native country/region selector directly above the map. Click/tap/Enter/Space/select change scrolls to the card below the header; hover/focus alone does not scroll. Resizing clears pending floating motion. Wider two-column/overlapping layouts retain all existing floating-card, dismissal and stationary-pointer protections. Preserve maps, canonical coordinates and every country.
+
 ## Full-screen travel menu · 2026-09-16
 
 - User approved implementing the planned warm-white travel-directory hamburger menu, with a full-viewport unfolding surface and short staggered content entrances. All viewport sizes now expose the menu toggle; desktop direct links remain. Use gothic UI labels, navy type, muted-gold separators and the unchanged faint monochrome logo.

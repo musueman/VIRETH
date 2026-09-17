@@ -93,12 +93,12 @@
 .person-profile-band::before,.archive-story::before {mask-image:linear-gradient(90deg,#000 calc(100% - var(--edge-fade)),#000000f2 calc(100% - var(--edge-fade) * .75),#00000080 calc(100% - var(--edge-fade) * .5),#00000014 calc(100% - var(--edge-fade) * .25),transparent 100%);}
 .person-profile-band :is(p,h3,a) {transition:color .45s ease,border-color .45s ease,text-shadow .45s ease;}
 .person-profile-band:focus-within::before {background-color:#fffffff2;border-color:#80632d60;}
-.person-profile-band:focus-within .person-feature-details :is(p,h3,a) {color:#161616!important;text-shadow:none;}
+.person-profile-band:focus-within .person-feature-details :is(p,h3) {color:#161616!important;text-shadow:none;}
 .person-profile-band:focus-within .text-link {border-color:#16161660;}
 .person-profile-band .text-link:focus-visible {outline-color:#705327;}
 @media(hover:hover){
  .person-profile-band:hover::before {background-color:#fffffff2;border-color:#80632d60;}
- .person-profile-band:hover .person-feature-details :is(p,h3,a) {color:#161616!important;text-shadow:none;}
+ .person-profile-band:hover .person-feature-details :is(p,h3) {color:#161616!important;text-shadow:none;}
  .person-profile-band:hover .text-link {border-color:#16161660;}
 }
 @media(prefers-reduced-motion:reduce){.person-profile-band::before,.person-profile-band :is(p,h3,a){transition:none;}}

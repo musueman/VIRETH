@@ -31,3 +31,17 @@ music controls, close buttons, map markers and filters unchanged.
 - Pages/Sites packaging tests: 8 passed.
 - A read-only CSS/cascade review found no important regressions; its mobile
   newcomer-link clipping concern was checked using the dimensions above.
+
+## Profile-card contrast regression — 2026-09-17
+
+The profile card's old hover/focus rule forced all `a` elements to nearly black
+with `!important`, overriding the new dark CTA palette. Restrict the card's
+light-surface text override to paragraphs/headings; the CTA owns its colors.
+
+Reproduce by focusing `이 사람 알아보기` inside `.person-profile-band` (the
+same conflicting declaration was used by pointer hover). Read computed color
+and background after the transition; calculate sRGB relative luminance and
+require contrast >= 4.5. On the original published CSS this check failed at
+1.515:1 (#161616 on #173b49). With the fix the identical browser check passes
+at 10.174:1 (#f4ecdd on #173b49). Screenshot confirms the SVG arrow also
+inherits the readable ivory foreground while the card body remains dark.

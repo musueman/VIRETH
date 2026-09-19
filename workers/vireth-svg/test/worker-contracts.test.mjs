@@ -211,22 +211,22 @@ test("replaces a place-name situation with the canonical situation card", async 
   assert.equal(body.talkBackground.imageUrl, "/b/b001-rn.webp");
 });
 
-test("renders talk character art at the configured display scale", async () => {
+test("renders talk character art slightly smaller with a visible top inset", async () => {
   const response = await fetch(`${baseUrl}/talk?id=C012&e=a&placeId=L022&external=1`);
   const svg = await response.text();
 
   assert.equal(response.status, 200);
   assert.match(
     svg,
-    /<metadata data-talk-character-display-scale="1\.5"\/>/
+    /<metadata data-talk-character-display-scale="1\.3"\/>/
   );
   assert.match(
     svg,
-    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="382\.5" y="-155\.5" width="705" height="1005">/
+    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="429\.5" y="24" width="611" height="871">/
   );
   assert.match(
     svg,
-    /<image href="[^"]+" x="382\.5" y="-155\.5" width="705" height="1005" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
+    /<image href="[^"]+" x="429\.5" y="24" width="611" height="871" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
   );
 });
 

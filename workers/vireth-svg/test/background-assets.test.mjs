@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
@@ -32,5 +33,15 @@ test("background delivery contains the complete 534 matrix", async () => {
   for (const asset of manifest.assets) {
     const image = await fs.readFile(path.join(PUBLIC, asset.path.replace(/^\//, "")));
     assert.deepEqual(webpDimensions(image), [1000, 700], asset.path);
+  }
+});
+
+test("C036 neutral portrait retains the reviewed V17 cutout", async () => {
+  const expectedHash = "d89271975dda4bc5f05765a7600c6930097ddb472c92dd36aa215527efba7c6d";
+  const portrait = await fs.readFile(path.join(PUBLIC, "character-assets", "char-c036.webp"));
+  const neutral = await fs.readFile(path.join(PUBLIC, "character-emotion-assets", "c036", "n.webp"));
+
+  for (const image of [portrait, neutral]) {
+    assert.equal(createHash("sha256").update(image).digest("hex"), expectedHash);
   }
 });

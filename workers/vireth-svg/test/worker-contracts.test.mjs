@@ -189,6 +189,28 @@ test("uses the requested weather and time variant for a situation background", a
   assert.equal(body.talkBackground.imageUrl, "/b/b029-rn.webp");
 });
 
+test("uses the canonical situation card for a mapped place when situation is missing", async () => {
+  const { response, body } = await getJson(
+    "/talk.json?id=C012&placeId=L022&weather=rain&time=night"
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(body.talkBackground.kind, "situation");
+  assert.equal(body.talkBackground.key, "situation-b001-rn");
+  assert.equal(body.talkBackground.imageUrl, "/b/b001-rn.webp");
+});
+
+test("replaces a place-name situation with the canonical situation card", async () => {
+  const { response, body } = await getJson(
+    "/talk.json?id=C012&placeId=L022&situation=%EB%B2%A0%ED%81%AC%EC%BC%88%EC%B9%B4%EB%A5%B4%EC%84%9C%EB%AC%B8&w=rain&t=night"
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(body.talkBackground.kind, "situation");
+  assert.equal(body.talkBackground.key, "situation-b001-rn");
+  assert.equal(body.talkBackground.imageUrl, "/b/b001-rn.webp");
+});
+
 test("renders talk character art at the configured display scale", async () => {
   const response = await fetch(`${baseUrl}/talk?id=C012&e=a&placeId=L022&external=1`);
   const svg = await response.text();
@@ -231,8 +253,8 @@ test("keeps a detailed spot alongside the canonical place ID", async () => {
 
   assert.equal(response.status, 200);
   assert.equal(body.placeLabel, "베크켈카르(레이븐스톤) 서문 야간 초소");
-  assert.equal(body.talkBackground.kind, "general_archetype");
-  assert.equal(body.talkBackground.key, "handoff-20260713-general-b001-city-gate-wallroad");
+  assert.equal(body.talkBackground.kind, "situation");
+  assert.equal(body.talkBackground.key, "situation-b001-cd");
 });
 
 test("repairs renderer-corrupted region separators before parsing the speaker", async () => {

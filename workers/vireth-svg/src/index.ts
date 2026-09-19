@@ -511,6 +511,17 @@ const SITUATION_TIME_CODES: Record<string, string> = {
   night: "n",
   "밤": "n"
 };
+// These are only start-scene defaults. A conversation may move to another physical
+// space inside the same L place, in which case its explicit B code must win.
+const PLACE_SITUATION_DEFAULTS: Readonly<Record<string, string>> = {
+  L011: "B008",
+  L022: "B001",
+  L048: "B003",
+  L056: "B004",
+  L066: "B008",
+  L099: "B002",
+  L147: "B010"
+};
 const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
 const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
   "characterUrl",
@@ -1603,12 +1614,13 @@ function resolveTalkBackground(
 
 function resolveSituationBackground(url: URL): TalkBackgroundEntry | null {
   const requestedSituation = firstQuery(url, ["situation", "situationId", "상황"]);
-  if (!requestedSituation) {
-    return null;
-  }
-
-  const situation = normalizeKey(requestedSituation);
-  const situationMatch = situation.match(SITUATION_ID_PATTERN);
+  const explicitSituationMatch = normalizeKey(requestedSituation ?? "").match(SITUATION_ID_PATTERN);
+  const currentPlace = resolveCurrentPlace(url);
+  const defaultSituation =
+    url.pathname.endsWith("/talk.json") && currentPlace
+      ? PLACE_SITUATION_DEFAULTS[currentPlace.id.toUpperCase()]
+      : undefined;
+  const situationMatch = explicitSituationMatch ?? defaultSituation?.toLowerCase().match(SITUATION_ID_PATTERN);
   if (!situationMatch) {
     return null;
   }

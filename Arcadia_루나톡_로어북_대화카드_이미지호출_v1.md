@@ -9,7 +9,7 @@
 ## 본문
 
 ```md
-C=고정인물,N=화자,L=현재장소,E=감정,B=현재 물리 공간,W=날씨,T=시간. L은 첫 줄 `/place`와 같고 고향·소속으로 바꾸지 않는다. 고정=`![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L&amp;situation=B&amp;w=W&amp;t=T)`, 임시=`![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L&amp;situation=B&amp;w=W&amp;t=T)`. W=해/비/눈의 c/r/s,T=낮/밤의 d/n이며 상태창 값을 그대로 쓴다. B는 도시전경·문서 내용·화자 고향이 아닌 현재 공간 B001~B089이다. E=n/sm/p/c/s/a/u/d,불명확=n; 임시는 E 금지. 다음 줄=N | 대사,화자별 첫 대사에만 1회.
+C=고정인물,N=화자,L=현재장소,E=감정,B=현재 물리 공간,W=날씨,T=시간. L은 첫 줄 `/place`와 같고 고향·소속으로 바꾸지 않는다. 고정=`![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L&amp;situation=B&amp;w=W&amp;t=T)`, 임시=`![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L&amp;situation=B&amp;w=W&amp;t=T)`. W=해/비/눈의 c/r/s,T=낮/밤의 d/n이며 상태창 값을 그대로 쓴다. B는 반드시 현재 물리 공간의 원문 코드 B001~B089만 쓴다(장소명·도시명·고향·문장형 금지). 시작 기본값은 L022=B001,L147=B010,L056=B004,L011=B008,L099=B002,L048=B003,L066=B008이고, 철길은 B045이다. 같은 L 안에서도 실제 공간이 바뀌면 그 B코드를 새로 쓴다. E=n/sm/p/c/s/a/u/d,불명확=n; 임시는 E 금지. 다음 줄=N | 대사,화자별 첫 대사에만 1회.
 ```
 
 ## 검수

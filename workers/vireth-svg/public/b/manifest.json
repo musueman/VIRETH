@@ -1,0 +1,4815 @@
+{
+  "schemaVersion": 1,
+  "dimensions": [
+    1000,
+    700
+  ],
+  "assets": [
+    {
+      "scene": "B001",
+      "nameKo": "평범한 여관의 영업 중인 공용 홀",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B001-cd",
+      "path": "/b/b001-cd.webp"
+    },
+    {
+      "scene": "B001",
+      "nameKo": "평범한 여관의 영업 중인 공용 홀",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B001-cn",
+      "path": "/b/b001-cn.webp"
+    },
+    {
+      "scene": "B001",
+      "nameKo": "평범한 여관의 영업 중인 공용 홀",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B001-rd",
+      "path": "/b/b001-rd.webp"
+    },
+    {
+      "scene": "B001",
+      "nameKo": "평범한 여관의 영업 중인 공용 홀",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B001-rn",
+      "path": "/b/b001-rn.webp"
+    },
+    {
+      "scene": "B001",
+      "nameKo": "평범한 여관의 영업 중인 공용 홀",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B001-sd",
+      "path": "/b/b001-sd.webp"
+    },
+    {
+      "scene": "B001",
+      "nameKo": "평범한 여관의 영업 중인 공용 홀",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B001-sn",
+      "path": "/b/b001-sn.webp"
+    },
+    {
+      "scene": "B002",
+      "nameKo": "조용한 여관의 개인 객실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B002-cd",
+      "path": "/b/b002-cd.webp"
+    },
+    {
+      "scene": "B002",
+      "nameKo": "조용한 여관의 개인 객실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B002-cn",
+      "path": "/b/b002-cn.webp"
+    },
+    {
+      "scene": "B002",
+      "nameKo": "조용한 여관의 개인 객실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B002-rd",
+      "path": "/b/b002-rd.webp"
+    },
+    {
+      "scene": "B002",
+      "nameKo": "조용한 여관의 개인 객실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B002-rn",
+      "path": "/b/b002-rn.webp"
+    },
+    {
+      "scene": "B002",
+      "nameKo": "조용한 여관의 개인 객실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B002-sd",
+      "path": "/b/b002-sd.webp"
+    },
+    {
+      "scene": "B002",
+      "nameKo": "조용한 여관의 개인 객실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B002-sn",
+      "path": "/b/b002-sn.webp"
+    },
+    {
+      "scene": "B003",
+      "nameKo": "값싼 숙소의 공동 침실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B003-cd",
+      "path": "/b/b003-cd.webp"
+    },
+    {
+      "scene": "B003",
+      "nameKo": "값싼 숙소의 공동 침실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B003-cn",
+      "path": "/b/b003-cn.webp"
+    },
+    {
+      "scene": "B003",
+      "nameKo": "값싼 숙소의 공동 침실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B003-rd",
+      "path": "/b/b003-rd.webp"
+    },
+    {
+      "scene": "B003",
+      "nameKo": "값싼 숙소의 공동 침실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B003-rn",
+      "path": "/b/b003-rn.webp"
+    },
+    {
+      "scene": "B003",
+      "nameKo": "값싼 숙소의 공동 침실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B003-sd",
+      "path": "/b/b003-sd.webp"
+    },
+    {
+      "scene": "B003",
+      "nameKo": "값싼 숙소의 공동 침실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B003-sn",
+      "path": "/b/b003-sn.webp"
+    },
+    {
+      "scene": "B004",
+      "nameKo": "여행자용 작은 독실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B004-cd",
+      "path": "/b/b004-cd.webp"
+    },
+    {
+      "scene": "B004",
+      "nameKo": "여행자용 작은 독실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B004-cn",
+      "path": "/b/b004-cn.webp"
+    },
+    {
+      "scene": "B004",
+      "nameKo": "여행자용 작은 독실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B004-rd",
+      "path": "/b/b004-rd.webp"
+    },
+    {
+      "scene": "B004",
+      "nameKo": "여행자용 작은 독실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B004-rn",
+      "path": "/b/b004-rn.webp"
+    },
+    {
+      "scene": "B004",
+      "nameKo": "여행자용 작은 독실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B004-sd",
+      "path": "/b/b004-sd.webp"
+    },
+    {
+      "scene": "B004",
+      "nameKo": "여행자용 작은 독실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B004-sn",
+      "path": "/b/b004-sn.webp"
+    },
+    {
+      "scene": "B005",
+      "nameKo": "여관 주방과 조리 화덕",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B005-cd",
+      "path": "/b/b005-cd.webp"
+    },
+    {
+      "scene": "B005",
+      "nameKo": "여관 주방과 조리 화덕",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B005-cn",
+      "path": "/b/b005-cn.webp"
+    },
+    {
+      "scene": "B005",
+      "nameKo": "여관 주방과 조리 화덕",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B005-cd",
+      "path": "/b/b005-rd.webp"
+    },
+    {
+      "scene": "B005",
+      "nameKo": "여관 주방과 조리 화덕",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B005-cn",
+      "path": "/b/b005-rn.webp"
+    },
+    {
+      "scene": "B005",
+      "nameKo": "여관 주방과 조리 화덕",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B005-cd",
+      "path": "/b/b005-sd.webp"
+    },
+    {
+      "scene": "B005",
+      "nameKo": "여관 주방과 조리 화덕",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B005-cn",
+      "path": "/b/b005-sn.webp"
+    },
+    {
+      "scene": "B006",
+      "nameKo": "식량 저장 지하실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B006-cd",
+      "path": "/b/b006-cd.webp"
+    },
+    {
+      "scene": "B006",
+      "nameKo": "식량 저장 지하실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B006-cn",
+      "path": "/b/b006-cn.webp"
+    },
+    {
+      "scene": "B006",
+      "nameKo": "식량 저장 지하실",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B006-cd",
+      "path": "/b/b006-rd.webp"
+    },
+    {
+      "scene": "B006",
+      "nameKo": "식량 저장 지하실",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B006-cn",
+      "path": "/b/b006-rn.webp"
+    },
+    {
+      "scene": "B006",
+      "nameKo": "식량 저장 지하실",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B006-cd",
+      "path": "/b/b006-sd.webp"
+    },
+    {
+      "scene": "B006",
+      "nameKo": "식량 저장 지하실",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B006-cn",
+      "path": "/b/b006-sn.webp"
+    },
+    {
+      "scene": "B007",
+      "nameKo": "공동 목욕실과 탈의 공간",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B007-cd",
+      "path": "/b/b007-cd.webp"
+    },
+    {
+      "scene": "B007",
+      "nameKo": "공동 목욕실과 탈의 공간",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B007-cn",
+      "path": "/b/b007-cn.webp"
+    },
+    {
+      "scene": "B007",
+      "nameKo": "공동 목욕실과 탈의 공간",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B007-cd",
+      "path": "/b/b007-rd.webp"
+    },
+    {
+      "scene": "B007",
+      "nameKo": "공동 목욕실과 탈의 공간",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B007-cn",
+      "path": "/b/b007-rn.webp"
+    },
+    {
+      "scene": "B007",
+      "nameKo": "공동 목욕실과 탈의 공간",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B007-cd",
+      "path": "/b/b007-sd.webp"
+    },
+    {
+      "scene": "B007",
+      "nameKo": "공동 목욕실과 탈의 공간",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B007-cn",
+      "path": "/b/b007-sn.webp"
+    },
+    {
+      "scene": "B008",
+      "nameKo": "치료사의 진료실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B008-cd",
+      "path": "/b/b008-cd.webp"
+    },
+    {
+      "scene": "B008",
+      "nameKo": "치료사의 진료실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B008-cn",
+      "path": "/b/b008-cn.webp"
+    },
+    {
+      "scene": "B008",
+      "nameKo": "치료사의 진료실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B008-rd",
+      "path": "/b/b008-rd.webp"
+    },
+    {
+      "scene": "B008",
+      "nameKo": "치료사의 진료실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B008-rn",
+      "path": "/b/b008-rn.webp"
+    },
+    {
+      "scene": "B008",
+      "nameKo": "치료사의 진료실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B008-sd",
+      "path": "/b/b008-sd.webp"
+    },
+    {
+      "scene": "B008",
+      "nameKo": "치료사의 진료실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B008-sn",
+      "path": "/b/b008-sn.webp"
+    },
+    {
+      "scene": "B009",
+      "nameKo": "약초상과 조제 작업대",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B009-cd",
+      "path": "/b/b009-cd.webp"
+    },
+    {
+      "scene": "B009",
+      "nameKo": "약초상과 조제 작업대",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B009-cn",
+      "path": "/b/b009-cn.webp"
+    },
+    {
+      "scene": "B009",
+      "nameKo": "약초상과 조제 작업대",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B009-rd",
+      "path": "/b/b009-rd.webp"
+    },
+    {
+      "scene": "B009",
+      "nameKo": "약초상과 조제 작업대",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B009-rn",
+      "path": "/b/b009-rn.webp"
+    },
+    {
+      "scene": "B009",
+      "nameKo": "약초상과 조제 작업대",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B009-sd",
+      "path": "/b/b009-sd.webp"
+    },
+    {
+      "scene": "B009",
+      "nameKo": "약초상과 조제 작업대",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B009-sn",
+      "path": "/b/b009-sn.webp"
+    },
+    {
+      "scene": "B010",
+      "nameKo": "불이 오른 대장간 작업장",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B010-cd",
+      "path": "/b/b010-cd.webp"
+    },
+    {
+      "scene": "B010",
+      "nameKo": "불이 오른 대장간 작업장",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B010-cn",
+      "path": "/b/b010-cn.webp"
+    },
+    {
+      "scene": "B010",
+      "nameKo": "불이 오른 대장간 작업장",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B010-rd",
+      "path": "/b/b010-rd.webp"
+    },
+    {
+      "scene": "B010",
+      "nameKo": "불이 오른 대장간 작업장",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B010-rn",
+      "path": "/b/b010-rn.webp"
+    },
+    {
+      "scene": "B010",
+      "nameKo": "불이 오른 대장간 작업장",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B010-sd",
+      "path": "/b/b010-sd.webp"
+    },
+    {
+      "scene": "B010",
+      "nameKo": "불이 오른 대장간 작업장",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B010-sn",
+      "path": "/b/b010-sn.webp"
+    },
+    {
+      "scene": "B011",
+      "nameKo": "목수의 제작 작업실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B011-cd",
+      "path": "/b/b011-cd.webp"
+    },
+    {
+      "scene": "B011",
+      "nameKo": "목수의 제작 작업실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B011-cn",
+      "path": "/b/b011-cn.webp"
+    },
+    {
+      "scene": "B011",
+      "nameKo": "목수의 제작 작업실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B011-rd",
+      "path": "/b/b011-rd.webp"
+    },
+    {
+      "scene": "B011",
+      "nameKo": "목수의 제작 작업실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B011-rn",
+      "path": "/b/b011-rn.webp"
+    },
+    {
+      "scene": "B011",
+      "nameKo": "목수의 제작 작업실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B011-sd",
+      "path": "/b/b011-sd.webp"
+    },
+    {
+      "scene": "B011",
+      "nameKo": "목수의 제작 작업실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B011-sn",
+      "path": "/b/b011-sn.webp"
+    },
+    {
+      "scene": "B012",
+      "nameKo": "재봉·가죽 공방",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B012-cd",
+      "path": "/b/b012-cd.webp"
+    },
+    {
+      "scene": "B012",
+      "nameKo": "재봉·가죽 공방",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B012-cn",
+      "path": "/b/b012-cn.webp"
+    },
+    {
+      "scene": "B012",
+      "nameKo": "재봉·가죽 공방",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B012-rd",
+      "path": "/b/b012-rd.webp"
+    },
+    {
+      "scene": "B012",
+      "nameKo": "재봉·가죽 공방",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B012-rn",
+      "path": "/b/b012-rn.webp"
+    },
+    {
+      "scene": "B012",
+      "nameKo": "재봉·가죽 공방",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B012-sd",
+      "path": "/b/b012-sd.webp"
+    },
+    {
+      "scene": "B012",
+      "nameKo": "재봉·가죽 공방",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B012-sn",
+      "path": "/b/b012-sn.webp"
+    },
+    {
+      "scene": "B013",
+      "nameKo": "잡화 상점 내부",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B013-cd",
+      "path": "/b/b013-cd.webp"
+    },
+    {
+      "scene": "B013",
+      "nameKo": "잡화 상점 내부",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B013-cn",
+      "path": "/b/b013-cn.webp"
+    },
+    {
+      "scene": "B013",
+      "nameKo": "잡화 상점 내부",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B013-rd",
+      "path": "/b/b013-rd.webp"
+    },
+    {
+      "scene": "B013",
+      "nameKo": "잡화 상점 내부",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B013-rn",
+      "path": "/b/b013-rn.webp"
+    },
+    {
+      "scene": "B013",
+      "nameKo": "잡화 상점 내부",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B013-sd",
+      "path": "/b/b013-sd.webp"
+    },
+    {
+      "scene": "B013",
+      "nameKo": "잡화 상점 내부",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B013-sn",
+      "path": "/b/b013-sn.webp"
+    },
+    {
+      "scene": "B014",
+      "nameKo": "포장된 화물이 쌓인 상업 창고",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B014-cd",
+      "path": "/b/b014-cd.webp"
+    },
+    {
+      "scene": "B014",
+      "nameKo": "포장된 화물이 쌓인 상업 창고",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B014-cn",
+      "path": "/b/b014-cn.webp"
+    },
+    {
+      "scene": "B014",
+      "nameKo": "포장된 화물이 쌓인 상업 창고",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B014-cd",
+      "path": "/b/b014-rd.webp"
+    },
+    {
+      "scene": "B014",
+      "nameKo": "포장된 화물이 쌓인 상업 창고",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B014-cn",
+      "path": "/b/b014-rn.webp"
+    },
+    {
+      "scene": "B014",
+      "nameKo": "포장된 화물이 쌓인 상업 창고",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B014-cd",
+      "path": "/b/b014-sd.webp"
+    },
+    {
+      "scene": "B014",
+      "nameKo": "포장된 화물이 쌓인 상업 창고",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B014-cn",
+      "path": "/b/b014-sn.webp"
+    },
+    {
+      "scene": "B015",
+      "nameKo": "곡물 저장고 내부",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B015-cd",
+      "path": "/b/b015-cd.webp"
+    },
+    {
+      "scene": "B015",
+      "nameKo": "곡물 저장고 내부",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B015-cn",
+      "path": "/b/b015-cn.webp"
+    },
+    {
+      "scene": "B015",
+      "nameKo": "곡물 저장고 내부",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B015-cd",
+      "path": "/b/b015-rd.webp"
+    },
+    {
+      "scene": "B015",
+      "nameKo": "곡물 저장고 내부",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B015-cn",
+      "path": "/b/b015-rn.webp"
+    },
+    {
+      "scene": "B015",
+      "nameKo": "곡물 저장고 내부",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B015-cd",
+      "path": "/b/b015-sd.webp"
+    },
+    {
+      "scene": "B015",
+      "nameKo": "곡물 저장고 내부",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B015-cn",
+      "path": "/b/b015-sn.webp"
+    },
+    {
+      "scene": "B016",
+      "nameKo": "항만 창고의 열린 하역문 안쪽",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B016-cd",
+      "path": "/b/b016-cd.webp"
+    },
+    {
+      "scene": "B016",
+      "nameKo": "항만 창고의 열린 하역문 안쪽",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B016-cn",
+      "path": "/b/b016-cn.webp"
+    },
+    {
+      "scene": "B016",
+      "nameKo": "항만 창고의 열린 하역문 안쪽",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B016-rd",
+      "path": "/b/b016-rd.webp"
+    },
+    {
+      "scene": "B016",
+      "nameKo": "항만 창고의 열린 하역문 안쪽",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B016-rn",
+      "path": "/b/b016-rn.webp"
+    },
+    {
+      "scene": "B016",
+      "nameKo": "항만 창고의 열린 하역문 안쪽",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B016-sd",
+      "path": "/b/b016-sd.webp"
+    },
+    {
+      "scene": "B016",
+      "nameKo": "항만 창고의 열린 하역문 안쪽",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B016-sn",
+      "path": "/b/b016-sn.webp"
+    },
+    {
+      "scene": "B017",
+      "nameKo": "길드 회관의 공용 회의실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B017-cd",
+      "path": "/b/b017-cd.webp"
+    },
+    {
+      "scene": "B017",
+      "nameKo": "길드 회관의 공용 회의실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B017-cn",
+      "path": "/b/b017-cn.webp"
+    },
+    {
+      "scene": "B017",
+      "nameKo": "길드 회관의 공용 회의실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B017-rd",
+      "path": "/b/b017-rd.webp"
+    },
+    {
+      "scene": "B017",
+      "nameKo": "길드 회관의 공용 회의실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B017-rn",
+      "path": "/b/b017-rn.webp"
+    },
+    {
+      "scene": "B017",
+      "nameKo": "길드 회관의 공용 회의실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B017-sd",
+      "path": "/b/b017-sd.webp"
+    },
+    {
+      "scene": "B017",
+      "nameKo": "길드 회관의 공용 회의실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B017-sn",
+      "path": "/b/b017-sn.webp"
+    },
+    {
+      "scene": "B018",
+      "nameKo": "용병 계약소와 의뢰 게시 공간",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B018-cd",
+      "path": "/b/b018-cd.webp"
+    },
+    {
+      "scene": "B018",
+      "nameKo": "용병 계약소와 의뢰 게시 공간",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B018-cn",
+      "path": "/b/b018-cn.webp"
+    },
+    {
+      "scene": "B018",
+      "nameKo": "용병 계약소와 의뢰 게시 공간",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B018-rd",
+      "path": "/b/b018-rd.webp"
+    },
+    {
+      "scene": "B018",
+      "nameKo": "용병 계약소와 의뢰 게시 공간",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B018-rn",
+      "path": "/b/b018-rn.webp"
+    },
+    {
+      "scene": "B018",
+      "nameKo": "용병 계약소와 의뢰 게시 공간",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B018-sd",
+      "path": "/b/b018-sd.webp"
+    },
+    {
+      "scene": "B018",
+      "nameKo": "용병 계약소와 의뢰 게시 공간",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B018-sn",
+      "path": "/b/b018-sn.webp"
+    },
+    {
+      "scene": "B019",
+      "nameKo": "관청 접수대와 대기실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B019-cd",
+      "path": "/b/b019-cd.webp"
+    },
+    {
+      "scene": "B019",
+      "nameKo": "관청 접수대와 대기실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B019-cn",
+      "path": "/b/b019-cn.webp"
+    },
+    {
+      "scene": "B019",
+      "nameKo": "관청 접수대와 대기실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B019-rd",
+      "path": "/b/b019-rd.webp"
+    },
+    {
+      "scene": "B019",
+      "nameKo": "관청 접수대와 대기실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B019-rn",
+      "path": "/b/b019-rn.webp"
+    },
+    {
+      "scene": "B019",
+      "nameKo": "관청 접수대와 대기실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B019-sd",
+      "path": "/b/b019-sd.webp"
+    },
+    {
+      "scene": "B019",
+      "nameKo": "관청 접수대와 대기실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B019-sn",
+      "path": "/b/b019-sn.webp"
+    },
+    {
+      "scene": "B020",
+      "nameKo": "밀폐된 기록 보관실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B020-cd",
+      "path": "/b/b020-cd.webp"
+    },
+    {
+      "scene": "B020",
+      "nameKo": "밀폐된 기록 보관실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B020-cn",
+      "path": "/b/b020-cn.webp"
+    },
+    {
+      "scene": "B020",
+      "nameKo": "밀폐된 기록 보관실",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B020-cd",
+      "path": "/b/b020-rd.webp"
+    },
+    {
+      "scene": "B020",
+      "nameKo": "밀폐된 기록 보관실",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B020-cn",
+      "path": "/b/b020-rn.webp"
+    },
+    {
+      "scene": "B020",
+      "nameKo": "밀폐된 기록 보관실",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B020-cd",
+      "path": "/b/b020-sd.webp"
+    },
+    {
+      "scene": "B020",
+      "nameKo": "밀폐된 기록 보관실",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B020-cn",
+      "path": "/b/b020-sn.webp"
+    },
+    {
+      "scene": "B021",
+      "nameKo": "법정·평의회 심의실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B021-cd",
+      "path": "/b/b021-cd.webp"
+    },
+    {
+      "scene": "B021",
+      "nameKo": "법정·평의회 심의실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B021-cn",
+      "path": "/b/b021-cn.webp"
+    },
+    {
+      "scene": "B021",
+      "nameKo": "법정·평의회 심의실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B021-rd",
+      "path": "/b/b021-rd.webp"
+    },
+    {
+      "scene": "B021",
+      "nameKo": "법정·평의회 심의실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B021-rn",
+      "path": "/b/b021-rn.webp"
+    },
+    {
+      "scene": "B021",
+      "nameKo": "법정·평의회 심의실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B021-sd",
+      "path": "/b/b021-sd.webp"
+    },
+    {
+      "scene": "B021",
+      "nameKo": "법정·평의회 심의실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B021-sn",
+      "path": "/b/b021-sn.webp"
+    },
+    {
+      "scene": "B022",
+      "nameKo": "경비대 막사",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B022-cd",
+      "path": "/b/b022-cd.webp"
+    },
+    {
+      "scene": "B022",
+      "nameKo": "경비대 막사",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B022-cn",
+      "path": "/b/b022-cn.webp"
+    },
+    {
+      "scene": "B022",
+      "nameKo": "경비대 막사",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B022-rd",
+      "path": "/b/b022-rd.webp"
+    },
+    {
+      "scene": "B022",
+      "nameKo": "경비대 막사",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B022-rn",
+      "path": "/b/b022-rn.webp"
+    },
+    {
+      "scene": "B022",
+      "nameKo": "경비대 막사",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B022-sd",
+      "path": "/b/b022-sd.webp"
+    },
+    {
+      "scene": "B022",
+      "nameKo": "경비대 막사",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B022-sn",
+      "path": "/b/b022-sn.webp"
+    },
+    {
+      "scene": "B023",
+      "nameKo": "무기고 내부",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B023-cd",
+      "path": "/b/b023-cd.webp"
+    },
+    {
+      "scene": "B023",
+      "nameKo": "무기고 내부",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B023-cn",
+      "path": "/b/b023-cn.webp"
+    },
+    {
+      "scene": "B023",
+      "nameKo": "무기고 내부",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B023-cd",
+      "path": "/b/b023-rd.webp"
+    },
+    {
+      "scene": "B023",
+      "nameKo": "무기고 내부",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B023-cn",
+      "path": "/b/b023-rn.webp"
+    },
+    {
+      "scene": "B023",
+      "nameKo": "무기고 내부",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B023-cd",
+      "path": "/b/b023-sd.webp"
+    },
+    {
+      "scene": "B023",
+      "nameKo": "무기고 내부",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B023-cn",
+      "path": "/b/b023-sn.webp"
+    },
+    {
+      "scene": "B024",
+      "nameKo": "감옥의 석조 감방 구역",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B024-cd",
+      "path": "/b/b024-cd.webp"
+    },
+    {
+      "scene": "B024",
+      "nameKo": "감옥의 석조 감방 구역",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B024-cn",
+      "path": "/b/b024-cn.webp"
+    },
+    {
+      "scene": "B024",
+      "nameKo": "감옥의 석조 감방 구역",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B024-cd",
+      "path": "/b/b024-rd.webp"
+    },
+    {
+      "scene": "B024",
+      "nameKo": "감옥의 석조 감방 구역",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B024-cn",
+      "path": "/b/b024-rn.webp"
+    },
+    {
+      "scene": "B024",
+      "nameKo": "감옥의 석조 감방 구역",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B024-cd",
+      "path": "/b/b024-sd.webp"
+    },
+    {
+      "scene": "B024",
+      "nameKo": "감옥의 석조 감방 구역",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B024-cn",
+      "path": "/b/b024-sn.webp"
+    },
+    {
+      "scene": "B025",
+      "nameKo": "밀폐된 취조실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B025-cd",
+      "path": "/b/b025-cd.webp"
+    },
+    {
+      "scene": "B025",
+      "nameKo": "밀폐된 취조실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B025-cn",
+      "path": "/b/b025-cn.webp"
+    },
+    {
+      "scene": "B025",
+      "nameKo": "밀폐된 취조실",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B025-cd",
+      "path": "/b/b025-rd.webp"
+    },
+    {
+      "scene": "B025",
+      "nameKo": "밀폐된 취조실",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B025-cn",
+      "path": "/b/b025-rn.webp"
+    },
+    {
+      "scene": "B025",
+      "nameKo": "밀폐된 취조실",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B025-cd",
+      "path": "/b/b025-sd.webp"
+    },
+    {
+      "scene": "B025",
+      "nameKo": "밀폐된 취조실",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B025-cn",
+      "path": "/b/b025-sn.webp"
+    },
+    {
+      "scene": "B026",
+      "nameKo": "석조 예배당 내부",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B026-cd",
+      "path": "/b/b026-cd.webp"
+    },
+    {
+      "scene": "B026",
+      "nameKo": "석조 예배당 내부",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B026-cn",
+      "path": "/b/b026-cn.webp"
+    },
+    {
+      "scene": "B026",
+      "nameKo": "석조 예배당 내부",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B026-cd",
+      "path": "/b/b026-rd.webp"
+    },
+    {
+      "scene": "B026",
+      "nameKo": "석조 예배당 내부",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B026-cn",
+      "path": "/b/b026-rn.webp"
+    },
+    {
+      "scene": "B026",
+      "nameKo": "석조 예배당 내부",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B026-cd",
+      "path": "/b/b026-sd.webp"
+    },
+    {
+      "scene": "B026",
+      "nameKo": "석조 예배당 내부",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B026-cn",
+      "path": "/b/b026-sn.webp"
+    },
+    {
+      "scene": "B027",
+      "nameKo": "작은 기도실·사당",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B027-cd",
+      "path": "/b/b027-cd.webp"
+    },
+    {
+      "scene": "B027",
+      "nameKo": "작은 기도실·사당",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B027-cn",
+      "path": "/b/b027-cn.webp"
+    },
+    {
+      "scene": "B027",
+      "nameKo": "작은 기도실·사당",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B027-cd",
+      "path": "/b/b027-rd.webp"
+    },
+    {
+      "scene": "B027",
+      "nameKo": "작은 기도실·사당",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B027-cn",
+      "path": "/b/b027-rn.webp"
+    },
+    {
+      "scene": "B027",
+      "nameKo": "작은 기도실·사당",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B027-cd",
+      "path": "/b/b027-sd.webp"
+    },
+    {
+      "scene": "B027",
+      "nameKo": "작은 기도실·사당",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B027-cn",
+      "path": "/b/b027-sn.webp"
+    },
+    {
+      "scene": "B028",
+      "nameKo": "안뜰이 보이는 수도원 회랑 서재",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B028-cd",
+      "path": "/b/b028-cd.webp"
+    },
+    {
+      "scene": "B028",
+      "nameKo": "안뜰이 보이는 수도원 회랑 서재",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B028-cn",
+      "path": "/b/b028-cn.webp"
+    },
+    {
+      "scene": "B028",
+      "nameKo": "안뜰이 보이는 수도원 회랑 서재",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B028-rd",
+      "path": "/b/b028-rd.webp"
+    },
+    {
+      "scene": "B028",
+      "nameKo": "안뜰이 보이는 수도원 회랑 서재",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B028-rn",
+      "path": "/b/b028-rn.webp"
+    },
+    {
+      "scene": "B028",
+      "nameKo": "안뜰이 보이는 수도원 회랑 서재",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B028-sd",
+      "path": "/b/b028-sd.webp"
+    },
+    {
+      "scene": "B028",
+      "nameKo": "안뜰이 보이는 수도원 회랑 서재",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B028-sn",
+      "path": "/b/b028-sn.webp"
+    },
+    {
+      "scene": "B029",
+      "nameKo": "필사실·도서관",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B029-cd",
+      "path": "/b/b029-cd.webp"
+    },
+    {
+      "scene": "B029",
+      "nameKo": "필사실·도서관",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B029-cn",
+      "path": "/b/b029-cn.webp"
+    },
+    {
+      "scene": "B029",
+      "nameKo": "필사실·도서관",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B029-rd",
+      "path": "/b/b029-rd.webp"
+    },
+    {
+      "scene": "B029",
+      "nameKo": "필사실·도서관",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B029-rn",
+      "path": "/b/b029-rn.webp"
+    },
+    {
+      "scene": "B029",
+      "nameKo": "필사실·도서관",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B029-sd",
+      "path": "/b/b029-sd.webp"
+    },
+    {
+      "scene": "B029",
+      "nameKo": "필사실·도서관",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B029-sn",
+      "path": "/b/b029-sn.webp"
+    },
+    {
+      "scene": "B030",
+      "nameKo": "강의실·철학 토론실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B030-cd",
+      "path": "/b/b030-cd.webp"
+    },
+    {
+      "scene": "B030",
+      "nameKo": "강의실·철학 토론실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B030-cn",
+      "path": "/b/b030-cn.webp"
+    },
+    {
+      "scene": "B030",
+      "nameKo": "강의실·철학 토론실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B030-rd",
+      "path": "/b/b030-rd.webp"
+    },
+    {
+      "scene": "B030",
+      "nameKo": "강의실·철학 토론실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B030-rn",
+      "path": "/b/b030-rn.webp"
+    },
+    {
+      "scene": "B030",
+      "nameKo": "강의실·철학 토론실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B030-sd",
+      "path": "/b/b030-sd.webp"
+    },
+    {
+      "scene": "B030",
+      "nameKo": "강의실·철학 토론실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B030-sn",
+      "path": "/b/b030-sn.webp"
+    },
+    {
+      "scene": "B031",
+      "nameKo": "귀족 저택의 응접실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B031-cd",
+      "path": "/b/b031-cd.webp"
+    },
+    {
+      "scene": "B031",
+      "nameKo": "귀족 저택의 응접실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B031-cn",
+      "path": "/b/b031-cn.webp"
+    },
+    {
+      "scene": "B031",
+      "nameKo": "귀족 저택의 응접실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B031-rd",
+      "path": "/b/b031-rd.webp"
+    },
+    {
+      "scene": "B031",
+      "nameKo": "귀족 저택의 응접실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B031-rn",
+      "path": "/b/b031-rn.webp"
+    },
+    {
+      "scene": "B031",
+      "nameKo": "귀족 저택의 응접실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B031-sd",
+      "path": "/b/b031-sd.webp"
+    },
+    {
+      "scene": "B031",
+      "nameKo": "귀족 저택의 응접실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B031-sn",
+      "path": "/b/b031-sn.webp"
+    },
+    {
+      "scene": "B032",
+      "nameKo": "장원 식당과 긴 식탁",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B032-cd",
+      "path": "/b/b032-cd.webp"
+    },
+    {
+      "scene": "B032",
+      "nameKo": "장원 식당과 긴 식탁",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B032-cn",
+      "path": "/b/b032-cn.webp"
+    },
+    {
+      "scene": "B032",
+      "nameKo": "장원 식당과 긴 식탁",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B032-rd",
+      "path": "/b/b032-rd.webp"
+    },
+    {
+      "scene": "B032",
+      "nameKo": "장원 식당과 긴 식탁",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B032-rn",
+      "path": "/b/b032-rn.webp"
+    },
+    {
+      "scene": "B032",
+      "nameKo": "장원 식당과 긴 식탁",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B032-sd",
+      "path": "/b/b032-sd.webp"
+    },
+    {
+      "scene": "B032",
+      "nameKo": "장원 식당과 긴 식탁",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B032-sn",
+      "path": "/b/b032-sn.webp"
+    },
+    {
+      "scene": "B033",
+      "nameKo": "하인 공동 숙소",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B033-cd",
+      "path": "/b/b033-cd.webp"
+    },
+    {
+      "scene": "B033",
+      "nameKo": "하인 공동 숙소",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B033-cn",
+      "path": "/b/b033-cn.webp"
+    },
+    {
+      "scene": "B033",
+      "nameKo": "하인 공동 숙소",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B033-cd",
+      "path": "/b/b033-rd.webp"
+    },
+    {
+      "scene": "B033",
+      "nameKo": "하인 공동 숙소",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B033-cn",
+      "path": "/b/b033-rn.webp"
+    },
+    {
+      "scene": "B033",
+      "nameKo": "하인 공동 숙소",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B033-cd",
+      "path": "/b/b033-sd.webp"
+    },
+    {
+      "scene": "B033",
+      "nameKo": "하인 공동 숙소",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B033-cn",
+      "path": "/b/b033-sn.webp"
+    },
+    {
+      "scene": "B034",
+      "nameKo": "농가의 생활방과 화덕",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B034-cd",
+      "path": "/b/b034-cd.webp"
+    },
+    {
+      "scene": "B034",
+      "nameKo": "농가의 생활방과 화덕",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B034-cn",
+      "path": "/b/b034-cn.webp"
+    },
+    {
+      "scene": "B034",
+      "nameKo": "농가의 생활방과 화덕",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B034-rd",
+      "path": "/b/b034-rd.webp"
+    },
+    {
+      "scene": "B034",
+      "nameKo": "농가의 생활방과 화덕",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B034-rn",
+      "path": "/b/b034-rn.webp"
+    },
+    {
+      "scene": "B034",
+      "nameKo": "농가의 생활방과 화덕",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B034-sd",
+      "path": "/b/b034-sd.webp"
+    },
+    {
+      "scene": "B034",
+      "nameKo": "농가의 생활방과 화덕",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B034-sn",
+      "path": "/b/b034-sn.webp"
+    },
+    {
+      "scene": "B035",
+      "nameKo": "출입구가 열린 마구간 내부",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B035-cd",
+      "path": "/b/b035-cd.webp"
+    },
+    {
+      "scene": "B035",
+      "nameKo": "출입구가 열린 마구간 내부",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B035-cn",
+      "path": "/b/b035-cn.webp"
+    },
+    {
+      "scene": "B035",
+      "nameKo": "출입구가 열린 마구간 내부",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B035-rd",
+      "path": "/b/b035-rd.webp"
+    },
+    {
+      "scene": "B035",
+      "nameKo": "출입구가 열린 마구간 내부",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B035-rn",
+      "path": "/b/b035-rn.webp"
+    },
+    {
+      "scene": "B035",
+      "nameKo": "출입구가 열린 마구간 내부",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B035-sd",
+      "path": "/b/b035-sd.webp"
+    },
+    {
+      "scene": "B035",
+      "nameKo": "출입구가 열린 마구간 내부",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B035-sn",
+      "path": "/b/b035-sn.webp"
+    },
+    {
+      "scene": "B036",
+      "nameKo": "목조 범선의 선장실",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B036-cd",
+      "path": "/b/b036-cd.webp"
+    },
+    {
+      "scene": "B036",
+      "nameKo": "목조 범선의 선장실",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B036-cn",
+      "path": "/b/b036-cn.webp"
+    },
+    {
+      "scene": "B036",
+      "nameKo": "목조 범선의 선장실",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B036-rd",
+      "path": "/b/b036-rd.webp"
+    },
+    {
+      "scene": "B036",
+      "nameKo": "목조 범선의 선장실",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B036-rn",
+      "path": "/b/b036-rn.webp"
+    },
+    {
+      "scene": "B036",
+      "nameKo": "목조 범선의 선장실",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B036-sd",
+      "path": "/b/b036-sd.webp"
+    },
+    {
+      "scene": "B036",
+      "nameKo": "목조 범선의 선장실",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B036-sn",
+      "path": "/b/b036-sn.webp"
+    },
+    {
+      "scene": "B037",
+      "nameKo": "선박 화물칸",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B037-cd",
+      "path": "/b/b037-cd.webp"
+    },
+    {
+      "scene": "B037",
+      "nameKo": "선박 화물칸",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B037-cn",
+      "path": "/b/b037-cn.webp"
+    },
+    {
+      "scene": "B037",
+      "nameKo": "선박 화물칸",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B037-cd",
+      "path": "/b/b037-rd.webp"
+    },
+    {
+      "scene": "B037",
+      "nameKo": "선박 화물칸",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B037-cn",
+      "path": "/b/b037-rn.webp"
+    },
+    {
+      "scene": "B037",
+      "nameKo": "선박 화물칸",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B037-cd",
+      "path": "/b/b037-sd.webp"
+    },
+    {
+      "scene": "B037",
+      "nameKo": "선박 화물칸",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B037-cn",
+      "path": "/b/b037-sn.webp"
+    },
+    {
+      "scene": "B038",
+      "nameKo": "광산 작업 갱도",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B038-cd",
+      "path": "/b/b038-cd.webp"
+    },
+    {
+      "scene": "B038",
+      "nameKo": "광산 작업 갱도",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B038-cn",
+      "path": "/b/b038-cn.webp"
+    },
+    {
+      "scene": "B038",
+      "nameKo": "광산 작업 갱도",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B038-cd",
+      "path": "/b/b038-rd.webp"
+    },
+    {
+      "scene": "B038",
+      "nameKo": "광산 작업 갱도",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B038-cn",
+      "path": "/b/b038-rn.webp"
+    },
+    {
+      "scene": "B038",
+      "nameKo": "광산 작업 갱도",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B038-cd",
+      "path": "/b/b038-sd.webp"
+    },
+    {
+      "scene": "B038",
+      "nameKo": "광산 작업 갱도",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B038-cn",
+      "path": "/b/b038-sn.webp"
+    },
+    {
+      "scene": "B039",
+      "nameKo": "입구가 보이는 동굴 야영처",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B039-cd",
+      "path": "/b/b039-cd.webp"
+    },
+    {
+      "scene": "B039",
+      "nameKo": "입구가 보이는 동굴 야영처",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B039-cn",
+      "path": "/b/b039-cn.webp"
+    },
+    {
+      "scene": "B039",
+      "nameKo": "입구가 보이는 동굴 야영처",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B039-rd",
+      "path": "/b/b039-rd.webp"
+    },
+    {
+      "scene": "B039",
+      "nameKo": "입구가 보이는 동굴 야영처",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B039-rn",
+      "path": "/b/b039-rn.webp"
+    },
+    {
+      "scene": "B039",
+      "nameKo": "입구가 보이는 동굴 야영처",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B039-sd",
+      "path": "/b/b039-sd.webp"
+    },
+    {
+      "scene": "B039",
+      "nameKo": "입구가 보이는 동굴 야영처",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B039-sn",
+      "path": "/b/b039-sn.webp"
+    },
+    {
+      "scene": "B040",
+      "nameKo": "지하 묘실·봉인된 납골 공간",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B040-cd",
+      "path": "/b/b040-cd.webp"
+    },
+    {
+      "scene": "B040",
+      "nameKo": "지하 묘실·봉인된 납골 공간",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B040-cn",
+      "path": "/b/b040-cn.webp"
+    },
+    {
+      "scene": "B040",
+      "nameKo": "지하 묘실·봉인된 납골 공간",
+      "weather": "r",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B040-cd",
+      "path": "/b/b040-rd.webp"
+    },
+    {
+      "scene": "B040",
+      "nameKo": "지하 묘실·봉인된 납골 공간",
+      "weather": "r",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B040-cn",
+      "path": "/b/b040-rn.webp"
+    },
+    {
+      "scene": "B040",
+      "nameKo": "지하 묘실·봉인된 납골 공간",
+      "weather": "s",
+      "time": "d",
+      "mode": "copy",
+      "sourceId": "B040-cd",
+      "path": "/b/b040-sd.webp"
+    },
+    {
+      "scene": "B040",
+      "nameKo": "지하 묘실·봉인된 납골 공간",
+      "weather": "s",
+      "time": "n",
+      "mode": "copy",
+      "sourceId": "B040-cn",
+      "path": "/b/b040-sn.webp"
+    },
+    {
+      "scene": "B041",
+      "nameKo": "사람이 오가는 숲길",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B041-cd",
+      "path": "/b/b041-cd.webp"
+    },
+    {
+      "scene": "B041",
+      "nameKo": "사람이 오가는 숲길",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B041-cn",
+      "path": "/b/b041-cn.webp"
+    },
+    {
+      "scene": "B041",
+      "nameKo": "사람이 오가는 숲길",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B041-rd",
+      "path": "/b/b041-rd.webp"
+    },
+    {
+      "scene": "B041",
+      "nameKo": "사람이 오가는 숲길",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B041-rn",
+      "path": "/b/b041-rn.webp"
+    },
+    {
+      "scene": "B041",
+      "nameKo": "사람이 오가는 숲길",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B041-sd",
+      "path": "/b/b041-sd.webp"
+    },
+    {
+      "scene": "B041",
+      "nameKo": "사람이 오가는 숲길",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B041-sn",
+      "path": "/b/b041-sn.webp"
+    },
+    {
+      "scene": "B042",
+      "nameKo": "깊고 오래된 숲 내부",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B042-cd",
+      "path": "/b/b042-cd.webp"
+    },
+    {
+      "scene": "B042",
+      "nameKo": "깊고 오래된 숲 내부",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B042-cn",
+      "path": "/b/b042-cn.webp"
+    },
+    {
+      "scene": "B042",
+      "nameKo": "깊고 오래된 숲 내부",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B042-rd",
+      "path": "/b/b042-rd.webp"
+    },
+    {
+      "scene": "B042",
+      "nameKo": "깊고 오래된 숲 내부",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B042-rn",
+      "path": "/b/b042-rn.webp"
+    },
+    {
+      "scene": "B042",
+      "nameKo": "깊고 오래된 숲 내부",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B042-sd",
+      "path": "/b/b042-sd.webp"
+    },
+    {
+      "scene": "B042",
+      "nameKo": "깊고 오래된 숲 내부",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B042-sn",
+      "path": "/b/b042-sn.webp"
+    },
+    {
+      "scene": "B043",
+      "nameKo": "숲속 빈터",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B043-cd",
+      "path": "/b/b043-cd.webp"
+    },
+    {
+      "scene": "B043",
+      "nameKo": "숲속 빈터",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B043-cn",
+      "path": "/b/b043-cn.webp"
+    },
+    {
+      "scene": "B043",
+      "nameKo": "숲속 빈터",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B043-rd",
+      "path": "/b/b043-rd.webp"
+    },
+    {
+      "scene": "B043",
+      "nameKo": "숲속 빈터",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B043-rn",
+      "path": "/b/b043-rn.webp"
+    },
+    {
+      "scene": "B043",
+      "nameKo": "숲속 빈터",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B043-sd",
+      "path": "/b/b043-sd.webp"
+    },
+    {
+      "scene": "B043",
+      "nameKo": "숲속 빈터",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B043-sn",
+      "path": "/b/b043-sn.webp"
+    },
+    {
+      "scene": "B044",
+      "nameKo": "여행자들의 길가 야영지",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B044-cd",
+      "path": "/b/b044-cd.webp"
+    },
+    {
+      "scene": "B044",
+      "nameKo": "여행자들의 길가 야영지",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B044-cn",
+      "path": "/b/b044-cn.webp"
+    },
+    {
+      "scene": "B044",
+      "nameKo": "여행자들의 길가 야영지",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B044-rd",
+      "path": "/b/b044-rd.webp"
+    },
+    {
+      "scene": "B044",
+      "nameKo": "여행자들의 길가 야영지",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B044-rn",
+      "path": "/b/b044-rn.webp"
+    },
+    {
+      "scene": "B044",
+      "nameKo": "여행자들의 길가 야영지",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B044-sd",
+      "path": "/b/b044-sd.webp"
+    },
+    {
+      "scene": "B044",
+      "nameKo": "여행자들의 길가 야영지",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B044-sn",
+      "path": "/b/b044-sn.webp"
+    },
+    {
+      "scene": "B045",
+      "nameKo": "완만한 초원길",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B045-cd",
+      "path": "/b/b045-cd.webp"
+    },
+    {
+      "scene": "B045",
+      "nameKo": "완만한 초원길",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B045-cn",
+      "path": "/b/b045-cn.webp"
+    },
+    {
+      "scene": "B045",
+      "nameKo": "완만한 초원길",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B045-rd",
+      "path": "/b/b045-rd.webp"
+    },
+    {
+      "scene": "B045",
+      "nameKo": "완만한 초원길",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B045-rn",
+      "path": "/b/b045-rn.webp"
+    },
+    {
+      "scene": "B045",
+      "nameKo": "완만한 초원길",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B045-sd",
+      "path": "/b/b045-sd.webp"
+    },
+    {
+      "scene": "B045",
+      "nameKo": "완만한 초원길",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B045-sn",
+      "path": "/b/b045-sn.webp"
+    },
+    {
+      "scene": "B046",
+      "nameKo": "넓은 목초지",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B046-cd",
+      "path": "/b/b046-cd.webp"
+    },
+    {
+      "scene": "B046",
+      "nameKo": "넓은 목초지",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B046-cn",
+      "path": "/b/b046-cn.webp"
+    },
+    {
+      "scene": "B046",
+      "nameKo": "넓은 목초지",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B046-rd",
+      "path": "/b/b046-rd.webp"
+    },
+    {
+      "scene": "B046",
+      "nameKo": "넓은 목초지",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B046-rn",
+      "path": "/b/b046-rn.webp"
+    },
+    {
+      "scene": "B046",
+      "nameKo": "넓은 목초지",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B046-sd",
+      "path": "/b/b046-sd.webp"
+    },
+    {
+      "scene": "B046",
+      "nameKo": "넓은 목초지",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B046-sn",
+      "path": "/b/b046-sn.webp"
+    },
+    {
+      "scene": "B047",
+      "nameKo": "목책이 있는 방목지",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B047-cd",
+      "path": "/b/b047-cd.webp"
+    },
+    {
+      "scene": "B047",
+      "nameKo": "목책이 있는 방목지",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B047-cn",
+      "path": "/b/b047-cn.webp"
+    },
+    {
+      "scene": "B047",
+      "nameKo": "목책이 있는 방목지",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B047-rd",
+      "path": "/b/b047-rd.webp"
+    },
+    {
+      "scene": "B047",
+      "nameKo": "목책이 있는 방목지",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B047-rn",
+      "path": "/b/b047-rn.webp"
+    },
+    {
+      "scene": "B047",
+      "nameKo": "목책이 있는 방목지",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B047-sd",
+      "path": "/b/b047-sd.webp"
+    },
+    {
+      "scene": "B047",
+      "nameKo": "목책이 있는 방목지",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B047-sn",
+      "path": "/b/b047-sn.webp"
+    },
+    {
+      "scene": "B048",
+      "nameKo": "경작 중인 농지와 밭두렁",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B048-cd",
+      "path": "/b/b048-cd.webp"
+    },
+    {
+      "scene": "B048",
+      "nameKo": "경작 중인 농지와 밭두렁",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B048-cn",
+      "path": "/b/b048-cn.webp"
+    },
+    {
+      "scene": "B048",
+      "nameKo": "경작 중인 농지와 밭두렁",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B048-rd",
+      "path": "/b/b048-rd.webp"
+    },
+    {
+      "scene": "B048",
+      "nameKo": "경작 중인 농지와 밭두렁",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B048-rn",
+      "path": "/b/b048-rn.webp"
+    },
+    {
+      "scene": "B048",
+      "nameKo": "경작 중인 농지와 밭두렁",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B048-sd",
+      "path": "/b/b048-sd.webp"
+    },
+    {
+      "scene": "B048",
+      "nameKo": "경작 중인 농지와 밭두렁",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B048-sn",
+      "path": "/b/b048-sn.webp"
+    },
+    {
+      "scene": "B049",
+      "nameKo": "과수원·포도밭 통로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B049-cd",
+      "path": "/b/b049-cd.webp"
+    },
+    {
+      "scene": "B049",
+      "nameKo": "과수원·포도밭 통로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B049-cn",
+      "path": "/b/b049-cn.webp"
+    },
+    {
+      "scene": "B049",
+      "nameKo": "과수원·포도밭 통로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B049-rd",
+      "path": "/b/b049-rd.webp"
+    },
+    {
+      "scene": "B049",
+      "nameKo": "과수원·포도밭 통로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B049-rn",
+      "path": "/b/b049-rn.webp"
+    },
+    {
+      "scene": "B049",
+      "nameKo": "과수원·포도밭 통로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B049-sd",
+      "path": "/b/b049-sd.webp"
+    },
+    {
+      "scene": "B049",
+      "nameKo": "과수원·포도밭 통로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B049-sn",
+      "path": "/b/b049-sn.webp"
+    },
+    {
+      "scene": "B050",
+      "nameKo": "수레바퀴 자국이 난 시골길",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B050-cd",
+      "path": "/b/b050-cd.webp"
+    },
+    {
+      "scene": "B050",
+      "nameKo": "수레바퀴 자국이 난 시골길",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B050-cn",
+      "path": "/b/b050-cn.webp"
+    },
+    {
+      "scene": "B050",
+      "nameKo": "수레바퀴 자국이 난 시골길",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B050-rd",
+      "path": "/b/b050-rd.webp"
+    },
+    {
+      "scene": "B050",
+      "nameKo": "수레바퀴 자국이 난 시골길",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B050-rn",
+      "path": "/b/b050-rn.webp"
+    },
+    {
+      "scene": "B050",
+      "nameKo": "수레바퀴 자국이 난 시골길",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B050-sd",
+      "path": "/b/b050-sd.webp"
+    },
+    {
+      "scene": "B050",
+      "nameKo": "수레바퀴 자국이 난 시골길",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B050-sn",
+      "path": "/b/b050-sn.webp"
+    },
+    {
+      "scene": "B051",
+      "nameKo": "이정표 없는 진흙 교차로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B051-cd",
+      "path": "/b/b051-cd.webp"
+    },
+    {
+      "scene": "B051",
+      "nameKo": "이정표 없는 진흙 교차로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B051-cn",
+      "path": "/b/b051-cn.webp"
+    },
+    {
+      "scene": "B051",
+      "nameKo": "이정표 없는 진흙 교차로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B051-rd",
+      "path": "/b/b051-rd.webp"
+    },
+    {
+      "scene": "B051",
+      "nameKo": "이정표 없는 진흙 교차로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B051-rn",
+      "path": "/b/b051-rn.webp"
+    },
+    {
+      "scene": "B051",
+      "nameKo": "이정표 없는 진흙 교차로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B051-sd",
+      "path": "/b/b051-sd.webp"
+    },
+    {
+      "scene": "B051",
+      "nameKo": "이정표 없는 진흙 교차로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B051-sn",
+      "path": "/b/b051-sn.webp"
+    },
+    {
+      "scene": "B052",
+      "nameKo": "강을 건너는 오래된 석교",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B052-cd",
+      "path": "/b/b052-cd.webp"
+    },
+    {
+      "scene": "B052",
+      "nameKo": "강을 건너는 오래된 석교",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B052-cn",
+      "path": "/b/b052-cn.webp"
+    },
+    {
+      "scene": "B052",
+      "nameKo": "강을 건너는 오래된 석교",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B052-rd",
+      "path": "/b/b052-rd.webp"
+    },
+    {
+      "scene": "B052",
+      "nameKo": "강을 건너는 오래된 석교",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B052-rn",
+      "path": "/b/b052-rn.webp"
+    },
+    {
+      "scene": "B052",
+      "nameKo": "강을 건너는 오래된 석교",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B052-sd",
+      "path": "/b/b052-sd.webp"
+    },
+    {
+      "scene": "B052",
+      "nameKo": "강을 건너는 오래된 석교",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B052-sn",
+      "path": "/b/b052-sn.webp"
+    },
+    {
+      "scene": "B053",
+      "nameKo": "얕은 강 여울과 도하 지점",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B053-cd",
+      "path": "/b/b053-cd.webp"
+    },
+    {
+      "scene": "B053",
+      "nameKo": "얕은 강 여울과 도하 지점",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B053-cn",
+      "path": "/b/b053-cn.webp"
+    },
+    {
+      "scene": "B053",
+      "nameKo": "얕은 강 여울과 도하 지점",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B053-rd",
+      "path": "/b/b053-rd.webp"
+    },
+    {
+      "scene": "B053",
+      "nameKo": "얕은 강 여울과 도하 지점",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B053-rn",
+      "path": "/b/b053-rn.webp"
+    },
+    {
+      "scene": "B053",
+      "nameKo": "얕은 강 여울과 도하 지점",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B053-sd",
+      "path": "/b/b053-sd.webp"
+    },
+    {
+      "scene": "B053",
+      "nameKo": "얕은 강 여울과 도하 지점",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B053-sn",
+      "path": "/b/b053-sn.webp"
+    },
+    {
+      "scene": "B054",
+      "nameKo": "갈대가 무성한 강변",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B054-cd",
+      "path": "/b/b054-cd.webp"
+    },
+    {
+      "scene": "B054",
+      "nameKo": "갈대가 무성한 강변",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B054-cn",
+      "path": "/b/b054-cn.webp"
+    },
+    {
+      "scene": "B054",
+      "nameKo": "갈대가 무성한 강변",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B054-rd",
+      "path": "/b/b054-rd.webp"
+    },
+    {
+      "scene": "B054",
+      "nameKo": "갈대가 무성한 강변",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B054-rn",
+      "path": "/b/b054-rn.webp"
+    },
+    {
+      "scene": "B054",
+      "nameKo": "갈대가 무성한 강변",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B054-sd",
+      "path": "/b/b054-sd.webp"
+    },
+    {
+      "scene": "B054",
+      "nameKo": "갈대가 무성한 강변",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B054-sn",
+      "path": "/b/b054-sn.webp"
+    },
+    {
+      "scene": "B055",
+      "nameKo": "습지를 건너는 목재 보행로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B055-cd",
+      "path": "/b/b055-cd.webp"
+    },
+    {
+      "scene": "B055",
+      "nameKo": "습지를 건너는 목재 보행로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B055-cn",
+      "path": "/b/b055-cn.webp"
+    },
+    {
+      "scene": "B055",
+      "nameKo": "습지를 건너는 목재 보행로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B055-rd",
+      "path": "/b/b055-rd.webp"
+    },
+    {
+      "scene": "B055",
+      "nameKo": "습지를 건너는 목재 보행로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B055-rn",
+      "path": "/b/b055-rn.webp"
+    },
+    {
+      "scene": "B055",
+      "nameKo": "습지를 건너는 목재 보행로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B055-sd",
+      "path": "/b/b055-sd.webp"
+    },
+    {
+      "scene": "B055",
+      "nameKo": "습지를 건너는 목재 보행로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B055-sn",
+      "path": "/b/b055-sn.webp"
+    },
+    {
+      "scene": "B056",
+      "nameKo": "잔잔한 호숫가",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B056-cd",
+      "path": "/b/b056-cd.webp"
+    },
+    {
+      "scene": "B056",
+      "nameKo": "잔잔한 호숫가",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B056-cn",
+      "path": "/b/b056-cn.webp"
+    },
+    {
+      "scene": "B056",
+      "nameKo": "잔잔한 호숫가",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B056-rd",
+      "path": "/b/b056-rd.webp"
+    },
+    {
+      "scene": "B056",
+      "nameKo": "잔잔한 호숫가",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B056-rn",
+      "path": "/b/b056-rn.webp"
+    },
+    {
+      "scene": "B056",
+      "nameKo": "잔잔한 호숫가",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B056-sd",
+      "path": "/b/b056-sd.webp"
+    },
+    {
+      "scene": "B056",
+      "nameKo": "잔잔한 호숫가",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B056-sn",
+      "path": "/b/b056-sn.webp"
+    },
+    {
+      "scene": "B057",
+      "nameKo": "바위가 많은 해안",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B057-cd",
+      "path": "/b/b057-cd.webp"
+    },
+    {
+      "scene": "B057",
+      "nameKo": "바위가 많은 해안",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B057-cn",
+      "path": "/b/b057-cn.webp"
+    },
+    {
+      "scene": "B057",
+      "nameKo": "바위가 많은 해안",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B057-rd",
+      "path": "/b/b057-rd.webp"
+    },
+    {
+      "scene": "B057",
+      "nameKo": "바위가 많은 해안",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B057-rn",
+      "path": "/b/b057-rn.webp"
+    },
+    {
+      "scene": "B057",
+      "nameKo": "바위가 많은 해안",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B057-sd",
+      "path": "/b/b057-sd.webp"
+    },
+    {
+      "scene": "B057",
+      "nameKo": "바위가 많은 해안",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B057-sn",
+      "path": "/b/b057-sn.webp"
+    },
+    {
+      "scene": "B058",
+      "nameKo": "자갈·모래 해변",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B058-cd",
+      "path": "/b/b058-cd.webp"
+    },
+    {
+      "scene": "B058",
+      "nameKo": "자갈·모래 해변",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B058-cn",
+      "path": "/b/b058-cn.webp"
+    },
+    {
+      "scene": "B058",
+      "nameKo": "자갈·모래 해변",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B058-rd",
+      "path": "/b/b058-rd.webp"
+    },
+    {
+      "scene": "B058",
+      "nameKo": "자갈·모래 해변",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B058-rn",
+      "path": "/b/b058-rn.webp"
+    },
+    {
+      "scene": "B058",
+      "nameKo": "자갈·모래 해변",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B058-sd",
+      "path": "/b/b058-sd.webp"
+    },
+    {
+      "scene": "B058",
+      "nameKo": "자갈·모래 해변",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B058-sn",
+      "path": "/b/b058-sn.webp"
+    },
+    {
+      "scene": "B059",
+      "nameKo": "썰물의 갯벌",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B059-cd",
+      "path": "/b/b059-cd.webp"
+    },
+    {
+      "scene": "B059",
+      "nameKo": "썰물의 갯벌",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B059-cn",
+      "path": "/b/b059-cn.webp"
+    },
+    {
+      "scene": "B059",
+      "nameKo": "썰물의 갯벌",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B059-rd",
+      "path": "/b/b059-rd.webp"
+    },
+    {
+      "scene": "B059",
+      "nameKo": "썰물의 갯벌",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B059-rn",
+      "path": "/b/b059-rn.webp"
+    },
+    {
+      "scene": "B059",
+      "nameKo": "썰물의 갯벌",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B059-sd",
+      "path": "/b/b059-sd.webp"
+    },
+    {
+      "scene": "B059",
+      "nameKo": "썰물의 갯벌",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B059-sn",
+      "path": "/b/b059-sn.webp"
+    },
+    {
+      "scene": "B060",
+      "nameKo": "바닷바람이 부는 절벽길",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B060-cd",
+      "path": "/b/b060-cd.webp"
+    },
+    {
+      "scene": "B060",
+      "nameKo": "바닷바람이 부는 절벽길",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B060-cn",
+      "path": "/b/b060-cn.webp"
+    },
+    {
+      "scene": "B060",
+      "nameKo": "바닷바람이 부는 절벽길",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B060-rd",
+      "path": "/b/b060-rd.webp"
+    },
+    {
+      "scene": "B060",
+      "nameKo": "바닷바람이 부는 절벽길",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B060-rn",
+      "path": "/b/b060-rn.webp"
+    },
+    {
+      "scene": "B060",
+      "nameKo": "바닷바람이 부는 절벽길",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B060-sd",
+      "path": "/b/b060-sd.webp"
+    },
+    {
+      "scene": "B060",
+      "nameKo": "바닷바람이 부는 절벽길",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B060-sn",
+      "path": "/b/b060-sn.webp"
+    },
+    {
+      "scene": "B061",
+      "nameKo": "가파른 산길",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B061-cd",
+      "path": "/b/b061-cd.webp"
+    },
+    {
+      "scene": "B061",
+      "nameKo": "가파른 산길",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B061-cn",
+      "path": "/b/b061-cn.webp"
+    },
+    {
+      "scene": "B061",
+      "nameKo": "가파른 산길",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B061-rd",
+      "path": "/b/b061-rd.webp"
+    },
+    {
+      "scene": "B061",
+      "nameKo": "가파른 산길",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B061-rn",
+      "path": "/b/b061-rn.webp"
+    },
+    {
+      "scene": "B061",
+      "nameKo": "가파른 산길",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B061-sd",
+      "path": "/b/b061-sd.webp"
+    },
+    {
+      "scene": "B061",
+      "nameKo": "가파른 산길",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B061-sn",
+      "path": "/b/b061-sn.webp"
+    },
+    {
+      "scene": "B062",
+      "nameKo": "바람 센 산악 고개",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B062-cd",
+      "path": "/b/b062-cd.webp"
+    },
+    {
+      "scene": "B062",
+      "nameKo": "바람 센 산악 고개",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B062-cn",
+      "path": "/b/b062-cn.webp"
+    },
+    {
+      "scene": "B062",
+      "nameKo": "바람 센 산악 고개",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B062-rd",
+      "path": "/b/b062-rd.webp"
+    },
+    {
+      "scene": "B062",
+      "nameKo": "바람 센 산악 고개",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B062-rn",
+      "path": "/b/b062-rn.webp"
+    },
+    {
+      "scene": "B062",
+      "nameKo": "바람 센 산악 고개",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B062-sd",
+      "path": "/b/b062-sd.webp"
+    },
+    {
+      "scene": "B062",
+      "nameKo": "바람 센 산악 고개",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B062-sn",
+      "path": "/b/b062-sn.webp"
+    },
+    {
+      "scene": "B063",
+      "nameKo": "높은 고원과 순례길",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B063-cd",
+      "path": "/b/b063-cd.webp"
+    },
+    {
+      "scene": "B063",
+      "nameKo": "높은 고원과 순례길",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B063-cn",
+      "path": "/b/b063-cn.webp"
+    },
+    {
+      "scene": "B063",
+      "nameKo": "높은 고원과 순례길",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B063-rd",
+      "path": "/b/b063-rd.webp"
+    },
+    {
+      "scene": "B063",
+      "nameKo": "높은 고원과 순례길",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B063-rn",
+      "path": "/b/b063-rn.webp"
+    },
+    {
+      "scene": "B063",
+      "nameKo": "높은 고원과 순례길",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B063-sd",
+      "path": "/b/b063-sd.webp"
+    },
+    {
+      "scene": "B063",
+      "nameKo": "높은 고원과 순례길",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B063-sn",
+      "path": "/b/b063-sn.webp"
+    },
+    {
+      "scene": "B064",
+      "nameKo": "암석 협곡 통로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B064-cd",
+      "path": "/b/b064-cd.webp"
+    },
+    {
+      "scene": "B064",
+      "nameKo": "암석 협곡 통로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B064-cn",
+      "path": "/b/b064-cn.webp"
+    },
+    {
+      "scene": "B064",
+      "nameKo": "암석 협곡 통로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B064-rd",
+      "path": "/b/b064-rd.webp"
+    },
+    {
+      "scene": "B064",
+      "nameKo": "암석 협곡 통로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B064-rn",
+      "path": "/b/b064-rn.webp"
+    },
+    {
+      "scene": "B064",
+      "nameKo": "암석 협곡 통로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B064-sd",
+      "path": "/b/b064-sd.webp"
+    },
+    {
+      "scene": "B064",
+      "nameKo": "암석 협곡 통로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B064-sn",
+      "path": "/b/b064-sn.webp"
+    },
+    {
+      "scene": "B065",
+      "nameKo": "자연 동굴 입구",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B065-cd",
+      "path": "/b/b065-cd.webp"
+    },
+    {
+      "scene": "B065",
+      "nameKo": "자연 동굴 입구",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B065-cn",
+      "path": "/b/b065-cn.webp"
+    },
+    {
+      "scene": "B065",
+      "nameKo": "자연 동굴 입구",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B065-rd",
+      "path": "/b/b065-rd.webp"
+    },
+    {
+      "scene": "B065",
+      "nameKo": "자연 동굴 입구",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B065-rn",
+      "path": "/b/b065-rn.webp"
+    },
+    {
+      "scene": "B065",
+      "nameKo": "자연 동굴 입구",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B065-sd",
+      "path": "/b/b065-sd.webp"
+    },
+    {
+      "scene": "B065",
+      "nameKo": "자연 동굴 입구",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B065-sn",
+      "path": "/b/b065-sn.webp"
+    },
+    {
+      "scene": "B066",
+      "nameKo": "침엽수와 바위가 섞인 북방 산야",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B066-cd",
+      "path": "/b/b066-cd.webp"
+    },
+    {
+      "scene": "B066",
+      "nameKo": "침엽수와 바위가 섞인 북방 산야",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B066-cn",
+      "path": "/b/b066-cn.webp"
+    },
+    {
+      "scene": "B066",
+      "nameKo": "침엽수와 바위가 섞인 북방 산야",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B066-rd",
+      "path": "/b/b066-rd.webp"
+    },
+    {
+      "scene": "B066",
+      "nameKo": "침엽수와 바위가 섞인 북방 산야",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B066-rn",
+      "path": "/b/b066-rn.webp"
+    },
+    {
+      "scene": "B066",
+      "nameKo": "침엽수와 바위가 섞인 북방 산야",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B066-sd",
+      "path": "/b/b066-sd.webp"
+    },
+    {
+      "scene": "B066",
+      "nameKo": "침엽수와 바위가 섞인 북방 산야",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B066-sn",
+      "path": "/b/b066-sn.webp"
+    },
+    {
+      "scene": "B067",
+      "nameKo": "검은 현무암 지대",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B067-cd",
+      "path": "/b/b067-cd.webp"
+    },
+    {
+      "scene": "B067",
+      "nameKo": "검은 현무암 지대",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B067-cn",
+      "path": "/b/b067-cn.webp"
+    },
+    {
+      "scene": "B067",
+      "nameKo": "검은 현무암 지대",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B067-rd",
+      "path": "/b/b067-rd.webp"
+    },
+    {
+      "scene": "B067",
+      "nameKo": "검은 현무암 지대",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B067-rn",
+      "path": "/b/b067-rn.webp"
+    },
+    {
+      "scene": "B067",
+      "nameKo": "검은 현무암 지대",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B067-sd",
+      "path": "/b/b067-sd.webp"
+    },
+    {
+      "scene": "B067",
+      "nameKo": "검은 현무암 지대",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B067-sn",
+      "path": "/b/b067-sn.webp"
+    },
+    {
+      "scene": "B068",
+      "nameKo": "건조한 초원·스텝 지대",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B068-cd",
+      "path": "/b/b068-cd.webp"
+    },
+    {
+      "scene": "B068",
+      "nameKo": "건조한 초원·스텝 지대",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B068-cn",
+      "path": "/b/b068-cn.webp"
+    },
+    {
+      "scene": "B068",
+      "nameKo": "건조한 초원·스텝 지대",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B068-rd",
+      "path": "/b/b068-rd.webp"
+    },
+    {
+      "scene": "B068",
+      "nameKo": "건조한 초원·스텝 지대",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B068-rn",
+      "path": "/b/b068-rn.webp"
+    },
+    {
+      "scene": "B068",
+      "nameKo": "건조한 초원·스텝 지대",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B068-sd",
+      "path": "/b/b068-sd.webp"
+    },
+    {
+      "scene": "B068",
+      "nameKo": "건조한 초원·스텝 지대",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B068-sn",
+      "path": "/b/b068-sn.webp"
+    },
+    {
+      "scene": "B069",
+      "nameKo": "바람에 깎인 관목 구릉",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B069-cd",
+      "path": "/b/b069-cd.webp"
+    },
+    {
+      "scene": "B069",
+      "nameKo": "바람에 깎인 관목 구릉",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B069-cn",
+      "path": "/b/b069-cn.webp"
+    },
+    {
+      "scene": "B069",
+      "nameKo": "바람에 깎인 관목 구릉",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B069-rd",
+      "path": "/b/b069-rd.webp"
+    },
+    {
+      "scene": "B069",
+      "nameKo": "바람에 깎인 관목 구릉",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B069-rn",
+      "path": "/b/b069-rn.webp"
+    },
+    {
+      "scene": "B069",
+      "nameKo": "바람에 깎인 관목 구릉",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B069-sd",
+      "path": "/b/b069-sd.webp"
+    },
+    {
+      "scene": "B069",
+      "nameKo": "바람에 깎인 관목 구릉",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B069-sn",
+      "path": "/b/b069-sn.webp"
+    },
+    {
+      "scene": "B070",
+      "nameKo": "전투가 끝난 뒤의 버려진 들판",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B070-cd",
+      "path": "/b/b070-cd.webp"
+    },
+    {
+      "scene": "B070",
+      "nameKo": "전투가 끝난 뒤의 버려진 들판",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B070-cn",
+      "path": "/b/b070-cn.webp"
+    },
+    {
+      "scene": "B070",
+      "nameKo": "전투가 끝난 뒤의 버려진 들판",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B070-rd",
+      "path": "/b/b070-rd.webp"
+    },
+    {
+      "scene": "B070",
+      "nameKo": "전투가 끝난 뒤의 버려진 들판",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B070-rn",
+      "path": "/b/b070-rn.webp"
+    },
+    {
+      "scene": "B070",
+      "nameKo": "전투가 끝난 뒤의 버려진 들판",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B070-sd",
+      "path": "/b/b070-sd.webp"
+    },
+    {
+      "scene": "B070",
+      "nameKo": "전투가 끝난 뒤의 버려진 들판",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B070-sn",
+      "path": "/b/b070-sn.webp"
+    },
+    {
+      "scene": "B071",
+      "nameKo": "무너진 작은 취락의 흔적",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B071-cd",
+      "path": "/b/b071-cd.webp"
+    },
+    {
+      "scene": "B071",
+      "nameKo": "무너진 작은 취락의 흔적",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B071-cn",
+      "path": "/b/b071-cn.webp"
+    },
+    {
+      "scene": "B071",
+      "nameKo": "무너진 작은 취락의 흔적",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B071-rd",
+      "path": "/b/b071-rd.webp"
+    },
+    {
+      "scene": "B071",
+      "nameKo": "무너진 작은 취락의 흔적",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B071-rn",
+      "path": "/b/b071-rn.webp"
+    },
+    {
+      "scene": "B071",
+      "nameKo": "무너진 작은 취락의 흔적",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B071-sd",
+      "path": "/b/b071-sd.webp"
+    },
+    {
+      "scene": "B071",
+      "nameKo": "무너진 작은 취락의 흔적",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B071-sn",
+      "path": "/b/b071-sn.webp"
+    },
+    {
+      "scene": "B072",
+      "nameKo": "오래된 경계석·석환 유적",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B072-cd",
+      "path": "/b/b072-cd.webp"
+    },
+    {
+      "scene": "B072",
+      "nameKo": "오래된 경계석·석환 유적",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B072-cn",
+      "path": "/b/b072-cn.webp"
+    },
+    {
+      "scene": "B072",
+      "nameKo": "오래된 경계석·석환 유적",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B072-rd",
+      "path": "/b/b072-rd.webp"
+    },
+    {
+      "scene": "B072",
+      "nameKo": "오래된 경계석·석환 유적",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B072-rn",
+      "path": "/b/b072-rn.webp"
+    },
+    {
+      "scene": "B072",
+      "nameKo": "오래된 경계석·석환 유적",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B072-sd",
+      "path": "/b/b072-sd.webp"
+    },
+    {
+      "scene": "B072",
+      "nameKo": "오래된 경계석·석환 유적",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B072-sn",
+      "path": "/b/b072-sn.webp"
+    },
+    {
+      "scene": "B073",
+      "nameKo": "공동묘지·매장지",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B073-cd",
+      "path": "/b/b073-cd.webp"
+    },
+    {
+      "scene": "B073",
+      "nameKo": "공동묘지·매장지",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B073-cn",
+      "path": "/b/b073-cn.webp"
+    },
+    {
+      "scene": "B073",
+      "nameKo": "공동묘지·매장지",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B073-rd",
+      "path": "/b/b073-rd.webp"
+    },
+    {
+      "scene": "B073",
+      "nameKo": "공동묘지·매장지",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B073-rn",
+      "path": "/b/b073-rn.webp"
+    },
+    {
+      "scene": "B073",
+      "nameKo": "공동묘지·매장지",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B073-sd",
+      "path": "/b/b073-sd.webp"
+    },
+    {
+      "scene": "B073",
+      "nameKo": "공동묘지·매장지",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B073-sn",
+      "path": "/b/b073-sn.webp"
+    },
+    {
+      "scene": "B074",
+      "nameKo": "사냥 흔적이 남은 야생지",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B074-cd",
+      "path": "/b/b074-cd.webp"
+    },
+    {
+      "scene": "B074",
+      "nameKo": "사냥 흔적이 남은 야생지",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B074-cn",
+      "path": "/b/b074-cn.webp"
+    },
+    {
+      "scene": "B074",
+      "nameKo": "사냥 흔적이 남은 야생지",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B074-rd",
+      "path": "/b/b074-rd.webp"
+    },
+    {
+      "scene": "B074",
+      "nameKo": "사냥 흔적이 남은 야생지",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B074-rn",
+      "path": "/b/b074-rn.webp"
+    },
+    {
+      "scene": "B074",
+      "nameKo": "사냥 흔적이 남은 야생지",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B074-sd",
+      "path": "/b/b074-sd.webp"
+    },
+    {
+      "scene": "B074",
+      "nameKo": "사냥 흔적이 남은 야생지",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B074-sn",
+      "path": "/b/b074-sn.webp"
+    },
+    {
+      "scene": "B075",
+      "nameKo": "멀리 길을 감시하는 언덕",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B075-cd",
+      "path": "/b/b075-cd.webp"
+    },
+    {
+      "scene": "B075",
+      "nameKo": "멀리 길을 감시하는 언덕",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B075-cn",
+      "path": "/b/b075-cn.webp"
+    },
+    {
+      "scene": "B075",
+      "nameKo": "멀리 길을 감시하는 언덕",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B075-rd",
+      "path": "/b/b075-rd.webp"
+    },
+    {
+      "scene": "B075",
+      "nameKo": "멀리 길을 감시하는 언덕",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B075-rn",
+      "path": "/b/b075-rn.webp"
+    },
+    {
+      "scene": "B075",
+      "nameKo": "멀리 길을 감시하는 언덕",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B075-sd",
+      "path": "/b/b075-sd.webp"
+    },
+    {
+      "scene": "B075",
+      "nameKo": "멀리 길을 감시하는 언덕",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B075-sn",
+      "path": "/b/b075-sn.webp"
+    },
+    {
+      "scene": "B076",
+      "nameKo": "여관의 지붕 있는 현관과 출입구",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B076-cd",
+      "path": "/b/b076-cd.webp"
+    },
+    {
+      "scene": "B076",
+      "nameKo": "여관의 지붕 있는 현관과 출입구",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B076-cn",
+      "path": "/b/b076-cn.webp"
+    },
+    {
+      "scene": "B076",
+      "nameKo": "여관의 지붕 있는 현관과 출입구",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B076-rd",
+      "path": "/b/b076-rd.webp"
+    },
+    {
+      "scene": "B076",
+      "nameKo": "여관의 지붕 있는 현관과 출입구",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B076-rn",
+      "path": "/b/b076-rn.webp"
+    },
+    {
+      "scene": "B076",
+      "nameKo": "여관의 지붕 있는 현관과 출입구",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B076-sd",
+      "path": "/b/b076-sd.webp"
+    },
+    {
+      "scene": "B076",
+      "nameKo": "여관의 지붕 있는 현관과 출입구",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B076-sn",
+      "path": "/b/b076-sn.webp"
+    },
+    {
+      "scene": "B077",
+      "nameKo": "시장 차양 아래의 점포 통로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B077-cd",
+      "path": "/b/b077-cd.webp"
+    },
+    {
+      "scene": "B077",
+      "nameKo": "시장 차양 아래의 점포 통로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B077-cn",
+      "path": "/b/b077-cn.webp"
+    },
+    {
+      "scene": "B077",
+      "nameKo": "시장 차양 아래의 점포 통로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B077-rd",
+      "path": "/b/b077-rd.webp"
+    },
+    {
+      "scene": "B077",
+      "nameKo": "시장 차양 아래의 점포 통로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B077-rn",
+      "path": "/b/b077-rn.webp"
+    },
+    {
+      "scene": "B077",
+      "nameKo": "시장 차양 아래의 점포 통로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B077-sd",
+      "path": "/b/b077-sd.webp"
+    },
+    {
+      "scene": "B077",
+      "nameKo": "시장 차양 아래의 점포 통로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B077-sn",
+      "path": "/b/b077-sn.webp"
+    },
+    {
+      "scene": "B078",
+      "nameKo": "공동 우물이 있는 안뜰",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B078-cd",
+      "path": "/b/b078-cd.webp"
+    },
+    {
+      "scene": "B078",
+      "nameKo": "공동 우물이 있는 안뜰",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B078-cn",
+      "path": "/b/b078-cn.webp"
+    },
+    {
+      "scene": "B078",
+      "nameKo": "공동 우물이 있는 안뜰",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B078-rd",
+      "path": "/b/b078-rd.webp"
+    },
+    {
+      "scene": "B078",
+      "nameKo": "공동 우물이 있는 안뜰",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B078-rn",
+      "path": "/b/b078-rn.webp"
+    },
+    {
+      "scene": "B078",
+      "nameKo": "공동 우물이 있는 안뜰",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B078-sd",
+      "path": "/b/b078-sd.webp"
+    },
+    {
+      "scene": "B078",
+      "nameKo": "공동 우물이 있는 안뜰",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B078-sn",
+      "path": "/b/b078-sn.webp"
+    },
+    {
+      "scene": "B079",
+      "nameKo": "마구간 앞 작업 마당",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B079-cd",
+      "path": "/b/b079-cd.webp"
+    },
+    {
+      "scene": "B079",
+      "nameKo": "마구간 앞 작업 마당",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B079-cn",
+      "path": "/b/b079-cn.webp"
+    },
+    {
+      "scene": "B079",
+      "nameKo": "마구간 앞 작업 마당",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B079-rd",
+      "path": "/b/b079-rd.webp"
+    },
+    {
+      "scene": "B079",
+      "nameKo": "마구간 앞 작업 마당",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B079-rn",
+      "path": "/b/b079-rn.webp"
+    },
+    {
+      "scene": "B079",
+      "nameKo": "마구간 앞 작업 마당",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B079-sd",
+      "path": "/b/b079-sd.webp"
+    },
+    {
+      "scene": "B079",
+      "nameKo": "마구간 앞 작업 마당",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B079-sn",
+      "path": "/b/b079-sn.webp"
+    },
+    {
+      "scene": "B080",
+      "nameKo": "대장간 앞 열린 작업 마당",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B080-cd",
+      "path": "/b/b080-cd.webp"
+    },
+    {
+      "scene": "B080",
+      "nameKo": "대장간 앞 열린 작업 마당",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B080-cn",
+      "path": "/b/b080-cn.webp"
+    },
+    {
+      "scene": "B080",
+      "nameKo": "대장간 앞 열린 작업 마당",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B080-rd",
+      "path": "/b/b080-rd.webp"
+    },
+    {
+      "scene": "B080",
+      "nameKo": "대장간 앞 열린 작업 마당",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B080-rn",
+      "path": "/b/b080-rn.webp"
+    },
+    {
+      "scene": "B080",
+      "nameKo": "대장간 앞 열린 작업 마당",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B080-sd",
+      "path": "/b/b080-sd.webp"
+    },
+    {
+      "scene": "B080",
+      "nameKo": "대장간 앞 열린 작업 마당",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B080-sn",
+      "path": "/b/b080-sn.webp"
+    },
+    {
+      "scene": "B081",
+      "nameKo": "길드 회관의 안뜰",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B081-cd",
+      "path": "/b/b081-cd.webp"
+    },
+    {
+      "scene": "B081",
+      "nameKo": "길드 회관의 안뜰",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B081-cn",
+      "path": "/b/b081-cn.webp"
+    },
+    {
+      "scene": "B081",
+      "nameKo": "길드 회관의 안뜰",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B081-rd",
+      "path": "/b/b081-rd.webp"
+    },
+    {
+      "scene": "B081",
+      "nameKo": "길드 회관의 안뜰",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B081-rn",
+      "path": "/b/b081-rn.webp"
+    },
+    {
+      "scene": "B081",
+      "nameKo": "길드 회관의 안뜰",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B081-sd",
+      "path": "/b/b081-sd.webp"
+    },
+    {
+      "scene": "B081",
+      "nameKo": "길드 회관의 안뜰",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B081-sn",
+      "path": "/b/b081-sn.webp"
+    },
+    {
+      "scene": "B082",
+      "nameKo": "사원·수도원의 열린 회랑",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B082-cd",
+      "path": "/b/b082-cd.webp"
+    },
+    {
+      "scene": "B082",
+      "nameKo": "사원·수도원의 열린 회랑",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B082-cn",
+      "path": "/b/b082-cn.webp"
+    },
+    {
+      "scene": "B082",
+      "nameKo": "사원·수도원의 열린 회랑",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B082-rd",
+      "path": "/b/b082-rd.webp"
+    },
+    {
+      "scene": "B082",
+      "nameKo": "사원·수도원의 열린 회랑",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B082-rn",
+      "path": "/b/b082-rn.webp"
+    },
+    {
+      "scene": "B082",
+      "nameKo": "사원·수도원의 열린 회랑",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B082-sd",
+      "path": "/b/b082-sd.webp"
+    },
+    {
+      "scene": "B082",
+      "nameKo": "사원·수도원의 열린 회랑",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B082-sn",
+      "path": "/b/b082-sn.webp"
+    },
+    {
+      "scene": "B083",
+      "nameKo": "성문 내부의 덮인 통로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B083-cd",
+      "path": "/b/b083-cd.webp"
+    },
+    {
+      "scene": "B083",
+      "nameKo": "성문 내부의 덮인 통로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B083-cn",
+      "path": "/b/b083-cn.webp"
+    },
+    {
+      "scene": "B083",
+      "nameKo": "성문 내부의 덮인 통로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B083-rd",
+      "path": "/b/b083-rd.webp"
+    },
+    {
+      "scene": "B083",
+      "nameKo": "성문 내부의 덮인 통로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B083-rn",
+      "path": "/b/b083-rn.webp"
+    },
+    {
+      "scene": "B083",
+      "nameKo": "성문 내부의 덮인 통로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B083-sd",
+      "path": "/b/b083-sd.webp"
+    },
+    {
+      "scene": "B083",
+      "nameKo": "성문 내부의 덮인 통로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B083-sn",
+      "path": "/b/b083-sn.webp"
+    },
+    {
+      "scene": "B084",
+      "nameKo": "지붕 있는 검문소",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B084-cd",
+      "path": "/b/b084-cd.webp"
+    },
+    {
+      "scene": "B084",
+      "nameKo": "지붕 있는 검문소",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B084-cn",
+      "path": "/b/b084-cn.webp"
+    },
+    {
+      "scene": "B084",
+      "nameKo": "지붕 있는 검문소",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B084-rd",
+      "path": "/b/b084-rd.webp"
+    },
+    {
+      "scene": "B084",
+      "nameKo": "지붕 있는 검문소",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B084-rn",
+      "path": "/b/b084-rn.webp"
+    },
+    {
+      "scene": "B084",
+      "nameKo": "지붕 있는 검문소",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B084-sd",
+      "path": "/b/b084-sd.webp"
+    },
+    {
+      "scene": "B084",
+      "nameKo": "지붕 있는 검문소",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B084-sn",
+      "path": "/b/b084-sn.webp"
+    },
+    {
+      "scene": "B085",
+      "nameKo": "부두의 하역 창고 처마 아래",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B085-cd",
+      "path": "/b/b085-cd.webp"
+    },
+    {
+      "scene": "B085",
+      "nameKo": "부두의 하역 창고 처마 아래",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B085-cn",
+      "path": "/b/b085-cn.webp"
+    },
+    {
+      "scene": "B085",
+      "nameKo": "부두의 하역 창고 처마 아래",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B085-rd",
+      "path": "/b/b085-rd.webp"
+    },
+    {
+      "scene": "B085",
+      "nameKo": "부두의 하역 창고 처마 아래",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B085-rn",
+      "path": "/b/b085-rn.webp"
+    },
+    {
+      "scene": "B085",
+      "nameKo": "부두의 하역 창고 처마 아래",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B085-sd",
+      "path": "/b/b085-sd.webp"
+    },
+    {
+      "scene": "B085",
+      "nameKo": "부두의 하역 창고 처마 아래",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B085-sn",
+      "path": "/b/b085-sn.webp"
+    },
+    {
+      "scene": "B086",
+      "nameKo": "목조 범선의 갑판",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B086-cd",
+      "path": "/b/b086-cd.webp"
+    },
+    {
+      "scene": "B086",
+      "nameKo": "목조 범선의 갑판",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B086-cn",
+      "path": "/b/b086-cn.webp"
+    },
+    {
+      "scene": "B086",
+      "nameKo": "목조 범선의 갑판",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B086-rd",
+      "path": "/b/b086-rd.webp"
+    },
+    {
+      "scene": "B086",
+      "nameKo": "목조 범선의 갑판",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B086-rn",
+      "path": "/b/b086-rn.webp"
+    },
+    {
+      "scene": "B086",
+      "nameKo": "목조 범선의 갑판",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B086-sd",
+      "path": "/b/b086-sd.webp"
+    },
+    {
+      "scene": "B086",
+      "nameKo": "목조 범선의 갑판",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B086-sn",
+      "path": "/b/b086-sn.webp"
+    },
+    {
+      "scene": "B087",
+      "nameKo": "다리 옆 통행세 징수 쉼터",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B087-cd",
+      "path": "/b/b087-cd.webp"
+    },
+    {
+      "scene": "B087",
+      "nameKo": "다리 옆 통행세 징수 쉼터",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B087-cn",
+      "path": "/b/b087-cn.webp"
+    },
+    {
+      "scene": "B087",
+      "nameKo": "다리 옆 통행세 징수 쉼터",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B087-rd",
+      "path": "/b/b087-rd.webp"
+    },
+    {
+      "scene": "B087",
+      "nameKo": "다리 옆 통행세 징수 쉼터",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B087-rn",
+      "path": "/b/b087-rn.webp"
+    },
+    {
+      "scene": "B087",
+      "nameKo": "다리 옆 통행세 징수 쉼터",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B087-sd",
+      "path": "/b/b087-sd.webp"
+    },
+    {
+      "scene": "B087",
+      "nameKo": "다리 옆 통행세 징수 쉼터",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B087-sn",
+      "path": "/b/b087-sn.webp"
+    },
+    {
+      "scene": "B088",
+      "nameKo": "광산 입구의 선별 작업장",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B088-cd",
+      "path": "/b/b088-cd.webp"
+    },
+    {
+      "scene": "B088",
+      "nameKo": "광산 입구의 선별 작업장",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B088-cn",
+      "path": "/b/b088-cn.webp"
+    },
+    {
+      "scene": "B088",
+      "nameKo": "광산 입구의 선별 작업장",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B088-rd",
+      "path": "/b/b088-rd.webp"
+    },
+    {
+      "scene": "B088",
+      "nameKo": "광산 입구의 선별 작업장",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B088-rn",
+      "path": "/b/b088-rn.webp"
+    },
+    {
+      "scene": "B088",
+      "nameKo": "광산 입구의 선별 작업장",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B088-sd",
+      "path": "/b/b088-sd.webp"
+    },
+    {
+      "scene": "B088",
+      "nameKo": "광산 입구의 선별 작업장",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B088-sn",
+      "path": "/b/b088-sn.webp"
+    },
+    {
+      "scene": "B089",
+      "nameKo": "성벽의 작은 후문과 외부 연결 통로",
+      "weather": "c",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B089-cd",
+      "path": "/b/b089-cd.webp"
+    },
+    {
+      "scene": "B089",
+      "nameKo": "성벽의 작은 후문과 외부 연결 통로",
+      "weather": "c",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B089-cn",
+      "path": "/b/b089-cn.webp"
+    },
+    {
+      "scene": "B089",
+      "nameKo": "성벽의 작은 후문과 외부 연결 통로",
+      "weather": "r",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B089-rd",
+      "path": "/b/b089-rd.webp"
+    },
+    {
+      "scene": "B089",
+      "nameKo": "성벽의 작은 후문과 외부 연결 통로",
+      "weather": "r",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B089-rn",
+      "path": "/b/b089-rn.webp"
+    },
+    {
+      "scene": "B089",
+      "nameKo": "성벽의 작은 후문과 외부 연결 통로",
+      "weather": "s",
+      "time": "d",
+      "mode": "generated",
+      "sourceId": "B089-sd",
+      "path": "/b/b089-sd.webp"
+    },
+    {
+      "scene": "B089",
+      "nameKo": "성벽의 작은 후문과 외부 연결 통로",
+      "weather": "s",
+      "time": "n",
+      "mode": "generated",
+      "sourceId": "B089-sn",
+      "path": "/b/b089-sn.webp"
+    }
+  ]
+}

@@ -9,7 +9,7 @@
 ## 본문
 
 ```md
-C=고정인물코드,N=화자명,L=현재장소코드,E=감정. 카드 배경은 L, 문장은 C 정본 소속을 쓴다. L은 첫 줄 `/place`의 `placeId`와 같고 화자 소속·고향 코드로 바꾸지 않는다. 고정 인물 첫 대사 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L)` 1회. E=`n`중립·`sm`미소·`p`기쁨·`c`걱정·`s`슬픔·`a`분노·`u`경계·`x`설명, 불명확=`n`. 임시는 L이 있으면 `![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L)`, 없으면 `![](https://vireth-svg.musueman.workers.dev/talk?region=정본지역명&amp;place=정본장소명&amp;name=N)`. 임시에는 E 금지. 다음 줄=`N | 대사`. 응답 내 화자별 첫 대사에만 1회.
+C=고정인물,N=화자,L=현재장소,E=감정,B=현재 물리 공간,W=날씨,T=시간. L은 첫 줄 `/place`와 같고 고향·소속으로 바꾸지 않는다. 고정=`![](https://vireth-svg.musueman.workers.dev/talk?id=C&amp;e=E&amp;placeId=L&amp;situation=B&amp;w=W&amp;t=T)`, 임시=`![](https://vireth-svg.musueman.workers.dev/talk?name=N&amp;placeId=L&amp;situation=B&amp;w=W&amp;t=T)`. W=해/비/눈의 c/r/s,T=낮/밤의 d/n이며 상태창 값을 그대로 쓴다. B는 도시전경·문서 내용·화자 고향이 아닌 현재 공간 B001~B089이다. E=n/sm/p/c/s/a/u/d,불명확=n; 임시는 E 금지. 다음 줄=N | 대사,화자별 첫 대사에만 1회.
 ```
 
 ## 검수

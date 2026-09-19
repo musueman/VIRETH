@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "wrangler check",
+    "check": "node --test test/worker-contracts.test.mjs test/background-assets.test.mjs && npx.cmd wrangler deploy --dry-run",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev --port 8787",
     "types": "wrangler types"

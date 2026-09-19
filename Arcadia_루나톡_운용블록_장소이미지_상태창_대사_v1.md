@@ -9,13 +9,13 @@
 
 대화카드는 대사 카드 전용이다. `/place`를 대신하지 않는다.
 대사는 `이름 | 대사` 형식으로 쓴다.
-고정 캐릭터는 같은 이름의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id={캐릭터코드}&amp;e={감정코드}&amp;placeId={장소코드})`를 1회 둔다.
+고정 캐릭터는 같은 이름의 첫 발화 바로 위에 `![](https://vireth-svg.musueman.workers.dev/talk?id={캐릭터코드}&amp;e={감정코드}&amp;placeId={장소코드}&amp;situation={현재공간B코드}&amp;w={날씨코드}&amp;t={시간코드})`를 1회 둔다.
 대화카드의 `placeId`는 반드시 같은 응답 첫 줄 장소카드의 `placeId`를 그대로 재사용한다. 캐릭터의 소속·고향·출신 장소코드로 바꾸지 않는다.
 대화카드 배경은 이 `placeId`를 사용하고, 문장은 고정 캐릭터 코드에 등록된 정본 소속을 사용한다.
 감정코드는 대사 직전의 표정과 태도를 기준으로 고른다. `n`=중립, `sm`=옅은 미소, `p`=기쁨, `c`=걱정, `s`=슬픔·체념, `a`=절제된 분노, `u`=놀람·경계, `x`=차분한 설명이다. 불명확하면 `n`을 쓴다.
 해당 감정 에셋이 없거나 감정코드가 잘못되면 워커가 기본 초상으로 대체하므로 카드 호출은 생략하지 않는다.
 위키 코드가 없는 임시 인물만 `name={이름}`을 사용한다.
-임시 인물은 장소코드가 있으면 `![](https://vireth-svg.musueman.workers.dev/talk?name={이름}&amp;placeId={장소코드})`, 없으면 `![](https://vireth-svg.musueman.workers.dev/talk?region={정본지역명}&amp;place={정본장소명}&amp;name={이름})` 한 줄로 출력한다.
+임시 인물은 장소코드가 있으면 `![](https://vireth-svg.musueman.workers.dev/talk?name={이름}&amp;placeId={장소코드}&amp;situation={현재공간B코드}&amp;w={날씨코드}&amp;t={시간코드})`, 없으면 `![](https://vireth-svg.musueman.workers.dev/talk?region={정본지역명}&amp;place={정본장소명}&amp;name={이름}&amp;situation={현재공간B코드}&amp;w={날씨코드}&amp;t={시간코드})` 한 줄로 출력한다.
 임시 인물에는 감정코드를 넣지 않는다.
 URL값의 공백은 `%20`으로 바꾸고 `/talk?...` 경로나 URL만 단독 출력하지 않는다.
 서로 다른 인물이 말하면 각 인물의 첫 발화 위에 1회씩 둔다.
@@ -43,7 +43,8 @@ AI는 위키에 기록된 코드만 사용하고 코드를 추측하지 않는�
 
 템플릿:
 ```text
-🕰 시간: 값
+🌦 날씨: 해 | 비 | 눈
+🕰 시간: 낮 | 밤
 🧍 상태: 값
 💰 소지금: 값
 🎒 소지품: 값

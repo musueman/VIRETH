@@ -178,6 +178,17 @@ test("keeps fixed-character canon when query overrides are supplied", async () =
   assert.deepEqual(overridden.body.infoLines, base.body.infoLines);
 });
 
+test("uses the requested weather and time variant for a situation background", async () => {
+  const { response, body } = await getJson(
+    "/talk.json?id=C012&placeId=L022&situation=B029&weather=rain&time=night"
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(body.talkBackground.kind, "situation");
+  assert.equal(body.talkBackground.key, "situation-b029-rn");
+  assert.equal(body.talkBackground.imageUrl, "/b/b029-rn.webp");
+});
+
 test("renders talk character art at the configured display scale", async () => {
   const response = await fetch(`${baseUrl}/talk?id=C012&e=a&placeId=L022&external=1`);
   const svg = await response.text();

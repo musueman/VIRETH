@@ -21,6 +21,7 @@ Internal `key`, `bgType`, and direct asset URLs are supported for debugging and 
 - `/scene.json?place=...` - resolved scene metadata.
 - `/talk?id=C012&regionId=R003&placeId=L022` - wiki-code lookup for a fixed character card.
 - `/talk?id=C012&e=a&regionId=R003&placeId=L022` - fixed character card with an approved emotion asset.
+- `/talk?id=C012&placeId=L022&situation=B029&w=r&t=n` - fixed character card using the selected physical situation, rain, and night background.
 - `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - backward-compatible name lookup.
 - `/talk.json?name=...&place=...` - resolved dialogue card metadata.
 - `/talk-background.json?place=...` - resolved talk background metadata.
@@ -74,14 +75,17 @@ Rules:
 
 Talk background fallback order:
 
-1. Explicit background key or direct URL, for tooling only.
-2. Registered place-type background for the current region and place type.
-3. Current region city representative image.
-4. Current region default image.
-5. General archetype background.
-6. Scene image fallback.
+1. Explicit `situation=B001~B089` with `w=c|r|s` and `t=d|n`.
+2. Explicit background key or direct URL, for tooling only.
+3. Registered place-type background for the current region and place type.
+4. Current region city representative image.
+5. Current region default image.
+6. General archetype background.
+7. Scene image fallback.
 
 `bgType` must never select another region's representative image by itself.
+
+Situation backgrounds use the state values supplied by LunaTalk: `해|비|눈` maps to `c|r|s`, and `낮|밤` maps to `d|n`. The situation describes the physical space around the speaker; it must not be selected from the speaker's hometown, affiliation, or the contents of a discovered document.
 
 ## Asset Size Rules
 

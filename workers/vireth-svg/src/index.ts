@@ -110,6 +110,7 @@ type TalkBackgroundEntry = {
     | "region_default"
     | "place_type"
     | "general_archetype"
+    | "situation"
     | "direct"
     | "scene_fallback";
   imageUrl: string;
@@ -489,6 +490,27 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
   (roleAssets) => Object.values(roleAssets)
 );
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
+const SITUATION_ID_PATTERN = /^b(0(?:0[1-9]|[1-8]\d)|089)$/;
+const SITUATION_WEATHER_CODES: Record<string, string> = {
+  c: "c",
+  clear: "c",
+  sun: "c",
+  "해": "c",
+  r: "r",
+  rain: "r",
+  "비": "r",
+  s: "s",
+  snow: "s",
+  "눈": "s"
+};
+const SITUATION_TIME_CODES: Record<string, string> = {
+  d: "d",
+  day: "d",
+  "낮": "d",
+  n: "n",
+  night: "n",
+  "밤": "n"
+};
 const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
 const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
   "characterUrl",
@@ -1441,6 +1463,11 @@ function resolveTalkBackground(
   placeLabel: string,
   env: Env
 ): TalkBackgroundEntry {
+  const situationBackground = resolveSituationBackground(url);
+  if (situationBackground) {
+    return situationBackground;
+  }
+
   const directImageUrl = firstQuery(url, [
     "backgroundUrl",
     "bgUrl",
@@ -1571,6 +1598,34 @@ function resolveTalkBackground(
     imageUrl: scene.imageUrl || env.DEFAULT_IMAGE_URL,
     regionKey: scene.realmKey ? canonicalRegionKey(scene.realmKey) : undefined,
     regionName: scene.realmName
+  };
+}
+
+function resolveSituationBackground(url: URL): TalkBackgroundEntry | null {
+  const requestedSituation = firstQuery(url, ["situation", "situationId", "상황"]);
+  if (!requestedSituation) {
+    return null;
+  }
+
+  const situation = normalizeKey(requestedSituation);
+  const situationMatch = situation.match(SITUATION_ID_PATTERN);
+  if (!situationMatch) {
+    return null;
+  }
+
+  const weather =
+    SITUATION_WEATHER_CODES[normalizeKey(firstQuery(url, ["weather", "w", "날씨"]) ?? "c")] ?? "c";
+  const time = SITUATION_TIME_CODES[normalizeKey(firstQuery(url, ["time", "t", "시간"]) ?? "d")] ?? "d";
+  const sceneId = `B${situationMatch[1].padStart(3, "0")}`;
+  const variant = `${weather}${time}`;
+
+  return {
+    key: `situation-${sceneId.toLowerCase()}-${variant}`,
+    aliases: [sceneId, variant],
+    kind: "situation",
+    imageUrl: `/b/${sceneId.toLowerCase()}-${variant}.webp`,
+    sourceAssetId: `${sceneId}-${variant}`,
+    priority: 100
   };
 }
 

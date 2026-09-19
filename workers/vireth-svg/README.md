@@ -19,9 +19,9 @@ Internal `key`, `bgType`, and direct asset URLs are supported for debugging and 
 - `/scene?region=티리스&place=레이븐스톤%20성문` - top scene card SVG.
 - `/scene.image?place=...` - direct scene WebP.
 - `/scene.json?place=...` - resolved scene metadata.
-- `/talk?id=C012&regionId=R003&placeId=L022` - wiki-code lookup for a fixed character card.
-- `/talk?id=C012&e=a&regionId=R003&placeId=L022` - fixed character card with an approved emotion asset.
-- `/talk?id=C012&placeId=L022&situation=B029&w=r&t=n` - fixed character card using the selected physical situation, rain, and night background.
+- `/talk?id=C012&regionId=R003&placeId=L022&s=o&t=d` - fixed character card using the current L's outdoor daytime background.
+- `/talk?id=C012&e=a&regionId=R003&placeId=L022&s=i&t=n` - fixed character card using the current L's indoor nighttime background.
+- `/talk?id=C012&e=a&regionId=R003&placeId=L022&s=x&t=n` - fixed character card using the shared adult-scene bedroom at night.
 - `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - backward-compatible name lookup.
 - `/talk.json?name=...&place=...` - resolved dialogue card metadata.
 - `/talk-background.json?place=...` - resolved talk background metadata.
@@ -73,9 +73,18 @@ Rules:
 
 ## Background Resolution
 
+LunaTalk supplies only `s=o|i|x` and `t=d|n`:
+
+- `o` means the fixed outdoor background assigned to the canonical `placeId`.
+- `i` means the fixed indoor background assigned to the canonical `placeId`.
+- `x` means the shared bedroom background and is reserved for an active adult scene.
+- `d` and `n` mean day and night. Weather does not change talk-card backgrounds.
+- Place names and legacy `B001`-`B089` values are not LunaTalk inputs. The Worker owns that mapping.
+- Campsites and similar shared spaces are selected by the canonical place kind, so the model never invents a background key.
+
 Talk background fallback order:
 
-1. Explicit `situation=B001~B089` with `w=c|r|s` and `t=d|n`.
+1. Canonical `placeId` plus `s=o|i|x` and `t=d|n`.
 2. Explicit background key or direct URL, for tooling only.
 3. Registered place-type background for the current region and place type.
 4. Current region city representative image.
@@ -85,7 +94,7 @@ Talk background fallback order:
 
 `bgType` must never select another region's representative image by itself.
 
-Situation backgrounds use the state values supplied by LunaTalk: `해|비|눈` maps to `c|r|s`, and `낮|밤` maps to `d|n`. The situation describes the physical space around the speaker; it must not be selected from the speaker's hometown, affiliation, or the contents of a discovered document.
+The mode describes the physical space around the speaker; it must not be selected from the speaker's hometown, affiliation, a generated sub-place name, or the contents of a discovered document.
 
 ## Asset Size Rules
 

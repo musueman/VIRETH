@@ -497,37 +497,62 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
   (roleAssets) => Object.values(roleAssets)
 );
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
-const SITUATION_ID_PATTERN = /^b(0(?:0[1-9]|[1-8]\d)|089)$/;
-const SITUATION_WEATHER_CODES: Record<string, string> = {
-  c: "c",
-  clear: "c",
-  sun: "c",
-  "해": "c",
-  r: "r",
-  rain: "r",
-  "비": "r",
-  s: "s",
-  snow: "s",
-  "눈": "s"
+const TALK_SPACE_MODES: Record<string, "outdoor" | "indoor" | "adult"> = {
+  o: "outdoor",
+  outdoor: "outdoor",
+  outside: "outdoor",
+  "실외": "outdoor",
+  i: "indoor",
+  indoor: "indoor",
+  inside: "indoor",
+  "실내": "indoor",
+  x: "adult",
+  adult: "adult",
+  bedroom: "adult",
+  nsfw: "adult",
+  "성인": "adult",
+  "침실": "adult"
 };
-const SITUATION_TIME_CODES: Record<string, string> = {
-  d: "d",
-  day: "d",
-  "낮": "d",
-  n: "n",
-  night: "n",
-  "밤": "n"
+const TALK_TIME_CODES: Record<string, "day" | "night"> = {
+  d: "day",
+  day: "day",
+  "낮": "day",
+  n: "night",
+  night: "night",
+  "밤": "night"
 };
-// These are only start-scene defaults. A conversation may move to another physical
-// space inside the same L place, in which case its explicit B code must win.
-const PLACE_SITUATION_DEFAULTS: Readonly<Record<string, string>> = {
-  L011: "B008",
-  L022: "B001",
-  L048: "B003",
-  L056: "B004",
-  L066: "B008",
-  L099: "B002",
-  L147: "B010"
+type PlaceBackgroundPair = { outdoor: string; indoor: string };
+const DEFAULT_PLACE_BACKGROUNDS: PlaceBackgroundPair = { outdoor: "B077", indoor: "B001" };
+const PLACE_KIND_BACKGROUNDS: Readonly<Record<string, PlaceBackgroundPair>> = {
+  "도시·거점": DEFAULT_PLACE_BACKGROUNDS,
+  "마을": { outdoor: "B078", indoor: "B034" },
+  "재개간촌": { outdoor: "B048", indoor: "B034" },
+  "공동주거촌": { outdoor: "B078", indoor: "B003" },
+  "산길 마을": { outdoor: "B061", indoor: "B034" },
+  "구조물 마을": { outdoor: "B072", indoor: "B034" },
+  "숲문 마을": { outdoor: "B041", indoor: "B034" },
+  "숙소촌": { outdoor: "B076", indoor: "B004" },
+  "숙소가": { outdoor: "B076", indoor: "B004" },
+  "작업촌": { outdoor: "B080", indoor: "B011" },
+  "작업가": { outdoor: "B080", indoor: "B011" },
+  "창고촌": { outdoor: "B079", indoor: "B014" },
+  "보관시설": { outdoor: "B079", indoor: "B014" },
+  "채집촌": { outdoor: "B043", indoor: "B034" },
+  "기록촌": { outdoor: "B082", indoor: "B020" },
+  "신전촌": { outdoor: "B082", indoor: "B026" },
+  "야영지": { outdoor: "B044", indoor: "B003" },
+  "피난촌": { outdoor: "B044", indoor: "B003" },
+  "대기촌": { outdoor: "B087", indoor: "B003" },
+  "초소": { outdoor: "B084", indoor: "B022" },
+  "구조 거점": { outdoor: "B084", indoor: "B022" },
+  "관문촌": { outdoor: "B083", indoor: "B022" },
+  "선착장": { outdoor: "B085", indoor: "B036" },
+  "어항": { outdoor: "B085", indoor: "B036" },
+  "나루촌": { outdoor: "B085", indoor: "B036" },
+  "항구가": { outdoor: "B085", indoor: "B036" },
+  "항구촌": { outdoor: "B085", indoor: "B036" },
+  "등대촌": { outdoor: "B057", indoor: "B036" },
+  "광산촌": { outdoor: "B088", indoor: "B038" }
 };
 const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
 const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
@@ -1642,27 +1667,26 @@ function resolveTalkBackground(
 }
 
 function resolveSituationBackground(url: URL): TalkBackgroundEntry | null {
-  const requestedSituation = firstQuery(url, ["situation", "situationId", "상황"]);
-  const explicitSituationMatch = normalizeKey(requestedSituation ?? "").match(SITUATION_ID_PATTERN);
   const currentPlace = resolveCurrentPlace(url);
-  const defaultSituation =
-    url.pathname.endsWith("/talk.json") && currentPlace
-      ? PLACE_SITUATION_DEFAULTS[currentPlace.id.toUpperCase()]
-      : undefined;
-  const situationMatch = explicitSituationMatch ?? defaultSituation?.toLowerCase().match(SITUATION_ID_PATTERN);
-  if (!situationMatch) {
+  if (!currentPlace) {
     return null;
   }
 
-  const weather =
-    SITUATION_WEATHER_CODES[normalizeKey(firstQuery(url, ["weather", "w", "날씨"]) ?? "c")] ?? "c";
-  const time = SITUATION_TIME_CODES[normalizeKey(firstQuery(url, ["time", "t", "시간"]) ?? "d")] ?? "d";
-  const sceneId = `B${situationMatch[1].padStart(3, "0")}`;
-  const variant = `${weather}${time}`;
+  const requestedMode = normalizeKey(firstQuery(url, ["s", "space", "spaceMode", "공간"]) ?? "o");
+  const mode = TALK_SPACE_MODES[requestedMode] ?? "outdoor";
+  const requestedTime = normalizeKey(firstQuery(url, ["time", "t", "시간"]) ?? "d");
+  const time = TALK_TIME_CODES[requestedTime] ?? "day";
+  const placeBackgrounds = PLACE_KIND_BACKGROUNDS[currentPlace.kind] ?? DEFAULT_PLACE_BACKGROUNDS;
+  const sceneId = mode === "adult" ? "B002" : placeBackgrounds[mode];
+  const variant = `c${time === "night" ? "n" : "d"}`;
+  const key =
+    mode === "adult"
+      ? `adult-bedroom-${time}`
+      : `place-${currentPlace.id.toLowerCase()}-${mode}-${time}`;
 
   return {
-    key: `situation-${sceneId.toLowerCase()}-${variant}`,
-    aliases: [sceneId, variant],
+    key,
+    aliases: [currentPlace.id, mode, time],
     kind: "situation",
     imageUrl: `/b/${sceneId.toLowerCase()}-${variant}.webp`,
     sourceAssetId: `${sceneId}-${variant}`,

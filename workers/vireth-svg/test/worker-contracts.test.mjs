@@ -136,7 +136,7 @@ test("keeps the canonical current place label when its visual scene falls back",
   assert.match(svg, /렘켈가/);
 });
 
-test("normalizes the R020 fenrir region alias for scenes, maps, and backgrounds", async () => {
+test("normalizes the R020 fenrir region alias while keeping its place background fixed", async () => {
   const { response, body } = await getJson("/place.json?region=fenrir-eye&placeId=L160");
   assert.equal(response.status, 200);
   assert.equal(body.currentPlace.regionId, "R020");
@@ -145,7 +145,8 @@ test("normalizes the R020 fenrir region alias for scenes, maps, and backgrounds"
 
   const background = await getJson("/talk-background.json?region=fenrir-eye&placeId=L160");
   assert.equal(background.response.status, 200);
-  assert.equal(background.body.regionKey, "fenrir-s-eye");
+  assert.equal(background.body.kind, "situation");
+  assert.equal(background.body.key, "place-l160-outdoor-day");
 });
 
 test("returns an anonymous fallback portrait for an unknown fixed character ID", async () => {
@@ -188,37 +189,58 @@ test("keeps fixed-character canon when query overrides are supplied", async () =
   assert.deepEqual(overridden.body.infoLines, base.body.infoLines);
 });
 
-test("uses the requested weather and time variant for a situation background", async () => {
+test("uses the fixed outdoor background for a city and only varies day or night", async () => {
   const { response, body } = await getJson(
-    "/talk.json?id=C012&placeId=L022&situation=B029&weather=rain&time=night"
+    "/talk.json?id=C012&placeId=L022&s=o&weather=rain&t=night"
   );
 
   assert.equal(response.status, 200);
   assert.equal(body.talkBackground.kind, "situation");
-  assert.equal(body.talkBackground.key, "situation-b029-rn");
-  assert.equal(body.talkBackground.imageUrl, "/b/b029-rn.webp");
+  assert.equal(body.talkBackground.key, "place-l022-outdoor-night");
+  assert.equal(body.talkBackground.imageUrl, "/b/b077-cn.webp");
 });
 
-test("uses the canonical situation card for a mapped place when situation is missing", async () => {
+test("uses the fixed indoor background for the current place", async () => {
   const { response, body } = await getJson(
-    "/talk.json?id=C012&placeId=L022&weather=rain&time=night"
+    "/talk.json?id=C012&placeId=L022&s=i&t=day"
   );
 
   assert.equal(response.status, 200);
   assert.equal(body.talkBackground.kind, "situation");
-  assert.equal(body.talkBackground.key, "situation-b001-rn");
-  assert.equal(body.talkBackground.imageUrl, "/b/b001-rn.webp");
+  assert.equal(body.talkBackground.key, "place-l022-indoor-day");
+  assert.equal(body.talkBackground.imageUrl, "/b/b001-cd.webp");
 });
 
-test("replaces a place-name situation with the canonical situation card", async () => {
+test("uses the same bedroom background for every adult scene", async () => {
   const { response, body } = await getJson(
-    "/talk.json?id=C012&placeId=L022&situation=%EB%B2%A0%ED%81%AC%EC%BC%88%EC%B9%B4%EB%A5%B4%EC%84%9C%EB%AC%B8&w=rain&t=night"
+    "/talk.json?id=C012&placeId=L066&s=x&t=night"
   );
 
   assert.equal(response.status, 200);
   assert.equal(body.talkBackground.kind, "situation");
-  assert.equal(body.talkBackground.key, "situation-b001-rn");
-  assert.equal(body.talkBackground.imageUrl, "/b/b001-rn.webp");
+  assert.equal(body.talkBackground.key, "adult-bedroom-night");
+  assert.equal(body.talkBackground.imageUrl, "/b/b002-cn.webp");
+});
+
+test("uses the shared camp background for a campsite place", async () => {
+  const { response, body } = await getJson(
+    "/talk.json?id=C012&placeId=L102&s=o&t=day"
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(body.talkBackground.kind, "situation");
+  assert.equal(body.talkBackground.key, "place-l102-outdoor-day");
+  assert.equal(body.talkBackground.imageUrl, "/b/b044-cd.webp");
+});
+
+test("ignores arbitrary legacy situation codes when a space mode is supplied", async () => {
+  const { response, body } = await getJson(
+    "/talk.json?id=C012&placeId=L022&s=i&t=day&situation=B085"
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(body.talkBackground.key, "place-l022-indoor-day");
+  assert.equal(body.talkBackground.imageUrl, "/b/b001-cd.webp");
 });
 
 test("renders talk character art slightly smaller with a visible top inset", async () => {
@@ -262,20 +284,21 @@ test("uses the final canon occupation instead of a legacy coordinate label", asy
   assert.doesNotMatch(body.infoLines[1], /좌표/);
 });
 
-test("prefers a matching place function over a region-only city representative", async () => {
+test("uses the fixed outdoor mode instead of a place-function guess", async () => {
   const { response, body } = await getJson("/talk-background.json?regionId=R003&placeId=L022");
 
   assert.equal(response.status, 200);
-  assert.equal(body.kind, "general_archetype");
-  assert.equal(body.key, "handoff-20260713-general-b001-city-gate-wallroad");
+  assert.equal(body.kind, "situation");
+  assert.equal(body.key, "place-l022-outdoor-day");
+  assert.equal(body.imageUrl, "/b/b077-cd.webp");
 });
 
-test("keeps an exact city representative ahead of a generic place function", async () => {
+test("uses the fixed outdoor mode instead of a city representative guess", async () => {
   const { response, body } = await getJson("/talk-background.json?regionId=R003&placeId=L021");
 
   assert.equal(response.status, 200);
-  assert.equal(body.kind, "city_representative");
-  assert.equal(body.key, "city-representative-tiris");
+  assert.equal(body.kind, "situation");
+  assert.equal(body.key, "place-l021-outdoor-day");
 });
 
 test("keeps a detailed spot alongside the canonical place ID", async () => {
@@ -286,7 +309,7 @@ test("keeps a detailed spot alongside the canonical place ID", async () => {
   assert.equal(response.status, 200);
   assert.equal(body.placeLabel, "베크켈카르(레이븐스톤) 서문 야간 초소");
   assert.equal(body.talkBackground.kind, "situation");
-  assert.equal(body.talkBackground.key, "situation-b001-cd");
+  assert.equal(body.talkBackground.key, "place-l022-outdoor-day");
 });
 
 test("repairs renderer-corrupted region separators before parsing the speaker", async () => {

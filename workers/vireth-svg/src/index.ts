@@ -3,6 +3,7 @@ import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
+import { GENERATED_TALK_PERSONALITIES } from "./generated-talk-personalities";
 import { GENERATED_TALK_EMOTIONS } from "./generated-talk-emotions";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
 import { GENERATED_WIKI_PLACES, GENERATED_WIKI_REGIONS } from "./generated-wiki-ids";
@@ -78,6 +79,7 @@ type TalkCharacterEntry = {
   aliases: string[];
   displayName: string;
   role?: string;
+  personality?: string;
   affiliation?: string;
   summary?: string;
   imageUrl?: string;
@@ -724,7 +726,13 @@ const TALK_BACKGROUND_FUNCTION_HINTS = new Set(
   ].map(normalizeKey)
 );
 
-const TALK_CHARACTERS = GENERATED_TALK_CHARACTERS as readonly TalkCharacterEntry[];
+const TALK_CHARACTER_PERSONALITIES = GENERATED_TALK_PERSONALITIES as Readonly<Record<string, string>>;
+const TALK_CHARACTERS = GENERATED_TALK_CHARACTERS.map((character) => ({
+  ...character,
+  personality: character.characterId
+    ? TALK_CHARACTER_PERSONALITIES[character.characterId]
+    : undefined
+})) as readonly TalkCharacterEntry[];
 
 const SCENE_KEY_ALIASES: Record<string, string> = {
   "레이븐스톤-성문": "bekkellkar-ravenstone",
@@ -1934,12 +1942,13 @@ function talkInfoLines(
   }
 
   const role = cleanTalkInfoValue(character?.role, character, scene, placeLabel);
+  const personality = cleanTalkInfoValue(character?.personality, character, scene, placeLabel);
   const summary = cleanTalkInfoValue(character?.summary, character, scene, placeLabel);
   const affiliation = cleanTalkInfoValue(character?.affiliation, character, scene, placeLabel);
   const override = cleanTalkInfoValue(infoOverride, character, scene, placeLabel);
   const canonicalDetails = canonicalTalkCharacterDetails(character);
   const lines = uniqueTalkInfoLines([
-    role,
+    personality ?? role,
     override,
     ...canonicalDetails,
     summary,

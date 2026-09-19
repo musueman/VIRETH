@@ -162,6 +162,8 @@ test("resolves every fixed character ID", async () => {
     const { response, body } = await getJson(`/talk.json?id=${characterId}&placeId=L003`);
     assert.equal(response.status, 200, characterId);
     assert.equal(body.character.characterId, characterId, characterId);
+    assert.match(body.character.personality, /^[A-Z]{4} · [1-9]w[1-9]$/, characterId);
+    assert.equal(body.infoLines[0], body.character.personality, characterId);
   }
 });
 
@@ -228,6 +230,16 @@ test("renders talk character art slightly smaller with a visible top inset", asy
     svg,
     /<image href="[^"]+" x="429\.5" y="24" width="611" height="871" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
   );
+});
+
+test("shows canonical MBTI and enneagram wing above a fixed character name", async () => {
+  const { response, body } = await getJson("/talk.json?id=C036&e=n&placeId=L011");
+
+  assert.equal(response.status, 200);
+  assert.equal(body.character.displayName, "마르켄 렘바");
+  assert.equal(body.character.personality, "ENFJ · 6w7");
+  assert.equal(body.infoLines[0], "ENFJ · 6w7");
+  assert.doesNotMatch(body.infoLines[0], /의회|대표|직업|역할/);
 });
 
 test("prefers a matching place function over a region-only city representative", async () => {

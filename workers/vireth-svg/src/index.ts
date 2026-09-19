@@ -5,7 +5,8 @@ import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
 import {
   GENERATED_TALK_PERSONALITIES,
-  GENERATED_TALK_PROFILE_TRAITS
+  GENERATED_TALK_PROFILE_TRAITS,
+  GENERATED_TALK_ROLES
 } from "./generated-talk-personalities";
 import { GENERATED_TALK_EMOTIONS } from "./generated-talk-emotions";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
@@ -732,8 +733,12 @@ const TALK_BACKGROUND_FUNCTION_HINTS = new Set(
 
 const TALK_CHARACTER_PERSONALITIES = GENERATED_TALK_PERSONALITIES as Readonly<Record<string, string>>;
 const TALK_CHARACTER_PROFILE_TRAITS = GENERATED_TALK_PROFILE_TRAITS as Readonly<Record<string, string>>;
+const TALK_CHARACTER_ROLES = GENERATED_TALK_ROLES as Readonly<Record<string, string>>;
 const TALK_CHARACTERS = GENERATED_TALK_CHARACTERS.map((character) => ({
   ...character,
+  role: character.characterId
+    ? TALK_CHARACTER_ROLES[character.characterId] ?? character.role
+    : character.role,
   personality: character.characterId
     ? TALK_CHARACTER_PERSONALITIES[character.characterId]
     : undefined,

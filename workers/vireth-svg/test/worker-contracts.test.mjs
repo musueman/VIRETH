@@ -252,6 +252,16 @@ test("shows canonical MBTI and enneagram wing above a fixed character name", asy
   assert.doesNotMatch(body.infoLines[0], /의회|대표|직업|역할/);
 });
 
+test("uses the final canon occupation instead of a legacy coordinate label", async () => {
+  const { response, body } = await getJson("/talk.json?id=C039&e=n&placeId=L011");
+
+  assert.equal(response.status, 200);
+  assert.equal(body.character.displayName, "마르켈 일도르");
+  assert.equal(body.character.role, "자유항 담당");
+  assert.equal(body.infoLines[1], "자유항 담당");
+  assert.doesNotMatch(body.infoLines[1], /좌표/);
+});
+
 test("prefers a matching place function over a region-only city representative", async () => {
   const { response, body } = await getJson("/talk-background.json?regionId=R003&placeId=L022");
 

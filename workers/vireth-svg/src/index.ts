@@ -3,7 +3,10 @@ import { GENERATED_REGION_MAPS } from "./generated-region-maps";
 import { GENERATED_REGION_MAP_PLACES } from "./generated-region-map-places";
 import { GENERATED_RANDOM_NPC_ASSETS } from "./generated-random-npc-assets";
 import { GENERATED_TALK_CHARACTERS } from "./generated-talk-characters";
-import { GENERATED_TALK_PERSONALITIES } from "./generated-talk-personalities";
+import {
+  GENERATED_TALK_PERSONALITIES,
+  GENERATED_TALK_PROFILE_TRAITS
+} from "./generated-talk-personalities";
 import { GENERATED_TALK_EMOTIONS } from "./generated-talk-emotions";
 import { GENERATED_TALK_BACKGROUNDS } from "./generated-talk-backgrounds";
 import { GENERATED_WIKI_PLACES, GENERATED_WIKI_REGIONS } from "./generated-wiki-ids";
@@ -80,6 +83,7 @@ type TalkCharacterEntry = {
   displayName: string;
   role?: string;
   personality?: string;
+  profileTrait?: string;
   affiliation?: string;
   summary?: string;
   imageUrl?: string;
@@ -727,10 +731,14 @@ const TALK_BACKGROUND_FUNCTION_HINTS = new Set(
 );
 
 const TALK_CHARACTER_PERSONALITIES = GENERATED_TALK_PERSONALITIES as Readonly<Record<string, string>>;
+const TALK_CHARACTER_PROFILE_TRAITS = GENERATED_TALK_PROFILE_TRAITS as Readonly<Record<string, string>>;
 const TALK_CHARACTERS = GENERATED_TALK_CHARACTERS.map((character) => ({
   ...character,
   personality: character.characterId
     ? TALK_CHARACTER_PERSONALITIES[character.characterId]
+    : undefined,
+  profileTrait: character.characterId
+    ? TALK_CHARACTER_PROFILE_TRAITS[character.characterId]
     : undefined
 })) as readonly TalkCharacterEntry[];
 
@@ -1943,12 +1951,15 @@ function talkInfoLines(
 
   const role = cleanTalkInfoValue(character?.role, character, scene, placeLabel);
   const personality = cleanTalkInfoValue(character?.personality, character, scene, placeLabel);
+  const profileTrait = cleanTalkInfoValue(character?.profileTrait, character, scene, placeLabel);
   const summary = cleanTalkInfoValue(character?.summary, character, scene, placeLabel);
   const affiliation = cleanTalkInfoValue(character?.affiliation, character, scene, placeLabel);
   const override = cleanTalkInfoValue(infoOverride, character, scene, placeLabel);
   const canonicalDetails = canonicalTalkCharacterDetails(character);
   const lines = uniqueTalkInfoLines([
     personality ?? role,
+    role,
+    profileTrait,
     override,
     ...canonicalDetails,
     summary,

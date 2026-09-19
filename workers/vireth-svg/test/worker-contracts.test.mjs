@@ -157,6 +157,8 @@ test("returns an anonymous fallback portrait for an unknown fixed character ID",
 });
 
 test("resolves every fixed character ID", async () => {
+  const detailPairs = new Set();
+
   for (let number = 1; number <= 100; number += 1) {
     const characterId = `C${String(number).padStart(3, "0")}`;
     const { response, body } = await getJson(`/talk.json?id=${characterId}&placeId=L003`);
@@ -164,7 +166,13 @@ test("resolves every fixed character ID", async () => {
     assert.equal(body.character.characterId, characterId, characterId);
     assert.match(body.character.personality, /^[A-Z]{4} · [1-9]w[1-9]$/, characterId);
     assert.equal(body.infoLines[0], body.character.personality, characterId);
+    assert.equal(body.infoLines[1], body.character.role, characterId);
+    assert.equal(body.infoLines[2], body.character.profileTrait, characterId);
+    assert.ok(body.character.profileTrait.length <= 20, characterId);
+    detailPairs.add(body.infoLines.slice(1, 3).join(" | "));
   }
+
+  assert.equal(detailPairs.size, 100);
 });
 
 test("keeps fixed-character canon when query overrides are supplied", async () => {
@@ -239,6 +247,8 @@ test("shows canonical MBTI and enneagram wing above a fixed character name", asy
   assert.equal(body.character.displayName, "마르켄 렘바");
   assert.equal(body.character.personality, "ENFJ · 6w7");
   assert.equal(body.infoLines[0], "ENFJ · 6w7");
+  assert.equal(body.infoLines[1], "자유항 의회 대표");
+  assert.equal(body.infoLines[2], "지역관습·가족·보증을 중시한다.");
   assert.doesNotMatch(body.infoLines[0], /의회|대표|직업|역할/);
 });
 

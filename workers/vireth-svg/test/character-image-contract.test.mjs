@@ -120,10 +120,12 @@ test("renders the turn-top location as a labelled regional overview, not the cha
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
-  assert.match(svg, /VRA_N003_DAY\.webp/);
-  assert.doesNotMatch(svg, /VBG_GATE_DAY\.webp/);
+  assert.match(svg, /href="data:image\/webp;base64,/i);
   assert.match(svg, />티리스<\/text>/);
   assert.match(svg, />베크켈카르\(레이븐스톤\)<\/text>/);
+  assert.match(svg, /font-size="42" font-weight="800">티리스<\/text>/);
+  assert.match(svg, /font-size="48" font-weight="800">베크켈카르\(레이븐스톤\)<\/text>/);
+  assert.match(svg, /font-size="28" font-weight="600">도시·거점<\/text>/);
 });
 
 test("uses the L022 night variant", async () => {
@@ -179,8 +181,11 @@ test("labels a normal character composite with the character name and personalit
   const svg = await response.text();
 
   assert.equal(response.status, 200);
+  assert.match(svg, /data-talk-character-display-scale="1.5"/);
   assert.match(svg, />베크라 소멘<\/text>/);
   assert.match(svg, />일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
+  assert.match(svg, /font-size="48" font-weight="800">베크라 소멘<\/text>/);
+  assert.match(svg, /font-size="26" font-weight="600">일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
   assert.match(svg, /id="talkCaptionTextShadow"/);
   assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
 });

@@ -2805,16 +2805,26 @@ async function renderTurnPlaceImageSvg(
   env: Env
 ): Promise<string> {
   const caption = resolveTurnPlaceCaption(url, env);
-  const imageUrl = escapeXml(talkBackgroundImageUrl(origin, placeImage.key));
+  const inlineAssets = shouldInlineAssets(url);
+  const imageProxyUrl = talkBackgroundImageUrl(origin, placeImage.key);
+  const imageUrl = escapeXml(
+    inlineAssets
+      ? (await fetchInlineImageDataUri(
+          placeImage.imageUrl,
+          absoluteImageUrl(placeImage.imageUrl, origin),
+          env
+        )) ?? imageProxyUrl
+      : imageProxyUrl
+  );
   const upperCaption = caption.scopeKind && caption.scopeName
     ? `<g class="turnPlaceScope">
-    <rect x="44" y="42" width="196" height="74" rx="12" fill="#07111f" fill-opacity="0.72" stroke="#e4ca85" stroke-opacity="0.4"/>
-    <text x="62" y="70" fill="#e4ca85" font-size="14" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
-    <text x="62" y="98" fill="#f8f1dc" font-size="24" font-weight="800">${escapeXml(caption.scopeName)}</text>
+    <rect x="44" y="34" width="286" height="118" rx="16" fill="#07111f" fill-opacity="0.72" stroke="#e4ca85" stroke-opacity="0.4"/>
+    <text x="68" y="76" fill="#e4ca85" font-size="20" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
+    <text x="68" y="122" fill="#f8f1dc" font-size="42" font-weight="800">${escapeXml(caption.scopeName)}</text>
   </g>`
     : "";
   const lowerDetail = caption.placeKind
-    ? `<text x="64" y="658" fill="#d7dee8" font-size="15" font-weight="600">${escapeXml(caption.placeKind)}</text>`
+    ? `<text x="64" y="658" fill="#d7dee8" font-size="28" font-weight="600">${escapeXml(caption.placeKind)}</text>`
     : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -2834,7 +2844,7 @@ async function renderTurnPlaceImageSvg(
   <rect width="1000" height="700" fill="url(#turnPlaceShade)"/>
   ${upperCaption}
   <g filter="url(#turnPlaceTextShadow)">
-    <text x="64" y="622" fill="#ffffff" font-size="30" font-weight="800">${escapeXml(caption.placeName)}</text>
+    <text x="64" y="622" fill="#ffffff" font-size="48" font-weight="800">${escapeXml(caption.placeName)}</text>
     ${lowerDetail}
   </g>
 </svg>`;
@@ -2944,11 +2954,11 @@ function renderTalkCharacterCaption(card: TalkCardEntry): string {
   }
   const personality = truncateDisplay(character.summary ?? card.infoLines[1] ?? card.infoLines[0] ?? "", 52);
   const personalityLine = personality
-    ? `<text x="64" y="658" fill="#d7dee8" font-size="15" font-weight="600">${escapeXml(personality)}</text>`
+    ? `<text x="64" y="658" fill="#d7dee8" textLength="872" lengthAdjust="spacingAndGlyphs" font-size="26" font-weight="600">${escapeXml(personality)}</text>`
     : "";
 
   return `<g class="talkCharacterCaption" filter="url(#talkCaptionTextShadow)">
-    <text x="64" y="622" fill="#ffffff" font-size="30" font-weight="800">${escapeXml(character.displayName)}</text>
+    <text x="64" y="622" fill="#ffffff" font-size="48" font-weight="800">${escapeXml(character.displayName)}</text>
     ${personalityLine}
   </g>`;
 }

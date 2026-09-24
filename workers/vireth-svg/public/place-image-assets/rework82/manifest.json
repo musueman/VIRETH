@@ -1,0 +1,830 @@
+{
+  "schemaVersion": 1,
+  "canvas": {
+    "width": 1440,
+    "height": 1080
+  },
+  "format": "webp",
+  "assets": [
+    {
+      "key": "VBG_LODGING_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_LODGING_DAY.webp",
+      "sourceSha256": "D97E702E4D1DA48E42966DA706E34F52DF30897506B223A52349F4E87925F7B1",
+      "sha256": "39DB0DE18349B119131E77460FD39608C0185F736A4E1D6AB511F8E33D098568"
+    },
+    {
+      "key": "VBG_LODGING_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_LODGING_NIGHT.webp",
+      "sourceSha256": "426C7322E385B489A72BCDC8D24340A980BA200659C0A8FC885315F66B57FB54",
+      "sha256": "FDEA557C6E687390B60AB532D6DAC6E0D398584D89396084E2A1402131373481"
+    },
+    {
+      "key": "VBG_INN_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_INN_DAY.webp",
+      "sourceSha256": "1AAD621887F644B051933F4479DDF07621F047E7D48BACD5762E0F8C86A15292",
+      "sha256": "AB2EC6C386C46A67492DC1A949F0DBFE37F323F63AEB69C2172FB4BD482AAA4C"
+    },
+    {
+      "key": "VBG_INN_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_INN_NIGHT.webp",
+      "sourceSha256": "56C0EF30D77DB7B7B88E76E7068BD97D802A2D9783D22A7DE9E2FFCAE03B57C4",
+      "sha256": "352D6D87880667B5632672954DAEFCF05CC8BCBE9A0B3F6D85821096A76BC492"
+    },
+    {
+      "key": "VBG_MARKET_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_MARKET_DAY.webp",
+      "sourceSha256": "60E371227FAB923A6047C67AD8AEEA09A6CB2361F451D65818EF28D784C6D823",
+      "sha256": "62DDBB3757AA678990EAABF8919B7D74740310BAF5F36D73D967AC7C6E42FBCC"
+    },
+    {
+      "key": "VBG_MARKET_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_MARKET_NIGHT.webp",
+      "sourceSha256": "E8FCBB44261410721ABE8799698535D4B2A4D374FF9A6788E1510BA4FE571616",
+      "sha256": "ADBDF5AC0D1354E513EBB880A7691310ED68D6A401F23ECC3173B0715119CF75"
+    },
+    {
+      "key": "VBG_ADMIN_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_ADMIN_DAY.webp",
+      "sourceSha256": "643B12BFE23CC808CDFF1DD62791D3FBE980AAD0B3CEB943DD17A49613DFB9E1",
+      "sha256": "C2C8954C2C5F0BFFE426DF4577AF2C3CEDE8B45C06E65DAA987782F13C028C56"
+    },
+    {
+      "key": "VBG_ADMIN_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_ADMIN_NIGHT.webp",
+      "sourceSha256": "008F234A11D7D4E788B7454F9401572D76A50AEFB3741FF1D4EA9342D78E5F71",
+      "sha256": "44C83B8C88B784FE2A5CE642593BBF7BC339551E2177DEE94B821B49BD0F3F8F"
+    },
+    {
+      "key": "VBG_WORKSHOP_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_WORKSHOP_DAY.webp",
+      "sourceSha256": "0B1091B4E62D6A83C4A565B6ABAE7150248B25DCF86FE9CBF0E12FD7F3501B04",
+      "sha256": "F3697227CD70EF86D392E2C6A4329792AE48CD7ED2E98D7908209CEBBD447986"
+    },
+    {
+      "key": "VBG_WORKSHOP_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_WORKSHOP_NIGHT.webp",
+      "sourceSha256": "9443B215ABF6AFD6220BA8073146BB30DC41C315F2FE7E34CAD02B14410E308C",
+      "sha256": "10596E24F8F396A26474837C7D88A8DB92567394EBB12DBB37800E2A417BBA95"
+    },
+    {
+      "key": "VBG_GATE_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_GATE_DAY.webp",
+      "sourceSha256": "F73AA85B4DEF53A597F647E703C703AD1DB578F099EC45DC01D31EC97C9F11A3",
+      "sha256": "0AA4B015979340FD6CCCC242B9F3A99C8DAEC9F7C44E9BEF9BF5BFB841F87A33"
+    },
+    {
+      "key": "VBG_GATE_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_GATE_NIGHT.webp",
+      "sourceSha256": "310F481266C67FF00265243A8D53DD606139BED9B5F0DDBB22B8B41DA06120F8",
+      "sha256": "B793A37B4EEAA8A3E182590DC00A733E814FB711D6AB97A71F37A94D2B440028"
+    },
+    {
+      "key": "VBG_HARBOR_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_HARBOR_DAY.webp",
+      "sourceSha256": "EBBA696F448B62358F7BB3BD38E71933838F6DA829D3F730B8A703879A4EBFD1",
+      "sha256": "31CF07B222EDDF0B592EE8A0F13BFC75388CFB73EE47145021B26DF9F0C4DF76"
+    },
+    {
+      "key": "VBG_HARBOR_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_HARBOR_NIGHT.webp",
+      "sourceSha256": "037BBCB3AC186FCEDFB005BD46E39B5F6AF24FEEC8105793638FFD7220EE75F7",
+      "sha256": "72290D6F8C96DF355A7913A9922E9833B1ACB265BBA385549343631ED7F8DEC9"
+    },
+    {
+      "key": "VBG_ROAD_CAMP_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_ROAD_CAMP_DAY.webp",
+      "sourceSha256": "53367839EA28525430A38284A44EFFFD2081A351EC1E9A142F3C2ECD2CF2F9C5",
+      "sha256": "04335D773A3D21A918A7176528D17802124AF1743BB2BAF0627145684B39A993"
+    },
+    {
+      "key": "VBG_ROAD_CAMP_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_ROAD_CAMP_NIGHT.webp",
+      "sourceSha256": "44F7025EF9567ADA8604EC55EA3B6B343269087C89099356E01566131E04115A",
+      "sha256": "A0D11776A7F4BDF3F669F1C27C09E12E29B1339E0521F3FA2EAC3EBDB612CC2E"
+    },
+    {
+      "key": "VBG_TEMPLE_SQUARE_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_TEMPLE_SQUARE_DAY.webp",
+      "sourceSha256": "D1643C37FCCBC37283F1AE42352A8F62861911D549475DC81EA269A881C5BABC",
+      "sha256": "CE1E76513A9291057C4AAAA79E93952965766B384625B544A4FE7FB240A7E77F"
+    },
+    {
+      "key": "VBG_TEMPLE_SQUARE_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_TEMPLE_SQUARE_NIGHT.webp",
+      "sourceSha256": "BAFAD69B1BDB35522BFD4E5055F35BC74BC22D7D626058605E5F5E0A1752C701",
+      "sha256": "10FE864350B24D3EC1E71FDBDB0A963F69C6D68B762F687E767DF4595B70049B"
+    },
+    {
+      "key": "VBG_APOTHECARY_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_APOTHECARY_DAY.webp",
+      "sourceSha256": "20D2C219837A04270AB3B7BB1A61B4B2312B9CA3BA730DC49612C7471BB27231",
+      "sha256": "9DAC7DC03A6690F8E823B9334C2EAB0C635C5CB33CBEDDD1DCDD834FBD5B272D"
+    },
+    {
+      "key": "VBG_APOTHECARY_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_APOTHECARY_NIGHT.webp",
+      "sourceSha256": "3A2D92427D2DF26264F839811378B2666A004DAD000124C8B48B1AD6F59ABD91",
+      "sha256": "930C8697DA8EAC08E90E64740809A0E5A17382928B5ABABFC64F2EA98D2EAE8D"
+    },
+    {
+      "key": "VBG_GRANARY_DISTRIBUTION_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_GRANARY_DISTRIBUTION_DAY.webp",
+      "sourceSha256": "815B787B956E914994B5F7194876567F43267AB6F1F065B8A9FDE6BFBD2878DD",
+      "sha256": "4E211A2B72BCFD9041B01F0BE4C20E3769AE10924CE176AAC69215B5857F952A"
+    },
+    {
+      "key": "VBG_GRANARY_DISTRIBUTION_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_GRANARY_DISTRIBUTION_NIGHT.webp",
+      "sourceSha256": "AB134D6DBDE33E019C5F3DB5F3ECD03C189620147031586048A8D1D55CB943B4",
+      "sha256": "353C5E13C94FEDC7489E169F365BDB03D05B1D71097E68ED6F071EA3F3D02A84"
+    },
+    {
+      "key": "VBG_CANAL_LOCK_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_CANAL_LOCK_DAY.webp",
+      "sourceSha256": "988E02CADC1274EAF408E9045C49BF1E3AB8A89361DE863DCB020999A479E47D",
+      "sha256": "4841ECFC15BACDBE40A50F7C7354594A666DEA131060C56E8EC36C43ABF7A244"
+    },
+    {
+      "key": "VBG_CANAL_LOCK_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_CANAL_LOCK_NIGHT.webp",
+      "sourceSha256": "54DD68F457BF03BA83B039D56C6220DBC5569CC41DD4807E7499A4DA30148E29",
+      "sha256": "D194D6D4A050A6321BC84AE5E8759FD630B4D3A482CBA25F7C027C742E4C4706"
+    },
+    {
+      "key": "VBG_STABLE_COURTYARD_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_STABLE_COURTYARD_DAY.webp",
+      "sourceSha256": "A2BDBB82DE3CF2CCFF0604B7D5F9D1FBA594E0A24D7838AACD4D7F5DEDEB36F4",
+      "sha256": "1A1F828A5DF7411B02ECB8E609DCE6D3577B80D2C8D7B56C0E6B61D81E564F9F"
+    },
+    {
+      "key": "VBG_STABLE_COURTYARD_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_STABLE_COURTYARD_NIGHT.webp",
+      "sourceSha256": "330F5330F4DFC0BC82A119FAF3F2EE424312826755072E2E5329AABC0126AD17",
+      "sha256": "E69127EAF78FD9B504B6E5FD209E4D3A64140EC3F6939B01122A73B6BC8979FF"
+    },
+    {
+      "key": "VBG_SCRIPTORIUM_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_SCRIPTORIUM_DAY.webp",
+      "sourceSha256": "1181B07785933DD4C0794ED3652424CBD60A35B436E2FC791CB5D9EDCCAE8C5B",
+      "sha256": "50C628D337F1C166FB9A496AAE7A1955C76C9A457B91FDA24F4BDC0C3BA2543A"
+    },
+    {
+      "key": "VBG_SCRIPTORIUM_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_SCRIPTORIUM_NIGHT.webp",
+      "sourceSha256": "AA5DFAD275EC09E6C27BCE5159BC80B18BEE3C810C5C627E5B42BC0BB5D3D86C",
+      "sha256": "8294EDA9685F1C4B632D6A1B6232AC6B5CFFD0E4D8496A09CAC2F7950B98D43A"
+    },
+    {
+      "key": "VBG_THEATER_SQUARE_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_THEATER_SQUARE_DAY.webp",
+      "sourceSha256": "90DACF5FF5D1D57C637CCE3120B4E1FD1EFCBE7FEFC0B08161BB7012BC7FF83D",
+      "sha256": "42490B7B1A72D295030DA4B985218D724C83005A05464584B58071D053539047"
+    },
+    {
+      "key": "VBG_THEATER_SQUARE_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_THEATER_SQUARE_NIGHT.webp",
+      "sourceSha256": "197E2607EC376BBED913DDC5FD07A4C1F714B455BE922EAA41808C7FD15E7E18",
+      "sha256": "C801222DF9692104D8EEFF6B84F9BF6BD937C70D7A47DD7FA352AE74F2945409"
+    },
+    {
+      "key": "VBG_FARM_IRRIGATION_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FIX01",
+      "file": "VBG_FARM_IRRIGATION_DAY.webp",
+      "sourceSha256": "F8F94AD19911A4E4F26C2BE98862F2971D4064AE18107875E350B685C61A52FE",
+      "sha256": "B2E97C2731F7F98A816856C763D2E220FA7AE3FA66D5EA5C089FDEE409A7779A"
+    },
+    {
+      "key": "VBG_FARM_IRRIGATION_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_FARM_IRRIGATION_NIGHT.webp",
+      "sourceSha256": "C0304F321686022C0526AACD1D00F76B3A39F0286E5325485F12963CA84C42EF",
+      "sha256": "92AE95B3BD128E65467501232EBEB76E9985BA3B8CA1D986278BE4873466D54F"
+    },
+    {
+      "key": "VBG_COURT_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_COURT_NIGHT.webp",
+      "sourceSha256": "0305DEE91E32787DB9CF6233F21D43F41071D5D3E76E846B6ECF16750F9BEE80",
+      "sha256": "31E80FAC02093D0A00F638317F3FC6B61342C20A34FECD1C2680B2CED29E498E"
+    },
+    {
+      "key": "VBG_LIGHTHOUSE_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_LIGHTHOUSE_DAY.webp",
+      "sourceSha256": "D8DD6B912C7C204E6125EF09B982A3A6B7636F4F1048EA152F12CEBA10E464B4",
+      "sha256": "D4819685C2CDCE8566EF4436D925AA757848DF1CEB77700F10AB2C5BD3191101"
+    },
+    {
+      "key": "VBG_LIGHTHOUSE_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_LIGHTHOUSE_NIGHT.webp",
+      "sourceSha256": "DEC566F97ACBA77C3088FFD2D06D2D748EE39A4D4C66E58EDC69BE493460A3C2",
+      "sha256": "F396029AA3624E14947D0AB42A9702BFDB744E9FA788CC8D692F09A92D2D7635"
+    },
+    {
+      "key": "VBG_NORTH_PASS_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_NORTH_PASS_DAY.webp",
+      "sourceSha256": "6BA393BB037B6228E6AB317D51AE210617116D0C1121EE389416F4927E39F095",
+      "sha256": "C207B0B8425B1C7FF1B23CD6C9BFDDB6DC04A4E996A1B3AA973125F02B6A35D2"
+    },
+    {
+      "key": "VBG_NORTH_PASS_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_NORTH_PASS_NIGHT.webp",
+      "sourceSha256": "171942EA29D174B65991A6AF438E699E1CB448E3CCB6D8E9096FD319EAC5F2C7",
+      "sha256": "0C34033B482DF17FDE1E99A3A2FE28353F61CE4153444A6FE0842C79D88C7BA0"
+    },
+    {
+      "key": "VBG_VOLCANIC_COAST_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_VOLCANIC_COAST_DAY.webp",
+      "sourceSha256": "B821F14E2E2F297A93B26D2BA2FE1E054CE1EDE2FE2F4CB9F9EC61499CFC73B6",
+      "sha256": "467A640054FB5699BB55E7BCFD4973654267F292E40892C632930992F425EDB6"
+    },
+    {
+      "key": "VBG_VOLCANIC_COAST_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_VOLCANIC_COAST_NIGHT.webp",
+      "sourceSha256": "7E4D4A71B9E569F261BDF746876247FA53DB831775FF26B5042EF680BF3002F1",
+      "sha256": "29E8025D5632AC94EAB5C754118F30D0134315B37A349BDD9876403E2AD05D67"
+    },
+    {
+      "key": "VBG_MONASTERY_OBSERVATORY_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VBG_MONASTERY_OBSERVATORY_DAY.webp",
+      "sourceSha256": "56E4B0E9EC4BE3E346A25F84884452E31BD035B2577CC6954BB62184D7126132",
+      "sha256": "F991D9FA4643527F90A6364BD487F5137F7A2225D408CC1B39D9AC9AB32F4267"
+    },
+    {
+      "key": "VBG_MONASTERY_OBSERVATORY_NIGHT",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VBG_MONASTERY_OBSERVATORY_NIGHT.webp",
+      "sourceSha256": "543B74D479AF8DD789BAA3D776C7CA2CB9BF889BCB9F4217343F578FBFDACCFE",
+      "sha256": "D7D7628807DA1FFFCD8D1E54028B99938CF988002DB446327E064371B8A0E8BA"
+    },
+    {
+      "key": "VRA_N001_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R001",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N001_DAY.webp",
+      "sourceSha256": "E37B20FFA2DC3AA756BED019BB3452D5190290DAC70F266CDA95856BC09A57AC",
+      "sha256": "9727D8C0F48D56C77B3471BB7B8C8CBE5432F0ECC18917F81BF8273C8F9A2774"
+    },
+    {
+      "key": "VRA_N001_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R001",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N001_NIGHT.webp",
+      "sourceSha256": "CD9DDB20F7981943908D98EA1FC7154DF7AECE023925D545856EF07A8B12B42E",
+      "sha256": "7E108D85F77EF824F0E27194C42DDC975FB107EE1C579323E2A2510608C34DD3"
+    },
+    {
+      "key": "VRA_N002_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R002",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N002_DAY.webp",
+      "sourceSha256": "BECC586B19873DDD9687932EB0396087B640F023D0B25D805C70AB8F9E821C4F",
+      "sha256": "0A8A6AB915DA98BDE0DD4C32B7724CFBC429AB20E77E82FF2ECFFB68FC00068C"
+    },
+    {
+      "key": "VRA_N002_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R002",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N002_NIGHT.webp",
+      "sourceSha256": "97AC81B457F3274A26AEC21632CD2451A8AA473CDEAA605EAB463273B931C12B",
+      "sha256": "610C520FF9A9C362ABFCC39660B8BEFB3B23F1F0DD7DD9D436E7076D630DBFB9"
+    },
+    {
+      "key": "VRA_N003_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R003",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N003_DAY.webp",
+      "sourceSha256": "801D44D06F233D6DD658D4617F8B0067C698509EE3612CB76EED08465BF215DF",
+      "sha256": "2A4428031F46CA0A3BB1F3F7C5CF74CAFECCEA3CA5964E5C3C8D244CCDC89527"
+    },
+    {
+      "key": "VRA_N003_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R003",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N003_NIGHT.webp",
+      "sourceSha256": "AB1C4489115499C457A07ACADFEC68E84CA4532C7E93A1C463E2123D8E182192",
+      "sha256": "53616C9EA07CF4A605DD320E224CB885838A8FBE14EDA723C8EB226C52E8C4B4"
+    },
+    {
+      "key": "VRA_N004_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R004",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N004_DAY.webp",
+      "sourceSha256": "48F4D0506FE0C8A3298351BFA2C1B16A4F6B6BEBA0DDF3205C87FD5C7AC8BC1F",
+      "sha256": "3181BC7D216F17E4F62DD10917473C815A147B98CCD58A33F68EB1A5BD315ABA"
+    },
+    {
+      "key": "VRA_N004_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R004",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N004_NIGHT.webp",
+      "sourceSha256": "9509DE93F6BC8178BE45542509D243BD892F205AAD1CE700CF06D33FD47CF992",
+      "sha256": "3651ECCE0F57242560FCBA49433351D061045DF98C5EA32D6259A30AE0A19A87"
+    },
+    {
+      "key": "VRA_N005_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R005",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N005_DAY.webp",
+      "sourceSha256": "1DE87F61692BE3749925DE1F41ABBA4E1A1FC3F4248ED40AEFC9114D1F40554F",
+      "sha256": "553CBE31C743AA2EED4D4C46092A183CD1D181C792FD1FF7A3A551BD700F5FFF"
+    },
+    {
+      "key": "VRA_N005_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R005",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N005_NIGHT.webp",
+      "sourceSha256": "396F75F48FBA7714B9D36D7BDE443F70CAA6573C632E9A11039A9958A01E1629",
+      "sha256": "95F216D86C94CFDAB494638E0AE3096EF01AECC98EF1DD9F531FE6F245C03D1A"
+    },
+    {
+      "key": "VRA_N006_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R006",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N006_DAY.webp",
+      "sourceSha256": "AFB3CEB35AAD5E0A4BB99257993DD76B5B979279B9F8D19F1C5991D4D436F820",
+      "sha256": "F0841AFA8975D97CBBCD6C3ABE9E5410A588FED6F028A51A508BEC5B9FE934DD"
+    },
+    {
+      "key": "VRA_N006_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R006",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N006_NIGHT.webp",
+      "sourceSha256": "AB9F6F7B3BB6D733DF476000226259B7F21D00B7E5DB0749390C77E258AAF270",
+      "sha256": "E9F772448742B8EAFEFDCA6DA5EE3CFE27565E4FD4C98C1DBFCECD9E5B24569A"
+    },
+    {
+      "key": "VRA_N007_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R007",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N007_DAY.webp",
+      "sourceSha256": "FA8017442CBE2CAF90AC0A6F37F1AC2F7EF8767203003A4686421DA86E9B848F",
+      "sha256": "EA2B40B392BFCA3CADC31A67CDA7ED41607C461AB93FFDDF458DC8C6806FB0F6"
+    },
+    {
+      "key": "VRA_N007_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R007",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N007_NIGHT.webp",
+      "sourceSha256": "374A2CDA8FC3835603787292C1837AEF5A9ED64A5D2C571A7F8A8306CB558C1D",
+      "sha256": "AEB05E3EBC22B0F23786A6950E60AD0F4BCFD55A99D740C7B5228C4CECC0786E"
+    },
+    {
+      "key": "VRA_N008_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R008",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N008_DAY.webp",
+      "sourceSha256": "0EB34692C9165601060DB4F7B01C9F185FE69733E6006BDBFB9E98224F11247D",
+      "sha256": "2ECAF8C8376007EEE4FC2C7BF674A29555051FD4743401A034CCA743DA0BB4FA"
+    },
+    {
+      "key": "VRA_N008_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R008",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N008_NIGHT.webp",
+      "sourceSha256": "20FE110F86853C170E235B5757BFAEA4F6AF214815B5C711BEC3863107A499DA",
+      "sha256": "DA05D210914018F32ABD739CF46CC41A095BB0B39AFF85CB60DA0E35C664C5A7"
+    },
+    {
+      "key": "VRA_N009_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R009",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N009_DAY.webp",
+      "sourceSha256": "0BAC21A13C958373FA641DF02B9A469A76E64E510889DE64DC7984388F8A9B0B",
+      "sha256": "68F74E5764C5F9F63ACB6325F091B8CAAD31251C73202A04391986FC0EB70E5D"
+    },
+    {
+      "key": "VRA_N009_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R009",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N009_NIGHT.webp",
+      "sourceSha256": "0D1E4BF9CE29C8CC7E6840325D74C341AF4F30945CF91582B2F9DA41DA6509ED",
+      "sha256": "D10EA6A876BE70B4B36798A733F41CCAB5E2DAA96849FC980F7B175EBEB2547F"
+    },
+    {
+      "key": "VRA_N010_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R010",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N010_DAY.webp",
+      "sourceSha256": "3615C390FB520C578B9F86F4E81BC6BCA3F6EA4F5EBFE57EFD750F55D5A44DC9",
+      "sha256": "659A40C6F92049A550EEE23B8CF67EE25BADD69EC283F7DF5CB0664A725FA4BE"
+    },
+    {
+      "key": "VRA_N010_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R010",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N010_NIGHT.webp",
+      "sourceSha256": "D15E6EF3FD00666E14A65B0D50983BF36DCB994B6ACAEA81DDA5626DC7057DAE",
+      "sha256": "A78B64E7C312AAADE67B7458C9DB7D5F970B83266A6E909148C7737B9527555E"
+    },
+    {
+      "key": "VRA_N011_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R011",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N011_DAY.webp",
+      "sourceSha256": "34CD1DA87E71A52DF8764FF41DE2819CA26B22AEA9F1FCD94D1CF51F5AD6C4E3",
+      "sha256": "5BBAE1DF26B0B8B72E5D1BE6EDCF25D0599DD27BEDBECEA3589D6CF8F9788ABF"
+    },
+    {
+      "key": "VRA_N011_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R011",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N011_NIGHT.webp",
+      "sourceSha256": "7C2E1138465E2C6D4C4D0173756B0488A17C2210E284D1AE2B9E5871CE7F6D75",
+      "sha256": "9F19ABA8940FC2BA45B3EDEA601030499FF46416FC979F1A22712BC7164D2816"
+    },
+    {
+      "key": "VRA_N012_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R012",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N012_DAY.webp",
+      "sourceSha256": "D09FD4033046406A12D8FCE4DCD70B1F360B13D61D649A7B5D5FED57C9A14A56",
+      "sha256": "983B9CE8E46A19A7D0F2D8C956C560DCF71BA1C1CDAA214E72C5CEA0C12F7EA3"
+    },
+    {
+      "key": "VRA_N012_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R012",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N012_NIGHT.webp",
+      "sourceSha256": "92BD010AE25AAE8118CED5DE07D47C52711BEAF2CEF5F67B368DA72D4553073E",
+      "sha256": "3E574B8DD142F8541AFA0C38F328FDF5F7F4D5D81DA5359346FE3E2D6E238637"
+    },
+    {
+      "key": "VRA_N013_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R013",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N013_DAY.webp",
+      "sourceSha256": "2511F1AE4F0A98AC6C749B718FCAA584ECE16D4F2C3B8B2D2586ABA67EDB8726",
+      "sha256": "78DF91CCAC9D39A131A65CFAE006F711E04D51820063494A45B627F1884F4520"
+    },
+    {
+      "key": "VRA_N013_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R013",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N013_NIGHT.webp",
+      "sourceSha256": "EB0DC897A19FE7A4238A211A10B89FCBA91E4C58B3A507F26D6A5BCE8B274720",
+      "sha256": "22F830F663B1A5B8E2B376AC9FF0D839ACF0FE5AC629E2D82E0AF610B6A52F8D"
+    },
+    {
+      "key": "VRA_N014_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R014",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N014_DAY.webp",
+      "sourceSha256": "1A1C4C9970DC4D031B6846538CA123050EF079720EE78122258E4CDD52B1C213",
+      "sha256": "824AB05A508DA8987FED76E5CF124B253AD8C1251D3F8FAFAAAE662C5C0FB829"
+    },
+    {
+      "key": "VRA_N014_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R014",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N014_NIGHT.webp",
+      "sourceSha256": "02D6B75477D0E6AC02EDC6968024E4A0F62DDA6C54152D134B09D85E3658C487",
+      "sha256": "2DFC8B6A872AA517A95194F468684745733C7C644C9BF2D28B36BBBB04AA3B5D"
+    },
+    {
+      "key": "VRA_N015_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R015",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N015_DAY.webp",
+      "sourceSha256": "EA34179638AA6E2F055D14776A055A1D049ADD9C8A59370513A1C928D9D5A0B2",
+      "sha256": "7EBA78E38258B566D26F5C6268D75C5F5519DC1664D917F0F360A81E383B8D0C"
+    },
+    {
+      "key": "VRA_N015_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R015",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N015_NIGHT.webp",
+      "sourceSha256": "0C29195B3D8CFC2F0F2566E4738B5235CDD7C1F326017188BF203D82136C62FE",
+      "sha256": "96564CA705214BDC58ED7DC09943C4D7955ADFCFF5E139ABDE24530F003DD9D8"
+    },
+    {
+      "key": "VRA_N016_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R016",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N016_DAY.webp",
+      "sourceSha256": "7C260D4AE0163FD2BD49B7FA2DED88D1FEFF282E4EB4017478C6211D7F9AB425",
+      "sha256": "7934CC524472BC6C8766A9AB7A31364BBA8E41F2E1B0633AAD1C6CAB2BDBCCCD"
+    },
+    {
+      "key": "VRA_N016_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R016",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N016_NIGHT.webp",
+      "sourceSha256": "1B70D3F66646F400B12CBDCA9493DE0002F421C823358FFB059F140CA82BC1E1",
+      "sha256": "2B16455D139DBD0E551F447051C960716F304F85EB58AE3F85C6C52661C1A678"
+    },
+    {
+      "key": "VRA_N017_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R017",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N017_DAY.webp",
+      "sourceSha256": "58368F79CD30FB7AC88C8FAE72E186E3AF4E7F9F6ACBE9EF0F421ACB26790B7D",
+      "sha256": "D7A7452DCE9F8FA67B3F987E224BB2D6FA6292192A4FDB9C81F831032DD34C81"
+    },
+    {
+      "key": "VRA_N017_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R017",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N017_NIGHT.webp",
+      "sourceSha256": "31F8EC5BAD9132FFD09F0DB28CF2857D3E67289C276670A4BC067AD9F600D1FB",
+      "sha256": "45414863F50CED16CE6575C8B48C74BDA3A7DF8C2EF004980258EF83B8D50719"
+    },
+    {
+      "key": "VRA_N018_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R018",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N018_DAY.webp",
+      "sourceSha256": "8A67D62C92C4F66D21FF8351915E5179D0C20772E0346BA32EB2446C520AB709",
+      "sha256": "27488DC86A5DA7491FCFBCECF70A9AD48E384BD68BE9453C692263A684E5399C"
+    },
+    {
+      "key": "VRA_N018_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R018",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N018_NIGHT.webp",
+      "sourceSha256": "8AE74EF27CAAC82808B1B523DC3CA80F21BB2BEB47AB328FB2F6EF59965AE0CA",
+      "sha256": "98CBE85EA18EEF6D913B42C1056C3027BEB554A3B591CBE4F80AF45C3E922B34"
+    },
+    {
+      "key": "VRA_N019_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R019",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N019_DAY.webp",
+      "sourceSha256": "21E43FD95F6948DAC934163D688FBD11560BB2D1388AC1AEAC6D0D6DCC681CCB",
+      "sha256": "0F44EDAC390B5D76AEC45A158090E5BFD2B05D1AE0BD5A7B885642CC53972097"
+    },
+    {
+      "key": "VRA_N019_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R019",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N019_NIGHT.webp",
+      "sourceSha256": "002CE71DE92493F841C25FF684DB976552EA2310EA37694D527C30C3E291F383",
+      "sha256": "B9CCCF52DAF6E8E51A044CB76972C12581BC8C73D766D0231C702DF2D514167C"
+    },
+    {
+      "key": "VRA_N020_DAY",
+      "kind": "region-anchor",
+      "regionCode": "R020",
+      "time": "DAY",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N020_DAY.webp",
+      "sourceSha256": "844C417FAB558509FBBC7EB325E8D63B9978FBBF80AF1EC364E33E9EF2B13D97",
+      "sha256": "D53E2CC0FBA181030F77F84486322AE5629617403086C24AD05D03061AF403EE"
+    },
+    {
+      "key": "VRA_N020_NIGHT",
+      "kind": "region-anchor",
+      "regionCode": "R020",
+      "time": "NIGHT",
+      "sourceVariant": "FULL82",
+      "file": "VRA_N020_NIGHT.webp",
+      "sourceSha256": "76E01A8DB01B5A40ECF20C19F9B098414645A509F5DD561F5DF0F312EE5186CA",
+      "sha256": "7523D1CE355EA9D9FB60908CE8AFA88BCDD387E1B30BB54C6B7940EAEDC46243"
+    },
+    {
+      "key": "VBG_COURT_DAY",
+      "kind": "scene-base",
+      "regionCode": null,
+      "time": "DAY",
+      "sourceVariant": "COURT_APPROVED_00003",
+      "file": "VBG_COURT_DAY.webp",
+      "sourceSha256": "1EC2BABA613F5A7539FF7329DE9387D5DDF90A27ACC668A83DC0F13185C0768D",
+      "sha256": "5EA3969C30FBA4827460188F7C8B2643A703BC24767A776B024A459CF8906171"
+    }
+  ]
+}

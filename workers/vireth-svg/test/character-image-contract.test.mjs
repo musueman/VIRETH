@@ -74,17 +74,21 @@ test("uses that same contract for a complete adult action image without a transp
   );
 });
 
-test("serves the adult action state as its original complete image", async () => {
+test("renders the adult action state in a labelled single-image wrapper", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image?id=C003&bg=VBG_INN_NIGHT&ss=08`
+    `${baseUrl}/character-image?id=C003&bg=VBG_INN_NIGHT&ss=08&external=1`
   );
+  const svg = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^image\/webp/i);
+  assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
+  assert.match(svg, /C003_08\.webp/);
+  assert.match(svg, />팔리아 렘킨<\/text>/);
+  assert.match(svg, />신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다\.<\/text>/);
 });
 
-test("returns the chosen place image as a bare image with no caption SVG", async () => {
-  const response = await fetch(`${baseUrl}/place-image?bg=VBG_INN_NIGHT`);
+test("keeps the explicit WebP place endpoint available as a bare asset", async () => {
+  const response = await fetch(`${baseUrl}/place-image.webp?bg=VBG_INN_NIGHT`);
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^image\/webp/i);
@@ -108,13 +112,18 @@ test("rejects an action state for a non-female fixed character", async () => {
   assert.equal(body.error, "invalid_character_image_state");
 });
 
-test("resolves L022 without an authored bg key", async () => {
+test("renders the turn-top location as a labelled regional overview, not the character place background", async () => {
   const response = await fetch(
     `${baseUrl}/place-image?regionId=R003&placeId=L022&time=DAY`
   );
+  const svg = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^image\/webp/i);
+  assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
+  assert.match(svg, /VRA_N003_DAY\.webp/);
+  assert.doesNotMatch(svg, /VBG_GATE_DAY\.webp/);
+  assert.match(svg, />티리스<\/text>/);
+  assert.match(svg, />베크켈카르\(레이븐스톤\)<\/text>/);
 });
 
 test("uses the L022 night variant", async () => {
@@ -163,13 +172,15 @@ test("uses the inferred asset in the normal composite", async () => {
   assert.match(svg, /place-image-assets\/rework82\/VBG_GATE_DAY\.webp/);
 });
 
-test("keeps captions out of the normal character composite", async () => {
+test("labels a normal character composite with the character name and personality", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image?id=C003&regionId=R003&placeId=L022&time=DAY&e=a&external=1`
+    `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=a&external=1`
   );
   const svg = await response.text();
 
   assert.equal(response.status, 200);
-  assert.doesNotMatch(svg, /<text(?:\s|>)/i);
+  assert.match(svg, />베크라 소멘<\/text>/);
+  assert.match(svg, />일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
+  assert.match(svg, /id="talkCaptionTextShadow"/);
   assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
 });

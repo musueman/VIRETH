@@ -954,12 +954,20 @@ export default {
       return assetOrImage(background.imageUrl, request.method, env);
     }
 
-    if (url.pathname === "/place-image" || url.pathname === "/place-image.webp" || url.pathname === "/place-image.image") {
+    if (url.pathname === "/place-image.webp") {
       const placeImage = resolveReworkPlaceImage(url);
       if (!placeImage) {
         return json({ error: "invalid_place_image_key" }, 400);
       }
       return assetOrImage(placeImage.imageUrl, request.method, env);
+    }
+
+    if (url.pathname === "/place-image" || url.pathname === "/place-image.image") {
+      const placeImage = resolveTurnPlaceOverviewImage(url);
+      if (!placeImage) {
+        return json({ error: "invalid_place_image_key" }, 400);
+      }
+      return svg(await renderTurnPlaceImageSvg(placeImage, url.origin, url, env), request.method);
     }
 
     if (url.pathname === "/map.webp" || url.pathname === "/map.image") {
@@ -995,7 +1003,7 @@ export default {
         return json({ error: "invalid_character_image_state", detail: card.characterImageError }, 400);
       }
       if (card.actionCode && card.character?.imageUrl) {
-        return assetOrImage(card.character.imageUrl, request.method, env);
+        return svg(await renderTalkActionSvg(card, url.origin, url, env), request.method);
       }
       return svg(await renderTalkSvg(card, url.origin, url, env), request.method);
     }
@@ -1706,6 +1714,16 @@ function resolveReworkPlaceImage(url: URL): TalkBackgroundEntry | null {
   }
 
   return reworkRegionImage(resolveCurrentRegion(url), phase);
+}
+
+function resolveTurnPlaceOverviewImage(url: URL): TalkBackgroundEntry | null {
+  const requestedKey = firstQuery(url, ["bg", "background", "placeBg", "placeImage", "bgKey"]);
+  if (requestedKey) {
+    return reworkPlaceImageByKey(requestedKey);
+  }
+
+  const regionalOverview = reworkRegionImage(resolveCurrentRegion(url), resolveReworkImagePhase(url));
+  return regionalOverview ?? resolveReworkPlaceImage(url);
 }
 
 function resolveReworkImagePhase(url: URL): "DAY" | "NIGHT" {
@@ -2757,6 +2775,71 @@ async function renderPlaceSvg(
 </svg>`;
 }
 
+type TurnPlaceCaption = {
+  scopeKind: "국가" | "권역" | null;
+  scopeName: string | null;
+  placeName: string;
+  placeKind: string | null;
+};
+
+function resolveTurnPlaceCaption(url: URL, env: Env): TurnPlaceCaption {
+  const place = resolveCurrentPlace(url);
+  const region = resolveCurrentRegion(url);
+  const scene = resolveScene(url, env);
+  const countryName = scene.realmName?.trim() || null;
+  const regionName = place?.regionName ?? region?.name ?? null;
+  const placeName = place?.name ?? scene.title ?? regionName ?? "이름 없는 장소";
+
+  return {
+    scopeKind: countryName ? "국가" : regionName ? "권역" : null,
+    scopeName: countryName ?? regionName,
+    placeName,
+    placeKind: place?.kind ?? (regionName ? "권역 전경" : null)
+  };
+}
+
+async function renderTurnPlaceImageSvg(
+  placeImage: TalkBackgroundEntry,
+  origin: string,
+  url: URL,
+  env: Env
+): Promise<string> {
+  const caption = resolveTurnPlaceCaption(url, env);
+  const imageUrl = escapeXml(talkBackgroundImageUrl(origin, placeImage.key));
+  const upperCaption = caption.scopeKind && caption.scopeName
+    ? `<g class="turnPlaceScope">
+    <rect x="44" y="42" width="196" height="74" rx="12" fill="#07111f" fill-opacity="0.72" stroke="#e4ca85" stroke-opacity="0.4"/>
+    <text x="62" y="70" fill="#e4ca85" font-size="14" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
+    <text x="62" y="98" fill="#f8f1dc" font-size="24" font-weight="800">${escapeXml(caption.scopeName)}</text>
+  </g>`
+    : "";
+  const lowerDetail = caption.placeKind
+    ? `<text x="64" y="658" fill="#d7dee8" font-size="15" font-weight="600">${escapeXml(caption.placeKind)}</text>`
+    : "";
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(caption.placeName)} 장소 이미지">
+  <defs>
+    <linearGradient id="turnPlaceShade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#07111f" stop-opacity="0.18"/>
+      <stop offset="62%" stop-color="#07111f" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#020711" stop-opacity="0.74"/>
+    </linearGradient>
+    <filter id="turnPlaceTextShadow" x="-20%" y="-40%" width="150%" height="190%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.88"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="700" fill="#07111f"/>
+  <image href="${imageUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
+  <rect width="1000" height="700" fill="url(#turnPlaceShade)"/>
+  ${upperCaption}
+  <g filter="url(#turnPlaceTextShadow)">
+    <text x="64" y="622" fill="#ffffff" font-size="30" font-weight="800">${escapeXml(caption.placeName)}</text>
+    ${lowerDetail}
+  </g>
+</svg>`;
+}
+
 async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
   const inlineAssets = shouldInlineAssets(url);
   const backgroundProxyUrl = talkBackgroundImageUrl(origin, card.talkBackground.key);
@@ -2782,10 +2865,7 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
             : rawCharacterImageUrl
         )
       : null;
-  // This endpoint is intentionally an image-only composite. Names, locations,
-  // affiliations, and state labels are rendered by the surrounding SVG/status
-  // UI, never burned into the generated or composited character image.
-  const ariaLabel = "캐릭터 이미지";
+  const ariaLabel = `${card.character?.displayName ?? "이름 없는 인물"} 캐릭터 이미지`;
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -2809,12 +2889,43 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
     <mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}">
       <rect x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}" fill="url(#talkCharacterFade)"/>
     </mask>
+    <filter id="talkCaptionTextShadow" x="-20%" y="-40%" width="150%" height="190%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.88"/>
+    </filter>
   </defs>
   <rect width="1000" height="700" fill="#07111f"/>
   <image href="${backgroundUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
   <rect width="1000" height="700" fill="url(#talkShade)"/>
   <rect x="430" y="0" width="570" height="700" fill="url(#talkRightFade)"/>
   ${characterLayer}
+  ${renderTalkCharacterCaption(card)}
+</svg>`;
+}
+
+async function renderTalkActionSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
+  const actionImageUrl = card.character?.imageUrl
+    ? escapeXml(absoluteImageUrl(card.character.imageUrl, origin))
+    : null;
+  if (!actionImageUrl) {
+    return renderNotFoundSvg();
+  }
+  const ariaLabel = `${card.character?.displayName ?? "이름 없는 인물"} 캐릭터 이미지`;
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(ariaLabel)}">
+  <defs>
+    <linearGradient id="talkActionCaptionShade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#020711" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#020711" stop-opacity="0.56"/>
+    </linearGradient>
+    <filter id="talkCaptionTextShadow" x="-20%" y="-40%" width="150%" height="190%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.88"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="700" fill="#07111f"/>
+  <image href="${actionImageUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid meet"/>
+  <rect width="1000" height="700" fill="url(#talkActionCaptionShade)"/>
+  ${renderTalkCharacterCaption(card)}
 </svg>`;
 }
 
@@ -2823,6 +2934,22 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
 
   return `<g aria-label="${label}">
     <image href="${characterImageUrl}" x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}" preserveAspectRatio="xMidYMid meet" mask="url(#talkCharacterMask)"/>
+</g>`;
+}
+
+function renderTalkCharacterCaption(card: TalkCardEntry): string {
+  const character = card.character;
+  if (!character) {
+    return "";
+  }
+  const personality = truncateDisplay(character.summary ?? card.infoLines[1] ?? card.infoLines[0] ?? "", 52);
+  const personalityLine = personality
+    ? `<text x="64" y="658" fill="#d7dee8" font-size="15" font-weight="600">${escapeXml(personality)}</text>`
+    : "";
+
+  return `<g class="talkCharacterCaption" filter="url(#talkCaptionTextShadow)">
+    <text x="64" y="622" fill="#ffffff" font-size="30" font-weight="800">${escapeXml(character.displayName)}</text>
+    ${personalityLine}
   </g>`;
 }
 

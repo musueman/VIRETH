@@ -100,6 +100,9 @@ type TalkCardEntry = {
   placeLabel: string;
   infoLines: string[];
   emotionCode: string | null;
+  actionCode: string | null;
+  characterImagePresentation: "composite" | "complete_image";
+  characterImageError: string | null;
 };
 
 type TalkBackgroundEntry = {
@@ -490,6 +493,31 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
 );
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
 const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
+const REWORK_PLACE_IMAGE_ROOT = "/place-image-assets/rework82";
+const ADULT_ACTION_IMAGE_ROOT = "https://raw.githubusercontent.com/musueman/VIRETH/main/n";
+const REWORK_PLACE_IMAGE_SCENES = new Set([
+  "LODGING",
+  "INN",
+  "MARKET",
+  "ADMIN",
+  "WORKSHOP",
+  "GATE",
+  "HARBOR",
+  "ROAD_CAMP",
+  "TEMPLE_SQUARE",
+  "APOTHECARY",
+  "GRANARY_DISTRIBUTION",
+  "CANAL_LOCK",
+  "STABLE_COURTYARD",
+  "SCRIPTORIUM",
+  "THEATER_SQUARE",
+  "FARM_IRRIGATION",
+  "COURT",
+  "LIGHTHOUSE",
+  "NORTH_PASS",
+  "VOLCANIC_COAST",
+  "MONASTERY_OBSERVATORY"
+]);
 const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
   "characterUrl",
   "characterImage",
@@ -777,6 +805,7 @@ export default {
       url.pathname.startsWith("/character-assets/") ||
       url.pathname.startsWith("/character-emotion-assets/") ||
       url.pathname.startsWith("/talk-background-assets/") ||
+      url.pathname.startsWith("/place-image-assets/") ||
       url.pathname.startsWith("/map-assets/") ||
       url.pathname.startsWith("/scene-assets/") ||
       url.pathname.startsWith("/b/")
@@ -837,8 +866,23 @@ export default {
       return json(locationError, 400);
     }
 
-    if (url.pathname === "/talk.json") {
-      return json(resolveTalkCard(url, env));
+    if (url.pathname === "/talk.json" || url.pathname === "/character-image.json") {
+      const card = resolveTalkCard(url, env);
+      if (card.characterImageError) {
+        return json({ error: "invalid_character_image_state", detail: card.characterImageError }, 400);
+      }
+      return json({
+        ...card,
+        kind: "character_image",
+        state: card.actionCode
+          ? { kind: "action", code: card.actionCode }
+          : { kind: "emotion", code: card.emotionCode ?? "n" },
+        background: {
+          key: card.talkBackground.key,
+          imageUrl: card.talkBackground.imageUrl
+        },
+        presentation: card.characterImagePresentation
+      });
     }
 
     if (url.pathname === "/talk-background.json") {
@@ -907,6 +951,14 @@ export default {
       return assetOrImage(background.imageUrl, request.method, env);
     }
 
+    if (url.pathname === "/place-image" || url.pathname === "/place-image.webp" || url.pathname === "/place-image.image") {
+      const placeImage = resolveReworkPlaceImage(url);
+      if (!placeImage) {
+        return json({ error: "invalid_place_image_key" }, 400);
+      }
+      return assetOrImage(placeImage.imageUrl, request.method, env);
+    }
+
     if (url.pathname === "/map.webp" || url.pathname === "/map.image") {
       const map = resolveRegionMap(url, env);
       if (!map) {
@@ -929,8 +981,19 @@ export default {
       return svg(await renderPlaceSvg(resolveCurrentPlace(url), scene, map, url.origin, url, env), request.method);
     }
 
-    if (url.pathname === "/talk" || url.pathname === "/talk.svg") {
+    if (
+      url.pathname === "/talk" ||
+      url.pathname === "/talk.svg" ||
+      url.pathname === "/character-image" ||
+      url.pathname === "/character-image.svg"
+    ) {
       const card = resolveTalkCard(url, env);
+      if (card.characterImageError) {
+        return json({ error: "invalid_character_image_state", detail: card.characterImageError }, 400);
+      }
+      if (card.actionCode && card.character?.imageUrl) {
+        return assetOrImage(card.character.imageUrl, request.method, env);
+      }
       return svg(await renderTalkSvg(card, url.origin, url, env), request.method);
     }
 
@@ -1362,6 +1425,7 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
   const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
   const requestedEmotionCode = resolveTalkEmotionCode(url);
+  const requestedActionCode = resolveTalkActionCode(url);
   const resolvedCharacter =
     character &&
     !character.characterId &&
@@ -1375,13 +1439,19 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
       : character;
   const directCharacterImage = firstQuery(url, TALK_CHARACTER_IMAGE_QUERY_NAMES);
   const emotionImageUrl =
-    !directCharacterImage && resolvedCharacter?.characterId && requestedEmotionCode
+    !requestedActionCode && !directCharacterImage && resolvedCharacter?.characterId && requestedEmotionCode
       ? resolveTalkEmotionImage(resolvedCharacter.characterId, requestedEmotionCode)
       : null;
-  const emotionCode = emotionImageUrl ? requestedEmotionCode : null;
+  const actionImageUrl =
+    requestedActionCode &&
+    resolvedCharacter?.characterId &&
+    resolvedCharacter.gender === "여"
+      ? resolveTalkActionImage(resolvedCharacter.characterId, requestedActionCode)
+      : null;
+  const emotionCode = actionImageUrl ? null : emotionImageUrl ? requestedEmotionCode : null;
   const renderedCharacter =
-    resolvedCharacter && emotionImageUrl
-      ? { ...resolvedCharacter, imageUrl: emotionImageUrl }
+    resolvedCharacter && (actionImageUrl ?? emotionImageUrl)
+      ? { ...resolvedCharacter, imageUrl: actionImageUrl ?? emotionImageUrl ?? undefined }
       : resolvedCharacter;
   const infoLines = talkInfoLines(
     renderedCharacter,
@@ -1398,7 +1468,14 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
     line,
     placeLabel,
     infoLines,
-    emotionCode
+    emotionCode,
+    actionCode: actionImageUrl ? requestedActionCode : null,
+    characterImagePresentation: actionImageUrl ? "complete_image" : "composite",
+    characterImageError: requestedActionCode && !actionImageUrl
+      ? "action_state_requires_a_female_fixed_character"
+      : hasTalkActionStateParameter(url) && !requestedActionCode
+        ? "action_state_must_be_01_through_24"
+        : null
   };
 }
 
@@ -1421,6 +1498,23 @@ function resolveTalkEmotionImage(characterId: string, emotionCode: string): stri
   return TALK_EMOTIONS[characterId.toUpperCase()]?.[emotionCode] ?? null;
 }
 
+function hasTalkActionStateParameter(url: URL): boolean {
+  return firstQuery(url, ["ss", "actionState", "action", "행위상태"]) !== null;
+}
+
+function resolveTalkActionCode(url: URL): string | null {
+  const value = firstQuery(url, ["ss", "actionState", "action", "행위상태"]);
+  if (!value) {
+    return null;
+  }
+
+  return /^(0[1-9]|1[0-9]|2[0-4])$/.test(value) ? value : null;
+}
+
+function resolveTalkActionImage(characterId: string, actionCode: string): string {
+  return `${ADULT_ACTION_IMAGE_ROOT}/${characterId.toUpperCase()}_${actionCode}.webp`;
+}
+
 function resolveTalkBackgroundFromUrl(url: URL, env: Env): TalkBackgroundEntry {
   const direct = firstQuery(url, ["key", "background", "bg", "talkBackground", "talkBg", "bgKey"]);
   if (direct) {
@@ -1441,6 +1535,11 @@ function resolveTalkBackground(
   placeLabel: string,
   env: Env
 ): TalkBackgroundEntry {
+  const reworkPlaceImage = resolveReworkPlaceImage(url);
+  if (reworkPlaceImage) {
+    return reworkPlaceImage;
+  }
+
   const directImageUrl = firstQuery(url, [
     "backgroundUrl",
     "bgUrl",
@@ -1572,6 +1671,44 @@ function resolveTalkBackground(
     regionKey: scene.realmKey ? canonicalRegionKey(scene.realmKey) : undefined,
     regionName: scene.realmName
   };
+}
+
+function resolveReworkPlaceImage(url: URL): TalkBackgroundEntry | null {
+  const requestedKey = firstQuery(url, ["bg", "background", "placeBg", "placeImage", "bgKey"]);
+  if (!requestedKey) {
+    return null;
+  }
+
+  return reworkPlaceImageByKey(requestedKey);
+}
+
+function reworkPlaceImageByKey(requestedKey: string): TalkBackgroundEntry | null {
+  const key = requestedKey.trim().toUpperCase().replace(/[\s-]+/g, "_");
+  if (!isReworkPlaceImageKey(key)) {
+    return null;
+  }
+
+  return {
+    key,
+    aliases: [],
+    kind: "direct",
+    imageUrl: `${REWORK_PLACE_IMAGE_ROOT}/${key}.webp`
+  };
+}
+
+function isReworkPlaceImageKey(key: string): boolean {
+  const sceneMatch = key.match(/^VBG_(.+)_(DAY|NIGHT)$/);
+  if (sceneMatch) {
+    return REWORK_PLACE_IMAGE_SCENES.has(sceneMatch[1]);
+  }
+
+  const regionMatch = key.match(/^VRA_N(\d{3})_(DAY|NIGHT)$/);
+  if (!regionMatch) {
+    return false;
+  }
+
+  const regionNumber = Number.parseInt(regionMatch[1], 10);
+  return regionNumber >= 1 && regionNumber <= 20;
 }
 
 function canonicalTalkBackground(entry: TalkBackgroundEntry): TalkBackgroundEntry {
@@ -2201,6 +2338,10 @@ function heraldryProxyUrl(origin: string, sceneKey: string): string {
 }
 
 function talkBackgroundImageUrl(origin: string, backgroundKey: string): string {
+  const reworkPlaceImage = reworkPlaceImageByKey(backgroundKey);
+  if (reworkPlaceImage) {
+    return `${origin}${reworkPlaceImage.imageUrl}`;
+  }
   return `${origin}/talk-background.image?key=${encodeURIComponent(backgroundKey)}`;
 }
 
@@ -3670,6 +3811,7 @@ function isWorkerAssetPath(imageUrl: string): boolean {
     imageUrl.startsWith("/character-assets/") ||
     imageUrl.startsWith("/character-emotion-assets/") ||
     imageUrl.startsWith("/talk-background-assets/") ||
+    imageUrl.startsWith("/place-image-assets/") ||
     imageUrl.startsWith("/map-assets/") ||
     imageUrl.startsWith("/scene-assets/") ||
     imageUrl.startsWith("/b/")

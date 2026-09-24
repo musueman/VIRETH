@@ -2759,7 +2759,6 @@ async function renderPlaceSvg(
 
 async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
   const inlineAssets = shouldInlineAssets(url);
-  const heraldryScene = resolveTalkHeraldryScene(card.character, card.scene);
   const backgroundProxyUrl = talkBackgroundImageUrl(origin, card.talkBackground.key);
   const backgroundUrl = escapeXml(
     inlineAssets
@@ -2783,26 +2782,11 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
             : rawCharacterImageUrl
         )
       : null;
-  const rawHeraldryImageUrl = heraldryScene.heraldryUrl
-    ? absoluteImageUrl(heraldryScene.heraldryUrl, origin)
-    : null;
-  const inlineHeraldryImageUrl =
-    heraldryScene.heraldryUrl && rawHeraldryImageUrl && inlineAssets
-      ? await fetchInlineImageDataUri(heraldryScene.heraldryUrl, rawHeraldryImageUrl, env)
-      : null;
-  const heraldryImageUrl =
-    rawHeraldryImageUrl
-      ? escapeXml(
-          inlineAssets
-            ? inlineHeraldryImageUrl ?? rawHeraldryImageUrl
-            : rawHeraldryImageUrl
-        )
-      : null;
-  const title = card.character?.displayName ?? card.speaker ?? card.scene.title;
-  const ariaLabel = escapeXml(`${card.character?.displayName ?? card.speaker ?? "장소"} 대화 카드`);
+  // This endpoint is intentionally an image-only composite. Names, locations,
+  // affiliations, and state labels are rendered by the surrounding SVG/status
+  // UI, never burned into the generated or composited character image.
+  const ariaLabel = "캐릭터 이미지";
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
-  const heraldryLabel = heraldryScene.realmName ?? heraldryScene.heraldryName ?? heraldryScene.title;
-  const infoPanel = renderTalkInfoPanel(card, title, heraldryImageUrl, heraldryLabel);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
@@ -2813,36 +2797,10 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
       <stop offset="48%" stop-color="#07111f" stop-opacity="0.10"/>
       <stop offset="100%" stop-color="#020711" stop-opacity="0.50"/>
     </linearGradient>
-    <linearGradient id="talkPanel" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#07111f" stop-opacity="0.82"/>
-      <stop offset="100%" stop-color="#162033" stop-opacity="0.62"/>
-    </linearGradient>
-    <linearGradient id="talkPanelEdge" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0%" stop-color="#f6edcf" stop-opacity="0.74"/>
-      <stop offset="100%" stop-color="#c8b16a" stop-opacity="0.20"/>
-    </linearGradient>
     <linearGradient id="talkRightFade" x1="0" x2="1" y1="0" y2="0">
       <stop offset="0%" stop-color="#07111f" stop-opacity="0"/>
       <stop offset="100%" stop-color="#020711" stop-opacity="0.34"/>
     </linearGradient>
-    <linearGradient id="talkLowerBand" x1="0" x2="1" y1="0" y2="0">
-      <stop offset="0%" stop-color="#0d2037" stop-opacity="0.96"/>
-      <stop offset="58%" stop-color="#132d4a" stop-opacity="0.94"/>
-      <stop offset="100%" stop-color="#0b1a2e" stop-opacity="0.98"/>
-    </linearGradient>
-    <linearGradient id="talkLowerFade" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#0b1a2e" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#0b1a2e" stop-opacity="0.86"/>
-    </linearGradient>
-    <filter id="talkPanelShadow" x="-18%" y="-18%" width="136%" height="136%">
-      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000000" flood-opacity="0.42"/>
-    </filter>
-    <filter id="talkTextShadow" x="-10%" y="-30%" width="120%" height="160%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="1.4" flood-color="#000000" flood-opacity="0.68"/>
-    </filter>
-    <filter id="talkCrestShadow" x="-40%" y="-40%" width="180%" height="180%">
-      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.62"/>
-    </filter>
     <linearGradient id="talkCharacterFade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
       <stop offset="80%" stop-color="#ffffff" stop-opacity="1"/>
@@ -2857,7 +2815,6 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
   <rect width="1000" height="700" fill="url(#talkShade)"/>
   <rect x="430" y="0" width="570" height="700" fill="url(#talkRightFade)"/>
   ${characterLayer}
-  ${infoPanel}
 </svg>`;
 }
 

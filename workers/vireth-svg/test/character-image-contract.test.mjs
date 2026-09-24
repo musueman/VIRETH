@@ -162,3 +162,14 @@ test("uses the inferred asset in the normal composite", async () => {
   assert.equal(response.status, 200);
   assert.match(svg, /place-image-assets\/rework82\/VBG_GATE_DAY\.webp/);
 });
+
+test("keeps captions out of the normal character composite", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image?id=C003&regionId=R003&placeId=L022&time=DAY&e=a&external=1`
+  );
+  const svg = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.doesNotMatch(svg, /<text(?:\s|>)/i);
+  assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
+});

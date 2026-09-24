@@ -518,6 +518,9 @@ const REWORK_PLACE_IMAGE_SCENES = new Set([
   "VOLCANIC_COAST",
   "MONASTERY_OBSERVATORY"
 ]);
+const REWORK_PLACE_SCENE_BY_ID: Record<string, string> = {
+  L022: "GATE"
+};
 const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
   "characterUrl",
   "characterImage",
@@ -1068,6 +1071,17 @@ function resolveCurrentPlace(url: URL): WikiPlaceEntry | null {
   const fuzzyPlace = firstQuery(url, ["place", "city", "location", "currentPlace", "장소", "도시", "현재장소", "정본장소명"]);
   const regionValue = firstQuery(url, REGION_QUERY_NAMES);
   return fuzzyPlace ? resolveWikiPlaceByValue(fuzzyPlace, regionValue) : null;
+}
+
+function resolveCurrentRegion(url: URL): WikiRegionEntry | null {
+  const regionValue = firstQuery(url, REGION_QUERY_NAMES);
+  const direct = regionValue ? resolveWikiRegionByValue(regionValue) : null;
+  if (direct) {
+    return direct;
+  }
+
+  const place = resolveCurrentPlace(url);
+  return place ? WIKI_REGIONS.find((region) => region.id === place.regionId) ?? null : null;
 }
 
 function resolveSceneForCurrentPlace(place: WikiPlaceEntry, env: Env): SceneEntry {
@@ -1675,11 +1689,66 @@ function resolveTalkBackground(
 
 function resolveReworkPlaceImage(url: URL): TalkBackgroundEntry | null {
   const requestedKey = firstQuery(url, ["bg", "background", "placeBg", "placeImage", "bgKey"]);
-  if (!requestedKey) {
-    return null;
+  if (requestedKey) {
+    return reworkPlaceImageByKey(requestedKey);
   }
 
-  return reworkPlaceImageByKey(requestedKey);
+  const phase = resolveReworkImagePhase(url);
+  const scope = normalizeKey(firstQuery(url, ["scope", "sceneScope"]) ?? "");
+  if (scope === "region") {
+    return reworkRegionImage(resolveCurrentRegion(url), phase);
+  }
+
+  const place = resolveCurrentPlace(url);
+  const placeScene = place ? resolveReworkPlaceScene(place) : null;
+  if (placeScene) {
+    return reworkPlaceImageByKey(`VBG_${placeScene}_${phase}`);
+  }
+
+  return reworkRegionImage(resolveCurrentRegion(url), phase);
+}
+
+function resolveReworkImagePhase(url: URL): "DAY" | "NIGHT" {
+  const value = normalizeKey(firstQuery(url, ["time", "phase", "dayPhase", "시간대"]) ?? "");
+  return value === "night" ? "NIGHT" : "DAY";
+}
+
+function resolveReworkPlaceScene(place: WikiPlaceEntry): string | null {
+  const explicit = REWORK_PLACE_SCENE_BY_ID[place.id];
+  if (explicit) {
+    return explicit;
+  }
+
+  const kind = normalizeKey(place.kind);
+  if (kind.includes("숙소")) return "LODGING";
+  if (kind.includes("작업")) return "WORKSHOP";
+  if (/(항구|어항|부두|선착)/u.test(kind)) return "HARBOR";
+  if (kind.includes("신전")) return "TEMPLE_SQUARE";
+  if (kind.includes("등대")) return "LIGHTHOUSE";
+  if (/(산길|고개)/u.test(kind)) return "NORTH_PASS";
+  if (kind.includes("야영")) return "ROAD_CAMP";
+  if (/(창고|보관)/u.test(kind)) return "GRANARY_DISTRIBUTION";
+  if (kind.includes("농")) return "FARM_IRRIGATION";
+  if (kind.includes("운하")) return "CANAL_LOCK";
+  if (kind.includes("약")) return "APOTHECARY";
+  if (kind.includes("극장")) return "THEATER_SQUARE";
+  if (kind.includes("화산")) return "VOLCANIC_COAST";
+  if (kind.includes("수도원")) return "MONASTERY_OBSERVATORY";
+  return "MARKET";
+}
+
+function reworkRegionImage(
+  region: WikiRegionEntry | null,
+  phase: "DAY" | "NIGHT"
+): TalkBackgroundEntry | null {
+  if (!region) {
+    return null;
+  }
+  const regionNumber = Number.parseInt(region.id.replace(/^R/i, ""), 10);
+  if (!Number.isInteger(regionNumber) || regionNumber < 1 || regionNumber > 20) {
+    return null;
+  }
+  return reworkPlaceImageByKey(`VRA_N${String(regionNumber).padStart(3, "0")}_${phase}`);
 }
 
 function reworkPlaceImageByKey(requestedKey: string): TalkBackgroundEntry | null {

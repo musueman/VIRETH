@@ -107,3 +107,58 @@ test("rejects an action state for a non-female fixed character", async () => {
   assert.equal(response.status, 400);
   assert.equal(body.error, "invalid_character_image_state");
 });
+
+test("resolves L022 without an authored bg key", async () => {
+  const response = await fetch(
+    `${baseUrl}/place-image?regionId=R003&placeId=L022&time=DAY`
+  );
+
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get("content-type") ?? "", /^image\/webp/i);
+});
+
+test("uses the L022 night variant", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&time=NIGHT&e=a`
+  );
+  const body = await response.json();
+
+  assert.equal(body.background.key, "VBG_GATE_NIGHT");
+});
+
+test("derives a place-type image for a named lodging settlement", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image.json?id=C003&regionId=R001&placeId=L003&time=DAY&e=a`
+  );
+  const body = await response.json();
+
+  assert.equal(body.background.key, "VBG_LODGING_DAY");
+});
+
+test("uses a regional image outside a settlement ahead of a stale place", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&scope=region&time=DAY&e=a`
+  );
+  const body = await response.json();
+
+  assert.equal(body.background.key, "VRA_N003_DAY");
+});
+
+test("keeps an explicit bg ahead of location inference", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&time=DAY&bg=VBG_INN_NIGHT&e=a`
+  );
+  const body = await response.json();
+
+  assert.equal(body.background.key, "VBG_INN_NIGHT");
+});
+
+test("uses the inferred asset in the normal composite", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image?id=C003&regionId=R003&placeId=L022&time=DAY&e=a&external=1`
+  );
+  const svg = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(svg, /place-image-assets\/rework82\/VBG_GATE_DAY\.webp/);
+});

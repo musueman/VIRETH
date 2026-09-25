@@ -185,15 +185,15 @@ test("renders talk character art at the configured display scale", async () => {
   assert.equal(response.status, 200);
   assert.match(
     svg,
-    /<metadata data-talk-character-display-scale="1\.5"\/>/
+    /<metadata data-talk-character-display-scale="1"\/>/
   );
   assert.match(
     svg,
-    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="382\.5" y="-155\.5" width="705" height="1005">/
+    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="500" y="12" width="470" height="670">/
   );
   assert.match(
     svg,
-    /<image href="[^"]+" x="382\.5" y="-155\.5" width="705" height="1005" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
+    /<image href="[^"]+" x="500" y="12" width="470" height="670" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
   );
 });
 

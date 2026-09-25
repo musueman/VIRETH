@@ -210,11 +210,25 @@ test("labels a normal character composite with the character name and personalit
   const svg = await response.text();
 
   assert.equal(response.status, 200);
-  assert.match(svg, /data-talk-character-display-scale="1.5"/);
+  assert.match(svg, /data-talk-character-display-scale="1"/);
   assert.match(svg, />베크라 소멘<\/text>/);
   assert.match(svg, />일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
   assert.match(svg, /font-size="30" font-weight="800">베크라 소멘<\/text>/);
   assert.match(svg, /font-size="15" font-weight="600">일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
   assert.match(svg, /id="talkCaptionTextShadow"/);
   assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
+});
+
+test("keeps the V17 character frame entirely inside the composite", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=n&external=1`
+  );
+  const svg = await response.text();
+  const frame = svg.match(/<image href="[^"]+" x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/);
+
+  assert.equal(response.status, 200);
+  assert.ok(frame, "character frame is present");
+  const [, x, y, width, height] = frame.map(Number);
+  assert.ok(x >= 0 && x + width <= 1000, "character frame stays within the canvas width");
+  assert.ok(y >= 0 && y + height <= 700, "character frame stays within the canvas height");
 });

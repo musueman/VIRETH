@@ -494,6 +494,7 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
 const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
 const REWORK_PLACE_IMAGE_ROOT = "/place-image-assets/rework82";
+const CITY_OVERVIEW_IMAGE_ROOT = "/city-overview-assets";
 const ADULT_ACTION_IMAGE_ROOT = "https://raw.githubusercontent.com/musueman/VIRETH/main/n";
 const REWORK_PLACE_IMAGE_SCENES = new Set([
   "LODGING",
@@ -1722,7 +1723,16 @@ function resolveTurnPlaceOverviewImage(url: URL): TalkBackgroundEntry | null {
     return reworkPlaceImageByKey(requestedKey);
   }
 
-  const regionalOverview = reworkRegionImage(resolveCurrentRegion(url), resolveReworkImagePhase(url));
+  const region = resolveCurrentRegion(url);
+  const phase = resolveReworkImagePhase(url);
+  const scope = normalizeKey(firstQuery(url, ["scope", "sceneScope"]) ?? "");
+  const place = resolveCurrentPlace(url);
+  if (scope !== "region" && place?.kind === "도시·거점") {
+    const cityOverview = reworkCityOverviewImage(region, phase);
+    if (cityOverview) return cityOverview;
+  }
+
+  const regionalOverview = reworkRegionImage(region, phase);
   return regionalOverview ?? resolveReworkPlaceImage(url);
 }
 
@@ -1769,6 +1779,16 @@ function reworkRegionImage(
   return reworkPlaceImageByKey(`VRA_N${String(regionNumber).padStart(3, "0")}_${phase}`);
 }
 
+function reworkCityOverviewImage(
+  region: WikiRegionEntry | null,
+  phase: "DAY" | "NIGHT"
+): TalkBackgroundEntry | null {
+  if (!region) return null;
+  const regionNumber = Number.parseInt(region.id.replace(/^R/i, ""), 10);
+  if (!Number.isInteger(regionNumber) || regionNumber < 1 || regionNumber > 20) return null;
+  return reworkPlaceImageByKey(`VCT_N${String(regionNumber).padStart(3, "0")}_${phase}`);
+}
+
 function reworkPlaceImageByKey(requestedKey: string): TalkBackgroundEntry | null {
   const key = requestedKey.trim().toUpperCase().replace(/[\s-]+/g, "_");
   if (!isReworkPlaceImageKey(key)) {
@@ -1779,7 +1799,7 @@ function reworkPlaceImageByKey(requestedKey: string): TalkBackgroundEntry | null
     key,
     aliases: [],
     kind: "direct",
-    imageUrl: `${REWORK_PLACE_IMAGE_ROOT}/${key}.webp`
+    imageUrl: `${key.startsWith("VCT_") ? CITY_OVERVIEW_IMAGE_ROOT : REWORK_PLACE_IMAGE_ROOT}/${key}.webp`
   };
 }
 
@@ -1789,7 +1809,7 @@ function isReworkPlaceImageKey(key: string): boolean {
     return REWORK_PLACE_IMAGE_SCENES.has(sceneMatch[1]);
   }
 
-  const regionMatch = key.match(/^VRA_N(\d{3})_(DAY|NIGHT)$/);
+  const regionMatch = key.match(/^V(?:RA|CT)_N(\d{3})_(DAY|NIGHT)$/);
   if (!regionMatch) {
     return false;
   }
@@ -3992,6 +4012,7 @@ async function fetchInlineImageDataUri(imageUrl: string, absoluteUrl: string, en
 
 function isWorkerAssetPath(imageUrl: string): boolean {
   return (
+    imageUrl.startsWith("/city-overview-assets/") ||
     imageUrl.startsWith("/npc-assets/") ||
     imageUrl.startsWith("/character-assets/") ||
     imageUrl.startsWith("/character-emotion-assets/") ||

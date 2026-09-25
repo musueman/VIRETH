@@ -112,7 +112,7 @@ test("rejects an action state for a non-female fixed character", async () => {
   assert.equal(body.error, "invalid_character_image_state");
 });
 
-test("renders the turn-top location as a labelled regional overview, not the character place background", async () => {
+test("renders the turn-top location as a labelled place overview, not the character place background", async () => {
   const response = await fetch(
     `${baseUrl}/place-image?regionId=R003&placeId=L022&time=DAY`
   );
@@ -132,6 +132,29 @@ test("renders the turn-top location as a labelled regional overview, not the cha
   assert.match(svg, /class="turnPlaceHeraldry" href="data:image\/webp;base64,[^"]+" x="64" y="418" width="105" height="123"/i);
   assert.match(svg, /font-size="42" font-weight="800">베크켈카르\(레이븐스톤\)<\/text>/);
   assert.match(svg, /font-size="20" font-weight="600">도시·거점<\/text>/);
+});
+
+test("uses the approved country city vista for an urban place in day and night", async () => {
+  for (const [time, key] of [["DAY", "VCT_N003_DAY"], ["NIGHT", "VCT_N003_NIGHT"]]) {
+    const response = await fetch(`${baseUrl}/place-image?regionId=R003&placeId=L022&time=${time}&external=1`);
+    const svg = await response.text();
+    assert.equal(response.status, 200);
+    assert.match(svg, new RegExp(`/city-overview-assets/${key}\\.webp`));
+    assert.doesNotMatch(svg, /VRA_N003|VBG_GATE/);
+  }
+});
+
+test("keeps the regional vista outside a city and when scope is regional", async () => {
+  for (const query of [
+    "regionId=R003&placeId=L020&time=DAY",
+    "regionId=R003&placeId=L022&scope=region&time=DAY"
+  ]) {
+    const response = await fetch(`${baseUrl}/place-image?${query}&external=1`);
+    const svg = await response.text();
+    assert.equal(response.status, 200);
+    assert.match(svg, /place-image-assets\/rework82\/VRA_N003_DAY\.webp/);
+    assert.doesNotMatch(svg, /VCT_N003/);
+  }
 });
 
 test("uses the L022 night variant", async () => {

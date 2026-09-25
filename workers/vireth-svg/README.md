@@ -33,6 +33,10 @@ Internal `key`, `bgType`, and direct asset URLs are supported for debugging and 
 
 SVG routes inline raster assets by default because LunaTalk and Markdown surfaces can break nested external image references inside SVG. `external=1` is debug-only unless the target renderer has been screenshot-verified.
 
+## LunaTalk City Overview
+
+`/place-image?regionId=R003&placeId=L022&time=DAY` uses the approved country-specific `VCT_N003_DAY.webp` city vista behind the SVG place caption when the canonical place kind is `도시·거점`. `time=NIGHT` selects its night counterpart. `scope=region` or a non-city place keeps the existing `VRA_N###` regional vista. `/character-image` continues to compose its character with the separate `VBG_*` scene background; it does not use `VCT` by default. The 40 city WebPs and their source/converted hashes are listed in `public/city-overview-assets/manifest.json`.
+
 ## LunaTalk Output Pattern
 
 ~~~md

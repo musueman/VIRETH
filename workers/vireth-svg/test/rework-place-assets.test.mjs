@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
@@ -31,5 +32,28 @@ test("ships the complete 82-image 1440x1080 place-image set", () => {
     assert.ok(fs.existsSync(assetPath), `missing ${asset.file}`);
     const size = execFileSync("magick", ["identify", "-format", "%w %h", assetPath], { encoding: "utf8" }).trim();
     assert.equal(size, "1440 1080", asset.file);
+  }
+});
+
+test("ships 20 approved national city vistas in both day and night", () => {
+  const cityRoot = path.join(workerRoot, "public", "city-overview-assets");
+  const manifest = JSON.parse(fs.readFileSync(path.join(cityRoot, "manifest.json"), "utf8"));
+  assert.equal(manifest.assets.length, 40);
+  assert.equal(new Set(manifest.assets.map((asset) => asset.key)).size, 40);
+
+  for (let region = 1; region <= 20; region++) {
+    for (const time of ["DAY", "NIGHT"]) {
+      const key = `VCT_N${String(region).padStart(3, "0")}_${time}`;
+      const asset = manifest.assets.find((entry) => entry.key === key);
+      assert.ok(asset, `missing manifest entry ${key}`);
+      assert.equal(asset.reviewStatus, "approved");
+      assert.match(asset.sourceSha256, /^[A-F0-9]{64}$/);
+      const filePath = path.join(cityRoot, `${key}.webp`);
+      assert.ok(fs.existsSync(filePath), `missing ${key}.webp`);
+      const size = execFileSync("magick", ["identify", "-format", "%w %h", filePath], { encoding: "utf8" }).trim();
+      assert.equal(size, "1440 1080", key);
+      const hash = crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex").toUpperCase();
+      assert.equal(hash, asset.sha256, key);
+    }
   }
 });

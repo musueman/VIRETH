@@ -127,7 +127,9 @@ test("renders the turn-top location as a labelled regional overview, not the cha
   assert.match(svg, /class="turnPlaceCountry"/);
   assert.doesNotMatch(svg, /class="turnPlaceScope"/);
   assert.match(svg, /class="turnPlaceDivider" x1="64" y1="556" x2="392" y2="556"/);
-  assert.match(svg, /font-size="32" font-weight="800">티리스<\/text>/);
+  assert.match(svg, /font-size="20" font-weight="700" letter-spacing="2">국가<\/text>/);
+  assert.match(svg, /font-size="42" font-weight="800">티리스<\/text>/);
+  assert.match(svg, /class="turnPlaceHeraldry" href="data:image\/webp;base64,[^"]+" x="64" y="418" width="105" height="123"/i);
   assert.match(svg, /font-size="42" font-weight="800">베크켈카르\(레이븐스톤\)<\/text>/);
   assert.match(svg, /font-size="20" font-weight="600">도시·거점<\/text>/);
 });

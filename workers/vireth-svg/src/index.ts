@@ -2835,12 +2835,12 @@ async function renderTurnPlaceImageSvg(
       )
     : null;
   const countryHeraldry = heraldryUrl
-    ? `<image class="turnPlaceHeraldry" href="${heraldryUrl}" x="64" y="466" width="70" height="82" preserveAspectRatio="xMidYMid meet"/>`
+    ? `<image class="turnPlaceHeraldry" href="${heraldryUrl}" x="64" y="418" width="105" height="123" preserveAspectRatio="xMidYMid meet"/>`
     : "";
   const upperCaption = caption.scopeKind && caption.scopeName
     ? `<g class="turnPlaceCountry" filter="url(#turnPlaceTextShadow)">
-    <text x="64" y="420" fill="#e4ca85" font-size="16" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
-    <text x="64" y="452" fill="#f8f1dc" font-size="32" font-weight="800">${escapeXml(caption.scopeName)}</text>
+    <text x="64" y="360" fill="#e4ca85" font-size="20" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
+    <text x="64" y="408" fill="#f8f1dc" font-size="42" font-weight="800">${escapeXml(caption.scopeName)}</text>
     ${countryHeraldry}
   </g>`
     : "";

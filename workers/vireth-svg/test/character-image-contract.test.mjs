@@ -40,20 +40,47 @@ after(() => {
 
 test("uses one character-image contract for an emotion state on a selected place background", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image.json?id=C003&bg=VBG_INN_NIGHT&e=a`
+    `${baseUrl}/character-image.json?id=C003&bg=VBG_INN_NIGHT&e=angry`
   );
   const body = await response.json();
 
   assert.equal(response.status, 200);
   assert.equal(body.kind, "character_image");
   assert.equal(body.state.kind, "emotion");
-  assert.equal(body.state.code, "a");
+  assert.equal(body.state.code, "angry");
   assert.equal(body.background.key, "VBG_INN_NIGHT");
   assert.equal(
     body.background.imageUrl,
     "/place-image-assets/rework82/VBG_INN_NIGHT.webp"
   );
-  assert.equal(body.character.imageUrl, "/character-emotion-assets/c003/a.webp");
+  assert.equal(body.character.imageUrl, "/character-emotion-assets/c003/angry.webp");
+});
+
+test("preserves every canonical 30-emotion key instead of falling back to neutral", async () => {
+  const emotionKeys = [
+    "neutral", "gentle-smile", "joyful", "laughing", "relieved",
+    "confident", "proud", "affectionate", "bashful", "flustered",
+    "mischievous", "curious", "thinking", "explaining", "skeptical",
+    "confused", "surprised", "shocked", "anxious", "frightened",
+    "sorrowful", "teary", "sobbing", "resigned", "annoyed",
+    "angry", "enraged", "disgusted", "scornful", "determined"
+  ];
+
+  for (const emotionKey of emotionKeys) {
+    const response = await fetch(
+      `${baseUrl}/character-image.json?id=C012&regionId=R003&placeId=L022&time=DAY&e=${emotionKey}`
+    );
+    const body = await response.json();
+
+    assert.equal(response.status, 200, emotionKey);
+    assert.equal(body.state.kind, "emotion", emotionKey);
+    assert.equal(body.state.code, emotionKey, emotionKey);
+    assert.equal(
+      body.character.imageUrl,
+      `/character-emotion-assets/c012/${emotionKey}.webp`,
+      emotionKey
+    );
+  }
 });
 
 test("uses that same contract for a complete adult action image without a transparent overlay", async () => {
@@ -96,7 +123,7 @@ test("keeps the explicit WebP place endpoint available as a bare asset", async (
 
 test("keeps the selected rework background when a composite character image uses external references", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image?id=C003&bg=VBG_INN_NIGHT&e=a&external=1`
+    `${baseUrl}/character-image?id=C003&bg=VBG_INN_NIGHT&e=angry&external=1`
   );
   const svg = await response.text();
 
@@ -159,7 +186,7 @@ test("keeps the regional vista outside a city and when scope is regional", async
 
 test("uses the L022 night variant", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&time=NIGHT&e=a`
+    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&time=NIGHT&e=angry`
   );
   const body = await response.json();
 
@@ -168,7 +195,7 @@ test("uses the L022 night variant", async () => {
 
 test("derives a place-type image for a named lodging settlement", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image.json?id=C003&regionId=R001&placeId=L003&time=DAY&e=a`
+    `${baseUrl}/character-image.json?id=C003&regionId=R001&placeId=L003&time=DAY&e=angry`
   );
   const body = await response.json();
 
@@ -177,7 +204,7 @@ test("derives a place-type image for a named lodging settlement", async () => {
 
 test("uses a regional image outside a settlement ahead of a stale place", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&scope=region&time=DAY&e=a`
+    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&scope=region&time=DAY&e=angry`
   );
   const body = await response.json();
 
@@ -186,7 +213,7 @@ test("uses a regional image outside a settlement ahead of a stale place", async 
 
 test("keeps an explicit bg ahead of location inference", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&time=DAY&bg=VBG_INN_NIGHT&e=a`
+    `${baseUrl}/character-image.json?id=C003&regionId=R003&placeId=L022&time=DAY&bg=VBG_INN_NIGHT&e=angry`
   );
   const body = await response.json();
 
@@ -195,7 +222,7 @@ test("keeps an explicit bg ahead of location inference", async () => {
 
 test("uses the inferred asset in the normal composite", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image?id=C003&regionId=R003&placeId=L022&time=DAY&e=a&external=1`
+    `${baseUrl}/character-image?id=C003&regionId=R003&placeId=L022&time=DAY&e=angry&external=1`
   );
   const svg = await response.text();
 
@@ -205,7 +232,7 @@ test("uses the inferred asset in the normal composite", async () => {
 
 test("labels a normal character composite with the character name and personality", async () => {
   const response = await fetch(
-    `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=a&external=1`
+    `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=angry&external=1`
   );
   const svg = await response.text();
 

@@ -38,12 +38,12 @@ after(() => {
   if (worker?.pid) spawnSync("taskkill", ["/pid", String(worker.pid), "/T", "/F"], { stdio: "ignore" });
 });
 
-test("resolves disgust aliases to the V5 disgust portrait", async () => {
-  for (const emotion of ["d", "disgust", encodeURIComponent("혐오")]) {
+test("resolves disgust aliases to the canonical v30 disgusted portrait", async () => {
+  for (const emotion of ["disgusted", "disgust", "em28", encodeURIComponent("혐오")]) {
     const response = await fetch(`${baseUrl}/talk.json?id=C001&e=${emotion}&regionId=R003&placeId=L022`);
     const body = await response.json();
     assert.equal(response.status, 200);
-    assert.equal(body.emotionCode, "d");
-    assert.equal(body.character.imageUrl, "/character-emotion-assets/c001/d.webp");
+    assert.equal(body.emotionCode, "disgusted");
+    assert.equal(body.character.imageUrl, "/character-emotion-assets/c001/disgusted.webp");
   }
 });

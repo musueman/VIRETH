@@ -806,7 +806,7 @@ export default {
           "/scene?key=world-overview",
           "/scene.json?key=world-overview",
           "/talk?name=gatekeeper&place=bekkellkar-ravenstone",
-          "/talk?id=C012&e=a&placeId=L022",
+          "/talk?id=C012&e=angry&placeId=L022",
           "/talk.json?name=gatekeeper&place=bekkellkar-ravenstone",
           "/talk.characters.json",
           "/talk.npcs.json",

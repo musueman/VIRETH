@@ -9,23 +9,15 @@ const workerRoot = fileURLToPath(new URL("..", import.meta.url));
 const publicRoot = path.join(workerRoot, "public");
 const hashFile = (file) => createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 
-test("serves the reviewed V17 SFW cutout set rather than the old C015 art", () => {
-  const manifest = JSON.parse(fs.readFileSync(path.join(workerRoot, "character-emotion-assets-manifest.json"), "utf8"));
-  assert.equal(manifest.length, 900);
-  assert.equal(
-    hashFile(path.join(publicRoot, "character-emotion-assets", "c015", "n.webp")),
-    "a9e0d2fc80c290aa768709f6b94c98078ed021e25477f36e7368ec3d1c2cbe31"
-  );
+test("serves every reviewed v30 WebP listed in the canonical manifest", () => {
+  const manifest = JSON.parse(fs.readFileSync(path.join(workerRoot, "character-emotion-assets-v30-manifest.json"), "utf8"));
+  assert.equal(manifest.length, 3000);
 
   for (const asset of manifest) {
     const file = path.join(publicRoot, "character-emotion-assets", asset.output);
     assert.equal(hashFile(file), asset.output_sha256, asset.output);
   }
 
-  for (let index = 1; index <= 100; index++) {
-    const code = `c${String(index).padStart(3, "0")}`;
-    const portrait = path.join(publicRoot, "character-assets", `char-${code}.webp`);
-    const neutral = path.join(publicRoot, "character-emotion-assets", code, "n.webp");
-    assert.equal(hashFile(portrait), hashFile(neutral), code);
-  }
+  assert.equal(new Set(manifest.map((asset) => asset.character_id)).size, 100);
+  assert.equal(new Set(manifest.map((asset) => asset.emotion)).size, 30);
 });

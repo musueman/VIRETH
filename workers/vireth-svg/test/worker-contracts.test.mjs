@@ -136,7 +136,7 @@ test("keeps the canonical current place label when its visual scene falls back",
   assert.match(svg, /렘켈가/);
 });
 
-test("normalizes the R020 fenrir region alias for scenes, maps, and backgrounds", async () => {
+test("normalizes the R020 fenrir region alias and selects its direct lighthouse background", async () => {
   const { response, body } = await getJson("/place.json?region=fenrir-eye&placeId=L160");
   assert.equal(response.status, 200);
   assert.equal(body.currentPlace.regionId, "R020");
@@ -145,7 +145,8 @@ test("normalizes the R020 fenrir region alias for scenes, maps, and backgrounds"
 
   const background = await getJson("/talk-background.json?region=fenrir-eye&placeId=L160");
   assert.equal(background.response.status, 200);
-  assert.equal(background.body.regionKey, "fenrir-s-eye");
+  assert.equal(background.body.kind, "direct");
+  assert.equal(background.body.key, "VBG_LIGHTHOUSE_DAY");
 });
 
 test("returns an anonymous fallback portrait for an unknown fixed character ID", async () => {
@@ -179,7 +180,7 @@ test("keeps fixed-character canon when query overrides are supplied", async () =
 });
 
 test("renders talk character art at the configured display scale", async () => {
-  const response = await fetch(`${baseUrl}/talk?id=C012&e=a&placeId=L022&external=1`);
+  const response = await fetch(`${baseUrl}/talk?id=C012&e=angry&placeId=L022&external=1`);
   const svg = await response.text();
 
   assert.equal(response.status, 200);
@@ -197,20 +198,20 @@ test("renders talk character art at the configured display scale", async () => {
   );
 });
 
-test("prefers a matching place function over a region-only city representative", async () => {
+test("prefers the approved direct gate background for L022", async () => {
   const { response, body } = await getJson("/talk-background.json?regionId=R003&placeId=L022");
 
   assert.equal(response.status, 200);
-  assert.equal(body.kind, "general_archetype");
-  assert.equal(body.key, "handoff-20260713-general-b001-city-gate-wallroad");
+  assert.equal(body.kind, "direct");
+  assert.equal(body.key, "VBG_GATE_DAY");
 });
 
-test("keeps an exact city representative ahead of a generic place function", async () => {
+test("prefers the approved direct market background for L021", async () => {
   const { response, body } = await getJson("/talk-background.json?regionId=R003&placeId=L021");
 
   assert.equal(response.status, 200);
-  assert.equal(body.kind, "city_representative");
-  assert.equal(body.key, "city-representative-tiris");
+  assert.equal(body.kind, "direct");
+  assert.equal(body.key, "VBG_MARKET_DAY");
 });
 
 test("keeps a detailed spot alongside the canonical place ID", async () => {
@@ -220,8 +221,8 @@ test("keeps a detailed spot alongside the canonical place ID", async () => {
 
   assert.equal(response.status, 200);
   assert.equal(body.placeLabel, "베크켈카르(레이븐스톤) 서문 야간 초소");
-  assert.equal(body.talkBackground.kind, "general_archetype");
-  assert.equal(body.talkBackground.key, "handoff-20260713-general-b001-city-gate-wallroad");
+  assert.equal(body.talkBackground.kind, "direct");
+  assert.equal(body.talkBackground.key, "VBG_GATE_DAY");
 });
 
 test("repairs renderer-corrupted region separators before parsing the speaker", async () => {

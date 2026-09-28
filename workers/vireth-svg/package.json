@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "wrangler check",
+    "check": "node --test test/character-image-contract.test.mjs test/emotion-alias-contract.test.mjs test/rework-place-assets.test.mjs test/v17-character-assets.test.mjs test/worker-contracts.test.mjs && npx.cmd wrangler deploy --dry-run",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev --port 8787",
     "types": "wrangler types"

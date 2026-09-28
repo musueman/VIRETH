@@ -82,6 +82,8 @@ type TalkCharacterEntry = {
   summary?: string;
   imageUrl?: string;
   characterId?: string;
+  mbti?: string;
+  wing?: string;
   npcAssetId?: string;
   gender?: string;
   species?: string;
@@ -531,62 +533,36 @@ const TALK_CHARACTER_IMAGE_QUERY_NAMES = [
   "인물이미지"
 ];
 const TALK_EMOTION_ALIASES: Record<string, string> = {
-  n: "n",
-  neutral: "n",
-  default: "n",
-  "중립": "n",
-  "평상": "n",
-  sm: "sm",
-  smile: "sm",
-  faintsmile: "sm",
-  "faint-smile": "sm",
-  "미소": "sm",
-  "옅은미소": "sm",
-  "옅은-미소": "sm",
-  p: "p",
-  pleased: "p",
-  happy: "p",
-  "만족": "p",
-  "기쁨": "p",
-  c: "c",
-  concerned: "c",
-  concern: "c",
-  worried: "c",
-  "걱정": "c",
-  "근심": "c",
-  s: "s",
-  sad: "s",
-  sadresigned: "s",
-  "sad-resigned": "s",
-  resigned: "s",
-  "슬픔": "s",
-  "체념": "s",
-  a: "a",
-  anger: "a",
-  restrainedanger: "a",
-  "restrained-anger": "a",
-  "분노": "a",
-  "절제된분노": "a",
-  "절제된-분노": "a",
-  u: "u",
-  surprised: "u",
-  alert: "u",
-  surprisedalert: "u",
-  "surprised-alert": "u",
-  "놀람": "u",
-  "경계": "u",
-  d: "d",
-  disgust: "d",
-  disgusted: "d",
-  "혐오": "d",
-  "불쾌": "d",
-  x: "x",
-  explain: "x",
-  explanation: "x",
-  measuredexplanation: "x",
-  "measured-explanation": "x",
-  "설명": "x",
-  "설득": "x"
+  neutral: "neutral", default: "neutral", "중립": "neutral", "평상": "neutral", em01: "neutral",
+  "gentle-smile": "gentle-smile", smile: "gentle-smile", "미소": "gentle-smile", "옅은미소": "gentle-smile", em02: "gentle-smile",
+  joyful: "joyful", joy: "joyful", "기쁨": "joyful", em03: "joyful",
+  laughing: "laughing", laugh: "laughing", "웃음": "laughing", em04: "laughing",
+  relieved: "relieved", relief: "relieved", "안도": "relieved", em05: "relieved",
+  confident: "confident", "자신감": "confident", em06: "confident",
+  proud: "proud", "자랑": "proud", "긍지": "proud", em07: "proud",
+  affectionate: "affectionate", tender: "affectionate", "다정": "affectionate", em08: "affectionate",
+  bashful: "bashful", shy: "bashful", "수줍": "bashful", em09: "bashful",
+  flustered: "flustered", embarrassed: "flustered", "당황": "flustered", em10: "flustered",
+  mischievous: "mischievous", playful: "mischievous", "장난": "mischievous", em11: "mischievous",
+  curious: "curious", "호기심": "curious", em12: "curious",
+  thinking: "thinking", thoughtful: "thinking", "생각": "thinking", em13: "thinking",
+  explaining: "explaining", explain: "explaining", "설명": "explaining", em14: "explaining",
+  skeptical: "skeptical", incredulous: "skeptical", "의심": "skeptical", em15: "skeptical",
+  confused: "confused", "혼란": "confused", em16: "confused",
+  surprised: "surprised", "놀람": "surprised", em17: "surprised",
+  shocked: "shocked", "충격": "shocked", em18: "shocked",
+  anxious: "anxious", worried: "anxious", "불안": "anxious", "걱정": "anxious", em19: "anxious",
+  frightened: "frightened", afraid: "frightened", "두려움": "frightened", em20: "frightened",
+  sorrowful: "sorrowful", sad: "sorrowful", "슬픔": "sorrowful", em21: "sorrowful",
+  teary: "teary", "눈물": "teary", em22: "teary",
+  sobbing: "sobbing", crying: "sobbing", "오열": "sobbing", em23: "sobbing",
+  resigned: "resigned", "체념": "resigned", em24: "resigned",
+  annoyed: "annoyed", irritated: "annoyed", "짜증": "annoyed", em25: "annoyed",
+  angry: "angry", anger: "angry", "분노": "angry", em26: "angry",
+  enraged: "enraged", furious: "enraged", "격분": "enraged", em27: "enraged",
+  disgusted: "disgusted", disgust: "disgusted", "혐오": "disgusted", em28: "disgusted",
+  scornful: "scornful", sneering: "scornful", "경멸": "scornful", em29: "scornful",
+  determined: "determined", resolute: "determined", "결의": "determined", em30: "determined"
 };
 const MAP_PLACE_QUERY_NAMES = [
   "placeId",
@@ -1447,7 +1423,7 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
   const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
   const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
-  const requestedEmotionCode = resolveTalkEmotionCode(url);
+  const requestedEmotionCode = resolveTalkEmotionCode(url) ?? "neutral";
   const requestedActionCode = resolveTalkActionCode(url);
   const resolvedCharacter =
     character &&
@@ -1513,7 +1489,7 @@ function resolveTalkEmotionCode(url: URL): string | null {
   }
 
   // Some Markdown renderers decode "&reg" in "&regionId" as "®".
-  const repaired = value.match(/^(sm|n|p|c|s|a|u|d|x)®ionid=/iu)?.[1];
+  const repaired = value.match(/^([\p{Letter}\p{Number}-]+)®ionid=/iu)?.[1];
   return repaired ? TALK_EMOTION_ALIASES[normalizeKey(repaired)] ?? null : null;
 }
 
@@ -2919,7 +2895,6 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
       : null;
   const ariaLabel = `${card.character?.displayName ?? "이름 없는 인물"} 캐릭터 이미지`;
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
-
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
   <metadata data-talk-character-display-scale="${TALK_CHARACTER_DISPLAY_SCALE}"/>
@@ -3006,30 +2981,21 @@ function renderTalkCharacterCaption(card: TalkCardEntry): string {
 }
 
 function renderTalkInfoPanel(
-  card: TalkCardEntry,
   title: string,
+  character: TalkCharacterEntry | null,
   heraldryImageUrl: string | null,
   heraldryLabel: string
 ): string {
-  const role = card.infoLines[0] ?? null;
-  const details = card.infoLines.slice(1, 3);
   const bandY = 594;
   const bandH = 106;
   const contentX = 64;
   const crest = renderTalkHeraldryFrame(heraldryImageUrl, 64, 342, 124, 166, heraldryLabel);
-  const roleY = 548;
-  const titleY = 608;
-  const detailY = 670;
-  const detailGap = 480;
-  const detailMaxLength = 34;
-  const rows = details
-    .map((value, index) => {
-      const x = contentX + index * detailGap;
-      return `<g>
-        ${renderTalkTextBlock(`- ${value}`, x, detailY, detailMaxLength, 1, 26, "#f1f6ff", "500")}
-      </g>`;
-    })
-    .join("\n      ");
+  const role = displayTalkRole(character);
+  const titleY = 660;
+  const personality = character?.mbti && character.wing ? `${character.mbti} · ${character.wing}` : null;
+  const titleBlock = personality
+    ? `<text x="${contentX}" y="${titleY}" fill="#f6edcf" font-size="${TEXT_SIZE.displayCompact}" font-weight="760"><tspan>${escapeXml(title)}</tspan><tspan dx="20" fill="#e8eef7" font-size="30" font-weight="560">${escapeXml(personality)}</tspan></text>`
+    : renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.displayCompact, "#f6edcf", "760");
 
   return `<g font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
       <rect x="0" y="${bandY - 104}" width="1000" height="104" fill="url(#talkLowerFade)"/>
@@ -3037,13 +3003,24 @@ function renderTalkInfoPanel(
       <line x1="0" y1="${bandY}" x2="1000" y2="${bandY}" stroke="#c8b16a" stroke-opacity="0.28" stroke-width="2"/>
       ${crest}
       <g filter="url(#talkTextShadow)">
-      ${role ? renderTalkTextBlock(role, contentX, roleY, 24, 1, TEXT_SIZE.subtitle, "#e8eef7", "560") : ""}
-      ${renderTalkTextBlock(title, contentX, titleY, 14, 1, TEXT_SIZE.displayCompact, "#f6edcf", "760")}
-      </g>
-      <g filter="url(#talkTextShadow)">
-      ${rows}
+      ${role ? `<text x="${contentX}" y="558" fill="#f6edcf" font-size="${TEXT_SIZE.section}" font-weight="700">${escapeXml(role)}</text>` : ""}
+      ${titleBlock}
       </g>
     </g>`;
+}
+
+function displayTalkRole(character: TalkCharacterEntry | null): string | null {
+  const role = character?.role?.trim();
+  if (!role || role === "현장 인물") {
+    return null;
+  }
+  const label = role
+    .replace(/\s*권위대표$/, " 대표")
+    .replace(/\s*(?:좌표|해설자)$/, " 관계자")
+    .replace(/\s*집행자$/, " 담당자")
+    .replace(/\s+/g, " ")
+    .trim();
+  return truncateDisplay(label, 22);
 }
 
 function renderTalkHeraldryFrame(

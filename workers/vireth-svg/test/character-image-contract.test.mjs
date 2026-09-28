@@ -111,7 +111,8 @@ test("renders the adult action state in a labelled single-image wrapper", async 
   assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
   assert.match(svg, /C003_08\.webp/);
   assert.match(svg, />팔리아 렘킨<\/text>/);
-  assert.match(svg, />신뢰, 손익, 납기, 물자 흐름을 중시하며 명예보다 거래 지속성을 앞세운다\.<\/text>/);
+  assert.match(svg, /<tspan x="64" dy="0">신뢰, 손익, 납기, 물자 흐름을 중시하며 명예<\/tspan>/);
+  assert.match(svg, /<tspan x="64" dy="56">보다 거래 지속성을 앞세운다\.<\/tspan>/);
 });
 
 test("keeps the explicit WebP place endpoint available as a bare asset", async () => {
@@ -155,11 +156,11 @@ test("renders the turn-top location with mobile-readable typography", async () =
   assert.doesNotMatch(svg, /class="turnPlaceScope"/);
   assert.match(svg, /class="turnPlaceDivider" x1="64" y1="556" x2="392" y2="556"/);
   assert.match(svg, /font-family="'Noto Sans KR','Malgun Gothic',Arial,sans-serif"/);
-  assert.match(svg, /font-size="36" font-weight="700" letter-spacing="2">국가<\/text>/);
+  assert.match(svg, /font-size="44" font-weight="700" letter-spacing="2">국가<\/text>/);
   assert.match(svg, /font-size="48" font-weight="800">티리스<\/text>/);
   assert.match(svg, /class="turnPlaceHeraldry" href="data:image\/webp;base64,[^"]+" x="64" y="418" width="105" height="123"/i);
   assert.match(svg, /font-size="54" font-weight="800">베크켈카르\(레이븐스톤\)<\/text>/);
-  assert.match(svg, /font-size="36" font-weight="600">도시·거점<\/text>/);
+  assert.match(svg, /font-size="44" font-weight="600">도시·거점<\/text>/);
 });
 
 test("uses the approved country city vista for an urban place in day and night", async () => {
@@ -240,10 +241,11 @@ test("labels a normal character composite with mobile-readable typography", asyn
   assert.equal(response.status, 200);
   assert.match(svg, /data-talk-character-display-scale="1"/);
   assert.match(svg, />베크라 소멘<\/text>/);
-  assert.match(svg, />일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
+  assert.match(svg, /<tspan x="64" dy="0">일터의 신뢰, 지역 관습, 가족과 보증 관계를 <\/tspan>/);
+  assert.match(svg, /<tspan x="64" dy="56">중시한다\.<\/tspan>/);
   assert.match(svg, /font-family="'Noto Sans KR','Malgun Gothic',Arial,sans-serif"/);
   assert.match(svg, /font-size="50" font-weight="800">베크라 소멘<\/text>/);
-  assert.match(svg, /font-size="36" font-weight="600">일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
+  assert.match(svg, /font-size="44" font-weight="600"><tspan/);
   assert.match(svg, /id="talkCaptionTextShadow"/);
   assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
 });

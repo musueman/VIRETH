@@ -153,7 +153,7 @@ const TEXT_SIZE = {
   displayCompact: 54,
   placeScope: 48,
   talkName: 50,
-  cardDetail: 36,
+  cardDetail: 44,
   title: 42,
   titleSmall: 40,
   section: 32,
@@ -2845,7 +2845,7 @@ async function renderTurnPlaceImageSvg(
   </g>`
     : "";
   const lowerDetail = caption.placeKind
-    ? `<text x="64" y="647" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${escapeXml(caption.placeKind)}</text>`
+    ? `<text x="64" y="668" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${escapeXml(caption.placeKind)}</text>`
     : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -2973,15 +2973,47 @@ function renderTalkCharacterCaption(card: TalkCardEntry): string {
   if (!character) {
     return "";
   }
-  const personality = truncateDisplay(character.summary ?? card.infoLines[1] ?? card.infoLines[0] ?? "", 52);
-  const personalityLine = personality
-    ? `<text x="64" y="658" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${escapeXml(personality)}</text>`
+  const personality = character.summary ?? card.infoLines[1] ?? card.infoLines[0] ?? "";
+  const personalityLines = wrapTalkCaptionText(personality, 30, 2);
+  const personalityLine = personalityLines.length
+    ? `<text x="64" y="610" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${personalityLines
+        .map((line, index) => `<tspan x="64" dy="${index === 0 ? 0 : textLineOffset(TEXT_SIZE.cardDetail)}">${escapeXml(line)}</tspan>`)
+        .join("")}</text>`
     : "";
 
   return `<g class="talkCharacterCaption" filter="url(#talkCaptionTextShadow)">
-    <text x="64" y="622" fill="#ffffff" font-size="${TEXT_SIZE.talkName}" font-weight="800">${escapeXml(character.displayName)}</text>
+    <text x="64" y="550" fill="#ffffff" font-size="${TEXT_SIZE.talkName}" font-weight="800">${escapeXml(character.displayName)}</text>
     ${personalityLine}
   </g>`;
+}
+
+function wrapTalkCaptionText(value: string, maxDisplayLength: number, maxLines: number): string[] {
+  const chars = Array.from(value);
+  const lines: string[] = [];
+  let index = 0;
+
+  while (index < chars.length && lines.length < maxLines) {
+    let line = "";
+    while (index < chars.length && displayLength(`${line}${chars[index]}`) <= maxDisplayLength) {
+      line += chars[index];
+      index += 1;
+    }
+
+    if (lines.length === maxLines - 1 && index < chars.length) {
+      while (line && displayLength(`${line}…`) > maxDisplayLength) {
+        line = Array.from(line).slice(0, -1).join("");
+      }
+      line = `${line}…`;
+      index = chars.length;
+    }
+
+    if (!line) {
+      break;
+    }
+    lines.push(line);
+  }
+
+  return lines;
 }
 
 function renderTalkInfoPanel(

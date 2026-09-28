@@ -139,7 +139,7 @@ test("rejects an action state for a non-female fixed character", async () => {
   assert.equal(body.error, "invalid_character_image_state");
 });
 
-test("renders the turn-top location as a labelled place overview, not the character place background", async () => {
+test("renders the turn-top location with mobile-readable typography", async () => {
   const response = await fetch(
     `${baseUrl}/place-image?regionId=R003&placeId=L022&time=DAY`
   );
@@ -154,11 +154,12 @@ test("renders the turn-top location as a labelled place overview, not the charac
   assert.match(svg, /class="turnPlaceCountry"/);
   assert.doesNotMatch(svg, /class="turnPlaceScope"/);
   assert.match(svg, /class="turnPlaceDivider" x1="64" y1="556" x2="392" y2="556"/);
-  assert.match(svg, /font-size="20" font-weight="700" letter-spacing="2">국가<\/text>/);
-  assert.match(svg, /font-size="42" font-weight="800">티리스<\/text>/);
+  assert.match(svg, /font-family="'Noto Sans KR','Malgun Gothic',Arial,sans-serif"/);
+  assert.match(svg, /font-size="36" font-weight="700" letter-spacing="2">국가<\/text>/);
+  assert.match(svg, /font-size="48" font-weight="800">티리스<\/text>/);
   assert.match(svg, /class="turnPlaceHeraldry" href="data:image\/webp;base64,[^"]+" x="64" y="418" width="105" height="123"/i);
-  assert.match(svg, /font-size="42" font-weight="800">베크켈카르\(레이븐스톤\)<\/text>/);
-  assert.match(svg, /font-size="20" font-weight="600">도시·거점<\/text>/);
+  assert.match(svg, /font-size="54" font-weight="800">베크켈카르\(레이븐스톤\)<\/text>/);
+  assert.match(svg, /font-size="36" font-weight="600">도시·거점<\/text>/);
 });
 
 test("uses the approved country city vista for an urban place in day and night", async () => {
@@ -230,7 +231,7 @@ test("uses the inferred asset in the normal composite", async () => {
   assert.match(svg, /place-image-assets\/rework82\/VBG_GATE_DAY\.webp/);
 });
 
-test("labels a normal character composite with the character name and personality", async () => {
+test("labels a normal character composite with mobile-readable typography", async () => {
   const response = await fetch(
     `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=angry&external=1`
   );
@@ -240,8 +241,9 @@ test("labels a normal character composite with the character name and personalit
   assert.match(svg, /data-talk-character-display-scale="1"/);
   assert.match(svg, />베크라 소멘<\/text>/);
   assert.match(svg, />일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
-  assert.match(svg, /font-size="30" font-weight="800">베크라 소멘<\/text>/);
-  assert.match(svg, /font-size="15" font-weight="600">일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
+  assert.match(svg, /font-family="'Noto Sans KR','Malgun Gothic',Arial,sans-serif"/);
+  assert.match(svg, /font-size="50" font-weight="800">베크라 소멘<\/text>/);
+  assert.match(svg, /font-size="36" font-weight="600">일터의 신뢰, 지역 관습, 가족과 보증 관계를 중시한다\.<\/text>/);
   assert.match(svg, /id="talkCaptionTextShadow"/);
   assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
 });

@@ -151,7 +151,9 @@ const CURRENT_SCENE_ASSET_REF = "bed5811995c024c95aad40857cf1183536c995ee";
 const TEXT_SIZE = {
   display: 64,
   displayCompact: 54,
+  placeScope: 48,
   talkName: 50,
+  cardDetail: 36,
   title: 42,
   titleSmall: 40,
   section: 32,
@@ -166,6 +168,8 @@ const TEXT_SIZE = {
   markerDesktop: 13,
   markerMobile: 18
 } as const;
+
+const SVG_FONT_FAMILY = "'Noto Sans KR','Malgun Gothic',Arial,sans-serif";
 
 const TEXT_LINE_HEIGHT = {
   normal: 1.28,
@@ -2835,17 +2839,17 @@ async function renderTurnPlaceImageSvg(
     : "";
   const upperCaption = caption.scopeKind && caption.scopeName
     ? `<g class="turnPlaceCountry" filter="url(#turnPlaceTextShadow)">
-    <text x="64" y="360" fill="#e4ca85" font-size="20" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
-    <text x="64" y="408" fill="#f8f1dc" font-size="42" font-weight="800">${escapeXml(caption.scopeName)}</text>
+    <text x="64" y="360" fill="#e4ca85" font-size="${TEXT_SIZE.cardDetail}" font-weight="700" letter-spacing="2">${caption.scopeKind}</text>
+    <text x="64" y="408" fill="#f8f1dc" font-size="${TEXT_SIZE.placeScope}" font-weight="800">${escapeXml(caption.scopeName)}</text>
     ${countryHeraldry}
   </g>`
     : "";
   const lowerDetail = caption.placeKind
-    ? `<text x="64" y="647" fill="#d7dee8" font-size="20" font-weight="600">${escapeXml(caption.placeKind)}</text>`
+    ? `<text x="64" y="647" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${escapeXml(caption.placeKind)}</text>`
     : "";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(caption.placeName)} 장소 이미지">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(caption.placeName)} 장소 이미지" font-family="${SVG_FONT_FAMILY}">
   <defs>
     <linearGradient id="turnPlaceShade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#07111f" stop-opacity="0.18"/>
@@ -2862,7 +2866,7 @@ async function renderTurnPlaceImageSvg(
   ${upperCaption}
   <g filter="url(#turnPlaceTextShadow)">
     <line class="turnPlaceDivider" x1="64" y1="556" x2="392" y2="556" stroke="#e4ca85" stroke-opacity="0.78" stroke-width="2"/>
-    <text x="64" y="612" fill="#ffffff" font-size="42" font-weight="800">${escapeXml(caption.placeName)}</text>
+    <text x="64" y="612" fill="#ffffff" font-size="${TEXT_SIZE.displayCompact}" font-weight="800">${escapeXml(caption.placeName)}</text>
     ${lowerDetail}
   </g>
 </svg>`;
@@ -2896,7 +2900,7 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
   const ariaLabel = `${card.character?.displayName ?? "이름 없는 인물"} 캐릭터 이미지`;
   const characterLayer = characterImageUrl ? renderTalkCharacterLayer(characterImageUrl, card.character) : "";
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${ariaLabel}" font-family="${SVG_FONT_FAMILY}">
   <metadata data-talk-character-display-scale="${TALK_CHARACTER_DISPLAY_SCALE}"/>
   <defs>
     <linearGradient id="talkShade" x1="0" x2="1" y1="0" y2="1">
@@ -2939,7 +2943,7 @@ async function renderTalkActionSvg(card: TalkCardEntry, origin: string, url: URL
   const ariaLabel = `${card.character?.displayName ?? "이름 없는 인물"} 캐릭터 이미지`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(ariaLabel)}">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(ariaLabel)}" font-family="${SVG_FONT_FAMILY}">
   <defs>
     <linearGradient id="talkActionCaptionShade" x1="0" x2="0" y1="0" y2="1">
       <stop offset="0%" stop-color="#020711" stop-opacity="0"/>
@@ -2971,11 +2975,11 @@ function renderTalkCharacterCaption(card: TalkCardEntry): string {
   }
   const personality = truncateDisplay(character.summary ?? card.infoLines[1] ?? card.infoLines[0] ?? "", 52);
   const personalityLine = personality
-    ? `<text x="64" y="658" fill="#d7dee8" font-size="15" font-weight="600">${escapeXml(personality)}</text>`
+    ? `<text x="64" y="658" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${escapeXml(personality)}</text>`
     : "";
 
   return `<g class="talkCharacterCaption" filter="url(#talkCaptionTextShadow)">
-    <text x="64" y="622" fill="#ffffff" font-size="30" font-weight="800">${escapeXml(character.displayName)}</text>
+    <text x="64" y="622" fill="#ffffff" font-size="${TEXT_SIZE.talkName}" font-weight="800">${escapeXml(character.displayName)}</text>
     ${personalityLine}
   </g>`;
 }

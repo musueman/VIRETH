@@ -2935,8 +2935,14 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
 }
 
 async function renderTalkActionSvg(card: TalkCardEntry, origin: string, url: URL, env: Env): Promise<string> {
-  const actionImageUrl = card.character?.imageUrl
-    ? escapeXml(absoluteImageUrl(card.character.imageUrl, origin))
+  const actionImagePath = card.character?.imageUrl ?? null;
+  const rawActionImageUrl = actionImagePath ? absoluteImageUrl(actionImagePath, origin) : null;
+  const actionImageUrl = rawActionImageUrl
+    ? escapeXml(
+        shouldInlineAssets(url)
+          ? (await fetchInlineImageDataUri(actionImagePath, rawActionImageUrl, env)) ?? rawActionImageUrl
+          : rawActionImageUrl
+      )
     : null;
   if (!actionImageUrl) {
     return renderNotFoundSvg();

@@ -115,6 +115,17 @@ test("renders the adult action state in a labelled single-image wrapper", async 
   assert.match(svg, /<tspan x="64" dy="56">보다 거래 지속성을 앞세운다\.<\/tspan>/);
 });
 
+test("inlines the adult action image so nested SVG rendering has no external image dependency", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image?id=C003&bg=VBG_INN_NIGHT&ss=08`
+  );
+  const svg = await response.text();
+
+  assert.equal(response.status, 200);
+  assert.match(svg, /<image href="data:image\/webp;base64,/);
+  assert.doesNotMatch(svg, /raw\.githubusercontent\.com/);
+});
+
 test("keeps the explicit WebP place endpoint available as a bare asset", async () => {
   const response = await fetch(`${baseUrl}/place-image.webp?bg=VBG_INN_NIGHT`);
 

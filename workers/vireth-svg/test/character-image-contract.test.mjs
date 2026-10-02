@@ -101,7 +101,7 @@ test("uses that same contract for a complete adult action image without a transp
   );
 });
 
-test("renders the adult action state in a labelled single-image wrapper", async () => {
+test("renders the adult action state as a full-bleed image without captions", async () => {
   const response = await fetch(
     `${baseUrl}/character-image?id=C003&bg=VBG_INN_NIGHT&ss=08&external=1`
   );
@@ -109,10 +109,11 @@ test("renders the adult action state in a labelled single-image wrapper", async 
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
-  assert.match(svg, /03_08\.webp/);
-  assert.match(svg, />팔리아 렘킨<\/text>/);
-  assert.match(svg, /<tspan x="64" dy="0">신뢰, 손익, 납기, 물자 흐름을 중시하며 명예<\/tspan>/);
-  assert.match(svg, /<tspan x="64" dy="56">보다 거래 지속성을 앞세운다\.<\/tspan>/);
+  assert.match(
+    svg,
+    /<image href="[^"]*03_08\.webp" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"\/?>/
+  );
+  assert.doesNotMatch(svg, /<text\b|talkCharacterCaption|talkActionCaptionShade/);
 });
 
 test("inlines the adult action image so nested SVG rendering has no external image dependency", async () => {

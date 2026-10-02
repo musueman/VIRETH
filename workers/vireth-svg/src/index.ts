@@ -2950,20 +2950,9 @@ async function renderTalkActionSvg(card: TalkCardEntry, origin: string, url: URL
   const ariaLabel = `${card.character?.displayName ?? "이름 없는 인물"} 캐릭터 이미지`;
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(ariaLabel)}" font-family="${SVG_FONT_FAMILY}">
-  <defs>
-    <linearGradient id="talkActionCaptionShade" x1="0" x2="0" y1="0" y2="1">
-      <stop offset="0%" stop-color="#020711" stop-opacity="0"/>
-      <stop offset="100%" stop-color="#020711" stop-opacity="0.56"/>
-    </linearGradient>
-    <filter id="talkCaptionTextShadow" x="-20%" y="-40%" width="150%" height="190%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.88"/>
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="${escapeXml(ariaLabel)}">
   <rect width="1000" height="700" fill="#07111f"/>
-  <image href="${actionImageUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid meet"/>
-  <rect width="1000" height="700" fill="url(#talkActionCaptionShade)"/>
-  ${renderTalkCharacterCaption(card)}
+  <image href="${actionImageUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
 </svg>`;
 }
 

@@ -97,7 +97,7 @@ test("uses that same contract for a complete adult action image without a transp
   assert.equal(body.presentation, "complete_image");
   assert.equal(
     body.character.imageUrl,
-    "https://raw.githubusercontent.com/musueman/VIRETH/main/n/C003_08.webp"
+    "https://raw.githubusercontent.com/musueman/VIRETH/main/n/03_08.webp"
   );
 });
 
@@ -109,7 +109,7 @@ test("renders the adult action state in a labelled single-image wrapper", async 
 
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
-  assert.match(svg, /C003_08\.webp/);
+  assert.match(svg, /03_08\.webp/);
   assert.match(svg, />팔리아 렘킨<\/text>/);
   assert.match(svg, /<tspan x="64" dy="0">신뢰, 손익, 납기, 물자 흐름을 중시하며 명예<\/tspan>/);
   assert.match(svg, /<tspan x="64" dy="56">보다 거래 지속성을 앞세운다\.<\/tspan>/);

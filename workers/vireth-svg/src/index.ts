@@ -1515,7 +1515,8 @@ function resolveTalkActionCode(url: URL): string | null {
 }
 
 function resolveTalkActionImage(characterId: string, actionCode: string): string {
-  return `${ADULT_ACTION_IMAGE_ROOT}/${characterId.toUpperCase()}_${actionCode}.webp`;
+  const uploadCharacterCode = String(Number.parseInt(characterId.replace(/^C/i, ""), 10)).padStart(2, "0");
+  return `${ADULT_ACTION_IMAGE_ROOT}/${uploadCharacterCode}_${actionCode}.webp`;
 }
 
 function resolveTalkBackgroundFromUrl(url: URL, env: Env): TalkBackgroundEntry {

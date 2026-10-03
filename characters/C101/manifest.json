@@ -1,7 +1,7 @@
 {
   "character_id": "C101",
   "character_name": "이설",
-  "published_at": "2026-10-03T22:33:14.882355+09:00",
+  "published_at": "2026-10-03T22:53:19.179739+09:00",
   "counts": {
     "numbered": 84,
     "total": 84
@@ -14,7 +14,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "8d15e9e4e1fffe9c39cbb6b5943fc7e8d6bd9f9d3d74fe6faec188f593ad54dd",
+      "sha256": "e19224b50c10c27f87126dfc1c350cdeb7833721912a663a7119432a18bf3c68",
       "meaning": "neutral"
     },
     {
@@ -24,7 +24,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "10b5c3011dcbeccb45ef9c704c4f54534feee0868ce32c9e07297e1c5a5144a4",
+      "sha256": "d8d89b89e76c5068915393152b0c1d7f2f62afccc341ebee5c54032da27a24a3",
       "meaning": "gentle-smile"
     },
     {
@@ -34,7 +34,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "553890eb0dc8c2f15f4a71b319139295faa2fc99419242b374626c32b5b9794f",
+      "sha256": "8cc95de49df84ada2e4fd7b5f49339d16d24a3ff63da9cd590d6a3070f04d75d",
       "meaning": "joyful"
     },
     {
@@ -44,7 +44,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "d7acf4b2ee2757b864cbc5b026c5f81d8a04d6210fc65ac98b7629ee724f1aed",
+      "sha256": "990d5ab64489efb7925802964a0688618562d706338626a77bd628178f2862e3",
       "meaning": "laughing"
     },
     {
@@ -54,7 +54,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "60cb033a4d0c292af8504ec9faf8c3d9bf9b8c9a7af49764e8a5f6bff21b8f10",
+      "sha256": "98ff5198f1849cf9eb7fc236a2c8763bd4aa793269cddde752423b9e1c4889b8",
       "meaning": "relieved"
     },
     {
@@ -64,7 +64,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "748a1165e9a982bd1b8b0fff7a6cb2114c8beda4f336da98545dece3f8019801",
+      "sha256": "f42853625e11646745958f161961d7ace5263594bdcac04e47e4ddc7fe8b2f11",
       "meaning": "confident"
     },
     {
@@ -74,7 +74,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "3eed6044af6e8bca754182597799a37a8da54ab929ab1794658c8ffe33a6d72c",
+      "sha256": "278c46309c7091d8b2f6172291b4408ead8a227129f917b8b6c1e05efc625c4b",
       "meaning": "proud"
     },
     {
@@ -84,7 +84,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "81308003dce9e788a2ef9f3f677227543bd5156d176afef492d8db63ca521f88",
+      "sha256": "62dec13c5171041ebc2c31006d96e387d98a1709338999f9ddd4a6b43144931c",
       "meaning": "affectionate"
     },
     {
@@ -94,7 +94,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "01e7d457d0d05d2bb0ba4945e1bbb6b88720897c4dae482e5ac3cc772e2aec73",
+      "sha256": "440e252fa43b5c246b4f86aa1ea333708729810e2424e353e44aadd2035bfd3e",
       "meaning": "bashful"
     },
     {
@@ -104,7 +104,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "ce9954eba4c7ec503cd026b8115929ccfcdafac702f5f090d7d24d9aebb079a2",
+      "sha256": "f077df42b37e3b03bde4c1eeaca8f9eb7e35b23f7c2c9c59f6c91ab8c183fb07",
       "meaning": "flustered"
     },
     {
@@ -114,7 +114,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "83556c2b41633cf9ee97807c82574b8e49db247d29e02f32f1043becee23b68f",
+      "sha256": "9ebc43a4edcc1a8c2feea6a6f22de59878bdfbc21e8eef01e6d805d6a2b941ef",
       "meaning": "mischievous"
     },
     {
@@ -124,7 +124,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "5894fd3047612424719af1c38af56efe790116140f643767fab2bb3c7a2bce49",
+      "sha256": "11695b7c4e559510813741256f85793edd6e258492d49bc374ad5aa59d3b05e7",
       "meaning": "curious"
     },
     {
@@ -134,7 +134,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "251ded0c842a41ae61a5cd92f307c6b5e81d7b4e577c7b168f0416907b26c9e6",
+      "sha256": "5a2441158f6113f8913de138e54dde3ca8c3cc33c0f3c9caa488162d6c5a881e",
       "meaning": "thinking"
     },
     {
@@ -144,7 +144,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "8d74d6ef219b1c74dde5344ce74faf3175432435254bf63a8b77c4679e3884e6",
+      "sha256": "d3b11733d60327bc4b5ff0d064c24c9ab1d61fa9d20a51e6996338c09e875487",
       "meaning": "explaining"
     },
     {
@@ -154,7 +154,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "192ccaff4864afe527b19ee606d79c50e9171a8a0d8eeea7197dc78d1cc4244d",
+      "sha256": "b95b780fa0f945086527c3dbc03b6ed1eb4b47d627fbb796004039742c34eb1f",
       "meaning": "skeptical"
     },
     {
@@ -164,7 +164,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "e15933607f07df14644a6c12fc37dd17f7be1038459053ec57500d372e94283d",
+      "sha256": "e06e01cb83b530c0534a36fa4b6deee0a830eec9bad6b9f7c942a9b7e9003a5c",
       "meaning": "confused"
     },
     {
@@ -174,7 +174,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "05faec877a2075e1e65f06f53e3a61ba609b9b2e79529a0e692fbaa859c71a02",
+      "sha256": "d7710c774fa43b304c7fddff413548b77b810be2b735fb846878b861e4c45232",
       "meaning": "surprised"
     },
     {
@@ -184,7 +184,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "f31293ac06980dd19ecaaf98b9328a5098285e65b248a34b6c0f58461baeb24d",
+      "sha256": "3684c389050325ccab239372a4d2e645b5ce4beee60c7fe5c48838ea699c2128",
       "meaning": "shocked"
     },
     {
@@ -194,7 +194,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "0ce1c725e6458959c86b58d6303aa68980224654cccafd28ae1ecdbebf672f93",
+      "sha256": "069e0fd9ab052559b6ce7d86890fd0d9ea490baeb6ca8f81870d433aad8bb07d",
       "meaning": "anxious"
     },
     {
@@ -204,7 +204,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "05f9c55167b77db855cb1dd9aefb4a1cc261a43a5f5986dd1a9c78a6ebfd0d73",
+      "sha256": "6e1df9a57c3ebae2bdfaecdf0edf6ca73bf7c688de9ae46bf35cd8a33eac455c",
       "meaning": "frightened"
     },
     {
@@ -214,7 +214,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "e00bc51d413f58eb02edc068e81b33fdc363a374ca8e57afc766ec2089db4ca6",
+      "sha256": "e4a971cd50b85a894c0f1ba4d9a2310c62e54335dde669952b72f68d78bc6c69",
       "meaning": "sorrowful"
     },
     {
@@ -224,7 +224,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "ff09c7a22f7afe074a1a30aaa0ad7d9d2a5472c50773060eb5bc897b2383a973",
+      "sha256": "6cc6afb34f178486d167dc6278d57cecb70c13cf0758920a8e028617bf606998",
       "meaning": "teary"
     },
     {
@@ -234,7 +234,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "96da80a42d5459f3e1f2883911f549a7d4eb7ca01489e41459bc9cc79230d93c",
+      "sha256": "dd3883d0ded5e0a43458a765bb84828a26a6bfe2817cbfa3e3c978c9cd50857d",
       "meaning": "sobbing"
     },
     {
@@ -244,7 +244,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "d4487b811699c6a58255402d16599e3e5209993f86c086942d67cc5988075a38",
+      "sha256": "25bcd7b45e455025fde18d79fa080cb36757bb08975fc1c53e72d8d4fe9e86e3",
       "meaning": "resigned"
     },
     {
@@ -254,7 +254,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "4583208d9b61da75faaaf85a72a09052f1fa1c5a1aeb7138664e49e700093cac",
+      "sha256": "69f989e5ee69984ef6d8c27173f23810d8c3996a502def24f0c9c38c065849b8",
       "meaning": "annoyed"
     },
     {
@@ -264,7 +264,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "104e82c8177b8121fd091a7601c0bcc51a70ebcfab330672683e867bfb35402a",
+      "sha256": "0f6fd59e0baa39a0999bfbb3ef579093a5de8f200ff718122a00c99d8697fccf",
       "meaning": "angry"
     },
     {
@@ -274,7 +274,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "014ed44e9f08788a0029942c3b43b555d31c30dcead1e5661bc7894b0cc76207",
+      "sha256": "677c97ac47b21d5a7c037122cb465b584086d61aa7fbb9335ea69248c88a3bb3",
       "meaning": "enraged"
     },
     {
@@ -284,7 +284,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "a46af662f654537542a68735e660eadd51a98259d27e88b155c27a35287c0998",
+      "sha256": "91c8d6d4c7b0370b643ca8893467c7ea6edd6a31618e75b4049407e464b6dcc4",
       "meaning": "disgusted"
     },
     {
@@ -294,7 +294,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "52dad97e793f087dfc7a058865ad0f50386f0a9090ca61e803320c95ffbe5faf",
+      "sha256": "812889e4aaf101d1448f832fcbc431afb9bf90c7b931bf56d0cc0fdf2ff077d7",
       "meaning": "scornful"
     },
     {
@@ -304,7 +304,7 @@
       "width": 560,
       "height": 760,
       "mode": "RGBA",
-      "sha256": "1fbf4a40f5d4e51b34d6d5ed52f705417b2bdba491015ab75d70f4817806e80e",
+      "sha256": "52e306bbfbc478ecbdbc75422168e3911254d640ed9b12c62415ac8f14e087c5",
       "meaning": "determined"
     },
     {

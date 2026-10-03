@@ -773,7 +773,7 @@ const COMBINED_SCENE_HEIGHT = SCENE_BANNER_HEIGHT + SCENE_CARD_HEIGHT;
 
 const TALK_CHARACTER_DISPLAY_SCALE = 1;
 const TALK_CHARACTER_BASE_FRAME = {
-  x: 500,
+  x: 265,
   y: 12,
   width: 470,
   height: 670
@@ -2968,16 +2968,12 @@ async function renderTalkSvg(card: TalkCardEntry, origin: string, url: URL, env:
     <mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}">
       <rect x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}" fill="url(#talkCharacterFade)"/>
     </mask>
-    <filter id="talkCaptionTextShadow" x="-20%" y="-40%" width="150%" height="190%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.88"/>
-    </filter>
   </defs>
   <rect width="1000" height="700" fill="#07111f"/>
   <image href="${backgroundUrl}" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"/>
   <rect width="1000" height="700" fill="url(#talkShade)"/>
   <rect x="430" y="0" width="570" height="700" fill="url(#talkRightFade)"/>
   ${characterLayer}
-  ${renderTalkCharacterCaption(card)}
 </svg>`;
 }
 
@@ -3009,54 +3005,6 @@ function renderTalkCharacterLayer(characterImageUrl: string, character: TalkChar
   return `<g aria-label="${label}">
     <image href="${characterImageUrl}" x="${TALK_CHARACTER_FRAME.x}" y="${TALK_CHARACTER_FRAME.y}" width="${TALK_CHARACTER_FRAME.width}" height="${TALK_CHARACTER_FRAME.height}" preserveAspectRatio="xMidYMid meet" mask="url(#talkCharacterMask)"/>
 </g>`;
-}
-
-function renderTalkCharacterCaption(card: TalkCardEntry): string {
-  const character = card.character;
-  if (!character) {
-    return "";
-  }
-  const personality = character.summary ?? card.infoLines[1] ?? card.infoLines[0] ?? "";
-  const personalityLines = wrapTalkCaptionText(personality, 30, 2);
-  const personalityLine = personalityLines.length
-    ? `<text x="64" y="610" fill="#d7dee8" font-size="${TEXT_SIZE.cardDetail}" font-weight="600">${personalityLines
-        .map((line, index) => `<tspan x="64" dy="${index === 0 ? 0 : textLineOffset(TEXT_SIZE.cardDetail)}">${escapeXml(line)}</tspan>`)
-        .join("")}</text>`
-    : "";
-
-  return `<g class="talkCharacterCaption" filter="url(#talkCaptionTextShadow)">
-    <text x="64" y="550" fill="#ffffff" font-size="${TEXT_SIZE.talkName}" font-weight="800">${escapeXml(character.displayName)}</text>
-    ${personalityLine}
-  </g>`;
-}
-
-function wrapTalkCaptionText(value: string, maxDisplayLength: number, maxLines: number): string[] {
-  const chars = Array.from(value);
-  const lines: string[] = [];
-  let index = 0;
-
-  while (index < chars.length && lines.length < maxLines) {
-    let line = "";
-    while (index < chars.length && displayLength(`${line}${chars[index]}`) <= maxDisplayLength) {
-      line += chars[index];
-      index += 1;
-    }
-
-    if (lines.length === maxLines - 1 && index < chars.length) {
-      while (line && displayLength(`${line}…`) > maxDisplayLength) {
-        line = Array.from(line).slice(0, -1).join("");
-      }
-      line = `${line}…`;
-      index = chars.length;
-    }
-
-    if (!line) {
-      break;
-    }
-    lines.push(line);
-  }
-
-  return lines;
 }
 
 function renderTalkInfoPanel(

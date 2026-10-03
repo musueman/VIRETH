@@ -217,11 +217,11 @@ test("renders talk character art at the configured display scale", async () => {
   );
   assert.match(
     svg,
-    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="500" y="12" width="470" height="670">/
+    /<mask id="talkCharacterMask" maskUnits="userSpaceOnUse" x="265" y="12" width="470" height="670">/
   );
   assert.match(
     svg,
-    /<image href="[^"]+" x="500" y="12" width="470" height="670" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
+    /<image href="[^"]+" x="265" y="12" width="470" height="670" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/
   );
 });
 
@@ -261,3 +261,4 @@ test("repairs renderer-corrupted region separators before parsing the speaker", 
   assert.equal(body.speaker, "outsider");
   assert.equal(body.scene.realmKey, "tiris");
 });
+

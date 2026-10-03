@@ -245,7 +245,7 @@ test("uses the inferred asset in the normal composite", async () => {
   assert.match(svg, /place-image-assets\/rework82\/VBG_GATE_DAY\.webp/);
 });
 
-test("labels a normal character composite with mobile-readable typography", async () => {
+test("renders a normal character composite without embedded captions", async () => {
   const response = await fetch(
     `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=angry&external=1`
   );
@@ -253,14 +253,22 @@ test("labels a normal character composite with mobile-readable typography", asyn
 
   assert.equal(response.status, 200);
   assert.match(svg, /data-talk-character-display-scale="1"/);
-  assert.match(svg, />베크라 소멘<\/text>/);
-  assert.match(svg, /<tspan x="64" dy="0">일터의 신뢰, 지역 관습, 가족과 보증 관계를 <\/tspan>/);
-  assert.match(svg, /<tspan x="64" dy="56">중시한다\.<\/tspan>/);
   assert.match(svg, /font-family="'Noto Sans KR','Malgun Gothic',Arial,sans-serif"/);
-  assert.match(svg, /font-size="50" font-weight="800">베크라 소멘<\/text>/);
-  assert.match(svg, /font-size="44" font-weight="600"><tspan/);
-  assert.match(svg, /id="talkCaptionTextShadow"/);
+  assert.doesNotMatch(svg, /<text\b|talkCharacterCaption|talkCaptionTextShadow/);
   assert.doesNotMatch(svg, /talkLowerBand|talkPanel|talkCrest/i);
+});
+
+test("centers the normal character cutout in the composite", async () => {
+  const response = await fetch(
+    `${baseUrl}/character-image?id=C015&regionId=R003&placeId=L022&time=DAY&e=n&external=1`
+  );
+  const svg = await response.text();
+  const frame = svg.match(/<image href="[^"]+" x="(-?[\d.]+)" y="(-?[\d.]+)" width="([\d.]+)" height="([\d.]+)" preserveAspectRatio="xMidYMid meet" mask="url\(#talkCharacterMask\)"\/>/);
+
+  assert.equal(response.status, 200);
+  assert.ok(frame, "character frame is present");
+  const [, x, , width] = frame.map(Number);
+  assert.equal(x + width / 2, 500);
 });
 
 test("keeps the V17 character frame entirely inside the composite", async () => {

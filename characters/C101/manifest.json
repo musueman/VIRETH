@@ -1,7 +1,7 @@
 {
   "character_id": "C101",
   "character_name": "이설",
-  "published_at": "2026-10-03T15:05:54.402545+09:00",
+  "published_at": "2026-10-03T22:33:14.882355+09:00",
   "counts": {
     "numbered": 84,
     "total": 84
@@ -332,7 +332,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "d463a620dc510341aca173bb451380f134d0ccfb9bd19c6ab85835c35ec5b18f"
+      "sha256": "dcb76bc3863d997d98d95530839336f48d69302cd084126fd98099c9b701907c"
     },
     {
       "slot": 34,
@@ -341,7 +341,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "813604a924f35ac6027003fbc6178dc3c1ee3a054259f740057fb4d2256c94f8"
+      "sha256": "927d29689f426e5fd0852195d5ac6eb13eb47590a2df649a3393bd2fee137543"
     },
     {
       "slot": 35,
@@ -359,7 +359,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "0cc2b978d4d7294fae3607bb68de6d0241d8778af140b4bd4d24a8b3a4a4374b"
+      "sha256": "73f0d54e87610271c46943c4df6db67c9311c63eed6195137df82f47bac94cab"
     },
     {
       "slot": 37,
@@ -377,7 +377,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "860e1a55836754ffc42e99626b0ca05b465628096eb72435efc275e045355710"
+      "sha256": "a3c9c17c55b61f117ba84110d13c9cf36fba4405a5f3bee4881fa29aebc1dc56"
     },
     {
       "slot": 39,
@@ -404,7 +404,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "e9b008fa3fb8a8bce42821f682d902a248d97846006c123e7f647873b13d92af"
+      "sha256": "2012adda0657d014c17ab814c24a4f4861e16b3727985261040a3a5286afc686"
     },
     {
       "slot": 42,
@@ -413,7 +413,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "8a2cc03bf5c7b603247c4540829913e56c8044edd057c601d6aeb6b61784dcf1"
+      "sha256": "18bfb3228f02ac0b2f569ea22ce9f785b952526f89e05c9d968b06043b91b95f"
     },
     {
       "slot": 43,
@@ -422,7 +422,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "c78938596c4d825ff3e625ee21825bf3c72e4bb274a373b5b7213b30b49486b5"
+      "sha256": "c52b04e1fba3a4ed4a06caf91e304899afd608e24e21e05dd1794cd726a22b7b"
     },
     {
       "slot": 44,
@@ -476,7 +476,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "e54295d0aae123641f0463d890f18b8c6e54b4f44d92b677771a2e223312a91a"
+      "sha256": "0affbbc5e7a9579abfe94c7961a017d244117fe9799df276da20c9520e839d76"
     },
     {
       "slot": 50,
@@ -485,7 +485,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "e932c5b2ab5abf7d58f01914ec6242545592c0a22068eab0353abd91d13d679e"
+      "sha256": "eae89dbb37aa8755adc6599ad880950c9af9945ca3c2389eb99b0eb0b28807de"
     },
     {
       "slot": 51,
@@ -494,7 +494,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "30bce36d980b4c600e25936406222f57d664c87f616761ad2c6605973033fbee"
+      "sha256": "6a34c7405132acd1726fea9c3a33333b94de9d405c97483b503e0006c4a51928"
     },
     {
       "slot": 52,
@@ -503,7 +503,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "7d3f47ff8d754dfdadfe08a64d2e569eab4cf0a66ec36c0fdb3a46925db7b60e"
+      "sha256": "9502e93cedfa3a00266f0619205d30accf6f968aa194fdc2e275e5efafeac7bb"
     },
     {
       "slot": 53,
@@ -512,7 +512,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "7699a9e87fa9cb991cbf9a4c908f751e846b6c5d71383beff6263d49d4c5cb77"
+      "sha256": "8118aedaee96d980a792f929bac7efdde0460771a0d4832eb707c845a268e4b2"
     },
     {
       "slot": 54,
@@ -521,7 +521,7 @@
       "width": 1344,
       "height": 1008,
       "mode": "RGB",
-      "sha256": "647a16253bb5387231ff01969de6c3bce363077def5c2bce43f7c667dc423b9a"
+      "sha256": "1f9d13436d0f2a0bdf1a34e1d8eb5ba3e3f3fc309111dd88d271e1c86c2cfaf9"
     },
     {
       "slot": 55,

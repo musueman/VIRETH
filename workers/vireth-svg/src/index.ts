@@ -101,6 +101,7 @@ type TalkCardEntry = {
   line: string | null;
   placeLabel: string;
   infoLines: string[];
+  imageSlot: string | null;
   emotionCode: string | null;
   actionCode: string | null;
   characterImagePresentation: "composite" | "complete_image";
@@ -499,6 +500,14 @@ const GENERIC_ANONYMOUS_NPC_ASSET_LIST = Object.values(GENERIC_ANONYMOUS_NPC_ASS
 );
 const TALK_BACKGROUNDS = GENERATED_TALK_BACKGROUNDS as readonly TalkBackgroundEntry[];
 const TALK_EMOTIONS = GENERATED_TALK_EMOTIONS as Record<string, Record<string, string>>;
+const COMMON_IMAGE_SLOT_EMOTIONS = [
+  "neutral", "gentle-smile", "joyful", "laughing", "relieved", "confident", "proud", "affectionate",
+  "bashful", "flustered", "mischievous", "curious", "thinking", "explaining", "skeptical", "confused",
+  "surprised", "shocked", "anxious", "frightened", "sorrowful", "teary", "sobbing", "resigned",
+  "annoyed", "angry", "enraged", "disgusted", "scornful", "determined"
+] as const;
+const COMMON_IMAGE_SLOT_MAX = 54;
+const CHARACTER_IMAGE_SLOT_MAX: Record<string, number> = { C101: 84 };
 const REWORK_PLACE_IMAGE_ROOT = "/place-image-assets/rework82";
 const CITY_OVERVIEW_IMAGE_ROOT = "/city-overview-assets";
 const ADULT_ACTION_IMAGE_ROOT = "https://raw.githubusercontent.com/musueman/VIRETH/main/n";
@@ -859,8 +868,16 @@ export default {
         ...card,
         kind: "character_image",
         state: card.actionCode
-          ? { kind: "action", code: card.actionCode }
-          : { kind: "emotion", code: card.emotionCode ?? "n" },
+          ? {
+              kind: "action",
+              slot: card.imageSlot,
+              code: card.actionCode
+            }
+          : {
+              kind: "emotion",
+              slot: card.imageSlot,
+              code: card.emotionCode ?? "neutral"
+            },
         background: {
           key: card.talkBackground.key,
           imageUrl: card.talkBackground.imageUrl
@@ -1427,8 +1444,6 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
   const roleOverride = firstQuery(url, ["role", "job", "title", "역할", "직능"]);
   const affiliationOverride = firstQuery(url, ["affiliation", "group", "소속"]);
   const infoOverride = firstQuery(url, ["info", "note", "summary", "정보", "설명"]);
-  const requestedEmotionCode = resolveTalkEmotionCode(url) ?? "neutral";
-  const requestedActionCode = resolveTalkActionCode(url);
   const resolvedCharacter =
     character &&
     !character.characterId &&
@@ -1440,6 +1455,14 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
           summary: infoOverride ?? character.summary
         }
       : character;
+  const requestedImageSlot = resolveTalkImageSlot(url, resolvedCharacter?.characterId ?? characterCode);
+  const numberedEmotionCode = requestedImageSlot && Number(requestedImageSlot) <= 30
+    ? COMMON_IMAGE_SLOT_EMOTIONS[Number(requestedImageSlot) - 1]
+    : null;
+  const requestedEmotionCode = numberedEmotionCode ?? resolveTalkEmotionCode(url) ?? "neutral";
+  const requestedActionCode = requestedImageSlot && Number(requestedImageSlot) > 30
+    ? requestedImageSlot
+    : resolveTalkActionCode(url);
   const directCharacterImage = firstQuery(url, TALK_CHARACTER_IMAGE_QUERY_NAMES);
   const emotionImageUrl =
     !requestedActionCode && !directCharacterImage && resolvedCharacter?.characterId && requestedEmotionCode
@@ -1471,11 +1494,18 @@ function resolveTalkCard(url: URL, env: Env): TalkCardEntry {
     line,
     placeLabel,
     infoLines,
+    imageSlot: actionImageUrl
+      ? requestedActionCode
+      : emotionCode
+        ? String(COMMON_IMAGE_SLOT_EMOTIONS.indexOf(emotionCode as typeof COMMON_IMAGE_SLOT_EMOTIONS[number]) + 1).padStart(2, "0")
+        : null,
     emotionCode,
     actionCode: actionImageUrl ? requestedActionCode : null,
     characterImagePresentation: actionImageUrl ? "complete_image" : "composite",
     characterImageError: requestedActionCode && !actionImageUrl
       ? "action_state_requires_a_female_fixed_character"
+      : hasTalkImageSlotParameter(url) && !requestedImageSlot
+        ? "image_slot_is_not_available_for_this_character"
       : hasTalkActionStateParameter(url) && !requestedActionCode
         ? "action_state_must_be_01_through_24"
         : null
@@ -1501,6 +1531,21 @@ function resolveTalkEmotionImage(characterId: string, emotionCode: string): stri
   return TALK_EMOTIONS[characterId.toUpperCase()]?.[emotionCode] ?? null;
 }
 
+function hasTalkImageSlotParameter(url: URL): boolean {
+  return firstQuery(url, ["i", "imageSlot", "slot", "이미지번호"]) !== null;
+}
+
+function resolveTalkImageSlot(url: URL, characterId: string | null | undefined): string | null {
+  const value = firstQuery(url, ["i", "imageSlot", "slot", "이미지번호"]);
+  if (!value || !/^\d{1,2}$/.test(value) || !characterId) {
+    return null;
+  }
+  const normalizedCharacterId = characterId.toUpperCase();
+  const slot = Number(value);
+  const max = CHARACTER_IMAGE_SLOT_MAX[normalizedCharacterId] ?? COMMON_IMAGE_SLOT_MAX;
+  return slot >= 1 && slot <= max ? String(slot).padStart(2, "0") : null;
+}
+
 function hasTalkActionStateParameter(url: URL): boolean {
   return firstQuery(url, ["ss", "actionState", "action", "행위상태"]) !== null;
 }
@@ -1511,7 +1556,9 @@ function resolveTalkActionCode(url: URL): string | null {
     return null;
   }
 
-  return /^(0[1-9]|1[0-9]|2[0-4])$/.test(value) ? value : null;
+  return /^(0[1-9]|1[0-9]|2[0-4])$/.test(value)
+    ? String(Number(value) + 30).padStart(2, "0")
+    : null;
 }
 
 function resolveTalkActionImage(characterId: string, actionCode: string): string {

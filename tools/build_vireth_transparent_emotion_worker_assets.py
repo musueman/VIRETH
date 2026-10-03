@@ -49,8 +49,8 @@ def parse_args() -> argparse.Namespace:
 
 def character_directories(source_root: Path) -> list[Path]:
     directories = sorted(path for path in source_root.iterdir() if path.is_dir() and len(path.name) >= 4 and path.name[0] == "C" and path.name[1:4].isdigit())
-    if len(directories) != 100:
-        raise RuntimeError(f"Expected 100 character directories, found {len(directories)}")
+    if not directories:
+        raise RuntimeError("No character directories found")
     return directories
 
 
@@ -95,14 +95,14 @@ def main() -> None:
         output_dir = args.output_root / character_id.lower()
         output_dir.mkdir(parents=True, exist_ok=True)
         mapping[character_id] = {}
-        for emotion, code in EMOTION_CODES.items():
+        for slot, (emotion, code) in enumerate(EMOTION_CODES.items(), 1):
             source = source_for(directory, character_id, code)
             image, alpha_bbox, source_size = normalize(source)
-            output = output_dir / f"{emotion}.webp"
+            output = output_dir / f"{slot:02d}.webp"
             image.save(output, "WEBP", quality=args.quality, method=args.method)
             if output.stat().st_size > 120_000:
                 raise RuntimeError(f"Output exceeds 120 KB target: {output}")
-            mapping[character_id][emotion] = f"/character-emotion-assets/{character_id.lower()}/{emotion}.webp"
+            mapping[character_id][emotion] = f"/character-emotion-assets/{character_id.lower()}/{slot:02d}.webp"
             records.append(AssetRecord(character_id, emotion, code, source.relative_to(args.source_root).as_posix(), output.relative_to(args.output_root).as_posix(), source_size, alpha_bbox, output.stat().st_size, hashlib.sha256(output.read_bytes()).hexdigest()))
             completed += 1
             write_progress(args.progress_output, "running", completed, total, f"{character_id}:{emotion}")

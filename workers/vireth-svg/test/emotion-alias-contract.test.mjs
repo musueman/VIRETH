@@ -44,6 +44,6 @@ test("resolves disgust aliases to the canonical v30 disgusted portrait", async (
     const body = await response.json();
     assert.equal(response.status, 200);
     assert.equal(body.emotionCode, "disgusted");
-    assert.equal(body.character.imageUrl, "/character-emotion-assets/c001/disgusted.webp");
+    assert.equal(body.character.imageUrl, "/character-emotion-assets/c001/28.webp");
   }
 });

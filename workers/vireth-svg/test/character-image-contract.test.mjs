@@ -53,7 +53,7 @@ test("uses one character-image contract for an emotion state on a selected place
     body.background.imageUrl,
     "/place-image-assets/rework82/VBG_INN_NIGHT.webp"
   );
-  assert.equal(body.character.imageUrl, "/character-emotion-assets/c003/angry.webp");
+  assert.equal(body.character.imageUrl, "/character-emotion-assets/c003/26.webp");
 });
 
 test("preserves every canonical 30-emotion key instead of falling back to neutral", async () => {
@@ -66,7 +66,7 @@ test("preserves every canonical 30-emotion key instead of falling back to neutra
     "angry", "enraged", "disgusted", "scornful", "determined"
   ];
 
-  for (const emotionKey of emotionKeys) {
+  for (const [index, emotionKey] of emotionKeys.entries()) {
     const response = await fetch(
       `${baseUrl}/character-image.json?id=C012&regionId=R003&placeId=L022&time=DAY&e=${emotionKey}`
     );
@@ -77,7 +77,7 @@ test("preserves every canonical 30-emotion key instead of falling back to neutra
     assert.equal(body.state.code, emotionKey, emotionKey);
     assert.equal(
       body.character.imageUrl,
-      `/character-emotion-assets/c012/${emotionKey}.webp`,
+      `/character-emotion-assets/c012/${String(index + 1).padStart(2, "0")}.webp`,
       emotionKey
     );
   }
@@ -92,12 +92,13 @@ test("uses that same contract for a complete adult action image without a transp
   assert.equal(response.status, 200);
   assert.equal(body.kind, "character_image");
   assert.equal(body.state.kind, "action");
-  assert.equal(body.state.code, "08");
+  assert.equal(body.state.code, "38");
+  assert.equal(body.state.slot, "38");
   assert.equal(body.background.key, "VBG_INN_NIGHT");
   assert.equal(body.presentation, "complete_image");
   assert.equal(
     body.character.imageUrl,
-    "https://raw.githubusercontent.com/musueman/VIRETH/main/n/03_08.webp"
+    "https://raw.githubusercontent.com/musueman/VIRETH/main/n/03_38.webp"
   );
 });
 
@@ -111,7 +112,7 @@ test("renders the adult action state as a full-bleed image without captions", as
   assert.match(response.headers.get("content-type") ?? "", /^image\/svg\+xml/i);
   assert.match(
     svg,
-    /<image href="[^"]*03_08\.webp" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"\/?>/
+    /<image href="[^"]*03_38\.webp" x="0" y="0" width="1000" height="700" preserveAspectRatio="xMidYMid slice"\/?>/
   );
   assert.doesNotMatch(svg, /<text\b|talkCharacterCaption|talkActionCaptionShade/);
 });

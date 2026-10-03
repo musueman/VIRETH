@@ -166,6 +166,33 @@ test("resolves every fixed character ID", async () => {
   }
 });
 
+test("uses one numbered image slot scheme for common character assets", async () => {
+  const emotion = await getJson("/character-image.json?id=C001&i=01&placeId=L003");
+  assert.equal(emotion.response.status, 200);
+  assert.equal(emotion.body.presentation, "composite");
+  assert.equal(emotion.body.state.slot, "01");
+  assert.match(emotion.body.character.imageUrl, /\/01\.webp$/);
+
+  const full = await fetch(`${baseUrl}/character-image?id=C003&i=31&placeId=L003&external=1`);
+  const svg = await full.text();
+  assert.equal(full.status, 200);
+  assert.match(svg, /\/n\/03_31\.webp/);
+  assert.match(svg, /preserveAspectRatio="xMidYMid slice"/);
+  assert.doesNotMatch(svg, /<text\b/);
+});
+
+test("continues special-character image slots after the common 54 slots", async () => {
+  const special = await getJson("/character-image.json?id=C101&i=55&placeId=L003");
+  assert.equal(special.response.status, 200);
+  assert.equal(special.body.presentation, "complete_image");
+  assert.equal(special.body.state.slot, "55");
+  assert.match(special.body.character.imageUrl, /\/n\/101_55\.webp$/);
+
+  const unsupported = await getJson("/character-image.json?id=C001&i=55&placeId=L003");
+  assert.equal(unsupported.response.status, 400);
+  assert.equal(unsupported.body.error, "invalid_character_image_state");
+});
+
 test("keeps fixed-character canon when query overrides are supplied", async () => {
   const base = await getJson("/talk.json?id=C050&placeId=L022");
   const overridden = await getJson(

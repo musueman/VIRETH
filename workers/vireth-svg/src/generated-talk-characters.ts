@@ -1899,5 +1899,19 @@ export const GENERATED_TALK_CHARACTERS = [
         "affiliation": "펜리르의 눈 / 둔나브렌움",
         "summary": "기억의 보존, 출처, 문서 접근권을 중시하고 소문을 사실로 확정하지 않는다.",
         "gender": "남"
+    }    ,
+    {
+        "key": "char-c101",
+        "aliases": ["C101", "이설", "char-c101"],
+        "displayName": "이설",
+        "role": "이세계 검객",
+        "imageUrl": "/character-emotion-assets/c101/01.webp",
+        "characterId": "C101",
+        "sourceIndex": 101,
+        "bytes": 92654,
+        "sourceFile": "C101_01.webp",
+        "affiliation": "티리스 왕궁 소환 보호 대상",
+        "summary": "동대륙 출신의 빠른 검술을 쓰는 소환객. 밝고 호기심이 많지만 낯을 가린다.",
+        "gender": "여"
     }
 ];

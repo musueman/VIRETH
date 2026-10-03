@@ -20,7 +20,7 @@ Internal `key`, `bgType`, and direct asset URLs are supported for debugging and 
 - `/scene.image?place=...` - direct scene WebP.
 - `/scene.json?place=...` - resolved scene metadata.
 - `/talk?id=C012&regionId=R003&placeId=L022` - wiki-code lookup for a fixed character card.
-- `/talk?id=C012&e=a&regionId=R003&placeId=L022` - fixed character card with an approved emotion asset.
+- `/character-image?id=C012&i=01&regionId=R003&placeId=L022` - numbered character image. `01`-`30` use the emotion-card layout; `31` and above use the full image without captions.
 - `/talk?name=베켈%20오르민&region=티리스&place=레이븐스톤%20성문` - backward-compatible name lookup.
 - `/talk.json?name=...&place=...` - resolved dialogue card metadata.
 - `/talk-background.json?place=...` - resolved talk background metadata.
@@ -62,8 +62,10 @@ Rules:
 
 - `/place` appears once on the first response line.
 - `/talk` appears only above each speaker's first line in a single response.
-- Fixed-character emotion codes are `n` neutral, `sm` faint smile (latest happy asset), `p` happy, `c` anxious, `s` sad, `a` angry, `u` surprised, `d` disgust, and `x` neutral fallback.
-- Missing, invalid, or unavailable emotion codes fall back to the existing canonical portrait. Temporary speakers ignore emotion codes.
+- Common fixed-character image slots are `01`-`54`. Slots `01`-`30` are emotions and `31`-`54` are full images.
+- Character-specific slots continue from `55` and are listed only in that character's lorebook. C101 currently uses `55`-`84`.
+- Legacy `e` and `ss` parameters remain accepted for old conversations, but new LunaTalk rules use only `i=NN`.
+- Missing or unavailable numbered slots return an error instead of silently selecting a different image. Temporary speakers ignore numbered slots.
 - `/map` is the detailed map and appears only in a `!장소` response.
 - Do not output internal image keys in the chat body.
 - If a fixed character is missing, `/talk` uses an anonymous hooded adult cutout with normal lower-face anatomy and shadow-hidden eyes.

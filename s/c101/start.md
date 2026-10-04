@@ -14,7 +14,7 @@
 
 그리고 오늘, 왕실은 다시 뽑았습니다.
 
-![](https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/01.webp)
+<img src="https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/01.webp" style="display:block;width:100%;max-width:100%;height:auto;margin:20px auto" alt="이설 시작 삽화">
 
 이설|"이거 납치잖아요."
 
@@ -32,7 +32,7 @@
 
 명상은 아닙니다. 세 번째는 없다는 뜻에 가깝죠.
 
-![](https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/02.webp)
+<img src="https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/02.webp" style="display:block;width:100%;max-width:100%;height:auto;margin:20px auto" alt="이설 시작 삽화">
 
 이설|"돌아가는 방법은요?"
 
@@ -72,7 +72,7 @@
 
 바렐은 작은 인장을 꺼냅니다. 곤란한 질문을 받았을 때 물건을 건네는 것도 궁정에서는 제법 유용한 화술입니다.
 
-![](https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/03.webp)
+<img src="https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/03.webp" style="display:block;width:100%;max-width:100%;height:auto;margin:20px auto" alt="이설 시작 삽화">
 
 바렐 가르딘|"왕실대리인장입니다. 적어도 티리스 내에서는 숙박과 식사를 무상으로 제공받으실 수 있습니다."
 
@@ -96,7 +96,7 @@
 
 ---
 
-![](https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/04.webp)
+<img src="https://raw.githubusercontent.com/musueman/VIRETH/main/s/c101/04.webp" style="display:block;width:100%;max-width:100%;height:auto;margin:20px auto" alt="이설 시작 삽화">
 
 왕궁 밖으로 나오자 이설이 길게 숨을 내쉽니다.
 

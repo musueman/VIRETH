@@ -4,6 +4,7 @@ import {content,Back,PageTitle,Link,Picture,StoryLinks} from './HubShared.jsx';
 import {PeoplePage,PersonPage,LibraryPage} from './CatalogPages.jsx';
 import {Reader,GuidePage} from './Reader.jsx';
 import {RegionsPage,RegionPage,PlacePage} from './RegionPages.jsx';
+import {AtlasPilotPage,atlasMapExists} from './AtlasPilot.jsx';
 import './category-overview.css';
 function StartsPage(){return <div className="hub-page"><PageTitle eyebrow="당신의 이야기가 시작되는 곳" title="첫 장면을 골라보세요">성문 앞에 선 여행자가 되어볼까요, 새벽 항구를 걸어볼까요?<br/>장면을 고르면 함께 읽을 기록을 안내해 드릴게요.</PageTitle><div className="starts-grid">{content.starts.map((s,i)=><Reveal as="a" className="start-tile" key={s.id} href={`#/start/${s.id}`} delay={i%2*80}><Picture src={s.image} alt={s.imageAlt}/><div><h2>{s.title}</h2><p>{s.problem}</p><span className="text-link">이 장면 만나보기 →</span></div></Reveal>)}</div></div>;}
 function StartDetail({scene:s}){const[copied,setCopied]=useState(false);const[copyError,setCopyError]=useState(false);return <div className="hub-page start-detail"><Back href="#/start">다른 첫 장면 만나보기</Back><PageTitle eyebrow="이야기를 시작하기 전에" title={s.title}>{s.invitation}</PageTitle><Reveal className="scene-art"><Picture src={s.image} alt={s.imageAlt}/></Reveal><div className="start-reading"><h2>이 장면 속의 나는</h2><p>{s.role}</p><h2>눈앞에 놓인 일</h2><p>{s.problem}</p><h2>먼저 읽어두면 좋은 이야기</h2><StoryLinks ids={s.documentIds}/><div className="start-actions"><button className="button-secondary" onClick={async()=>{try{await navigator.clipboard.writeText(`${s.title}\n역할: ${s.role}\n첫 상황: ${s.problem}`);setCopied(true);setCopyError(false);}catch{setCopyError(true);}}}>{copied?'장면을 복사했어요':'이 장면 복사하기'}</button><a className="text-link" href="https://lunatalk.chat/character/detail/70170" target="_blank" rel="noopener noreferrer">루나톡 소개 페이지 ↗</a></div><p className="small-note">루나톡의 캐릭터 소개 페이지가 새 창으로 열려요. 이곳은 채팅 화면이 아니며, 이용하려면 로그인이 필요할 수 있어요.</p>{copyError&&<p role="status">복사가 허용되지 않았어요. 위의 역할과 첫 상황을 직접 선택해 복사해 주세요.</p>}{copied&&<p className="small-note" role="status">역할과 첫 상황을 함께 복사했어요.</p>}</div></div>;}
@@ -11,6 +12,7 @@ function InfoPage({materials}){return <div className="hub-page utility-page"><Pa
 export function HubPages({route}){
   const[kind,id]=route.parts;let page,title='비레스';
   const find=(key)=>content[key].find(x=>x.id===id);
+  if(kind==='atlas'&&atlasMapExists(id||'world')){page=<AtlasPilotPage mapId={id||'world'}/>;title='비레스 지도';}
   if(kind==='people'){page=<PeoplePage/>;title='인물대백과';}
   if(kind==='stories'){page=<LibraryPage/>;title='이야기서고';}
   if(kind==='regions'){page=<RegionsPage/>;title='나라와 장소';}
@@ -22,7 +24,7 @@ export function HubPages({route}){
   if(kind==='start'&&!id){page=<StartsPage/>;title='첫 장면 고르기';}
   if(kind==='start'&&find('starts')){page=<StartDetail scene={find('starts')}/>;title=find('starts').title;}
   if(['about','materials'].includes(kind)){page=<InfoPage materials={kind==='materials'}/>;title=kind==='about'?'이용 안내':'자료 안내';}
-  useEffect(()=>{document.title=`${title} · VIRETH`;},[title]);
+  useEffect(()=>{if(kind!=='atlas'||!atlasMapExists(id||'world'))document.title=`${title} · VIRETH`;},[title,kind,id]);
   if(page&&!id&&['regions','stories','people','start'].includes(kind))return <div className="category-overview">{page}</div>;
   return page||<div className="hub-page not-found"><PageTitle eyebrow="잠깐, 이쪽으로 오세요" title="길을 조금 벗어났네요">찾는 페이지의 주소가 바뀌었거나, 아직 없는 이름일 수 있어요.</PageTitle><Link href="#welcome">처음으로 돌아가기</Link></div>;
 }

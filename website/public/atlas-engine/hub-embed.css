@@ -1,0 +1,48 @@
+/* Host presentation only. Never override #map, pins, paths, masks or hit regions. */
+:root{background:#061d28;color:#f4ecdd;font-family:'Noto Sans KR','Malgun Gothic',sans-serif;color-scheme:dark}
+html,body{background:#061d28;margin:0;min-width:280px;overflow-x:clip}
+body::before,body::after,#atlas-app::before,#atlas-app::after{display:none}
+#atlas-app{background:none;min-height:0;padding:0}
+#atlas-app>header{display:none}
+.atlas-pathbar{background:none;border-bottom:1px solid #c4a77155;margin-bottom:18px;padding:0}
+#breadcrumbs{padding:8px 0;min-height:44px;flex-wrap:wrap;white-space:normal;overflow:visible}
+#breadcrumbs button{font-family:inherit;border-radius:0;font-size:12px;min-height:38px}
+#atlas-app>main{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;padding:0;margin:0;max-width:none}
+.map-panel{display:block;background:#0b2936;border:1px solid #c4a77180;border-radius:0;padding:0;box-shadow:none;overflow:hidden;min-width:0}
+.toolbar,.toolbar-items{background:#0b2936;border-radius:0;box-shadow:none;margin:0}
+.toolbar,body.map-focused .toolbar{padding:10px 12px;border-bottom:1px solid #c4a77155}
+.toolbar::before,.toolbar::after{display:none}
+.toolbar-items{flex-wrap:wrap;overflow:visible;gap:6px;padding:0}
+.toolbar button{border-radius:0;border:1px solid #c4a77177;background:#0b2936;font-size:12px;min-height:42px;padding:8px 10px;color:#f4ecdd}
+.toolbar label{font-size:12px;color:#e6dcc6}
+.atlas-binding{padding:0;margin:0;border:0;border-radius:0;box-shadow:none;background:#092632;aspect-ratio:auto}
+.atlas-binding::before,.atlas-binding::after,.book-corner,.desk-prop{display:none}
+#viewport{height:600px;min-height:0;max-height:none;border:0;border-radius:0;margin:0}
+.desk-note{margin:0;padding:14px 16px;background:#f4ecdd;border-top:1px solid #c4a77166;color:#33434b}
+.desk-note::before,.desk-note::after{display:none}
+.desk-note .hint,.desk-note .legend,.desk-note #prefetch{color:#33434b}
+#atlas-app>main>aside{grid-row:auto;grid-column:auto;padding:24px;background:#f4ecdd;color:#263d46;border-top:3px solid #c4a771;box-shadow:none;border-radius:0;margin:0;min-width:0;max-height:none;height:auto;align-self:start;filter:none}
+aside::before,aside::after{display:none}
+.journal-content{position:relative;inset:auto;padding:0;max-height:none;height:auto;overflow:visible;color:#263d46}
+.journal-content :is(h2,h3){color:#102b37;text-shadow:none}
+.journal-content h2{font-family:'Nanum Myeongjo',serif;font-size:28px}
+.journal-content :is(p,details,.search-label){color:#52616a;text-shadow:none}
+#selection{background:#e9dfcc;color:#33434b;border-left-color:#a98b53;border-radius:0}
+#search{background:#fffaf0;color:#102b37;border:1px solid #bba985;border-radius:0;min-height:44px}
+#destinations{max-height:300px;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr;gap:5px}
+.destination{border-radius:0;min-height:44px;font-family:inherit}
+.journal-content .campaign-panel{margin-top:0}
+body.map-focused #atlas-app>main{grid-template-columns:1fr}
+body.map-focused #viewport{height:680px;min-height:0}
+@media(max-width:850px){
+ #atlas-app>main{grid-template-columns:1fr;gap:18px}
+ #viewport,body.map-focused #viewport{height:480px;min-height:0}
+ #atlas-app>main>aside{padding:22px}
+ .toolbar,body.map-focused .toolbar{padding:9px}
+ .toolbar-items{flex-wrap:wrap;overflow:visible}
+ .toolbar label{margin-left:0}
+ .desk-note{padding:12px}
+ .desk-note .legend{font-size:10px}
+ #destinations{max-height:280px}
+}
+@media(max-width:400px){#viewport,body.map-focused #viewport{height:410px}.toolbar button{padding:8px;font-size:11px}}

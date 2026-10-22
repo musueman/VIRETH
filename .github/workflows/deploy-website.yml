@@ -36,7 +36,7 @@ jobs:
       # It is run in the authoring workspace; the portable UI suite runs here.
       - run: npx vitest run src --environment jsdom --exclude src/catalog-integrity.test.js
       - run: npx vite build --base=/VIRETH/ && node scripts/prepare-sites-build.mjs
-      - run: node --test tests/pages-build.test.mjs tests/sites-worker.test.mjs
+      - run: node --test tests/*.test.mjs
       - uses: actions/upload-pages-artifact@v3
         with:
           path: website/dist/client

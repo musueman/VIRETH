@@ -4,9 +4,11 @@ import {it,expect} from 'vitest';
 import {render,cleanup,screen} from '@testing-library/react';
 import {HubPages} from './HubPages.jsx';
 import content from './content.json';
+import atlas from './atlas-catalog.json';
 const definitions=[['person','people'],['place','places'],['region','regions'],['story','stories'],['guide','guide'],['start','starts']];
 const routes=definitions.flatMap(([kind,key])=>content[key].map(x=>({kind,id:x.id,title:x.name||x.title})));
-const valid=new Set(['#welcome','#first-steps','#explore','#/people','#/stories','#/regions','#/start','#/about','#/materials',...routes.map(r=>`#/${r.kind}/${r.id}`)]);
+const valid=new Set(['#welcome','#first-steps','#explore','#/people','#/stories','#/regions','#/start','#/about','#/materials','#/atlas/world','#/atlas/tiris','#/atlas/silverkeep',...routes.map(r=>`#/${r.kind}/${r.id}`)]);
+atlas.maps.forEach(m=>valid.add(`#/atlas/${m.id}`));
 it('limits the approved category hierarchy to the four peer overview routes',()=>{
  for(const kind of ['people','stories','regions','start']){
   const {container}=render(<HubPages route={{parts:[kind]}}/>);

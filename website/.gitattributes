@@ -1,0 +1,2 @@
+# Imported atlas provenance hashes are byte-level, including line endings.
+public/atlas-engine/** -text

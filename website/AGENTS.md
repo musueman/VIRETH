@@ -1,5 +1,42 @@
 # Prototype Instructions
 
+## Atlas deployment authorization · 2026-10-22
+
+- User explicitly authorized deployment after verification. This supersedes the earlier local-preview-only restrictions for the completed atlas integration, return/resume state and reset confirmation. Publish through the existing GitHub Pages workflow; preserve unrelated repository changes. Physical-phone touch/pinch validation is not established by desktop/mobile emulation, and no firewall changes were authorized.
+
+## Atlas reset confirmation · 2026-10-22
+
+- Reset must first open the existing navy/gold-styled confirmation dialog. Default focus is `계속 둘러보기`; Cancel, close and Escape only dismiss and preserve the mounted iframe, last map, zoom and pan. Restore focus to the opener without scrolling. Trap keyboard focus and make background controls inert while open. Only `초기화하기` invokes the existing entry-only reset; afterward focus the map heading. Local preview only; no deployment.
+
+## Detailed atlas reset · 2026-10-22
+
+- User approved a title-adjacent, shared gold-outline `[entry name] 처음부터` button. Reset only that entry's saved exploration and open its first map at 1x, centered. Preserve other entry records, homepage return selection/scroll, and the original current-map fit button. Remount the iframe with `?reset=1`; the host session adapter bypasses the saved trail and writes the fresh baseline. Disable the button during initial/reset loading. Local preview only, no deployment.
+
+## Detailed atlas resume · 2026-10-22
+
+- User approved tab-local, per-entry-map resume: reopening the same country restores the last child map, zoom and pan; other entry countries have independent records. `hub-core.mjs` wraps the original navigator through an import map in the generated entry. Store only map IDs and camera/label values; validate saved paths against the original navigator. Restore ancestor cameras and navigation history as well. Invalid/unavailable storage must not prevent navigation.
+- Original runtime/core/data/artwork remain byte-identical. The prior prohibition on replacing camera behavior still applies; this approved adapter only saves/restores original navigator state. Keep homepage return-state behavior, original zoom limits and layout. Local preview only; no deployment.
+
+## Homepage atlas return state · 2026-10-22
+
+- Before same-tab homepage-to-atlas navigation, retain the selected country, original homepage hash and exact scroll offset in tab-local session storage (with an in-memory fallback). Restore selection and offset on the atlas homepage link and browser Back; do not replace unrelated home-anchor navigation with a stale offset. Refresh the snapshot on each new trip. Preserve original atlas geometry/runtime, homepage design and other routing behavior. Local preview only; no deployment.
+
+## Homepage map-to-detail entry · 2026-10-22
+
+- The homepage's existing country map must lead into the original detailed atlas, not only country introductions. Keep the v63 preview and selection/card behavior; show a selected-country detail-map CTA below its picker and a detail-map link inside the active country card, both using `#/atlas/{country.id}`. Preserve the introduction and country-directory links. All 20 existing country/region IDs match ready original atlas entries. Local preview only.
+
+## Original atlas reuse correction · 2026-10-22
+
+- The user explicitly rejected the simplified React map. Reuse the completed atlas from chat `01a12574-3b81-71f1-bdad-d5f3ea9a37b1`, public snapshot `07f8d10`, including its exact geometry, cutout masks, redirects and nested-map navigation. Homepage branding/entry/return UI remain; do not redraw map selection or calculate replacement pins.
+- `scripts/import-original-atlas.mjs` imports the committed public runtime into `public/atlas-engine` and records every SHA-256. Upstream code, CSS, data and assets remain byte-identical; the generated entry adds `hub-embed.css`, `hub-bridge.mjs`, and `hub-history.js`. They theme the surrounding UI, report current map/height after transitions, and isolate iframe back/breadcrumb history from the host. They must not change geometry, masks, IDs, hierarchy or the original navigator's camera state. The top-level URL remains the entry route; use original in-map back/breadcrumb controls for nested travel.
+- Atlas routes accept all original map IDs; introduction links use stable place/region IDs. Full original hierarchy is accessible, including the Silverkeep civic quarter. The earlier two-map extraction is superseded. Keep original source repositories untouched. Local preview only; no publish/push authorization.
+
+## Atlas pilot preview · 2026-10-22
+
+- User approved implementing the main map entry, Tiris region map, and Radvarhal / Silverkeep city detail for local preview before deployment. This does not authorize publishing or extending other detailed maps.
+- Preserve the gateway artwork, original two hero actions, v63 world geometry, other region maps, existing introduction routes, music and companions. New routes are `#/atlas/world`, `#/atlas/tiris`, and `#/atlas/silverkeep`; add a secondary hero entry and integrate the two detailed maps into their existing introduction pages.
+- Derive Tiris artwork/14 place coordinates and Silverkeep artwork/5 illustrative facility positions from the source atlas using `scripts/import-atlas-pilot.mjs`. Preserve IDs, original map sources and geometry; provenance hashes live with the WebP derivatives. Illustrative facility locations are not measured distances, rights or new world rules. Shared content CTA styling and reduced-motion behavior remain authoritative.
+
 ## Shared content-button treatment · 2026-09-17
 
 - User approved extending the hero's left-button design to content navigation/learn-more CTAs throughout the integrated site: square geometry, inset second border, one passing sheen, 2px lift and 4px arrow movement. Use `src/action-buttons.css`, loaded after legacy page styles. Dark/navy CTAs use champagne edges; white/ivory CTAs use dark-gold edges and readable navy text. Preserve font sizes, URLs, card actions and arrow direction.

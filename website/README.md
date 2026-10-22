@@ -14,6 +14,17 @@
 
 `catalog-integrity.test.js`는 로컬 정본과 QA 출처를 직접 대조하므로 제작 환경에서 별도 실행합니다. 공개 저장소에는 개인 정본과 QA 원본을 올리지 않으며, CI는 이 파일만 제외한 UI 전체와 배포 경로/서버 테스트를 실행합니다.
 
+### 로컬 출처 검사의 준비
+
+새 체크아웃에는 `.gitignore`로 제외된 `qa/content-provenance.json`이 없습니다. 기존 제작 폴더의 검수 기록을 그대로 복사하고, 기록의 `reading` 원본 경로가 열리는지 확인한 뒤 전체 검사를 실행합니다. 이 기록을 현재 산출물의 해시로 새로 만들거나 누락 검사를 건너뛰지 않습니다.
+
+```powershell
+Copy-Item -LiteralPath 'D:/OneDrive/Documents/비레스/output/vireth-hub-prototype/qa/content-provenance.json' -Destination './qa/content-provenance.json'
+npx vitest run src --maxWorkers 2
+```
+
+2026-10-22 로컬 복구에서는 기존 기록의 서고 원본 해시와 이미지 138개(인물 100개 포함)의 해시가 일치함을 확인했습니다. 지도 JSON은 Git의 Windows CRLF 변환만 LF로 정규화하여 기존 승인 해시와 대조합니다. 이미지 파일은 줄바꿈 정규화 없이 원본 바이트로 검사합니다. 원본 콘텐츠 재생성은 필요하지 않으며, 이 준비 과정은 배포가 아닙니다.
+
 ## 실행
 
 ```powershell

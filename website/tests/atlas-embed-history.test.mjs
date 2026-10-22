@@ -1,0 +1,21 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+test('embedded history preserves original depth and forward state without touching host history',()=>{
+  const events=[],writes=[];
+  const history={state:null,replaceState(state,_,url){this.state=state;writes.push(url);}};
+  const window={parent:{},history,dispatchEvent:e=>events.push(e)};
+  const context={window,history,location:{href:'http://localhost/atlas-engine/index.html#silverkeep'},PopStateEvent:class{constructor(type,options){Object.assign(this,{type},options);}}};
+  vm.runInNewContext(fs.readFileSync('public/atlas-engine/hub-history.js','utf8'),context);
+  history.replaceState({atlasDepth:0,mapId:'world'},'','#world');
+  history.pushState({atlasDepth:1,mapId:'tiris'},'','#tiris');
+  history.pushState({atlasDepth:2,mapId:'silverkeep'},'','#silverkeep');
+  history.pushState({atlasDepth:3,mapId:'silverkeep-civic'},'','#silverkeep-civic');
+  history.back();assert.equal(events.at(-1).state.mapId,'silverkeep');
+  history.go(-2);assert.equal(events.at(-1).state.mapId,'world');
+  history.forward();assert.equal(events.at(-1).state.mapId,'tiris');
+  history.pushState({atlasDepth:2,mapId:'ravenstone'},'','#ravenstone');
+  history.forward();assert.equal(history.state.mapId,'ravenstone');
+  assert.equal(writes.at(-1),'#ravenstone');
+});

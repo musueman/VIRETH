@@ -5,6 +5,9 @@ import {expect,it} from 'vitest';
 import content from './content.json';
 import provenance from '../qa/content-provenance.json';
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+// Git may check text out as CRLF on Windows. Preserve the original LF digest
+// without treating a checkout's line endings as a change to map coordinates.
+const textHash=p=>crypto.createHash('sha256').update(fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n')).digest('hex');
 it('preserves every imported story body exactly and all approved portrait pixels',()=>{
  const source=fs.readFileSync(provenance.sources.find(s=>s.kind==='reading').path,'utf8');
  const original=JSON.parse(source.slice(source.indexOf('=')+1).trim().replace(/;$/,''));
@@ -13,6 +16,6 @@ it('preserves every imported story body exactly and all approved portrait pixels
  expect(provenance.assets.filter(a=>a.url.includes('/people/'))).toHaveLength(100);
 });
 it('keeps the approved v63 geography and source terrain unchanged',()=>{
- expect(hash('src/geography-v63.json')).toBe('49091ec1cbe682e1205a585e0b995195819931daf6e1a01e5c0583e9902475d2');
+ expect(textHash('src/geography-v63.json')).toBe('49091ec1cbe682e1205a585e0b995195819931daf6e1a01e5c0583e9902475d2');
  expect(hash('public/assets/explore/v63/terrain.png')).toBe('30c70fb1896f01b158ab1203d584f6170b8d68d27011dcc6db04487074fa68ab');
 });

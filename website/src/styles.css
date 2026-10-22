@@ -148,6 +148,9 @@ h1, h2, p { margin: 0; }
 .map-location:hover span, .map-location:focus-visible span, .map-location[aria-pressed='true'] span { opacity: 1; }
 .map-location[aria-pressed='true'], .map-location:hover, .map-location:focus-visible { color: #fff8da; z-index: 2; }
 .country-picker { margin-top: 14px; }
+.country-entry {max-width:560px;margin-bottom:14px;}
+#main .country-atlas-link {display:flex;width:100%;margin-top:12px;font-size:14px;}
+.country-actions {display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
 .country-picker select { display: block; width: 100%; min-height: 44px; padding: 9px 26px 9px 0; border: 0; border-bottom: 1px solid #c4a77188; border-radius: 0; background: #061d28; color: var(--ivory); font: inherit; font-size: 14px; cursor: pointer; }
 .country-picker select:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .map-location[aria-pressed='true'] span { color: #ffe0a0; border-color: #ffe0a0; }

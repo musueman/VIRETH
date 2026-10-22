@@ -4,6 +4,7 @@ import { CaretRight, Diamond, X } from '@phosphor-icons/react';
 import { Reveal } from './Reveal.jsx';
 import places from './countries.json';
 import { Atlas } from './Atlas.jsx';
+import {readAtlasReturn} from './atlas-return.js';
 
 // v63 geometry is shared with the enlarged atlas. Existing card motion is kept.
 
@@ -11,7 +12,10 @@ export function Explore({ openMap }) {
   const [stacked, setStacked] = useState(()=>!!window.matchMedia?.('(max-width: 1000px)').matches);
   const stackedRef = useRef(stacked);
   const slotRef = useRef(null);
-  const [selected, setSelected] = useState(places[0].id);
+  const [selected, setSelected] = useState(()=>{
+    const saved=readAtlasReturn()?.country;
+    return places.some(place=>place.id===saved)?saved:places[0].id;
+  });
   const [floating, setFloating] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
   const [exiting, setExiting] = useState(false);
@@ -141,12 +145,16 @@ export function Explore({ openMap }) {
     return () => document.removeEventListener('keydown', onKey);
   }, [floating]);
 
-  const picker = <Reveal className={`country-picker${stacked?' country-picker-stacked':''}`} delay={200}>
+  const selectedPlace=places.find(place=>place.id===selected);
+  const picker = <Reveal className="country-entry" delay={200}>
+    <div className={`country-picker${stacked?' country-picker-stacked':''}`}>
     {stacked&&<label htmlFor="explore-country">나라 선택</label>}
     <select id="explore-country" aria-label="나라와 권역 고르기" value={selected} onChange={event=>selectPlace(event.target.value,event)}>
       <optgroup label="비레스의 나라들">{places.filter(place=>!place.isRegion).map(place=><option key={place.id} value={place.id}>{place.name}</option>)}</optgroup>
       <optgroup label="나라 밖으로 이어지는 권역">{places.filter(place=>place.isRegion).map(place=><option key={place.id} value={place.id}>{place.name} · {place.kind}</option>)}</optgroup>
     </select>
+    </div>
+    <a className="text-link country-atlas-link" href={`#/atlas/${selected}`}>{selectedPlace.name} 상세 지도 펼치기<CaretRight size={18}/></a>
   </Reveal>;
   const card = <div ref={cardRef} className="place-box" data-floating={!stacked&&floating} data-exiting={!stacked&&exiting} onAnimationEnd={event => { if (event.target === event.currentTarget && motion.current.exiting) finishExit(); }} style={!stacked&&floating ? {bottom: `${bottomInset}px`} : undefined}>
     {floating && <button className="country-close" aria-label="나라 소개 닫기" onClick={closeCard}><X size={20} /></button>}
@@ -156,7 +164,7 @@ export function Explore({ openMap }) {
           <img className="capital-art" src={`/assets/explore/capitals/${place.id}.webp`} width="1280" height="720" alt={`${place.name}의 ${place.capitalType} ${place.capital} 전경`} loading="lazy" decoding="async" />
           <img className="country-crest" src={`/assets/explore/crests/${place.id}.png`} width={place.crestWidth} height={place.crestHeight} alt={`${place.name} 문장`} loading="lazy" decoding="async" />
         </div>
-        <div className="place-details"><h3>{place.name}</h3><p className="place-region">{place.kind} · {place.capitalType} {place.capital}</p><p className="country-copy">{place.copy}</p><a className="country-detail-link text-link" tabIndex={selected===place.id?0:-1} href={`#/region/${place.id}`}>이곳 더 알아보기<CaretRight size={17}/></a></div>
+        <div className="place-details"><h3>{place.name}</h3><p className="place-region">{place.kind} · {place.capitalType} {place.capital}</p><p className="country-copy">{place.copy}</p><div className="country-actions"><a className="country-detail-link text-link" tabIndex={selected===place.id?0:-1} href={`#/region/${place.id}`}>이곳 더 알아보기<CaretRight size={17}/></a><a className="text-link" tabIndex={selected===place.id?0:-1} href={`#/atlas/${place.id}`} aria-label={`${place.name} 상세 지도 탐색`}>상세 지도 탐색<CaretRight size={17}/></a></div></div>
       </article>)}
     </div>
   </div>;

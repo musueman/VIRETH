@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { CaretRight, Diamond, X } from '@phosphor-icons/react';
+import { CaretRight, Compass, Diamond, X } from '@phosphor-icons/react';
 import { Reveal } from './Reveal.jsx';
 import { Fireflies } from './Fireflies.jsx';
 import { WelcomeCharacters } from './WelcomeCharacters.jsx';
@@ -70,6 +70,7 @@ export function App() {
             <Reveal as="a" delay={300} className="button-primary" href="#first-steps"><span className="button-label">비레스 둘러보기</span><CaretRight size={18} /></Reveal>
             <Reveal as="a" href="#/people" delay={380} className="button-secondary" aria-label="인물대백과 만나보기"><span className="button-label">인물대백과</span><CaretRight size={18} /></Reveal>
           </div>
+          <Reveal as="a" delay={440} className="text-link hero-atlas-entry" href="#/atlas/world"><Compass size={20}/><span>지도 펼치기</span><CaretRight size={18}/></Reveal>
         </div>
       </section>
       <section className="first-steps" id="first-steps" aria-labelledby="first-title">

@@ -7,6 +7,7 @@ import {useFilters} from './Router.jsx';
 import './region-detail.css';
 import placeArt from './place-art.json';
 import './place-detail.css';
+import {CAPITAL_ID,TirisMapPreview,SilverkeepPreview} from './AtlasPilot.jsx';
 export function RegionMap({regionId,placeId}){
   const places=content.places.filter(p=>p.regionId===regionId);
   const [chosen,setChosen]=useState(placeId||places[0]?.id||'');
@@ -76,7 +77,7 @@ export function RegionPage({region:r}){
       </section>
       <aside ref={mapRef} id={mapId} tabIndex={-1} aria-label={`${r.name} 지도`}>
         <Reveal as="h2">지도에서 만나보세요</Reveal>
-        <Reveal><RegionMap regionId={r.id}/></Reveal>
+        <Reveal>{r.id==='tiris'?<TirisMapPreview/>:<RegionMap regionId={r.id}/>}</Reveal>
       </aside>
     </div>
     {people.length>0&&<section className="page-section region-people"><Reveal as="h2">{r.name}에서 만나는 사람들</Reveal><div className="related-people">{people.map(p=><Reveal as="a" key={p.id} href={`#/person/${p.id}`}><Picture src={p.image} alt="" width="705" height="1005"/><span>{p.name}</span></Reveal>)}</div></section>}
@@ -93,6 +94,7 @@ export function PlacePage({place:p}){
       <PageTitle eyebrow={`${r.name} · ${p.type}`} title={p.name}>{p.summary}</PageTitle>
     </section>
     <div className="place-detail-layout"><RegionMap regionId={p.regionId} placeId={p.id}/><div className="place-detail-copy"><h2>어디쯤에 있을까요?</h2><p>지도에서 조금 더 밝게 빛나는 점이 {p.name}의 자리예요. 가까운 점을 짚어 다른 장소도 함께 둘러보세요.</p><p>{r.copy}</p><Link href={`#/region/${r.id}`}>{r.name}의 다른 곳 만나보기</Link><figure><Picture src={`/assets/explore/capitals/${r.id}.webp`} alt={`${r.name}의 ${r.capital} 전경`}/><figcaption>함께 보는 지역 풍경 · {r.capital}<br/>{p.name.includes(r.capital)?'이곳의 전경이에요.':'위 그림은 이 장소가 아닌, 같은 권역의 대표 풍경이에요.'}</figcaption></figure></div></div>
+    {p.id===CAPITAL_ID&&<SilverkeepPreview/>}
     {people.length>0&&<section className="page-section"><h2>이곳에서 만날 수 있어요</h2><div className="related-people">{people.map(x=><a key={x.id} href={`#/person/${x.id}`}><Picture src={x.image} alt=""/><span>{x.name}</span></a>)}</div></section>}
   </div>;
 }

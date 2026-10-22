@@ -1,0 +1,3297 @@
+{
+  "commit": "07f8d10499a4f517a64c8cd593213b69afa4d4e7",
+  "maps": [
+    {
+      "id": "world",
+      "name": "비레스",
+      "parentMapId": null,
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/2772141df6a0e6cceef7ccfd31e389c1b23f9f8b150e86136ab8aea484efe201.webp"
+    },
+    {
+      "id": "norghard",
+      "name": "노르가르드",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "norghard",
+      "preview": "/atlas-engine/assets/f9606f06d7605b9e34eb4bf8ae5f860aa18dd7ee0ec8a3de94ab65dd3461c716.webp"
+    },
+    {
+      "id": "hesbeket",
+      "name": "헤스베케트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "hesbeket",
+      "preview": "/atlas-engine/assets/ecd4131b438d6ce7bb122c1d37d839500ab1ded411ec60de8aa989d6c79f169e.webp"
+    },
+    {
+      "id": "nimnaret",
+      "name": "님나레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "nimnaret",
+      "preview": "/atlas-engine/assets/fc7958ffbacc6452d29e7b54c35c2ffa4d04a8626fe3ee5fd6203669506c89fc.webp"
+    },
+    {
+      "id": "leonia",
+      "name": "레오니아",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "leonia",
+      "preview": "/atlas-engine/assets/f9d34ac5c823eae0bc52b44cd5944ea7819e52a742d4053f65f76f21ba55782d.webp"
+    },
+    {
+      "id": "linrenet",
+      "name": "린레네트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "linrenet",
+      "preview": "/atlas-engine/assets/aa5e03f73772d23601d60f472358d37b5851f12842c494d69817e4e929e583b5.webp"
+    },
+    {
+      "id": "bekdoret",
+      "name": "벡도레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "bekdoret",
+      "preview": "/atlas-engine/assets/ae8251e34e919c7b3b0cffb68e68532c49675598ea64409b3ee75b17067b5335.webp"
+    },
+    {
+      "id": "tiris",
+      "name": "티리스",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "tiris",
+      "preview": "/atlas-engine/assets/2ad082e44b52d59b347bb38c88b377d1563a3a1f20142a5983a67b3d426c57bb.webp"
+    },
+    {
+      "id": "senhalet",
+      "name": "센할레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "senhalet",
+      "preview": "/atlas-engine/assets/74570001ce962c5547b6371671720d9d3e73d6f264ab18645677532f2321a483.webp"
+    },
+    {
+      "id": "kelnabet",
+      "name": "켈나베트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "kelnabet",
+      "preview": "/atlas-engine/assets/1c61e8200ffbc671907061df5784989b72a3057ba239a8bcc7a03a65c1ad3edd.webp"
+    },
+    {
+      "id": "yenmebet",
+      "name": "옌메베트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "yenmebet",
+      "preview": "/atlas-engine/assets/c96ed348e92905e5725dcf06260e97a7ff8ca76c1583b41d993b416742f05600.webp"
+    },
+    {
+      "id": "ardolet",
+      "name": "아르도레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "ardolet",
+      "preview": "/atlas-engine/assets/d2211e6c26b4afe0e06909d1bcc3b6a6d7147d94ec94adda62d5614b6c0a9f9c.webp"
+    },
+    {
+      "id": "silhalet",
+      "name": "실할레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "silhalet",
+      "preview": "/atlas-engine/assets/a6f5473b58a88ef1bd63dcfb459ce4b9a1bff1865d7307bbecbdc862aacdb76a.webp"
+    },
+    {
+      "id": "nimsolet",
+      "name": "님소레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "nimsolet",
+      "preview": "/atlas-engine/assets/6a48d730187e5e066b0c3fe4638150de4e1dda57b8b2c2e1b033da52021602e7.webp"
+    },
+    {
+      "id": "garmebet",
+      "name": "가르메베트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "garmebet",
+      "preview": "/atlas-engine/assets/5a3df34ca85ee2426825828c95e99c1e7f805c73489c52953192075c6ab59a66.webp"
+    },
+    {
+      "id": "merhalet",
+      "name": "메르할레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "merhalet",
+      "preview": "/atlas-engine/assets/f675f3dafbf0b1bc419eb325c2761633cb64993ef03a6d14d508e29ffbbc5193.webp"
+    },
+    {
+      "id": "hesferet",
+      "name": "헤스페레트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "hesferet",
+      "preview": "/atlas-engine/assets/8f66812c948b2ac77a41392c62a97b29b7f5ae83fef9a37ddad714de6b40182e.webp"
+    },
+    {
+      "id": "silnimet",
+      "name": "실니메트",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "silnimet",
+      "preview": "/atlas-engine/assets/9e57e3fbbd3aca7b536c638aebc19ff73cdbeae54404ffed2e476778cc95fc8e.webp"
+    },
+    {
+      "id": "sylvania",
+      "name": "실바니아",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "sylvania",
+      "preview": "/atlas-engine/assets/4d96936463763713cc885f41ee5bd9fe125b558c38b0bdb7b6d84c03a5851530.webp"
+    },
+    {
+      "id": "dragonspire",
+      "name": "드래곤스파이어",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "dragonspire",
+      "preview": "/atlas-engine/assets/47c3d04e26cb048d71e9185c362f719dbcac4afa6f896938f03e6a9db7f3b122.webp"
+    },
+    {
+      "id": "fenrir-eye",
+      "name": "펜리르의 눈",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": "fenrir-eye",
+      "preview": "/atlas-engine/assets/47c2b788f9dd62db7f2ef497023387b9b0041ffb070fb99dfe5e84be7b64bf04.webp"
+    },
+    {
+      "id": "silverkeep",
+      "name": "라드바르할 / 실버킵",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-c91992123771823b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/90be718c87666de3081b5211b7d6e9a1ba471d044068fe8037358d319f21f7ba.webp"
+    },
+    {
+      "id": "ravenstone",
+      "name": "레이븐스톤",
+      "parentMapId": "tiris-northwest-connections",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d6201cae71141b4c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/11428ca4d4ab332222de8ce986b67d3a808c7d9ff516bd2c25578e7f7ebb40d5.webp"
+    },
+    {
+      "id": "newhallow",
+      "name": "뉴할로우",
+      "parentMapId": "tiris-northwest-connections",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2b38c9305566a627",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2609c260970b60eca9a742188e0067e1bf984272b1db7b376ce845852369beda.webp"
+    },
+    {
+      "id": "bekbepga",
+      "name": "베크벱가",
+      "parentMapId": "tiris-northwest-connections",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5450a1a6f2b494d1",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/bd8022e8794ae50d72fed40f9a7517f84c3256f8ad093d41ba5d9a5cccebb68f.webp"
+    },
+    {
+      "id": "greenhallow",
+      "name": "그린할로우",
+      "parentMapId": "greenhallow-basin",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-b12f9ad116dd57dc",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/baa5c36d2a7d8f54df03e8008ad8926d49bcbef3581000e13476bd85a2d83052.webp"
+    },
+    {
+      "id": "hekgarga",
+      "name": "헤크가르가",
+      "parentMapId": "greenhallow-basin",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-70bcb78178e6e240",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2fbd681718262ad0817ca84a7e8428a64797d286fa424fff2ddf913809bdf1b3.webp"
+    },
+    {
+      "id": "silteket",
+      "name": "실테크에트",
+      "parentMapId": "forest-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-7497bf1905174f40",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/8db13cfca478d81fc712a0c3109721ac7fc45d5e6537eca3eb1082916f2e7b77.webp"
+    },
+    {
+      "id": "silbekga",
+      "name": "실베크가",
+      "parentMapId": "forest-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9b42bd603809c17b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3b510fc461f7b835b36892a5ad85840787570811081b322c7d7b36ea7f81abae.webp"
+    },
+    {
+      "id": "sorieiltor",
+      "name": "소르이엘토르",
+      "parentMapId": "observatory-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-68f0aa07327024b6",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/886025bf7c7a756a7e9c8d08a439956343b2a4bc09d5b5b3149bdbecd4eb9193.webp"
+    },
+    {
+      "id": "ieltor-ga",
+      "name": "이엘토르가",
+      "parentMapId": "observatory-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5a06fbc07b2a730e",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/fe6cf43be543d047011761adc72d66123a494a59b48844b5fefbb0534e80fdbb.webp"
+    },
+    {
+      "id": "belsorel",
+      "name": "벨소르엘",
+      "parentMapId": "waterworks-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-58f109e57c16ca3d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/821d451fad069cc00bd2fdc49648b34fa530e27358abc552326e5c8c0aa5c5e5.webp"
+    },
+    {
+      "id": "bellelga",
+      "name": "벨렐가",
+      "parentMapId": "waterworks-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-170f38db55354b0d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/d42c1268ed11ab74a1f1872fee28c19e3b05a76db5c26db16290c95f32a34fb2.webp"
+    },
+    {
+      "id": "tiris-garmebet",
+      "name": "가르메브에트",
+      "parentMapId": "grain-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-40ecd7f61b7c7110",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/367ab34248dcc2d63ab394abdcf99331797b1dc770f677f13302ae49587aa876.webp"
+    },
+    {
+      "id": "garpukga",
+      "name": "가르푸크가",
+      "parentMapId": "grain-pair",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-dbd14fbd47878cee",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/53e090fbec34d7bacd56e51d2c61469ffd9154cac5af8bfd714422c963f1a6d3.webp"
+    },
+    {
+      "id": "marnabmir",
+      "name": "마르나브미르",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4f3ed43a65a09f9e",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/dd5db17f591dc33646adb3e1c5a2c4155ccd0cf0cf7f6344061a0c9ac429b1c7.webp"
+    },
+    {
+      "id": "armartor",
+      "name": "아르마르토르",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f3ca2d3e808f999a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/e087b4d0c0be41a8c53f0182f06b5ceaeba11a3d8ef48df6d8a31515ddb18089.webp"
+    },
+    {
+      "id": "martorga",
+      "name": "마르토르가",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-873c4ba0beeeac27",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/fa00ceb282cd56367b566c210fc6cef38dbcf52f589939b9798780fe8aebe57f.webp"
+    },
+    {
+      "id": "pernabpier",
+      "name": "페르나브부두",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f0a31f363f261928",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f6896b197c7fa5d427c4a749562853d93debf805f07618e244a98cc9cd4d1a61.webp"
+    },
+    {
+      "id": "pertekga",
+      "name": "페르테크가",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-dd37f12f064b6dbc",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3676b5886c7ba67515c5b1bbf2df855138f1f299ec96c58ff38b3b654c33041e.webp"
+    },
+    {
+      "id": "navhalga",
+      "name": "나브할가",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5cddfec379959f81",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/161c8630d5464962837237616260e791777f86dd2515bc8136a7ee7d463b93f3.webp"
+    },
+    {
+      "id": "navhalgarin",
+      "name": "나브할가린",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f64d083df14f7190",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f2339b064601fa1622db794f049ba6c4030d9ac22ba6607745e1b0ffe6f4eb85.webp"
+    },
+    {
+      "id": "hesmarga",
+      "name": "헤스마르가",
+      "parentMapId": "norghard-port-core",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a051ba013d5067bb",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3a57e6a9460353d00f0e310387d78c97272e70ace9bbe114097dc1c62d7d33bf.webp"
+    },
+    {
+      "id": "western-campaign",
+      "name": "서부 전투권·협곡",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f8ee890ca5f593b0f3d7efdf2084082dd97736c1ffc71ddc789a9877864e16a4.webp"
+    },
+    {
+      "id": "east-ledge-pass",
+      "name": "동단 산록 통과로",
+      "parentMapId": "tiris-northwest-connections",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/8573a60a0a2917b95feb228a8e9b977d43ee87027a03c602fe0168b250e8eddd.webp"
+    },
+    {
+      "id": "silverkeep-civic",
+      "name": "실버킵 법정·신전 구획",
+      "parentMapId": "silverkeep",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/076efae89373c74199c0d2da147e024deee576fef8227410cccec29ef297b2fa.webp"
+    },
+    {
+      "id": "greenhallow-basin",
+      "name": "그린할로우·복구촌 생활권",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/c9dcdfef57f8c5821ab1d36b6c89ed9fd9cce6911539cc878038f720a7a075cb.webp"
+    },
+    {
+      "id": "observatory-pair",
+      "name": "관측 언덕·봉납촌 생활권",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/ba34daec5845a650e0f32559eff141e55ff530ac96c2d6e8a807d289c4d057c7.webp"
+    },
+    {
+      "id": "waterworks-pair",
+      "name": "남부 수문·물길 기록권",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/9bbd885b40b0ffa51f711c25cd0e13532b79f32b2326288c4987d48126d286f6.webp"
+    },
+    {
+      "id": "forest-pair",
+      "name": "목재 검수·숲문 생활권",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/fe488e9a5c9d896a48ca1b3725a3c9aa125de249ef61012365c0610e3be7a104.webp"
+    },
+    {
+      "id": "grain-pair",
+      "name": "곡물 교환·저장 생활권",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/ea4569902e20ff327781323373a57f6dea5d4ca633a2add26f561b68a7a0e428.webp"
+    },
+    {
+      "id": "norghard-port-core",
+      "name": "노르가르드 항만·등대 생활권",
+      "parentMapId": "norghard",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/b64a631d989e52f0410435e581183681e5990c3714f72a772813ec8517c9c7a9.webp"
+    },
+    {
+      "id": "tiris-northwest-connections",
+      "name": "레이븐스톤·재정착 생활권",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f49ccf8ad7ac32e7369f9e939f19b7ae1ce0f042904c01e848f042efd741a99a.webp"
+    },
+    {
+      "id": "capital-west-road",
+      "name": "왕도 서교량·레이븐스톤 간선",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/2e31bed6b966d9fb75c2a1755d25daa8bebc4b22a190b1f867f02cf83e14a980.webp"
+    },
+    {
+      "id": "west-bank-south-road",
+      "name": "서안 재정착·복구촌 간선",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/c10957743441f49b1cef25efa4a1cd358d6d5e60a5915cc447500f2fc7508d9c.webp"
+    },
+    {
+      "id": "capital-observatory-road",
+      "name": "왕도 서교량·관측소 접근길",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/52de7e02212a533a6c4e1726aec39b888f529927787a505eaa62be62c0a9c1d2.webp"
+    },
+    {
+      "id": "capital-east-road",
+      "name": "왕도 동남문·실테케트 골짜기길",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/40385035bd998d5c6c55206c73cda6e53a12d8340a5b5a64b13791fb72a70093.webp"
+    },
+    {
+      "id": "capital-south-road",
+      "name": "왕도 동남문·벨소렐 숲길",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/a0031f01b1a0b0c643a52201b590863ae9893827dfd7cbcbd50249555316f280.webp"
+    },
+    {
+      "id": "water-grain-road",
+      "name": "벨소렐 생활권·가르메베트 곡물길",
+      "parentMapId": "tiris",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/efb9e332c85476f4a07bd4c1b3d90a0d60107cc48c85bf49e91cc84799224a13.webp"
+    },
+    {
+      "id": "marnabmir-quays",
+      "name": "마르나브미르 부두·항만세청 구획",
+      "parentMapId": "marnabmir",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/d3183349540b30c5f3ff8eb0d8eafbbddfdac8b31a4671e2b5cc06d005217ed3.webp"
+    },
+    {
+      "id": "martorga-lighthouse",
+      "name": "마르토르가 · 관리등대 곶",
+      "parentMapId": "martorga",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/43691596d5f1bd53122dee95cd7bd41691f6df979bfdda6919f1f3dcf1e591b9.webp"
+    },
+    {
+      "id": "hesmarga-shore",
+      "name": "헤스마르가 · 어항 운반길",
+      "parentMapId": "hesmarga",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/ecdc6d4f9966f8d30d0b398790dc00b7ee6e0a53eadbea8d891d464b8adc36d4.webp"
+    },
+    {
+      "id": "map-a-radarhal-court-district-v1",
+      "name": "라드아르할 · 서임·왕실법정",
+      "parentMapId": "map-a-radarhal-overview-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f76dcd1e8ca3a223",
+      "regionId": null,
+      "preview": "/atlas-engine/assets/00dc062984256acd7f3a9209c215f8a793bedd15dd8aac1bab90e7a0bd6683dc.webp"
+    },
+    {
+      "id": "map-a-radgarga-v1",
+      "name": "라드가르가 · 곡물 공급촌",
+      "parentMapId": "map-a-royal-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-50aa68772a885f92",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/6bccbbc6f5dab2f57fdb9577d3e07420501fdb52fd7abce8f65a2bd4030afd44.webp"
+    },
+    {
+      "id": "map-a-jirbaret-v1",
+      "name": "지르바르에트 · 기사봉토 중심",
+      "parentMapId": "map-a-knight-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d3fcde024aeebb50",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/cf27851eba81c5ecee2087ede1ce3b28b275e497c92d00243aec66780f5c46c3.webp"
+    },
+    {
+      "id": "map-a-jirmebga-v1",
+      "name": "지르메브가 · 전마목장촌",
+      "parentMapId": "map-a-knight-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-b371154177f7ab6b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/640ac01725c78bf75087d4fdb16fd14489e85e80d4978664ae4a35a1ea5308e6.webp"
+    },
+    {
+      "id": "map-a-knight-connections-v1",
+      "name": "기사봉토–전마목장 생활권",
+      "parentMapId": "leonia",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/d188f78ba4abc9531973e742c9111e97d0d56f6155301553c1724cc9a4f79577.webp"
+    },
+    {
+      "id": "map-a-paltekumga-v2",
+      "name": "팔테쿰가 · 왕실직할 장인도시",
+      "parentMapId": "map-a-artisan-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-0bf2d299ef01d463",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/26d43aa38c2e62989a155123a6b86620e5e31d3a3851cf3afcf0d67e688f79f1.webp"
+    },
+    {
+      "id": "map-a-paltekga-v1",
+      "name": "팔테크가 · 장인위성가",
+      "parentMapId": "map-a-artisan-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-db2387572b39116d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/77a91a6d42e85739e5ff27c0c116f9fe0bf6901038c4ad391087abb243719715.webp"
+    },
+    {
+      "id": "map-a-remdatum-v1",
+      "name": "렘다트움 · 외교접견 관문",
+      "parentMapId": "map-a-diplomatic-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-13f55b748ce8f69a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/d9182d6bc1bd7fdbc32722f92a82356d730daac94c5c87a863f57ff9e26be6b3.webp"
+    },
+    {
+      "id": "map-a-remkelga-v1",
+      "name": "렘켈가 · 사절마차 숙소",
+      "parentMapId": "map-a-diplomatic-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9cde411459ec9d58",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/15322f1df7fdfb116520615db5e08938d2040adb18698f172f58b03fcb1b8aa0.webp"
+    },
+    {
+      "id": "map-a-radarhal-overview-v1",
+      "name": "라드아르할 · 왕도 주요구역",
+      "parentMapId": "map-a-royal-connections-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f76dcd1e8ca3a223",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/314ef1e89cb759660a50f884a86980816ec38ac46e26fc79b10dea068efb960b.webp"
+    },
+    {
+      "id": "map-a-diplomatic-connections-v1",
+      "name": "사절숙소–외교관문 생활권",
+      "parentMapId": "leonia",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/79faf869b41ec70f53e97db45abd796046f210b6227fc398b0765619b3b14078.webp"
+    },
+    {
+      "id": "map-a-artisan-connections-v1",
+      "name": "장인도시–위성가 납품 생활권",
+      "parentMapId": "leonia",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/009432d64e34bf3ce260ae65b7793445c4be062ddfae7e0520e043027fb21960.webp"
+    },
+    {
+      "id": "map-a-royal-connections-v1",
+      "name": "곡물촌–왕도 외곽 납품 생활권",
+      "parentMapId": "leonia",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/4da648b546766d010f609cb62c8cf9f965cfc5beaadbef66eb0e1d417948a29f.webp"
+    },
+    {
+      "id": "map-a-linrenet-overview-v1",
+      "name": "린레네트 · 학술도시권 개요",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/2473a8afa4cfb168bd544d992dd96c8d9c26d8d7510ac46b8254bc437d734709.webp"
+    },
+    {
+      "id": "map-a-renumga-record-district-v1",
+      "name": "레눔가 · 기록원·의회 구역",
+      "parentMapId": "map-a-linrenet-overview-v1",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-aae1caadc38f650f",
+      "regionId": null,
+      "preview": "/atlas-engine/assets/10fb1d26ad67f3aabb928a6b1ebd54c9ae49a7f61486b5c2596da029b9756026.webp"
+    },
+    {
+      "id": "map-a-bekhespukum-v1",
+      "name": "베크헤스푸쿰 · 혹한 저장중심",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-0478f08a70f8a216",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c772b23edf70321733cc3187920b55da2a69333aff1b323d28e17fa6bf6280b0.webp"
+    },
+    {
+      "id": "map-a-hesworkel-v2",
+      "name": "헤스워켈 · 겨울통행 관문",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a41e40a70f1aaa80",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/466cfe6917cd4d917be8b560eb7ff5dd67419243e440e76902ee3e74801f9082.webp"
+    },
+    {
+      "id": "map-a-yalbekum-v1",
+      "name": "얄베크움 · 감찰·허가 중심",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4bc2d5185e162623",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3c3c361326e4887289cf660dee8e57518b74569f38a4336f1a7cf0e45e535bdd.webp"
+    },
+    {
+      "id": "map-a-hesphukum-v1",
+      "name": "헤스푸쿰 · 산악저장 고을",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-29cbdf9865aa1024",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/b34ff8b263ae5655df7300601913a65bdcba8a2f5c368e94aef5efe0a2119e2f.webp"
+    },
+    {
+      "id": "map-a-dunartor-v1",
+      "name": "둔아르토르 · 등대기록·구조신호",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5fdffc89c646bbad",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/45d52af7dea8d9c2baeb9b3ba51a53ea69561950c56ed8aee9386e833104845a.webp"
+    },
+    {
+      "id": "map-a-nimnahal-v1",
+      "name": "님나할 · 제한학당",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9428a503d85581f1",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/e61287951ae72d10f6d8f24e16864df691d7a386e2245e98336fff7e65ba2f35.webp"
+    },
+    {
+      "id": "map-a-puknaum-v1",
+      "name": "푸크나움 · 봉인창고",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4daaec0eaf426d92",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/a431b4ca26edf5fd59f9512639cd5d06072701889a9bfcde930ec8f01df1b4d3.webp"
+    },
+    {
+      "id": "map-a-hedrenum-v1",
+      "name": "헤드렌움 · 재료검사장",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-11708076318aa7c7",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/7daef1021bf91a9eaf9307dff7b71a9b3cbbd38d68668b3a881527282eca435e.webp"
+    },
+    {
+      "id": "map-a-enkelhal-v1",
+      "name": "엔켈할 · 외부자대기구",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9618712064304902",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/b686fc16d1bdb8da7b63ff089bdd66d883d8b18391b12eb51e321d6152706ccf.webp"
+    },
+    {
+      "id": "map-a-yalbekga-v1",
+      "name": "얄베크가 · 감찰초소",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-b1bf32a4e31544fa",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/194f0d98576f6aa71b4788b48f2d485bbac1ecf77b4ed1b584ff913c9356eee6.webp"
+    },
+    {
+      "id": "map-a-pukbekum-v1",
+      "name": "푸크베크움 · 봉인창고",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ed6e6096c485d9c0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/06d15e9134aeb6a7a5c005469e77cdf2c8f42009bd339ef0b88a01aac1e1002e.webp"
+    },
+    {
+      "id": "map-a-hedrenga-v1",
+      "name": "헤드렌가 · 검사대기막",
+      "parentMapId": "nimnaret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-305048f67a71d869",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f68704f7cd1ea57293a65b15692598bb5da5aaae5e9128d6ddeee2b6e52700b3.webp"
+    },
+    {
+      "id": "map-a-narhal-v1",
+      "name": "나르할 · 공동난방가",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d7e228ecb8381c8d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/eed5bdced8e128ba88ae55bffc66e2811f0bf6e62031440d1de26a6cd92b5472.webp"
+    },
+    {
+      "id": "map-a-mevhesbek-v1",
+      "name": "메브헤스베크 · 사냥초소",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f281ca73eac12b50",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/e3fc4220903dd2c5683e5c847b22887357c87d544c6e017b3418848c9735ef16.webp"
+    },
+    {
+      "id": "map-a-hesnarga-v1",
+      "name": "헤스나르가 · 불씨집",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-30b833c524328a4c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f882359201666773d4fd28e1f7f4ec28086645eb066ed51138c500b48b33695d.webp"
+    },
+    {
+      "id": "map-a-pukhesga-v1",
+      "name": "푸크헤스가 · 보존식작업막",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-38b720422d2d19a7",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/ac55dc16bebf1cff0aa3d33a3a77fb63b3e04fb86c127c388bedf397cc7f9680.webp"
+    },
+    {
+      "id": "map-a-mevhesga-v1",
+      "name": "메브헤스가 · 사냥초소",
+      "parentMapId": "hesbeket",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d8d46f050b2b9ab8",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/709aab0549f2cd1e875fd613e2f9a1e4ce1c791f3f363ce3178cfa9092ee70b7.webp"
+    },
+    {
+      "id": "map-a-renumga-v1",
+      "name": "레눔가 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-aae1caadc38f650f",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/28ffa715a7c8b56a869be0a25105f3a30cb994ed0328cc1e5b21a4c024bb24b0.webp"
+    },
+    {
+      "id": "map-a-linsanga-v1",
+      "name": "린산가 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9ba8c3cd223a56c1",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/5506a037854013a8bc73072d16ee55aab8a5f92d0c2db7c3190ee68b78ad355b.webp"
+    },
+    {
+      "id": "map-a-nimrenhal-v1",
+      "name": "님렌할 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-7a4ef2d18e9220fa",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/8bbf43b4de110683ef7c979b71a9a281f0e5e3d2e0f2c1590f5f615ce10fea11.webp"
+    },
+    {
+      "id": "map-a-datkinhal-v1",
+      "name": "다트킨할 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-03485af79924f731",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/9daf7b85f3898e3002712b397db5210806afdf8c6cd30ca40a38b56d8651d502.webp"
+    },
+    {
+      "id": "map-a-remrenga-v1",
+      "name": "렘렌가 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-688595e7b37b5331",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/357bd9a7113df06ab83507f2bc86e23680e53acceab7146ca64fbc5d8eb4f1de.webp"
+    },
+    {
+      "id": "map-a-renumsukga-v1",
+      "name": "레눔숙가 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-233632beb785b9c9",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/5bbe023b8678786362bd7fdee7179020006dec0b4c527d859b27fabf5a9769c5.webp"
+    },
+    {
+      "id": "map-a-linsantekga-v1",
+      "name": "린산테크가 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2d0a664a79668055",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/7c66d4a4c4d0f89d05141cb1650b4068631a27bb5656ae67257b05307934bb64.webp"
+    },
+    {
+      "id": "map-a-remrenpilga-v1",
+      "name": "렘렌필가 · 독립 상세",
+      "parentMapId": "linrenet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ed4e3c69ab16725c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f2ba2e424c7202c6e62df8fb0b07ca29844ad2b45246eb4defd2d00b7ff2e601.webp"
+    },
+    {
+      "id": "map-a-heskelkar-v1",
+      "name": "헤스켈카르 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-e0107c391e927db4",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4b9b8c5b76a9efdc20d1cc76bdff142dfcbdd1194817f3d413563682076c3d54.webp"
+    },
+    {
+      "id": "map-a-perbar-v1",
+      "name": "페르바르 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-34f582a0e9cbc23e",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/0c78a71f55d7370676107fcaf075205b44f43a63d9699ee002858d6648018e02.webp"
+    },
+    {
+      "id": "map-a-ramjirbar-v1",
+      "name": "람지르바르 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-faa9ae9913c3e305",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/0a171fd463785ea6ebf6bd752d100ccd82429c9a4269d2268690f0ba2f7e1160.webp"
+    },
+    {
+      "id": "map-a-mevkelet-v1",
+      "name": "메브켈에트 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-198e481c827e0f9d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/1c6e49ebe89a6a8dab8e15440055b74317615da747068350f99253ef2374bea0.webp"
+    },
+    {
+      "id": "map-a-hespukga-v1",
+      "name": "헤스푸크가 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-bce0633e99956ada",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/73fe722f2dc19f13a370cb72ae12fe8d5f7d43faf657a30b5a7092f26ffd2205.webp"
+    },
+    {
+      "id": "map-a-dorperga-v1",
+      "name": "도르페르가 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a6950f6135178f48",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/b48239aad61807f6cd478072067abcb3b7ada89befda7864f96a7f45c532f2db.webp"
+    },
+    {
+      "id": "map-a-kelhesga-v1",
+      "name": "켈헤스가 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-38d60b4b6c8aa2f5",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/98e1e0fbe30aad3a5dbdde71faeefe47b0f37a60423c770a64b077e9a9df5023.webp"
+    },
+    {
+      "id": "map-a-ramjirga-v1",
+      "name": "람지르가 · 독립 상세",
+      "parentMapId": "hesferet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2843e5ac81593b06",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/79def3ac1df033c25ccedb0b175bc6f74322b6dd034b12864fa49f1c3418b7c8.webp"
+    },
+    {
+      "id": "map-a-dunnavrenum-v1",
+      "name": "둔나브렌움 · 독립 상세",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-38a34aace4cd2100",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c5359e90144c9c3c96b600b35c90413d8f00bef9832fcddc4eda02f7f31755d5.webp"
+    },
+    {
+      "id": "map-a-ummarsor-v1",
+      "name": "움마르소르 · 독립 상세",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ccd145356fafa237",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/205c061eb3426d2db1c5d7a79f7494bee17aed1bc41ade44ecbb40e37c379e3f.webp"
+    },
+    {
+      "id": "map-a-bepnavhal-v1",
+      "name": "벱나브할 · 독립 상세",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-54a222242d510e67",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f8a3cb76e2961502ff7e31ee804b202a44a4c2d9e7d2289b888c1d05a14f6849.webp"
+    },
+    {
+      "id": "map-a-duntorga-v1",
+      "name": "둔토르가 · 독립 상세",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-eea8fdaecb28e2c5",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/9f4ba32108dac41f1311672a5f09e98ae520efffc12eb4740d8af644e16b0b62.webp"
+    },
+    {
+      "id": "map-a-dunpukga-v1",
+      "name": "둔푸크가 · 독립 상세",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a351f318df81d1a7",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/1c4ff342242c9df673a53ca5472225fd03f8ee91c446decbbbefb9288657dd8c.webp"
+    },
+    {
+      "id": "map-a-bepnavga-v1",
+      "name": "벱나브가 · 독립 상세",
+      "parentMapId": "fenrir-eye",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-427b195aa7be2878",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4882713d3725f89ca5a5ba8bcaf92232f38119e82b3f388185d50ff6e0809376.webp"
+    },
+    {
+      "id": "map-b-yenworkel-city",
+      "name": "옌워켈 중심 시가지",
+      "parentMapId": "map-b-north-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2ed8c29a33545bbf",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/34975e0b50f01107a6b5343e722ebbfe7c6831473a7a0facb2271d7ffc7cb8c4.webp"
+    },
+    {
+      "id": "map-b-yenworkel-windbell",
+      "name": "옌워켈 바람종·통행검사 구획",
+      "parentMapId": "map-b-yenworkel-city",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2ed8c29a33545bbf",
+      "regionId": null,
+      "preview": "/atlas-engine/assets/e396b5f4583617500ea0ae4e76eb054ac35c475f1b7f61907f38211110eaed74.webp"
+    },
+    {
+      "id": "map-b-yenbekhal-city",
+      "name": "옌베크할 기수단 중심구역",
+      "parentMapId": "map-b-north-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-3163f00f6e3af440",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/83bcaa310b3eaf87fea82e4b60f45b96d8466a27d86d0d8d9976997d9878d409.webp"
+    },
+    {
+      "id": "map-b-north-living-sector",
+      "name": "옌메베트 북부 통행·기수단 생활권",
+      "parentMapId": "yenmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/b1479fd56ce7f000d329fe2158fd868fd6c8edadd3d7553847fbd6b0e32697b8.webp"
+    },
+    {
+      "id": "map-b-yenkelga-village",
+      "name": "옌켈가 고공숙소촌",
+      "parentMapId": "map-b-north-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-274e58be55c17adc",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4427348d2a4146195409dcd84f9a40088fe5c141a3cdb2199b762ec7b829f687.webp"
+    },
+    {
+      "id": "map-b-yentekga-village",
+      "name": "옌테크가 장비수리촌",
+      "parentMapId": "map-b-north-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-fa9cf89ec8d67dd9",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/1bedc1a9fc3e60e3cc7097cb57edb27e0ef6b12a85883704970530de9488acc9.webp"
+    },
+    {
+      "id": "map-b-south-living-sector",
+      "name": "옌메베트 남부 기록·숲문 생활권",
+      "parentMapId": "yenmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/cae4b34484763bed9214eed818c741e233af1315058be0e09dbd6c0f7244136b.webp"
+    },
+    {
+      "id": "map-b-silamrenum-city",
+      "name": "실람렌움 문서·중재 중심구역",
+      "parentMapId": "map-b-south-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9c5d5f6f7ac18582",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/e193d45ae1f6adc5406e710848ee3d8fa3608c55f1d842af350c2865e83356b2.webp"
+    },
+    {
+      "id": "map-b-silbeket-city",
+      "name": "실베크에트 숲문·허가 중심구역",
+      "parentMapId": "map-b-south-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-40eb4562ed431902",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4ed60a3088496342b180d4d69edf9ed374720223b8dabb76e4030cf88ec0b59f.webp"
+    },
+    {
+      "id": "map-b-silamga-village",
+      "name": "실람가 경계기록촌",
+      "parentMapId": "map-b-south-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d1603c1dd12c3c5c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f0b2924972a2cb37ffc11a496bbf97a49952432cf8acdb52158812324d806b55.webp"
+    },
+    {
+      "id": "map-b-dorkar-city",
+      "name": "도르카르 내성·군사행정 중심구역",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-46595dfda186932a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/21a363625b380d15f643bbc2df5e76bf1dd90ad525f6776319deb8bd3e7f53db.webp"
+    },
+    {
+      "id": "map-b-senpukum-city",
+      "name": "센푸쿰 공동창고·배급 중심구역",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-48a1e31eb3432f7a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4f58388751c007f4713b3e6ff888c71e14fdccf10344a1b8de5c1e4e1c74a343.webp"
+    },
+    {
+      "id": "map-b-dorsorhal-city",
+      "name": "도르소르할 수도원·허가 중심구역",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ea0804d14728edbb",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2ccdb5e851477ed7ac2842a4e6ed77a01850ee16a3e3ee7130bb80c97099d76d.webp"
+    },
+    {
+      "id": "map-b-silsorsan-core",
+      "name": "실소르산 성림·장례기억 중심구역",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-18ee482da07a0ab8",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c92ee120c10349edc772b16209e4554802c9641b28269f3bc797f9b62d966678.webp"
+    },
+    {
+      "id": "map-b-nimhal-city",
+      "name": "님할 학당·공개시험 중심구역",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4bbb3cf616a981c6",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/e01604303b11122a9c0a37c7b57cbf431212668d04b3d9bb04a05de68d7c8f24.webp"
+    },
+    {
+      "id": "map-b-bekhal-city",
+      "name": "베크할 병영·군가족 생활 중심구역",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ad2d03f99e8c29c0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/41c55ff954c77a3d076c4dbfbd28d632217dfc5a33bfabf5237296e9c4916bee.webp"
+    },
+    {
+      "id": "map-b-kelkar-city",
+      "name": "켈카르 관문·검문 중심구역",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5ec880affa107282",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/50de224bb4f08bd302fbc3c86f32844051c6fd85c2a00fa103ea18bef1c63184.webp"
+    },
+    {
+      "id": "map-b-dortekum-city",
+      "name": "도르테쿰 성벽보수·석재 중심구역",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9bfd7c9b2638713d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/29e50678b337757b180930fa37a9cc48f52e62dbb240c42a963f05cb5f173ae9.webp"
+    },
+    {
+      "id": "map-b-enhalga-city",
+      "name": "엔할가 성벽아래 민간생활 중심구역",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-1af9a9ac0d6ef7ab",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/0e17fad84be1251e19b4d1b3fd408d2da67d3cf92a6bea63ff8db8a4ae9b1ef5.webp"
+    },
+    {
+      "id": "map-b-bekdoret-living-sector",
+      "name": "벡도레트 관문·병참·작업 생활권",
+      "parentMapId": "bekdoret",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/75d7eac7068dd5f38e2333709bd54f9b2011c8030087327156a74e717b4c45b9.webp"
+    },
+    {
+      "id": "map-b-kelbekga-village",
+      "name": "켈베크가 검문대기촌",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a038797dcc184a97",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4e5cbbaa4a9f7b11ad7d4783254575efcf6248c3ca146d51444521d61988e79e.webp"
+    },
+    {
+      "id": "map-b-dortekga-village",
+      "name": "도르테크가 석재운반촌",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ca795000b8cf412c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/67bdde3553b066f47548e4950aa807f08247bb2e4dd6159c4ee279b787b07455.webp"
+    },
+    {
+      "id": "map-b-bekpukga-village",
+      "name": "베크푸크가 군수보관촌",
+      "parentMapId": "map-b-bekdoret-living-sector",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-997827c9969b4c8d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/a9ee167fcc3843910eb0b51b8a22e06ec0a00d2ddd804571cbf550ba8f59e240.webp"
+    },
+    {
+      "id": "map-b-belbar-city",
+      "name": "벨바르 수문·수로회의 중심구역",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-89253b528d932838",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/34db7872e620726f3f0d463eb79a1d2dad4ddb49cbcb2d3720ebc76b131a3b52.webp"
+    },
+    {
+      "id": "map-b-senpuket-city",
+      "name": "센푸크에트 종자보존 중심구역",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5d9faf77370b86a6",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/9073c823d346f6900b4134a84038c94761a2f0b9458fe9b374da98024d22158d.webp"
+    },
+    {
+      "id": "map-b-bekhal-supply-access",
+      "name": "베크할 남문·군수 산록접속 상세",
+      "parentMapId": "map-b-bekhal-city",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ad2d03f99e8c29c0",
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7ca5749a4a72138f9d00b316b8711a0141cee8469039338c307a7ec986f90c30.webp"
+    },
+    {
+      "id": "map-b-dortekum-stone-access",
+      "name": "도르테쿰 석재반입·환적 산록접속 상세",
+      "parentMapId": "map-b-dortekum-city",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9bfd7c9b2638713d",
+      "regionId": null,
+      "preview": "/atlas-engine/assets/4608ca4687c79e4ec050c5f0c9aa2f279d5da266df1e624b84ae90ca44c154fa.webp"
+    },
+    {
+      "id": "map-b-garsenet-city",
+      "name": "가르센에트 공동경작·노동배정 중심구역",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-91e5bebd344dbadc",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3c472c862d4475d1c8d4918930867b22adb175c13be0e2f3cbafcfabc8e0e5c3.webp"
+    },
+    {
+      "id": "map-b-vebrenhal-city",
+      "name": "벱렌할 재정착·경작권 중심구역",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-89a7bd71e097d29b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/147339139222cea27e26b524a7ca8ca50c93977c15109a153aebebc5eca9a377.webp"
+    },
+    {
+      "id": "map-b-senpukga-village",
+      "name": "센푸크가 창고위성마을",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-3dfa0c27f9104cc1",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/46f719cde0aef32b15977e0853f5375d08a2a5afc58761e3a75c2df4375ad6c9.webp"
+    },
+    {
+      "id": "map-b-beltekga-village",
+      "name": "벨테크가 수문수리촌",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-da0aa501f3493f49",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/1c223b2e455386672c4ebe5e3dbee4e51512197d926c8e67075e6408b5c05c31.webp"
+    },
+    {
+      "id": "map-b-belnabga-village",
+      "name": "벨나브가 내해나루마을",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-8544704d14890842",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f8b830044f42ba931e7114a1758cd693e6413e4ad82d07207a82283c830d80da.webp"
+    },
+    {
+      "id": "map-b-garsenga-village",
+      "name": "가르센가 공동경작촌",
+      "parentMapId": "senhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ea8b6099f28fc854",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/174b9f246dba73862f56651b318c18666730902b4fe579c0beadb1aeed95fb90.webp"
+    },
+    {
+      "id": "map-b-yenyeltor-detail",
+      "name": "옌이엘토르 관측·기록 중심구역",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-29ecffe97ade80cf",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/ccf7688bfef70af02991a3d05eff06ff0bb172e5ca50dcffd49b4c8789fb657f.webp"
+    },
+    {
+      "id": "map-b-arsorsan-detail",
+      "name": "아르소르산 봉우리의례 산록 집결구역",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d63fe714da949544",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/6bef8dac6b950ede52f1975a5db804c78c896f0a5094540c5a03bd200f15a1c0.webp"
+    },
+    {
+      "id": "map-b-dorkelbar-detail",
+      "name": "도르켈바르 등정허가 관문구역",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-b2596d262927087a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/1013cdb8663056f5af3db1a8cd60502d000c1923fb9abb0c3a3e5bd8821c0ff9.webp"
+    },
+    {
+      "id": "map-b-sorhal-detail",
+      "name": "소르할 순례숙박 중심구역",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-176607d17d7ae972",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/659e3dacf6729b47e496cfb5101e82ffd69310b481e76ca2caff70c70a88f717.webp"
+    },
+    {
+      "id": "map-b-sorhalga-detail",
+      "name": "소르할가 순례숙박촌",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-884ae7511a68418a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2ca0b697faf76c9e9c228f88ae4ce2e70b83ad660b088f2db104da51ca1e2632.webp"
+    },
+    {
+      "id": "map-b-yentorga-detail",
+      "name": "옌토르가 관측자숙소촌",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a5b6edec03d98582",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/20b7b9fd5c3519bbc59520ee8c89e77401f180266b198212f36a98d81f384851.webp"
+    },
+    {
+      "id": "map-b-dorkelga-detail",
+      "name": "도르켈가 안내·구조 대기촌",
+      "parentMapId": "ardolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9b31230e2b55a21b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/5e6b7bf4e87f9a6930b0ded86a62dbf6721f9b9fe66ff19cd08461f9bcdd78d3.webp"
+    },
+    {
+      "id": "map-b-radsilhal-detail",
+      "name": "라드실할 왕실정원·수공예 중심구역",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-c87a2f577a998723",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4ed389af569d9697ca777480218a33a010d06b2543eff536c0c907c7e028708b.webp"
+    },
+    {
+      "id": "map-b-silbekel-detail",
+      "name": "실베크엘 숲감시 경계구역",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5b317556ae79294c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/7c09a169d3ec4cc844c2c696a8d764a2bb9d121c56cc8c04f38dd38728a275ba.webp"
+    },
+    {
+      "id": "map-b-siltekel-detail",
+      "name": "실테크엘 목재검사·적재 중심구역",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4501cf61cfe4356e",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/65d95215416dc5062924288297600584f8931ecf71ccd2335150fc9f96d06b19.webp"
+    },
+    {
+      "id": "map-b-sildatbar-detail",
+      "name": "실다트바르 채집허가·약초 중심구역",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-66ec813fed40afa0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c3c3ec3d8297dbd751ab634a9947b73cb4fff338f4e4127d5174fb19feeabc30.webp"
+    },
+    {
+      "id": "map-b-silmunga-detail",
+      "name": "실문가 성림숲문마을",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-5fdd40fe31a45d92",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3f13586df777d8529927e25f76d74e1c7593f56fb6fa2e905bc159268d8508cf.webp"
+    },
+    {
+      "id": "map-b-radsilga-detail",
+      "name": "라드실가 정원관리촌",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-e78a789659c62199",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c63a532522f632ea4a0dfb548ddf96973963510255b20851afa089c1b88cb943.webp"
+    },
+    {
+      "id": "map-b-siltekga-detail",
+      "name": "실테크가 벌목·적재 숙소촌",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-bc60b7409493a439",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2a836896425965d4f727f0a8533a45cf27f300c5f27c7e0d85f304e87594112b.webp"
+    },
+    {
+      "id": "map-b-sildatga-detail",
+      "name": "실다트가 채집허가촌",
+      "parentMapId": "silhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-0c3fde9a0d4042b8",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/a8f1c24fdb246b0ba487ec2c61cc4e2d6ef66763a234642e77b940c4a99d10ca.webp"
+    },
+    {
+      "id": "map-b-nimremhal-detail",
+      "name": "님렘할 철학·논쟁 중심구역",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-34dbec82b00be25c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c26705a1505a2ff47c34442192008c44a907286795036687177d28955c07d82d.webp"
+    },
+    {
+      "id": "map-b-sordatum-detail",
+      "name": "소르다트움 종교후원 중심구역",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ae7c6fa8fc16afca",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2268abb89d112dbe5be4b7910848a9a3db10ec73b62d62e7c1bbcd3275cd2b40.webp"
+    },
+    {
+      "id": "map-b-rentekum-detail",
+      "name": "렌테쿰 필경 중심구역",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-1209de01bccf5902",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/6d0ffc26bbbbfc16897ceec8d7170fb90ac1eaac3beaebd915db1d59b1dec886.webp"
+    },
+    {
+      "id": "map-b-renmermir-detail",
+      "name": "렌메르미르 사본교환 중심구역",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4c45cf8dee9b70c2",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/16a130d8641a6fcfee97daeb443e7ff72aec0e744eff3382e3d2ebd750798bbc.webp"
+    },
+    {
+      "id": "map-b-nimrenga-detail",
+      "name": "님렌가 학술여관 마을",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-51cf4e6206082123",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/bba8c378d61d5e8533131d8ce46950c07bc3237cb2f24aef48977b62cfd63bbe.webp"
+    },
+    {
+      "id": "map-b-rentekga-detail",
+      "name": "렌테크가 필경작업 마을",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-08f1f683b6c90c98",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/66a51bbc58136095ad9a5eee1befcaf80050d08a63e9814fed4c10344045ed7b.webp"
+    },
+    {
+      "id": "map-b-sordatga-detail",
+      "name": "소르다트가 작은후원신전 마을",
+      "parentMapId": "nimsolet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-bc0c37005a14b79c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/ef01f3c29534790aa46d19e6354b49d3870bc067735e104e9b54ff0219e04df5.webp"
+    },
+    {
+      "id": "map-c-markelmir-center-a",
+      "name": "마르켈미르 중심항",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-28ad48cc8b4dfb1d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4728d2dc6e119bf5f32379d0404883799f467a53ba5c126ca50c9ecfdede24bb.webp"
+    },
+    {
+      "id": "map-c-markelmir-quay-insurance-a",
+      "name": "자유항 부두·보험 구역",
+      "parentMapId": "map-c-markelmir-center-a",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-28ad48cc8b4dfb1d",
+      "regionId": null,
+      "preview": "/atlas-engine/assets/66bb2ccddb417006392c4cebf0ce0478090a19e2c8bdd398b1e6821b8adfa2ea.webp"
+    },
+    {
+      "id": "map-c-tikmebhal-seasonal-a",
+      "name": "틱메브할 계절회의 거점",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-dbc12b4eb54995b3",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/87c208d5013d3bf2e6a6920844adc881033d04fdcb57e89a38233b983a03785d.webp"
+    },
+    {
+      "id": "map-c-workbar-administration-a",
+      "name": "워크바르 출항 행정구역",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-0c4f6cdf1bbebac6",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/c140bfff6293a90fbd543518947aa4d0361028ee64d9b7704a87ab0e72d6a3a5.webp"
+    },
+    {
+      "id": "map-c-marlenum-records-a",
+      "name": "마르렌움 기록항구 중심구역",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-3d4cfdb2ea2c95eb",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f77cee040822f5408e843b69507c224d6768ff64ca613d28683cf5065df2c956.webp"
+    },
+    {
+      "id": "map-c-navhal-lodging-a",
+      "name": "나브할 선원숙박 중심구역",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-bcab783fc086a342",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/4645ca5e70abac00de728e21e58a3e24d2fb80dc00ff83a545a2ea48dc710942.webp"
+    },
+    {
+      "id": "map-c-ummarkel-departure-a",
+      "name": "움마르켈 외해출항 중심항",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-6672ae3cc647a53f",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/1395b033d9a21d75c2dca6855f9e03a3bf35df3b3f45d36809c0a4de2cbc5efe.webp"
+    },
+    {
+      "id": "map-c-navrenga-a",
+      "name": "나브렌가 해도필사촌",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-fa2fff665b7b7313",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/9c8492b179b9a2a6f9e4fdd7cbcd37cffd15f97e7e98aca427af978b99cc6e27.webp"
+    },
+    {
+      "id": "map-c-umnavga-a",
+      "name": "움나브가 마지막보급촌",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-35ac987929ee5784",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/3f18248b4456fdf2222e7e67e773f085581ef1aca256a991fee80fbc6c02c620.webp"
+    },
+    {
+      "id": "map-c-marpuk-a",
+      "name": "마르푸크섬 보급선착장",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-0538fd482977fc57",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/8b9bd2cdb90a79b0cf494bc6aa09b450977ff6a335474cd4419a52ffd8cb1f58.webp"
+    },
+    {
+      "id": "map-c-bellambar-a",
+      "name": "벨람바르 물권 회합지",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-aa46da8b52a816ba",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/5a3dc22b1d87deaa3b95e3c4ac28516bd367f8e0fdef32594b787c10442471b1.webp"
+    },
+    {
+      "id": "map-c-mebbar-a",
+      "name": "메브바르 가축분쟁 장터",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-c4afd2c3f2827202",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f84e6761905684c038dbb391a00956cdd13ef8febc928ab6a487003f44aa0a4e.webp"
+    },
+    {
+      "id": "map-c-belbekel-a",
+      "name": "벨베크엘 우물감시 중심구역",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ef2d6af050e85818",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/db458b6a6d088dce1d1ad94e22520089c8102a14c296b281b892c160767c7630.webp"
+    },
+    {
+      "id": "map-c-workrenum-a",
+      "name": "워크렌움 이동장부 중심구역",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-e7a7ed0bf072a36b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/f232a5f1820ec84b877a9c85409eb795f5a84077e485b42dec956d290f703a7a.webp"
+    },
+    {
+      "id": "map-c-belmebga-a",
+      "name": "벨메브가 물가가축촌",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2125f510e4192b5b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/ab7d15e9a1cac25bd9dc2a6c919b9c6b6194cc5c33f95f740948498fbf004d3d.webp"
+    },
+    {
+      "id": "map-c-tikramga-a",
+      "name": "틱람가 계절 천막촌",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d4a3ac1ad7b4c3f2",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/80feb73e064aa7f88e8d0544f50278c5c68cfbc2db2296e25f250eeaf3a428e6.webp"
+    },
+    {
+      "id": "map-c-mebtekga-a",
+      "name": "메브테크가 가죽말림촌",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9d387d5e86a3b597",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/87a1e7eec3d7d5c5d8244dbef62cccf32ba3f671aff709a40608ad414a525eb0.webp"
+    },
+    {
+      "id": "map-c-workrenga-a",
+      "name": "워크렌가 장부숙박촌",
+      "parentMapId": "garmebet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-8734d18d3b2635b0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/95d7743e91815ace2a1dad0f20a95e92d624561163846db083bbc1f53e40b9e7.webp"
+    },
+    {
+      "id": "map-c-merbelmar-a",
+      "name": "메르벨마르 동쪽강안 중심항",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2d9a741f4cd8a622",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/9ca90e68967eb9ca4574896ac85e361da52f08c366e043acde8f8278a5218f2c.webp"
+    },
+    {
+      "id": "map-c-merbar-a",
+      "name": "메르바르 상인의회 중심구역",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-3e8c985df152a82b",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/cf5d332b0cce0faff0784cf29f73eb84b2a8e155c5e5a00ab29d2d67792dbe03.webp"
+    },
+    {
+      "id": "map-c-hedkelbar-a",
+      "name": "헤드켈바르 통행세 관문",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-b5409aa559f332b3",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/75d03f2f8ecedac92440a78b1fc0c8691db29ab9bb810026604d58124cc57e8d.webp"
+    },
+    {
+      "id": "map-c-puktekum-a",
+      "name": "푸크테쿰 창고하역 중심구역",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-efd66f1928487430",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/d8126a43fa5ec3ea27901b0d6a6e3273384d4702e10d7c41ccb02e560e9d12cf.webp"
+    },
+    {
+      "id": "map-c-mernimbar-a",
+      "name": "메르님바르 상업법정 중심구역",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4601f56c5e395af9",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/accc61eb07f7a0a0f6e21f0f4451f66c66d92418b87bca2cdf5864d41dc206d4.webp"
+    },
+    {
+      "id": "map-c-mernavga-a",
+      "name": "메르나브가 하역노동자거리",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-de5f4764540220de",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/7174953f228908155346b8345ed1c77c35ec5bcadc72fc12d8013f54843e9385.webp"
+    },
+    {
+      "id": "map-c-hedmerga-a",
+      "name": "헤드메르가 통행세 대기구역",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-8679450fc7fb7a3c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/fca1b4b04394d99940e32fa6adfb34b6bb747965412160cdc51f6e8cf8651d4b.webp"
+    },
+    {
+      "id": "map-c-pukmerga-a",
+      "name": "푸크메르가 창고거리",
+      "parentMapId": "merhalet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d93afff402abbb2d",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/cd23753f7da07d80d6da55de58a02cffea07561ab25f7e2d20588b192aee1cb0.webp"
+    },
+    {
+      "id": "map-c-dorsorsan-a",
+      "name": "도르소르산 산악사원 중심구역",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-785df4991eafb1dd",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/851bf49d78a0ec6352c14e6e65562a324c21a4281d2fd94e888930bdfc587340.webp"
+    },
+    {
+      "id": "map-c-silmermir-a",
+      "name": "실메르미르 약초장터 중심구역",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-3f95725840bc5a59",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/41e7a7aa23fb33e5152685004a8511f98acc9fe4eb6cb730bda533a92cfa04df.webp"
+    },
+    {
+      "id": "map-c-belmarmir-a",
+      "name": "벨마르미르 서쪽강안 항구",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2564a83c1458aea0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/d999fad6527be02f044fbc2b46cdddc535191e48885691d4176df78f0b80c748.webp"
+    },
+    {
+      "id": "map-c-silsorkel-a",
+      "name": "실소르켈 성림접촉 구역",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f86469f5544166d2",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/d4913579269525f9c4db7d996e479f2acbf161e0543e4c9eee3b2cd25029588a.webp"
+    },
+    {
+      "id": "map-c-mebmerkel-a",
+      "name": "메브메르켈 초지교역 구역",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-c2bf6f211b92cda3",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/43b17ec597cd66d3f251947acb843945dafdac8b9457dcd31e99af6adc0400ec.webp"
+    },
+    {
+      "id": "map-c-silmerga-a",
+      "name": "실메르가 약초채집촌",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-a6e06686a6ccb885",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/6574dda38a8c1b2eb1ab55ea191a6db9c8fb236b64f926ff101b7e2ebe0c24d6.webp"
+    },
+    {
+      "id": "map-c-sorsanga-a",
+      "name": "소르산가 사원아래 숙박촌",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d9c79942a92f8b0f",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/aa2e4729ce98548a77b699e6ece403f23fd0d13e2124645fb71b9848bab08179.webp"
+    },
+    {
+      "id": "map-c-silsorga-a",
+      "name": "실소르가 성림안내촌",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-c59534a3e777c2a9",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/8ccfc0d50a073f905201e0f2ce0a7d0b29aaf287c23411cdff5cdda3486a0f0c.webp"
+    },
+    {
+      "id": "map-c-mebmerga-a",
+      "name": "메브메르가 초지교역 야영지",
+      "parentMapId": "silnimet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-fc2c76e87ec096d6",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/e09455c5a494487b05a58b1eea0254e4dd3afbd13c717547c5a7a9cb81575fda.webp"
+    },
+    {
+      "id": "map-c-silrensan-a",
+      "name": "실렌산 숲전승 중심구역",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-16f743361b258a9c",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/0ae261072c1ae6a9d7629dda29228dd1d0c3ba5f9d17ede83e062c215b495e94.webp"
+    },
+    {
+      "id": "map-c-workkelhal-a",
+      "name": "워크켈할 탐사접촉 거점",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-cc53cb2092612005",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/8d1afcd452857b239871676bf01ad518e85ed2869801ef9ef9428b99b8a8fcf1.webp"
+    },
+    {
+      "id": "map-c-renyalum-a",
+      "name": "렌얄움 사본열람 구역",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-e23db14c27654b14",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/57d31eca0a9588b98044d1cd1e833dea5c1fe7a10cc2bf87695b6ef3a21764a1.webp"
+    },
+    {
+      "id": "map-c-umkelsan-a",
+      "name": "움켈산 안개길 안내거점",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-fe2c9d342f4b332e",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/90f4c641c0446850a60c2d562b0655aa2799cd56694d39096f087786cd67cca0.webp"
+    },
+    {
+      "id": "map-c-silkinga-a",
+      "name": "실킨가 계보마을",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-9a78124f3bd632ca",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/53684fa00e5cec48d2a17184704f153fc90870cac0c52313e9a4eef9774feb48.webp"
+    },
+    {
+      "id": "map-c-worksilga-a",
+      "name": "워크실가 길잡이마을",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ff831fc6e1249950",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/ff503e57c38955a615168719a617b1b66cbc9ecaa89ac2618bf087f705d99370.webp"
+    },
+    {
+      "id": "map-c-umkelga-a",
+      "name": "움켈가 안개길숙소",
+      "parentMapId": "sylvania",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-4bab21baf9586f2a",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/577b45bc346a1dcf8c239861e180484c74875b89b237e203d59b109ada5b3ddc.webp"
+    },
+    {
+      "id": "map-c-narmarkel-a",
+      "name": "나르마르켈 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-ed121732ca5aefa9",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/11cacb0162505da324a2759a53abb0d185da9bc9cc986c368b7a466aaa855875.webp"
+    },
+    {
+      "id": "map-c-narbektor-a",
+      "name": "나르베크토르 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-2dd6e36bf6c89f29",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/5bdea03a88c9fb145132b90d066ba4b10b36f8dcd29b99a3eea8d11cd9c156ae.webp"
+    },
+    {
+      "id": "map-c-narmarlenum-a",
+      "name": "나르마르렌움 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-d6e0b1993391b8c8",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/2d11e26c18bf23ffb82438060e12ac60bd7ff47bb3d8a2d036045154f5420ff5.webp"
+    },
+    {
+      "id": "map-c-marmoshal-a",
+      "name": "마르모스할 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-61539ca58c3f31e0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/418d8b30c18e91f3b7912e22e8ec8bd5f68246ffa9c4c7c93551208ede30ec31.webp"
+    },
+    {
+      "id": "map-c-narmosga-a",
+      "name": "나르모스가 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-94a338523ac463c0",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/04ecc7e17a24323335ee75f02cdde2bea9b58de72f0290d2eaa7edc47e3c1c27.webp"
+    },
+    {
+      "id": "map-c-narperga-a",
+      "name": "나르페르가 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-f48a1e4fc0d7f0e6",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/7be499ff38b9af9d385ab6589af5041fd46d17b57fb5bf1050f65f9df2f1eb57.webp"
+    },
+    {
+      "id": "map-c-marnarga-a",
+      "name": "마르나르가 기능 중심구역",
+      "parentMapId": "dragonspire",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": "place-dbc1e9a1815eb445",
+      "regionId": null,
+      "preview": "https://raw.githubusercontent.com/musueman/vireth-atlas-media/main/assets/30770c44e9859c5289a1c5df52dbc4faf6108e540d4a8bb45f9e1f7f2f215e46.webp"
+    },
+    {
+      "id": "martorga-geographic-access",
+      "name": "마르토르가 관리등대·고원 접근길",
+      "parentMapId": "norghard",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/22e97851a8717494fc9cc5db889c74303535b4f2bd5197a565fc14fa821df191.webp"
+    },
+    {
+      "id": "hesmarga-geographic-access",
+      "name": "헤스마르가 어항·외벽밖 환적계단",
+      "parentMapId": "norghard",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/3f7100404089c54daaba7ff82fcf53d3a173f1f9f40520b59d04896b10402864.webp"
+    },
+    {
+      "id": "leonia-knight-terrain-access",
+      "name": "레오니아 기사봉토 접근회랑",
+      "parentMapId": "leonia",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/87d18032fb83c0d45f862ff10c43b0d00c7f6523c2867bd19e3be117de709cb9.webp"
+    },
+    {
+      "id": "leonia-royal-terrain-access",
+      "name": "레오니아 왕도 배후 접근회랑",
+      "parentMapId": "leonia",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7a06b0d84e41f14222239c1cfc00b5498a6a83425a82a65da913118dd59b5b16.webp"
+    },
+    {
+      "id": "kelnabet-mainland-access",
+      "name": "켈나베트 본토 환적·산록 접근길",
+      "parentMapId": "kelnabet",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/1001c5017f453f4b4943116b6a61d52490fcf1c770a5de0c55c73a8cb889c05d.webp"
+    },
+    {
+      "id": "exploration-e01",
+      "name": "갈래등섬",
+      "parentMapId": "world",
+      "status": "redirect",
+      "redirectMapId": "fenrir-eye",
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/5a2c194fec93a48816419f0e3d8ee70396a033ae3a2927535cc741a7c41035cd.webp"
+    },
+    {
+      "id": "exploration-e01-outer-03",
+      "name": "층바위섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/bd811304939cb85c0cf7f75b00ea0dc65dd96b318a04a7a34ad2bdcb546f9844.webp"
+    },
+    {
+      "id": "exploration-e01-outer-04",
+      "name": "풀마루섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/d55f0cbbb47f280aa13da788ff7d8baff1bfb0ec1f3941591ad1eb13649433c6.webp"
+    },
+    {
+      "id": "exploration-e02",
+      "name": "얼음조각 만",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/e844c81810305a72255b367ac2e0e993241313d6ff36a57556dcffb78caaa957.webp"
+    },
+    {
+      "id": "exploration-e02-02",
+      "name": "눈벽 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/33f71b361e1a41ae2ff55280eeaef0e16e1289901e7f3f6f19b2ce6103d56421.webp"
+    },
+    {
+      "id": "exploration-e02-03",
+      "name": "납작눈섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/b37eb02aeac09a5239bb2c021b9b0aa2a3539f65207c5d7a660331602b4559e2.webp"
+    },
+    {
+      "id": "exploration-e02-04",
+      "name": "톱니눈섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/1abe2532b008fb00889d501083b194fdf1b2cd0dbe9798c9f2fc6f1435dd9c75.webp"
+    },
+    {
+      "id": "exploration-e03",
+      "name": "긴꼬리곶",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/5ef466b4f6c6764bf3916cff8688a7303ef5e138b12bcde3d5f716995bdec3a2.webp"
+    },
+    {
+      "id": "exploration-e03-outer-02",
+      "name": "넓은골 산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/bc9c5833c6360ea6237dd37d082eabf85e772e6e3ef6da50d7548a78aa3fa14f.webp"
+    },
+    {
+      "id": "exploration-e03-outer-03",
+      "name": "겹주름 능선",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/a5d3ac6c595bcaa89f91d525cb7e4c8c8d45b4a27f6e4ea56004f455bcfc05b7.webp"
+    },
+    {
+      "id": "exploration-e03-02",
+      "name": "눈띠 산곶",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/922918cfb3a98ce187c7ab8b042efef7d3e6bafe610977ccd5e37e5ce20cf30d.webp"
+    },
+    {
+      "id": "exploration-e03-02-outer-02",
+      "name": "엇갈린 산등",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/b88b3151e59eb3f7f0fb3df2f72fd4d0811ece233ca821168becd9fcae46ca43.webp"
+    },
+    {
+      "id": "exploration-e03-02-outer-03",
+      "name": "굽이돌 들녘",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/aa3216aa7115f24d285eb1e9649d807f60163c1148c2eebb2ab201bce392a40d.webp"
+    },
+    {
+      "id": "exploration-e03-03",
+      "name": "창끝 산곶",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/ca81b6617b7faef98b9b49fa8935d81a4042b5e20e5ec6389643f30d0ee23f2a.webp"
+    },
+    {
+      "id": "exploration-e03-04",
+      "name": "겹눈 산릉",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/2c38513484670680877ea7bcbb4544a554a1f6b6b8530b622e119c450eae051e.webp"
+    },
+    {
+      "id": "exploration-e03-05",
+      "name": "별갈래섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/9f1f6fc0ebed0cbd0b27dd362850496b8a13e2e31a7528eed1bdd482c134cfab.webp"
+    },
+    {
+      "id": "exploration-e04",
+      "name": "풀물결 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/1a8bfddead23c0c05d515051b8627cd7589d336f5e869d4e08603795df07ed48.webp"
+    },
+    {
+      "id": "exploration-e04-02",
+      "name": "섬그늘 숲",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/134fe9fcdbd471649841d0ef789d24a9d13cfae20e57bb6421f233d98322787d.webp"
+    },
+    {
+      "id": "exploration-e04-03",
+      "name": "돌갈기 숲",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/ec706dbb6fd1b43b7d57a796a4a372bb9f9258f6252dfd9baf655ecc09c1e7fd.webp"
+    },
+    {
+      "id": "exploration-e04-04",
+      "name": "푸른어깨 산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/c5f10c8112b45255f5bec140a9ad10d8b6f822159da360d2177f470461cc635f.webp"
+    },
+    {
+      "id": "exploration-e04-05",
+      "name": "숲등섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/6ee48268fb04c1cb3d1d0fb560e99ffd64314ea98ca668cbbd684e2d32df2469.webp"
+    },
+    {
+      "id": "exploration-e05",
+      "name": "갈고리 물굽이",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/56a2b85b1577ae047da1501adc4c50315028aee648a9ea6cdb64f18956597c02.webp"
+    },
+    {
+      "id": "exploration-e05-outer-02",
+      "name": "벌어진 숲곶",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7bcc6144d43402a5adc2b251d1ebf5fcbce287f47d2158c3307548fb08d619ec.webp"
+    },
+    {
+      "id": "exploration-e05-02",
+      "name": "굽은등 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/85388a564aeaede24092436d2b12c492c58cfa0cc9bf6988185cf03a8f8cd745.webp"
+    },
+    {
+      "id": "exploration-e05-03",
+      "name": "실굽이 숲",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/a416e454f9dfc85965f86c3ba0532ea9cb1ec047ed70dfcb60d4633be481b3f8.webp"
+    },
+    {
+      "id": "exploration-e05-04",
+      "name": "바위울 숲",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7d30cc8ebd7899c854aae5d040f3218f07f860cacaeefe885b27163c88fb0248.webp"
+    },
+    {
+      "id": "exploration-e05-05",
+      "name": "반달물가",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/40831c7509c7df4b10fc4201ac9f7e5381a5e931d045be5b26993446249604dd.webp"
+    },
+    {
+      "id": "exploration-e06",
+      "name": "갈고리곶",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/dd96bc9056cb7522b5c41f39817080af4a1c47440cf5239a603a53d2a8db3950.webp"
+    },
+    {
+      "id": "exploration-e06-02",
+      "name": "옅은물섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/053641b44428f440bb43daee5fed54b0525088793b3604317aaa60a727f056ef.webp"
+    },
+    {
+      "id": "exploration-e07",
+      "name": "굽이들",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/64603c9f10a4c6ed966cef09e21ed248a9aae40bc51e0d520bc956723970d128.webp"
+    },
+    {
+      "id": "exploration-e07-outer-02",
+      "name": "흰어깨산록",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f656ea1758fc25af749dd4134866d9a36794399f97dbdb28bf9b6e4152a6ccfb.webp"
+    },
+    {
+      "id": "exploration-e07-outer-03",
+      "name": "톱니등 산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/1981db6a62308e0815de014e9949dbee28a5cc61bcf3a69028adb5676693d8d1.webp"
+    },
+    {
+      "id": "exploration-e07-02",
+      "name": "긴물골짜기",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/710e3519a55166cbc0c7d1cd37bd198e530286dcd8f1b9e32d6cae1e30822f9f.webp"
+    },
+    {
+      "id": "exploration-e07-02-outer-02",
+      "name": "겹숲구릉",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/678c886eebb738a31ac68453e48a2f38f552cd0d45d999ae5ad45095a2687560.webp"
+    },
+    {
+      "id": "exploration-e07-02-outer-03",
+      "name": "갈래물들",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/24bb815cf2c21aab86f7df82e8b8f28260b4959bb6d59cfcf8860afb6e330454.webp"
+    },
+    {
+      "id": "exploration-e07-02-outer-04",
+      "name": "돌너울골짜기",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/fb4f1dcbb7803eac733f93d43d595d5e32a9743a7d7125bdaf826e52715ac739.webp"
+    },
+    {
+      "id": "exploration-e07-02-outer-05",
+      "name": "그늘골",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f767f25c441ba308392501a21a6f394d3b02fb084a4209eccc5facc7e322e6c0.webp"
+    },
+    {
+      "id": "exploration-e07-02-outer-06",
+      "name": "흰자락산록",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/60211c3426e0efa2c79db6c4728dd05402e01eeb4056ce00883b55b7b53b9d4c.webp"
+    },
+    {
+      "id": "exploration-e08",
+      "name": "두물끝해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/8e564ef07bd09379ccfdeed6aa66bdc9299528eeb84f91d83c962ae0ce60a3b1.webp"
+    },
+    {
+      "id": "exploration-e08-02",
+      "name": "고리숲해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/3426f8e05875385fd6766d28b2a01ddfa637c83de25d6796e470f6066e042a06.webp"
+    },
+    {
+      "id": "exploration-e08-02-outer-02",
+      "name": "겹마루골",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/a1352f26b1b897ab37977e1b6c5f477c796e3c1332a7276873fe48ae4a6a0670.webp"
+    },
+    {
+      "id": "exploration-e08-02-outer-03",
+      "name": "잘록섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/83bb4a3341885d09f3505f72ceffc53df5fc5202dd049ab15302ad97a45782f9.webp"
+    },
+    {
+      "id": "exploration-e08-03",
+      "name": "굽은벽해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/40f4f82cedf10a743d19c781db40dd05f49c228f37ec61ee0c0d459e0d7d29de.webp"
+    },
+    {
+      "id": "exploration-e08-03-outer-02",
+      "name": "숲부리해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f82c6564202666dc3d6deb5909794eb1a6ab3ada918d70cc4269d2cabe4c1ef3.webp"
+    },
+    {
+      "id": "exploration-e08-04",
+      "name": "숲자락해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/d6f0ec7e168907220e0fa1f3402deda8196f33b92174fbe8eed862f7ee9ce1c6.webp"
+    },
+    {
+      "id": "exploration-e08-05",
+      "name": "겹바위섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/24eb2bb350f1761ac9ca5267f26b750119539e9a55de3c4f8b74b02069139acc.webp"
+    },
+    {
+      "id": "exploration-e09",
+      "name": "층바위해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/de36737997f76fa982952a21376895542714341dbb91a79457aa13e2abaf819a.webp"
+    },
+    {
+      "id": "exploration-e09-outer-02",
+      "name": "돛마루섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/4d21ee12c69fb2c5e16443dab7a54fecee7914806b6c9c81bce89d7380ccadf8.webp"
+    },
+    {
+      "id": "exploration-e09-outer-03",
+      "name": "갈퀴끝섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/8b10899df181171f3cffec98398100c357745e524c454105f87e9c86ad70d1a5.webp"
+    },
+    {
+      "id": "exploration-e09-02",
+      "name": "벌어진등해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/90690fdd229224c55ea03f4aa27c11b6eb77de81efbed0fa731d7edf65fbace1.webp"
+    },
+    {
+      "id": "exploration-e09-02-outer-02",
+      "name": "골진섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/6682861b1411847faec4f619bd2e85524c95f8328e57f95c77c0c4579ddec694.webp"
+    },
+    {
+      "id": "exploration-e10",
+      "name": "황빛구릉",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/9121664b1cc9e03d5803f4f785ebdfacc31a25668d42618eb2b4b6181993f783.webp"
+    },
+    {
+      "id": "exploration-e10-02",
+      "name": "칼등해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/3e3be7575baf606714922758f29d593c2581d4aef6a8b302c9490ae9bb193bf5.webp"
+    },
+    {
+      "id": "exploration-e10-03",
+      "name": "병풍해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/959e7389947cf7a2c23f8e390e57293d08127f946d5dfd3fa6718efe8e544fab.webp"
+    },
+    {
+      "id": "exploration-e10-03-outer-02",
+      "name": "흰솔기산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/beb562843fd0d511ee58a456c4449120edb60d4973d62e31456f7334a5351f79.webp"
+    },
+    {
+      "id": "exploration-e10-04",
+      "name": "돌부리곶",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/04c6b45b4d1471ebf3df3d83e5265497f45134f16d1732d60a41247e91a05fa2.webp"
+    },
+    {
+      "id": "exploration-e10-05",
+      "name": "휘감은골짜기",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f05b34966b5a0980b20f9f938e76f83d5b36a40639a702c93096bbbc40deee94.webp"
+    },
+    {
+      "id": "exploration-e10-06",
+      "name": "포갠등 산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/55f8b92a424e7e83db85b3b2a003ac4b95caf4fbc76fd8835cb28ccc7bc2ba74.webp"
+    },
+    {
+      "id": "exploration-e10-07",
+      "name": "숲끝들",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/e1e4a09906030e8beba17ebaf75ef317958de67bf7bfac62452ca1940a373504.webp"
+    },
+    {
+      "id": "exploration-e10-08",
+      "name": "잔돌골짜기",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/04fe7b34ef58c37979dc1d1f89fe7d682de78c5100039094930e5c278f90bc5a.webp"
+    },
+    {
+      "id": "exploration-e11",
+      "name": "깍지곶 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/07105ca37f1835f39d31ec1e6bd498bd227ed2ff01e45a8708e99e353449bb26.webp"
+    },
+    {
+      "id": "exploration-e11-02",
+      "name": "너울 구릉",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f46dee2b46f85aa1933f5e18a6ca963d07d0956c579cc0fb3ad810e98afa75c1.webp"
+    },
+    {
+      "id": "exploration-e11-02-outer-02",
+      "name": "칼등 산줄기",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/51ed123065f7ae080dea7827840962671a9e61b2f1b6656192e28985d1c5673b.webp"
+    },
+    {
+      "id": "exploration-e11-02-outer-03",
+      "name": "굽은물 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/b864ac258167f385a605f391e61c0eae78626bb1188e8380989563b1e697e9eb.webp"
+    },
+    {
+      "id": "exploration-e11-02-outer-04",
+      "name": "흰마루 산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7db3a859614ab34721c2e7fc078d1ce32454a27f7f047ae36500cc2b64c7eff4.webp"
+    },
+    {
+      "id": "exploration-e11-02-outer-05",
+      "name": "접힌등 구릉",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/a1c88d7c3c461a88c67795125b525931a659dda26fba5a0a8258da63a6d638f6.webp"
+    },
+    {
+      "id": "exploration-e11-03",
+      "name": "산그늘 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7c50dc5db255d530ecf0447fe29e87b1717d70d33bedff715b2a95470bdfe74a.webp"
+    },
+    {
+      "id": "exploration-e11-04",
+      "name": "실물결 하구",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/79c68325aa182514c50c9c257339ecd94cfaae2f5a230079f5c55bc4e30d33af.webp"
+    },
+    {
+      "id": "exploration-e11-05",
+      "name": "갈래등 산지",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/983714c559fe03414b30daeeb12067cb4c438b093c6e76ed8ac289177030f031.webp"
+    },
+    {
+      "id": "exploration-e11-06",
+      "name": "넓은품 들판",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/473c6962ed9ded63913d56ccc5a1cc898509d301cc8338ec55b22806f2dae2a4.webp"
+    },
+    {
+      "id": "exploration-e11-07",
+      "name": "겹봉섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/5064cbf9bdf0e4be4980a3cc9512d906f8c89c52f0b00a167f58ea5ed2c95372.webp"
+    },
+    {
+      "id": "exploration-e11-08",
+      "name": "흰등성이 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7604dbd0375f1b4fc8cfe1fd74e8394ce18ffff80814c39c01d47e2ab7672433.webp"
+    },
+    {
+      "id": "exploration-e12",
+      "name": "불갈기섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/c7192ae3e450c9c3edb4915917a3c99a18e77be2626b80af9c396b42d5c7d625.webp"
+    },
+    {
+      "id": "exploration-e12-outer-02",
+      "name": "돌돛섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/0a7926245f0335f9a1cfa2493c26a3bd5dba10c5590f671a39ceb6d0ff76c060.webp"
+    },
+    {
+      "id": "exploration-e12-02",
+      "name": "연기뿔섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/940848b51e8cfc935e3d743605de03fdd78f1bdc4382b34c9ffc319f87b6e6dc.webp"
+    },
+    {
+      "id": "exploration-e12-03",
+      "name": "주름바위섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/d31447e18d6ca1d48ff3e8eca00e56c6afa9b43602ee508eb0bb71abf3ba446e.webp"
+    },
+    {
+      "id": "exploration-e12-03-outer-02",
+      "name": "숲띠섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/0831c5d829aa2a7cbc46e30fe7d0e3b9021d70d88ecd1f8e016ea41d8110adc9.webp"
+    },
+    {
+      "id": "exploration-e12-04",
+      "name": "톱등섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/0d4ea0d3e417b06f06976b17b6cd0b916f18e3bc9c433b8b5d8316c028d88759.webp"
+    },
+    {
+      "id": "exploration-e12-04-outer-02",
+      "name": "부챗살섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/050eba9b5e385745f90a2b79c1dfd4ca26eb90acf436369849e57c118121a42c.webp"
+    },
+    {
+      "id": "exploration-e13",
+      "name": "불고리섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/ab822c44c4febe6637c931f76e97d83bfd1be374d9c59e0e48d5610b8969d636.webp"
+    },
+    {
+      "id": "exploration-e13-outer-02",
+      "name": "갈림봉섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/2ed8fd55e1176ba9cbb0659efc718c3e5a31d5f1e9964e11ee9af07cce76a7af.webp"
+    },
+    {
+      "id": "exploration-e13-outer-03",
+      "name": "숨은품섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/862d733d428e013ede52de1aba089ba6d9b69a66858df30e9dd0158143cfca44.webp"
+    },
+    {
+      "id": "exploration-e13-02",
+      "name": "연기꼬리섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/dd29ae50ed65e08eb51b4e70958e6977478676039de4534ca5246e3e1aaca9fe.webp"
+    },
+    {
+      "id": "exploration-e13-03",
+      "name": "층바위 벌판",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/6843b521f2669abd2ac3d36fe39aa54801ff7cac91ec11db6954523feb71fffe.webp"
+    },
+    {
+      "id": "exploration-e13-04",
+      "name": "잔불등섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/1949b81eeacc318535ca187173f77e11526c5d01315df423ac467c25d8de51ef.webp"
+    },
+    {
+      "id": "exploration-e13-05",
+      "name": "오목곶 해안",
+      "parentMapId": "world",
+      "status": "redirect",
+      "redirectMapId": "dragonspire",
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/2076e87d21d22cf58f9c8a001c53487972bdb2edd4e2e1e25894d3631597ce11.webp"
+    },
+    {
+      "id": "exploration-e13-05-outer-02",
+      "name": "날개등섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/e8020d0d84a03c8089c829176e7a56e08aa9cf4230c4301b225094210e342dac.webp"
+    },
+    {
+      "id": "exploration-e13-05-outer-03",
+      "name": "숲자락섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/f4ce2124aca49db4bca2c4cb042befee524c3a20254745d3cf27ddcd4decac07.webp"
+    },
+    {
+      "id": "exploration-e13-06",
+      "name": "불줄기 비탈",
+      "parentMapId": "world",
+      "status": "redirect",
+      "redirectMapId": "dragonspire",
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/191189d1cf6ae17eef0bdfad0fe943e6fb02784a3facc6b6600034ab7230da7b.webp"
+    },
+    {
+      "id": "exploration-e13-07",
+      "name": "깊은골섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/66015be4ce8a0c2c76f5cf0c613cc3326d5d37cbe937af9aec18fe83c2eb3632.webp"
+    },
+    {
+      "id": "exploration-e13-07-outer-02",
+      "name": "바늘끝섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/77bd39ea7d71823b60b8467a24119bbf8fca18c509c5c592f889692292528fde.webp"
+    },
+    {
+      "id": "exploration-e13-08",
+      "name": "긴꼬리섬",
+      "parentMapId": "world",
+      "status": "redirect",
+      "redirectMapId": "dragonspire",
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/1cb401595f6dea34f07026b8051e9c0dea9f1a787662465569093eb22d317059.webp"
+    },
+    {
+      "id": "exploration-e14",
+      "name": "흰어깨 해안",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/184df2d0f061e9507510435a68c323712f8dda91f37f6d6dbc25da7127bcbccc.webp"
+    },
+    {
+      "id": "exploration-e15",
+      "name": "숲갈래섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/bf04e90dac8017e00d255dadc875afebfde1f15d4a228e2fb9d2024609835ebf.webp"
+    },
+    {
+      "id": "exploration-e15-02",
+      "name": "세끝섬",
+      "parentMapId": "world",
+      "status": "ready",
+      "redirectMapId": null,
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/7f4cf319f7d494cfa7329266f028bf217602c342ce9d9fb337656e4ada530014.webp"
+    },
+    {
+      "id": "exploration-e01-outer-02",
+      "name": "눈그늘 해안",
+      "parentMapId": "world",
+      "status": "redirect",
+      "redirectMapId": "fenrir-eye",
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/3570c102badb842ff9947b9c5c31298d0ad57e8d265cf1d97bb2c1f777f6d319.webp"
+    },
+    {
+      "id": "exploration-e01-outer-02-part-2",
+      "name": "눈송곳곶",
+      "parentMapId": "world",
+      "status": "redirect",
+      "redirectMapId": "fenrir-eye",
+      "placeId": null,
+      "regionId": null,
+      "preview": "/atlas-engine/assets/35e7b9343e7aa1ae1fe6cb77fcdd48586cdcb4b89719da8b1c41644a185f42ff.webp"
+    }
+  ],
+  "places": [
+    {
+      "id": "place-c91992123771823b",
+      "name": "라드바르할 / 실버킵",
+      "mapId": "silverkeep"
+    },
+    {
+      "id": "place-d6201cae71141b4c",
+      "name": "베크켈카르 / 레이븐스톤",
+      "mapId": "ravenstone"
+    },
+    {
+      "id": "place-40ecd7f61b7c7110",
+      "name": "가르메브에트",
+      "mapId": "tiris-garmebet"
+    },
+    {
+      "id": "place-58f109e57c16ca3d",
+      "name": "벨소르엘",
+      "mapId": "belsorel"
+    },
+    {
+      "id": "place-7497bf1905174f40",
+      "name": "실테크에트",
+      "mapId": "silteket"
+    },
+    {
+      "id": "place-68f0aa07327024b6",
+      "name": "소르이엘토르",
+      "mapId": "sorieiltor"
+    },
+    {
+      "id": "place-b12f9ad116dd57dc",
+      "name": "그린할로우",
+      "mapId": "greenhallow"
+    },
+    {
+      "id": "place-2b38c9305566a627",
+      "name": "뉴할로우",
+      "mapId": "newhallow"
+    },
+    {
+      "id": "place-5450a1a6f2b494d1",
+      "name": "베크벱가",
+      "mapId": "bekbepga"
+    },
+    {
+      "id": "place-70bcb78178e6e240",
+      "name": "헤크가르가",
+      "mapId": "hekgarga"
+    },
+    {
+      "id": "place-dbd14fbd47878cee",
+      "name": "가르푸크가",
+      "mapId": "garpukga"
+    },
+    {
+      "id": "place-170f38db55354b0d",
+      "name": "벨렐가",
+      "mapId": "bellelga"
+    },
+    {
+      "id": "place-9b42bd603809c17b",
+      "name": "실베크가",
+      "mapId": "silbekga"
+    },
+    {
+      "id": "place-5a06fbc07b2a730e",
+      "name": "이엘토르가",
+      "mapId": "ieltor-ga"
+    }
+  ]
+}

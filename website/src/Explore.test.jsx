@@ -3,6 +3,8 @@ import React from 'react';
 import {act,cleanup,fireEvent,render,screen} from '@testing-library/react';
 import {afterEach,expect,it,vi} from 'vitest';
 import {Explore} from './Explore.jsx';
+import countries from './countries.json';
+import atlasCatalog from './atlas-catalog.json';
 afterEach(()=>{cleanup();vi.restoreAllMocks();vi.unstubAllGlobals();vi.useRealTimers();});
 
 function stackedViewport(initial=true){
@@ -10,6 +12,19 @@ function stackedViewport(initial=true){
  vi.stubGlobal('matchMedia',query=>({get matches(){return query==='(max-width: 1000px)'&&matches;},addEventListener:(_,fn)=>listeners.add(fn),removeEventListener:(_,fn)=>listeners.delete(fn)}));
  return value=>{matches=value;act(()=>listeners.forEach(fn=>fn({matches:value})));};
 }
+it('opens the selected original regional map from the picker and active country card',()=>{
+ stackedViewport();HTMLElement.prototype.scrollIntoView=vi.fn();
+ render(<Explore/>);
+ const picker=screen.getByRole('combobox',{name:'나라와 권역 고르기'});
+ for(const country of countries){
+  fireEvent.change(picker,{target:{value:country.id}});
+  const href=`#/atlas/${country.id}`;
+  expect(atlasCatalog.maps.find(m=>m.id===country.id)?.status).toBe('ready');
+  expect(screen.getByRole('link',{name:`${country.name} 상세 지도 펼치기`}).getAttribute('href')).toBe(href);
+  expect(screen.getByRole('link',{name:`${country.name} 상세 지도 탐색`}).getAttribute('href')).toBe(href);
+  expect(screen.getByRole('link',{name:'이곳 더 알아보기'}).getAttribute('href')).toBe(`#/region/${country.id}`);
+ }
+});
 it('keeps a selected mobile card below the map, scrolls to it only on activation, and never portals it',()=>{
  stackedViewport();HTMLElement.prototype.scrollIntoView=vi.fn();
  render(<Explore/>);

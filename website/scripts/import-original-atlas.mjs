@@ -4,6 +4,7 @@ import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {prepareAtlasTouch} from './prepare-atlas-touch.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const source=process.argv[2];
 if(!source)throw Error('Usage: node scripts/import-original-atlas.mjs <public-atlas-repository>');
@@ -40,4 +41,5 @@ const maps=data.maps.map(m=>({id:m.id,name:m.id==='silverkeep'?'라드바르할 
 const places=data.places.filter(p=>p.region==='티리스').map(p=>({id:p.id,name:p.name,mapId:p.detailMapId}));
 await fs.writeFile(path.join(root,'src/atlas-catalog.json'),JSON.stringify({commit,maps,places},null,2)+'\n');
 await fs.writeFile(path.join(out,'upstream-provenance.json'),JSON.stringify({source,commit,entryAdditions:additions,files:records},null,2)+'\n');
+await prepareAtlasTouch(out);
 console.log(JSON.stringify({commit,files:records.length,maps:maps.length,places:places.length,bytes:records.reduce((n,r)=>n+r.bytes,0)}));

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
+import {touchSuffix} from './prepare-atlas-touch.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dir=path.join(root,'public/atlas-engine');
 const read=async p=>JSON.parse(await fs.readFile(p,'utf8'));
@@ -15,7 +16,9 @@ for(const record of proof.files){
   verifiedBytes+=bytes.length;
 }
 const entry=await fs.readFile(path.join(dir,'index.html'),'utf8');
-assert.equal(entry.replace(proof.entryAdditions.head,'').replace(proof.entryAdditions.body,''),await fs.readFile(path.join(dir,'upstream-index.html'),'utf8'),'Only host CSS/bridge may be added to the original HTML');
+assert.equal(proof.hostRuntime.derived,'hub-runtime.mjs');
+assert.equal(entry.replace(proof.entryAdditions.head,'').replace(proof.entryAdditions.body,'').replace(`src="${proof.hostRuntime.derived}"`,`src="${proof.hostRuntime.original}"`),await fs.readFile(path.join(dir,'upstream-index.html'),'utf8'),'Only documented host additions/runtime entry may differ');
+assert.deepEqual(await fs.readFile(path.join(dir,'hub-runtime.mjs')),Buffer.concat([await fs.readFile(path.join(dir,'atlas.mjs')),Buffer.from(touchSuffix)]),'Derived runtime must contain the entire unchanged original plus the touch hook');
 const data=await read(path.join(dir,'data/facility-master.json'));
 const original=await read(process.argv[2]);
 const assets=await read(path.join(dir,'asset-manifest.json'));

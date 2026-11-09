@@ -27,6 +27,12 @@ npx vitest run src --maxWorkers 2
 
 ## 실행
 
+### 모바일 상세 지도 터치 · 배포 승인 2026-11-09
+
+사용자가 미리보기 확인 후 기존 GitHub Pages 흐름으로 배포를 승인했습니다. 한 손가락 이동, 두 손가락 중심 핀치, 손가락 수 전환 및 제스처 뒤 클릭 차단은 `public/atlas-engine/hub-touch.mjs`에서 처리합니다. 원본 엔진·지도 파일은 보존하며, `node scripts/prepare-atlas-touch.mjs`가 원본 런타임에 터치 연결 코드만 덧붙인 `hub-runtime.mjs`와 진입 HTML을 재생성합니다. 원본 가져오기에서도 자동 실행됩니다.
+
+검증: `npx vitest run src --maxWorkers 2`, `node --test tests/*.test.mjs`, 원본 검증 스크립트. 로컬 `qa/atlas-original/touch-browser.html`은 실제 지도 렌더러에 합성 PointerEvent를 전달하는 제외된 검수 도구이며 배포 빌드에는 포함되지 않습니다. 합성 이벤트 통과는 실제 iOS/Android 터치·포인터 캡처·핀치 감각 검수와 별개입니다.
+
 ```powershell
 npm install
 npm run dev -- --host 127.0.0.1 --port 4173 --strictPort

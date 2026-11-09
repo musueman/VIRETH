@@ -1,5 +1,14 @@
 # Prototype Instructions
 
+## Mobile atlas deployment authorization · 2026-11-09
+
+- User explicitly authorized deployment of the reviewed mobile touch changes. This supersedes the mobile-gesture preview-only restriction below. Verify tests, original atlas hashes and the production build, then publish through the existing GitHub Pages workflow and verify the public files. Preserve unrelated repository changes. Physical-phone testing remains unverified; synthetic events are not a substitute for it.
+
+## Mobile atlas gestures · 2026-10-22
+
+- User approved midpoint-anchored two-finger pinch, continuous one/two/one-finger panning, post-gesture click suppression and retained per-entry camera restore. This change is LOCAL PREVIEW ONLY; the prior deployment authorization does not apply to it. Preserve original imagery, geometry, hierarchy and upstream files, as well as original zoom limits and desktop controls.
+- `scripts/prepare-atlas-touch.mjs` creates `hub-runtime.mjs` from the exact original runtime plus one input-adapter hook. `hub-touch.mjs` handles touch only; it calls the original navigator, metrics and camera so session persistence remains shared. Run this preparation after any upstream import; verify the derived file and original hashes. Do not claim physical-phone QA from synthetic events or desktop emulation.
+
 ## Atlas deployment authorization · 2026-10-22
 
 - User explicitly authorized deployment after verification. This supersedes the earlier local-preview-only restrictions for the completed atlas integration, return/resume state and reset confirmation. Publish through the existing GitHub Pages workflow; preserve unrelated repository changes. Physical-phone touch/pinch validation is not established by desktop/mobile emulation, and no firewall changes were authorized.

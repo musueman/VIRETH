@@ -16071,5 +16071,9 @@
       "sha256": "55f87bca6716e36e64bb93f0c35d9bb0df8e21f3579fd54ba79703ce5b644c83",
       "bytes": 1852553
     }
-  ]
+  ],
+  "hostRuntime": {
+    "original": "atlas.mjs?v=e4e8efca64d62e54",
+    "derived": "hub-runtime.mjs"
+  }
 }
